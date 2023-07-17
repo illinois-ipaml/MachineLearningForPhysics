@@ -17,6 +17,6 @@ All instructions, including creating a simple book, and referenes can be found a
 
 ## Copy to illinois course server (MacOS with course server mounted)
 ```
-cd ~/repos/PHYS246/IntroComputationalPhysics`
-cp -rp ./_build/html/* /Volumes/phys246/fa2022/secure/html/
+cd ~/repos/illinois-ipaml/InstrumentationPhysicsMLApplications
+cp -rp ./_build/html/* /Volumes/phys503/fa2023/secure/html/
 ```
