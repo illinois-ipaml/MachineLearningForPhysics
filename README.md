@@ -1,4 +1,4 @@
-# Data Analysis for Physicists (PHYS 398 DAP)
+# Intrumentation Physics Applications of Machine Learning (PHYS 503)
 
 All instructions, including creating a simple book, and referenes can be found at https://jupyterbook.org
 
