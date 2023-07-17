@@ -3,8 +3,54 @@
 
 format: jb-book
 root: intro
-chapters:
-#
-# For students (and web build)
-#
-- file: _sources/MarkovChains
+parts:
+  - caption: Introduction and Data Science (Unit 1)
+    chapters:
+    - file: _sources/Intro
+    - file: _sources/JupyterNumpy
+    - file: _sources/Pandas
+    - file: _sources/Visualization
+    - file: _sources/Clustering
+    - file: _sources/Dimensionality
+    - file: _sources/Nonlinear
+  - caption: Probability and Statistics (Unit 2)
+    chapters:
+    - file: _sources/Probability
+    - file: _sources/Density
+    - file: _sources/Statistics
+  - caption: Bayesian Inference (Unit 3)
+    chapters:
+    - file: _sources/Bayes
+    - file: _sources/MCMC
+    - file: _sources/Markov
+    - file: _sources/Variational
+    - file: _sources/Optimization
+    - file: _sources/ModelSelection
+  - caption: Supervised Learning (Unit 4)
+    chapters:
+    - file: _sources/Learning
+    - file: _sources/Supervised
+    - file: _sources/CrossValidation
+  - caption: Learning and Inference using Artificial Neural Networks (Unit 5)
+    chapters:
+    - file: _sources/NeuralNetworks
+  - caption: Deep Learning (Unit 6)
+    chapters:
+    - file: _sources/DeepLearning
+  - caption: Methods for Accelerated Machine Learning and Inference (Unit 7)
+    chapters:
+    - file: _sources/DeepLearning
+  - caption: Assignments
+    chapters:
+    - file: _sources/Assignment1
+    - file: _sources/Assignment2
+    - file: _sources/Assignment3
+    - file: _sources/Assignment4
+    - file: _sources/Assignment5
+    - file: _sources/Assignment6
+    - file: _sources/Assignment7
+    - file: _sources/Assignment8
+    - file: _sources/Assignment9
+  - caption: Projects
+    chapters:
+    - file: _sources/Assignment1
