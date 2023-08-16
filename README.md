@@ -1,4 +1,4 @@
-# Data Analysis for Physics (PHYS 398DAP)
+# Data Analysis for Physics (PHYS 503)
 
 This is the course repository for PHYS 503 offered by the University of Illinois Physics Department.
 
