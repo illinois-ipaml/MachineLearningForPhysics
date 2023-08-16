@@ -1,22 +1,9 @@
-# Intrumentation Physics Applications of Machine Learning (PHYS 503)
+# Data Analysis for Physics (PHYS 398DAP)
 
-All instructions, including creating a simple book, and referenes can be found at https://jupyterbook.org
+This is the course repository for PHYS 503 offered by the University of Illinois Physics Department.
 
-## Create a template book
-`jupyter-book create IntroComputationalPhysics`
+The course page is based on [Jupyterbook](https://jupyterbook.org) and can be found at [Machine Learning for Physics](https://illinois-ipaml.github.io/MachineLearningForPhysics)
 
-## Build the book to make the html
-`cd IntroComputationalPhysics`
-### For solutions version
-`jupyter-book build --config _config.yml --toc _toc_wSoln.yml ./`
-### For student version
+It can be built locally from this repository with:
+
 `jupyter-book build --config _config.yml --toc _toc.yml ./`
-
-## Clean the build
-`jupyter-book clean ./`
-
-## Copy to illinois course server (MacOS with course server mounted)
-```
-cd ~/repos/illinois-ipaml/InstrumentationPhysicsMLApplications
-cp -rp ./_build/html/* /Volumes/phys503/fa2023/secure/html/
-```
