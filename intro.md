@@ -1,4 +1,4 @@
-# Instrumentation Physics Applications of Machine Learning
+# Machine Learning for Physics
 
 * Physics 503, Fall 2023
 * Meeting: Mondays and Wednesdays from 1:00 pm to 2:15 pm
@@ -14,15 +14,15 @@ This course is designed to give students a solid foundation in machine learning 
 A distinguishing feature of this course is its sharp focus on endeavors in the data-rich physical sciences as the arenas in which modern machine learning techniques are taught. The course uses open scientific data, open source software from data science and physics-related fields, and publically-available information as enabling elements. Research-inspired projects are an important part of the course and students will not only execute them but will play an active role in helping define and shape them. Example projects might include machine learning approaches to searches for new particles or interactions at high-energy colliders; methods of particle tracking and reconstruction; identification, classification and measurement of astrophysical phenomena; novel approaches to medical imaging and simulation using techniques from physics and machine learning; machine learning in quantum information science. Through these projects and the course material, students will learn how large datasets in physics are generated, curated, and analyzed, using machine learning as a tool to generate key insights in both experimental and theoretical science.
 ## Course Logistics
   - **Course Format:**
-    - This course will consist of two meetings per week. This will involve one lecture period and one in-class practical session.
+    - This course will consist of two meetings per week: one lecture period and one in-class practical session.
       - Lecture: Monday from 1:00 pm - 2:15 pm in 262 Loomis
       - Practical Session: Wendesday from 1:00 pm - 2:15 pm in 262 Loomis
  - **Professor:** [Mark Neubauer](https://marksneubauer.com)
     - email: msn@illinois.edu
-    - Office Hours: TBD
-  - **TA:** TBD
-     - email: @illinois.edu
-     - Office Hours: TBD
+    - Office Hour: TBD
+  - **TA:** Pin-Yi Li
+    - email: pinyili2@illinois.edu
+    - Office Hour: TBD
 
 ## Online Tools
 See [Useful Links](#useful-links) for more information about how to use these tools
@@ -39,7 +39,7 @@ See [Useful Links](#useful-links) for more information about how to use these to
 |    August 28  | Introduction to Data Science                            |
 | September 04	| Introduction to Data Science                            |
 | September 11	| Probability and Statistics                              |
-| September 18	| Bayesian Inference                                      |
+| September 18	| Bayesian Inference    (week in Kyoto)                   |
 | September 25  | Bayesian Inference                                      | 
 |   October 02  | Bayesian Inference                                      |
 |   October 09	| Supervised Learning                                     |
@@ -54,7 +54,7 @@ See [Useful Links](#useful-links) for more information about how to use these to
 
 ## Coursework
 
-### Homework Assignments
+### homework Assignments
 You will be assigned weekly homework assignments that will put into practice what you learned in lecture for the week. 
 * You will work on the assignments both during the in-class session on Thursdays and as homework.
 * Each assignment is due at the beginning of the next class unless otherwise noted. You may turn assignment in up to one week late for 50% credit (except that all assignments are strictly due the day before Reading Day).
@@ -71,7 +71,7 @@ The final notebook must be submitted via Gradescope for grading on or before ___
 
 ## Grading
 * Class attendence and participation: 5%
-* Homework: 65%
+* homework: 65%
 * Projects: 30%
 
 Letter grades will be assigned as follows:
@@ -108,10 +108,10 @@ It is cheating to receive answers from another student and then use them as your
 
 All activities in this course, are subject to the Academic Integrity rules as described in [Article 1, Part 4, Academic Integrity](https://studentcode.illinois.edu/article1/part4/1-401), of the [Student Code](https://studentcode.illinois.edu).
 
-## Acknowledgements
-This course was developed by [Mark Neubauer](https://msneubauer.github.io) during the Fall 2023 semester.
-
 ## Useful Links
 Here are some useful links
 * [Python Programming Resources](https://wiki.python.org/moin/BeginnersGuide/Programmers)
 * [Google's Python Programming Class](https://developers.google.com/edu/python)
+
+## Acknowledgements
+This course was developed by [Mark Neubauer](https://msneubauer.github.io) during the Fall 2023 semester.

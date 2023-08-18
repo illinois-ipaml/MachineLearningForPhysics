@@ -4,53 +4,123 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Introduction and Data Science (Unit 1)
+  - caption: Introduction to Machine Learning and Data Science
     chapters:
-    - file: _sources/Intro
-    - file: _sources/JupyterNumpy
-    - file: _sources/Pandas
-    - file: _sources/Visualization
-    - file: _sources/Clustering
-    - file: _sources/Dimensionality
-    - file: _sources/Nonlinear
-  - caption: Probability and Statistics (Unit 2)
+      - file: _sources/Week_01
+        title: Course Introduction
+        sections:
+        - url: https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/JupyterNumpy
+        - file: _sources/lectures/Pandas
+        - file: _sources/homework/Homework_01
+      - file: _sources/Week_02
+        title: Visualizing & Finding Structure in Data
+        sections:
+        - url: https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/Visualization
+        - file: _sources/lectures/Clustering
+        - file: _sources/homework/Homework_02
+      - file: _sources/Week_03
+        title: Dimensionality, Linearity and Kernel Functions
+        sections:
+        - url: https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/Dimensionality
+        - file: _sources/lectures/Nonlinear
+        - file: _sources/homework/Homework_03
+  - caption: Probability and Statistics
     chapters:
-    - file: _sources/Probability
-    - file: _sources/Density
-    - file: _sources/Statistics
-  - caption: Bayesian Inference (Unit 3)
+      - file: _sources/Week_04
+        title: Probability Theory
+        sections:
+        - url: https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/Probability
+        - file: _sources/homework/Homework_04
+      - file: _sources/Week_05
+        title: Kernel Density Estimation and Statistics
+        sections:
+        - url: https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/Density
+        - file: _sources/lectures/Statistics
+        - file: _sources/homework/Homework_05
+  - caption: Bayesian Inference
     chapters:
-    - file: _sources/Bayes
-    - file: _sources/MCMC
-    - file: _sources/Markov
-    - file: _sources/Variational
-    - file: _sources/Optimization
-    - file: _sources/ModelSelection
-  - caption: Supervised Learning (Unit 4)
+      - file: _sources/Week_06
+        title: Bayesian Statistics and Markov Chain Monte Carlo
+        sections:
+        - url: https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/Bayes
+        - file: _sources/lectures/MCMC
+        - file: _sources/homework/Homework_06
+      - file: _sources/Week_07
+        title: Stochastic Processes, Markov Chains & Variational Inference
+        sections:
+        - url: https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/Markov
+        - file: _sources/lectures/Variational
+        - file: _sources/homework/Homework_07
+      - file: _sources/Week_08
+        title: Optimization and Model Selection
+        sections:
+        - url: https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/Optimization
+        - file: _sources/lectures/ModelSelection
+        - file: _sources/homework/Homework_08
+  - caption: Supervised Learning & Cross Validation
     chapters:
-    - file: _sources/Learning
-    - file: _sources/Supervised
-    - file: _sources/CrossValidation
-  - caption: Learning and Inference using Artificial Neural Networks (Unit 5)
+      - file: _sources/Week_09
+        title: Supervised Learning & Cross Validation
+        sections:
+        - url: https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/Learning
+        - file: _sources/lectures/Supervised
+        - file: _sources/lectures/CrossValidation
+        - file: _sources/homework/Homework_09
+  - caption: Artificial Neural Networks
     chapters:
-    - file: _sources/NeuralNetworks
-  - caption: Deep Learning (Unit 6)
+      - file: _sources/Week_10
+        title: Artificial Neural Networks
+        sections:
+        - url: https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/NeuralNetworks
+        - file: _sources/homework/Homework_10
+  - caption: Deep Learning
     chapters:
-    - file: _sources/DeepLearning
-  - caption: Methods for Accelerated Machine Learning and Inference (Unit 7)
+      - file: _sources/Week_11
+        title: Deep Neural Networks
+        sections:
+        - url: https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/DeepLearning
+        - file: _sources/homework/Homework_11
+      - file: _sources/Week_12
+        title: Graph Neural Networks
+        sections:
+        - url: https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/GraphNeuralNetworks
+        - file: _sources/homework/Homework_12
+      - file: _sources/Week_13
+        title: Unsupervised Learning
+        sections:
+        - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/UnsupervisedLearning
+        - file: _sources/homework/Homework_13
+  - caption: Accelerated Machine Learning and Inference
     chapters:
-    - file: _sources/DeepLearning
-  - caption: Assignments
-    chapters:
-    - file: _sources/Assignment1
-    - file: _sources/Assignment2
-    - file: _sources/Assignment3
-    - file: _sources/Assignment4
-    - file: _sources/Assignment5
-    - file: _sources/Assignment6
-    - file: _sources/Assignment7
-    - file: _sources/Assignment8
-    - file: _sources/Assignment9
-  - caption: Projects
-    chapters:
-    - file: _sources/Assignment1
+      - file: _sources/Week_14
+        title: Accelerated Machine Learning and Inference
+        sections:
+        - url: https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/AcceleratedML

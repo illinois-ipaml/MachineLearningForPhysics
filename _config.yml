@@ -1,7 +1,7 @@
 #######################################################################################
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
-title: PHYS 503
+title: PHYS 398 DAP
 author: Mark Neubauer
 logo: logo.png
 copyright: '2023'
@@ -36,7 +36,7 @@ parse:
 # HTML-specific settings
 html:
   use_issues_button: false
-  use_repository_button: false
+  use_repository_button: true
 
 #######################################################################################
 # LaTeX-specific settings
@@ -50,6 +50,12 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+# Information about where the book exists on the web
+repository:
+  url                       : https://github.com/illinois-dap/DataAnalysisForPhysicists # https://github.com/yourusername/yourbookrepo  # Online location of your book
+ # path_to_book              : #path/to/book  # Optional path to your book, relative to the repository root
+  branch                    : main  # Which branch of the repository should be used when creating links (optional)
+
 #######################################################################################
 # Launch button settings
 launch_buttons:
@@ -57,7 +63,7 @@ launch_buttons:
   binderhub_url: "" # The URL of the BinderHub (e.g., https://mybinder.org)
   jupyterhub_url: ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
   thebe: false  # Add a thebe button to pages (requires the repository to run on Binder)
-  colab_url: "" # The URL of Google Colab (https://colab.research.google.com)
+  colab_url: "https://colab.research.google.com" # The URL of Google Colab (https://colab.research.google.com)
 
 #######################################################################################
 # Advanced and power-user settings
