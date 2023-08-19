@@ -1,20 +1,20 @@
 # <span style="color: blue;"><b>Supervised Learning & Cross Validation</b></span>
 
 ## *Overview*
-TBD
+You will learn about supervised learning and cross validation
 
 ## *Goals*
-* TBD
+* Learn about types learning
+* Learn about Cross Validation
 
 ## *Lecture Materials*
-
 * [Slides](https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing)
-* {doc}`lectures/`
-* {doc}`lectures/`
+* {doc}`lectures/Learning`
+* {doc}`lectures/Supervised`
+* {doc}`lectures/CrossValidation`
 
-## *homework Assignment*
-
+## *Homework Assignment*
 * {doc}`homework/Homework_09`
 
 ## *Supplemental Readings*
-* TBD
+* [Coefficient of Determination](https://en.wikipedia.org/wiki/Coefficient_of_determination)

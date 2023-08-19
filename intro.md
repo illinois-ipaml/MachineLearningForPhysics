@@ -1,4 +1,5 @@
-# Machine Learning for Physics
+# <span style="color:Blue"><b>Machine Learning for Physics</b></span>
+
 
 * Physics 503, Fall 2023
 * Meeting: Mondays and Wednesdays from 1:00 pm to 2:15 pm
@@ -6,13 +7,15 @@
 * 4 credit hours
 * Course Text: This one! However, see supplementary reading suggestions throughout the course. 
 
-## Overview
+## <span style="color:Red">Overview</span>
+
 Welcome! Data is everywhere. Efficient data analysis leading to solid conclusions requires performant tools and rigorous mathematical techniques tethered by sound scientific methods. 
 
 This course is designed to give students a solid foundation in machine learning applications to physics, positioning itself at the intersection of machine learning and data-intensive science. This course will introduce students to the fundamentals of analysis and interpretation of scientific data, and applications of machine learning to problems common in laboratory science such as classification and regression. There will be two 75-minute classes each week, split into discussions of core principles and hands-on exercises involving coding and data. There will be a few projects throughout semester that will build on the course material and utilize open source software and open data in physics and related fields. The list of topics will evolve, according to the interests of the class and instructors. Material will be clustered into units of varying duration, as indicated below. The lists of suggested readings and references are advisory; a large amount of material of excellent quality is now available on the worldwide web, particularly on the sites of university courses addressing the topics of each unit.
 
 A distinguishing feature of this course is its sharp focus on endeavors in the data-rich physical sciences as the arenas in which modern machine learning techniques are taught. The course uses open scientific data, open source software from data science and physics-related fields, and publically-available information as enabling elements. Research-inspired projects are an important part of the course and students will not only execute them but will play an active role in helping define and shape them. Example projects might include machine learning approaches to searches for new particles or interactions at high-energy colliders; methods of particle tracking and reconstruction; identification, classification and measurement of astrophysical phenomena; novel approaches to medical imaging and simulation using techniques from physics and machine learning; machine learning in quantum information science. Through these projects and the course material, students will learn how large datasets in physics are generated, curated, and analyzed, using machine learning as a tool to generate key insights in both experimental and theoretical science.
-## Course Logistics
+
+## <span style="color:Red">Course Logistics</span>
   - **Course Format:**
     - This course will consist of two meetings per week: one lecture period and one in-class practical session.
       - Lecture: Monday from 1:00 pm - 2:15 pm in 262 Loomis
@@ -24,14 +27,15 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
     - email: pinyili2@illinois.edu
     - Office Hour: TBD
 
-## Online Tools
+## <span style="color:Red">Online Tools</span>
 See [Useful Links](#useful-links) for more information about how to use these tools
 
 * **Campuswire**: We will use [Campuswire](https://campuswire.com) as a class forum, a way to message the course staff and each other, and a means to submit your attendance question.
 * **Google Colab**: Using [Google Colab](https://colab.research.google.com), you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).
 * **Gradescope**: On [Gradescope](https://www.gradescope.com), you will submit your assignments and find your graded assignments.
 
-## Calendar
+## <span style="color:Red">Calendar</span>
+
 
 | Date          | Topic                                                   |
 |---------------|---------------------------------------------------------|
@@ -52,9 +56,9 @@ See [Useful Links](#useful-links) for more information about how to use these to
 |  November 27  | Methods for Accelerated Machine Learning and Inference  |
 |  December 04  | Methods for Accelerated Machine Learning and Inference  |
 
-## Coursework
+## <span style="color:Red">Coursework</span>
 
-### homework Assignments
+### Homework Assignments
 You will be assigned weekly homework assignments that will put into practice what you learned in lecture for the week. 
 * You will work on the assignments both during the in-class session on Thursdays and as homework.
 * Each assignment is due at the beginning of the next class unless otherwise noted. You may turn assignment in up to one week late for 50% credit (except that all assignments are strictly due the day before Reading Day).
@@ -69,7 +73,7 @@ For the final project you will put together a jupyter notebook that demonstrates
 
 The final notebook must be submitted via Gradescope for grading on or before ___Xday, December XX, 2023 at 5:00 pm US Central time___.
 
-## Grading
+## <span style="color:Red">Grading</span>
 * Class attendence and participation: 5%
 * homework: 65%
 * Projects: 30%
@@ -91,7 +95,7 @@ Letter grades will be assigned as follows:
 | D      | 63.0  | 66.9   |
 | D-     | 60.0  | 62.9   |
 | F      | 00.0  | 59.9   |
-## Policies
+## <span style="color:Red">Policies</span>
 
 ### Covid 
 
@@ -108,10 +112,37 @@ It is cheating to receive answers from another student and then use them as your
 
 All activities in this course, are subject to the Academic Integrity rules as described in [Article 1, Part 4, Academic Integrity](https://studentcode.illinois.edu/article1/part4/1-401), of the [Student Code](https://studentcode.illinois.edu).
 
-## Useful Links
+## <span style="color:Red">Resources</span>
+
 Here are some useful links
 * [Python Programming Resources](https://wiki.python.org/moin/BeginnersGuide/Programmers)
 * [Google's Python Programming Class](https://developers.google.com/edu/python)
 
-## Acknowledgements
-This course was developed by [Mark Neubauer](https://msneubauer.github.io) during the Fall 2023 semester.
+* Some quick reference guides
+    * [Linux Bash Shell](https://learncodethehardway.org/unix/bash_cheat_sheet.pdf)
+    * [Github](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+    * [Conda](https://conda.io/docs/_downloads/conda-cheatsheet.pdf)
+    * [Python](http://ehmatthes.github.io/pcc/cheatsheets/README.html)
+    * [Markdown](http://packetlife.net/media/library/16/Markdown.pdf)
+    * Jupyter Notebooks: [Interface](http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40), [Keyboard shortcuts](https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/pdf_bw)
+
+### Tools
+
+* Sharing code snippets: [gist.github.com](https://gist.github.com/)
+* Asking questions of broader development community: [Stack Overflow](http://stackoverflow.com/)
+
+#### *Git* and *GitHub*
+
+* [Official GitHub Help](https://help.github.com/)
+* [Recommended resources](http://hackerhours.org/resources.html#github)
+
+#### *Anaconda* and *Conda*
+* [Official site](https://www.anaconda.com)
+* [Conda](https://conda.io/docs)
+
+#### *Project Jupyter*
+* [Official site](http://jupyter.org)
+* [nbviewer](https://nbviewer.jupyter.org)
+
+## <span style="color:Red">Acknowledgements</span>
+This course was developed by [Mark Neubauer](https://msneubauer.github.io) during the Fall 2023 semester. I would like to acknowledge [David Kirby](https://github.com/dkirkby) at the University of California at Irvine for the materials and setup for which this course is based and the helpful discussions we have had.
