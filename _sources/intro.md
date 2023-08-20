@@ -93,21 +93,20 @@ Each project notebook must be submitted via Gradescope for grading.
 
 Letter grades will be assigned as follows:
 
-| Letter | Low % | High % |
-|--------|-------|--------|
-| A+     | 97.0  | 100.0  |
-| A      | 93.0  | 96.9   |
-| A-     | 90.0  | 92.9   |
-| B+     | 87.0  | 89.9   |
-| B      | 83.0  | 86.9   |
-| B-     | 80.0  | 82.9   |
-| C+     | 77.0  | 79.9   |
-| C      | 73.0  | 76.9   |
-| C-     | 70.0  | 72.9   |
-| D+     | 67.0  | 69.9   |
-| D      | 63.0  | 66.9   |
-| D-     | 60.0  | 62.9   |
-| F      | 00.0  | 59.9   |
+* A+  &nbsp; [97.0 - 100.0]
+* A   &nbsp; &nbsp; [93.0 - 96.9]
+* A-  &nbsp; [90.0 - 92.9]
+* B+  &nbsp; [87.0 - 89.9]
+* B   &nbsp; &nbsp; [83.0 - 86.9]
+* B-  &nbsp; [80.0 - 82.9]
+* C+  &nbsp; [77.0 - 79.9]
+* C   &nbsp; &nbsp; [73.0 - 76.9]
+* C-  &nbsp; [70.0 - 72.9]
+* D+  &nbsp; [67.0 - 69.9]
+* D   &nbsp; &nbsp; [63.0 - 66.9]
+* D-  &nbsp; [60.0 - 62.9]
+* F   &nbsp; &nbsp; [00.0 - 59.9]
+
 ## <span style="color:Red">Policies</span>
 
 ### Covid 
