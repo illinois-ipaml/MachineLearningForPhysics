@@ -39,6 +39,7 @@ parts:
           title: Slides
         - file: _sources/lectures/Probability
         - file: _sources/homework/Homework_04
+        - file: _sources/projects/Project_01
       - file: _sources/Week_05
         title: Kernel Density Estimation and Statistics
         sections:
@@ -73,6 +74,7 @@ parts:
         - file: _sources/lectures/Optimization
         - file: _sources/lectures/ModelSelection
         - file: _sources/homework/Homework_08
+        - file: _sources/projects/Project_02
   - caption: Supervised Learning & Cross Validation
     chapters:
       - file: _sources/Week_09
@@ -109,6 +111,7 @@ parts:
           title: Slides
         - file: _sources/lectures/GraphNeuralNetworks
         - file: _sources/homework/Homework_12
+        - file: _sources/projects/Project_03
       - file: _sources/Week_13
         title: Unsupervised Learning
         sections:
