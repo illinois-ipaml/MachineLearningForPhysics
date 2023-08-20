@@ -1,0 +1,893 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Machine Learning for Physics &#8212; PHYS 503</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Course Introduction" href="_sources/Week_01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    <span style="color:Blue"><b>Machine Learning for Physics</b></span>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_01.html">Course Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Pandas.html">Handling Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_02.html">Visualizing &amp; Finding Structure in Data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Visualization.html">Visualizing Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Clustering.html">Finding Structure in Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_02.html">Homework 02: Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_03.html">Dimensionality, Linearity and Kernel Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_04.html">Probability Theory</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Probability.html">Probability Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_04.html">Homework 04: Probability</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_05.html">Kernel Density Estimation and Statistics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Density.html">Estimating Probability Density from Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Statistics.html">Statistical Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_06.html">Bayesian Statistics and Markov Chain Monte Carlo</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Bayes.html">Bayesian Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/MCMC.html">Markov Chain Monte Carlo in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_07.html">Stochastic Processes, Markov Chains &amp; Variational Inference</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Markov.html">Stochastic Processes and Markov-Chain Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Variational.html">Variational Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_07.html">Homework 07: Markov Chains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_08.html">Optimization and Model Selection</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/ModelSelection.html">Bayesian Model Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_08.html">Homework 08: Model Selection</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_09.html">Supervised Learning &amp; Cross Validation</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Learning.html">Learning in a Probabalistic Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/Supervised.html">Supervised Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/CrossValidation.html">Cross Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_09.html">Homework 09: Cross Validation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_10.html">Artificial Neural Networks</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/NeuralNetworks.html">Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_10.html">Homework 10: Artificial Neural Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_11.html">Deep Neural Networks</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/DeepLearning.html">Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_11.html">Homework 11: Deep Neural Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_12.html">Graph Neural Networks</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/GraphNeuralNetworks.html">Graph Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_12.html">Homework 12: Graph Neural Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_13.html">Unsupervised Learning</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/UnsupervisedLearning.html">Unsupervised Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/homework/Homework_13.html">Homework 13: Anomaly Detection</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="_sources/Week_14.html">Accelerated Machine Learning and Inference</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_sources/lectures/AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/illinois-dap/DataAnalysisForPhysicists" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><span style="color:Blue"><b>Machine Learning for Physics</b></span></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-overview-span"><span style="color:Red">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-course-logistics-span"><span style="color:Red">Course Logistics</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-online-tools-span"><span style="color:Red">Online Tools</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-calendar-span"><span style="color:Red">Calendar</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-coursework-span"><span style="color:Red">Coursework</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-assignments">Homework Assignments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project">Final Project</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-grading-span"><span style="color:Red">Grading</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-policies-span"><span style="color:Red">Policies</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covid">Covid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-using-code-you-find-on-the-web-for-homework-and-project-s">About using code you find on the web for homework and project(s)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic Integrity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-resources-span"><span style="color:Red">Resources</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github"><em>Git</em> and <em>GitHub</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda-and-conda"><em>Anaconda</em> and <em>Conda</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-jupyter"><em>Project Jupyter</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-acknowledgements-span"><span style="color:Red">Acknowledgements</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-blue-b-machine-learning-for-physics-b-span">
+<h1><span style="color:Blue"><b>Machine Learning for Physics</b></span><a class="headerlink" href="#span-style-color-blue-b-machine-learning-for-physics-b-span" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Physics 503, Fall 2023</p></li>
+<li><p>Meeting: Mondays and Wednesdays from 1:00 pm to 2:15 pm</p></li>
+<li><p>Room: 262 Loomis Laboratory</p></li>
+<li><p>4 credit hours</p></li>
+<li><p>Course Text: This one! However, see supplementary reading suggestions throughout the course.</p></li>
+</ul>
+<section id="span-style-color-red-overview-span">
+<h2><span style="color:Red">Overview</span><a class="headerlink" href="#span-style-color-red-overview-span" title="Permalink to this heading">#</a></h2>
+<p>Welcome! Data is everywhere. Efficient data analysis leading to solid conclusions requires performant tools and rigorous mathematical techniques tethered by sound scientific methods.</p>
+<p>This course is designed to give students a solid foundation in machine learning applications to physics, positioning itself at the intersection of machine learning and data-intensive science. This course will introduce students to the fundamentals of analysis and interpretation of scientific data, and applications of machine learning to problems common in laboratory science such as classification and regression. There will be two 75-minute classes each week, split into discussions of core principles and hands-on exercises involving coding and data. There will be a few projects throughout semester that will build on the course material and utilize open source software and open data in physics and related fields. The list of topics will evolve, according to the interests of the class and instructors. Material will be clustered into units of varying duration, as indicated below. The lists of suggested readings and references are advisory; a large amount of material of excellent quality is now available on the worldwide web, particularly on the sites of university courses addressing the topics of each unit.</p>
+<p>A distinguishing feature of this course is its sharp focus on endeavors in the data-rich physical sciences as the arenas in which modern machine learning techniques are taught. The course uses open scientific data, open source software from data science and physics-related fields, and publically-available information as enabling elements. Research-inspired projects are an important part of the course and students will not only execute them but will play an active role in helping define and shape them. Example projects might include machine learning approaches to searches for new particles or interactions at high-energy colliders; methods of particle tracking and reconstruction; identification, classification and measurement of astrophysical phenomena; novel approaches to medical imaging and simulation using techniques from physics and machine learning; machine learning in quantum information science. Through these projects and the course material, students will learn how large datasets in physics are generated, curated, and analyzed, using machine learning as a tool to generate key insights in both experimental and theoretical science.</p>
+</section>
+<section id="span-style-color-red-course-logistics-span">
+<h2><span style="color:Red">Course Logistics</span><a class="headerlink" href="#span-style-color-red-course-logistics-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Course Format:</strong></p>
+<ul>
+<li><p>This course will consist of two meetings per week: one lecture period and one in-class practical session.</p>
+<ul>
+<li><p>Lecture: Monday from 1:00 pm - 2:15 pm in 262 Loomis</p></li>
+<li><p>Practical Session: Wendesday from 1:00 pm - 2:15 pm in 262 Loomis</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Professor:</strong> <a class="reference external" href="https://marksneubauer.com">Mark Neubauer</a></p>
+<ul>
+<li><p>email: <a class="reference external" href="mailto:msn&#37;&#52;&#48;illinois&#46;edu">msn<span>&#64;</span>illinois<span>&#46;</span>edu</a></p></li>
+<li><p>Office Hour: TBD</p></li>
+</ul>
+</li>
+<li><p><strong>TA:</strong> Pin-Yi Li</p>
+<ul>
+<li><p>email: <a class="reference external" href="mailto:pinyili2&#37;&#52;&#48;illinois&#46;edu">pinyili2<span>&#64;</span>illinois<span>&#46;</span>edu</a></p></li>
+<li><p>Office Hour: TBD</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="span-style-color-red-online-tools-span">
+<h2><span style="color:Red">Online Tools</span><a class="headerlink" href="#span-style-color-red-online-tools-span" title="Permalink to this heading">#</a></h2>
+<p>See <span class="xref myst">Useful Links</span> for more information about how to use these tools</p>
+<ul class="simple">
+<li><p><strong>Campuswire</strong>: We will use <a class="reference external" href="https://campuswire.com">Campuswire</a> as a class forum, a way to message the course staff and each other, and a means to submit your attendance question.</p></li>
+<li><p><strong>Google Colab</strong>: Using <a class="reference external" href="https://colab.research.google.com">Google Colab</a>, you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).</p></li>
+<li><p><strong>Gradescope</strong>: On <a class="reference external" href="https://www.gradescope.com">Gradescope</a>, you will submit your assignments and find your graded assignments.</p></li>
+</ul>
+</section>
+<section id="span-style-color-red-calendar-span">
+<h2><span style="color:Red">Calendar</span><a class="headerlink" href="#span-style-color-red-calendar-span" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Date</p></th>
+<th class="head"><p>Topic</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>August 21</p></td>
+<td><p>Introduction to Data Science</p></td>
+</tr>
+<tr class="row-odd"><td><p>August 28</p></td>
+<td><p>Introduction to Data Science</p></td>
+</tr>
+<tr class="row-even"><td><p>September 04</p></td>
+<td><p>Introduction to Data Science</p></td>
+</tr>
+<tr class="row-odd"><td><p>September 11</p></td>
+<td><p>Probability and Statistics</p></td>
+</tr>
+<tr class="row-even"><td><p>September 18</p></td>
+<td><p>Bayesian Inference    (week in Kyoto)</p></td>
+</tr>
+<tr class="row-odd"><td><p>September 25</p></td>
+<td><p>Bayesian Inference</p></td>
+</tr>
+<tr class="row-even"><td><p>October 02</p></td>
+<td><p>Bayesian Inference</p></td>
+</tr>
+<tr class="row-odd"><td><p>October 09</p></td>
+<td><p>Supervised Learning</p></td>
+</tr>
+<tr class="row-even"><td><p>October 16</p></td>
+<td><p>Learning and Inference using Artificial Neural Networks</p></td>
+</tr>
+<tr class="row-odd"><td><p>October 23</p></td>
+<td><p>Deep Learning</p></td>
+</tr>
+<tr class="row-even"><td><p>October 30</p></td>
+<td><p>Deep Learning</p></td>
+</tr>
+<tr class="row-odd"><td><p>November 06</p></td>
+<td><p>Deep Learning</p></td>
+</tr>
+<tr class="row-even"><td><p>November 13</p></td>
+<td><p>Deep Learning</p></td>
+</tr>
+<tr class="row-odd"><td><p>November 20</p></td>
+<td><p>FALL BREAK - NO CLASSES</p></td>
+</tr>
+<tr class="row-even"><td><p>November 27</p></td>
+<td><p>Methods for Accelerated Machine Learning and Inference</p></td>
+</tr>
+<tr class="row-odd"><td><p>December 04</p></td>
+<td><p>Methods for Accelerated Machine Learning and Inference</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="span-style-color-red-coursework-span">
+<h2><span style="color:Red">Coursework</span><a class="headerlink" href="#span-style-color-red-coursework-span" title="Permalink to this heading">#</a></h2>
+<section id="homework-assignments">
+<h3>Homework Assignments<a class="headerlink" href="#homework-assignments" title="Permalink to this heading">#</a></h3>
+<p>You will be assigned weekly homework assignments that will put into practice what you learned in lecture for the week.</p>
+<ul class="simple">
+<li><p>You will work on the assignments both during the in-class session on Thursdays and as homework.</p></li>
+<li><p>Each assignment is due at the beginning of the next class unless otherwise noted. You may turn assignment in up to one week late for 50% credit (except that all assignments are strictly due the day before Reading Day).</p></li>
+<li><p>Solutions to the homeworks will not be given.</p></li>
+<li><p>You may collaborate on assignments but must submit your own work.</p></li>
+<li><p>Graded homework will be available through <a class="reference external" href="https://www.gradescope.com">Gradescope</a></p></li>
+</ul>
+</section>
+<section id="final-project">
+<h3>Final Project<a class="headerlink" href="#final-project" title="Permalink to this heading">#</a></h3>
+<p>At appropriate times throughout the course, you will select from a list of projects that involve demonstrating and extending your work in class by doing something cool and interesting in data analysys. You must work alone on this (i.e. without collaboration).</p>
+<p>For the final project you will put together a jupyter notebook that demonstrates your project. The notebook should have code and demonstrate the task but also be written in an expository way that other students could, in principle, read and learn from. It is submitted in an analogous way as the regular course assignments.</p>
+<p>The final notebook must be submitted via Gradescope for grading on or before <em><strong>Xday, December XX, 2023 at 5:00 pm US Central time</strong></em>.</p>
+</section>
+</section>
+<section id="span-style-color-red-grading-span">
+<h2><span style="color:Red">Grading</span><a class="headerlink" href="#span-style-color-red-grading-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Class attendence and participation: 5%</p></li>
+<li><p>homework: 65%</p></li>
+<li><p>Projects: 30%</p></li>
+</ul>
+<p>Letter grades will be assigned as follows:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Letter</p></th>
+<th class="head"><p>Low %</p></th>
+<th class="head"><p>High %</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A+</p></td>
+<td><p>97.0</p></td>
+<td><p>100.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>93.0</p></td>
+<td><p>96.9</p></td>
+</tr>
+<tr class="row-even"><td><p>A-</p></td>
+<td><p>90.0</p></td>
+<td><p>92.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>B+</p></td>
+<td><p>87.0</p></td>
+<td><p>89.9</p></td>
+</tr>
+<tr class="row-even"><td><p>B</p></td>
+<td><p>83.0</p></td>
+<td><p>86.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>B-</p></td>
+<td><p>80.0</p></td>
+<td><p>82.9</p></td>
+</tr>
+<tr class="row-even"><td><p>C+</p></td>
+<td><p>77.0</p></td>
+<td><p>79.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>C</p></td>
+<td><p>73.0</p></td>
+<td><p>76.9</p></td>
+</tr>
+<tr class="row-even"><td><p>C-</p></td>
+<td><p>70.0</p></td>
+<td><p>72.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>D+</p></td>
+<td><p>67.0</p></td>
+<td><p>69.9</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>63.0</p></td>
+<td><p>66.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>D-</p></td>
+<td><p>60.0</p></td>
+<td><p>62.9</p></td>
+</tr>
+<tr class="row-even"><td><p>F</p></td>
+<td><p>00.0</p></td>
+<td><p>59.9</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="span-style-color-red-policies-span">
+<h2><span style="color:Red">Policies</span><a class="headerlink" href="#span-style-color-red-policies-span" title="Permalink to this heading">#</a></h2>
+<section id="covid">
+<h3>Covid<a class="headerlink" href="#covid" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Policies as it relates to COVID-19 can be found at <a class="reference external" href="https://covid19.illinois.edu">https://covid19.illinois.edu</a></p></li>
+<li><p>If you feel ill or are unable to come to class or complete class assignments due to issues related to COVID-19, including but not limited to testing positive yourself, feeling ill, caring for a family member with COVID-19, or having unexpected child-care obligations, you should contact your instructor immediately, and you are encouraged to copy your academic advisor.</p></li>
+</ul>
+</section>
+<section id="about-using-code-you-find-on-the-web-for-homework-and-project-s">
+<h3>About using code you find on the web for homework and project(s)<a class="headerlink" href="#about-using-code-you-find-on-the-web-for-homework-and-project-s" title="Permalink to this heading">#</a></h3>
+<p>The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.</p>
+</section>
+<section id="academic-integrity">
+<h3>Academic Integrity<a class="headerlink" href="#academic-integrity" title="Permalink to this heading">#</a></h3>
+<p>You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master Physics 398DAP. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.</p>
+<p>It is cheating to receive answers from another student and then use them as your own. It is cheating to submit as your own work solutions that you find by searching on the worldwide web (though see “About using code you find on the web”), or by subscribing to an online service that suborns cheating. It is cheating—and a violation of U.S. copyright law—to give (or sell) course material to someone else who intends to redistribute and/or sell it.</p>
+<p>All activities in this course, are subject to the Academic Integrity rules as described in <a class="reference external" href="https://studentcode.illinois.edu/article1/part4/1-401">Article 1, Part 4, Academic Integrity</a>, of the <a class="reference external" href="https://studentcode.illinois.edu">Student Code</a>.</p>
+</section>
+</section>
+<section id="span-style-color-red-resources-span">
+<h2><span style="color:Red">Resources</span><a class="headerlink" href="#span-style-color-red-resources-span" title="Permalink to this heading">#</a></h2>
+<p>Here are some useful links</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.python.org/moin/BeginnersGuide/Programmers">Python Programming Resources</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/edu/python">Google’s Python Programming Class</a></p></li>
+<li><p>Some quick reference guides</p>
+<ul>
+<li><p><a class="reference external" href="https://learncodethehardway.org/unix/bash_cheat_sheet.pdf">Linux Bash Shell</a></p></li>
+<li><p><a class="reference external" href="https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf">Github</a></p></li>
+<li><p><a class="reference external" href="https://conda.io/docs/_downloads/conda-cheatsheet.pdf">Conda</a></p></li>
+<li><p><a class="reference external" href="http://ehmatthes.github.io/pcc/cheatsheets/README.html">Python</a></p></li>
+<li><p><a class="reference external" href="http://packetlife.net/media/library/16/Markdown.pdf">Markdown</a></p></li>
+<li><p>Jupyter Notebooks: <a class="reference external" href="http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40">Interface</a>, <a class="reference external" href="https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/pdf_bw">Keyboard shortcuts</a></p></li>
+</ul>
+</li>
+</ul>
+<section id="tools">
+<h3>Tools<a class="headerlink" href="#tools" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Sharing code snippets: <a class="reference external" href="https://gist.github.com/">gist.github.com</a></p></li>
+<li><p>Asking questions of broader development community: <a class="reference external" href="http://stackoverflow.com/">Stack Overflow</a></p></li>
+</ul>
+<section id="git-and-github">
+<h4><em>Git</em> and <em>GitHub</em><a class="headerlink" href="#git-and-github" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://help.github.com/">Official GitHub Help</a></p></li>
+<li><p><a class="reference external" href="http://hackerhours.org/resources.html#github">Recommended resources</a></p></li>
+</ul>
+</section>
+<section id="anaconda-and-conda">
+<h4><em>Anaconda</em> and <em>Conda</em><a class="headerlink" href="#anaconda-and-conda" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.anaconda.com">Official site</a></p></li>
+<li><p><a class="reference external" href="https://conda.io/docs">Conda</a></p></li>
+</ul>
+</section>
+<section id="project-jupyter">
+<h4><em>Project Jupyter</em><a class="headerlink" href="#project-jupyter" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="http://jupyter.org">Official site</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org">nbviewer</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="span-style-color-red-acknowledgements-span">
+<h2><span style="color:Red">Acknowledgements</span><a class="headerlink" href="#span-style-color-red-acknowledgements-span" title="Permalink to this heading">#</a></h2>
+<p>This course was developed by <a class="reference external" href="https://msneubauer.github.io">Mark Neubauer</a> during the Fall 2023 semester. I would like to acknowledge <a class="reference external" href="https://github.com/dkirkby">David Kirby</a> at the University of California at Irvine for the materials and setup for which this course is based and the helpful discussions we have had.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="right-next"
+       href="_sources/Week_01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span style="color: blue;"><b>Course Introduction</b></span></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-overview-span"><span style="color:Red">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-course-logistics-span"><span style="color:Red">Course Logistics</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-online-tools-span"><span style="color:Red">Online Tools</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-calendar-span"><span style="color:Red">Calendar</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-coursework-span"><span style="color:Red">Coursework</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-assignments">Homework Assignments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project">Final Project</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-grading-span"><span style="color:Red">Grading</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-policies-span"><span style="color:Red">Policies</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covid">Covid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-using-code-you-find-on-the-web-for-homework-and-project-s">About using code you find on the web for homework and project(s)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic Integrity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-resources-span"><span style="color:Red">Resources</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github"><em>Git</em> and <em>GitHub</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda-and-conda"><em>Anaconda</em> and <em>Conda</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-jupyter"><em>Project Jupyter</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-acknowledgements-span"><span style="color:Red">Acknowledgements</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mark Neubauer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
