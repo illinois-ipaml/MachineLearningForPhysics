@@ -428,26 +428,37 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-overview-span"><span style="color:Red">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-course-logistics-span"><span style="color:Red">Course Logistics</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-online-tools-span"><span style="color:Red">Online Tools</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-calendar-span"><span style="color:Red">Calendar</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-overview-span"><span style="color:Red">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-course-logistics-span"><span style="color:Red">Course Logistics</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format">Format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructor">Instructor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tas">TAs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-online-tools-span"><span style="color:Red">Online Tools</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campuswire">Campuswire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradescope">Gradescope</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-coursework-span"><span style="color:Red">Coursework</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-assignments">Homework Assignments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project">Final Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-grading-span"><span style="color:Red">Grading</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-policies-span"><span style="color:Red">Policies</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covid">Covid</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-using-code-you-find-on-the-web-for-homework-and-project-s">About using code you find on the web for homework and project(s)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-using-code-you-find-on-the-web-for-homework-and-projects">About using code you find on the web for homework and projects</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic Integrity</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-resources-span"><span style="color:Red">Resources</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-references">Useful references</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-guides">Quick guides</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github"><em>Git</em> and <em>GitHub</em></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda-and-conda"><em>Anaconda</em> and <em>Conda</em></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-jupyter"><em>Project Jupyter</em></a></li>
 </ul>
 </li>
@@ -468,113 +479,166 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-blue-b-machine-learning-for-physics-b-span">
 <h1><span style="color:Blue"><b>Machine Learning for Physics</b></span><a class="headerlink" href="#span-style-color-blue-b-machine-learning-for-physics-b-span" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Physics 503, Fall 2023</p></li>
-<li><p>Meeting: Mondays and Wednesdays from 1:00 pm to 2:15 pm</p></li>
-<li><p>Room: 262 Loomis Laboratory</p></li>
+<li><p><strong>Physics 503, Fall 2023</strong></p></li>
+<li><p><em>Meeting</em>: Mondays and Wednesdays from 1:00 pm to 2:15 pm</p></li>
+<li><p><em>Room</em>: 262 Loomis Laboratory</p></li>
 <li><p>4 credit hours</p></li>
-<li><p>Course Text: This one! However, see supplementary reading suggestions throughout the course.</p></li>
 </ul>
+<section id="span-style-color-red-calendar-span">
+<h2><span style="color:Red">Calendar</span><a class="headerlink" href="#span-style-color-red-calendar-span" title="Permalink to this heading">#</a></h2>
+<p><strong>Note</strong>: <em>This schedule will evolve throughout the semseter</em></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Week</p></th>
+<th class="head"><p>Topic</p></th>
+<th class="head"><p>Homework</p></th>
+<th class="head"><p>Projects</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Aug 21</p></td>
+<td><p><a class="reference internal" href="_sources/Week_01.html"><span class="doc">Course Introduction</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_01.html"><span class="doc std std-doc">HW 01</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Aug 28</p></td>
+<td><p><a class="reference internal" href="_sources/Week_02.html"><span class="doc">Visualizing &amp; Finding Structure in Data</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_02.html"><span class="doc std std-doc">HW 02</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Sep 04</p></td>
+<td><p><a class="reference internal" href="_sources/Week_03.html"><span class="doc">Dimensionality, Linearity and Kernel Functions</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_03.html"><span class="doc std std-doc">HW 03</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sep 11</p></td>
+<td><p><a class="reference internal" href="_sources/Week_04.html"><span class="doc">Probability Theory</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_04.html"><span class="doc std std-doc">HW 04</span></a></p></td>
+<td><p>PRJ 01</p></td>
+</tr>
+<tr class="row-even"><td><p>Sep 18</p></td>
+<td><p><strong>NO CLASSES</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sep 25</p></td>
+<td><p><a class="reference internal" href="_sources/Week_05.html"><span class="doc">Kernel Density Estimation and Statistics</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_05.html"><span class="doc std std-doc">HW 05</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Oct 02</p></td>
+<td><p><a class="reference internal" href="_sources/Week_06.html"><span class="doc">Bayesian Statistics and Markov Chain Monte Carlo</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_06.html"><span class="doc std std-doc">HW 06</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Oct 09</p></td>
+<td><p><a class="reference internal" href="_sources/Week_07.html"><span class="doc">Stochastic Processes, Markov Chains &amp; Variational Inference</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_07.html"><span class="doc std std-doc">HW 07</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Oct 16</p></td>
+<td><p><a class="reference internal" href="_sources/Week_08.html"><span class="doc">Optimization and Model Selection</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_08.html"><span class="doc std std-doc">HW 08</span></a></p></td>
+<td><p>PRJ 02</p></td>
+</tr>
+<tr class="row-odd"><td><p>Oct 23</p></td>
+<td><p><a class="reference internal" href="_sources/Week_09.html"><span class="doc">Supervised Learning &amp; Cross Validation</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_09.html"><span class="doc std std-doc">HW 09</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Oct 30</p></td>
+<td><p><a class="reference internal" href="_sources/Week_10.html"><span class="doc">Artificial Neural Networks</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_10.html"><span class="doc std std-doc">HW 10</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Nov 06</p></td>
+<td><p><a class="reference internal" href="_sources/Week_11.html"><span class="doc">Deep Neural Networks</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_11.html"><span class="doc std std-doc">HW 11</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Nov 13</p></td>
+<td><p><a class="reference internal" href="_sources/Week_12.html"><span class="doc">Graph Neural Networks</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_12.html"><span class="doc std std-doc">HW 12</span></a></p></td>
+<td><p>PRJ 03</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nov 20</p></td>
+<td><p><strong>FALL BREAK - NO CLASSES</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Nov 27</p></td>
+<td><p><a class="reference internal" href="_sources/Week_13.html"><span class="doc">Unsupervised Learning</span></a></p></td>
+<td><p><a class="reference internal" href="_sources/homework/Homework_13.html"><span class="doc std std-doc">HW 13</span></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Dec 04</p></td>
+<td><p><a class="reference internal" href="_sources/Week_14.html"><span class="doc">Accelerated Machine Learning and Inference</span></a></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="span-style-color-red-overview-span">
 <h2><span style="color:Red">Overview</span><a class="headerlink" href="#span-style-color-red-overview-span" title="Permalink to this heading">#</a></h2>
 <p>Welcome! Data is everywhere. Efficient data analysis leading to solid conclusions requires performant tools and rigorous mathematical techniques tethered by sound scientific methods.</p>
-<p>This course is designed to give students a solid foundation in machine learning applications to physics, positioning itself at the intersection of machine learning and data-intensive science. This course will introduce students to the fundamentals of analysis and interpretation of scientific data, and applications of machine learning to problems common in laboratory science such as classification and regression. There will be two 75-minute classes each week, split into discussions of core principles and hands-on exercises involving coding and data. There will be a few projects throughout semester that will build on the course material and utilize open source software and open data in physics and related fields. The list of topics will evolve, according to the interests of the class and instructors. Material will be clustered into units of varying duration, as indicated below. The lists of suggested readings and references are advisory; a large amount of material of excellent quality is now available on the worldwide web, particularly on the sites of university courses addressing the topics of each unit.</p>
+<p>This course is designed to give students a solid foundation in machine learning applications to physics, positioning itself at the intersection of machine learning and data-intensive science. This course will introduce students to the fundamentals of analysis and interpretation of scientific data, and applications of machine learning to problems common in laboratory science such as classification and regression. There will be two 75-minute classes each week, split into discussions of core principles and hands-on exercises involving coding and data. There will be a few projects throughout semester that will build on the course material and utilize open source software and open data in physics and related fields. The list of topics will evolve, according to the interests of the class and instructors. Material will be clustered into units of varying duration, as indicated in the table of contents. The lists of suggested readings and references are advisory; a large amount of material of excellent quality is now available on the worldwide web, particularly on the sites of university courses addressing the topics of each unit.</p>
 <p>A distinguishing feature of this course is its sharp focus on endeavors in the data-rich physical sciences as the arenas in which modern machine learning techniques are taught. The course uses open scientific data, open source software from data science and physics-related fields, and publically-available information as enabling elements. Research-inspired projects are an important part of the course and students will not only execute them but will play an active role in helping define and shape them. Example projects might include machine learning approaches to searches for new particles or interactions at high-energy colliders; methods of particle tracking and reconstruction; identification, classification and measurement of astrophysical phenomena; novel approaches to medical imaging and simulation using techniques from physics and machine learning; machine learning in quantum information science. Through these projects and the course material, students will learn how large datasets in physics are generated, curated, and analyzed, using machine learning as a tool to generate key insights in both experimental and theoretical science.</p>
 </section>
 <section id="span-style-color-red-course-logistics-span">
 <h2><span style="color:Red">Course Logistics</span><a class="headerlink" href="#span-style-color-red-course-logistics-span" title="Permalink to this heading">#</a></h2>
+<section id="format">
+<h3>Format<a class="headerlink" href="#format" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Course Format:</strong></p>
-<ul>
-<li><p>This course will consist of two meetings per week: one lecture period and one in-class practical session.</p>
-<ul>
+<li><p>This course will consist of two meetings per week: one lecture period and one in-class practical session.</p></li>
 <li><p>Lecture: Monday from 1:00 pm - 2:15 pm in 262 Loomis</p></li>
 <li><p>Practical Session: Wendesday from 1:00 pm - 2:15 pm in 262 Loomis</p></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Professor:</strong> <a class="reference external" href="https://marksneubauer.com">Mark Neubauer</a></p>
+</section>
+<section id="instructor">
+<h3>Instructor<a class="headerlink" href="#instructor" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Professor <a class="reference external" href="https://marksneubauer.com">Mark Neubauer</a></p>
 <ul>
 <li><p>email: <a class="reference external" href="mailto:msn&#37;&#52;&#48;illinois&#46;edu">msn<span>&#64;</span>illinois<span>&#46;</span>edu</a></p></li>
 <li><p>Office Hour: TBD</p></li>
 </ul>
 </li>
-<li><p><strong>TA:</strong> Pin-Yi Li</p>
+</ul>
+</section>
+<section id="tas">
+<h3>TAs<a class="headerlink" href="#tas" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Pin-Yi Li</p>
 <ul>
 <li><p>email: <a class="reference external" href="mailto:pinyili2&#37;&#52;&#48;illinois&#46;edu">pinyili2<span>&#64;</span>illinois<span>&#46;</span>edu</a></p></li>
 <li><p>Office Hour: TBD</p></li>
 </ul>
 </li>
+<li><p>Tony Mirasola</p>
+<ul>
+<li><p>email: <a class="reference external" href="mailto:aem8&#37;&#52;&#48;illinois&#46;edu">aem8<span>&#64;</span>illinois<span>&#46;</span>edu</a></p></li>
+<li><p>Office Hour: TBD</p></li>
 </ul>
+</li>
+</ul>
+</section>
 </section>
 <section id="span-style-color-red-online-tools-span">
 <h2><span style="color:Red">Online Tools</span><a class="headerlink" href="#span-style-color-red-online-tools-span" title="Permalink to this heading">#</a></h2>
-<p>See <span class="xref myst">Useful Links</span> for more information about how to use these tools</p>
-<ul class="simple">
-<li><p><strong>Campuswire</strong>: We will use <a class="reference external" href="https://campuswire.com">Campuswire</a> as a class forum, a way to message the course staff and each other, and a means to submit your attendance question.</p></li>
-<li><p><strong>Google Colab</strong>: Using <a class="reference external" href="https://colab.research.google.com">Google Colab</a>, you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).</p></li>
-<li><p><strong>Gradescope</strong>: On <a class="reference external" href="https://www.gradescope.com">Gradescope</a>, you will submit your assignments and find your graded assignments.</p></li>
-</ul>
+<p>There are several online tools you will need to use as part of this course.</p>
+<section id="campuswire">
+<h3>Campuswire<a class="headerlink" href="#campuswire" title="Permalink to this heading">#</a></h3>
+<p>We will use <a class="reference external" href="https://campuswire.com">Campuswire</a> as a class forum, a way to message the course staff and each other, and a means to submit your attendance question.</p>
 </section>
-<section id="span-style-color-red-calendar-span">
-<h2><span style="color:Red">Calendar</span><a class="headerlink" href="#span-style-color-red-calendar-span" title="Permalink to this heading">#</a></h2>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Date</p></th>
-<th class="head"><p>Topic</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>August 21</p></td>
-<td><p>Introduction to Data Science</p></td>
-</tr>
-<tr class="row-odd"><td><p>August 28</p></td>
-<td><p>Introduction to Data Science</p></td>
-</tr>
-<tr class="row-even"><td><p>September 04</p></td>
-<td><p>Introduction to Data Science</p></td>
-</tr>
-<tr class="row-odd"><td><p>September 11</p></td>
-<td><p>Probability and Statistics</p></td>
-</tr>
-<tr class="row-even"><td><p>September 18</p></td>
-<td><p>Bayesian Inference    (week in Kyoto)</p></td>
-</tr>
-<tr class="row-odd"><td><p>September 25</p></td>
-<td><p>Bayesian Inference</p></td>
-</tr>
-<tr class="row-even"><td><p>October 02</p></td>
-<td><p>Bayesian Inference</p></td>
-</tr>
-<tr class="row-odd"><td><p>October 09</p></td>
-<td><p>Supervised Learning</p></td>
-</tr>
-<tr class="row-even"><td><p>October 16</p></td>
-<td><p>Learning and Inference using Artificial Neural Networks</p></td>
-</tr>
-<tr class="row-odd"><td><p>October 23</p></td>
-<td><p>Deep Learning</p></td>
-</tr>
-<tr class="row-even"><td><p>October 30</p></td>
-<td><p>Deep Learning</p></td>
-</tr>
-<tr class="row-odd"><td><p>November 06</p></td>
-<td><p>Deep Learning</p></td>
-</tr>
-<tr class="row-even"><td><p>November 13</p></td>
-<td><p>Deep Learning</p></td>
-</tr>
-<tr class="row-odd"><td><p>November 20</p></td>
-<td><p>FALL BREAK - NO CLASSES</p></td>
-</tr>
-<tr class="row-even"><td><p>November 27</p></td>
-<td><p>Methods for Accelerated Machine Learning and Inference</p></td>
-</tr>
-<tr class="row-odd"><td><p>December 04</p></td>
-<td><p>Methods for Accelerated Machine Learning and Inference</p></td>
-</tr>
-</tbody>
-</table>
+<section id="google-colab">
+<h3>Google Colab<a class="headerlink" href="#google-colab" title="Permalink to this heading">#</a></h3>
+<p>Using <a class="reference external" href="https://colab.research.google.com">Google Colab</a>, you will be able to program your code in a Jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).</p>
+</section>
+<section id="gradescope">
+<h3>Gradescope<a class="headerlink" href="#gradescope" title="Permalink to this heading">#</a></h3>
+<p>On <a class="reference external" href="https://www.gradescope.com">Gradescope</a>, you will submit your assignments and find your graded assignments.</p>
+</section>
 </section>
 <section id="span-style-color-red-coursework-span">
 <h2><span style="color:Red">Coursework</span><a class="headerlink" href="#span-style-color-red-coursework-span" title="Permalink to this heading">#</a></h2>
@@ -589,11 +653,11 @@ document.write(`
 <li><p>Graded homework will be available through <a class="reference external" href="https://www.gradescope.com">Gradescope</a></p></li>
 </ul>
 </section>
-<section id="final-project">
-<h3>Final Project<a class="headerlink" href="#final-project" title="Permalink to this heading">#</a></h3>
+<section id="projects">
+<h3>Projects<a class="headerlink" href="#projects" title="Permalink to this heading">#</a></h3>
 <p>At appropriate times throughout the course, you will select from a list of projects that involve demonstrating and extending your work in class by doing something cool and interesting in data analysys. You must work alone on this (i.e. without collaboration).</p>
-<p>For the final project you will put together a jupyter notebook that demonstrates your project. The notebook should have code and demonstrate the task but also be written in an expository way that other students could, in principle, read and learn from. It is submitted in an analogous way as the regular course assignments.</p>
-<p>The final notebook must be submitted via Gradescope for grading on or before <em><strong>Xday, December XX, 2023 at 5:00 pm US Central time</strong></em>.</p>
+<p>For projects you will put together a Jupyter notebook that demonstrates your project. The notebook should have code and demonstrate the task but also be written in an expository way that other students could, in principle, read and learn from. It is submitted in an analogous way as the regular course assignments.</p>
+<p>Each project notebook must be submitted via Gradescope for grading.</p>
 </section>
 </section>
 <section id="span-style-color-red-grading-span">
@@ -676,8 +740,8 @@ document.write(`
 <li><p>If you feel ill or are unable to come to class or complete class assignments due to issues related to COVID-19, including but not limited to testing positive yourself, feeling ill, caring for a family member with COVID-19, or having unexpected child-care obligations, you should contact your instructor immediately, and you are encouraged to copy your academic advisor.</p></li>
 </ul>
 </section>
-<section id="about-using-code-you-find-on-the-web-for-homework-and-project-s">
-<h3>About using code you find on the web for homework and project(s)<a class="headerlink" href="#about-using-code-you-find-on-the-web-for-homework-and-project-s" title="Permalink to this heading">#</a></h3>
+<section id="about-using-code-you-find-on-the-web-for-homework-and-projects">
+<h3>About using code you find on the web for homework and projects<a class="headerlink" href="#about-using-code-you-find-on-the-web-for-homework-and-projects" title="Permalink to this heading">#</a></h3>
 <p>The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.</p>
 </section>
 <section id="academic-integrity">
@@ -689,21 +753,23 @@ document.write(`
 </section>
 <section id="span-style-color-red-resources-span">
 <h2><span style="color:Red">Resources</span><a class="headerlink" href="#span-style-color-red-resources-span" title="Permalink to this heading">#</a></h2>
-<p>Here are some useful links</p>
+<section id="useful-references">
+<h3>Useful references<a class="headerlink" href="#useful-references" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://wiki.python.org/moin/BeginnersGuide/Programmers">Python Programming Resources</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/edu/python">Google’s Python Programming Class</a></p></li>
-<li><p>Some quick reference guides</p>
-<ul>
+</ul>
+</section>
+<section id="quick-guides">
+<h3>Quick guides<a class="headerlink" href="#quick-guides" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
 <li><p><a class="reference external" href="https://learncodethehardway.org/unix/bash_cheat_sheet.pdf">Linux Bash Shell</a></p></li>
 <li><p><a class="reference external" href="https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf">Github</a></p></li>
-<li><p><a class="reference external" href="https://conda.io/docs/_downloads/conda-cheatsheet.pdf">Conda</a></p></li>
 <li><p><a class="reference external" href="http://ehmatthes.github.io/pcc/cheatsheets/README.html">Python</a></p></li>
 <li><p><a class="reference external" href="http://packetlife.net/media/library/16/Markdown.pdf">Markdown</a></p></li>
 <li><p>Jupyter Notebooks: <a class="reference external" href="http://datacamp-community.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40">Interface</a>, <a class="reference external" href="https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/pdf_bw">Keyboard shortcuts</a></p></li>
 </ul>
-</li>
-</ul>
+</section>
 <section id="tools">
 <h3>Tools<a class="headerlink" href="#tools" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
@@ -715,13 +781,6 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference external" href="https://help.github.com/">Official GitHub Help</a></p></li>
 <li><p><a class="reference external" href="http://hackerhours.org/resources.html#github">Recommended resources</a></p></li>
-</ul>
-</section>
-<section id="anaconda-and-conda">
-<h4><em>Anaconda</em> and <em>Conda</em><a class="headerlink" href="#anaconda-and-conda" title="Permalink to this heading">#</a></h4>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.anaconda.com">Official site</a></p></li>
-<li><p><a class="reference external" href="https://conda.io/docs">Conda</a></p></li>
 </ul>
 </section>
 <section id="project-jupyter">
@@ -811,26 +870,37 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-overview-span"><span style="color:Red">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-course-logistics-span"><span style="color:Red">Course Logistics</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-online-tools-span"><span style="color:Red">Online Tools</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-calendar-span"><span style="color:Red">Calendar</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-overview-span"><span style="color:Red">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-course-logistics-span"><span style="color:Red">Course Logistics</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format">Format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructor">Instructor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tas">TAs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-online-tools-span"><span style="color:Red">Online Tools</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campuswire">Campuswire</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradescope">Gradescope</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-coursework-span"><span style="color:Red">Coursework</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homework-assignments">Homework Assignments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project">Final Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-grading-span"><span style="color:Red">Grading</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-policies-span"><span style="color:Red">Policies</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covid">Covid</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-using-code-you-find-on-the-web-for-homework-and-project-s">About using code you find on the web for homework and project(s)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-using-code-you-find-on-the-web-for-homework-and-projects">About using code you find on the web for homework and projects</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic Integrity</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-resources-span"><span style="color:Red">Resources</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-references">Useful references</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-guides">Quick guides</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github"><em>Git</em> and <em>GitHub</em></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda-and-conda"><em>Anaconda</em> and <em>Conda</em></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#project-jupyter"><em>Project Jupyter</em></a></li>
 </ul>
 </li>
