@@ -72,11 +72,12 @@ On [Gradescope](https://www.gradescope.com), you will submit your assignments an
 
 ### Homework Assignments
 You will be assigned weekly homework assignments that will put into practice what you learned in lecture for the week. 
-* You will work on the assignments both during the in-class session on Thursdays and as homework.
+* You will work on the assignments both during the in-class session on Wednesdays and as homework.
+* You will submit your __executed__ (i.e. with "RunAll") homework notebook via [Gradescope](https://www.gradescope.com).
 * Each assignment is due at the beginning of the next class unless otherwise noted. You may turn assignment in up to one week late for 50% credit (except that all assignments are strictly due the day before Reading Day).
 * Solutions to the homeworks will not be given.
 * You may collaborate on assignments but must submit your own work.
-* Graded homework will be available through [Gradescope](https://www.gradescope.com)
+* Graded homework will be available through [Gradescope](https://www.gradescope.com).
 
 ### Projects
 At appropriate times throughout the course, you will select from a list of projects that involve demonstrating and extending your work in class by doing something cool and interesting in data analysys. You must work alone on this (i.e. without collaboration). 
@@ -114,13 +115,13 @@ Letter grades will be assigned as follows:
 * Policies as it relates to COVID-19 can be found at https://covid19.illinois.edu
 * If you feel ill or are unable to come to class or complete class assignments due to issues related to COVID-19, including but not limited to testing positive yourself, feeling ill, caring for a family member with COVID-19, or having unexpected child-care obligations, you should contact your instructor immediately, and you are encouraged to copy your academic advisor. 
   
-### About using code you find on the web for homework and projects
-The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.
+### About using code you find on the web or generative AI for homework and projects
+The quickest way to deal with the arcana of programing is to ask Google or ChatGPT for examples of what you are seeking to accomplish. But you will need to use your own judgment in terms of value added for your learning in using these techologies Your generation will need to how learn to work productively in-concert with AI. That - that's a technological genie out of the bottle. Finding its way back into the bottle is as a likely as a broken glass spontaeously reassembling.  Inrregardless, as with any external resource, you must always credit the original source of code and other information that you paste into your own programs, notebooks, projects, etc in a comment that includes the original source. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.
 
 ### Academic Integrity
-You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master Physics 398DAP. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.
+You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master the course. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.
 
-It is cheating to receive answers from another student and then use them as your own. It is cheating to submit as your own work solutions that you find by searching on the worldwide web (though see "About using code you find on the web"), or by subscribing to an online service that suborns cheating. It is cheating—and a violation of U.S. copyright law—to give (or sell) course material to someone else who intends to redistribute and/or sell it.
+It is cheating to receive answers from another student and then use them as your own. It is cheating to submit as your own work solutions that you find by searching on the worldwide web (though see "About using code you find on the web") or using online tools such as ChatGPT, or by subscribing to an online service that suborns cheating. It is cheating—and a violation of U.S. copyright law—to give (or sell) course material to someone else who intends to redistribute and/or sell it.
 
 All activities in this course, are subject to the Academic Integrity rules as described in [Article 1, Part 4, Academic Integrity](https://studentcode.illinois.edu/article1/part4/1-401), of the [Student Code](https://studentcode.illinois.edu).
 
