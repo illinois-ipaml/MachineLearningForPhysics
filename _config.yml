@@ -1,7 +1,7 @@
 #######################################################################################
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
-title: PHYS 398 DAP
+title: PHYS 503
 author: Mark Neubauer
 logo: logo.png
 copyright: '2023'
