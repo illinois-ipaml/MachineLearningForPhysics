@@ -28,6 +28,7 @@ __Note__: *This schedule will evolve throughout the semseter*
 | Nov 27  | {doc}`_sources/Week_13`     | [HW 13](_sources/homework/Homework_13) |          |
 | Dec 04  | {doc}`_sources/Week_14`     |                                        |          |
 
+
 ## <span style="color:Red">Overview</span>
 
 Welcome! Data is everywhere. Efficient data analysis leading to solid conclusions requires performant tools and rigorous mathematical techniques tethered by sound scientific methods. 
