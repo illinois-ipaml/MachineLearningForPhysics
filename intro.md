@@ -115,7 +115,9 @@ Letter grades will be assigned as follows:
 * If you feel ill or are unable to come to class or complete class assignments due to issues related to COVID-19, including but not limited to testing positive yourself, feeling ill, caring for a family member with COVID-19, or having unexpected child-care obligations, you should contact your instructor immediately, and you are encouraged to copy your academic advisor. 
   
 ### About using code you find on the web or generative AI for homework and projects
-The quickest way to deal with the arcana of programing is to ask Google or ChatGPT for examples of what you are seeking to accomplish. But you will need to use your own judgment in terms of value added for your learning in using these techologies Your generation will need to how learn to work productively in-concert with AI. That - that's a technological genie out of the bottle. Finding its way back into the bottle is as a likely as a broken glass spontaeously reassembling.  Inrregardless, as with any external resource, you must always credit the original source of code and other information that you paste into your own programs, notebooks, projects, etc in a comment that includes the original source. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.
+The quickest way to deal with the arcana of programing is to ask Google or ChatGPT for examples of what you are seeking to accomplish. But you will need to use your own judgment in terms of value added for your learning in using these techologies Your generation will need to how learn to work productively in-concert with AI. That - that's a technological genie out of the bottle. Finding its way back into the bottle is as a likely as a broken glass spontaeously reassembling. As with any external resource, you must always credit the original source of code and other information that you paste into your own programs, notebooks, projects, etc in a comment that includes the original source. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T. 
+
+Students must cite all references, including any code they have used that they did not write themselves. Failure to cite references will be considered an academic integrity violation and be pursued according to University policy, which may include receiving a failing grade on an assignment or in the entire course. Citations do not need to follow any specific format (such as ACM style, etc.) but should mention the author's name and where the cited work can be found (including a URL, if applicable). In code, a citation can be left in a comment.
 
 ### Academic Integrity
 You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master the course. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.
@@ -123,6 +125,29 @@ You must never submit the work of someone else as your own. We understand that m
 It is cheating to receive answers from another student and then use them as your own. It is cheating to submit as your own work solutions that you find by searching on the worldwide web (though see "About using code you find on the web") or using online tools such as ChatGPT, or by subscribing to an online service that suborns cheating. It is cheating—and a violation of U.S. copyright law—to give (or sell) course material to someone else who intends to redistribute and/or sell it.
 
 All activities in this course, are subject to the Academic Integrity rules as described in [Article 1, Part 4, Academic Integrity](https://studentcode.illinois.edu/article1/part4/1-401), of the [Student Code](https://studentcode.illinois.edu).
+
+### Sexual Misconduct Reporting Obligation
+
+The University of Illinois is committed to combating sexual misconduct. Faculty and staff members are required to report any instances of sexual misconduct to the University's Title IX Office. In turn, an individual with the Title IX Office will provide information about rights and options, including accommodations, support services, the campus disciplinary process, and law enforcement options.
+
+A list of the designated University employees who, as counselors, confidential advisors, and medical professionals, do not have this reporting responsibility and can maintain confidentiality, can be found here: [wecare.illinois.edu/resources/students/#confidential](https://courses.grainger.illinois.edu/CS441/sp2022/syllabus.html).
+
+Other information about resources and reporting is available here: [https://wecare.illinois.edu](https://wecare.illinois.edu) and [https://wellness.illinois.edu](https://wellness.illinois.edu/).
+
+## <span style="color:Red">Mental Health Services</span>
+
+Significant stress, mood changes, excessive worry, substance/alcohol misuse or interferences in eating or sleep can have an impact on academic performance, social development, and emotional wellbeing. The University of Illinois offers a variety of [confidential services](https://wellness.illinois.edu/) including individual and group counseling, crisis intervention, psychiatric services, and specialized screenings which are covered through the Student Health Fee. If you or someone you know experiences any of the above mental health concerns, it is strongly encouraged to contact or visit any of the University's resources provided below. Getting help is a smart and courageous thing to do for yourself and for those who care about you.
+
+* Counseling Center (217) 333-3704
+* McKinley Health Center (217) 333-2700
+* National Suicide Prevention Lifeline (800) 273-8255
+* Rosecrance Crisis Line (217) 359-4141 (available 24/7, 365 days a year)
+
+If you are in immediate danger, call 911 *This statement is approved by the University of Illinois Counseling Center.
+
+## <span style="color:Red">Students with Disabilities</span>
+
+To obtain disability-related academic adjustments and/or auxiliary aids, students with disabilities must contact the course instructor and the Disability Resources and Educational Services (DRES) as soon as possible. To contact DRES, you may visit 1207 S. Oak St., Champaign, call 333-4603, e-mail disability@illinois.edu or go to [https://www.disability.illinois.edu](https://www.disability.illinois.edu). If you are concerned you have a disability-related condition that is impacting your academic progress, there are academic screening appointments available that can help diagnosis a previously undiagnosed disability. You may access these by visiting the DRES website and selecting "Request an Academic Screening" at the bottom of the page.
 
 ## <span style="color:Red">Resources</span>
 
