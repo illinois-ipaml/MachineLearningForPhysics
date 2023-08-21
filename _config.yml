@@ -52,7 +52,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url                       : https://github.com/illinois-dap/DataAnalysisForPhysicists # https://github.com/yourusername/yourbookrepo  # Online location of your book
+  url                       : https://github.com/illinois-ipaml/MachineLearningForPhysics # https://github.com/yourusername/yourbookrepo  # Online location of your book
  # path_to_book              : #path/to/book  # Optional path to your book, relative to the repository root
   branch                    : main  # Which branch of the repository should be used when creating links (optional)
 
