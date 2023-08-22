@@ -18,7 +18,7 @@ You will start with an overview of the course and then an introduction to statis
 * {doc}`homework/Homework_01`
 
 ## *Supplemental Readings*
-  * A Whirlwind Tour of Python*, Jake VanderPlas: [free PDF](http://www.oreilly.com/programming/free/files/a-whirlwind-tour-of-python.pdf), notebooks [online](http://nbviewer.jupyter.org/github/jakevdp/WhirlwindTourOfPython/blob/master/Index.ipynb).
+  * A Whirlwind Tour of Python*, Jake VanderPlas: [book website](https://jakevdp.github.io/WhirlwindTourOfPython/), notebooks [online](http://nbviewer.jupyter.org/github/jakevdp/WhirlwindTourOfPython/blob/master/Index.ipynb).
   * [IPython: Beyond Normal Python](https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html)
   * [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/index.html)
   * [Introduction to NumPy](https://jakevdp.github.io/PythonDataScienceHandbook/02.00-introduction-to-numpy.html)
