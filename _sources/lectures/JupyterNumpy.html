@@ -489,7 +489,7 @@ document.write(`
 <section id="jupyter-notebooks">
 <h2>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this heading">#</a></h2>
 <p>Jupyter is an interactive front-end to a rich ecosystem of python packages that support machine learning and data science tasks. We will use the core set of packages shown below for this course:</p>
-<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys398dap/fa2023/img/JupyterNumpy-packages.png"><img alt="https://courses.physics.illinois.edu/phys398dap/fa2023/img/JupyterNumpy-packages.png" class="align-left" src="https://courses.physics.illinois.edu/phys398dap/fa2023/img/JupyterNumpy-packages.png" style="width: 800px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys503/fa2023/img/JupyterNumpy-packages.png"><img alt="https://courses.physics.illinois.edu/phys503/fa2023/img/JupyterNumpy-packages.png" class="align-left" src="https://courses.physics.illinois.edu/phys503/fa2023/img/JupyterNumpy-packages.png" style="width: 800px;" /></a></img><br></p>
 <p>All course notebooks begin with some preamble code to import and configure some frequently used packages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -517,11 +517,11 @@ document.write(`
 </div>
 <p>You will get plenty of experience with notebooks during this course so we will start with just a few basic survival skills.  For a deeper dive, start with <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html">IPython: Beyond Normal Python</a> in the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/index.html">Python Data Science Handbook</a>.</p>
 <p>Type <code class="docutils literal notranslate"><span class="pre">command?</span></code> to display help on <code class="docutils literal notranslate"><span class="pre">command</span></code>. Try this now for the built-in <code class="docutils literal notranslate"><span class="pre">range</span></code> function then dismiss the help window.</p>
-<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsStart.svg"><img alt="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsStart.svg" class="align-left" src="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsStart.svg" width="200" /></a></img><br></p>
-<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsEnd.svg"><img alt="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsEnd.svg" class="align-left" src="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsEnd.svg" width="200" /></a></img><br></p>
+<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsStart.svg"><img alt="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsStart.svg" class="align-left" src="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsStart.svg" width="200" /></a></img><br></p>
+<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsEnd.svg"><img alt="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsEnd.svg" class="align-left" src="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsEnd.svg" width="200" /></a></img><br></p>
 <p>Hit the tab key to display possible completions of a partial name.  Try this now by typing <code class="docutils literal notranslate"><span class="pre">np.arc</span></code> below then hitting TAB.</p>
-<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsStart.svg"><img alt="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsStart.svg" class="align-left" src="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsStart.svg" width="200" /></a></img><br></p>
-<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsEnd.svg"><img alt="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsEnd.svg" class="align-left" src="https://courses.physics.illinois.edu/phys398dap/fa2023/img/AnsEnd.svg" width="200" /></a></img><br></p>
+<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsStart.svg"><img alt="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsStart.svg" class="align-left" src="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsStart.svg" width="200" /></a></img><br></p>
+<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsEnd.svg"><img alt="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsEnd.svg" class="align-left" src="https://courses.physics.illinois.edu/phys503/fa2023/img/AnsEnd.svg" width="200" /></a></img><br></p>
 <p>Your notebook will sometimes be unresponsive while executing a long command that you don’t want to wait for. Use the <em>Interrupt</em> command in the <em>Kernel</em> menu to recover from situations like this.  Try this out now by:</p>
 <ul class="simple">
 <li><p>Uncomment the <code class="docutils literal notranslate"><span class="pre">time.sleep(3600)</span></code> line below, which sleeps for an hour.</p></li>
@@ -629,11 +629,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 </pre></div>
 </div>
 </div>
