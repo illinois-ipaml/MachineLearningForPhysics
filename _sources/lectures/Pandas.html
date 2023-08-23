@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/Pandas';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -440,7 +442,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -456,6 +460,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-course-data-files">Locate Course Data Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-files-with-pandas">Read Files with Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-subsets-of-data">Work with Subsets of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extend-data-with-new-columns">Extend Data with New Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-data-from-different-sources">Combine Data from Different Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-data-from-an-external-source">Prepare Data from an External Source</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -474,10 +491,339 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="locate-course-data-files">
+<h2>Locate Course Data Files<a class="headerlink" href="#locate-course-data-files" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wget_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">local_path</span><span class="o">=</span><span class="s1">&#39;./tmp_data&#39;</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;wget&quot;</span><span class="p">,</span> <span class="s2">&quot;-nc&quot;</span><span class="p">,</span> <span class="s2">&quot;-P&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">url</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://courses.physics.illinois.edu/phys503/fa2023/data/pong_data.hf5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">locate_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">check_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">local_path</span><span class="o">=</span><span class="s1">&#39;./tmp_data&#39;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check_exists</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">RuxntimeError</span><span class="p">(</span><span class="s1">&#39;No such data file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;pong_data.hf5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Data files are stored in the industry standard <a class="reference external" href="https://en.wikipedia.org/wiki/Hierarchical_Data_Format">binary HDF5</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Comma-separated_values">text CSV</a> formats, with extensions <code class="docutils literal notranslate"><span class="pre">.hf5</span></code> and <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, respectively. HDF5 is more efficient for larger files but requires specialized software to read.  CSV files are just plain text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://courses.physics.illinois.edu/phys503/fa2023/data/line_data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;line_data.csv&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># Print the first 5 lines of the file.</span>
+    <span class="k">for</span> <span class="n">lineno</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first line specifies the names of each column (“feature”) in the data file. Subsequent lines are the rows (“samples”) of the data file, with values for each column separated by commas.  Note that values might be missing (for example, at the end of the third row).</p>
+</section>
+<section id="read-files-with-pandas">
+<h2>Read Files with Pandas<a class="headerlink" href="#read-files-with-pandas" title="Permalink to this heading">#</a></h2>
+<p>We will use the <a class="reference external" href="https://pandas.pydata.org/">Pandas package</a> to read data files into DataFrame objects in memory.  This will only be a quick introduction. For a deeper dive, start with <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.00-introduction-to-pandas.html">Data Manipulation with Pandas</a> in the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/index.html">Phython Data Science Handbook</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pong_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;pong_data.hf5&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;line_data.csv&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can think of a DataFrame as an enhanced 2D numpy array, with most of the same capabilities:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Individual columns also behave like enhanced 1D numpy arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a first look at some unknown data, start with some basic <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.aggregate.html">summary statistics</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jot down a few things you notice about this data from this summary.</p>
+<ul class="simple">
+<li><p>The values of x and y are symmetric about zero.</p></li>
+<li><p>The values of x look uniformly distributed on [-1, +1], judging by the percentiles.</p></li>
+<li><p>The value of dy is always &gt; 0, as you might expect if it represents the “error on y”.</p></li>
+<li><p>The dy column is missing 150 entries.</p></li>
+</ul>
+<p>Summarize <code class="docutils literal notranslate"><span class="pre">pong_data</span></code> the same way.  Does anything stick out?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pong_data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some things that stick out from this summary are:</p>
+<ul class="simple">
+<li><p>Mean, median values in the xn columns are increasing left to right.</p></li>
+<li><p>Column y0 is always zero, so not very informative.</p></li>
+<li><p>Mean, median values in the yn columns increase from y0 to y4 then decrease through y9.</p></li>
+</ul>
+</section>
+<section id="work-with-subsets-of-data">
+<h2>Work with Subsets of Data<a class="headerlink" href="#work-with-subsets-of-data" title="Permalink to this heading">#</a></h2>
+<p>A subset is specified by limiting the rows and/or columns.  We have already seen how to pick out a single column, e.g. with <code class="docutils literal notranslate"><span class="pre">line_data['x']</span></code>.</p>
+<p>We can also pick out specific rows (for details on why we use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> see <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.02-data-indexing-and-selection.html#Indexers:-loc,-iloc,-and-ix">here</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how the missing value in the CSV file is represented as NaN = “not a number”.  This is generally how Pandas handles any <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/missing_data.html">data that is missing / invalid or otherwise not available (NA)</a>.</p>
+<p>We may not want to use any rows with missing data. Select the subset of useful data with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data_valid</span> <span class="o">=</span> <span class="n">line_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data_valid</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also select rows using any logical test on its column values. For example, to select all rows with dy &gt; 0.5 and y &lt; 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xpos</span> <span class="o">=</span> <span class="n">line_data</span><span class="p">[(</span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;dy&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">xpos</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">describe</span></code> to compare the summary statistics for rows with x &lt; 0 and x &gt;= 0. Do they make sense?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="p">[</span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="p">[</span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extend-data-with-new-columns">
+<h2>Extend Data with New Columns<a class="headerlink" href="#extend-data-with-new-columns" title="Permalink to this heading">#</a></h2>
+<p>You can easily add new columns derived from existing columns, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;yprediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The new column is only in memory, and not automatically written back to the original file.</p>
+<p><strong>EXERCISE:</strong> Add a new column for the “pull”, defined as:
+$<span class="math notranslate nohighlight">\(
+y_{pull} \equiv \frac{y - y_{prediction}}{\delta y} \; .
+\)</span>$
+What would you expect the mean and standard deviation (std) of this new column to be if the prediction is accuracte? What do the actual mean, std values indicate?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;ypull&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;yprediction&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="n">line_data</span><span class="p">[</span><span class="s1">&#39;dy&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The mean should be close to zero if the prediction is unbiased.  The RMS should be close to one if the prediction is unbiased and the errors are accurate.  The actual values indicate that the prediction is unbiased, but the errors are overerestimated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line_data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="combine-data-from-different-sources">
+<h2>Combine Data from Different Sources<a class="headerlink" href="#combine-data-from-different-sources" title="Permalink to this heading">#</a></h2>
+<p>Most of the data files for this course are in data/targets pairs (for reasons that will be clear soon).</p>
+<p>Verify that the files <code class="docutils literal notranslate"><span class="pre">pong_data.hf5</span></code> and <code class="docutils literal notranslate"><span class="pre">pong_targets.hf5</span></code> have the same number of rows but different column names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://courses.physics.illinois.edu/phys503/fa2023/data/pong_targets.hf5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pong_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;pong_data.hf5&#39;</span><span class="p">))</span>
+<span class="n">pong_targets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;pong_targets.hf5&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#rows: </span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pong_data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">pong_targets</span><span class="p">)))</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pong_data</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">pong_targets</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;data columns: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pong_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;targets columns: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pong_targets</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> to combine the (different) columns, matching row by row. Verify that your combined data has the expected number of rows and column names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pong_both</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pong_data</span><span class="p">,</span> <span class="n">pong_targets</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#rows: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pong_both</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;columns: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pong_both</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prepare-data-from-an-external-source">
+<h2>Prepare Data from an External Source<a class="headerlink" href="#prepare-data-from-an-external-source" title="Permalink to this heading">#</a></h2>
+<p>Finally, here is an example of taking data from an external source and adapting it to the standard format we are using.  The data is from the <a class="reference external" href="https://www.kaggle.com/c/higgs-boson">2014 ATLAS Higgs Challenge</a> which is now documented and archived <a class="reference external" href="http://opendata.cern.ch/record/328">here</a>.  More details about the challenge are in <a class="reference external" href="http://opendata.cern.ch/record/329/files/atlas-higgs-challenge-2014.pdf">this writeup</a>.</p>
+<p><strong>EXERCISE:</strong></p>
+<ol class="arabic simple">
+<li><p>Download the compressed CSV file (~62Mb) <code class="docutils literal notranslate"><span class="pre">atlas-higgs-challenge-2014-v2.csv.gz</span></code> using the link at the bottom of <a class="reference external" href="http://opendata.cern.ch/record/328">this page</a>.</p></li>
+<li><p>Move the file to directory containing this notebook.  You do need to uncompress (gunzip) the file.</p></li>
+<li><p>Skim the description of the columns <a class="reference external" href="http://opendata.cern.ch/record/328">here</a>. The details are not important, but the main points are that:</p></li>
+</ol>
+<ul class="simple">
+<li><p>There are two types of input “features”: 17 primary + 13 derived.</p></li>
+<li><p>The goal is to predict the “Label” from the input features.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Examine the function defined below and determine what it does. Lookup the documentation of any functions you are unfamiliar with.</p></li>
+<li><p>Run the function below, which should create two new files in your coursse data directory:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">higgs_data.hf5</span></code>: Input data with 30 columns, ~100Mb size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">higgs_targets.hf5</span></code>: Ouput targets with 1 column, ~8.8Mb size.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;http://opendata.cern.ch/record/328/files/atlas-higgs-challenge-2014-v2.csv.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_higgs</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;atlas-higgs-challenge-2014-v2.csv.gz&#39;</span><span class="p">):</span>
+    <span class="c1"># Read the input file, uncompressing on the fly.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;EventId&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;-999.0&#39;</span><span class="p">)</span>
+    <span class="c1"># Prepare and save the data output file.</span>
+    <span class="n">higgs_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">,</span> <span class="s1">&#39;KaggleSet&#39;</span><span class="p">,</span> <span class="s1">&#39;KaggleWeight&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+    <span class="n">higgs_data</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;higgs_data.hf5&#39;</span><span class="p">,</span> <span class="n">check_exists</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="c1"># Prepare and save the targets output file.</span>
+    <span class="n">higgs_targets</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Label&#39;</span><span class="p">]]</span>
+    <span class="n">higgs_targets</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;higgs_targets.hf5&#39;</span><span class="p">,</span> <span class="n">check_exists</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="s1">&#39;targets&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prepare_higgs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check that <code class="docutils literal notranslate"><span class="pre">locate_data</span></code> can find the new files:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;higgs_data.hf5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;higgs_targets.hf5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can new safely remove the tmp_data directory. This is an example of a <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/01.05-ipython-and-shell-commands.html">shell command</a>. Comment this link if you do not want to do this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>rm<span class="w"> </span>-rf<span class="w"> </span>./tmp_data
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -538,6 +884,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-course-data-files">Locate Course Data Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-files-with-pandas">Read Files with Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-subsets-of-data">Work with Subsets of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extend-data-with-new-columns">Extend Data with New Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-data-from-different-sources">Combine Data from Different Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-data-from-an-external-source">Prepare Data from an External Source</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
