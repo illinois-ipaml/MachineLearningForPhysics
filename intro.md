@@ -52,10 +52,12 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ### TAs 
 * Pin-Yi Li
   * email: pinyili2@illinois.edu
-  * Office Hour: TBD
+  * Office Hour: Monday 2:15 - 3:15pm
+  * 262 Loomis
 * Tony Mirasola
   * email: aem8@illinois.edu
-  * Office Hour: TBD
+  * Office Hour: Tuesday 11:00 am - noon
+  * [Zoom](https://illinois.zoom.us/j/85255234488?pwd=eTF3NDVtU1FSZXNpK3BFck9vKzNZdz09)
 
 ## <span style="color:Red">Online Tools</span>
 
