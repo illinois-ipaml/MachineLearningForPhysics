@@ -465,10 +465,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-4-span"><span style="color:Orange">Problem 4</span></a></li>
 </ul>
             </nav>
         </div>
@@ -516,8 +516,8 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="problem-1">
-<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-problem-1-span">
+<h2><span style="color:Orange">Problem 1</span><a class="headerlink" href="#span-style-color-orange-problem-1-span" title="Permalink to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code> to evaluate the tensor expression <span class="math notranslate nohighlight">\(g^{il} \Gamma^m_{ki} x^k\)</span> which arises in <a class="reference external" href="https://en.wikipedia.org/wiki/Christoffel_symbols#Covariant_derivatives_of_tensors">contravariant derivatives in General Relativity</a>.  Note we are using the GR convention that repeated indices (k,l) are summed over.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -566,8 +566,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="problem-2">
-<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-problem-2-span">
+<h2><span style="color:Orange">Problem 2</span><a class="headerlink" href="#span-style-color-orange-problem-2-span" title="Permalink to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">np.histogram</span></code> to calculate the fraction of values in an arbitrary input data array that lie in each of the 10 intervals [0.0, 0.1), [0.1, 0.2), …, [0.9, 1.0). You can assume that all input values are in the range [0,1). This is a useful technique to estimate the probability density that the data was sampled from.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -608,8 +608,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="problem-3">
-<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-problem-3-span">
+<h2><span style="color:Orange">Problem 3</span><a class="headerlink" href="#span-style-color-orange-problem-3-span" title="Permalink to this heading">#</a></h2>
 <p>Define a function to calculate the <a class="reference external" href="https://en.wikipedia.org/wiki/Entropy_estimation">entropy</a> <span class="math notranslate nohighlight">\(H(\rho)\)</span> of a binned probability density, defined as:
 $<span class="math notranslate nohighlight">\(
 H(\rho) \equiv -\sum_i \rho_i \log(\rho_i) \Delta w_i \; ,
@@ -658,12 +658,12 @@ where \)</span>\rho_i<span class="math notranslate nohighlight">\( is the binned
 </div>
 </div>
 </section>
-<section id="problem-4">
-<h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-problem-4-span">
+<h2><span style="color:Orange">Problem 4</span><a class="headerlink" href="#span-style-color-orange-problem-4-span" title="Permalink to this heading">#</a></h2>
 <p>Define a function that reads <code class="docutils literal notranslate"><span class="pre">pong_data.hf5</span></code> and returns a new subset DataFrame containing only the columns <code class="docutils literal notranslate"><span class="pre">x5</span></code>, <code class="docutils literal notranslate"><span class="pre">y5</span></code>, <code class="docutils literal notranslate"><span class="pre">x7</span></code>, <code class="docutils literal notranslate"><span class="pre">y7</span></code> (<strong>in that order</strong>) and only the last 200 rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://courses.physics.illinois.edu/phys503/fa2023/data/pong_data.hf5&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/pong_data.hf5&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -762,10 +762,10 @@ where \)</span>\rho_i<span class="math notranslate nohighlight">\( is the binned
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-4-span"><span style="color:Orange">Problem 4</span></a></li>
 </ul>
   </nav></div>
 
