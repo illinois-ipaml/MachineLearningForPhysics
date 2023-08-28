@@ -15,7 +15,7 @@ You will learn about visualizing and finding structure in data.
 * {doc}`lectures/Visualization`
 * {doc}`lectures/Clustering`
 
-## *Home
+## *Homework Assignment*
 * {doc}`homework/Homework_02`
 
 ## *Supplemental Readings*
