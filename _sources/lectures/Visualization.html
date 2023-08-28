@@ -606,7 +606,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Note how the axis labels are generated automatically. The “pearsonr” value measures the <a class="reference external" href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">amount of correlation</a> between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, and “<span class="math notranslate nohighlight">\(p\)</span>” estimates the probability that they are uncorrelated.</p>
+<p>Note how the axis labels are generated automatically.</p>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Read about the other kinds of <code class="docutils literal notranslate"><span class="pre">sns.jointplot</span></code> and try each one for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.  Which seems most useful for a small data set?  For a large data set?</p>
 <p>I recommend ‘scatter’ for a small dataset, but it is not a good choice for a large dataset since it is relatively slow and your eye is inevitably drawn to the outliers that are least representative of the general trends.</p>
 <p>For a large dataset, I would start with <code class="docutils literal notranslate"><span class="pre">hex</span></code> and then proceed to <code class="docutils literal notranslate"><span class="pre">kde</span></code> if the <code class="docutils literal notranslate"><span class="pre">hex</span></code> distribution looks sufficiently smooth.</p>
