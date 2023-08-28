@@ -514,6 +514,8 @@ document.write(`
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os.path</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -686,7 +688,7 @@ W^T W = M^{-1}
 </section>
 <section id="span-style-color-orange-k-means-clustering-span">
 <h2><span style="color:Orange">K-means Clustering</span><a class="headerlink" href="#span-style-color-orange-k-means-clustering-span" title="Permalink to this heading">#</a></h2>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/K-means_clustering">K-means algorithm</a> is fast and robust, but assumes that your data consists of roughly round clusters of the same size (where the meanings of “round” and “size” depend on how your data is scaled).</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/K-means_clustering">K-means algorithm</a> is fast and robust, but assumes that your data consists of roughly round clusters of the same size (where the meanings of “round” and “size” depend on how your data is scaled). The algorithm aims to partition <span class="math notranslate nohighlight">\(n\)</span> observations into <span class="math notranslate nohighlight">\(k\)</span> clusters in which each observation belongs to the cluster with the nearest mean (cluster centers or cluster centroid).</p>
 <p>Most sklearn algorithms use a similar calling pattern:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">ClassName</span><span class="p">(</span><span class="o">..</span><span class="n">args</span><span class="o">..</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
