@@ -465,12 +465,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-course-data-files">Locate Course Data Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-files-with-pandas">Read Files with Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-subsets-of-data">Work with Subsets of Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extend-data-with-new-columns">Extend Data with New Columns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-data-from-different-sources">Combine Data from Different Sources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-data-from-an-external-source">Prepare Data from an External Source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-load-course-data-files-span"><span style="color:Orange">Load Course Data Files</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-read-files-with-pandas-span"><span style="color:Orange">Read Files with Pandas</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-work-with-subsets-of-data-span"><span style="color:Orange">Work with Subsets of Data</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-extend-data-with-new-columns-span"><span style="color:Orange">Extend Data with New Columns</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-combine-data-from-different-sources-span"><span style="color:Orange">Combine Data from Different Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-prepare-data-from-an-external-source-span"><span style="color:Orange">Prepare Data from an External Source</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -497,13 +498,13 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="locate-course-data-files">
-<h2>Locate Course Data Files<a class="headerlink" href="#locate-course-data-files" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-load-course-data-files-span">
+<h2><span style="color:Orange">Load Course Data Files</span><a class="headerlink" href="#span-style-color-orange-load-course-data-files-span" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wget_data</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="n">local_path</span> <span class="o">=</span> <span class="s1">&#39;./tmp_data&#39;</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;wget&quot;</span><span class="p">,</span> <span class="s2">&quot;-nc&quot;</span><span class="p">,</span> <span class="s2">&quot;-P&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">url</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wget_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">local_path</span><span class="o">=</span><span class="s1">&#39;./tmp_data&#39;</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;wget&quot;</span><span class="p">,</span> <span class="s2">&quot;-nc&quot;</span><span class="p">,</span> <span class="s2">&quot;-P&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">url</span><span class="p">])</span>
     <span class="n">rc</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">while</span> <span class="n">rc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -517,7 +518,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://courses.physics.illinois.edu/phys503/fa2023/data/pong_data.hf5&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/pong_data.hf5&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -544,7 +545,7 @@ document.write(`
 <p>Data files are stored in the industry standard <a class="reference external" href="https://en.wikipedia.org/wiki/Hierarchical_Data_Format">binary HDF5</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Comma-separated_values">text CSV</a> formats, with extensions <code class="docutils literal notranslate"><span class="pre">.hf5</span></code> and <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, respectively. HDF5 is more efficient for larger files but requires specialized software to read.  CSV files are just plain text:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://courses.physics.illinois.edu/phys503/fa2023/data/line_data.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/line_data.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -561,8 +562,8 @@ document.write(`
 </div>
 <p>The first line specifies the names of each column (“feature”) in the data file. Subsequent lines are the rows (“samples”) of the data file, with values for each column separated by commas.  Note that values might be missing (for example, at the end of the third row).</p>
 </section>
-<section id="read-files-with-pandas">
-<h2>Read Files with Pandas<a class="headerlink" href="#read-files-with-pandas" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-read-files-with-pandas-span">
+<h2><span style="color:Orange">Read Files with Pandas</span><a class="headerlink" href="#span-style-color-orange-read-files-with-pandas-span" title="Permalink to this heading">#</a></h2>
 <p>We will use the <a class="reference external" href="https://pandas.pydata.org/">Pandas package</a> to read data files into DataFrame objects in memory.  This will only be a quick introduction. For a deeper dive, start with <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.00-introduction-to-pandas.html">Data Manipulation with Pandas</a> in the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/index.html">Phython Data Science Handbook</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,8 +632,8 @@ document.write(`
 <li><p>Mean, median values in the yn columns increase from y0 to y4 then decrease through y9.</p></li>
 </ul>
 </section>
-<section id="work-with-subsets-of-data">
-<h2>Work with Subsets of Data<a class="headerlink" href="#work-with-subsets-of-data" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-work-with-subsets-of-data-span">
+<h2><span style="color:Orange">Work with Subsets of Data</span><a class="headerlink" href="#span-style-color-orange-work-with-subsets-of-data-span" title="Permalink to this heading">#</a></h2>
 <p>A subset is specified by limiting the rows and/or columns.  We have already seen how to pick out a single column, e.g. with <code class="docutils literal notranslate"><span class="pre">line_data['x']</span></code>.</p>
 <p>We can also pick out specific rows (for details on why we use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> see <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.02-data-indexing-and-selection.html#Indexers:-loc,-iloc,-and-ix">here</a>):</p>
 <div class="cell docutils container">
@@ -683,8 +684,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="extend-data-with-new-columns">
-<h2>Extend Data with New Columns<a class="headerlink" href="#extend-data-with-new-columns" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-extend-data-with-new-columns-span">
+<h2><span style="color:Orange">Extend Data with New Columns</span><a class="headerlink" href="#span-style-color-orange-extend-data-with-new-columns-span" title="Permalink to this heading">#</a></h2>
 <p>You can easily add new columns derived from existing columns, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -694,7 +695,7 @@ document.write(`
 </div>
 </div>
 <p>The new column is only in memory, and not automatically written back to the original file.</p>
-<p><strong>EXERCISE:</strong> Add a new column for the “pull”, defined as:
+<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Add a new column for the “pull”, defined as:
 $<span class="math notranslate nohighlight">\(
 y_{pull} \equiv \frac{y - y_{prediction}}{\delta y} \; .
 \)</span>$
@@ -715,13 +716,13 @@ What would you expect the mean and standard deviation (std) of this new column t
 </div>
 </div>
 </section>
-<section id="combine-data-from-different-sources">
-<h2>Combine Data from Different Sources<a class="headerlink" href="#combine-data-from-different-sources" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-combine-data-from-different-sources-span">
+<h2><span style="color:Orange">Combine Data from Different Sources</span><a class="headerlink" href="#span-style-color-orange-combine-data-from-different-sources-span" title="Permalink to this heading">#</a></h2>
 <p>Most of the data files for this course are in data/targets pairs (for reasons that will be clear soon).</p>
 <p>Verify that the files <code class="docutils literal notranslate"><span class="pre">pong_data.hf5</span></code> and <code class="docutils literal notranslate"><span class="pre">pong_targets.hf5</span></code> have the same number of rows but different column names.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://courses.physics.illinois.edu/phys503/fa2023/data/pong_targets.hf5&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/pong_targets.hf5&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -757,10 +758,10 @@ What would you expect the mean and standard deviation (std) of this new column t
 </div>
 </div>
 </section>
-<section id="prepare-data-from-an-external-source">
-<h2>Prepare Data from an External Source<a class="headerlink" href="#prepare-data-from-an-external-source" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-prepare-data-from-an-external-source-span">
+<h2><span style="color:Orange">Prepare Data from an External Source</span><a class="headerlink" href="#span-style-color-orange-prepare-data-from-an-external-source-span" title="Permalink to this heading">#</a></h2>
 <p>Finally, here is an example of taking data from an external source and adapting it to the standard format we are using.  The data is from the <a class="reference external" href="https://www.kaggle.com/c/higgs-boson">2014 ATLAS Higgs Challenge</a> which is now documented and archived <a class="reference external" href="http://opendata.cern.ch/record/328">here</a>.  More details about the challenge are in <a class="reference external" href="http://opendata.cern.ch/record/329/files/atlas-higgs-challenge-2014.pdf">this writeup</a>.</p>
-<p><strong>EXERCISE:</strong></p>
+<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>:</p>
 <ol class="arabic simple">
 <li><p>Download the compressed CSV file (~62Mb) <code class="docutils literal notranslate"><span class="pre">atlas-higgs-challenge-2014-v2.csv.gz</span></code> using the link at the bottom of <a class="reference external" href="http://opendata.cern.ch/record/328">this page</a>.</p></li>
 <li><p>You can uncompress (gunzip) the file on-the-fly.</p></li>
@@ -860,6 +861,14 @@ What would you expect the mean and standard deviation (std) of this new column t
 </div>
 </div>
 </section>
+<hr class="docutils" />
+<section id="span-style-color-orange-acknowledgments-span">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Mark Neubauer</p></li>
+</ul>
+<p>© Copyright 2023</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -929,12 +938,13 @@ What would you expect the mean and standard deviation (std) of this new column t
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locate-course-data-files">Locate Course Data Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-files-with-pandas">Read Files with Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-subsets-of-data">Work with Subsets of Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extend-data-with-new-columns">Extend Data with New Columns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-data-from-different-sources">Combine Data from Different Sources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-data-from-an-external-source">Prepare Data from an External Source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-load-course-data-files-span"><span style="color:Orange">Load Course Data Files</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-read-files-with-pandas-span"><span style="color:Orange">Read Files with Pandas</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-work-with-subsets-of-data-span"><span style="color:Orange">Work with Subsets of Data</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-extend-data-with-new-columns-span"><span style="color:Orange">Extend Data with New Columns</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-combine-data-from-different-sources-span"><span style="color:Orange">Combine Data from Different Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-prepare-data-from-an-external-source-span"><span style="color:Orange">Prepare Data from an External Source</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
