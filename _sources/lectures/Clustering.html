@@ -837,17 +837,18 @@ W^T W = M^{-1}
 <li><p>If it is approximate, is it also iterative?  If so, what are the convergence criteria?</p></li>
 <li><p>How does the running time scale with the number of samples and number of features?</p></li>
 </ul>
-<p>The goal function of the KMeans algorithm is:</p>
+<p>The goal function <span class="math notranslate nohighlight">\(\cal{L}\)</span> of the KMeans algorithm is:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
-\sum_{i=1}^n\, \sum_{c_j = i}\, \left| x_j - \mu_i\right|^2
+\cal{L}(c_{\color{lightgreen}j}) = \sum_{{\color{violet}i}=1}^n\, \sum_{c_{\color{lightgreen}j} = {\color{violet}i}}\, \left| x_{\color{lightgreen}j} - \mu_{\color{violet}i}\right|^2
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(c_j = 1\)</span> if sample <span class="math notranslate nohighlight">\(j\)</span> is assigned to cluster <span class="math notranslate nohighlight">\(i\)</span> or otherwise <span class="math notranslate nohighlight">\(c_j = 0\)</span>, and</p>
+<p>where <span class="math notranslate nohighlight">\(c_{\color{lightgreen}j} = 1\)</span> if <span style="color:lightgreen">sample</span><span class="math notranslate nohighlight">\(~\color{lightgreen} j\)</span> is assigned to <span style="color:violet">cluster</span><span class="math notranslate nohighlight">\(~\color{violet} i\)</span> or otherwise <span class="math notranslate nohighlight">\(c_{\color{lightgreen}j} = 0\)</span>, and</p>
 <div class="math notranslate nohighlight">
 \[ \Large
-\mu_i = \sum_{c_j = i}\, x_j
+\mu_{\color{violet}i} = \sum_{c_{\color{lightgreen}j} = {\color{violet}i}}\, x_{\color{lightgreen}j}
 \]</div>
-<p>is the mean of samples assigned to cluster <span class="math notranslate nohighlight">\(i\)</span>.  The outer sum is over the number of clusters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(j\)</span> indexes samples. If we consider sample <span class="math notranslate nohighlight">\(x_j\)</span> to be a vector, then its elements are the feature values.</p>
+<p>is the mean of samples assigned to cluster <span class="math notranslate nohighlight">\({\color{violet}i}\)</span>.  This is mean is referred to as the centroid for cluster <span class="math notranslate nohighlight">\({\color{violet}i}\)</span>. The outer sum is over the number of clusters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\({\color{lightgreen}j}\)</span> indexes samples. If we consider sample <span class="math notranslate nohighlight">\(x_j\)</span> to be a vector, then its elements are the feature values.</p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-KMeans.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-KMeans.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-KMeans.png" style="width: 1000px;" /></a></img><br></p>
 <p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: What are the parameters of the KMeans goal function?  How many parameters are there?</p>
 <p>The parameters are the binary values <span class="math notranslate nohighlight">\(c_j\)</span> and there is one per sample (row). Note that the number of parameters is independent of the number of features (columns) in the data.</p>
 <p>The number of clusters <span class="math notranslate nohighlight">\(n\)</span> is a hyperparameter since it is externally set and not adjusted by the algorithm in response to the data.</p>
@@ -862,8 +863,9 @@ W^T W = M^{-1}
 <section id="span-style-color-orange-expectation-maximization-span">
 <h2><span style="color:Orange">Expectation-Maximization</span><a class="headerlink" href="#span-style-color-orange-expectation-maximization-span" title="Permalink to this heading">#</a></h2>
 <p>The KMeans algorithm uses an iterative solution based on the <a class="reference external" href="https://en.wikipedia.org/wiki/Expectation-maximization_algorithm">Expectation-Maximization (EM)</a> principle. This is an iterative method to find (local) maximum likelihood or maximum a posteriori (MAP) estimates of parameters in statistical models, where the model depends on unobserved (latent) variables. The EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step. These parameter-estimates are then used to determine the distribution of the latent variables in the next E step.</p>
+<p>The K-means approach is an example of a hard assignment clustering, where each point can belong to only one cluster. Expectation-Maximization algorithm can be used to <a class="reference external" href="https://medium.com/&#64;prateek.shubham.94/expectation-maximization-algorithm-7a4d1b65ca55#">generalize the approach</a> to consider the soft assignment of points to clusters so that each point has a probability of belonging to each cluster.</p>
 <p>See below and example of EM-based Clustering of Old Faithful data. Starting with a random assignment and unit spheres (note that the axes have different scales), EM quickly adapts to the dataset. The <span class="math notranslate nohighlight">\(x\)</span>-axis is the duration of the geyser eruption. The <span class="math notranslate nohighlight">\(y\)</span>-axis is the delay from the previous eruption.</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-EM_Clustering_of_Old_Faithful_data.gif"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-EM_Clustering_of_Old_Faithful_data.gif" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-EM_Clustering_of_Old_Faithful_data.gif" style="width: 400px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-EM_Clustering_of_Old_Faithful_data.gif"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-EM_Clustering_of_Old_Faithful_data.gif" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Clustering-EM_Clustering_of_Old_Faithful_data.gif" style="width: 600px;" /></a></img><br></p>
 <p>The EM method a powerful approach used by many algorithms, which we will revist several times during the course.</p>
 </section>
 <section id="span-style-color-orange-other-clustering-methods-span">
