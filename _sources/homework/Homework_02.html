@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Homework 02: Visualization &#8212; PHYS 503</title>
+    <title>Homework 02: Visualization and Expectation-Maximization &#8212; PHYS 503</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/homework/Homework_02';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -169,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Visualization.html">Visualizing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Clustering.html">Finding Structure in Data</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 02: Visualization</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 02: Visualization and Expectation-Maximization</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -453,7 +455,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework 02: Visualization</h1>
+    <h1>Homework 02: Visualization and Expectation-Maximization</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -463,7 +465,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
 </ul>
             </nav>
         </div>
@@ -475,8 +479,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-02-visualization">
-<h1>Homework 02: Visualization<a class="headerlink" href="#homework-02-visualization" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-02-visualization-and-expectation-maximization">
+<h1>Homework 02: Visualization and Expectation-Maximization<a class="headerlink" href="#homework-02-visualization-and-expectation-maximization" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -484,12 +488,421 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="problem-1">
-<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
+<p>Helpers for Getting, Loading and Locating Data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wget_data</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">local_path</span> <span class="o">=</span> <span class="s1">&#39;./tmp_data&#39;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;wget&quot;</span><span class="p">,</span> <span class="s2">&quot;-nc&quot;</span><span class="p">,</span> <span class="s2">&quot;-P&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">url</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">while</span> <span class="n">rc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="n">line</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+      <span class="n">rc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">locate_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">check_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">local_path</span><span class="o">=</span><span class="s1">&#39;./tmp_data&#39;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check_exists</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">RuxntimeError</span><span class="p">(</span><span class="s1">&#39;No such data file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/pong_data.hf5&#39;</span><span class="p">)</span>
+<span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/pong_targets.hf5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pong_data</span>    <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;pong_data.hf5&#39;</span><span class="p">))</span>
+<span class="n">pong_targets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;pong_targets.hf5&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-orange-problem-1-span">
+<h2><span style="color:Orange">Problem 1</span><a class="headerlink" href="#span-style-color-orange-problem-1-span" title="Permalink to this heading">#</a></h2>
+<p>We often coerce data for machine learning into a 2D array of samples x features, but this sometimes obscures the natural structure of the data.  In these cases, it is helpful to use special-purpose visualizations that know about this natural structure.</p>
+<p>Samples of <code class="docutils literal notranslate"><span class="pre">pong_data</span></code> encode 2D trajectories of a ping-pong ball. Implement the function below to transform one sample into a 2D array of trajectory coordinates suitable for plotting:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_to_trajectory</span><span class="p">(</span><span class="n">sample</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reshape a pong data sample of length N into an (x,y) array of shape (2, N/2).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sample : array</span>
+<span class="sd">        Numpy array of length N.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array</span>
+<span class="sd">        Array of length (2, N/2) where the first index is 0, 1 for x, y coordinates.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;len(sample) is not divisible by two.&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A correct solution should pass these tests.</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="n">sample_to_trajectory</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">xy</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the function below to plot some samples as trajectories, color coded by their target “grp” value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_trajectories</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrows</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sample_to_trajectory</span><span class="p">(</span><span class="n">pong_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="n">grp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pong_targets</span><span class="p">[</span><span class="s1">&#39;grp&#39;</span><span class="p">][</span><span class="n">row</span><span class="p">])</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;krb&#39;</span><span class="p">[</span><span class="n">grp</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_trajectories</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It should be obvious from this plot why the <code class="docutils literal notranslate"><span class="pre">y0</span></code> column is all zeros.</p>
+<p>Implement the function below using <code class="docutils literal notranslate"><span class="pre">sns.distplot</span></code> to show the distribution of <code class="docutils literal notranslate"><span class="pre">x0</span></code> values for each value (0, 1, 2) of the target <code class="docutils literal notranslate"><span class="pre">grp</span></code>.  Your plot should resemble this one:</p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_groups.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_groups.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_groups.png" style="width: 600px;" /></a></img><br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compare_groups</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot 1D distributions of the x0 feature for each group (grp=0,1,2).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">compare_groups</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To get some insight into the <code class="docutils literal notranslate"><span class="pre">th0</span></code> target, implement the function below to add a <code class="docutils literal notranslate"><span class="pre">slope</span></code> column to <code class="docutils literal notranslate"><span class="pre">pong_data</span></code> that calculates the initial trajectory slope, then make a scatter plot of <code class="docutils literal notranslate"><span class="pre">slope</span></code> versus <code class="docutils literal notranslate"><span class="pre">th0</span></code> using <code class="docutils literal notranslate"><span class="pre">sns.jointplot</span></code>.  Your plot should resemble this one:</p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_slope_th0.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_slope_th0.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_slope_th0.png" style="width: 600px;" /></a></img><br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compare_slope_th0</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display scatter plot of calculated initial slope vs target th0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">compare_slope_th0</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-orange-problem-2-span">
+<h2><span style="color:Orange">Problem 2</span><a class="headerlink" href="#span-style-color-orange-problem-2-span" title="Permalink to this heading">#</a></h2>
+<p>The normal (aka Gaussian) distribution is one of the fundamental probability densities that we will encounter often.</p>
+<p>Implement the function below using <code class="docutils literal notranslate"><span class="pre">np.random.multivariate_normal</span></code> to generate random samples from an arbitrary multidimensional normal distribution, for a specified random seed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate random samples from a normal distribution.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mu : array</span>
+<span class="sd">        1D array of mean values of length N.</span>
+<span class="sd">    C : array</span>
+<span class="sd">        2D array of covariances of shape (N, N). Must be a positive-definite matrix.</span>
+<span class="sd">    n : int</span>
+<span class="sd">        Number of random samples to generate.</span>
+<span class="sd">    seed : int</span>
+<span class="sd">        Random number seed to use.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array</span>
+<span class="sd">        2D array of shape (n, N) where each row is a random N-dimensional sample.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;mu must be 1D.&#39;</span>
+    <span class="k">assert</span> <span class="n">C</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">)),</span> <span class="s1">&#39;C must be N x N.&#39;</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;C must be positive definite.&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A correct solution should pass these tests.</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">+</span><span class="mf">1.</span><span class="p">])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.9</span>
+<span class="n">Xa</span> <span class="o">=</span> <span class="n">generate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Xb</span> <span class="o">=</span> <span class="n">generate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Xc</span> <span class="o">=</span> <span class="n">generate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">Xb</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span> <span class="n">Xc</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">generate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">mu</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rowvar</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">C</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize a generated 3D dataset using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualize_3d</span><span class="p">():</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">+</span><span class="mf">1.</span><span class="p">])</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.9</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">generate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualize_3d</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read about <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_and_correlation">correlation and covariance</a>, then implement the function below to create a 2x2 covariance matrix given values of <span class="math notranslate nohighlight">\(\sigma_x\)</span>, <span class="math notranslate nohighlight">\(\sigma_y\)</span> and the correlation coefficient <span class="math notranslate nohighlight">\(\rho\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_2d_covariance</span><span class="p">(</span><span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create and return the 2x2 covariance matrix specified by the input args.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">sigma_x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">sigma_y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;sigmas must be &gt; 0.&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A correct solution should pass these tests.</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">create_2d_covariance</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">),</span> <span class="p">[[</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">create_2d_covariance</span><span class="p">(</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">),</span> <span class="p">[[</span><span class="mf">4.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span> <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">create_2d_covariance</span><span class="p">(</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">),</span> <span class="p">[[</span><span class="mf">4.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">create_2d_covariance</span><span class="p">(</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">[[</span><span class="mf">4.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run the following cell that uses your <code class="docutils literal notranslate"><span class="pre">create_2d_covariance</span></code> and <code class="docutils literal notranslate"><span class="pre">generate_normal</span></code> functions to compare the 2D normal distributions with <span class="math notranslate nohighlight">\(\rho = 0\)</span> (blue), <span class="math notranslate nohighlight">\(\rho = +0.9\)</span> (red) and <span class="math notranslate nohighlight">\(\rho = -0.9\)</span> (green):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compare_rhos</span><span class="p">():</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+    <span class="k">for</span> <span class="n">rho</span><span class="p">,</span> <span class="n">cmap</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="mf">0.</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="s1">&#39;Reds&#39;</span><span class="p">,</span> <span class="s1">&#39;Greens&#39;</span><span class="p">)):</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">create_2d_covariance</span><span class="p">(</span><span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">rho</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">generate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">+</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+        
+<span class="n">compare_rhos</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-orange-problem-3-span">
+<h2><span style="color:Orange">Problem 3</span><a class="headerlink" href="#span-style-color-orange-problem-3-span" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Expectation-maximization_algorithm">Expectation-Maximization (EM) algorithm</a> is used to implement many machine learning methods, including several we have already studied like K-means and soon to be studied (e.g. factor analysis and weighted PCA.)</p>
+<p>The basic idea of EM is to optimize a goal function that depends on two disjoint sets of parameters by alternately updating one set and then the other, using a scheme that is guaranteed to improve the goal function (although generally to a local rather than global optimum). The alternating updates are called the E-step and M-step.</p>
+<p>The K-means is one of the simplest uses of EM, so is a good way to get some hands-on experience.</p>
+<p>Implement the function below to perform a K-means E-step. Hint: you might find <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a> and <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.argmin.html">np.argmin</a> useful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">E_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">centers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform a K-means E-step.</span>
+<span class="sd">    </span>
+<span class="sd">    Assign each sample to the cluster with the nearest center, using the</span>
+<span class="sd">    Euclidean norm to measure distance between a sample and a cluster center.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : array with shape (N, D)</span>
+<span class="sd">        Input data consisting of N samples in D dimensions.</span>
+<span class="sd">    centers : array with shape (n, D)</span>
+<span class="sd">        Centers of the the n clusters in D dimensions.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    integer array with shape (N,)</span>
+<span class="sd">        Cluster index of each sample, in the range 0 to n-1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">centers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">D</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">indices</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A correct solution should pass these tests.</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">]])</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:]</span> <span class="o">+=</span> <span class="n">centers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">E_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">centers</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">indices</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">indices</span><span class="p">[</span><span class="mi">50</span><span class="p">:]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">centers</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">E_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">centers</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, implement the function below to perform a K-means M-step:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">M_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform a K-means M-step.</span>
+<span class="sd">    </span>
+<span class="sd">    Calculate the center of each cluster as the geometric mean of its assigned samples.</span>
+<span class="sd">    </span>
+<span class="sd">    The centers of any clusters without any assigned samples should be set to the origin.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : array with shape (N, D)</span>
+<span class="sd">        Input data consisting of N samples in D dimensions.</span>
+<span class="sd">    indices : integer array with shape (N,)</span>
+<span class="sd">        Cluster index of each sample, in the range 0 to n-1.</span>
+<span class="sd">    n : int</span>
+<span class="sd">        Number of clusters.  Must be &lt;= N.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array with shape (n, D)</span>
+<span class="sd">        Centers of the the n clusters in D dimensions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">assert</span> <span class="n">indices</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">N</span><span class="p">,)</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">N</span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">D</span><span class="p">))</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span> 
+        
+    <span class="k">return</span> <span class="n">centers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A correct solution should pass these tests.</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="n">M_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">centers</span> <span class="o">==</span> <span class="mf">1.</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="n">M_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">centers</span> <span class="o">==</span> <span class="mf">1.</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="n">M_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">[[</span> <span class="mf">0.494</span><span class="p">,</span>  <span class="mf">0.381</span><span class="p">],</span> <span class="p">[</span> <span class="mf">0.592</span><span class="p">,</span>  <span class="mf">0.645</span><span class="p">],</span>
+     <span class="p">[</span> <span class="mf">0.571</span><span class="p">,</span>  <span class="mf">0.371</span><span class="p">],</span> <span class="p">[</span> <span class="mf">0.234</span><span class="p">,</span>  <span class="mf">0.634</span><span class="p">],</span>
+     <span class="p">[</span> <span class="mf">0.250</span><span class="p">,</span>  <span class="mf">0.386</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You have now implemented the core of the K-means algorithm.  Try it out with this simple wrapper, which makes a scatter plot of the first two columns after each iteration. The sklearn wrapper combines the result of several random starting points and has other refinements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">KMeans_fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">assert</span> <span class="n">n_clusters</span> <span class="o">&lt;=</span> <span class="n">N</span>
+    <span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+    <span class="c1"># Pick random samples as the initial centers.</span>
+    <span class="n">shuffle</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">shuffle</span><span class="p">[:</span><span class="n">n_clusters</span><span class="p">]]</span>
+    <span class="c1"># Perform an initial E step to assign samples to clusters.</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">E_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">centers</span><span class="p">)</span>
+    <span class="c1"># Loop over iterations.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsteps</span><span class="p">):</span>
+        <span class="n">centers</span> <span class="o">=</span> <span class="n">M_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">E_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">centers</span><span class="p">)</span>
+    <span class="c1"># Plot the result.</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">indices</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmap</span><span class="p">)])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">centers</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">centers</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try it out on some randomly generated 2D data with 3 separate clusters (using the handy <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html">make_blobs</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]],</span> <span class="n">random_state</span><span class="o">=</span><span class="n">gen</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;x1&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this simple test, you should find a good solution after two iterations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">KMeans_fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">KMeans_fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">KMeans_fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -560,7 +973,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
 </ul>
   </nav></div>
 
