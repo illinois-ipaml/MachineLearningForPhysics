@@ -47,7 +47,8 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ### Instructor
 * Professor [Mark Neubauer](https://marksneubauer.com)
   * email: msn@illinois.edu
-  * Office Hour: TBD
+  * Office Hour: Wednesday 5:30 pm - 6:30 pm
+  * [Zoom](https://illinois.zoom.us/j/85255234488?pwd=eTF3NDVtU1FSZXNpK3BFck9vKzNZdz09)
 
 ### TAs 
 * Pin-Yi Li
