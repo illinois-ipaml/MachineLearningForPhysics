@@ -550,7 +550,7 @@ document.write(`
 </section>
 <section id="span-style-color-violet-example-span-span-style-color-orange-the-cure-of-dimensionality-span">
 <h2><span style="color:violet">EXAMPLE</span>: <span style="color:Orange">The Cure of Dimensionality</span><a class="headerlink" href="#span-style-color-violet-example-span-span-style-color-orange-the-cure-of-dimensionality-span" title="Permalink to this heading">#</a></h2>
-<p>We already encountered the “curse of dimensionality” in the context of dimensionality reduction, but sometimes a large dimensionality can be a cure. As a motivating example, consider the 2D data plotted below which clearly contains two clusters with highly nonlinear shapes:</p>
+<p>We already encountered the “curse of dimensionality” in the context of dimensionality reduction, but sometimes a large dimensionality can actually be a cure. As a motivating example, consider the 2D data plotted below which clearly contains two clusters with highly nonlinear shapes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_circles</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">circles_data</span><span class="p">):</span>
@@ -575,7 +575,7 @@ document.write(`
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Use KMeans to fit this data as two clusters and plot the results using <code class="docutils literal notranslate"><span class="pre">plot_circles(labels=fit.labels_)</span></code>.  Are the results surprising?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">circles_data</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">circles_data</span><span class="p">)</span>
 <span class="n">plot_circles</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -617,7 +617,7 @@ x_2 = x_0^2 + x_1^2 \; .
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Finally, fit for two KMeans clusters in your new <code class="docutils literal notranslate"><span class="pre">circles_3d</span></code> data and plot the results, as above. Are the results surprising?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">circles_3d</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">circles_3d</span><span class="p">)</span>
 <span class="n">plot_circles</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -683,7 +683,7 @@ c
 </div>
 </div>
 <p>The reason this property is so useful is that the RHS can be evaluated much faster than the LHS and never requires us to actually embed our original samples in the higher-dimensional space.</p>
-<p>Functions on the sample space that evalute a dot product in a different space are called <strong>kernel functions</strong>:</p>
+<p>Functions on the sample space that evalute a dot product in a different space are called <span style="color:violet">kernel functions</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 K(X_i, X_j) = \phi(X_i) \cdot \phi(X_j) \; .
@@ -693,7 +693,7 @@ K(X_i, X_j) = \phi(X_i) \cdot \phi(X_j) \; .
 <li><p>very similar samples: distance ~ 0, large similarity.</p></li>
 <li><p>very different samples: large distance, similarity ~ 0.</p></li>
 </ul>
-<p>The importance of kernel functions is deeper than just their computational efficiency: many algorithms can be expressed using only dot products between samples, and therefore can be applied to data embedded in a higher dimensional without ever doing the embedding.  This insight is known as the <strong>kernel trick</strong>:</p>
+<p>The importance of kernel functions is deeper than just their computational efficiency: many algorithms can be expressed using only dot products between samples, and therefore can be applied to data embedded in a higher dimensional without ever doing the embedding.  This insight is known as the <span style="color:violet">kernel trick</span>:</p>
 <ul class="simple">
 <li><p>Pick a kernel function <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
 <li><p>Pick an algorithm that can be expressed using only dot products.</p></li>
@@ -782,7 +782,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </section>
 <section id="span-style-color-violet-example-span-span-style-color-orange-locally-linear-embedding-span">
 <h2><span style="color:violet">EXAMPLE</span>: <span style="color:Orange">Locally Linear Embedding</span><a class="headerlink" href="#span-style-color-violet-example-span-span-style-color-orange-locally-linear-embedding-span" title="Permalink to this heading">#</a></h2>
-<p>The <strong>kernel trick</strong> is not the only way to harness linear methods to nonlinear problems. For our next example, we consider <strong>locally linear embedding</strong> (LLE), which is a type of “manifold learning”, i.e., a dimensionality reduction method for data on a non-linear manifold.</p>
+<p>The <strong>kernel trick</strong> is not the only way to harness linear methods to nonlinear problems. For our next example, we consider <span style="color:violet">locally linear embedding</span> (LLE), which is a type of <a class="reference external" href="https://scikit-learn.org/stable/modules/manifold.html">manifold learning</a>, i.e., a dimensionality reduction method for data on a non-linear manifold.</p>
 <p>First lets look at some 3D data that is clearly 2D, but requires a nonlinear decomposition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -838,10 +838,10 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </ul>
 <p>This method was discovered in 2000 and the <a class="reference external" href="https://doi.org/10.1126/science.290.5500.2323">original paper</a> is quite accessible.</p>
 <p>The <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.manifold.LocallyLinearEmbedding.html">LLE method</a> lives in the sklearn <code class="docutils literal notranslate"><span class="pre">manifold</span></code> module and follows the usual calling pattern, with two significant hyperparameters:</p>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>The number of nearest neighbors to use to calculate <span class="math notranslate nohighlight">\(W\)</span>.</p></li>
 <li><p>The number of latent variables (components) to use in <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
-</ul>
+</ol>
 <p>In order to get reproducible results, you should also pass in a RandomState.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
