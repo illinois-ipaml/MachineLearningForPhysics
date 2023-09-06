@@ -787,11 +787,15 @@ M^T = M^{-1} ~~~~~~~~~~~~~~ \text{and} ~~~~~~~~~~~~~~ M M^T = \tilde{1}
 \]</div>
 <p>and satisfies</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned} \Large
+\[ \Large
 X^T X = M^T \Lambda M
-$$,\\where $\Lambda$ is a diagonal matrix of the decreasing eigenvalues. Note that this description glosses over some details that you will explore in your homework.\\The resulting latent variables are *statistically uncorrelated* (which is a weaker statement than *statistically independent* -- see below), i.e., the [correlation coefficients](https://en.wikipedia.org/wiki/Correlation_coefficient) between different columns of $Y$ are approximately zero:\\$$ \Large
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal matrix of the decreasing eigenvalues. Note that this description glosses over some details that you will explore in your homework.</p>
+<p>The resulting latent variables are <em>statistically uncorrelated</em> (which is a weaker statement than <em>statistically independent</em> – see below), i.e., the <a class="reference external" href="https://en.wikipedia.org/wiki/Correlation_coefficient">correlation coefficients</a> between different columns of <span class="math notranslate nohighlight">\(Y\)</span> are approximately zero:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \rho(j,k) = \frac{Y_j\cdot Y_k}{|Y_j|\,|Y_k|} \simeq 0 \; .
-\end{aligned}\end{align} \]</div>
+\]</div>
 <p>The PCA demonstration below shows a pairplot of the latent variables from a <span class="math notranslate nohighlight">\(d=2\)</span> decomposition, followed by a reconstruction of some samples (red curves) compared with the originals (red points).</p>
 <p>Note that the reconstructed samples are in some sense <em>better</em> than the originals since the original noise was associated with a small eigenvalue that was trimmed!</p>
 <div class="cell docutils container">
