@@ -9,6 +9,7 @@ You will learn the basics of probability theory
 ## *Lecture Materials*
 * [Slides](https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing)
 * {doc}`lectures/ProbabilityTheory`
+* {doc}`lectures/ProbabilityDistributions`
 
 ## *Homework Assignment*
 * {doc}`homework/Homework_04`
