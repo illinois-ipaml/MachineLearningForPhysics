@@ -1,4 +1,4 @@
-# <span style="color:Blue">__Machine Learning for Physics__</span>
+# <span style="color:Blue">__Instrumentation Physics: Applications of Machine Learning__</span>
 
 <font size="6"> __Physics 503__ &nbsp; *Fall 2023* </font>
 * *Instructor:* Professor [Mark Neubauer](https://marksneubauer.com)
