@@ -34,6 +34,7 @@ parts:
         - url: https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/ProbabilityTheory
+        - file: _sources/lectures/ProbabilityDistributions
         - file: _sources/homework/Homework_04
         - file: _sources/projects/Project_01
       - file: _sources/Week_05 # Kernel Density Estimation and Statistics
