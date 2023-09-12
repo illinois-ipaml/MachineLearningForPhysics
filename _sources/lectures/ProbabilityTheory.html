@@ -630,21 +630,23 @@ P(A\mid B) \equiv \frac{P(A\cap B)}{P(B)}} \;.
 <p>When <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent events, the conditional probability ratio simplifies to:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
-\text{When } A, B\,\text{ are independent}\implies P(A\mid B) = P(A) \; .
+\text{When } A, B\,\text{ are independent}\implies P(A\mid B) = P(A)
 \]</div>
 <p>If we compare <span class="math notranslate nohighlight">\(P(A\mid B)\)</span> and <span class="math notranslate nohighlight">\(P(B\mid A)\)</span> we find that:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \boxed{
-P(A\mid B) = P(B\mid A) \frac{P(A)}{P(B)}\; ,}
+P(A\mid B) = P(B\mid A) \frac{P(A)}{P(B)}
+}
 \]</div>
 <p>If <span class="math notranslate nohighlight">\(P(A) \ll P(B)\)</span>, then <span class="math notranslate nohighlight">\(P(A\mid B) \ll P(B\mid A)\)</span>. However, there is a <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_of_the_inverse">natural tendency</a> to assume that <span class="math notranslate nohighlight">\(P(A\mid B) \simeq P(B\mid A)\)</span> in informal reasoning, so be careful!</p>
 <p>This relationship between <span class="math notranslate nohighlight">\(P(A\mid B)\)</span> and <span class="math notranslate nohighlight">\(P(B\mid A)\)</span> is known as <strong>Bayes’ rule</strong>.  Although there is some controversy and debate surrounding <em>Bayesian statistics</em>, Bayes’ rule follows directly from the definition of conditional probability and is firmly established.  (The Bayesian controversy, which we will discuss later, is over what constitutes a valid <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>).</p>
-<p>If <span class="math notranslate nohighlight">\(A_1...A_N\)</span> are exclusive and exhaustive (meaning that each event must belong to one and only one <span class="math notranslate nohighlight">\(A_i\)</span>, then we can write Bayes Theorem as
-$<span class="math notranslate nohighlight">\( \Large
+<p>If <span class="math notranslate nohighlight">\(A_1...A_N\)</span> are exclusive and exhaustive (meaning that each event must belong to one and only one <span class="math notranslate nohighlight">\(A_i\)</span>, then we can write Bayes Theorem as</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \boxed{
-P(A\mid B) \equiv \frac{P(A\cap B)}{\Sigma_{i}P(B|A_i)P(A_i)}} \;.
-\)</span>$</p>
+P(A\mid B) \equiv \frac{P(A\cap B)}{\Sigma_{i}P(B|A_i)P(A_i)}}
+\]</div>
 <p><em><strong><span style="color:violet">EXAMPLE</span></strong></em>: We have a disease that is carried by fraction <span class="math notranslate nohighlight">\(X\)</span> of the population:
 $<span class="math notranslate nohighlight">\(
 P(\text{disease}) = X
