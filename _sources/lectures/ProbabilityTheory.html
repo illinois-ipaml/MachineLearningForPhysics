@@ -532,28 +532,28 @@ document.write(`
 <p>If you start with the events you care about and then repeatedly apply the rules above, you will automatically satisfy the additional conditions that:</p>
 <ul class="simple">
 <li><p>The “everything” event <span class="math notranslate nohighlight">\(A = \Omega\)</span> is included (as the union of all other subset events).</p></li>
-<li><p>The “nothing” event <span class="math notranslate nohighlight">\(A =\)</span> {} is included (as the complement of the “everything” event).</p></li>
+<li><p>The “nothing” event <span class="math notranslate nohighlight">\(A = \{\}\)</span> is included (as the complement of the “everything” event).</p></li>
 </ul>
 <p>The set of all possible subsets of <span class="math notranslate nohighlight">\(\Omega\)</span> is always a valid event space, but other (simpler) choices are possible when you don’t care about some subsets (or don’t know how to assign probabilities to them).</p>
 <p><strong>EXERCISE:</strong> Use the rules above to create the smallest possible event space containing {a} for a sample space consisting of the four possible outcomes {a,b,c,d}.</p>
 <p>One way to apply the rules is:</p>
 <ul class="simple">
-<li><p>R1: {a} =&gt; {b,c,d}</p></li>
-<li><p>R2: {a}, {b,c,d} =&gt; {a,b,c,d}</p></li>
-<li><p>R1: {a,b,c,d} =&gt; {}</p></li>
+<li><p>R1: <span class="math notranslate nohighlight">\(\{a\} \Rightarrow \{b,c,d\}\)</span></p></li>
+<li><p>R2: <span class="math notranslate nohighlight">\(\{a\}, \{b,c,d\} \Rightarrow \{a,b,c,d\}\)</span></p></li>
+<li><p>R1: <span class="math notranslate nohighlight">\(\{a,b,c,d\} \Rightarrow \{\}\)</span></p></li>
 </ul>
-<p>The complete event space is then: {}, {a}, {b,c,d}, {a,b,c,d}.</p>
-<p><strong>EXERCISE:</strong> Use the rules above to create the smallest possible event space containing {a} and {b} for the same sample space.</p>
+<p>The complete event space is then: <span class="math notranslate nohighlight">\(\{\}, \{a\}, \{b,c,d\}, \{a,b,c,d\}.\)</span></p>
+<p><strong>EXERCISE:</strong> Use the rules above to create the smallest possible event space containing <span class="math notranslate nohighlight">\(\{a\}\)</span> and <span class="math notranslate nohighlight">\(\{b\}\)</span> for the same sample space.</p>
 <p>One way to apply the rules is:</p>
 <ul class="simple">
-<li><p>R1: {a} =&gt; {b,c,d}</p></li>
-<li><p>R1: {b} =&gt; {a,c,d}</p></li>
-<li><p>R2: {a}, {b} =&gt; {a,b}</p></li>
-<li><p>R1: {a,b} =&gt; {c,d}</p></li>
-<li><p>R2: {a,b}, {c,d} =&gt; {a,b,c,d}</p></li>
-<li><p>R1: {a,b,c,d} =&gt; {}</p></li>
+<li><p>R1: <span class="math notranslate nohighlight">\(\{a\} \Rightarrow \{b,c,d\}\)</span></p></li>
+<li><p>R1: <span class="math notranslate nohighlight">\(\{b\} \Rightarrow \{a,c,d\}\)</span></p></li>
+<li><p>R2: <span class="math notranslate nohighlight">\(\{a\}, \{b\} \Rightarrow \{a,b\}\)</span></p></li>
+<li><p>R1: <span class="math notranslate nohighlight">\(\{a,b\} \Rightarrow \{c,d\}\)</span></p></li>
+<li><p>R2: <span class="math notranslate nohighlight">\(\{a,b\}, \{c,d\} \Rightarrow \{a,b,c,d\}\)</span></p></li>
+<li><p>R1: <span class="math notranslate nohighlight">\(\{a,b,c,d\} \Rightarrow \{\}\)</span></p></li>
 </ul>
-<p>The complete event space is then: {}, {a}, {b}, {a,b}, {c,d}, {b,c,d}, {a,c,d}, {a,b,c,d}.</p>
+<p>The complete event space is then: <span class="math notranslate nohighlight">\(\{\}, \{a\}, \{b\}, \{a,b\}, \{c,d\}, \{b,c,d\}, \{a,c,d\}, \{a,b,c,d\}\)</span>.</p>
 <p>Note that both of these examples allow us to reason about the probabilities of some outcomes without ever needing specify the probabilities of other outcomes.  That’s why we need the second Kolmogorov axiom.</p>
 <p>Once you have specified your sample and event spaces, you are ready to assign probabilities to each event. This where you make quantitative statements that define how your probability universe works. In the example above we set <span class="math notranslate nohighlight">\(P(\{\uparrow\}) = P(\{\downarrow\}) = 0.5\)</span>, but you could equally well define an alternate reality where <span class="math notranslate nohighlight">\(P(\{\uparrow\}) = 0.2\)</span> and <span class="math notranslate nohighlight">\(P(\{\downarrow\}) = 0.8\)</span>.</p>
 <p>The <strong>Kolmogorov axioms</strong> are that:</p>
@@ -572,8 +572,8 @@ P(A_1 \cup A_2 \cup \ldots) = P(A_1) + P(A_2) + \ldots \; .
 <p>This construction could be easily generalized to more measurements at predetermined times, but if measurements are allowed at arbitrary times we need a different approach.  In the most general case, the possible measurements are specified by a sequence of <span class="math notranslate nohighlight">\(M\)</span> increasing times <span class="math notranslate nohighlight">\(0 \le t_1 \le t_2 \le \ldots \le t_M\)</span>, where <span class="math notranslate nohighlight">\(M = 1, 2, 3, \ldots\)</span>. This leads to an infinite (but enumerable) set of resulting possible outcomes.  However, we could still chose a relatively simple event space, for example:</p>
 <ul class="simple">
 <li><p>a: nothing event</p></li>
-<li><p>b: at least one measurement before <span class="math notranslate nohighlight">\(t = 1\,\mu\)</span>s</p></li>
-<li><p>c: no measurements before <span class="math notranslate nohighlight">\(t = 1\,\mu\)</span>s</p></li>
+<li><p>b: at least one measurement before <span class="math notranslate nohighlight">\(t = 1\,\mu\text{'s}\)</span></p></li>
+<li><p>c: no measurements before <span class="math notranslate nohighlight">\(t = 1\,\mu\text{'s}\)</span></p></li>
 <li><p>d: everything event.</p></li>
 </ul>
 <p>The three axioms above are sufficient to derive many useful properties of a probability measure <span class="math notranslate nohighlight">\(P\)</span>, including (<span class="math notranslate nohighlight">\(\subseteq\)</span> means “subset”):</p>
