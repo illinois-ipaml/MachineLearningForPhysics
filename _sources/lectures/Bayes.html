@@ -991,38 +991,6 @@ P(D, \alpha, \beta) = P(D,\beta\mid \alpha)\, P(\alpha) = P(D\mid \alpha,\beta)\
 \[ \Large
 P(D, \alpha, \beta) = P(D,\alpha\mid \beta)\, P(\beta) = P(D\mid \alpha,\beta)\, P(\alpha\mid \beta)\, P(\beta) \; ,
 \]</div>
-<p>The corresponding diagrams are:
-<img alt="Fully connected 1" src="_sources/lectures/img/Bayes/fully_connected_1.png" />
-<img alt="Fully connected 2" src="_sources/lectures/img/Bayes/fully_connected_2.png" /></p>
-<p>The way to read these diagrams is that a node labeled with <span class="math notranslate nohighlight">\(X\)</span> represents a (multiplicative) factor <span class="math notranslate nohighlight">\(P(X\mid\ldots)\)</span> in the joint probability, where <span class="math notranslate nohighlight">\(\ldots\)</span> lists other nodes whose arrows feed into this node (in any order, thanks to probability calculus Rule-1). A shaded node indicates a random variable that is directly observed (i.e., data) while non-shaded nodes represent (unobserved) latent random variables.</p>
-<p>These diagrams both describe a fully general joint probability with two parameters. The rules for building a fully general joint probability with any number of parameters are:</p>
-<ul class="simple">
-<li><p>Pick an (arbitrary) ordering of the parameters.</p></li>
-<li><p>The first parameter’s node has arrows pointing to all other nodes (including the data).</p></li>
-<li><p>The n-th parameter’s node has arrows pointing to all later parameter nodes and the data.</p></li>
-</ul>
-<p>With <span class="math notranslate nohighlight">\(n\)</span> parameters, there are then <span class="math notranslate nohighlight">\(n!\)</span> possible diagrams and the number of potential dependencies grows rapidly with <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p>To mitigate this factorial growth, we seek pairs of random variables that should not depend on each other. For example, in the two parameter case:
-<img alt="Partial 1" src="_sources/lectures/img/Bayes/partial_1.png" />
-<img alt="Partial 2" src="_sources/lectures/img/Bayes/partial_2.png" /></p>
-<p>Notice how each diagram tells a different story. For example, the first diagram tells us that the data can be predicted knowing only <span class="math notranslate nohighlight">\(\beta\)</span>, but that our prior knowledge of <span class="math notranslate nohighlight">\(\beta\)</span> depends on <span class="math notranslate nohighlight">\(\alpha\)</span>. In effect, then, simplifying a joint probability involves drawing a diagram that tells a suitable story for your data and models.</p>
-<p>We started above with the Bayesian joint probability:</p>
-<div class="math notranslate nohighlight">
-\[ \Large
-P(D, \Theta_M, M)
-\]</div>
-<p>When the individual data features, parameters and hyperparameters are all written out, this often ends up being a very high-dimensional function.</p>
-<p>In the most general case, the joint probability requires a huge volume of data to estimate (recall our earlier discussion of <a class="reference internal" href="Dimensionality.html"><span class="doc std std-doc">dimensionality reduction</span></a>). However, many problems can be (approximately) described by a joint probability that is simplified by assuming that some random variables are mutually independent.</p>
-<p>Graphical models are a convenient visualization of the assumed direct dependencies between random variables. For example, suppose we have two parameters <span class="math notranslate nohighlight">\((\alpha, \beta)\)</span> and no hyperparameters, then the joint probability <span class="math notranslate nohighlight">\(P(D, \alpha, \beta)\)</span> can be expanded into a product of conditionals different ways using the rules of probability calculus, e.g.</p>
-<div class="math notranslate nohighlight">
-\[ \Large
-P(D, \alpha, \beta) = P(D,\beta\mid \alpha)\, P(\alpha) = P(D\mid \alpha,\beta)\, P(\beta\mid \alpha)\, P(\alpha) \; .
-\]</div>
-<p>or, equally well as,</p>
-<div class="math notranslate nohighlight">
-\[ \Large
-P(D, \alpha, \beta) = P(D,\alpha\mid \beta)\, P(\beta) = P(D\mid \alpha,\beta)\, P(\alpha\mid \beta)\, P(\beta) \; ,
-\]</div>
 <p>The corresponding diagrams are:</p>
 <p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png" style="width: 400px;" /></a></img><br></p>
 <p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png" style="width: 400px;" /></a></img><br></p>
