@@ -15,29 +15,6 @@ You will learn about optimization methods and Bayesian model selection
 ## *Homework Assignment*
 * {doc}`homework/Homework_08`
 
-## *Project Assignment*
-* {doc}`projects/Project_02`
-
-Please copy the above notebook as a template for your project.
-
-For this first project, topics covers roughly the first half of the semester and possibly involve one or more of:
-* Data exploration and summary statistics
-* Visualizing data
-* Finding structure in data and clustering
-* Kernel Density Estimation
-* Bayesian Inference
-* Markov Chain Monte Carlo
-* Variational Inference
-* Model Selection
-* Artifical Neural Networks
-* Supervised Learning
-* Cross Validation
-
-A list of projects you can choose from are shown below:
-* TBD
-
-You are also free to suggest a project, e.g. some scientific topic that you are particularly interested in. Please contact the course instructors in advance to help you develop your project!
-
 ## *Supplemental Readings*
 * [Convex Functions](https://en.wikipedia.org/wiki/Convex_function)
 * [Jensen's Inequality](https://en.wikipedia.org/wiki/Jensen's_inequality)

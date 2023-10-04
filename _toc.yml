@@ -36,7 +36,6 @@ parts:
         - file: _sources/lectures/ProbabilityTheory
         - file: _sources/lectures/ProbabilityDistributions
         - file: _sources/homework/Homework_04
-        - file: _sources/projects/Project_01
       - file: _sources/Week_05 # Kernel Density Estimation and Statistics
         sections:
         - url: https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing
@@ -53,6 +52,12 @@ parts:
         - file: _sources/lectures/Bayes
         - file: _sources/lectures/MCMC
         - file: _sources/homework/Homework_06
+      - file: _sources/Project_01 # Project 01
+        sections:
+        - file: _sources/projects/Project_01_HiggsTauTau
+        - file: _sources/projects/Project_01_ExoticParticles
+        - file: _sources/projects/Project_01_GalaxyZoo
+        - file: _sources/projects/Project_01_NuclearGeometryQGP
       - file: _sources/Week_07 # Stochastic Processes, Markov Chains & Variational Inference
         sections:
         - url: https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing
@@ -67,7 +72,6 @@ parts:
         - file: _sources/lectures/Optimization
         - file: _sources/lectures/ModelSelection
         - file: _sources/homework/Homework_08
-        - file: _sources/projects/Project_02
   - caption: Supervised Learning & Cross Validation
     chapters:
       - file: _sources/Week_09 # Supervised Learning & Cross Validation
@@ -100,7 +104,7 @@ parts:
           title: Slides
         - file: _sources/lectures/GraphNeuralNetworks
         - file: _sources/homework/Homework_12
-        - file: _sources/projects/Project_03
+      - file: _sources/Project_02 # Project 02
       - file: _sources/Week_13 # Unsupervised Learning
         sections:
         - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
