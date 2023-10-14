@@ -209,6 +209,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
 </li>
@@ -494,6 +495,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-jensen-s-inequality-span"><span style="color:Orange">Jensen’s Inequality</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
 
             </nav>
@@ -554,6 +556,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File ‘./tmp_data/blobs_data.hf5’ already there; not retrieving.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="span-style-color-orange-load-data-span">
@@ -561,9 +568,86 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blobs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;blobs_data.hf5&#39;</span><span class="p">))</span>
+<span class="n">blobs</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x0</th>
+      <th>x1</th>
+      <th>x2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2000.000000</td>
+      <td>2000.000000</td>
+      <td>2000.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>6.920270</td>
+      <td>4.502004</td>
+      <td>8.492347</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3.562485</td>
+      <td>2.609850</td>
+      <td>3.938487</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.289321</td>
+      <td>-3.686628</td>
+      <td>2.176444</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.857825</td>
+      <td>3.298868</td>
+      <td>4.997269</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.512911</td>
+      <td>4.981038</td>
+      <td>7.267441</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>10.593387</td>
+      <td>6.183536</td>
+      <td>12.257059</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>14.669437</td>
+      <td>11.268355</td>
+      <td>17.189156</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="span-style-color-orange-statistical-methods-span">
@@ -612,6 +696,14 @@ x,y\, \text{uncorrelated}\quad\Rightarrow\quad \text{Corr}_{xy} = \rho_{xy} = 0 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0    6.920270
+x1    4.502004
+x2    8.492347
+dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -619,10 +711,26 @@ x,y\, \text{uncorrelated}\quad\Rightarrow\quad \text{Corr}_{xy} = \rho_{xy} = 0 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0    12.684951
+x1     6.807913
+x2    15.503924
+dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">blobs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0    3.561594
+x1    2.609198
+x2    3.937502
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -719,6 +827,13 @@ d = \sqrt{C_{11}^2 - 2 (1 - 2\rho^2) C_{11} C_{22} + C_{22}^2} \; .
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 123.3
+0 2 -138.2
+1 2 151.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>Recall that the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> data was generated as a mixture of three Gaussian blobs, each with different parameters. However, describing a dataset with a single covariance matrix suggests a single Gaussian model. The lesson is that
 we can calculate an empirical covariance for <em>any</em> data, whether or not it is well described a single Gaussian.</p>
@@ -752,6 +867,9 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d9a5a7ddce23e313e75de4484ff8b8005e25a18a1fd00d92a40c52e91907ec43.png" src="../../_images/d9a5a7ddce23e313e75de4484ff8b8005e25a18a1fd00d92a40c52e91907ec43.png" />
+</div>
 </div>
 <p><strong>EXERCISE:</strong> Match the following values to the dotted lines in the graph above of the function <span class="math notranslate nohighlight">\(g(x)\)</span> and probability density <span class="math notranslate nohighlight">\(P(x)\)</span>:</p>
 <ol class="arabic simple">
@@ -767,6 +885,14 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 <li><p>Lower horizontal (red) line.</p></li>
 </ol>
 <p>Jensen’s inequality is satisfied, as required since <span class="math notranslate nohighlight">\(g(x)\)</span> is convex.</p>
+<hr class="docutils" />
+</section>
+<section id="span-style-color-orange-acknowledgments-span">
+<h1><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Initial version: Mark Neubauer</p></li>
+</ul>
+<p>© Copyright 2023</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -841,6 +967,7 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-jensen-s-inequality-span"><span style="color:Orange">Jensen’s Inequality</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
 
   </nav></div>

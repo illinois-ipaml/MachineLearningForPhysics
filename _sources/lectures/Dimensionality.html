@@ -209,6 +209,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
 </li>
@@ -541,6 +542,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
+<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
+Requirement already satisfied: wpca in /usr/local/lib/python3.11/site-packages (0.1)
+<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
+<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
+<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
+<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
+
+</pre></div>
+</div>
+</div>
 </div>
 <p>Helpers for Getting, Loading and Locating Data</p>
 <div class="cell docutils container">
@@ -577,6 +590,15 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File ‘./tmp_data/line_data.csv’ already there; not retrieving.
+File ‘./tmp_data/pong_data.hf5’ already there; not retrieving.
+File ‘./tmp_data/cluster_3d_data.hf5’ already there; not retrieving.
+File ‘./tmp_data/cosmo_targets.hf5’ already there; not retrieving.
+File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="span-style-color-orange-load-data-span">
@@ -608,6 +630,70 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Dataset</th>
+      <th>N</th>
+      <th>D</th>
+      <th>N**(1/D)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>line_data</td>
+      <td>2000</td>
+      <td>3</td>
+      <td>12.599</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cluster_3d</td>
+      <td>500</td>
+      <td>3</td>
+      <td>7.937</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>cosmo_targets</td>
+      <td>50000</td>
+      <td>6</td>
+      <td>6.070</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>pong_data</td>
+      <td>1000</td>
+      <td>20</td>
+      <td>1.413</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>spectra_data</td>
+      <td>200</td>
+      <td>500</td>
+      <td>1.011</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>However, not all features carry equal information and the effective dimensionality of a dataset might be lower than the number of columns.  As an extreme example, consider the following 2D data which is effectively 1D since one column has a constant value (zero):</p>
 <div class="cell docutils container">
@@ -619,6 +705,9 @@ document.write(`
 <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/03f8614844523bce900f3d04625cd524ec2144ff25739692ba6175b608549bae.png" src="../../_images/03f8614844523bce900f3d04625cd524ec2144ff25739692ba6175b608549bae.png" />
 </div>
 </div>
 <p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: Is this data is still 1D if (refer to the plots below):</p>
@@ -643,6 +732,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/21393ef06f0371d0d3deb106c9b4e08db3cd505ba3d802b8fc95a4a55280190b.png" src="../../_images/21393ef06f0371d0d3deb106c9b4e08db3cd505ba3d802b8fc95a4a55280190b.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -656,6 +748,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e33c20ed4740981c367e225d81e4bcd997cec6a5b739654b9caaf082707b8950.png" src="../../_images/e33c20ed4740981c367e225d81e4bcd997cec6a5b739654b9caaf082707b8950.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -666,6 +761,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/96eb90485c02c87a10b6c886cb4f33486f42c84f3a819f3273a46eba8d15d0aa.png" src="../../_images/96eb90485c02c87a10b6c886cb4f33486f42c84f3a819f3273a46eba8d15d0aa.png" />
+</div>
 </div>
 <p>We will use <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code> below.  Note from the table above that it appears to be severely undersampled with <span class="math notranslate nohighlight">\(N=200\)</span>, <span class="math notranslate nohighlight">\(D=500\)</span>.</p>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Plot some rows (samples) of <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code> using <code class="docutils literal notranslate"><span class="pre">plt.plot(spectra_data.iloc[i],</span> <span class="pre">'.')</span></code> to get a feel for this dataset. What do you think the effective dimensionality of this data is?  (Hint: how many independent parameters you would need to generate this data?)</p>
@@ -675,6 +773,9 @@ document.write(`
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spectra_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/13ea752cc2f07d457fcca5ae59bb511de384b732875cd002863c2f45ab0d2a6a.png" src="../../_images/13ea752cc2f07d457fcca5ae59bb511de384b732875cd002863c2f45ab0d2a6a.png" />
 </div>
 </div>
 <p>Each sample is a graph of a smooth function with some noise added.  The smooth function has three distinct components:</p>
@@ -824,6 +925,13 @@ X^T X = M^T \Lambda M
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d3cdab8dcf01032a4e644dd1a459cf3a8eaf16be9e7460a4846f98747acbd0c3.png" src="../../_images/d3cdab8dcf01032a4e644dd1a459cf3a8eaf16be9e7460a4846f98747acbd0c3.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/4d5bd2897318e9899d2b60bc21e1d60f93bab837fc53e0e98194d57435099b87.png" src="../../_images/4d5bd2897318e9899d2b60bc21e1d60f93bab837fc53e0e98194d57435099b87.png" />
+</div>
 </div>
 <p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: How many clusters do you expect to see in the scatter plot of <code class="docutils literal notranslate"><span class="pre">y0</span></code> versus <code class="docutils literal notranslate"><span class="pre">y1</span></code> above based on what you know about this dataset?  Can you identify these clusters in plot above?</p>
 <p>We expect to see 4 clusters, corresponding to spectra with:</p>
@@ -852,6 +960,13 @@ X^T X = M^T \Lambda M
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b98645e53451c53210a4a1605cd8a26142353e62b8b08f8a87d24277df05fe63.png" src="../../_images/b98645e53451c53210a4a1605cd8a26142353e62b8b08f8a87d24277df05fe63.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/2f3a3a3a75b301169108c3a2c6bac63fd1486df57fb87e8205e8c28be1ea16f9.png" src="../../_images/2f3a3a3a75b301169108c3a2c6bac63fd1486df57fb87e8205e8c28be1ea16f9.png" />
+</div>
 </div>
 </section>
 <section id="span-style-color-lightgreen-non-negative-matrix-factorization-span">
@@ -871,6 +986,13 @@ X_{ij} \rightarrow X_{ij} - \mu_i \quad , \quad \mu_i \equiv \frac{1}{N} \sum_i\
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/113583a917f7f794dab2c44d74033c8f8e4a9b41c157e99c2dc20794a73233bd.png" src="../../_images/113583a917f7f794dab2c44d74033c8f8e4a9b41c157e99c2dc20794a73233bd.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/ff40af22e3a44d342fb4cad2f9108f8626a4d11c7d6229bda20dfb32619fe63a.png" src="../../_images/ff40af22e3a44d342fb4cad2f9108f8626a4d11c7d6229bda20dfb32619fe63a.png" />
+</div>
 </div>
 <p>To see the importance of the extra latent variable, try with d=2 and note how poorly samples are reconstructed:</p>
 <div class="cell docutils container">
@@ -878,6 +1000,13 @@ X_{ij} \rightarrow X_{ij} - \mu_i \quad , \quad \mu_i \equiv \frac{1}{N} \sum_i\
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demo</span><span class="p">(</span><span class="s1">&#39;NMF&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c517b889ed325dd7c525863fe1b3bc5cf7b82501df54d7ab9ae0bed5c00f094a.png" src="../../_images/c517b889ed325dd7c525863fe1b3bc5cf7b82501df54d7ab9ae0bed5c00f094a.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/ac2489ea24011c8a29ad0c1bdbc1263ab3e7147137cb39d80d7d396a20e6a70f.png" src="../../_images/ac2489ea24011c8a29ad0c1bdbc1263ab3e7147137cb39d80d7d396a20e6a70f.png" />
 </div>
 </div>
 </section>
@@ -895,6 +1024,13 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demo</span><span class="p">(</span><span class="s1">&#39;FastICA&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/20fcae8fa6f8c2728b164a6caf43705dd4e5f43e4fb07d6691214da1b8d9cdbd.png" src="../../_images/20fcae8fa6f8c2728b164a6caf43705dd4e5f43e4fb07d6691214da1b8d9cdbd.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/d4c793a2c1da4ffa8f3bbe6ac9ed37351a3209ef0f1aaf0a7f176d2b87e73d2d.png" src="../../_images/d4c793a2c1da4ffa8f3bbe6ac9ed37351a3209ef0f1aaf0a7f176d2b87e73d2d.png" />
 </div>
 </div>
 </section>
@@ -926,6 +1062,9 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e8e4492113a56610daef5fd7f0a0584791330bb4d975edb2fbb0981309f4f45b.png" src="../../_images/e8e4492113a56610daef5fd7f0a0584791330bb4d975edb2fbb0981309f4f45b.png" />
+</div>
 </div>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em> Use the <code class="docutils literal notranslate"><span class="pre">demo()</span></code> function with <code class="docutils literal notranslate"><span class="pre">data=pong_data</span></code> and <span class="math notranslate nohighlight">\(d = 1, 2, 3,\ldots\)</span> to determine how many latent variables are necessary to give a good reconstruction.  Do the 1D plots of individual <code class="docutils literal notranslate"><span class="pre">pong_data</span></code> samples make sense?</p>
 <div class="cell docutils container">
@@ -934,6 +1073,13 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d1dee1a60e2dab1d4eb97fbe1e98706fe50c7418f2272648259597333d8a151d.png" src="../../_images/d1dee1a60e2dab1d4eb97fbe1e98706fe50c7418f2272648259597333d8a151d.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/e9ecc7e1dc3b6c949641a2f253acb46159687bdc81ecd8b5185197939bd5b71d.png" src="../../_images/e9ecc7e1dc3b6c949641a2f253acb46159687bdc81ecd8b5185197939bd5b71d.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -941,12 +1087,26 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a26aac6c139aa6a1b848f71acc90163a4ec7cb10d46c08738f3f413244517061.png" src="../../_images/a26aac6c139aa6a1b848f71acc90163a4ec7cb10d46c08738f3f413244517061.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/0f882838d0e70a0c6c6ce6812f74f0afb5200b99498c3a1f69ecb34e6b8293c1.png" src="../../_images/0f882838d0e70a0c6c6ce6812f74f0afb5200b99498c3a1f69ecb34e6b8293c1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demo</span><span class="p">(</span><span class="s1">&#39;PCA&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pong_data</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/30ce3cc75bbaa33f68d6a74501ea6b7ea60d1a6a865d725a3b58fcfe186b3408.png" src="../../_images/30ce3cc75bbaa33f68d6a74501ea6b7ea60d1a6a865d725a3b58fcfe186b3408.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../../_images/15b87ef137d1b09e79ad2ee1f1f3da3a7b5ab56e851edee82bf92441a75e6dad.png" src="../../_images/15b87ef137d1b09e79ad2ee1f1f3da3a7b5ab56e851edee82bf92441a75e6dad.png" />
 </div>
 </div>
 <p>Two latent variables (<span class="math notranslate nohighlight">\(d=2\)</span>) are sufficient for a good reconstruction. The abrupt transition at feature 10 in the reconstructed samples is because features 0-9 are ~linearly increasing x values, while features 10-19 are the corresponding ~parabolic y values.  Note that this dataset has negligible noise compared with <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code>.</p>
@@ -1008,6 +1168,9 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e1f0ecc5eabbbacc96bba573cee329af50240c1a18058435218881041b2ab5ba.png" src="../../_images/e1f0ecc5eabbbacc96bba573cee329af50240c1a18058435218881041b2ab5ba.png" />
+</div>
 </div>
 <p>Next, increase the noise across the spectrum.  The larger errors makes the principal components harder to nail down, leading to noisier reconstructions:</p>
 <div class="cell docutils container">
@@ -1016,12 +1179,18 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4979fbc5e8d8cb8cb8ec6827e3f1ff2490998e3a5de3bb4b176d46b27a4360d5.png" src="../../_images/4979fbc5e8d8cb8cb8ec6827e3f1ff2490998e3a5de3bb4b176d46b27a4360d5.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_pca</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">add_noise</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8695b097bad77120971b42d4f03b838b9d1ecc3e8e5814e90759b2738f872185.png" src="../../_images/8695b097bad77120971b42d4f03b838b9d1ecc3e8e5814e90759b2738f872185.png" />
 </div>
 </div>
 <p>Finally, remove 10% of the data from each sample (but, crucially, a different 10% from each sample). Note how this allows us to make a sensible guess at the missing data! (statisticians call this <a class="reference external" href="https://en.wikipedia.org/wiki/Imputation_(statistics)">imputation</a>.)</p>
@@ -1030,6 +1199,9 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_pca</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cdeaa172fe29d6562e9bef2fd07088675eb50da80ce4dc8514740f658ac6b7e2.png" src="../../_images/cdeaa172fe29d6562e9bef2fd07088675eb50da80ce4dc8514740f658ac6b7e2.png" />
 </div>
 </div>
 </section>
