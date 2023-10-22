@@ -13,7 +13,7 @@ You will learn about optimization methods and Bayesian model selection
 * {doc}`lectures/ModelSelection`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_08`
+* None
 
 ## *Supplemental Readings*
 * [Convex Functions](https://en.wikipedia.org/wiki/Convex_function)

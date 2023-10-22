@@ -14,7 +14,7 @@ You will learn about supervised learning and cross validation
 * {doc}`lectures/CrossValidation`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_09`
+* {doc}`homework/Homework_08`
 
 ## *Supplemental Readings*
 * [Coefficient of Determination](https://en.wikipedia.org/wiki/Coefficient_of_determination)

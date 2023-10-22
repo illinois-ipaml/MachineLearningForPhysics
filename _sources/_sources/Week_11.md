@@ -11,7 +11,7 @@ You will learn about deep neural networks
 * {doc}`lectures/DeepLearning`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_11`
+* {doc}`homework/Homework_10`
 
 ## *Supplemental Readings*
 * None

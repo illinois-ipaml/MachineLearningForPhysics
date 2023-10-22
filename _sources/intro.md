@@ -20,13 +20,13 @@ __Note__: *This schedule will evolve throughout the semseter*
 | Sep 25  | {doc}`_sources/Week_05`     | [HW 05](_sources/homework/Homework_05) |                            |
 | Oct 02  | {doc}`_sources/Week_06`     | [HW 06](_sources/homework/Homework_06) | {doc}`_sources/Project_01` |
 | Oct 09	| {doc}`_sources/Week_07`     | [HW 07](_sources/homework/Homework_07) |                            |
-| Oct 16  | {doc}`_sources/Week_08`     | [HW 08](_sources/homework/Homework_08) |                            |
-| Oct 23  | {doc}`_sources/Week_09`     | [HW 09](_sources/homework/Homework_09) |                            |
-| Oct 30  | {doc}`_sources/Week_10`     | [HW 10](_sources/homework/Homework_10) |                            |
-| Nov 06	| {doc}`_sources/Week_11`     | [HW 11](_sources/homework/Homework_11) |                            |
-| Nov 13	| {doc}`_sources/Week_12`     | [HW 12](_sources/homework/Homework_12) | {doc}`_sources/Project_02` |
+| Oct 16  | {doc}`_sources/Week_08`     | |                                                                   |
+| Oct 23  | {doc}`_sources/Week_09`     | [HW 08](_sources/homework/Homework_08) |                            |
+| Oct 30  | {doc}`_sources/Week_10`     | [HW 09](_sources/homework/Homework_09) |                            |
+| Nov 06	| {doc}`_sources/Week_11`     | [HW 10](_sources/homework/Homework_10) |                            |
+| Nov 13	| {doc}`_sources/Week_12`     | [HW 11](_sources/homework/Homework_11) | {doc}`_sources/Project_02` |
 | Nov 20  | __FALL BREAK - NO CLASSES__ |                                        |                            |
-| Nov 27  | {doc}`_sources/Week_13`     | [HW 13](_sources/homework/Homework_13) |                            |
+| Nov 27  | {doc}`_sources/Week_13`     | [HW 12](_sources/homework/Homework_12) |                            |
 | Dec 04  | {doc}`_sources/Week_14`     |                                        |                            |
 
 
