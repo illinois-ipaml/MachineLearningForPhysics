@@ -11,7 +11,7 @@ You will learn about artifical neural networks
 * {doc}`lectures/NeuralNetworks`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_10`
+* {doc}`homework/Homework_09`
 
 ## *Supplemental Readings*
 * [Artificial Neural Networks](https://en.wikipedia.org/wiki/Artificial_neural_network)

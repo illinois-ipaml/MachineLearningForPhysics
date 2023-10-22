@@ -71,7 +71,6 @@ parts:
           title: Slides
         - file: _sources/lectures/Optimization
         - file: _sources/lectures/ModelSelection
-        - file: _sources/homework/Homework_08
   - caption: Supervised Learning & Cross Validation
     chapters:
       - file: _sources/Week_09 # Supervised Learning & Cross Validation
@@ -81,7 +80,7 @@ parts:
         - file: _sources/lectures/Learning
         - file: _sources/lectures/Supervised
         - file: _sources/lectures/CrossValidation
-        - file: _sources/homework/Homework_09
+        - file: _sources/homework/Homework_08
   - caption: Artificial Neural Networks
     chapters:
       - file: _sources/Week_10 # Artificial Neural Networks
@@ -89,7 +88,7 @@ parts:
         - url: https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/NeuralNetworks
-        - file: _sources/homework/Homework_10
+        - file: _sources/homework/Homework_09
   - caption: Deep Learning
     chapters:
       - file: _sources/Week_11 # Deep Neural Networks
@@ -97,20 +96,20 @@ parts:
         - url: https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/DeepLearning
-        - file: _sources/homework/Homework_11
+        - file: _sources/homework/Homework_10
       - file: _sources/Week_12 # Graph Neural Networks
         sections:
         - url: https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/GraphNeuralNetworks
-        - file: _sources/homework/Homework_12
+        - file: _sources/homework/Homework_11
       - file: _sources/Project_02 # Project 02
       - file: _sources/Week_13 # Unsupervised Learning
         sections:
         - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/UnsupervisedLearning
-        - file: _sources/homework/Homework_13
+        - file: _sources/homework/Homework_12
   - caption: Accelerated Machine Learning and Inference
     chapters:
       - file: _sources/Week_14 # Accelerated Machine Learning and Inference
