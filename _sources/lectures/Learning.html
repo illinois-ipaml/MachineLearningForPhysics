@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Learning in a Probabalistic Context &#8212; PHYS 503</title>
+    <title>Learning &#8212; PHYS 503</title>
   
   
   
@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/Learning';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -246,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Supervised Learning &amp; Cross Validation</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Learning in a Probabalistic Context</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Supervised.html">Supervised Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CrossValidation.html">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
@@ -460,7 +462,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -471,11 +475,35 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Learning in a Probabalistic Context</h1>
+    <h1>Learning</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-types-of-learning-span"><span style="color:Orange">Types of Learning</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-supervised-learning-span"><span style="color:LightGreen">Supervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-unsupervised-learning-span"><span style="color:LightGreen">Unsupervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-semi-supervised-learning-span"><span style="color:LightGreen">Semi-Supervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-reinforcement-learning-span"><span style="color:LightGreen">Reinforcement Learning</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-in-a-probabilistic-context-span"><span style="color:Orange">Learning in a Probabilistic Context</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-learning-a-model-span"><span style="color:LightGreen">Learning a Model</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><span style="color:LightGreen">Unsupervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><span style="color:LightGreen">Supervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-terminology"><span style="color:LightGreen">Terminology</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-model-selection-revisited-span"><span style="color:LightGreen">Model Selection Revisited</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -485,8 +513,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="learning-in-a-probabalistic-context">
-<h1>Learning in a Probabalistic Context<a class="headerlink" href="#learning-in-a-probabalistic-context" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="learning">
+<h1>Learning<a class="headerlink" href="#learning" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -494,12 +522,270 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="span-style-color-orange-overview-span">
+<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
+<p>There is no consensus on the precise definitions of data science, machine learning, deep learning and artificial intelligence. For our purposes, we consider the following definitions:</p>
+<ul class="simple">
+<li><p><em><strong><span style="color:violet">Data Science</span></strong></em> (DS): a cross-disciplinary field that employs scientific approaches, processes, algorithms and systems used to extract meaning and insights from data.</p></li>
+<li><p><em><strong><span style="color:violet">Artificial Intelligence</span></strong></em> (AI): a field of research aiming to develop artificial systems with human-level learning and reasoning abilities, possessing the qualities of intentionality, intelligence and adaptability.</p></li>
+<li><p><em><strong><span style="color:violet">Machine Learning</span></strong></em> (ML): a subset of the field of AI which involves algorithms with the ability to learn without being explicitly programmed. These algorithms learn from data to improve their accuracy, adaptability and utility.</p></li>
+</ul>
+<p><em><span style="color:LightGreen">A little ML history</span></em>: Arthur Samuel is an American computer scientist who is credited for coining the term, “machine learning” with his research in computer systems at UIUC (he initiated the <a class="reference external" href="https://en.wikipedia.org/wiki/ILLIAC">ILLIAC project</a>) then at IBM where he developed the first checkers program on IBM’s first commercial computer in 1959. Robert Nealey, a self-proclaimed checkers master, played the game on an IBM 7094 computer in 1962, and he lost to the computer. Compared to what can be done today, this feat seems trivial, but it’s considered a major milestone in the field of artificial intelligence.</p>
+<ul class="simple">
+<li><p><em><strong><span style="color:violet">Artificial neural networks</span></strong></em> (ANNs): comprised of node layers, containing an input layer, one or more hidden layers, and an output layer. Each node, or artificial neuron, connects to another and has an associated weight and threshold. If the output of any individual node is above the specified threshold value, that node is activated, sending data to the next layer of the network. Otherwise, no data is passed along to the next layer of the network by that node.</p></li>
+<li><p><em><strong><span style="color:violet">Deep Learning</span></strong></em> (DL): a subset of ML in which artificial neural networks adapt and learn from large datasets. The “deep” in deep learning is just referring to the number of layers in a neural network. A neural network that consists of more than three layers—which would be inclusive of the input and the output—can be considered a deep learning algorithm or a deep neural network. A neural network that only has three layers is just a basic neural network. You can think of deep learning as “scalable machine learning” that eliminates some of the human intervention required (through flexible frameworks) and enables the use of larger data sets to continually improve the model performance.</p></li>
+</ul>
+<p>The figure below summarizes these definitions and relationships:</p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Learning-AI.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Learning-AI.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Learning-AI.png" style="width: 800px;" /></a></img><br></p>
+</section>
+<section id="span-style-color-orange-types-of-learning-span">
+<h2><span style="color:Orange">Types of Learning</span><a class="headerlink" href="#span-style-color-orange-types-of-learning-span" title="Permalink to this heading">#</a></h2>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Learning-TypesOfLearning.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Learning-TypesOfLearning.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Learning-TypesOfLearning.png" style="width: 800px;" /></a></img><br></p>
+<section id="span-style-color-lightgreen-supervised-learning-span">
+<h3><span style="color:LightGreen">Supervised Learning</span><a class="headerlink" href="#span-style-color-lightgreen-supervised-learning-span" title="Permalink to this heading">#</a></h3>
+<p><span style="color:Violet">Supervised learning</span>, also known as supervised machine learning, is where machines are taught by example. It is defined by its use of labeled datasets to train algorithms to classify new data or predict outcomes accurately. As input data is fed into the model, the model adjusts its weights until it has been fitted appropriately. This occurs as part of the cross validation process to ensure that the model avoids overfitting or underfitting. Supervised learning helps organizations solve a variety of real-world problems at scale, such as classifying spam in a separate folder from your inbox. Some methods used in supervised learning include neural networks, naïve bayes, linear regression, logistic regression, random forest, and support vector machine (SVM).</p>
+<p>There are two main categories of supervised learning that are mentioned below:</p>
+<ul class="simple">
+<li><p><em><strong><span style="color:Tan">Classification</span></strong></em>: Classification is a process of categorizing data or objects into predefined categories based on their features or attributes and determining to what category new observations belong.</p></li>
+<li><p><em><strong><span style="color:Tan">Regression</span></strong></em>: Regression is a process to estimate the relationships among variables when the output variable is a real or continuous value.</p></li>
+</ul>
+<p><em><strong><span style="color:LightBlue">Advantages of Supervised Machine Learning</span></strong></em>:</p>
+<ul class="simple">
+<li><p>Supervised Learning models can have high accuracy as they are trained on labelled data.</p></li>
+<li><p>The process of decision-making in supervised learning models is often interpretable.</p></li>
+<li><p>It can often be used in pre-trained models which saves time and resources when developing new models from scratch.</p></li>
+</ul>
+<p><em><strong><span style="color:LightBlue">Disadvantages of Supervised Machine Learning</span></strong></em>:</p>
+<ul class="simple">
+<li><p>It has limitations in knowing patterns and may struggle with unseen or unexpected patterns that are not present in the training data.</p></li>
+<li><p>It can be time-consuming and costly as it relies on labeled data only.</p></li>
+<li><p>It may lead to poor generalizations based on new data.</p></li>
+</ul>
+</section>
+<section id="span-style-color-lightgreen-unsupervised-learning-span">
+<h3><span style="color:LightGreen">Unsupervised Learning</span><a class="headerlink" href="#span-style-color-lightgreen-unsupervised-learning-span" title="Permalink to this heading">#</a></h3>
+<p><span style="color:Violet">Unsupervised learning</span> is a machine learning technique in which an algorithm discovers patterns and relationships using unlabeled data. Unlike supervised learning, unsupervised learning doesn’t involve providing the algorithm with labeled target outputs. The primary goal of Unsupervised learning is often to discover hidden patterns, similarities, or clusters within the data, which can then be used for various purposes, such as data exploration, visualization, dimensionality reduction, and more.</p>
+<p>There are two main categories of unsupervised learning that we have already studied extensively:</p>
+<ul class="simple">
+<li><p><em><strong><span style="color:Tan">Clustering</span></strong></em>: Clustering is the task of dividing the population or data points into a number of groups such that data points in the same groups are more similar to other data points in the same group and dissimilar to the data points in other groups. It is basically a collection of objects on the basis of similarity and dissimilarity between them.</p></li>
+<li><p><em><strong><span style="color:Tan">Dimensionality Reduction</span></strong></em>: Dimensionality reduction is a technique used to reduce the number of features in a dataset while retaining as much of the important information as possible. In other words, it is a process of transforming high-dimensional data into a lower-dimensional space that still preserves the essence of the original data. This can be done for a variety of reasons, such as to reduce the complexity of a model, to improve the performance of a learning algorithm, or to make it easier to visualize the data.</p></li>
+</ul>
+<p><em><strong><span style="color:LightBlue">Advantages of Unsupervised Machine Learning</span></strong></em>:</p>
+<ul class="simple">
+<li><p>It helps to discover hidden patterns and various relationships between the data.</p></li>
+<li><p>Used for tasks such as anomaly detection and data exploration. Techniques such as autoencoders and dimensionality reduction that can be used to extract meaningful features from raw data.</p></li>
+<li><p>It does not require labeled data and reduces the effort of data labeling.</p></li>
+</ul>
+<p><em><strong><span style="color:LightBlue">Disadvantages of Unsupervised Machine Learning</span></strong></em>:</p>
+<ul class="simple">
+<li><p>Without using labels, it may be difficult to predict the quality of the model’s output.</p></li>
+<li><p>Cluster Interpretability may not be clear and may not have meaningful interpretations.</p></li>
+</ul>
+</section>
+<section id="span-style-color-lightgreen-semi-supervised-learning-span">
+<h3><span style="color:LightGreen">Semi-Supervised Learning</span><a class="headerlink" href="#span-style-color-lightgreen-semi-supervised-learning-span" title="Permalink to this heading">#</a></h3>
+<p><span style="color:Violet">Semi-supervised learning</span> is a type of machine learning that falls in between supervised and unsupervised learning. It is a method that uses a small amount of labeled data and a large amount of unlabeled data to train a model. The goal of semi-supervised learning is to learn a function that can accurately predict the output variable based on the input variables, similar to supervised learning. However, unlike supervised learning, the algorithm is trained on a dataset that contains both labeled and unlabeled data. Semi-supervised learning is particularly useful when there is a large amount of unlabeled data available, but it’s too expensive or difficult to label all of it.</p>
+<p><em><strong><span style="color:LightBlue">Advantages of Semi-supervised Machine Learning</span></strong></em>:</p>
+<ul class="simple">
+<li><p>It leads to better generalization as compared to supervised learning, as it takes both labeled and unlabeled data.</p></li>
+<li><p>Can be applied to a wide range of data.</p></li>
+</ul>
+<p><em><strong><span style="color:LightBlue">Disdvantages of Semi-supervised Machine Learning</span></strong></em>:</p>
+<ul class="simple">
+<li><p>Semi-supervised methods can be more complex to implement compared to other approaches.</p></li>
+<li><p>It still requires some labeled data that might not always be available or easy to obtain.</p></li>
+<li><p>The unlabeled data can impact the model performance accordingly.</p></li>
+</ul>
+</section>
+<section id="span-style-color-lightgreen-reinforcement-learning-span">
+<h3><span style="color:LightGreen">Reinforcement Learning</span><a class="headerlink" href="#span-style-color-lightgreen-reinforcement-learning-span" title="Permalink to this heading">#</a></h3>
+<p><span style="color:Violet">Reinforcement learning</span> is a learning method that interacts with an environment by producing actions and discovering errors. It is the science of decision making - learning the optimal behavior in an environment to obtain maximum reward. Trial, error, and delay are the most relevant characteristics of reinforcement learning. These methods allows machines to become autonomous, self-learners that automatically determine the ideal behaviour within specific context in order to maximize performance. This type of learning is crucial for applications that involve decision-making in unpredictable environments.</p>
+<p><em><strong><span style="color:LightBlue">Advantages of Reinforcement Machine Learning</span></strong></em>:</p>
+<ul class="simple">
+<li><p>It has autonomous decision-making that is well-suited for tasks and that can learn to make a sequence of decisions without human guidance, like robotics and game-playing. For promising science and engineering applications, it can be used for beam controls in particle acclerators, steering of high-temperature plasma in fusion systems, just to name a few.</p></li>
+<li><p>This technique is preferred to achieve long-term results that are very difficult to achieve.</p></li>
+<li><p>It is used to solve a complex problems that cannot be solved by conventional techniques.</p></li>
+</ul>
+<p><em><strong><span style="color:LightBlue">Disadvantages of Reinforcement Machine Learning</span></strong></em>:</p>
+<ul class="simple">
+<li><p>Training Reinforcement Learning agents can be computationally expensive and time-consuming.</p></li>
+<li><p>Reinforcement learning is not preferable to solving simple problems.</p></li>
+<li><p>It needs a lot of data and a lot of computation, which makes it impractical and costly.</p></li>
+</ul>
+</section>
+</section>
+<section id="span-style-color-orange-learning-in-a-probabilistic-context-span">
+<h2><span style="color:Orange">Learning in a Probabilistic Context</span><a class="headerlink" href="#span-style-color-orange-learning-in-a-probabilistic-context-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-lightgreen-learning-a-model-span">
+<h3><span style="color:LightGreen">Learning a Model</span><a class="headerlink" href="#span-style-color-lightgreen-learning-a-model-span" title="Permalink to this heading">#</a></h3>
+<p>We have focused recently on two questions:</p>
+<ul class="simple">
+<li><p><strong>Assuming a model, which parameters best explain my data?</strong></p></li>
+<li><p><strong>Given competing models, what are the relative odds that they explain my data?</strong></p></li>
+</ul>
+<p>In the framework of Bayesian inference, we answer the first question by estimating the posterior</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(\Theta_M\mid D, M) = \frac{P(D\mid \Theta_M, M)\, P(\Theta_M, M)}{P(D\mid M)}
+\]</div>
+<p>for the assumed model <span class="math notranslate nohighlight">\(M\)</span> and its parameters <span class="math notranslate nohighlight">\(\Theta_M\)</span>.  We answer the second question by estimating the posterior ratio:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+\frac{P(M_1\mid D)}{P(M_2\mid D)} = \frac{P(D\mid M_1)\, P(M_1)}{P(D\mid M_2)\, P(M_2)} \; .
+\]</div>
+<p>In either case, the fundamental object is the joint probability,</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(D, \Theta_M, M),
+\]</div>
+<p>or, with competing models, <span class="math notranslate nohighlight">\(M_1\)</span> and <span class="math notranslate nohighlight">\(M_2\)</span>, the pair of joint probabilities,</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(D, \Theta_{M_1}, M_1) \quad , \quad
+P(D, \Theta_{M_2}, M_2) \; .
+\]</div>
+<p>These are the fundamental objects since any conditional or marginalized probability can be derived from them.  Note that the observed random variables <span class="math notranslate nohighlight">\(D\)</span> are given, but the unobserved (latent) random variables <span class="math notranslate nohighlight">\(\Theta_M\)</span> require that we make a choice of model(s).</p>
+</section>
+<section id="id1">
+<h3><span style="color:LightGreen">Unsupervised Learning</span><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>The questions above concern models and their parameters.  However, we can also ask questions about “new” data, where “new” means either not yet observed or else already observed but omitted from our analysis.  For example:</p>
+<ul class="simple">
+<li><p><em><strong><span style="color:Violet">KEY QUESTION</span></strong></em>: <strong>Given observed data <span class="math notranslate nohighlight">\(D\)</span>, how likely is unobserved data <span class="math notranslate nohighlight">\(D'\)</span>?</strong></p></li>
+</ul>
+<p>This is the fundamental question of <span style="color:Violet">unsupervised learning</span>, and can be framed in probabilistic language starting from the joint probability</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(D, D', \Theta_M, M)
+\]</div>
+<p>assuming the model <span class="math notranslate nohighlight">\(M\)</span> with parameters <span class="math notranslate nohighlight">\(\Theta_M\)</span>.</p>
+<p>To answer this question, we must estimate:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \Large
+\begin{aligned}
+P(D'\mid D, M) &amp;= \int d\Theta_M\, P(D',\Theta_M\mid D, M) \\
+&amp;= \int d\Theta_M\, P(D'\mid D,\Theta_M, M)\,P(\Theta_M\mid D, M)\\
+&amp;= \int d\Theta_M\, \frac{P(D',D\mid \Theta_M, M)}{P(D\mid \Theta_M, M)}\, P(\Theta_M\mid D, M) \;. \\
+\end{aligned}
+\end{split}\]</div>
+<p>If we assume that <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(D'\)</span> are statistically independent datasets, then</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(D',D\mid \Theta_M, M) = P(D'\mid\Theta_M, M)\, P(D\mid \Theta_M, M) \; ,
+\]</div>
+<p>and we can simplify</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(D'\mid D, M) = \int d\Theta_M\, P(D'\mid\Theta_M, M)\, P(\Theta_M\mid D, M) \; .
+\]</div>
+<p>Note that in order to evaluate the RHS, we must have already learned the model <span class="math notranslate nohighlight">\(M\)</span> and determined the posterior <span class="math notranslate nohighlight">\(P(\Theta_M\mid D, M)\)</span> of its parameters.</p>
+</section>
+<section id="id2">
+<h3><span style="color:LightGreen">Supervised Learning</span><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>If we split the features of our data <span class="math notranslate nohighlight">\(D\)</span> into two categories, <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, we can ask a new question about unobserved data <span class="math notranslate nohighlight">\(D'\)</span> that splits into <span class="math notranslate nohighlight">\(X'\)</span> and <span class="math notranslate nohighlight">\(Y'\)</span>:</p>
+<ul class="simple">
+<li><p><em><strong><span style="color:Violet">KEY QUESTION</span></strong></em>: <strong>Given observed data <span class="math notranslate nohighlight">\((X,Y)\)</span> from <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(X'\)</span> from <span class="math notranslate nohighlight">\(D'\)</span>, how likely is the remaining unobserved data <span class="math notranslate nohighlight">\(Y'\)</span>?</strong></p></li>
+</ul>
+<p>This is the fundamental question of <span style="color:Violet">supervised learning</span>, and the relevant joint probability is now</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(D, D', \Theta_M, M) = P(X, Y, X', Y', \Theta_M, M)
+\]</div>
+<p>for the assumed model <span class="math notranslate nohighlight">\(M\)</span> with parameters <span class="math notranslate nohighlight">\(\Theta_M\)</span>.</p>
+<p>To answer this question, we can estimate:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \Large
+\begin{aligned}
+P(Y'\mid X, Y, X', M) &amp;= \int d\Theta_M\, ~P(Y',\Theta_M\mid X, Y, X', M) \\
+&amp;= \int d\Theta_M\, ~P(Y'\mid X, Y, X',\Theta_M, M)\, ~P(\Theta_M\mid X, Y, X', M) \\
+&amp;= \int d\Theta_M\, \frac{P(X, Y, X', Y'\mid \Theta_M, M)}{P(X, Y, X'\mid \Theta_M, M)}\,
+~P(\Theta_M\mid X, Y, X', M) \; .
+\end{aligned}
+\end{split}\]</div>
+<p>If we again assume that <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(D'\)</span> are statistically independent, then</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(X,Y,X',Y'\mid\Theta_M,M) = P(X',Y'\mid\Theta_M,M)\, ~P(X,Y\mid\Theta_M,M) \; ,
+\]</div>
+<p>and (after integrating out <span class="math notranslate nohighlight">\(X'\)</span>),</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(X,Y,Y'\mid\Theta_M,M) = P(Y'\mid\Theta_M,M)\, ~P(X,Y\mid\Theta_M,M) \; .
+\]</div>
+<p>We can then simplify:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(Y'\mid X, Y, X', M) = \int d\Theta_M\,
+\frac{P(X', Y'\mid \Theta_M, M)}{P(X'\mid \Theta_M, M)}\, ~P(\Theta_M\mid X, Y, X', M) \; .
+\]</div>
+<p>Note that this formulation of the problem has <span class="math notranslate nohighlight">\(P(\Theta_M\mid X, Y, X', M)\)</span> on the RHS, which indicates that we must re-learn the model <span class="math notranslate nohighlight">\(M\)</span> each time we are given new data <span class="math notranslate nohighlight">\(X'\)</span>.</p>
+<p>An alternative formulation reveals that, while valid, this is not necessary: start from the unsupervised result above, with <span class="math notranslate nohighlight">\(D=(X,Y)\)</span> and <span class="math notranslate nohighlight">\(D'=(X',Y')\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(X',Y'\mid X,Y, M) = \int d\Theta_M\, ~P(X',Y'\mid\Theta_M, M)\, ~P(\Theta_M\mid X,Y, M)
+\]</div>
+<p>then integrate out <span class="math notranslate nohighlight">\(X'\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \Large
+\begin{aligned}
+P(X'\mid X,Y, M) &amp;= \int d\Theta_M\, \left[ \int dX'\, ~P(X',Y'\mid\Theta_M, M)\right] 
+~P(\Theta_M\mid X,Y, M) \\
+&amp;= \int d\Theta_M\, ~P(Y'\mid\Theta_M, M)\, ~P(\Theta_M\mid X,Y, M) \; .
+\end{aligned}
+\end{split}\]</div>
+<p>We can now answer our original question using</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \Large
+\begin{aligned}
+P(Y'\mid X,Y,X',M) &amp;= \frac{P(P(X',Y'\mid X,Y, M)}{P(X'\mid X,Y, M)} \\
+&amp;= \frac{\int d\Theta_M\, ~P(X',Y'\mid\Theta_M, M)\, ~P(\Theta_M\mid X,Y, M)}
+{\int d\Theta_M\, ~P(Y'\mid\Theta_M, M)\, ~P(\Theta_M\mid X,Y, M)} \; .
+\end{aligned}
+\end{split}\]</div>
+<p>Note how this formulation allows us to learn the model <span class="math notranslate nohighlight">\(M\)</span> once with the original data <span class="math notranslate nohighlight">\(D=(X,Y)\)</span> but requires two separate marginalizations (integrals) over the model parameters <span class="math notranslate nohighlight">\(\Theta_M\)</span>.</p>
+</section>
+<section id="span-style-color-lightgreen-terminology">
+<h3><span style="color:LightGreen">Terminology<a class="headerlink" href="#span-style-color-lightgreen-terminology" title="Permalink to this heading">#</a></h3>
+<p>The data <span class="math notranslate nohighlight">\(D\)</span> used to learn the model used in unsupervised or supervised learning is referred as the <span style="color:Violet">training data</span>.  In supervised learning, the features appearing in <span class="math notranslate nohighlight">\(X\)</span> are the <span style="color:Violet">input features</span> and <span class="math notranslate nohighlight">\(Y\)</span> are referred to as the <span style="color:Violet">target features</span>.</p>
+<p>We use different terminology (and approaches to modeling) for supervised learning depending on the type of target features we wish to learn:</p>
+<ul class="simple">
+<li><p><span style="color:Tan">regression</span> <span class="math notranslate nohighlight">\(~~\)</span> : predict continuous-value target features.</p></li>
+<li><p><span style="color:Tan">classification</span>: predict discrete-valued target features.</p></li>
+</ul>
+<p>Note that the target features might be a mix of continuous and discrete features, so this terminology is incomplete.</p>
+<p>Most of the high-profile machine learning applications from Google, Facebook, etc, involve classification rather than regression, so proportionally more effort has gone into developing and optimizing classification algorithms. However, most scientific applications are more naturally expressed as regression problems: this presents both a challenge and an opportunity to the scientific ML community!  Also note that a regression problem can always be converted into a classification problem by binning the output (assuming you don’t need infinite accuracy), which can be surprisingly effective.</p>
+<p>All unsupervised and supervised learning algorithms involve priors, <span class="math notranslate nohighlight">\(P(\Theta_M\mid M)\)</span> but they are not always stated explicitly. Sometimes priors are expressed implicitly via terms that are referred to as <span style="color:Violet">regularization conditions</span>.</p>
+</section>
+<section id="span-style-color-lightgreen-model-selection-revisited-span">
+<h3><span style="color:LightGreen">Model Selection Revisited</span><a class="headerlink" href="#span-style-color-lightgreen-model-selection-revisited-span" title="Permalink to this heading">#</a></h3>
+<p>When learning a model <span class="math notranslate nohighlight">\(M\)</span>, our quantitative measure of how well it explains the data <span class="math notranslate nohighlight">\(D\)</span> is the evidence <span class="math notranslate nohighlight">\(P(D\mid M)\)</span>.</p>
+<p>Since unsupervised and supervised learning requires first learning the model, we could use the same measure, but a different measure is also useful: how well does <span class="math notranslate nohighlight">\(M\)</span> explain unobserved data <span class="math notranslate nohighlight">\(D'\)</span>?  In other words, how well does the learned model generalize and offer predictive power?  In order to answer this question, in practice, you must hold back some of your observed data when learning the model and can then measure how well the model “postdicts” the held back data. The held back data is referred to as the <span style="color:Violet">test sample</span> and this process is known as <span style="color:Violet">cross validation</span>.</p>
+<p>In cases where the model and its parameters have some physical reality (for example, projectile motion modeled with Newtonian physics and parameterized by <span class="math notranslate nohighlight">\(g\)</span>, …), these measures are essentially the same since the model is dictated by some independent reality and not chosen specifically to explain the observed data <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p>However, when predicting future data is the main goal and there is no first-principles model available, the model and its parameters are essentially unconstrained and these two measures can easily diverge.  In particular, optimizing how well the model explains the observed data leads to <span style="color:Violet">over-fitting</span> and poor ability to <span style="color:Violet">generalize</span> to new data.</p>
+<p>For example, suppose the observed data <span class="math notranslate nohighlight">\(D\)</span> consists of <span class="math notranslate nohighlight">\(N\)</span> samples <span class="math notranslate nohighlight">\(x_i\)</span> of a single feature <span class="math notranslate nohighlight">\(x\)</span>, then a model <span class="math notranslate nohighlight">\(M\)</span> with the likelihood (<span class="math notranslate nohighlight">\(\delta_D\)</span> is the Dirac delta function)</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+P(x\mid \Theta_M, M) = \frac{1}{N}\, \sum_{i=1}^N \delta_D(x - x_i)
+\]</div>
+<p>trivially explains the data perfectly with the parameters</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+\Theta_M = \{ x_1, x_2, \ldots, x_N \} \; .
+\]</div>
+<p>This purely empirical approach to model building is an extreme case of over-fitting and offers no generalization power. (Note that the likelihood above is a kernel density estimate with a Dirac delta function kernel).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="span-style-color-orange-acknowledgments-span">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Mark Neubauer</p></li>
+</ul>
+<p>© Copyright 2023</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -556,6 +842,36 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-types-of-learning-span"><span style="color:Orange">Types of Learning</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-supervised-learning-span"><span style="color:LightGreen">Supervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-unsupervised-learning-span"><span style="color:LightGreen">Unsupervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-semi-supervised-learning-span"><span style="color:LightGreen">Semi-Supervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-reinforcement-learning-span"><span style="color:LightGreen">Reinforcement Learning</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-in-a-probabilistic-context-span"><span style="color:Orange">Learning in a Probabilistic Context</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-learning-a-model-span"><span style="color:LightGreen">Learning a Model</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><span style="color:LightGreen">Unsupervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><span style="color:LightGreen">Supervised Learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-terminology"><span style="color:LightGreen">Terminology</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-model-selection-revisited-span"><span style="color:LightGreen">Model Selection Revisited</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
