@@ -1,13 +1,15 @@
-# <span style="color: blue;"><b>Artificial Neural Networks</b></span>
+# <span style="color: blue;"><b>Supervised Learning & Artificial Neural Networks</b></span>
 
 ## *Overview*
-You will learn about artifical neural networks
+You will learn about supervised learning and artifical neural networks
 
 ## *Goals*
+* Supervised learning methods and examples
 * Learning and Inference using Neural Networks
 
 ## *Lecture Materials*
 * [Slides](https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing)
+* {doc}`lectures/Supervised`
 * {doc}`lectures/NeuralNetworks`
 
 ## *Homework Assignment*

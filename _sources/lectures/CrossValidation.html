@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Homework 08: Cross Validation" href="../homework/Homework_08.html" />
-    <link rel="prev" title="Supervised Learning" href="Supervised.html" />
+    <link rel="prev" title="Learning" href="Learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -246,10 +246,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Supervised Learning &amp; Cross Validation</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Learning.html">Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Supervised.html">Supervised Learning</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
 </ul>
@@ -257,8 +256,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Supervised.html">Supervised Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NeuralNetworks.html">Artificial Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 09: Artificial Neural Networks</a></li>
 </ul>
@@ -492,6 +492,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-train-test-split-span"><span style="color:Lightgreen">Train-Test Split</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-k-folding-span"><span style="color:Lightgreen">K-Folding</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-hyperparameter-grid-search-span"><span style="color:Lightgreen">Hyperparameter Grid Search</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-comparison-with-the-bayesian-evidence-span"><span style="color:Lightgreen">Comparison with the Bayesian Evidence</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
@@ -515,7 +516,9 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">mixture</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -617,7 +620,7 @@ document.write(`
     <span class="n">ylo</span><span class="p">,</span> <span class="n">yhi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
     <span class="n">dy</span> <span class="o">=</span> <span class="n">yhi</span> <span class="o">-</span> <span class="n">ylo</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylo</span> <span class="o">-</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">dy</span><span class="p">,</span> <span class="n">yhi</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">dy</span><span class="p">)</span>
-    
+
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plotXy</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plotXy</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -703,7 +706,7 @@ x \; \rightarrow\; \{ x^0, x^1, \ldots, x^P \} \; ,
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Test score $R^2$&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    
+
 <span class="n">test_fraction_scan</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -842,6 +845,350 @@ x \; \rightarrow\; \{ x^0, x^1, \ldots, x^P \} \; ,
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_probability</span> <span class="k">as</span> <span class="nn">tfp</span>
+<span class="kn">import</span> <span class="nn">tensorflow.compat.v2</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/google/edward2
+<span class="kn">import</span> <span class="nn">edward2</span> <span class="k">as</span> <span class="nn">ed</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-lightgreen-comparison-with-the-bayesian-evidence-span">
+<h3><span style="color:Lightgreen">Comparison with the Bayesian Evidence</span><a class="headerlink" href="#span-style-color-lightgreen-comparison-with-the-bayesian-evidence-span" title="Permalink to this heading">#</a></h3>
+<p>The function below estimates the Bayesian evidence for the data <span class="math notranslate nohighlight">\(D=(X,y)\)</span> given a polynomial model of degree <span class="math notranslate nohighlight">\(P\)</span>, using the same MCMC techniques we saw earlier. The evidence calculation requires an additional ingredient that we never specified for cross validation: a prior on the <span class="math notranslate nohighlight">\(P + 1\)</span> polynomial coefficients, which has a similar effect to a regularization term in an sklearn linear regression.  We adopt a Gaussian prior on each coefficient with the same scale, chosen to be large enough that the likelihood will dominate the posterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_param_grid</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a parameter grid from parameter samples.</span>
+
+<span class="sd">    Grids are based on 1D quantiles in each parameter, so are not uniform.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    samples : array</span>
+<span class="sd">        2D array with shape (N, P) containing N samples for P parameters.</span>
+<span class="sd">    n_grid : int</span>
+<span class="sd">        Number of grid points to use along each parameter axis.  The full</span>
+<span class="sd">        grid contains n_grid ** P points.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array</span>
+<span class="sd">        Array of shape (n_grid ** P, P) with parameters values covering the</span>
+<span class="sd">        full grid.  Can be reshaped to ([P] * (P+1)) to reconstruct the</span>
+<span class="sd">        P-dimensional grid structure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">shape</span>
+    <span class="c1"># Create a grid that is equally spaced in quantiles of each column.</span>
+    <span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">n_grid</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">)</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">samples</span><span class="o">.</span><span class="n">T</span><span class="p">]</span>
+    <span class="c1"># Flatten to an array P-tuples that cover the grid.</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">grid</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">estimate_log_evidence</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">log_numerator</span><span class="p">,</span> <span class="n">max_components</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                          <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Estimate the log evidence using MCMC samples.</span>
+
+<span class="sd">    The evidence is estimated at each grid point using the ratio of the</span>
+<span class="sd">    log_numerator and the empirical density of samples. Only grid points with</span>
+<span class="sd">    the largest log_numerator are used for the estimate. The density is</span>
+<span class="sd">    estimated with a Gaussian mixture model using the a number of components</span>
+<span class="sd">    that minimizes the spread of estimates over the selected grid points.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    samples : array</span>
+<span class="sd">        2D array with shape (N, P) containing N samples for P parameters.</span>
+<span class="sd">    param_grid : array</span>
+<span class="sd">        2D array with shape (n_grid ** P, P) to specify a grid that covers</span>
+<span class="sd">        the full parameter space. Normally obtained by calling</span>
+<span class="sd">        :func:`create_param_grid`.</span>
+<span class="sd">    log_numerator : array</span>
+<span class="sd">        1D array with shape (n_grid ** P,) with the log_likelihood+log_prior</span>
+<span class="sd">        value tabulated on the input parameter grid.</span>
+<span class="sd">    max_components : int</span>
+<span class="sd">        Maximum number of Gaussian mixture model components to use in</span>
+<span class="sd">        estimating the density of samples over the parameter space.</span>
+<span class="sd">    grid_fraction : float</span>
+<span class="sd">        The fraction of grid points with the highest log_numerator to use</span>
+<span class="sd">        for estimating the log_evidence.</span>
+<span class="sd">    plot : bool</span>
+<span class="sd">        When True, draw a scatter plot of log_numerator vs log_evidence for the</span>
+<span class="sd">        requested fraction of grid points, using the best found number of</span>
+<span class="sd">        GMM components.</span>
+<span class="sd">    seed : int or None</span>
+<span class="sd">        Random seed to use for reproducible results.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Estimate of the log evidence.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+    <span class="c1"># Only use grid points with the highest log_numerator value.</span>
+    <span class="n">cut</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">log_numerator</span><span class="p">,</span> <span class="mf">100.</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">grid_fraction</span><span class="p">))</span>
+    <span class="n">use</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">log_numerator</span> <span class="o">&gt;=</span> <span class="n">cut</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">use_grid</span> <span class="o">=</span> <span class="n">param_grid</span><span class="p">[</span><span class="n">use</span><span class="p">]</span>
+    <span class="n">use_log_numerator</span> <span class="o">=</span> <span class="n">log_numerator</span><span class="p">[</span><span class="n">use</span><span class="p">]</span>
+    <span class="c1"># Loop over the number of GMM components.</span>
+    <span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">log_evidence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">max_components</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">use</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_components</span><span class="p">):</span>
+        <span class="c1"># Fit the samples to a Gaussian mixture model.</span>
+        <span class="n">fit</span> <span class="o">=</span> <span class="n">mixture</span><span class="o">.</span><span class="n">GaussianMixture</span><span class="p">(</span>
+            <span class="n">n_components</span><span class="o">=</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">gen</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+        <span class="c1"># Evaluate the density on the grid.</span>
+        <span class="n">use_log_density</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">use_grid</span><span class="p">)</span>
+        <span class="c1"># Estimate the log(evidence) from each grid point.</span>
+        <span class="n">log_evidence</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">use_log_numerator</span> <span class="o">-</span> <span class="n">use_log_density</span>
+    <span class="c1"># Calculate the median and 90% spread.</span>
+    <span class="n">lo</span><span class="p">,</span> <span class="n">med</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">log_evidence</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">spread</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">hi</span> <span class="o">-</span> <span class="n">lo</span><span class="p">)</span>
+    <span class="n">best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">spread</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">use_log_numerator</span><span class="p">,</span> <span class="n">log_evidence</span><span class="p">[</span><span class="n">best</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$\log P(D\mid \Theta, M) + \log P(\Theta\mid M)$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$\log P(D\mid M)$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">lo</span><span class="p">[</span><span class="n">best</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">hi</span><span class="p">[</span><span class="n">best</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">med</span><span class="p">[</span><span class="n">best</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;n_GMM=</span><span class="si">{}</span><span class="s1">, logP(D|M)=</span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">best</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">med</span><span class="p">[</span><span class="n">best</span><span class="p">]))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">med</span><span class="p">[</span><span class="n">best</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_evidence</span><span class="p">(</span>
+    <span class="n">Xdata</span><span class="p">,</span>
+    <span class="n">ydata</span><span class="p">,</span>
+    <span class="n">degree</span><span class="p">,</span>
+    <span class="n">sigma_y</span><span class="o">=</span><span class="n">sigma_y</span><span class="p">,</span>
+    <span class="n">coef_sigma</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+    <span class="n">n_mc</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
+    <span class="n">n_grid</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="c1"># Use sklearn fit to initialize MCMC chains</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="n">poly_fit</span><span class="p">(</span><span class="n">Xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">coef_init</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">degree</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">coef_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">coef_init</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fit</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best fit coefficients:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">coef_init</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">coef_init</span><span class="p">)</span>
+
+    <span class="c1"># Build the graph for this inference</span>
+    <span class="c1">#</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+        <span class="c1"># Build the inference model</span>
+        <span class="c1">#</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+        <span class="n">XP</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span> <span class="o">**</span> <span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">degree</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="n">XX</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">XP</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;XX&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">x_data</span><span class="p">):</span>
+            <span class="n">coef</span> <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="n">P</span><span class="p">,),</span> <span class="n">coef_sigma</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;coef&quot;</span><span class="p">)</span>
+            <span class="n">y_true</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">coef</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])),</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">y_true</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma_y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">y</span>
+
+        <span class="n">log_joint</span> <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">make_log_joint_fn</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">target_log_prob_fn</span><span class="p">(</span><span class="n">coef</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Target log-probability as a function of states.&quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">log_joint</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="n">coef</span><span class="p">,</span> <span class="n">x_data</span><span class="o">=</span><span class="n">XX</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ydata</span><span class="p">)</span>
+
+        <span class="c1"># Define HMC kernel</span>
+        <span class="c1">#</span>
+        <span class="n">num_burnin_steps</span> <span class="o">=</span> <span class="mi">2000</span>
+        <span class="n">step_size</span> <span class="o">=</span> <span class="mf">1e-2</span>
+        <span class="n">num_leapfrog_steps</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="n">hmc_kernel</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">mcmc</span><span class="o">.</span><span class="n">HamiltonianMonteCarlo</span><span class="p">(</span>
+            <span class="n">target_log_prob_fn</span><span class="o">=</span><span class="n">target_log_prob_fn</span><span class="p">,</span>
+            <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
+            <span class="n">num_leapfrog_steps</span><span class="o">=</span><span class="n">num_leapfrog_steps</span>
+        <span class="p">)</span>
+
+        <span class="n">hmc_kernel</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">mcmc</span><span class="o">.</span><span class="n">SimpleStepSizeAdaptation</span><span class="p">(</span>
+            <span class="n">inner_kernel</span><span class="o">=</span><span class="n">hmc_kernel</span><span class="p">,</span>
+            <span class="n">num_adaptation_steps</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">num_burnin_steps</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Prepare for MCMC sampling</span>
+        <span class="c1">#</span>
+        <span class="k">def</span> <span class="nf">get_shape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="n">n</span><span class="p">,)</span>
+
+        <span class="n">mc_coef</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">get_shape</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">coef_init</span><span class="p">),</span>
+                                           <span class="n">mean</span><span class="o">=</span><span class="n">coef_init</span><span class="p">),</span>
+                <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+            <span class="p">),</span>
+            <span class="p">(</span><span class="n">P</span><span class="p">,),</span>
+        <span class="p">)</span>
+
+        <span class="n">states</span><span class="p">,</span> <span class="n">kernel_results</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">mcmc</span><span class="o">.</span><span class="n">sample_chain</span><span class="p">(</span>
+            <span class="n">num_results</span><span class="o">=</span><span class="n">n_mc</span><span class="p">,</span>
+            <span class="n">num_burnin_steps</span><span class="o">=</span><span class="n">num_burnin_steps</span><span class="p">,</span>
+            <span class="n">current_state</span><span class="o">=</span><span class="p">[</span><span class="n">mc_coef</span><span class="p">],</span>
+            <span class="n">kernel</span><span class="o">=</span><span class="n">hmc_kernel</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Prepare to tabulate log_likelihood + log_prior on a coefficient grid.</span>
+        <span class="c1">#</span>
+        <span class="n">coef_in</span>        <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">coef_out</span>       <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">coef_in</span><span class="p">),</span> <span class="n">coef_sigma</span><span class="p">))</span>
+        <span class="n">y_in</span>           <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">y_true_out</span>     <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">coef_in</span><span class="p">)))</span>
+        <span class="n">y_out</span>          <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">y_true_out</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma_y</span><span class="p">)</span>
+        <span class="n">log_likelihood</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">y_out</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">y_in</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">log_prior</span>      <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">coef_out</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">coef_in</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">log_numerator</span>  <span class="o">=</span> <span class="n">log_likelihood</span> <span class="o">+</span> <span class="n">log_prior</span>
+
+        <span class="n">init_op</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+        <span class="c1"># Run the inference using HMC to generate samples.</span>
+        <span class="c1">#</span>
+        <span class="n">init_op</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="n">states_</span><span class="p">,</span> <span class="n">results_</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">states</span><span class="p">,</span> <span class="n">kernel_results</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">Xdata</span><span class="p">})</span>
+        <span class="n">coef_samples</span> <span class="o">=</span> <span class="n">states_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Build a parameter grid for estimating the evidence.</span>
+        <span class="c1">#</span>
+        <span class="n">coef_grid</span> <span class="o">=</span> <span class="n">create_param_grid</span><span class="p">(</span><span class="n">coef_samples</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="n">n_grid</span><span class="p">)</span>
+
+        <span class="c1"># Evaluate log(likelihood) + log(prior) on the parameter grid.</span>
+        <span class="c1">#</span>
+        <span class="n">log_numerator_grid</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="n">log_numerator</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">Xdata</span><span class="p">,</span> <span class="n">y_in</span><span class="p">:</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">coef_in</span><span class="p">:</span> <span class="n">coef_grid</span><span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">estimate_log_evidence</span><span class="p">(</span>
+        <span class="n">coef_samples</span><span class="p">,</span> <span class="n">coef_grid</span><span class="p">,</span> <span class="n">log_numerator_grid</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="n">grid_fraction</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_Ea_P0</span> <span class="o">=</span> <span class="n">calculate_evidence</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_Eb_P0</span> <span class="o">=</span> <span class="n">calculate_evidence</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_Ea_P1</span> <span class="o">=</span> <span class="n">calculate_evidence</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_Eb_P1</span> <span class="o">=</span> <span class="n">calculate_evidence</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_Ea_P2</span> <span class="o">=</span> <span class="n">calculate_evidence</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_Eb_P2</span> <span class="o">=</span> <span class="n">calculate_evidence</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_Ea_P3</span> <span class="o">=</span> <span class="n">calculate_evidence</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">ya</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_Eb_P3</span> <span class="o">=</span> <span class="n">calculate_evidence</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">grid_fraction</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Summarize these estimated log evidence values, <span class="math notranslate nohighlight">\(\log P(D\mid M)\)</span>, for the four models considered, P0-3:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">log_Ea_P0</span><span class="p">,</span> <span class="n">log_Eb_P0</span><span class="p">],</span> <span class="s1">&#39;P1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">log_Ea_P1</span><span class="p">,</span> <span class="n">log_Eb_P1</span><span class="p">],</span>
+    <span class="s1">&#39;P2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">log_Ea_P2</span><span class="p">,</span> <span class="n">log_Eb_P2</span><span class="p">],</span> <span class="s1">&#39;P3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">log_Ea_P3</span><span class="p">,</span> <span class="n">log_Eb_P3</span><span class="p">]},</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;N=15&#39;</span><span class="p">,</span> <span class="s1">&#39;N=150&#39;</span><span class="p">))</span>
+<span class="n">results</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Use the table of <span class="math notranslate nohighlight">\(\log P(D\mid M)\)</span> values above to answer the following questions:</p>
+<ul class="simple">
+<li><p>Which model best explains the <span class="math notranslate nohighlight">\(N=15\)</span> dataset?</p></li>
+<li><p>Which model best explains the <span class="math notranslate nohighlight">\(N=150\)</span> dataset?</p></li>
+<li><p>Which pairs of models have a Bayes’ factor <span class="math notranslate nohighlight">\(&gt; 100\)</span>, indicating “decisive evidence” favoring one model over the other?</p></li>
+<li><p>Does “decisive evidence” that favors one model over another indicate that the favored model is correct?</p></li>
+<li><p>Are the model comparisons based on evidence substantially different from those based on cross validation in this example?</p></li>
+</ul>
+<p>The <span class="math notranslate nohighlight">\(N=15\)</span> dataset is best explained by the P1 model (since it has the maximum value in the first row of the table).</p>
+<p>The <span class="math notranslate nohighlight">\(N=150\)</span> dataset is best explained by the P2 model (since it has the maximum value in the first row of the table).</p>
+<p>A Bayes’ factor <span class="math notranslate nohighlight">\(&gt; 100\)</span> corresponds to a difference in <span class="math notranslate nohighlight">\(\log P(D\mid M)\)</span> of <span class="math notranslate nohighlight">\(\log 100 \simeq 4.6\)</span>.</p>
+<p>Here is a table showing which model pairs pass this test for <span class="math notranslate nohighlight">\(N=15\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">row</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And for <span class="math notranslate nohighlight">\(N=150\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">row</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We find that, in both cases, the P1, P2, and P3 models are all “decisively favored” over P0 as explanations for the data.</p>
+<p>The Bayes’ factor is calculated for a pair of models, without considering the range of all possible models. A high value can either indicate that one model of the pair is particularly good or that the other model is particularly bad (or some combination of these). In this example, P0 is particularly bad. In general, the Bayes’ factor compares models relative to each other, but does not offer any absolute measure of how well either model explains the data.</p>
+<p>These evidence-based model comparisons are broadly consistent with the earlier cross-validation comparisons, but with some differences in the details. The advantages of using evidence are clearer for the smaller dataset, where the cross validation results are difficult to interpret and priors have more influence. Ideally, you should use both methods and compare.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -885,12 +1232,12 @@ x \; \rightarrow\; \{ x^0, x^1, \ldots, x^P \} \; ,
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Supervised.html"
+       href="Learning.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Supervised Learning</p>
+        <p class="prev-next-title">Learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -924,6 +1271,7 @@ x \; \rightarrow\; \{ x^0, x^1, \ldots, x^P \} \; ,
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-train-test-split-span"><span style="color:Lightgreen">Train-Test Split</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-k-folding-span"><span style="color:Lightgreen">K-Folding</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-hyperparameter-grid-search-span"><span style="color:Lightgreen">Hyperparameter Grid Search</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-comparison-with-the-bayesian-evidence-span"><span style="color:Lightgreen">Comparison with the Bayesian Evidence</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
