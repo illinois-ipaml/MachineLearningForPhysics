@@ -73,20 +73,20 @@ parts:
         - file: _sources/lectures/ModelSelection
   - caption: Supervised Learning & Cross Validation
     chapters:
-      - file: _sources/Week_09 # Supervised Learning & Cross Validation
+      - file: _sources/Week_09 # Learning & Cross Validation
         sections:
         - url: https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/Learning
-        - file: _sources/lectures/Supervised
         - file: _sources/lectures/CrossValidation
         - file: _sources/homework/Homework_08
   - caption: Artificial Neural Networks
     chapters:
-      - file: _sources/Week_10 # Artificial Neural Networks
+      - file: _sources/Week_10 # Supervised Learning & Artificial Neural Networks
         sections:
         - url: https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing
           title: Slides
+        - file: _sources/lectures/Supervised
         - file: _sources/lectures/NeuralNetworks
         - file: _sources/homework/Homework_09
   - caption: Deep Learning
