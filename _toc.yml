@@ -58,6 +58,7 @@ parts:
         - file: _sources/projects/Project_01_ExoticParticles
         - file: _sources/projects/Project_01_GalaxyZoo
         - file: _sources/projects/Project_01_NuclearGeometryQGP
+        - file: _sources/projects/Project_01_DarkEnergySurvey
       - file: _sources/Week_07 # Stochastic Processes, Markov Chains & Variational Inference
         sections:
         - url: https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing
