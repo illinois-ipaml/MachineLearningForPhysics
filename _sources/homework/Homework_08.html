@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/homework/Homework_08';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -483,7 +485,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
 </ul>
             </nav>
         </div>
@@ -504,12 +507,207 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="problem-1">
-<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">ensemble</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Helpers for Getting, Loading and Locating Data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wget_data</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">local_path</span> <span class="o">=</span> <span class="s1">&#39;./tmp_data&#39;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;wget&quot;</span><span class="p">,</span> <span class="s2">&quot;-nc&quot;</span><span class="p">,</span> <span class="s2">&quot;-P&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">url</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">while</span> <span class="n">rc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="n">line</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+      <span class="n">rc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">locate_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">check_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">local_path</span><span class="o">=</span><span class="s1">&#39;./tmp_data&#39;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check_exists</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">RuxntimeError</span><span class="p">(</span><span class="s1">&#39;No such data file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-orange-problem-1-span">
+<h2><span style="color:Orange">Problem 1</span><a class="headerlink" href="#span-style-color-orange-problem-1-span" title="Permalink to this heading">#</a></h2>
+<p>The default score function used by sklearn to evaluate how well a regression model predicts data is the <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a> <span class="math notranslate nohighlight">\(R^2\)</span>. Implement the function below to calculate <span class="math notranslate nohighlight">\(R^2\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_R2</span><span class="p">(</span><span class="n">y_data</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the coefficient of determination R2 for two arrays.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y_data : array</span>
+<span class="sd">        Array of data values, must have the same shape as y_pred.</span>
+<span class="sd">    y_pred : array</span>
+<span class="sd">        Array of predicted values, must have the same shape as y_data.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Calculated coefficient of determination R2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">y_data</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A correct solution should pass the tests below.</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">+</span> <span class="n">gen</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">calculate_R2</span><span class="p">(</span><span class="n">y_data</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.961</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">calculate_R2</span><span class="p">(</span><span class="n">y_data</span><span class="p">,</span> <span class="o">-</span><span class="n">y_pred</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mf">2.935</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">calculate_R2</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.000</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">calculate_R2</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="o">-</span><span class="n">y_pred</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mf">3.000</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">calculate_R2</span><span class="p">(</span><span class="n">y_data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))),</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.000</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-orange-problem-2-span">
+<h2><span style="color:Orange">Problem 2</span><a class="headerlink" href="#span-style-color-orange-problem-2-span" title="Permalink to this heading">#</a></h2>
+<p>Implement the function below to perform a <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">grid-search cross validation</a> of a <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html">random forest regression</a> over the following grid:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> = 1, 10, 20</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> = 5, 10, 15</p></li>
+</ul>
+<p>Hint: you will need to ensure reproducible “random” behavior in order to pass all the tests.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cv_summary</span><span class="p">(</span><span class="n">cv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Summarize the results from a GridSearchCV fit.</span>
+
+<span class="sd">    Summarize a cross-validation grid search in a pandas DataFrame with the</span>
+<span class="sd">    following transformations of the full results:</span>
+<span class="sd">      - Remove all columns with timing measurements.</span>
+<span class="sd">      - Remove the &#39;param_&#39; prefix from column names.</span>
+<span class="sd">      - Remove the &#39;_score&#39; suffix from column names.</span>
+<span class="sd">      - Round scores to 3 decimal places.</span>
+
+<span class="sd">     If the parameter grid is 1D, then this function also plots the test</span>
+<span class="sd">     and training R2 scores versus the parameter.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cv : sklearn.model_selection.GridSearchCV</span>
+<span class="sd">        Instance of a GridSearchCV object that has been fit to some data.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Summary table of cross-validation results.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Look up the list of parameters used in the grid.</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="c1"># Index results by the test score rank.</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;rank_test_score&#39;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">,</span> <span class="s1">&#39;rank_test_score&#39;</span><span class="p">])</span>
+    <span class="c1"># Remove columns that measure running time.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_time&#39;</span><span class="p">)])</span>
+    <span class="c1"># Remove param_ prefix from column names.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span> <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;param_&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">n</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+    <span class="c1"># Remove _score suffix from column names.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[:</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_score&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">n</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># Plot the test and training scores vs the grid parameter when there is only one.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mean_train&#39;</span><span class="p">],</span> <span class="s1">&#39;o:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mean_test&#39;</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hyperparameter value&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Score $R^2$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mean_test&#39;</span><span class="p">])),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cross_validate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">gen</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform cross validation of a random forest regression.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : array</span>
+<span class="sd">        Array with shape (N, DX) of N samples with DX features.</span>
+<span class="sd">    Y : array</span>
+<span class="sd">        Array with shape (N, DY) of N samples with DY features.</span>
+<span class="sd">    gen : np.random.RandomState</span>
+<span class="sd">        Random state to use for reproducible random numbers.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Cross-validation summary table produced by cv_summary().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/spectra_data.hf5&#39;</span><span class="p">)</span>
+<span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/spectra_targets.hf5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;spectra_data.hf5&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">values</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;spectra_targets.hf5&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A correct solution should pass the tests below.</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">cvs</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">gen</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">cvs</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="p">[</span>
+    <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">,</span> <span class="s1">&#39;n_estimators&#39;</span><span class="p">,</span> <span class="s1">&#39;split0_test&#39;</span><span class="p">,</span> <span class="s1">&#39;split1_test&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;mean_test&#39;</span><span class="p">,</span> <span class="s1">&#39;std_test&#39;</span><span class="p">,</span> <span class="s1">&#39;split0_train&#39;</span><span class="p">,</span> <span class="s1">&#39;split1_train&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_train&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;std_train&#39;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">cvs</span><span class="p">[</span><span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">cvs</span><span class="p">[</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span>
+    <span class="n">cvs</span><span class="p">[</span><span class="s1">&#39;mean_test&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="p">[</span><span class="mf">0.961</span><span class="p">,</span> <span class="mf">0.955</span><span class="p">,</span> <span class="mf">0.942</span><span class="p">,</span> <span class="mf">0.896</span><span class="p">,</span> <span class="mf">0.891</span><span class="p">,</span> <span class="mf">0.879</span><span class="p">,</span> <span class="mf">0.496</span><span class="p">,</span> <span class="mf">0.490</span><span class="p">,</span> <span class="mf">0.480</span><span class="p">],</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span>
+    <span class="n">cvs</span><span class="p">[</span><span class="s1">&#39;mean_train&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="p">[</span><span class="mf">0.993</span><span class="p">,</span> <span class="mf">0.992</span><span class="p">,</span> <span class="mf">0.990</span><span class="p">,</span> <span class="mf">0.909</span><span class="p">,</span> <span class="mf">0.908</span><span class="p">,</span> <span class="mf">0.905</span><span class="p">,</span> <span class="mf">0.512</span><span class="p">,</span> <span class="mf">0.515</span><span class="p">,</span> <span class="mf">0.507</span><span class="p">],</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -576,7 +774,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
 </ul>
   </nav></div>
 
