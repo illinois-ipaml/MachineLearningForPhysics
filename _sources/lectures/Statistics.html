@@ -206,11 +206,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Density.html">Estimating Probability Density from Data</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Statistics</a></li>
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
 </li>
@@ -487,18 +482,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Statistics</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-get-data-span"><span style="color:Orange">Get Data</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-load-data-span"><span style="color:Orange">Load Data</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-statistical-methods-span"><span style="color:Orange">Statistical Methods</span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-expectation-span"><span style="color:LightGreen">Expectation</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-covariance-span"><span style="color:LightGreen">Covariance</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-get-data-span"><span style="color:Orange">Get Data</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-load-data-span"><span style="color:Orange">Load Data</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-statistical-methods-span"><span style="color:Orange">Statistical Methods</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-expectation-span"><span style="color:LightGreen">Expectation</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-covariance-span"><span style="color:LightGreen">Covariance</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-jensen-s-inequality-span"><span style="color:Orange">Jensen’s Inequality</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-jensen-s-inequality-span"><span style="color:Orange">Jensen’s Inequality</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -509,7 +502,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="statistics">
+  <section class="tex2jax_ignore mathjax_ignore" id="statistics">
 <h1>Statistics<a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -548,9 +541,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
 <section id="span-style-color-orange-get-data-span">
-<h1><span style="color:Orange">Get Data</span><a class="headerlink" href="#span-style-color-orange-get-data-span" title="Permalink to this heading">#</a></h1>
+<h2><span style="color:Orange">Get Data</span><a class="headerlink" href="#span-style-color-orange-get-data-span" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/blobs_data.hf5&#39;</span><span class="p">)</span>
@@ -565,7 +557,7 @@ document.write(`
 </div>
 </section>
 <section id="span-style-color-orange-load-data-span">
-<h1><span style="color:Orange">Load Data</span><a class="headerlink" href="#span-style-color-orange-load-data-span" title="Permalink to this heading">#</a></h1>
+<h2><span style="color:Orange">Load Data</span><a class="headerlink" href="#span-style-color-orange-load-data-span" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blobs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;blobs_data.hf5&#39;</span><span class="p">))</span>
@@ -652,10 +644,10 @@ document.write(`
 </div>
 </section>
 <section id="span-style-color-orange-statistical-methods-span">
-<h1><span style="color:Orange">Statistical Methods</span><a class="headerlink" href="#span-style-color-orange-statistical-methods-span" title="Permalink to this heading">#</a></h1>
+<h2><span style="color:Orange">Statistical Methods</span><a class="headerlink" href="#span-style-color-orange-statistical-methods-span" title="Permalink to this heading">#</a></h2>
 <p>The boundary between probability and statistics is somewhat gray (similar to astronomy and astrophysics).  However, you can roughly think of statistics as the applied cousin of probability theory.</p>
 <section id="span-style-color-lightgreen-expectation-span">
-<h2><span style="color:LightGreen">Expectation</span><a class="headerlink" href="#span-style-color-lightgreen-expectation-span" title="Permalink to this heading">#</a></h2>
+<h3><span style="color:LightGreen">Expectation</span><a class="headerlink" href="#span-style-color-lightgreen-expectation-span" title="Permalink to this heading">#</a></h3>
 <p>Given a probability density <span class="math notranslate nohighlight">\(P(x,y)\)</span>, and an arbitrary function <span class="math notranslate nohighlight">\(g(x,y)\)</span> of the same random variables, the <strong>expectation value</strong> of <span class="math notranslate nohighlight">\(g\)</span> is defined as:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -762,7 +754,7 @@ $$, \\suggests that two passes through the data are necessary to calculate varia
 <p>that can be evaluated in a single pass by simultaneously accumulating the first and second moments of <span class="math notranslate nohighlight">\(x\)</span>. However, this approach should generally not be used since it involves a cancellation between relatively large quantities that is subject to large round-off error. More details and recommended one-pass (aka “online”) formulas are <a class="reference external" href="https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance">here</a>.</p>
 </section>
 <section id="span-style-color-lightgreen-covariance-span">
-<h2><span style="color:LightGreen">Covariance</span><a class="headerlink" href="#span-style-color-lightgreen-covariance-span" title="Permalink to this heading">#</a></h2>
+<h3><span style="color:LightGreen">Covariance</span><a class="headerlink" href="#span-style-color-lightgreen-covariance-span" title="Permalink to this heading">#</a></h3>
 <p>It is useful to construct the <strong>covariance matrix</strong> <span class="math notranslate nohighlight">\(C\)</span> with elements:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
@@ -841,7 +833,7 @@ we can calculate an empirical covariance for <em>any</em> data, whether or not i
 </section>
 </section>
 <section id="span-style-color-orange-jensen-s-inequality-span">
-<h1><span style="color:Orange">Jensen’s Inequality</span><a class="headerlink" href="#span-style-color-orange-jensen-s-inequality-span" title="Permalink to this heading">#</a></h1>
+<h2><span style="color:Orange">Jensen’s Inequality</span><a class="headerlink" href="#span-style-color-orange-jensen-s-inequality-span" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Convex_function">Convex functions</a> play a special role in optimization algorithms (which we will talk more about soon) since they have a single global minimum with no secondary local minima. The parabola <span class="math notranslate nohighlight">\(g(x) = a (x - x_0)^2 + b\)</span> is a simple 1D example, having its minimum value of <span class="math notranslate nohighlight">\(b\)</span> at <span class="math notranslate nohighlight">\(x = x_0\)</span>, but convex functions can have any dimensionality and need not be parabolic (second order).</p>
 <p>Expectations involving a convex function <span class="math notranslate nohighlight">\(g\)</span> satisfy <a class="reference external" href="https://en.wikipedia.org/wiki/Jensen's_inequality">Jensen’s inequality</a>, which we will use later:</p>
 <div class="math notranslate nohighlight">
@@ -886,14 +878,15 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 <li><p>Lower horizontal (red) line.</p></li>
 </ol>
 <p>Jensen’s inequality is satisfied, as required since <span class="math notranslate nohighlight">\(g(x)\)</span> is convex.</p>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
-<h1><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h1>
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
 <p>© Copyright 2023</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -959,18 +952,16 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Statistics</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-get-data-span"><span style="color:Orange">Get Data</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-load-data-span"><span style="color:Orange">Load Data</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-statistical-methods-span"><span style="color:Orange">Statistical Methods</span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-expectation-span"><span style="color:LightGreen">Expectation</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-covariance-span"><span style="color:LightGreen">Covariance</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-get-data-span"><span style="color:Orange">Get Data</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-load-data-span"><span style="color:Orange">Load Data</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-statistical-methods-span"><span style="color:Orange">Statistical Methods</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-expectation-span"><span style="color:LightGreen">Expectation</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-covariance-span"><span style="color:LightGreen">Covariance</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-jensen-s-inequality-span"><span style="color:Orange">Jensen’s Inequality</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-jensen-s-inequality-span"><span style="color:Orange">Jensen’s Inequality</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
