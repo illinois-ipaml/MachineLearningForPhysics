@@ -656,7 +656,7 @@ y = X w + \delta y \; .
 <p>The noise is usually assumed to be Gaussian but, in the most general case, this is complex to model since there are potentially <span class="math notranslate nohighlight">\(n^2 m^2\)</span> covariances (only ~half of which are independent),</p>
 <div class="math notranslate nohighlight">
 \[ \Large
-\langle \delta Y_{ij} \delta Y_{pq}\rangle \; ,
+\langle \delta Y_{ij} ~\delta Y_{pq}\rangle \; ,
 \]</div>
 <p>to account for:</p>
 <ul class="simple">
@@ -667,7 +667,7 @@ y = X w + \delta y \; .
 <p>In practice, the most general problem we solve is when</p>
 <div class="math notranslate nohighlight">
 \[ \Large
-\langle \delta Y_{ip} \delta Y_{jq}\rangle = C_{ij} \; ,
+\langle \delta Y_{ip} ~\delta Y_{jq}\rangle = C_{ij} \; ,
 \]</div>
 <p>i.e., all <span class="math notranslate nohighlight">\(m\)</span> features have the same variance <span class="math notranslate nohighlight">\(C_{ii}\)</span> for sample <span class="math notranslate nohighlight">\(i\)</span>, but samples are potentially correlated.  The resulting <span class="math notranslate nohighlight">\(n\times n\)</span> “sample covariance matrix” <span class="math notranslate nohighlight">\(C\)</span> then specifies the likelihood</p>
 <div class="math notranslate nohighlight">
@@ -681,7 +681,7 @@ P(X,Y\mid W, C) = \prod_{k=1}^m\, \left(2\pi C\right)^{-1/2}\,
 \[ \Large
 C = \sigma^2 ~{\mathbb 1}_{n\times n} \; ,
 \]</div>
-<p>which we refer to as <strong>homoscedastic</strong> errors.  Any type of non-homescedastic errors are called <strong>heteroscedastic</strong>.</p>
+<p>which we refer to as <span style="color:Violet">homoscedastic</span> errors.  Any type of non-homescedastic errors are called <span style="color:Violet">heteroscedastic</span>.</p>
 <section id="span-style-color-tan-example-span-span-style-color-violet-fitting-a-line-span">
 <h4><em><strong><span style="color:Tan">Example</strong></em></span>: <span style="color:Violet">Fitting a Line</span><a class="headerlink" href="#span-style-color-tan-example-span-span-style-color-violet-fitting-a-line-span" title="Permalink to this heading">#</a></h4>
 <p>Read our <code class="docutils literal notranslate"><span class="pre">line_data</span></code> dataset:</p>
