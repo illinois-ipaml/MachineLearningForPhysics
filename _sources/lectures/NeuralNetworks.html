@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -812,15 +812,16 @@ X_\text{out} = N(X_\text{in}; \Theta)
 \[ \Large
 f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
 \]</div>
-<p>with <span class="math notranslate nohighlight">\(D+1\)</span> parameters consisting of <span class="math notranslate nohighlight">\(D\)</span> <strong>weights</strong> <span class="math notranslate nohighlight">\(w_i\)</span> and a single <strong>bias</strong> <span class="math notranslate nohighlight">\(b\)</span>. The corresponding <a class="reference external" href="http://alexlenail.me/NN-SVG/index.html">graph</a> (with <span class="math notranslate nohighlight">\(D=8\)</span>) is:</p>
+<p>with <span class="math notranslate nohighlight">\(D+1\)</span> parameters consisting of <span class="math notranslate nohighlight">\(D\)</span> <span style="color:Violet">weights</span> <span class="math notranslate nohighlight">\(w_i\)</span> and a single <span style="color:Violet">bias</span> <span class="math notranslate nohighlight">\(b\)</span>. The corresponding <a class="reference external" href="http://alexlenail.me/NN-SVG/index.html">graph</a> (with <span class="math notranslate nohighlight">\(D=8\)</span>) is:</p>
 <p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_unit.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_unit.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_unit.png" style="width: 400px;" /></a></img><br></p>
 <p>where the left nodes correspond to the elements of the input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, the edges correspond to the elements of <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> (thickness ~ strength, red/blue are pos/neg values), and the right node is the output value <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>. The recipe for obtaining the output value is then:</p>
 <ul class="simple">
 <li><p>propagate each input value <span class="math notranslate nohighlight">\(x_i\)</span> with a strength <span class="math notranslate nohighlight">\(w_i\)</span>,</p></li>
 <li><p>sum the values <span class="math notranslate nohighlight">\(x_i w_i\)</span>,</p></li>
+<li><p>add a bias value <span class="math notranslate nohighlight">\(b\)</span></p></li>
 <li><p>apply the activation <span class="math notranslate nohighlight">\(\phi\)</span>.</p></li>
 </ul>
-<p>Note that this building block is mostly linear, except for the <strong>activation function</strong> <span class="math notranslate nohighlight">\(\phi(s)\)</span>. This is an application of the kernel trick that we met <a class="reference internal" href="Nonlinear.html"><span class="doc std std-doc">earlier</span></a>, and allows us to implicitly work in a higher dimensional space where non-linear structure in data is easier to model.</p>
+<p>Note that this building block is mostly linear, except for the <span style="color:Violet">activation function</span> <span class="math notranslate nohighlight">\(\phi(s)\)</span>. This is an application of the kernel trick that we met <a class="reference internal" href="Nonlinear.html"><span class="doc std std-doc">earlier</span></a>, and allows us to implicitly work in a higher dimensional space where non-linear structure in data is easier to model.</p>
 <p>The building-block equation is straightfoward to implement as code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -845,11 +846,11 @@ f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
 <p>Some popular activations are defined below (using <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">lambda functions</a>). For the full list supported in PyTorch see <a class="reference external" href="https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relu</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-<span class="n">elu</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="c1"># expm1(s) = exp(s) - 1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relu</span>     <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="n">elu</span>      <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="c1"># expm1(s) = exp(s) - 1</span>
 <span class="n">softplus</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-<span class="n">sigmoid</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">))</span> <span class="c1"># also known as the &quot;logistic function&quot;</span>
-<span class="n">tanh</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">sigmoid</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">))</span> <span class="c1"># also known as the &quot;logistic function&quot;</span>
+<span class="n">tanh</span>     <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="n">softsign</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -891,12 +892,12 @@ f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
 <hr class="docutils" />
 <section id="span-style-color-lightgreen-network-layer-span">
 <h3><span style="color:LightGreen">Network Layer</span><a class="headerlink" href="#span-style-color-lightgreen-network-layer-span" title="Permalink to this heading">#</a></h3>
-<p>What happens if we replace the vectors <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> above with matrices?</p>
+<p>What happens if we replace the vectors <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> above with <em>matrices</em>?</p>
 <div class="math notranslate nohighlight">
 \[\Large
 F(X) = \phi\left( X W + \mathbf{b}\right)
 \]</div>
-<p>If <span class="math notranslate nohighlight">\(X\)</span> has shape <span class="math notranslate nohighlight">\((N, D)\)</span> and holds <span class="math notranslate nohighlight">\(N\)</span> samples of <span class="math notranslate nohighlight">\(D\)</span> features, then <span class="math notranslate nohighlight">\(W\)</span> must have shape <span class="math notranslate nohighlight">\((D, M)\)</span> so <span class="math notranslate nohighlight">\(F(X)\)</span> converts the <span class="math notranslate nohighlight">\(D\)</span> input features into <span class="math notranslate nohighlight">\(M\)</span> output features for each sample. We say that <span class="math notranslate nohighlight">\(F\)</span> represents a linear network <strong>layer</strong> with <span class="math notranslate nohighlight">\(D\)</span> input nodes and <span class="math notranslate nohighlight">\(M\)</span> output nodes. Note that the bias is now a vector of <span class="math notranslate nohighlight">\(M\)</span> bias values, one for each output value.</p>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> has shape <span class="math notranslate nohighlight">\((N, D)\)</span> and holds <span class="math notranslate nohighlight">\(N\)</span> samples of <span class="math notranslate nohighlight">\(D\)</span> features, then <span class="math notranslate nohighlight">\(W\)</span> must have shape <span class="math notranslate nohighlight">\((D, M)\)</span> so <span class="math notranslate nohighlight">\(F(X)\)</span> converts the <span class="math notranslate nohighlight">\(D\)</span> input features into <span class="math notranslate nohighlight">\(M\)</span> output features for each sample. We say that <span class="math notranslate nohighlight">\(F\)</span> represents a linear network <span style="color:Violet">layer</span> with <span class="math notranslate nohighlight">\(D\)</span> input nodes and <span class="math notranslate nohighlight">\(M\)</span> output nodes. Note that the bias is now a vector of <span class="math notranslate nohighlight">\(M\)</span> bias values, one for each output value.</p>
 <p>We cannot really add a vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> to the matrix <span class="math notranslate nohighlight">\(X W\)</span> but we are using the “broadcasting” convention that this means add the same vector to each row (sample) of <span class="math notranslate nohighlight">\(X W\)</span>.  We also cannot apply <span class="math notranslate nohighlight">\(\phi(s)\)</span> to a matrix, but we are using the “elementwise” convention that this means apply <span class="math notranslate nohighlight">\(\phi\)</span> separately to each element of the matrix.</p>
 <p>To connect this matrix version with our earlier vector version, notice that <span class="math notranslate nohighlight">\(F(X)\)</span> transforms a single input sample <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> (row of <span class="math notranslate nohighlight">\(X\)</span>) into <span class="math notranslate nohighlight">\(M\)</span> different outputs, <span class="math notranslate nohighlight">\(f_m(\mathbf{x}_i)\)</span> each with their own weight vector and bias value:</p>
 <div class="math notranslate nohighlight">
@@ -918,14 +919,14 @@ f_m(\mathbf{x}_i) = \phi\left(\mathbf{x}_i\cdot \mathbf{w}_m + b_m\right) \; ,
 </section>
 <section id="span-style-color-lightgreen-network-graph-span">
 <h3><span style="color:LightGreen">Network Graph</span><a class="headerlink" href="#span-style-color-lightgreen-network-graph-span" title="Permalink to this heading">#</a></h3>
-<p>Finally, we can build a simple <strong>fully connected graph</strong> by stacking layers horizontally, which corresponds to nested calls of each layer’s function. For example, with 3 layers computed by <span class="math notranslate nohighlight">\(F\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(H\)</span> stacked (left to right), the overall graph computation is:</p>
+<p>Finally, we can build a simple <span style="color:Violet">fully connected graph</span> by stacking layers horizontally, which corresponds to nested calls of each layer’s function. For example, with 3 layers computed by <span class="math notranslate nohighlight">\(F\)</span>, <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(H\)</span> stacked (left to right), the overall graph computation is:</p>
 <div class="math notranslate nohighlight">
 \[\Large
 N(X) = H\left(G\left(F(X)\right)\right) \; ,
 \]</div>
 <p>with a corresponding graph:</p>
 <p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_graph.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_graph.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_graph.png" style="width: 900px;" /></a></img><br></p>
-<p>Nodes between the input (leftmost) and output (rightmost) nodes are known as <strong>hidden nodes</strong>.</p>
+<p>Nodes between the input (leftmost) and output (rightmost) nodes are known as <span style="color:Violet">hidden nodes</span>.</p>
 <p>The corresponding code for arbitrary layers is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1456,7 +1457,7 @@ but we can not directly interpret their values as category probabilities since t
 </div>
 </div>
 </div>
-<p>The example above assumed output activations that can be large an positive, such as <code class="docutils literal notranslate"><span class="pre">relu</span></code> or <code class="docutils literal notranslate"><span class="pre">elu</span></code>. However, the strength of the <em>winner takes all</em> effect depends on how the outputs are scaled, and is relatively weak for output activations that saturate on both sides, such as <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code> or <code class="docutils literal notranslate"><span class="pre">tanh</span></code>, which is why these are generally not used for classification outputs:</p>
+<p>The example above assumed output activations that can be large and positive, such as <code class="docutils literal notranslate"><span class="pre">relu</span></code> or <code class="docutils literal notranslate"><span class="pre">elu</span></code>. However, the strength of the <em>winner takes all</em> effect depends on how the outputs are scaled, and is relatively weak for output activations that saturate on both sides, such as <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code> or <code class="docutils literal notranslate"><span class="pre">tanh</span></code>, which is why these are generally not used for classification outputs:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_softmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -1464,7 +1465,7 @@ but we can not directly interpret their values as category probabilities since t
 </div>
 </div>
 </div>
-<p>Note that we assume <strong>one-hot encoding</strong> of the vector target values <span class="math notranslate nohighlight">\(\mathbf{y}^{out}\)</span>, which is not very efficient (unless using sparse-optimized data structures) compared to a single integer target value <span class="math notranslate nohighlight">\(y^{train} = 0, 1, \ldots, C-1\)</span>. However, sklearn has a <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">convenient utility</a> to convert integers to one-hot encoded vectors (use <code class="docutils literal notranslate"><span class="pre">sparse=True</span></code> to return vectors in an efficient <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html">scipy sparse array</a>).</p>
+<p>Note that we assume <span style="color:Violet">one-hot encoding</span> of the vector target values <span class="math notranslate nohighlight">\(\mathbf{y}^{out}\)</span>, which is not very efficient (unless using sparse-optimized data structures) compared to a single integer target value <span class="math notranslate nohighlight">\(y^{train} = 0, 1, \ldots, C-1\)</span>. However, sklearn has a <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">convenient utility</a> to convert integers to one-hot encoded vectors (use <code class="docutils literal notranslate"><span class="pre">sparse=True</span></code> to return vectors in an efficient <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html">scipy sparse array</a>).</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -1608,8 +1609,8 @@ By Mark Neubauer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
