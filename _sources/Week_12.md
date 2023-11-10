@@ -11,7 +11,7 @@ You will learn about graph neural networks
 * {doc}`lectures/GraphNeuralNetworks`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_11`
+* None
 
 ## *Supplemental Readings*
 * None

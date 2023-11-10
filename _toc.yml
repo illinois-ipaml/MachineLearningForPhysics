@@ -103,14 +103,13 @@ parts:
         - url: https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/GraphNeuralNetworks
-        - file: _sources/homework/Homework_11
       - file: _sources/Project_02 # Project 02
       - file: _sources/Week_13 # Unsupervised Learning
         sections:
         - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/UnsupervisedLearning
-        - file: _sources/homework/Homework_12
+        - file: _sources/homework/Homework_11
   - caption: Accelerated Machine Learning and Inference
     chapters:
       - file: _sources/Week_14 # Accelerated Machine Learning and Inference
