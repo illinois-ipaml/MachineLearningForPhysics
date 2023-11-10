@@ -11,7 +11,7 @@ You will learn about unsupervised learning
 * {doc}`lectures/UnsupervisedLearning`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_12`
+* {doc}`homework/Homework_11`
 
 ## *Supplemental Readings*
 * None
