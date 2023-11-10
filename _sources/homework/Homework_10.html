@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Homework 10: Deep Neural Networks &#8212; PHYS 503</title>
+    <title>Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks &#8212; PHYS 503</title>
   
   
   
@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/homework/Homework_10';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -267,7 +269,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 10: Deep Neural Networks</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -473,7 +475,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework 10: Deep Neural Networks</h1>
+    <h1>Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -483,7 +485,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-projectile-data-used-in-this-homework-span"><span style="color:LightGreen">Projectile data used in this homework</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-feedforward-neural-network-span"><span style="color:LightGreen">Feedforward neural network</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-structure-span"><span style="color:LightBlue">Structure</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-tuning-the-network-span"><span style="color:LightBlue">Tuning the network</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-recurrent-neural-network-span"><span style="color:LightGreen">Recurrent neural network</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-stucture-span"><span style="color:LightBlue">Stucture</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-forecasting-projectile-data-with-recurrent-neural-networks-span"><span style="color:LightGreen">Forecasting projectile data with recurrent neural networks</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-appendix-span"><span style="color:LightGreen">Appendix</span></a></li>
 </ul>
             </nav>
         </div>
@@ -495,8 +511,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-10-deep-neural-networks">
-<h1>Homework 10: Deep Neural Networks<a class="headerlink" href="#homework-10-deep-neural-networks" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-10-forecasting-projectile-motion-with-recurrent-neural-networks">
+<h1>Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks<a class="headerlink" href="#homework-10-forecasting-projectile-motion-with-recurrent-neural-networks" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -504,12 +520,709 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># Use CPU rather than GPU for keras neural networks</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_DEVICE_ORDER&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PCI_BUS_ID&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tqdm.keras</span> <span class="kn">import</span> <span class="n">TqdmCallback</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="problem-1">
-<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-lightgreen-projectile-data-used-in-this-homework-span">
+<h2><span style="color:LightGreen">Projectile data used in this homework</span><a class="headerlink" href="#span-style-color-lightgreen-projectile-data-used-in-this-homework-span" title="Permalink to this heading">#</a></h2>
+<p>Simulations of the motion of several trapezoid shaped projectiles after having been catapulted from the ground were performed using <a class="reference external" href="https://github.com/GDS-Education-Community-of-Practice/DSECOP/blob/main/Time_Series_Analysis_and_Forecasting/01_Simulating_Projectile_Motion_with_Drag.ipynb">notebook</a> from the APS Group on Data Science. This is an imagined scenario but takes the simple Newtonian motion of an idealized projectile and considers a more realistic scenario of varied drag.</p>
+<p>This data includes a varied drag coefficient and projectile area for four sides of the object.</p>
+<p>A large number of these runs was simulated and saved in the file <code class="docutils literal notranslate"><span class="pre">launches.csv</span></code>. We begin by loading this file of simulated launches.</p>
+<p>In <a class="reference external" href="https://github.com/GDS-Education-Community-of-Practice/DSECOP/blob/main/Time_Series_Analysis_and_Forecasting/02_Time_Series_Analysis_and_Forecasting.ipynb">notebook</a>, some classical time series analysis techniques to better understand that data and then demonstrated linear techniques for “forecasting” or predicting the future state of the projectile, given some initial portion of the data.</p>
+<p>In this notebook, we will explore the use of <span style="color:Violet">neural networks</span>, which as you know are nonlinear models, to forecast future states of the projectile, given the previous locations and other information. For example, if we know how the projectile travelled from time <span class="math notranslate nohighlight">\(t=0\)</span> to time <span class="math notranslate nohighlight">\(t=10\)</span>, where will it be at time <span class="math notranslate nohighlight">\(t=11\)</span>?</p>
+<p>Although you can calculate this with Newton’s second law, the previously referenced <a class="reference external" href="https://github.com/GDS-Education-Community-of-Practice/DSECOP/blob/main/Time_Series_Analysis_and_Forecasting/02_Time_Series_Analysis_and_Forecasting.ipynb">notebook</a> demonstrated that this calculation can be more tricky if you do not know the exact drag coefficient on the projectile.</p>
+<p>We begin by loading the file of simulated launches, which will be our data for tuning and testing the neural network parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load our launch data</span>
+<span class="n">data_location</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/connor_module/Time_Series_Analysis_and_Forecasting/launches.csv&quot;</span>
+<span class="n">all_launches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_location</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Split into individual launches</span>
+<span class="n">split_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">all_launches</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">all_launches</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># Find where time decreases (signifies different launch)</span>
+<span class="n">split_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">split_indices</span> <span class="o">+</span> <span class="p">[</span><span class="n">all_launches</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">launches</span> <span class="o">=</span> <span class="p">[</span><span class="n">all_launches</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">split_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">split_indices</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can examine what these 100 launches look like</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of launches: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">launches</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_launches</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the launch data comprises of 100 launches which are made up of time points every 0.1 seconds and variables of distance, height, drag coefficient, and projectile area over these times.</p>
+<p>In this notebook, we will mostly use a single test case (launch 20, for no special reason).
+However, at the end of the notebook, all the launches will be used to train the recurrent neural network.</p>
+</section>
+<section id="span-style-color-lightgreen-feedforward-neural-network-span">
+<h2><span style="color:LightGreen">Feedforward neural network</span><a class="headerlink" href="#span-style-color-lightgreen-feedforward-neural-network-span" title="Permalink to this heading">#</a></h2>
+<p>A feedforward neural network is a function that was designed to mimic biological neural networks.
+It can be written as simply
+$<span class="math notranslate nohighlight">\( \Large
+y = f(W_lf(W_{l-1}(\cdot \cdot \cdot f(W_1\textbf{x} + \textbf{b}_1) \cdot \cdot \cdot) + \textbf{b}_{l-1}) + \textbf{b}_l).
+\)</span><span class="math notranslate nohighlight">\(
+This may look confusing at first glance, but basically it is just a function that takes in a vector (or value) \)</span>\textbf{x}<span class="math notranslate nohighlight">\( and outputs a value \)</span>y<span class="math notranslate nohighlight">\(.
+This function is a nested function (in that it repeatedly applies the function \)</span>f<span class="math notranslate nohighlight">\() and can be written more legibly as:
+\)</span><span class="math notranslate nohighlight">\( \Large
+y_1 = f(W_1\textbf{x} + \textbf{b}_1) \\
+y_2 = f(W_2y_1 + \textbf{b}_2) \\
+\vdots \\
+y = f(W_ly_{l-1} + \textbf{b}_l)
+\)</span><span class="math notranslate nohighlight">\(
+Note that at the \)</span>i^\text{th}<span class="math notranslate nohighlight">\( level, \)</span>y_{i-1}$ is the input to the function.</p>
+<section id="span-style-color-lightblue-structure-span">
+<h3><span style="color:LightBlue">Structure</span><a class="headerlink" href="#span-style-color-lightblue-structure-span" title="Permalink to this heading">#</a></h3>
+<p>You may be wondering how this is similar to biological neural networks. This is clearer if we write the above in a diagram form:</p>
+<p><img alt="" src="https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/connor_module/Time_Series_Analysis_and_Forecasting/diagrams/feedforward_nn1.drawio.svg" /></p>
+<p>For some terminology,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is an “activation” function (something like <span class="math notranslate nohighlight">\(\tanh\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(W_i\)</span> is called a “weight” matrix</p></li>
+<li><p><span class="math notranslate nohighlight">\(b_i\)</span> is called a “bias” vector</p></li>
+</ul>
+<p>Because <span class="math notranslate nohighlight">\(W_i\)</span> are matrices, they can change the dimension at each level.
+For example, if our input <span class="math notranslate nohighlight">\(\textbf{x}\)</span> was a vector of 3 items, and the matrix <span class="math notranslate nohighlight">\(W_1\)</span> was a <span class="math notranslate nohighlight">\(5 \times 3\)</span> matrix, then <span class="math notranslate nohighlight">\(W_1\textbf{x}\)</span> would be a size 5 vector.
+With this in mind, the above diagram is more commonly drawn as:</p>
+<p><img alt="" src="https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/connor_module/Time_Series_Analysis_and_Forecasting/diagrams/feedforward_nn2.drawio.svg" /></p>
+<p>This diagram shows how the function we wrote above is actually a network.
+Each line on the diagram represents an operation like <span class="math notranslate nohighlight">\(W_{i,jk}y_{i,k} + b_j\)</span> where <span class="math notranslate nohighlight">\(W_{i,jk}\)</span> is the <span class="math notranslate nohighlight">\(j,k\)</span> entry in the <span class="math notranslate nohighlight">\(W_i\)</span> matrix.
+Each circle is the application of the activation function <span class="math notranslate nohighlight">\(f\)</span> (which could actually be different at each layer) and are usually called “nodes.”
+The network is called “feedforward” because data only flows from left to right (there are no loops).</p>
+<p>Let’s create a simple network with the following properties in the <code class="docutils literal notranslate"><span class="pre">keras</span></code> Python framework:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\textbf{x}\)</span> is a vector of length 2</p></li>
+<li><p><span class="math notranslate nohighlight">\(W_1,W_2\)</span> are sizes <span class="math notranslate nohighlight">\(3\times 2\)</span> and <span class="math notranslate nohighlight">\(1 \times 3\)</span> respectively</p></li>
+<li><p><span class="math notranslate nohighlight">\(b_1, b_2\)</span> are vectors of size <span class="math notranslate nohighlight">\(3\)</span> and <span class="math notranslate nohighlight">\(1\)</span> respectively</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is a <span class="math notranslate nohighlight">\(\tanh\)</span> function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the random seed to make sure we get reproducible results (we get the same every time we run)</span>
+<span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Make input layer of appropriate size (1 sample of size 2)</span>
+<span class="n">x</span>   <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Input&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pass input x into first layer of size 3 x 2</span>
+<span class="n">y_1</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Pass middle or &quot;hidden&quot; layer into output</span>
+<span class="n">y</span>   <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">)(</span><span class="n">y_1</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the way to do this in <code class="docutils literal notranslate"><span class="pre">keras</span></code> is to make functions that you pass the other functions into.
+So, <code class="docutils literal notranslate"><span class="pre">x</span></code> is a <code class="docutils literal notranslate"><span class="pre">keras</span></code> function and we want its output to be passed into the next function <code class="docutils literal notranslate"><span class="pre">y_1</span></code> and so on.
+Each of these functions returns another Python function when called.
+They are all ultimately combined into one big function in <code class="docutils literal notranslate"><span class="pre">model</span></code>.
+More information on this method of creating a neural network with <code class="docutils literal notranslate"><span class="pre">keras</span></code> can be found <a class="reference external" href="https://keras.io/guides/functional_api/">here</a>.</p>
+<p>We can now try putting a vector of size 2 into the network to see the output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1 random sample of size 2</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">sample</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we wanted to put in many samples of size 2 and see all of their outputs at the same time, we could write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5 random samples of size 2</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Samples: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Results: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">samples</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-lightblue-tuning-the-network-span">
+<h3><span style="color:LightBlue">Tuning the network</span><a class="headerlink" href="#span-style-color-lightblue-tuning-the-network-span" title="Permalink to this heading">#</a></h3>
+<p>To reiterate, the neural network is just a function.
+You input <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and it outputs <span class="math notranslate nohighlight">\(y\)</span>.
+For time series forecasting, we’d like to input a sequence of previous time series data <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and get out the next point in the series <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>In order to make our neural network model function accurate (to get the answer <span class="math notranslate nohighlight">\(y\)</span> correct), we can adjust the weights <span class="math notranslate nohighlight">\(W_1,W_2,\ldots,W_l\)</span> and biases <span class="math notranslate nohighlight">\(b_1,b_2,\ldots,b_l\)</span>.
+We can do this by considering a “loss” function <span class="math notranslate nohighlight">\(\mathcal{L}(y,\hat{y})\)</span> where <span class="math notranslate nohighlight">\(\hat{y}\)</span> is the actual value and <span class="math notranslate nohighlight">\(y\)</span> is the value predicted by the neural network.
+A common loss is just the squared difference:
+$<span class="math notranslate nohighlight">\( \Large
+\mathcal{L}(y,\hat{y}) = (y - \hat{y})^2
+\)</span>$</p>
+<p>Knowing that we want <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(\hat{y}\)</span> to be as close as possible to each other so that our network is accurate, we want to minimize <span class="math notranslate nohighlight">\(\mathcal{L}(y,\hat{y})\)</span>.
+From calculus, we know we can take a derivative of <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> and set it to 0.
+For a single parameter, this can be written as:
+$<span class="math notranslate nohighlight">\( \Large
+\frac{d}{dW_i}\mathcal{L}(y,\hat{y}) = 0
+\)</span>$</p>
+<p>A significant amount of effort and programming has been put in to be able to automatically calculate these derivatives.
+It is thus namely called “automatic differentiation.”
+Most neural network frameworks obscure these details and let you focus on just the network design (how many nodes, layers <span class="math notranslate nohighlight">\(l\)</span>, etc.).</p>
+<p>Once we can calculate these derivatives, we can use a procedure called “gradient descent” to iteratively adjust the weights and biases to better match our data.
+This process is usually called “training” the network.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">keras</span></code> framework makes it easy to select a gradient descent type and loss function and fit to data.
+Consider the following example where we have data samples of <span class="math notranslate nohighlight">\(x = [\sin(t),\cos(t)]\)</span> for values of <span class="math notranslate nohighlight">\(t\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(10\)</span> and we want to output the value <span class="math notranslate nohighlight">\(\sin(t)\cos(t)\)</span>.
+We use the mean squared error loss and the gradient descenet algorithm <code class="docutils literal notranslate"><span class="pre">adam</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make our data samples</span>
+<span class="n">t_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t_values</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t_values</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">output_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t_values</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t_values</span><span class="p">)</span>
+
+<span class="c1"># Train model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MeanSquaredError</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">samples</span><span class="p">,</span>
+    <span class="n">output_values</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>         <span class="c1"># The training takes groups of samples (in this case 10 samples at a time)</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>            <span class="c1"># The number of times to iterate through our dataset</span>
+    <span class="n">validation_split</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="c1"># Use 20% of data to check accuracy</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>             <span class="c1"># Don&#39;t print info as it trains</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">TqdmCallback</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot prediction and the true values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_values</span><span class="p">,</span> <span class="n">output_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\sin(t)\cos(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_values</span><span class="p">,</span> <span class="n">model</span><span class="p">(</span><span class="n">samples</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;model(t)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not bad!
+Using automatic differentiation and gradient descent, the neural network weights and biases have been adjusted to make the neural network approximate the function <span class="math notranslate nohighlight">\(\sin(t)\cos(t)\)</span>.
+It is not perfect, but it gets the general shape.
+We could increase the number of <code class="docutils literal notranslate"><span class="pre">epochs</span></code> to train for longer and improve the accuracy.</p>
+</section>
+</section>
+<section id="span-style-color-lightgreen-recurrent-neural-network-span">
+<h2><span style="color:LightGreen">Recurrent neural network</span><a class="headerlink" href="#span-style-color-lightgreen-recurrent-neural-network-span" title="Permalink to this heading">#</a></h2>
+<p>A “recurrent” neural network is not exactly feedforward.
+There are a variety of forms for a recurrent network, but using the previous diagramming method, we can write the most common form as:</p>
+<p><img alt="" src="https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/connor_module/Time_Series_Analysis_and_Forecasting/diagrams/recurrent_nn_loop.drawio.svg" /></p>
+<p>As you can see, there is a loop (the recurrent part) which passes information from one evaluation of the function to the next time the function is evaluated.
+This might seem strange at first glance but makes more sense when you consider a sequence of events.
+For example, words.
+If we have three words of a sentence, predicting the next word likely depends on all three words rather than only the previous.</p>
+<section id="span-style-color-lightblue-stucture-span">
+<h3><span style="color:LightBlue">Stucture</span><a class="headerlink" href="#span-style-color-lightblue-stucture-span" title="Permalink to this heading">#</a></h3>
+<p>The “looped” diagram shown above can also be written in an “unrolled” form as follows:</p>
+<p><em><strong><span style="color:Tan">Many-to-many</span></strong></em></p>
+<p><img alt="" src="https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/connor_module/Time_Series_Analysis_and_Forecasting/diagrams/recurrent_nn1.drawio.svg" /></p>
+<p>Note that this form of recurrent neural network requires inputs at each step and gives outputs at each step.
+This is is not strictly necessary and you could instead have only the end output or only one input and one output as show below:</p>
+<p><em><strong><span style="color:Tan">Many-to-one</span></strong></em>
+<img alt="" src="https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/connor_module/Time_Series_Analysis_and_Forecasting/diagrams/recurrent_nn2.drawio.svg" /></p>
+<p><em><strong><span style="color:Tan">One-to-one</span></strong></em>
+<img alt="" src="https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/connor_module/Time_Series_Analysis_and_Forecasting/diagrams/recurrent_nn3.drawio.svg" /></p>
+<p>Each of the demonstrated diagrams features a very simple version of the neural network, but it could have many layers at each step such as the following:</p>
+<p><img alt="" src="https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/connor_module/Time_Series_Analysis_and_Forecasting/diagrams/recurrent_nn_loop2.drawio.svg" /></p>
+<p>Fortunately, these can all be easily implemented using the <code class="docutils literal notranslate"><span class="pre">keras</span></code> framework.
+Let’s return to our example of input data of the form <span class="math notranslate nohighlight">\([\sin(t),\cos(t)]\)</span> and outputs of the form <span class="math notranslate nohighlight">\(\sin(t)\cos(t)\)</span> but lets try to use 2 values of <span class="math notranslate nohighlight">\(t\)</span> to get the next value.
+So, we will pass in something like
+$<span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+\sin(t_1) &amp; \cos(t_1) \\
+\sin(t_2) &amp; \cos(t_2)
+\end{bmatrix}
+\)</span><span class="math notranslate nohighlight">\(
+to get the output \)</span>\sin(t_3)\cos(t_3)$.
+We’ll use two layers.
+See below for examples of these recurrent neural network forms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Make input layer of appropriate size (2 samples of size 2 or 1 sample of size 2)</span>
+<span class="n">x_many</span>   <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">x_one</span>    <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Pass input x into first layer of size 3 x 2</span>
+<span class="c1"># return_sequences=True means there is an output for each input</span>
+<span class="n">y_many</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x_many</span><span class="p">)</span>
+<span class="n">y_one</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x_one</span><span class="p">)</span>
+<span class="n">y_many_to_many</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">y_many</span><span class="p">)</span>
+<span class="n">y_many_to_one</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y_many</span><span class="p">)</span>
+<span class="n">y_one_to_one</span>   <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y_one</span><span class="p">)</span>
+
+<span class="n">many_to_many</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x_many</span><span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y_many_to_many</span><span class="p">)</span>
+<span class="n">many_to_one</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x_many</span><span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y_many_to_one</span><span class="p">)</span>
+<span class="n">one_to_one</span>   <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x_one</span> <span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y_one_to_one</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1 batch of 2 random samples of size 2</span>
+<span class="n">sample_many</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sample_one</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample of 2: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_many</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Many to many output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">many_to_many</span><span class="p">(</span><span class="n">sample_many</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Many to one output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">many_to_one</span><span class="p">(</span><span class="n">sample_many</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample of 1: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_one</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One to one output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">one_to_one</span><span class="p">(</span><span class="n">sample_one</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The number passed into the <code class="docutils literal notranslate"><span class="pre">SimpleRNN</span></code> is the number of loops performed.
+In the case described above, we want to take samples at times <span class="math notranslate nohighlight">\(t_1\)</span> and <span class="math notranslate nohighlight">\(t_2\)</span> and output the value of the function at time <span class="math notranslate nohighlight">\(t_3\)</span>.
+This is a “many-to-one” case.</p>
+<p>In order to train the network to perform well in this case, we need to arrange our data in pairs of
+$<span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+\sin(t_i) &amp; \cos(t_{i}) \\
+\sin(t_{i+1}) &amp; \cos(t_{i+1})
+\end{bmatrix}
+\)</span><span class="math notranslate nohighlight">\( aligned with outputs \)</span>\sin(t_{i+2})\cos(t_{i+2})$:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Arrange our data samples</span>
+<span class="n">input_samples</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">output_samples</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">98</span><span class="p">):</span>
+  <span class="c1"># Take two samples at time t_i and t_{i+1}</span>
+  <span class="n">input_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+  <span class="c1"># Get function output at time t_{i+2}</span>
+  <span class="n">output_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output_values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">input_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">input_samples</span><span class="p">)</span>
+<span class="n">output_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now compile the many to one model and train it on this test data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train model</span>
+<span class="n">many_to_one</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MeanSquaredError</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">many_to_one</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">input_samples</span><span class="p">,</span>
+    <span class="n">output_samples</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>         <span class="c1"># The training takes groups of samples (in this case 10 samples at a time)</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>            <span class="c1"># The number of times to iterate through our dataset</span>
+    <span class="n">validation_split</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="c1"># Use 20% of data to check accuracy</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>             <span class="c1"># Don&#39;t print info as it trains</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">TqdmCallback</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot prediction and the true values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_values</span><span class="p">,</span> <span class="n">output_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\sin(t)\cos(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_values</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">many_to_one</span><span class="p">(</span><span class="n">input_samples</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;many_to_one(t)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similar to the feedforward neural network, the recurrent architecture was able to roughly approximate the curve!
+Although it is not very noticeable in this case, the recurrent model can also uses less weights and biases (because it has the looping behavior built in) making it less computationally expensive and easier to train!
+This has made the recurrent architecture very popular for time series like applications for real world problems (in fact, modern transformers such as ChatGPT are built on the same concepts as RNNs).</p>
+</section>
+</section>
+<section id="span-style-color-lightgreen-forecasting-projectile-data-with-recurrent-neural-networks-span">
+<h2><span style="color:LightGreen">Forecasting projectile data with recurrent neural networks</span><a class="headerlink" href="#span-style-color-lightgreen-forecasting-projectile-data-with-recurrent-neural-networks-span" title="Permalink to this heading">#</a></h2>
+<hr/>
+<p><em>Note:</em> Recurrent neural networks are often large and nonlinear and thus very complex models.
+On the one hand, this means that they are capable of capturing complicated relationships and patterns.
+On the other hand, this means that they often require a lot of challenging “data engineering” (getting data in the right form to force the model to see what you want it to) and parameter tuning.
+For the remainder of this notebook, you will experience some of these challenges firsthand.
+There are alternative methods for overcoming them than are presented, but know that the experience you will be having is the same as for those who use these models professionally in business and scientific applications.</p>
+<hr/>
+<p>Recurrent neural networks are mainly used for sequential information because of their repetitive nature.
+This is perfectly suited for time series data such as our projectile data.</p>
+<p>Similarly to the application of the <a class="reference external" href="https://en.wikipedia.org/wiki/Autoregressive_moving-average_model">Autoregressive moving-average</a> (ARMA) linear model in previously referenced <a class="reference external" href="https://github.com/GDS-Education-Community-of-Practice/DSECOP/blob/main/Time_Series_Analysis_and_Forecasting/02_Time_Series_Analysis_and_Forecasting.ipynb">notebook</a>, we will consider our test launch as our training data.
+As we did in the example, we will consider taking two steps of the distance variable and try to predict the next distance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get our test launch data</span>
+<span class="n">test_launch</span> <span class="o">=</span> <span class="n">launches</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+
+<span class="c1"># Take the first quarter of the data</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">]</span>
+<span class="n">quarter_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+<span class="n">quarter_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+
+<span class="c1"># Organize the data for our recurrent neural network</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">distance_in</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">distance_out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">quarter_distance</span><span class="p">)</span><span class="o">-</span><span class="n">k</span><span class="p">):</span>
+  <span class="c1"># Take k samples at time t_i ... t_{i+k-1}</span>
+  <span class="n">distance_in</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">quarter_distance</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">k</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+  <span class="c1"># Get function output at time t_{i+k}</span>
+  <span class="n">distance_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">quarter_distance</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">])</span>
+
+<span class="n">distance_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">distance_in</span><span class="p">)</span>
+<span class="n">distance_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">distance_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Make simple many to one model (input 2 samples of size 1)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">distance_model</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Train model</span>
+<span class="n">distance_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MeanSquaredError</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">distance_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">distance_in</span><span class="p">,</span>
+    <span class="n">distance_out</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>         <span class="c1"># The training takes groups of samples (in this case 10 samples at a time)</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>           <span class="c1"># The number of times to iterate through our dataset</span>
+    <span class="n">validation_split</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">,</span> <span class="c1"># Use 0% of data to check accuracy</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>             <span class="c1"># Don&#39;t print info as it trains</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">TqdmCallback</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot prediction and the true values</span>
+<span class="n">data_distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">:]</span>
+<span class="n">data_height</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">:]</span>
+
+<span class="c1"># Run predictions through the model to get the next time step</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">distance_in</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_distance</span><span class="p">)):</span>
+  <span class="c1"># Get the k previous steps</span>
+  <span class="n">i_input</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">predictions</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+  <span class="n">prediction</span> <span class="o">=</span> <span class="n">distance_model</span><span class="p">(</span><span class="n">i_input</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+  <span class="c1"># Convert single value matrix to just a number</span>
+  <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prediction</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Cut out first k predictions (that we actually already knew)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="n">k</span><span class="p">:])</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">quarter_distance</span><span class="p">,</span> <span class="n">quarter_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Input&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_distance</span><span class="p">,</span> <span class="n">data_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">data_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicted data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Well, those predictions are no good!
+Apparently, our model is unable to predict the next portion of the data..
+This is because the model is not good at “extrapolation” or predicting beyond where it was trained (this is more common for nonlinear models like our recurrent neural network than for linear models like ARMA because they are more flexible).
+Note that all of the input data is in the range 0 to 75.
+It seems that as soon as we give data beyond that, the model spits out values that it has seen before.</p>
+<p>One way to avoid this issue would be to first make our data stationary or close to stationary (see the previously referenced <a class="reference external" href="https://github.com/GDS-Education-Community-of-Practice/DSECOP/blob/main/Time_Series_Analysis_and_Forecasting/02_Time_Series_Analysis_and_Forecasting.ipynb">notebook</a> for more information).
+We can do this by subtracting the data at the previous time from the current data.
+Our new stationary distance will then be in the range of the training data and work better with our network.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Take the first quarter of the data (stationary)</span>
+<span class="n">original_distance</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+<span class="n">quarter_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+<span class="n">quarter_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+
+<span class="c1"># Organize the data for our recurrent neural network</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">distance_in</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">distance_out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">quarter_distance</span><span class="p">)</span><span class="o">-</span><span class="n">k</span><span class="p">):</span>
+  <span class="c1"># Take k samples at time t_i ... t_{i+k-1}</span>
+  <span class="n">distance_in</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">quarter_distance</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">k</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+  <span class="c1"># Get function output at time t_{i+k}</span>
+  <span class="n">distance_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">quarter_distance</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">])</span>
+
+<span class="n">distance_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">distance_in</span><span class="p">)</span>
+<span class="n">distance_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">distance_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can make a new model and train it with this new stationary data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make simple many to one model (input 2 samples of size 1)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">distance_model</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Train model</span>
+<span class="n">distance_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MeanSquaredError</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">distance_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">distance_in</span><span class="p">,</span>
+    <span class="n">distance_out</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>         <span class="c1"># The training takes groups of samples (in this case 10 samples at a time)</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>           <span class="c1"># The number of times to iterate through our dataset</span>
+    <span class="n">validation_split</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># Use 0% of data to check accuracy</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>             <span class="c1"># Don&#39;t print info as it trains</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">TqdmCallback</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we can make and plot the predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot prediction and the true values</span>
+<span class="n">data_distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">:]</span>
+<span class="n">data_height</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">:]</span>
+
+<span class="c1"># Run predictions through the model to get the next time step</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">distance_in</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_distance</span><span class="p">)):</span>
+  <span class="c1"># Get the k previous steps</span>
+  <span class="n">i_input</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">predictions</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+  <span class="n">prediction</span> <span class="o">=</span> <span class="n">distance_model</span><span class="p">(</span><span class="n">i_input</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+  <span class="c1"># Convert single value matrix to just a number</span>
+  <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prediction</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Cut out first k predictions (that we actually already knew)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="n">k</span><span class="p">:])</span>
+
+<span class="c1"># Shift data and predictions</span>
+<span class="n">shift_quarter_distance</span> <span class="o">=</span> <span class="n">quarter_distance</span><span class="o">+</span><span class="n">original_distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">]</span>
+<span class="n">shift_data_distance</span> <span class="o">=</span> <span class="n">data_distance</span><span class="o">+</span><span class="n">original_distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">:]</span>
+<span class="n">shift_predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">original_distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">predictions</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+  <span class="n">shift_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred</span> <span class="o">+</span> <span class="n">shift_predictions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shift_quarter_distance</span><span class="p">,</span> <span class="n">quarter_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Input&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shift_data_distance</span><span class="p">,</span> <span class="n">data_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shift_predictions</span><span class="p">,</span> <span class="n">data_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicted data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Well that worked enormously better!
+But the results still look somewhat equivalent to the linear models of ARMA in the previously referenced <a class="reference external" href="https://github.com/GDS-Education-Community-of-Practice/DSECOP/blob/main/Time_Series_Analysis_and_Forecasting/02_Time_Series_Analysis_and_Forecasting.ipynb">notebook</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="span-style-color-orange-problem-1-span">
+<h2><span style="color:Orange">Problem 1</span><a class="headerlink" href="#span-style-color-orange-problem-1-span" title="Permalink to this heading">#</a></h2>
+<p>Try adding more <code class="docutils literal notranslate"><span class="pre">SimpleRNN</span></code> layers, changing the number of nodes in the layers, adding more training <code class="docutils literal notranslate"><span class="pre">epochs</span></code>, and adjusting the number of time points <code class="docutils literal notranslate"><span class="pre">k</span></code> for the dataset to acheive more accurate results. Remake the last plot above with this better tuned hyperparameters.</p>
+<p>How close can you get to a good prediction of the projectile data?</p>
+<p><em>Note:</em> It is recommended that you change one at a time to see how each component affects the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Now, up until now, our data has been entirely based on the distance information.
+However, our dataset contains more than just distance.
+Also, notably, classical linear models such as ARMA cannot easily incorporate more than one variable.
+But neural networks are very well suited to high dimensional data.</p>
+<p>What if we also include the height variable in the training and prediction?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Take the first quarter of the data (stationary)</span>
+<span class="n">original_dh</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;Height (m)&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+<span class="n">dh_data</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;Height (m)&quot;</span><span class="p">]]</span> <span class="o">-</span> <span class="n">test_launch</span><span class="p">[[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;Height (m)&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+<span class="n">quarter_dh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dh_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+<span class="n">quarter_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+
+<span class="c1"># Organize the data for our recurrent neural network</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">dh_in</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">distance_out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">quarter_dh</span><span class="p">)</span><span class="o">-</span><span class="n">k</span><span class="p">):</span>
+  <span class="c1"># Take k samples at time t_i ... t_{i+k-1}</span>
+  <span class="n">dh_in</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">quarter_dh</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">])</span>
+  <span class="c1"># Get function output at time t_{i+k}</span>
+  <span class="n">distance_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">quarter_dh</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">dh_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dh_in</span><span class="p">)</span>
+<span class="n">distance_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">distance_out</span><span class="p">)</span>
+
+<span class="c1"># Make simple many to one model (input 2 samples of size 2 variables)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">dh_model</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Train model</span>
+<span class="n">dh_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MeanSquaredError</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">dh_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">dh_in</span><span class="p">,</span>
+    <span class="n">distance_out</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>         <span class="c1"># The training takes groups of samples (in this case 10 samples at a time)</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>           <span class="c1"># The number of times to iterate through our dataset</span>
+    <span class="n">validation_split</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># Use 0% of data to check accuracy</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>             <span class="c1"># Don&#39;t print info as it trains</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">TqdmCallback</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot prediction and the true values</span>
+<span class="n">data_distance</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">:]</span>
+<span class="n">data_height</span> <span class="o">=</span> <span class="n">test_launch</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">:]</span>
+
+<span class="c1"># Run predictions through the model to get the next time step</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">dh_in</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_distance</span><span class="p">)):</span>
+  <span class="c1"># Get the k previous steps of height and with predicted distance</span>
+  <span class="n">i_input</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+      <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">predictions</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)]),</span>
+      <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dh_data</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+  <span class="p">])</span><span class="o">.</span><span class="n">T</span>
+  <span class="n">prediction</span> <span class="o">=</span> <span class="n">dh_model</span><span class="p">(</span><span class="n">i_input</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+  <span class="c1"># Convert single value matrix to just a number</span>
+  <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prediction</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Cut out first k predictions (that we actually already knew)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="n">k</span><span class="p">:])</span>
+
+<span class="c1"># Shift data and predictions</span>
+<span class="n">shift_quarter_distance</span> <span class="o">=</span> <span class="n">quarter_dh</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">original_dh</span><span class="p">[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">]</span>
+<span class="n">shift_data_distance</span> <span class="o">=</span> <span class="n">data_distance</span>
+<span class="n">shift_predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">original_dh</span><span class="p">[</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">17</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">predictions</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+  <span class="n">shift_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred</span> <span class="o">+</span> <span class="n">shift_predictions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shift_quarter_distance</span><span class="p">,</span> <span class="n">quarter_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Input&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shift_data_distance</span><span class="p">,</span> <span class="n">data_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shift_predictions</span><span class="p">,</span> <span class="n">data_height</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicted data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This result doesn’t look too different from our previous result, but notice that we needed to change to use <code class="docutils literal notranslate"><span class="pre">k=4</span></code> previous time points to make the prediction.</p>
+<p>You can try to use <code class="docutils literal notranslate"><span class="pre">k=2</span></code> to see the interesting predictions that it yields (because the height values repeat themselves when the projectile comes back down, the predictions show distance decreasing!).</p>
+</section>
+<hr class="docutils" />
+<section id="span-style-color-orange-problem-2-span">
+<h2><span style="color:Orange">Problem 2</span><a class="headerlink" href="#span-style-color-orange-problem-2-span" title="Permalink to this heading">#</a></h2>
+<p>Using the example above, include the other variables in our dataset.
+Namely, include the drag coefficient and projectile area.</p>
+<p>Do these help with the prediction accuracy (without changing anything else)?
+Why or why not might that be?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Including the drag and area doesn’t seem to help with the prediction at all.
+This may be because the drag and area both assist in determining the jump in the distance between time points, which is already captured fairly well by the previous distance points.
+In other words, the drag and area are almost redundant information given the previous distance samples.</p>
+</section>
+<hr class="docutils" />
+<section id="span-style-color-orange-problem-3-span">
+<h2><span style="color:Orange">Problem 3</span><a class="headerlink" href="#span-style-color-orange-problem-3-span" title="Permalink to this heading">#</a></h2>
+<p>So far, we have only used a single test launch.
+However, the network training can be improved by incorporating all of the launches.
+In fact, all of the launches can be used in their entirety to train the network, after which we can test it on the case we have been considering.</p>
+<p>In this problem, fit (or train) the network on all of the data contained in <code class="docutils literal notranslate"><span class="pre">launches</span></code> except for the 20th entry (which is <code class="docutils literal notranslate"><span class="pre">test_launch</span></code>), then predict on the last 3/4 of the data from <code class="docutils literal notranslate"><span class="pre">test_launch</span></code> as the previous examples and problems have shown (which envisions only seeing the first part of the trajectory and needing to know the rest).
+The notebook cell for organizing the stationary data earlier in the notebook is a good starting point for what to change to add all the launches in.</p>
+<p><em>Note:</em> You will likely need to decrease the number of <code class="docutils literal notranslate"><span class="pre">epochs</span></code> due to the much larger dataset.
+Also, use <code class="docutils literal notranslate"><span class="pre">np.any(np.isnan())</span></code> to make sure you don’t add anything with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (not a number) to the dataset.</p>
+<p><em>Help:</em> To work with the <code class="docutils literal notranslate"><span class="pre">all_launches</span></code> Pandas dataset, <a class="reference external" href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">this cheatsheet</a> may be helpful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The prediction with your RNN should be spot on!</p>
+</section>
+<hr class="docutils" />
+<section id="span-style-color-lightgreen-appendix-span">
+<h2><span style="color:LightGreen">Appendix</span><a class="headerlink" href="#span-style-color-lightgreen-appendix-span" title="Permalink to this heading">#</a></h2>
+<p><strong>Additional Information</strong></p>
+<p>There are many drawbacks with the recurrent neural network architecture as presented in this notebook (such as training difficulties with vanishing gradients or lack of generalizability).
+More complicated but improved alternatives that could be used as replacements for the <code class="docutils literal notranslate"><span class="pre">SimpleRNN</span></code> layer used in this notebook are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://keras.io/api/layers/recurrent_layers/lstm/"><code class="docutils literal notranslate"><span class="pre">LSTM</span></code></a> which is described <a class="reference external" href="https://en.wikipedia.org/wiki/Long_short-term_memory">here</a>
+-<a class="reference external" href="https://keras.io/api/layers/recurrent_layers/gru/"><code class="docutils literal notranslate"><span class="pre">GRU</span></code></a> which is described <a class="reference external" href="https://en.wikipedia.org/wiki/Gated_recurrent_unit">here</a></p></li>
+</ul>
+<p><strong>Resources:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/time-series-forecasting-deep-learning-vs-statistics-who-wins-c568389d02df">https://towardsdatascience.com/time-series-forecasting-deep-learning-vs-statistics-who-wins-c568389d02df</a></p></li>
+<li><p><a class="reference external" href="https://neptune.ai/blog/time-series-prediction-vs-machine-learning">https://neptune.ai/blog/time-series-prediction-vs-machine-learning</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -576,7 +1289,21 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-projectile-data-used-in-this-homework-span"><span style="color:LightGreen">Projectile data used in this homework</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-feedforward-neural-network-span"><span style="color:LightGreen">Feedforward neural network</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-structure-span"><span style="color:LightBlue">Structure</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-tuning-the-network-span"><span style="color:LightBlue">Tuning the network</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-recurrent-neural-network-span"><span style="color:LightGreen">Recurrent neural network</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-stucture-span"><span style="color:LightBlue">Stucture</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-forecasting-projectile-data-with-recurrent-neural-networks-span"><span style="color:LightGreen">Forecasting projectile data with recurrent neural networks</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-appendix-span"><span style="color:LightGreen">Appendix</span></a></li>
 </ul>
   </nav></div>
 
