@@ -1,4 +1,4 @@
-# <span style="color: blue;"><b>Unsupervised Learning</b></span>
+# <span style="color: blue;"><b>Unsupervised Learning, Uncertainty Quantification and Anomaly Detection</b></span>
 
 ## *Overview*
 You will learn about unsupervised learning
@@ -11,7 +11,7 @@ You will learn about unsupervised learning
 * {doc}`lectures/UnsupervisedLearning`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_11`
+* None
 
 ## *Supplemental Readings*
 * None

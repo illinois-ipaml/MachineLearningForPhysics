@@ -26,7 +26,7 @@ __Note__: *This schedule will evolve throughout the semseter*
 | Nov 06	| {doc}`_sources/Week_11`     | [HW 10](_sources/homework/Homework_10) |                            |
 | Nov 13	| {doc}`_sources/Week_12`     |                                        | {doc}`_sources/Project_02` |
 | Nov 20  | __FALL BREAK - NO CLASSES__ |                                        |                            |
-| Nov 27  | {doc}`_sources/Week_13`     | [HW 11](_sources/homework/Homework_11) |                            |
+| Nov 27  | {doc}`_sources/Week_13`     |                                        |                            |
 | Dec 04  | {doc}`_sources/Week_14`     |                                        |                            |
 
 
