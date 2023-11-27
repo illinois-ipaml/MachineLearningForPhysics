@@ -104,6 +104,11 @@ parts:
           title: Slides
         - file: _sources/lectures/GraphNeuralNetworks
       - file: _sources/Project_02 # Project 02
+        sections:
+        - file: _sources/projects/Project_02_HiggsTauTau
+        - file: _sources/projects/Project_02_ExoticParticles
+        - file: _sources/projects/Project_02_GalaxyZoo
+        - file: _sources/projects/Project_02_NuclearGeometryQGP
       - file: _sources/Week_13 # Unsupervised Learning
         sections:
         - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
