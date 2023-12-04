@@ -114,9 +114,9 @@ parts:
         - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/UnsupervisedLearning
-  - caption: Accelerated Machine Learning and Inference
+  - caption: Explainable AI and Accelerated Machine Learning
     chapters:
-      - file: _sources/Week_14 # Accelerated Machine Learning and Inference
+      - file: _sources/Week_14 # Accelerated Machine Learning
         sections:
         - url: https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing
           title: Slides

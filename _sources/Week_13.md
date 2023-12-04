@@ -1,7 +1,7 @@
 # <span style="color: blue;"><b>Unsupervised Learning, Uncertainties and Anomaly Detection</b></span>
 
 ## *Overview*
-You will learn about unsupervised learning
+You will learn about Unsupervised Learning, Uncertainty Quantification and Anomaly Detection
 
 ## *Goals*
 * Learn about unsupervised learning
