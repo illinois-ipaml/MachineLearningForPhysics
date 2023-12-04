@@ -1,4 +1,4 @@
-# <span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span>
+# <span style="color: blue;"><b>Explainable AI and Accelerated Machine Learning</b></span>
 
 ## *Overview*
 You will learn about accelerated machine learning and inference
