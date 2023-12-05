@@ -6,3 +6,4 @@
 * {doc}`projects/Project_02_ExoticParticles`
 * {doc}`projects/Project_02_GalaxyZoo`
 * {doc}`projects/Project_02_NuclearGeometryQGP`
+* {doc}`projects/Project_02_Aberrated_Images`
