@@ -14,7 +14,7 @@ You will learn about stochastic processes, Markov Chains and Variational Inferen
 * {doc}`lectures/Variational`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_07`
+* Homework 07: Markov Chains
 
 ## *Supplemental Readings*
   * [C. Maes, <i>An introduction to the theory of Markov processes mostly for physics students</i>](https://fys.kuleuven.be/itf/staff/christ/files/pdf/pub/markovlectures2015.pdf)

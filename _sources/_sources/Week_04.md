@@ -12,7 +12,7 @@ You will learn the basics of probability theory
 * {doc}`lectures/ProbabilityDistributions`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_04`
+* Homework 04: Probability Theory and Common Distributions
 
 ## *Supplemental Readings*
 * None
