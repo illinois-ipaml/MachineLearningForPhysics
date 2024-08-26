@@ -11,7 +11,7 @@ You will learn about deep neural networks
 * {doc}`lectures/DeepLearning`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_10`
+* Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks
 
 ## *Supplemental Readings*
 * None

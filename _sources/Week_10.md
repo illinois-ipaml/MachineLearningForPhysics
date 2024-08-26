@@ -13,7 +13,7 @@ You will learn about supervised learning and artifical neural networks
 * {doc}`lectures/NeuralNetworks`
 
 ## *Homework Assignment*
-* {doc}`homework/Homework_09`
+* Homework 09: Artificial Neural Networks
 
 ## *Supplemental Readings*
 * [Artificial Neural Networks](https://en.wikipedia.org/wiki/Artificial_neural_network)
