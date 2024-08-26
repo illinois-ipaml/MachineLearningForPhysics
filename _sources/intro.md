@@ -3,7 +3,7 @@
 <font size="6"> __Physics 503__ &nbsp; *Fall 2024* </font>
 * *Instructor:* Professor [Mark Neubauer](https://marksneubauer.com)
 * *Class Meetings*: 
-  * Mondays and Wednesdays from 1:00 pm to 2:15 pm
+  * Mondays and Wednesdays from 12:30 pm to 1:45 pm
   * *Room*: 262 Loomis Laboratory
 * 4 credit hours
 
@@ -12,27 +12,27 @@ __Note__: *This schedule will evolve throughout the semseter*
 
 | Week          | Topic                 | Homework                               | Projects                   |
 |---------------|-----------------------|----------------------------------------|----------------------------|
-| Aug 21	| {doc}`_sources/Week_01`     | [HW 01](_sources/homework/Homework_01) |                            |
-| Aug 28  | {doc}`_sources/Week_02`     | [HW 02](_sources/homework/Homework_02) |                            |
-| Sep 04	| {doc}`_sources/Week_03`     | [HW 03](_sources/homework/Homework_03) |                            |
-| Sep 11	| {doc}`_sources/Week_04`     | [HW 04](_sources/homework/Homework_04) |                            |
+| Aug 26	| {doc}`_sources/Week_01`     | HW 01                                  |                            |
+| Aug 30  | {doc}`_sources/Week_02`     | [HW 02](_sources/homework/Homework_02) |                            |
+| Sep 06	| {doc}`_sources/Week_03`     | [HW 03](_sources/homework/Homework_03) |                            |
+| Sep 13	| {doc}`_sources/Week_04`     | [HW 04](_sources/homework/Homework_04) |                            |
 | Sep 18	| __NO CLASSES__              |                                        |                            |
-| Sep 25  | {doc}`_sources/Week_05`     | [HW 05](_sources/homework/Homework_05) |                            |
-| Oct 02  | {doc}`_sources/Week_06`     | [HW 06](_sources/homework/Homework_06) | {doc}`_sources/Project_01` |
-| Oct 09	| {doc}`_sources/Week_07`     | [HW 07](_sources/homework/Homework_07) |                            |
-| Oct 16  | {doc}`_sources/Week_08`     |                                        |                            |
-| Oct 23  | {doc}`_sources/Week_09`     | [HW 08](_sources/homework/Homework_08) |                            |
-| Oct 30  | {doc}`_sources/Week_10`     | [HW 09](_sources/homework/Homework_09) |                            |
-| Nov 06	| {doc}`_sources/Week_11`     | [HW 10](_sources/homework/Homework_10) |                            |
-| Nov 13	| {doc}`_sources/Week_12`     |                                        | {doc}`_sources/Project_02` |
+| Sep 27  | {doc}`_sources/Week_05`     | [HW 05](_sources/homework/Homework_05) |                            |
+| Oct 03  | {doc}`_sources/Week_06`     | [HW 06](_sources/homework/Homework_06) | {doc}`_sources/Project_01` |
+| Oct 11	| {doc}`_sources/Week_07`     | [HW 07](_sources/homework/Homework_07) |                            |
+| Oct 18  | {doc}`_sources/Week_08`     |                                        |                            |
+| Oct 25  | {doc}`_sources/Week_09`     | [HW 08](_sources/homework/Homework_08) |                            |
+| Nov 01  | {doc}`_sources/Week_10`     | [HW 09](_sources/homework/Homework_09) |                            |
+| Nov 08	| {doc}`_sources/Week_11`     | [HW 10](_sources/homework/Homework_10) |                            |
+| Nov 15	| {doc}`_sources/Week_12`     |                                        | {doc}`_sources/Project_02` |
 | Nov 20  | __FALL BREAK - NO CLASSES__ |                                        |                            |
-| Nov 27  | {doc}`_sources/Week_13`     |                                        |                            |
-| Dec 04  | {doc}`_sources/Week_14`     |                                        |                            |
+| Nov 29  | {doc}`_sources/Week_13`     |                                        |                            |
+| Dec 06  | {doc}`_sources/Week_14`     |                                        |                            |
 
 
 ## <span style="color:Red">Overview</span>
 
-Welcome! Data is everywhere. Efficient data analysis leading to solid conclusions requires performant tools and rigorous mathematical techniques tethered by sound scientific methods. 
+Welcome! Data is everywhere. Efficient data analysis leading to solid conclusions requires performant tools and rigorous mathematical techniques tethered by sound scientific methods.
 
 This course is designed to give students a solid foundation in machine learning applications to physics, positioning itself at the intersection of machine learning and data-intensive science. This course will introduce students to the fundamentals of analysis and interpretation of scientific data, and applications of machine learning to problems common in laboratory science such as classification and regression. There will be two 75-minute classes each week, split into discussions of core principles and hands-on exercises involving coding and data. There will be a few projects throughout semester that will build on the course material and utilize open source software and open data in physics and related fields. The list of topics will evolve, according to the interests of the class and instructors. Material will be clustered into units of varying duration, as indicated in the table of contents. The lists of suggested readings and references are advisory; a large amount of material of excellent quality is now available on the worldwide web, particularly on the sites of university courses addressing the topics of each unit.
 
@@ -41,24 +41,20 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ## <span style="color:Red">Course Logistics</span>
 ### Format
 * This course will consist of two meetings per week: one lecture period and one in-class practical session.
-* Lecture: Monday from 1:00 pm - 2:15 pm in 262 Loomis
-* Practical Session: Wendesday from 1:00 pm - 2:15 pm in 262 Loomis
+* Lecture: Monday from 12:30 pm - 1:45 pm in 262 Loomis
+* Practical Session: Wendesday from 12:30 pm - 1:45 pm in 262 Loomis
 
 ### Instructor
 * Professor [Mark Neubauer](https://marksneubauer.com)
   * email: msn@illinois.edu
-  * Office Hour: Wednesday 5:30 pm - 6:30 pm
+  * Office Hour: Wednesday 5:30 pm - 6:30 pm (tentative)
   * [Zoom](https://illinois.zoom.us/j/85255234488?pwd=eTF3NDVtU1FSZXNpK3BFck9vKzNZdz09)
 
 ### TAs 
 * Pin-Yi Li
   * email: pinyili2@illinois.edu
-  * Office Hour: Monday 2:15 - 3:15pm
+  * Office Hour: Monday 2:15 - 3:15pm (tentative)
   * 262 Loomis
-* Tony Mirasola
-  * email: aem8@illinois.edu
-  * Office Hour: Tuesday 11:00 am - noon
-  * [Zoom](https://illinois.zoom.us/j/85255234488?pwd=eTF3NDVtU1FSZXNpK3BFck9vKzNZdz09)
 
 ## <span style="color:Red">Online Tools</span>
 
