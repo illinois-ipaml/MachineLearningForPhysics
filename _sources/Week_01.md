@@ -15,7 +15,7 @@ You will start with an overview of the course and then an introduction to statis
 * {doc}`lectures/Pandas`
 
 ## *Homework Assignment*
-* TBA
+* Homework 01: Numerical python and data handling
 
 ## *Supplemental Readings*
   * A Whirlwind Tour of Python*, Jake VanderPlas: [book website](https://jakevdp.github.io/WhirlwindTourOfPython/), notebooks [online](http://nbviewer.jupyter.org/github/jakevdp/WhirlwindTourOfPython/blob/master/Index.ipynb).
