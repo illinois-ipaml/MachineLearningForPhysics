@@ -53,8 +53,8 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ### TAs 
 * Pin-Yi Li
   * email: pinyili2@illinois.edu
-  * Office Hour: Monday 2:15 - 3:15pm (tentative)
-  * 262 Loomis
+  * Office Hour: Thursday 11am - 12pm
+  * 3039 Beckman
 
 ## <span style="color:Red">Online Tools</span>
 
