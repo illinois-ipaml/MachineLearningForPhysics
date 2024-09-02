@@ -53,7 +53,7 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ### TAs 
 * Pin-Yi Li
   * email: pinyili2@illinois.edu
-  * Office Hour: Thursday 11am - 12pm
+  * Office Hour: Tuesday 3pm - 4pm
   * 3039 Beckman
 
 ## <span style="color:Red">Online Tools</span>
