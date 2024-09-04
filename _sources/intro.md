@@ -12,18 +12,18 @@ __Note__: *This schedule will evolve throughout the semseter*
 
 | Week          | Topic                 | Homework                               | Projects                   |
 |---------------|-----------------------|----------------------------------------|----------------------------|
-| Aug 26	| {doc}`_sources/Week_01`     | HW 01                                  |                            |
-| Aug 30  | {doc}`_sources/Week_02`     | HW 02                                  |                            |
-| Sep 06	| {doc}`_sources/Week_03`     | HW 03                                  |                            |
-| Sep 13	| {doc}`_sources/Week_04`     | HW 04                                  |                            |
+| Aug 26	| {doc}`_sources/Week_01`     | [HW 01](_sources/homework/Homework_01) |                            |
+| Aug 30  | {doc}`_sources/Week_02`     | [HW 02](_sources/homework/Homework_02) |                            |
+| Sep 06	| {doc}`_sources/Week_03`     |                                        |                            |
+| Sep 13	| {doc}`_sources/Week_04`     |                                        |                            |
 | Sep 18	| __TBD__                     |                                        |                            |
-| Sep 27  | {doc}`_sources/Week_05`     | HW 05                                  |                            |
-| Oct 03  | {doc}`_sources/Week_06`     | HW 06                                  |                            |
-| Oct 11	| {doc}`_sources/Week_07`     | HW 07                                  |                            |
+| Sep 27  | {doc}`_sources/Week_05`     |                                        |                            |
+| Oct 03  | {doc}`_sources/Week_06`     |                                        |                            |
+| Oct 11	| {doc}`_sources/Week_07`     |                                        |                            |
 | Oct 18  | {doc}`_sources/Week_08`     |                                        |                            |
-| Oct 25  | {doc}`_sources/Week_09`     | HW 08                                  |                            |
-| Nov 01  | {doc}`_sources/Week_10`     | HW 09                                  |                            |
-| Nov 08	| {doc}`_sources/Week_11`     | HW 10                                  |                            |
+| Oct 25  | {doc}`_sources/Week_09`     |                                        |                            |
+| Nov 01  | {doc}`_sources/Week_10`     |                                        |                            |
+| Nov 08	| {doc}`_sources/Week_11`     |                                        |                            |
 | Nov 15	| {doc}`_sources/Week_12`     |                                        |                            |
 | Nov 20  | {doc}`_sources/Week_13`     |                                        |                            |
 | Nov 29  | __FALL BREAK - NO CLASSES__ |                                        |                            |
@@ -47,7 +47,7 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ### Instructor
 * Professor [Mark Neubauer](https://marksneubauer.com)
   * email: msn@illinois.edu
-  * Office Hour: Wednesday 5:30 pm - 6:30 pm (tentative)
+  * Office Hour: Wednesday 5:30 pm - 6:30 pm
   * [Zoom](https://illinois.zoom.us/j/85255234488?pwd=eTF3NDVtU1FSZXNpK3BFck9vKzNZdz09)
 
 ### TAs 
