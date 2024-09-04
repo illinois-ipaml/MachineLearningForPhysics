@@ -16,7 +16,7 @@ You will learn about visualizing and finding structure in data.
 * {doc}`lectures/Clustering`
 
 ## *Homework Assignment*
-* Homework 02: Visualization and Expectation-Maximization
+* {doc}`homework/Homework_02`
 
 ## *Supplemental Readings*
   * [Scikit-learn](http://scikit-learn.org)
