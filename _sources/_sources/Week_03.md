@@ -14,7 +14,8 @@ You will learn about dimensionality, linearity and kernel Functions
 * {doc}`lectures/Nonlinear`
 
 ## *Homework Assignment*
-* Homework 03: K-means and Principle Component Analysis
+* {doc}`homework/Homework_03`
+
 
 ## *Supplemental Readings*
   * [Eigenvalue/Eignvector refresher](https://www.mathsisfun.com/algebra/eigenvalue.html)
