@@ -16,7 +16,6 @@ You will learn about dimensionality, linearity and kernel Functions
 ## *Homework Assignment*
 * {doc}`homework/Homework_03`
 
-
 ## *Supplemental Readings*
   * [Eigenvalue/Eignvector refresher](https://www.mathsisfun.com/algebra/eigenvalue.html)
   * [Principle Component Analysis](https://en.wikipedia.org/wiki/Principal_component_analysis)

@@ -13,21 +13,21 @@ __Note__: *This schedule will evolve throughout the semseter*
 | Week          | Topic                 | Homework                               | Projects                   |
 |---------------|-----------------------|----------------------------------------|----------------------------|
 | Aug 26	| {doc}`_sources/Week_01`     | [HW 01](_sources/homework/Homework_01) |                            |
-| Aug 30  | {doc}`_sources/Week_02`     | [HW 02](_sources/homework/Homework_02) |                            |
-| Sep 06	| {doc}`_sources/Week_03`     |                                        |                            |
-| Sep 13	| {doc}`_sources/Week_04`     |                                        |                            |
-| Sep 18	| __TBD__                     |                                        |                            |
-| Sep 27  | {doc}`_sources/Week_05`     |                                        |                            |
-| Oct 03  | {doc}`_sources/Week_06`     |                                        |                            |
-| Oct 11	| {doc}`_sources/Week_07`     |                                        |                            |
-| Oct 18  | {doc}`_sources/Week_08`     |                                        |                            |
-| Oct 25  | {doc}`_sources/Week_09`     |                                        |                            |
-| Nov 01  | {doc}`_sources/Week_10`     |                                        |                            |
-| Nov 08	| {doc}`_sources/Week_11`     |                                        |                            |
-| Nov 15	| {doc}`_sources/Week_12`     |                                        |                            |
-| Nov 20  | {doc}`_sources/Week_13`     |                                        |                            |
-| Nov 29  | __FALL BREAK - NO CLASSES__ |                                        |                            |
-| Dec 06  | {doc}`_sources/Week_14`     |                                        |                            |
+| Sep 02  | {doc}`_sources/Week_02`     | [HW 02](_sources/homework/Homework_02) |                            |
+| Sep 09	| {doc}`_sources/Week_03`     | [HW 03](_sources/homework/Homework_03) |                            |
+| Sep 16	| {doc}`_sources/Week_04`     |                                        |                            |
+| Sep 23	| __TBD__                     |                                        |                            |
+| Sep 30  | {doc}`_sources/Week_05`     |                                        |                            |
+| Oct 07  | {doc}`_sources/Week_06`     |                                        |                            |
+| Oct 14	| {doc}`_sources/Week_07`     |                                        |                            |
+| Oct 21  | {doc}`_sources/Week_08`     |                                        |                            |
+| Oct 28  | {doc}`_sources/Week_09`     |                                        |                            |
+| Nov 04  | {doc}`_sources/Week_10`     |                                        |                            |
+| Nov 11	| {doc}`_sources/Week_11`     |                                        |                            |
+| Nov 18	| {doc}`_sources/Week_12`     |                                        |                            |
+| Nov 25  | __FALL BREAK - NO CLASSES__ |                                        |                            |
+| Dec 02  | {doc}`_sources/Week_13`     |                                        |                            |
+| Dec 09  | {doc}`_sources/Week_14`     |                                        |                            |
 
 
 ## <span style="color:Red">Overview</span>
