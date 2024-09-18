@@ -15,7 +15,7 @@ __Note__: *This schedule will evolve throughout the semseter*
 | Aug 26	| {doc}`_sources/Week_01`     | [HW 01](_sources/homework/Homework_01) |                            |
 | Sep 02  | {doc}`_sources/Week_02`     | [HW 02](_sources/homework/Homework_02) |                            |
 | Sep 09	| {doc}`_sources/Week_03`     | [HW 03](_sources/homework/Homework_03) |                            |
-| Sep 16	| {doc}`_sources/Week_04`     |                                        |                            |
+| Sep 16	| {doc}`_sources/Week_04`     | [HW 04](_sources/homework/Homework_04) |                            |
 | Sep 23	| __TBD__                     |                                        |                            |
 | Sep 30  | {doc}`_sources/Week_05`     |                                        |                            |
 | Oct 07  | {doc}`_sources/Week_06`     |                                        |                            |
@@ -54,7 +54,7 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 * Pin-Yi Li
   * email: pinyili2@illinois.edu
   * Office Hour: Tuesday 3pm - 4pm
-  * 3039 Beckman
+  * 3039 Beckman Institute
 
 ## <span style="color:Red">Online Tools</span>
 
