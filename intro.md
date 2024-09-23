@@ -16,8 +16,8 @@ __Note__: *This schedule will evolve throughout the semseter*
 | Sep 02  | {doc}`_sources/Week_02`     | [HW 02](_sources/homework/Homework_02) |                            |
 | Sep 09	| {doc}`_sources/Week_03`     | [HW 03](_sources/homework/Homework_03) |                            |
 | Sep 16	| {doc}`_sources/Week_04`     | [HW 04](_sources/homework/Homework_04) |                            |
-| Sep 23	| {doc}`_sources/Week_05`     |                                        |                            |
-| Sep 30  | __TBD__                     | HW 05                                  |                            |
+| Sep 23	| {doc}`_sources/Week_05`     | HW 05                                  |                            |
+| Sep 30  | __TBD__                     |                                        |                            |
 | Oct 07  | {doc}`_sources/Week_06`     |                                        |                            |
 | Oct 14	| {doc}`_sources/Week_07`     |                                        |                            |
 | Oct 21  | {doc}`_sources/Week_08`     |                                        |                            |
