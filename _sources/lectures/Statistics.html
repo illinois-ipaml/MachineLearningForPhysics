@@ -579,86 +579,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blobs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">locate_data</span><span class="p">(</span><span class="s1">&#39;blobs_data.hf5&#39;</span><span class="p">))</span>
-<span class="n">blobs</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>x0</th>
-      <th>x1</th>
-      <th>x2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>2000.000000</td>
-      <td>2000.000000</td>
-      <td>2000.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>6.920270</td>
-      <td>4.502004</td>
-      <td>8.492347</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>3.562485</td>
-      <td>2.609850</td>
-      <td>3.938487</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.289321</td>
-      <td>-3.686628</td>
-      <td>2.176444</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>3.857825</td>
-      <td>3.298868</td>
-      <td>4.997269</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>5.512911</td>
-      <td>4.981038</td>
-      <td>7.267441</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>10.593387</td>
-      <td>6.183536</td>
-      <td>12.257059</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>14.669437</td>
-      <td>11.268355</td>
-      <td>17.189156</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </section>
 <section id="span-style-color-orange-statistical-methods-span">
@@ -666,7 +589,7 @@ document.write(`
 <p>The boundary between probability and statistics is somewhat gray (similar to astronomy and astrophysics).  However, you can roughly think of statistics as the applied cousin of probability theory.</p>
 <section id="span-style-color-lightgreen-expectation-span">
 <h3><span style="color:LightGreen">Expectation</span><a class="headerlink" href="#span-style-color-lightgreen-expectation-span" title="Permalink to this heading">#</a></h3>
-<p>Given a probability density <span class="math notranslate nohighlight">\(P(x,y)\)</span>, and an arbitrary function <span class="math notranslate nohighlight">\(g(x,y)\)</span> of the same random variables, the <strong>expectation value</strong> of <span class="math notranslate nohighlight">\(g\)</span> is defined as:</p>
+<p>Given a probability density <span class="math notranslate nohighlight">\(P(x,y)\)</span>, and an arbitrary function <span class="math notranslate nohighlight">\(g(x,y)\)</span> of the same random variables, the <span style="color:violet">expectation value</span> of <span class="math notranslate nohighlight">\(g\)</span> is defined as:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \langle g\rangle \equiv \iint dx dy\, g(x,y) P(x,y) \; .
@@ -675,32 +598,32 @@ document.write(`
 <p>Sometimes the assumed PDF is indicated with a subscript, <span class="math notranslate nohighlight">\(\langle g\rangle_P\)</span>, which is helpful, but more often not shown.</p>
 <p>When <span class="math notranslate nohighlight">\(g(x,y) = x^n\)</span>, the resulting expectation value is called a <strong>moment of x</strong>. (The same definitions apply to <span class="math notranslate nohighlight">\(y\)</span>, via <span class="math notranslate nohighlight">\(g(x,y) = y^n\)</span>.) The case <span class="math notranslate nohighlight">\(n=0\)</span> is just the normalization integral <span class="math notranslate nohighlight">\(\langle \mathbb{1}\rangle = 1\)</span>.  Low-order moments have familiar names:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n=1\)</span> yields the <strong>mean of x</strong>, <span class="math notranslate nohighlight">\(\overline{x} \equiv \langle x\rangle\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(n=2\)</span> yields the <strong>root-mean square (RMS) of x</strong>, <span class="math notranslate nohighlight">\(\langle x^2\rangle\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n=1\)</span> yields the <span style="color:violet">mean of x</span>, <span class="math notranslate nohighlight">\(\overline{x} \equiv \langle x\rangle\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n=2\)</span> yields the <span style="color:violet">root-mean square (RMS) of x</span>, <span class="math notranslate nohighlight">\(\langle x^2\rangle\)</span>.</p></li>
 </ul>
-<p>Another named expectation value is the <strong>variance of x</strong>, which combines the mean and RMS,</p>
+<p>Another named expectation value is the <span style="color:violet">variance of x</span>, which combines the mean and RMS,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \sigma_x^2 \equiv \langle\left( x - \overline{x} \right)^2\rangle \; ,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\sigma_x\)</span> is called the <strong>standard deviation of x</strong>.</p>
+<p>where <span class="math notranslate nohighlight">\(\sigma_x\)</span> is called the <span style="color:violet">standard deviation of x</span>.</p>
 <p>Finally, the <strong>correlation between x and y</strong> is defined as:
 $<span class="math notranslate nohighlight">\( \Large
 \text{Corr}_{xy} \equiv \langle\left( x - \overline{x}\right) \left( y - \overline{y}\right)\rangle \; .
 \)</span>$</p>
-<p>A useful combination of the correlation and variances is the <strong>correlation coefficient</strong>,</p>
+<p>A useful combination of the correlation and variances is the <span style="color:violet">correlation coefficient</span>,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \rho_{xy} \equiv \frac{\text{Corr}_{x,y}}{\sigma_x \sigma_y} \; ,
 \]</div>
 <p>which, by construction, must be in the range <span class="math notranslate nohighlight">\([-1, +1]\)</span>. Larger values of <span class="math notranslate nohighlight">\(|\rho_{xy}|\)</span> indicate that <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are measuring related properties of the outcome so, together, carry less information than when <span class="math notranslate nohighlight">\(\rho_{xy} \simeq 0\)</span>. In the limit of <span class="math notranslate nohighlight">\(|\rho_{xy}| = 1\)</span>, <span class="math notranslate nohighlight">\(y = y(x)\)</span> is entirely determined by <span class="math notranslate nohighlight">\(x\)</span>, so carries no new information.</p>
 <p>We say that the variance and correlation are both <em>second-order moments</em> since they are expectation values of second-degree polynomials.</p>
-<p>We call the random variables <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> <strong>uncorrelated</strong> when:</p>
+<p>We call the random variables <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> <span style="color:violet">uncorrelated</span> when:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 x,y\, \text{uncorrelated}\quad\Rightarrow\quad \text{Corr}_{xy} = \rho_{xy} = 0 \; .
 \]</div>
-<p>To obtain an <strong>empirical estimate</strong> of the quantities above derived from your data, use the corresponding numpy functions, e.g.</p>
+<p>To obtain an <span style="color:violet">empirical estimate</span> of the quantities above derived from your data, use the corresponding numpy functions, e.g.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">blobs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -773,7 +696,7 @@ $$, \\suggests that two passes through the data are necessary to calculate varia
 </section>
 <section id="span-style-color-lightgreen-covariance-span">
 <h3><span style="color:LightGreen">Covariance</span><a class="headerlink" href="#span-style-color-lightgreen-covariance-span" title="Permalink to this heading">#</a></h3>
-<p>It is useful to construct the <strong>covariance matrix</strong> <span class="math notranslate nohighlight">\(C\)</span> with elements:</p>
+<p>It is useful to construct the <span style="color:violet">covariance matrix</span> <span class="math notranslate nohighlight">\(C\)</span> with elements:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
 C \equiv \begin{bmatrix}
@@ -806,7 +729,7 @@ C_{ij} = C_{ji} = \rho_{ij} \sigma_i \sigma_j \; .
 \end{bmatrix}
 \end{split}\]</div>
 <p>describing a 2D elllipse in the <span class="math notranslate nohighlight">\((x_i, x_j)\)</span> plane:</p>
-<p><a class="reference internal" href="https://courses.physics.illinois.edu/phys398dap/fa2023/img/Statistics-Ellipse.png"><img alt="https://courses.physics.illinois.edu/phys398dap/fa2023/img/Statistics-Ellipse.png" class="align-left" src="https://courses.physics.illinois.edu/phys398dap/fa2023/img/Statistics-Ellipse.png" style="width: 800px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Statistics-Ellipse.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Statistics-Ellipse.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Statistics-Ellipse.png" style="width: 800px;" /></a></img><br></p>
 <p>Note that you can directly read off the correlation coefficient <span class="math notranslate nohighlight">\(\rho_{ij}\)</span> from any of the points where the ellipse touches its bounding box. The ellipse rotation angle <span class="math notranslate nohighlight">\(\theta\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -818,15 +741,15 @@ C_{ij} = C_{ji} = \rho_{ij} \sigma_i \sigma_j \; .
 a_\pm = 2\sqrt{C_{ii} + C_{jj} \pm d} \quad \text{with} \quad
 d = \sqrt{C_{11}^2 - 2 (1 - 2\rho^2) C_{11} C_{22} + C_{22}^2} \; .
 \]</div>
-<p>For practical calculations, the Singular Value Decomposition (SVD) of the covariance is useful:</p>
+<p>For practical calculations, the <span style="color:violet">Singular Value Decomposition</span> (SVD) of the covariance is useful:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">U</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">ap</span><span class="p">,</span> <span class="n">am</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The above assumes <span class="math notranslate nohighlight">\(C\)</span> is <span class="math notranslate nohighlight">\(2\times 2\)</span>. In the general <span class="math notranslate nohighlight">\(D\times D\)</span> case, use <code class="docutils literal notranslate"><span class="pre">C[[[j],</span> <span class="pre">[i]],</span> <span class="pre">[[j,</span> <span class="pre">i]]]</span></code> to pick out the <span class="math notranslate nohighlight">\((i,j)\)</span> <span class="math notranslate nohighlight">\(2\times 2\)</span> submatrix.</p>
-<p>A multivariate Gaussian PDF integrated over this ellipse (and marginalized over any additional dimensions) has a total probability of about 39%, also known as its <strong>confidence level (CL)</strong>.  We will see below how to calculate this CL and scale the ellipse for other CLs.</p>
-<p><strong>EXERCISE:</strong> Calculate the empirical covariance matrix of the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> dataset using <code class="docutils literal notranslate"><span class="pre">np.cov</span></code> (pay attention to the <code class="docutils literal notranslate"><span class="pre">rowvar</span></code> arg). Next, calculate the ellipse rotation angles <span class="math notranslate nohighlight">\(\theta\)</span> in degrees for each of this matrix’s 2D projections.</p>
+<p>A multivariate Gaussian PDF integrated over this ellipse (and marginalized over any additional dimensions) has a total probability of about 39%, also known as its <span style="color:violet">confidence level</span> (CL).  We will see below how to calculate this CL and scale the ellipse for other CLs.</p>
+<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Calculate the empirical covariance matrix of the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> dataset using <code class="docutils literal notranslate"><span class="pre">np.cov</span></code> (pay attention to the <code class="docutils literal notranslate"><span class="pre">rowvar</span></code> arg). Next, calculate the ellipse rotation angles <span class="math notranslate nohighlight">\(\theta\)</span> in degrees for each of this matrix’s 2D projections.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">blobs</span><span class="p">,</span> <span class="n">rowvar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -882,14 +805,14 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 <img alt="../../_images/d9a5a7ddce23e313e75de4484ff8b8005e25a18a1fd00d92a40c52e91907ec43.png" src="../../_images/d9a5a7ddce23e313e75de4484ff8b8005e25a18a1fd00d92a40c52e91907ec43.png" />
 </div>
 </div>
-<p><strong>EXERCISE:</strong> Match the following values to the dotted lines in the graph above of the function <span class="math notranslate nohighlight">\(g(x)\)</span> and probability density <span class="math notranslate nohighlight">\(P(x)\)</span>:</p>
+<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Match the following values to the dotted lines in the graph above of the function <span class="math notranslate nohighlight">\(g(x)\)</span> and probability density <span class="math notranslate nohighlight">\(P(x)\)</span>:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\langle x\rangle = \int dx\, x P(x)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\langle g(x)\rangle = \int dx\, g(x)\,P(x)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(g(\langle x\rangle) = g\left( \int dx\, x P(x)\right)\)</span></p></li>
 </ol>
 <p>Is <span class="math notranslate nohighlight">\(g(x)\)</span> convex? Is Jensen’s inequality satisfied?</p>
-<p>Answer:</p>
+<p><span style="color:LightGreen">Answer</span>:</p>
 <ol class="arabic simple">
 <li><p>Vertical (black) line.</p></li>
 <li><p>Upper horizontal (blue) line.</p></li>
@@ -897,13 +820,12 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 </ol>
 <p>Jensen’s inequality is satisfied, as required since <span class="math notranslate nohighlight">\(g(x)\)</span> is convex.</p>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2024</p>
 </section>
 </section>
 
