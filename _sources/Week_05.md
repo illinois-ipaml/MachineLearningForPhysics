@@ -9,7 +9,7 @@ You will learn about kernel density estimation and statistics
 
 ## *Lecture Materials*
 * [Slides](https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing)
-* {doc}`lectures/Density`
+* {doc}`lectures/DensityEstimation`
 * {doc}`lectures/Statistics`
 
 ## *Homework Assignment*

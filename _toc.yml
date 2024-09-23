@@ -40,7 +40,7 @@ parts:
         sections:
         - url: https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing
           title: Slides
-        - file: _sources/lectures/Density
+        - file: _sources/lectures/DensityEstimation
         - file: _sources/lectures/Statistics
         - file: _sources/homework/Homework_05
   - caption: Bayesian Inference
