@@ -11,9 +11,10 @@ You will learn about kernel density estimation and statistics
 * [Slides](https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing)
 * {doc}`lectures/DensityEstimation`
 * {doc}`lectures/Statistics`
+* {doc}`lectures/MonteCarloSamplingMethods`
 
 ## *Homework Assignment*
-* Homework 05: Kernel Density Estimation, Covariance and Correlation
+* {doc}`homework/Homework_05`
 
 ## *Supplemental Readings*
   * [Positive Definite Matrix definition](https://en.wikipedia.org/wiki/Positive-definite_matrix)
