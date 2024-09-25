@@ -1025,11 +1025,12 @@ Make sure you understand why the last expression yields a matrix rather than a s
 </section>
 <section id="span-style-color-orange-problem-2-span">
 <h2><span style="color:Orange">Problem 2</span><a class="headerlink" href="#span-style-color-orange-problem-2-span" title="Permalink to this heading">#</a></h2>
-<p>A density estimator should provide a probability density function <span class="math notranslate nohighlight">\(P(\vec{x})\)</span> that is normalized over its feature space <span class="math notranslate nohighlight">\(\vec{x}\)</span>
-$<span class="math notranslate nohighlight">\(
+<p>A density estimator should provide a probability density function <span class="math notranslate nohighlight">\(P(\vec{x})\)</span> that is normalized over its feature space <span class="math notranslate nohighlight">\(\vec{x}\)</span></p>
+<div class="math notranslate nohighlight">
+\[
 \int d\vec{x}\, P(\vec{x}) = 1 \; .
-\)</span>$
-In this problem you will verify this normalization for KDE using two different numerical approaches for the integral.</p>
+\]</div>
+<p>In this problem you will verify this normalization for KDE using two different numerical approaches for the integral.</p>
 <p>First, implement the function below to accept a 1D KDE fit object and estimate its normalization integral using the trapezoid rule with the specified grid. <em>Hint: the <code class="docutils literal notranslate"><span class="pre">np.trapz</span></code> function will be useful.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1078,11 +1079,12 @@ In this problem you will verify this normalization for KDE using two different n
 </div>
 </div>
 </div>
-<p>Next, implement the function below to estimate a multidimensional fit normalization using <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_integration">Monte Carlo integration</a>:
-$<span class="math notranslate nohighlight">\(
+<p>Next, implement the function below to estimate a multidimensional fit normalization using <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_integration">Monte Carlo integration</a>:</p>
+<div class="math notranslate nohighlight">
+\[
 \int d\vec{x}\, P(\vec{x}) \simeq \frac{V}{N_{mc}}\, \sum_{j=1}^{N_{mc}} P(\vec{x}_j) = V \langle P\rangle \; ,
-\)</span><span class="math notranslate nohighlight">\(
-where the \)</span>\vec{x}_j<span class="math notranslate nohighlight">\( are uniformly distributed over the integration domain and \)</span>V<span class="math notranslate nohighlight">\( is the integration domain volume. Note that `trapz` gives more accurate results for a fixed number of \)</span>P(\vec{x})$ evaluations, but MC integration is much easier to generalize to higher dimensions.</p>
+\]</div>
+<p>where the <span class="math notranslate nohighlight">\(\vec{x}_j\)</span> are uniformly distributed over the integration domain and <span class="math notranslate nohighlight">\(V\)</span> is the integration domain volume. Note that <code class="docutils literal notranslate"><span class="pre">trapz</span></code> gives more accurate results for a fixed number of <span class="math notranslate nohighlight">\(P(\vec{x})\)</span> evaluations, but MC integration is much easier to generalize to higher dimensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_mc_normalization</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">xlo</span><span class="p">,</span> <span class="n">xhi</span><span class="p">,</span> <span class="n">nmc</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
