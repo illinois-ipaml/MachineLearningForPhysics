@@ -592,10 +592,11 @@ F = \int_a^b f(x) dx
 \]</div>
 <p>The question becomes, what is the best way to choose <span class="math notranslate nohighlight">\(X_i\)</span> to match the real system?  The goal is to get the best approximation as quickly as possible.</p>
 <hr class="docutils" />
-<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Lets appoximate the definite integral using the Monte Carlo integration method:
-$<span class="math notranslate nohighlight">\( \Large
+<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Lets appoximate the definite integral using the Monte Carlo integration method:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \int \limits_0^\pi \sin x ~dx
-\)</span>$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># limits of integration </span>
@@ -705,10 +706,11 @@ $<span class="math notranslate nohighlight">\( \Large
 </div>
 </div>
 <hr class="docutils" />
-<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Lets appoximate the definite integral
-$<span class="math notranslate nohighlight">\( \Large
+<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Lets appoximate the definite integral</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \int \limits_0^1 x^2 ~dx
-\)</span>$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># limits of integration </span>
@@ -821,35 +823,42 @@ $<span class="math notranslate nohighlight">\( \Large
 <hr class="docutils" />
 <section id="span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span">
 <h3><span style="color:LightBlue">Multidimensional Monte Carlo integration and variance scaling</span><a class="headerlink" href="#span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span" title="Permalink to this heading">#</a></h3>
-<p>We can estimate the Monte Carlo variance of the approximation as
-$<span class="math notranslate nohighlight">\( \Large
+<p>We can estimate the Monte Carlo variance of the approximation as</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 v_N = \frac{1}{N^2} \sum_{i=1}^N \Biggl[ (f(x_i) - \bar{f_N})^2 \Biggr]
-\)</span>$</p>
-<p>Also, from the Central Limit Theorem,
-$<span class="math notranslate nohighlight">\( \Large
+\]</div>
+<p>Also, from the Central Limit Theorem,</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \frac{\bar{f_N} - E[f(X)]}{\sqrt{v_N}} \sim \mathcal{N}(0, 1)
-\)</span>$</p>
+\]</div>
 <p>The convergence of Monte Carlo integration is <span class="math notranslate nohighlight">\(O(\sqrt{N})\)</span> and independent of the dimensionality. Hence Monte Carlo integration generally beats numerical integration for moderate- and high-dimensional integration since numerical integration (quadrature) converges as <span class="math notranslate nohighlight">\(O(N^d)\)</span>. Even for low dimensional problems, Monte Carlo integration may have an advantage when the volume to be integrated is concentrated in a very small region and we can use information from the distribution to draw samples more often in the region of importance.</p>
 <p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: 3-D Integration</p>
-<p>$$ \Large
-\int\limits_{x_0}^{x_1} ~ \int\limits_{y_0}^{y_1} ~ \int\limits_{z_0}^{z_1} f(x, y, z) dx~dy~dz</p>
-<p>Uniform 3-D random variable:
-$<span class="math notranslate nohighlight">\(\Large
+<div class="math notranslate nohighlight">
+\[ \Large
+\int\limits_{x_0}^{x_1} ~ \int\limits_{y_0}^{y_1} ~ \int\limits_{z_0}^{z_1} f(x, y, z) dx~dy~dz
+\]</div>
+<p>Uniform 3-D random variable:</p>
+<div class="math notranslate nohighlight">
+\[\Large
 X_i \sim p(x,y,z) = \frac{1}{x_1 - x_0} ~ \frac{1}{y_1 - y_0} ~ \frac{1}{z_1 - z_0}
-\)</span>$</p>
-<p>Basic 3-D estimator:
-$<span class="math notranslate nohighlight">\( \Large
+\]</div>
+<p>Basic 3-D estimator:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 F_N = \frac{(x_1 - x_0)(y_1 - y_0)(z_1 - z_0)}{N} ~ \sum\limits_{i=1}^{N} f(X_i)
-\)</span>$</p>
+\]</div>
 <p>This generalizes to abitrary N-dimensional PDFs</p>
 </section>
 <section id="span-style-color-lightblue-variance-and-bias-in-monte-carlo-integration-span">
 <h3><span style="color:LightBlue">Variance and Bias in Monte Carlo integration</span><a class="headerlink" href="#span-style-color-lightblue-variance-and-bias-in-monte-carlo-integration-span" title="Permalink to this heading">#</a></h3>
 <p>We are often interested in knowing how many iterations it takes for Monte Carlo integration to “converge” and the accuracy of the calculation. To do this, we would like some estimate of the variance and to ensure it is unbiased. It is useful to inspect such plots. One simple way to get confidence intervals for the plot of Monte Carlo estimate against number of iterations is simply to do many such simulations.</p>
-<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Using Monte Carlo methods, estimate the integral of the function
-$<span class="math notranslate nohighlight">\( \Large
+<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Using Monte Carlo methods, estimate the integral of the function</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 f(x) = x \cos 7x + \sin 13x, \ \ \ 0 \le x \le 1
-\)</span>$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -920,28 +929,29 @@ f(x) = x \cos 7x + \sin 13x, \ \ \ 0 \le x \le 1
 <section id="span-style-color-tan-proof-that-monte-carlo-estimator-is-unbiased-span">
 <h4><span style="color:Tan">Proof that Monte Carlo Estimator is Unbiased</span><a class="headerlink" href="#span-style-color-tan-proof-that-monte-carlo-estimator-is-unbiased-span" title="Permalink to this heading">#</a></h4>
 <p>It is straightforward to prove that the expectation value of the Monte Carlo estimator is the desired integral (i.e. it is unbiased).</p>
-<p>First recall some properties of the expectation value <span class="math notranslate nohighlight">\(E\)</span>:
-$<span class="math notranslate nohighlight">\( \Large
+<p>First recall some properties of the expectation value <span class="math notranslate nohighlight">\(E\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 E ~ \Biggl[ \sum\limits_i Y_i \Biggr] = \sum\limits_i E\bigl[ Y_i \bigr]   ~~~~~~~~~~~~~~~~~~~~~ E~\Bigl[ aY \Bigr] = a E~\Bigl[ Y \Bigr]
-\)</span>$</p>
-<p>Then
-$$ \Large E~\Bigl[ F_N \Bigr] = E ~ \Biggl[ \frac{1}{N} ~ \sum\limits_{i=1}^N \frac{f(X_i)}{p(X_I)} \Biggr] \</p>
-<div class="highlight-= notranslate"><div class="highlight"><pre><span></span>~~~~~~~~~~~~~~~~~~~~~~~ = \frac{1}{N} ~ \sum\limits_{i=1}^N ~\int\limits_a^b \frac{f(x)}{p(x)} ~p(x) ~dx \\
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \Large E~\Bigl[ F_N \Bigr] = E ~ \Biggl[ \frac{1}{N} ~ \sum\limits_{i=1}^N \frac{f(X_i)}{p(X_I)} \Biggr] \\
+~~~~~~~~~~~~~~ = \frac{1}{N} ~ \sum\limits_{i=1}^N ~E~ \Biggl[ \frac{f(X_i)}{p(X_I)} \Biggr] \\
+~~~~~~~~~~~~~~~~~~~~~~~ = \frac{1}{N} ~ \sum\limits_{i=1}^N ~\int\limits_a^b \frac{f(x)}{p(x)} ~p(x) ~dx \\
 ~~~~~~~~~~~~~~ = \frac{1}{N} ~ \sum\limits_{i=1}^N ~\int\limits_a^b f(x)  ~dx \\
 ~~ = \int\limits_a^b f(x)  ~dx \\
-$$
-
----
-</pre></div>
-</div>
+\end{split}\]</div>
 </section>
 </section>
+<hr class="docutils" />
 <section id="span-style-color-lightblue-change-of-variables-span">
 <h3><span style="color:LightBlue">Change of Variables</span><a class="headerlink" href="#span-style-color-lightblue-change-of-variables-span" title="Permalink to this heading">#</a></h3>
-<p>The Cauchy distribution is given by
-$<span class="math notranslate nohighlight">\( \Large
+<p>The Cauchy distribution is given by</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 f(x) = \frac{1}{\pi (1 + x^2)}, \ \ -\infty \lt x \lt \infty
-\)</span>$</p>
+\]</div>
 <p>Suppose we want to integrate the tail probability <span class="math notranslate nohighlight">\(P(X&gt;3)\)</span> using Monte Carlo. One way to do this is to draw many samples form a Cauchy distribution, and count how many of them are greater than 3, but this is extremely inefficient.</p>
 <p>Only 10% of samples will be used</p>
 <div class="cell docutils container">
@@ -975,18 +985,21 @@ f(x) = \frac{1}{\pi (1 + x^2)}, \ \ -\infty \lt x \lt \infty
 </div>
 <section id="span-style-color-tan-a-change-of-variables-lets-us-use-100-of-draws-span">
 <h4><span style="color:Tan">A change of variables lets us use 100% of draws</span><a class="headerlink" href="#span-style-color-tan-a-change-of-variables-lets-us-use-100-of-draws-span" title="Permalink to this heading">#</a></h4>
-<p>We are trying to estimate the quantity
-$<span class="math notranslate nohighlight">\( \Large
+<p>We are trying to estimate the quantity</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \int_3^\infty \frac{1}{\pi (1 + x^2)} dx
-\)</span>$</p>
-<p>Using the substitution <span class="math notranslate nohighlight">\(y=3/x\)</span> (and a little algebra), we get
-$<span class="math notranslate nohighlight">\( \Large
+\]</div>
+<p>Using the substitution <span class="math notranslate nohighlight">\(y=3/x\)</span> (and a little algebra), we get</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \int_0^1 \frac{3}{\pi(9 + y^2)} dy
-\)</span>$</p>
-<p>Hence, a much more efficient MC estimator is
-$<span class="math notranslate nohighlight">\( \Large
+\]</div>
+<p>Hence, a much more efficient MC estimator is</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \frac{1}{n} \sum_{i=1}^n \frac{3}{\pi(9 + y_i^2)}
-\)</span>$</p>
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(y_i \sim \square(0,1)\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1198,10 +1211,11 @@ h(x) = p ~(x - a)
 <p>The VEGAS algorithm, due to G. Peter Lepage, is a method for reducing error in Monte Carlo simulations by using a known or approximate probability distribution function to concentrate the search in those areas of the integrand that make the greatest contribution to the final integral.</p>
 <p>The VEGAS algorithm is based on importance sampling. It samples points from the probability distribution described by the function <span class="math notranslate nohighlight">\(|f|\)</span> so that the points are concentrated in the regions that make the largest contribution to the integral</p>
 <p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: 4-D Monte Carlo integration with Vegas</p>
-<p>Here we illustrate the use of <a class="reference external" href="https://vegas.readthedocs.io/en/latest/vegas.html#module-vegas">vegas</a> by estimating the following integral:
-$<span class="math notranslate nohighlight">\( \Large
+<p>Here we illustrate the use of <a class="reference external" href="https://vegas.readthedocs.io/en/latest/vegas.html#module-vegas">vegas</a> by estimating the following integral:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 C \int\limits_{-1}^{1} ~dx_0 ~ \int\limits_{0}^{1} ~dx_1 ~ \int\limits_{0}^{1} ~dx_2 ~ \int\limits_{0}^{1} ~dx_3 ~ e^{-100 \sum_d (x_d - 0.5)^2}
-\)</span>$</p>
+\]</div>
 <p>First we define the integrand <span class="math notranslate nohighlight">\(f(x)\)</span> where <span class="math notranslate nohighlight">\(x[d]\)</span> specifies a point in the 4-dimensional space.</p>
 <p>We then create an integrator <code class="docutils literal notranslate"><span class="pre">integ</span></code> which is an integration operator that can be applied to any 4-dimensional function. It is where we specify the integration volume.</p>
 <p>Finally we apply <code class="docutils literal notranslate"><span class="pre">integ</span></code> to our integrand <span class="math notranslate nohighlight">\(f(x)\)</span>, telling the integrator to estimate the integral using <code class="docutils literal notranslate"><span class="pre">nitn=10</span></code> iterations of the vegas algorithm, each of which uses no more than <code class="docutils literal notranslate"><span class="pre">neval=1000</span></code> evaluations of the integrand. Each iteration produces an independent estimate of the integral.</p>

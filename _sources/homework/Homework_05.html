@@ -503,6 +503,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -1135,6 +1137,181 @@ where the \)</span>\vec{x}_j<span class="math notranslate nohighlight">\( are un
 </div>
 </div>
 </section>
+<section id="span-style-color-orange-problem-3-span">
+<h2><span style="color:Orange">Problem 3</span><a class="headerlink" href="#span-style-color-orange-problem-3-span" title="Permalink to this heading">#</a></h2>
+<p>In this problem, you will study the accuracy of Monte Carlo integration in each of four different expressions, each with some physical significance, shown in the table below:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression #</p></th>
+<th class="head"><p>Function                    </p></th>
+<th class="head"><p>Interval</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.</p></td>
+<td><p><span class="math notranslate nohighlight">\({x = \int_0^1 7-10t\ dt} \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(t\)</span> is time; <span class="math notranslate nohighlight">\(t = [0, 1]\)</span> s</p></td>
+<td><p>Gives position at <br>time <span class="math notranslate nohighlight">\(t\)</span> for this system</p></td>
+</tr>
+<tr class="row-odd"><td><p>2.</p></td>
+<td><p><span class="math notranslate nohighlight">\({\Delta S}\)</span> <span class="math notranslate nohighlight">\({= \int_{300}^{400}\frac{mc}{T}\ dT }\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(m\)</span> is mass; <span class="math notranslate nohighlight">\(m=1\)</span> kg<br> <span class="math notranslate nohighlight">\(c\)</span> is specific heat capacity; <span class="math notranslate nohighlight">\(c = 4190\)</span> J/kg K<br><span class="math notranslate nohighlight">\(T\)</span> is temperature; <span class="math notranslate nohighlight">\(T = [300, 400]\)</span> K</p></td>
+<td><p>Change in entropy for <br>thermal processes</p></td>
+</tr>
+<tr class="row-even"><td><p>3.</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Phi = \int_1^2 \frac{Q}{4 \pi \epsilon_o r^2} dr\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(r\)</span> is distance; <span class="math notranslate nohighlight">\(r = [1, 2]\)</span> m<br><span class="math notranslate nohighlight">\(\epsilon_o\)</span> is the Permittivity of Free Space<br><span class="math notranslate nohighlight">\(Q\)</span> is the charge; <span class="math notranslate nohighlight">\(Q = 1\)</span> C</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Phi\)</span> is the electric potential energy <br>gained by moving along line <span class="math notranslate nohighlight">\(r\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>4.</p></td>
+<td><p><span class="math notranslate nohighlight">\(I = \int_0^\infty \frac{2 \pi h c^2}{\lambda^5(e^{hc/\lambda k T} - 1)}\ d\lambda\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(h\)</span> is Planck’s constant<br> <span class="math notranslate nohighlight">\(c\)</span> is speed of light <br> <span class="math notranslate nohighlight">\(k\)</span> is Boltzmann’s Constant <br> <span class="math notranslate nohighlight">\(T\)</span> is the absolute temperature; T = 400K <br> <span class="math notranslate nohighlight">\(\lambda\)</span> is wavelength; <span class="math notranslate nohighlight">\(\lambda = [0, \infty]\)</span> m</p></td>
+<td><p>Planck’s radiation law; <br>Integrating gives Stefan Boltzmann Law</p></td>
+</tr>
+</tbody>
+</table>
+<p>Analytically integrate each for the region and values provided, and record your answer in the <code class="docutils literal notranslate"><span class="pre">analytical_result</span></code> variables below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analytical_result_expr1</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># replace the None&#39;s with your results</span>
+<span class="n">analytical_result_expr2</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">analytical_result_expr3</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">analytical_result_expr4</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show your work in the cell below, either in a picture file for written derivations or in Latex</p>
+<p>Write the each expression to be integrated as a python function.</p>
+<blockquote>
+<div><p>For example, if I want to integrate the expression</p>
+<div class="math notranslate nohighlight">
+\[ \Large 
+&gt; F = \int 3x^2 + 17\ dx
+&gt; \]</div>
+<p>then my integrand is</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+&gt; f(x) = 3x^2 + 17
+&gt; \]</div>
+<p>and I would write the following function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">f_x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">17</span>
+    <span class="k">return</span> <span class="n">f_x</span>
+</pre></div>
+</div>
+<p>This function takes <code class="docutils literal notranslate"><span class="pre">x</span></code> as my function argument, and returns the calculated value <code class="docutils literal notranslate"><span class="pre">f_x</span></code>.  Note that I am not yet evaluating the limits of my integrand.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helpful constants:</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="c1">#unitless</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">2.99E8</span> <span class="c1">#m/s</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">6.62607015E-34</span> <span class="c1">#J</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.380649E-23</span> <span class="c1">#J/K</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">8.854187817E-12</span> <span class="c1">#F/m</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">5.6704E-8</span> <span class="c1">#W/(m^2 K^4)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Randomly choose values for <code class="docutils literal notranslate"><span class="pre">x</span></code> from a distribution between the limits of the definite integral.</p>
+<blockquote>
+<div><p><em>Hint</em>: if one of your limits is <span class="math notranslate nohighlight">\(\infty\)</span>, it is okay to approximate it with a large number.  Another way to do it is to plot [x, f(x)] and visually estimate the most important region of your integration.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lower_limit</span> <span class="o">=</span> <span class="c1"># this can be a float</span>
+<span class="n">upper_limit</span> <span class="o">=</span> <span class="c1"># this can be a float</span>
+<span class="n">num_x_vals</span>  <span class="o">=</span> <span class="c1"># this must be an integer value less than or equal to 10^8</span>
+<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">lower_limit</span><span class="p">,</span> <span class="n">upper_limit</span><span class="p">,</span> <span class="n">num_x_vals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the <code class="docutils literal notranslate"><span class="pre">f_x</span></code> values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">integrand</span><span class="p">(</span><span class="n">x_vals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">approx_int</span> <span class="o">=</span> <span class="p">((</span><span class="n">upper_limit</span> <span class="o">-</span> <span class="n">lower_limit</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">num_x_vals</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Monte Carlo approximation is </span><span class="si">{</span><span class="n">approx_int</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the error between the <code class="docutils literal notranslate"><span class="pre">approx_int</span></code> and the <code class="docutils literal notranslate"><span class="pre">analytical_result</span></code> variables using one or more of the metrics discussed above</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mse</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># replace with your calculation</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Mean Squared Error is </span><span class="si">{</span><span class="n">mse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">pe</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># replace with your calculation</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Percent Error is </span><span class="si">{</span><span class="n">pe</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we want to visualize how the error decreases as the number of random trials <code class="docutils literal notranslate"><span class="pre">num_x_vals</span></code> increases.  Write code to the do the following:</p>
+<ul class="simple">
+<li><p>Using the error metric you decided on above, write a for-loop that calculates the error as a function of the number of points you sampled.  For example, calculate the error when you summed two values of <span class="math notranslate nohighlight">\(\langle F^N \rangle\)</span>, then calculate the error for three summed values of <span class="math notranslate nohighlight">\(\langle F^N \rangle\)</span>, and so on until you have calculated the errors for the full range of <span class="math notranslate nohighlight">\(\langle F^N \rangle\)</span>.</p></li>
+<li><p>IMPORTANT: You do not need to re-do the experiment to calculate this analysis; if you do it will slow down your for-loop and potentially crash your notebook kernel.  Instead, you will want to reuse all of the integrand values are stored in the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable.  Python indexing into this list using the <code class="docutils literal notranslate"><span class="pre">y[:N]</span></code> functionality will give you the first <code class="docutils literal notranslate"><span class="pre">N</span></code> values in this list.  The first <code class="docutils literal notranslate"><span class="pre">N</span></code> values can then be used to calculate a <span class="math notranslate nohighlight">\(\langle F^N \rangle\)</span> value for the first <code class="docutils literal notranslate"><span class="pre">N</span></code> samples.</p></li>
+<li><p>Make a figure showing how the error changes with the number of values in the sum.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error_data</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="c1"># Write code here to fill error_data with the percentage error corresponding to each of the number of points you sampled in the MC integration</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, plot it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2000000</span><span class="p">,</span> <span class="mi">1999998</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">error_data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of Values in Sum&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Percent Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:Violet">Answer the following questions</span>:</p>
+<ul class="simple">
+<li><p>Model vs Simulation: In your own words, describe the difference between a model and a simulation.  Give your own example of a model, and how you would simulate it.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Answer:</strong></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Markov Chain: In your own words, describe a Markov Chain and its properties. Give your own example of a stochastic system and how you would implement a Markov Chain for it.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Answer:</strong></p>
+</div></blockquote>
+</section>
+<section id="span-style-color-orange-acknowledgments-span">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Mark Neubauer</p></li>
+</ul>
+<p>© Copyright 2024</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1202,6 +1379,8 @@ where the \)</span>\vec{x}_j<span class="math notranslate nohighlight">\( are un
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
