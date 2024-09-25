@@ -585,11 +585,12 @@ document.write(`
 <section id="span-style-color-orange-problem-1-span">
 <h2><span style="color:Orange">Problem 1</span><a class="headerlink" href="#span-style-color-orange-problem-1-span" title="Permalink to this heading">#</a></h2>
 <p>In this problem you will implement the core of the E- and M-steps for the <a class="reference external" href="http://scikit-learn.org/stable/modules/mixture.html">Gaussian mixture model (GMM)</a> method. Note the similarities with the E- and M-steps of the K-means method.</p>
-<p>First, implement the function below to evaluate the <a class="reference external" href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution">multidimensional Gaussian probability density</a> for arbitrary mean <span class="math notranslate nohighlight">\(\vec{\mu}\)</span> and covariance matrix <span class="math notranslate nohighlight">\(C\)</span> (refer to the lecture for more details on the notation used here):
-$<span class="math notranslate nohighlight">\(
+<p>First, implement the function below to evaluate the <a class="reference external" href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution">multidimensional Gaussian probability density</a> for arbitrary mean <span class="math notranslate nohighlight">\(\vec{\mu}\)</span> and covariance matrix <span class="math notranslate nohighlight">\(C\)</span> (refer to the lecture for more details on the notation used here):</p>
+<div class="math notranslate nohighlight">
+\[
 G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 \exp\left[  -\frac{1}{2} \left(\vec{x} - \vec{\mu}\right)^T C^{-1} \left(\vec{x} - \vec{\mu}\right) \right]
-\)</span>$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Gaussian_pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
