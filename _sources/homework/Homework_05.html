@@ -644,12 +644,13 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 </div>
 </div>
 </div>
-<p>Next, implement the E-step in the function below. This consists of calculating the relative probability that each sample <span class="math notranslate nohighlight">\(\vec{x}_n\)</span> (<span class="math notranslate nohighlight">\(n\)</span>-th row of <span class="math notranslate nohighlight">\(X\)</span>) belongs to each component <span class="math notranslate nohighlight">\(k\)</span>:
-$<span class="math notranslate nohighlight">\(
+<p>Next, implement the E-step in the function below. This consists of calculating the relative probability that each sample <span class="math notranslate nohighlight">\(\vec{x}_n\)</span> (<span class="math notranslate nohighlight">\(n\)</span>-th row of <span class="math notranslate nohighlight">\(X\)</span>) belongs to each component <span class="math notranslate nohighlight">\(k\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
 p_{nk} = \frac{\omega_k G(\vec{x}_n; \vec{\mu}_k, C_k)}
 {\sum_{j=1}^K\, \omega_j G(\vec{x}_n; \vec{\mu}_j, C_j)}
-\)</span><span class="math notranslate nohighlight">\(
-Note that these relative probabilities (also called *responsibilities*) sum to one over components \)</span>k<span class="math notranslate nohighlight">\( for each sample \)</span>n<span class="math notranslate nohighlight">\(.  Also note that we consider the parameters (\)</span>\omega_k<span class="math notranslate nohighlight">\(, \)</span>\vec{\mu}_k<span class="math notranslate nohighlight">\(, \)</span>C_k$) of each component fixed during this step. <em>Hint: use your <code class="docutils literal notranslate"><span class="pre">Gaussian_pdf</span></code> function here.</em></p>
+\]</div>
+<p>Note that these relative probabilities (also called <em>responsibilities</em>) sum to one over components <span class="math notranslate nohighlight">\(k\)</span> for each sample <span class="math notranslate nohighlight">\(n\)</span>.  Also note that we consider the parameters (<span class="math notranslate nohighlight">\(\omega_k\)</span>, <span class="math notranslate nohighlight">\(\vec{\mu}_k\)</span>, <span class="math notranslate nohighlight">\(C_k\)</span>) of each component fixed during this step. <em>Hint: use your <code class="docutils literal notranslate"><span class="pre">Gaussian_pdf</span></code> function here.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">E_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
@@ -738,16 +739,17 @@ Note that these relative probabilities (also called *responsibilities*) sum to o
 </div>
 </div>
 </div>
-<p>Finally, implement the M-step in the function below.  During this step, we consider the relative weights <span class="math notranslate nohighlight">\(p_{nk}\)</span> from the previous step fixed and instead update the parameters of each component (which were fixed in the previous step), using:
-$<span class="math notranslate nohighlight">\(
+<p>Finally, implement the M-step in the function below.  During this step, we consider the relative weights <span class="math notranslate nohighlight">\(p_{nk}\)</span> from the previous step fixed and instead update the parameters of each component (which were fixed in the previous step), using:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 \omega_k &amp;= \frac{1}{N}\, \sum_{n=1}^N\, p_{nk} \\
 \vec{\mu}_k &amp;= \frac{\sum_{n=1}^N\, p_{nk} \vec{x}_n}{\sum_{n=1}^N\, p_{nk}} \\
 C_k &amp;= \frac{\sum_{n=1}^N\, p_{nk} \left( \vec{x}_n - \vec{\mu}_k\right) \left( \vec{x}_n - \vec{\mu}_k\right)^T}
 {\sum_{n=1}^N\, p_{nk}}
 \end{aligned}
-\)</span>$
-Make sure you understand why the last expression yields a matrix rather than a scalar dot product before jumping into the code. (If you would like a numpy challenge, try implementing this function without any loops, e.g., with <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code>)</p>
+\end{split}\]</div>
+<p>Make sure you understand why the last expression yields a matrix rather than a scalar dot product before jumping into the code. (If you would like a numpy challenge, try implementing this function without any loops, e.g., with <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">M_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
