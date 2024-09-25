@@ -42,6 +42,7 @@ parts:
           title: Slides
         - file: _sources/lectures/DensityEstimation
         - file: _sources/lectures/Statistics
+        - file: _sources/lectures/MonteCarloSamplingMethods
         - file: _sources/homework/Homework_05
   - caption: Bayesian Inference
     chapters:
