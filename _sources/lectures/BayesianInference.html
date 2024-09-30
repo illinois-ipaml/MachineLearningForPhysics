@@ -1159,15 +1159,17 @@ P(D, \alpha, \beta) = P(D,\alpha\mid \beta)\, P(\beta) = P(D\mid \alpha,\beta)\,
 <p>Write down the posterior we are interested in for this inference problem.</p>
 <p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png" style="width: 400px;" /></a></img><br></p>
 <p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_story.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_story.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_story.png" style="width: 400px;" /></a></img><br></p>
-<p>The posterior we are most likely interested in for this inference is
-$<span class="math notranslate nohighlight">\(
+<p>The posterior we are most likely interested in for this inference is</p>
+<div class="math notranslate nohighlight">
+\[
 P(g\mid r) \; ,
-\)</span><span class="math notranslate nohighlight">\(
-but a more explicit posterior would be:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>but a more explicit posterior would be:</p>
+<div class="math notranslate nohighlight">
+\[
 P(g\mid r, v, \phi, d, w) \; .
-\)</span><span class="math notranslate nohighlight">\(
-The difference between is these is that we marginalized over the &quot;nuisance&quot; parameters \)</span>v, \phi, d, w$ in the first case.</p>
+\]</div>
+<p>The difference between is these is that we marginalized over the “nuisance” parameters <span class="math notranslate nohighlight">\(v, \phi, d, w\)</span> in the first case.</p>
 <hr class="docutils" />
 <p>The arrows in these diagrams define the direction of conditional dependencies. They often mirror a causal influence in the underlying physical system, but this is not necessary. Probabilistic diagrams with directed edges are known as <em><strong><span style="color:violet">Bayesian networks</span></strong></em> or <em><strong><span style="color:violet">Belief Networks</span></strong></em>.</p>
 <p>It is also possible to draw diagrams where nodes are connected symmetrically, without a specified direction. These are known as <strong>Markov random fields</strong> or <strong>Markov networks</strong> and appropriate when dependencies flow in both directions or in an unknown direction.  You can read more about these <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_random_field">here</a>.</p>
