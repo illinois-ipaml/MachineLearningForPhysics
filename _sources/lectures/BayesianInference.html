@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/Bayes';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/BayesianInference';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Markov Chain Monte Carlo in Practice" href="MCMC.html" />
@@ -361,7 +361,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/Bayes.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/BayesianInference.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -407,7 +407,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/_sources/lectures/Bayes.ipynb" target="_blank"
+      <li><a href="../../_sources/_sources/lectures/BayesianInference.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -551,7 +551,7 @@ document.write(`
 <p>The inevitable conclusion is that the statements we are most interested in cannot be assigned frequentist probabilities.</p>
 <p>However, if we allow probabilities to also measure your subjective “degree of belief” in a statement, then we can use the full machinery of probability theory to discuss more interesting statements.  These are called <span style="color:violet">Bayesian probabiilities</span>.</p>
 <p>As usual, an XKCD comic captures the essence of the situation:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-XKCD.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-XKCD.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-XKCD.png" style="width: 800px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-XKCD.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-XKCD.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-XKCD.png" style="width: 800px;" /></a></img><br></p>
 <p>This is sort and absurd example, but this gets right to the core of the potential issues with frequentist inference. The chance of the sun exploding spontaneously are so low given well-known stellar and gravitational physics that it is far more likely that the two die both came up a 6 than that it is that the sun actually exploded.</p>
 <p>Since Frequentist inference does not take the probability of the sun exploding into account (the only data that matters is the die roll), taking a purely Frequentist approach can run into problems like these. And while it may be easy to spot the issue here, in contexts like scientific research it can be much harder to identify that this may be happening in your experiment.</p>
 <p>In other words, frequentist statistics estimates the desired confidence percentage (usually 95%) in which some parameter is placed. In contrast, Bayesian analysis answers the following question: “What is the probability of the hypothesis (model) given the measured data?” In addition, frequentist statistics accepts or rejects the null hypotheses, but Bayesian statistics estimates the ratio of probabilities of two different hypotheses. This ratio is known as the Bayes factor that we will study soon. The Bayes factor quantifies the support for one hypothesis over another, irregardless of whether either of these hypotheses are correct.</p>
@@ -626,7 +626,7 @@ P(D, \Theta_M, M)
 </section>
 <section id="span-style-color-orange-likelihood-span">
 <h2><span style="color:Orange">Likelihood</span><a class="headerlink" href="#span-style-color-orange-likelihood-span" title="Permalink to this heading">#</a></h2>
-<p>The <strong>likelihood</strong> <span class="math notranslate nohighlight">\({\cal L}_M(\Theta_M, D)\)</span> is a function of model parameters <span class="math notranslate nohighlight">\(\Theta_M\)</span> (given hyperparameters <span class="math notranslate nohighlight">\(M\)</span>) and data features <span class="math notranslate nohighlight">\(D\)</span>, and measures the probability (density) of observing the data <span class="math notranslate nohighlight">\(\vec{x}\)</span> given the model.  For example, a Gaussian mixture model has the likelihood function:</p>
+<p>The <span style="color:violet">likelihood</span> <span class="math notranslate nohighlight">\({\cal L}_M(\Theta_M, D)\)</span> is a function of model parameters <span class="math notranslate nohighlight">\(\Theta_M\)</span> (given hyperparameters <span class="math notranslate nohighlight">\(M\)</span>) and data features <span class="math notranslate nohighlight">\(D\)</span>, and measures the probability (density) of observing the data <span class="math notranslate nohighlight">\(\vec{x}\)</span> given the model.  For example, a Gaussian mixture model has the likelihood function:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 {\cal L}_M\left(\mathbf{\Theta}_M, \vec{x} \right) = \sum_{k=1}^{K}\, \omega_k G(\vec{x} ; \vec{\mu}_k, C_k) \; ,
@@ -676,14 +676,14 @@ P(D\mid M) = \int d\Theta_M' P(D\mid \Theta_M', M)\, P(\Theta_M'\mid M) \; .
 P(D\mid M) \rightarrow \sum_k\, P(D\mid \Theta_{M,k}, M)\, P(\Theta_{M,k}\mid M) \; .
 \]</div>
 <p>The generalized Bayes’ rule above assumes fixed values of any hyperparameters (since <span class="math notranslate nohighlight">\(M\)</span> is on the RHS of all 4 terms), but a complete inference also requires us to consider different hyperparameter settings.  We will defer this (harder) <strong>model selection</strong> problem until later.</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-England.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-England.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-England.png" style="width: 300px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-England.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-England.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-England.png" style="width: 300px;" /></a></img><br></p>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Suppose that you meet someone for the first time at your next conference and they are wearing an “England” t-shirt.  Estimate the probability that they are English by:</p>
 <ul class="simple">
 <li><p>Defining the data <span class="math notranslate nohighlight">\(D\)</span> and model <span class="math notranslate nohighlight">\(\Theta_M\)</span> assuming, for simplicity, that there are no hyperparameters.</p></li>
 <li><p>Assigning the relevant likelihoods and prior probabilities (terms 2 and 3 above).</p></li>
 <li><p>Calculating the resulting LHS of the generalized Baye’s rule above.</p></li>
 </ul>
-<p>Solution:</p>
+<p><span style="color:LightGreen">Solution</span>:</p>
 <ul class="simple">
 <li><p>Define the <em><strong><span style="color:violet">data</span></strong></em> <span class="math notranslate nohighlight">\(D\)</span> as the observation that the person is wearing an “England” t-shirt.</p></li>
 <li><p>Define the <em><strong><span style="color:violet">model</span></strong></em> to have a single parameter, the person’s nationality <span class="math notranslate nohighlight">\(\Theta \in \{ \text{English}, \text{!English}\}\)</span>.</p></li>
@@ -716,9 +716,9 @@ P(\text{English}\mid D) &amp;= \frac{P(D\mid \text{English})\, P(\text{English})
 <p>You would have probably assigned different probabilities, since these are subjective assessments where reasonable people can disagree. However, by allowing some subjectivity we are able to make a precise statement under some (subjective) assumptions.</p>
 <p>A simple example like this can be represented graphically in the 2D space of joint probability <span class="math notranslate nohighlight">\(P(D, \Theta)\)</span>:</p>
 <hr class="docutils" />
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-BayesBoxes.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-BayesBoxes.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-BayesBoxes.png" style="width: 800px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-BayesBoxes.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-BayesBoxes.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-BayesBoxes.png" style="width: 800px;" /></a></img><br></p>
 <p>The generalized Bayes’ rule can be viewed as a learning rule that updates our knowledge as new information becomes available:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-UpdateRule.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-UpdateRule.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-UpdateRule.png" style="width: 800px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-UpdateRule.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-UpdateRule.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-UpdateRule.png" style="width: 800px;" /></a></img><br></p>
 <p>The generalized Bayes’ rule can be viewed as a learning rule that updates our knowledge as new information becomes available:</p>
 <p>The implied timeline motivates the <em>posterior</em> and <em>prior</em> terminology, although there is no requirement that the prior be based on data collected before the “new” data.</p>
 <p>Bayesian inference problems can be tricky to get right, even when they sound straightforward, so it is important to clearly spell out what you know or assume, and what you wish to learn:</p>
@@ -757,6 +757,11 @@ P(\text{English}\mid D) &amp;= \frac{P(D\mid \text{English})\, P(\text{English})
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;English&#39;: 0.5, &#39;!English&#39;: 0.5}
+</pre></div>
+</div>
+</div>
 </div>
 <p>Note that the (posterior) output from one learning update can be the (prior) input to the next update. For example, how should we update our knowledge if the person wears an “England” t-shirt the next day also?</p>
 <div class="cell docutils container">
@@ -764,6 +769,11 @@ P(\text{English}\mid D) &amp;= \frac{P(D\mid \text{English})\, P(\text{English})
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post1</span> <span class="o">=</span> <span class="n">learn</span><span class="p">(</span><span class="n">prior</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">,</span> <span class="s1">&#39;t-shirt&#39;</span><span class="p">)</span>
 <span class="n">post2</span> <span class="o">=</span> <span class="n">learn</span><span class="p">(</span><span class="n">post1</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">,</span> <span class="s1">&#39;t-shirt&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">post2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;English&#39;: 0.8, &#39;!English&#39;: 0.2}
 </pre></div>
 </div>
 </div>
@@ -812,8 +822,50 @@ P(\text{English}\mid D) &amp;= \frac{P(D\mid \text{English})\, P(\text{English})
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>English</th>
+      <th>!English</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>PRIOR</th>
+      <td>0.2</td>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <th>D=t-shirt</th>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>D=t-shirt</th>
+      <td>0.8</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-Dice.jpg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-Dice.jpg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-Dice.jpg" style="width: 400px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-Dice.jpg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-Dice.jpg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-Dice.jpg" style="width: 400px;" /></a></img><br></p>
 <p>      <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Dice_(typical_role_playing_game_dice).jpg">https://commons.wikimedia.org/wiki/File:Dice_(typical_role_playing_game_dice).jpg</a></p>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Suppose someone rolls 6, 4, 5 on a dice without telling you whether it has 4, 6, 8, 12, or 20 sides.</p>
 <ul class="simple">
@@ -853,6 +905,68 @@ P(\text{English}\mid D) &amp;= \frac{P(D\mid \text{English})\, P(\text{English})
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>4</th>
+      <th>6</th>
+      <th>8</th>
+      <th>12</th>
+      <th>20</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>PRIOR</th>
+      <td>0.2</td>
+      <td>0.200</td>
+      <td>0.200</td>
+      <td>0.200</td>
+      <td>0.200</td>
+    </tr>
+    <tr>
+      <th>D=6</th>
+      <td>0.0</td>
+      <td>0.392</td>
+      <td>0.294</td>
+      <td>0.196</td>
+      <td>0.118</td>
+    </tr>
+    <tr>
+      <th>D=4</th>
+      <td>0.0</td>
+      <td>0.526</td>
+      <td>0.296</td>
+      <td>0.131</td>
+      <td>0.047</td>
+    </tr>
+    <tr>
+      <th>D=5</th>
+      <td>0.0</td>
+      <td>0.635</td>
+      <td>0.268</td>
+      <td>0.079</td>
+      <td>0.017</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Somewhat surprisingly, this toy problem has a practical application with historical significance!</p>
 <p>Imagine a factory that has made <span class="math notranslate nohighlight">\(N\)</span> items, each with a serial number 1–<span class="math notranslate nohighlight">\(N\)</span>. If you randomly select items and read their serial numbers, the problem of estimating <span class="math notranslate nohighlight">\(N\)</span> is analogous to our dice problem, but with many more models to consider. This approach was successfully used in World-War II by the Allied Forces to <a class="reference external" href="https://en.wikipedia.org/wiki/German_tank_problem">estimate the production rate of German tanks</a> at a time when most academic statisticians rejected Bayesian methods.</p>
@@ -910,19 +1024,19 @@ P(\theta\mid a, b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\, \theta^{a-1} \left
 </div>
 </div>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>:</p>
-<p><strong>Q1:</strong> Think of a question in your research area where this inference problem applies.</p>
-<p><strong>Q2:</strong> Infer <span class="math notranslate nohighlight">\(\theta\)</span> from 2 observations with 1 passing, using hyperparameters <span class="math notranslate nohighlight">\((a=1,b=1)\)</span>.</p>
+<p><span style="color:LightGreen">Q1</span>: Think of a question in your research area where this inference problem applies.</p>
+<p><span style="color:LightGreen">Q2</span>: Infer <span class="math notranslate nohighlight">\(\theta\)</span> from 2 observations with 1 passing, using hyperparameters <span class="math notranslate nohighlight">\((a=1,b=1)\)</span>.</p>
 <ul class="simple">
 <li><p>Explain why the posterior is reasonable given the observed data.</p></li>
 <li><p>What values of <span class="math notranslate nohighlight">\(\theta\)</span> are absolutely ruled out by this data? Does this make sense?</p></li>
 <li><p>How are the three quantities plotted normalized?</p></li>
 </ul>
-<p><strong>Q3:</strong> Infer <span class="math notranslate nohighlight">\(\theta\)</span> from the same 2 observations with 1 passing, using instead <span class="math notranslate nohighlight">\((a=10,b=5)\)</span>.</p>
+<p><span style="color:LightGreen">Q3</span>: Infer <span class="math notranslate nohighlight">\(\theta\)</span> from the same 2 observations with 1 passing, using instead <span class="math notranslate nohighlight">\((a=10,b=5)\)</span>.</p>
 <ul class="simple">
 <li><p>Is the posterior still reasonable given the observed data?  Explain your reasoning.</p></li>
 <li><p>How might you choose between these two subjective priors?</p></li>
 </ul>
-<p><strong>Q4:</strong> Use each of the priors above with different data: 100 trials with 60 passing.</p>
+<p><span style="color:LightGreen">Q4</span>: Use each of the priors above with different data: 100 trials with 60 passing.</p>
 <ul class="simple">
 <li><p>How does the relative importance of the prior and likelihood change with better data?</p></li>
 <li><p>Why are the likelihood values so much smaller now?</p></li>
@@ -932,6 +1046,9 @@ P(\theta\mid a, b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\, \theta^{a-1} \left
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binomial_learn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/16363ee4b376c0c38bd12277c667445cf3114c777906f137c418532fca39ef5a.png" src="../../_images/16363ee4b376c0c38bd12277c667445cf3114c777906f137c418532fca39ef5a.png" />
 </div>
 </div>
 <ul class="simple">
@@ -945,6 +1062,9 @@ P(\theta\mid a, b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\, \theta^{a-1} \left
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/270f7de6f266a1ab3c970260ca709ac65c2a855de120fb597a7bf1f0c8bb0f52.png" src="../../_images/270f7de6f266a1ab3c970260ca709ac65c2a855de120fb597a7bf1f0c8bb0f52.png" />
+</div>
 </div>
 <ul class="simple">
 <li><p>The posterior now peaks away from the mean observed pass rate of 1/2.  This is reasonable if we believe our prior information since, with relatively uninformative data, Bayes’ rule tells us that it should dominate our knowledge of <span class="math notranslate nohighlight">\(\theta\)</span>.  On the other hand, if we cannot justify why this prior is more believable than the earlier flat prior, then we must conclude that the value of <span class="math notranslate nohighlight">\(\theta\)</span> is unknown and that our data has not helped.</p></li>
@@ -956,12 +1076,18 @@ P(\theta\mid a, b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\, \theta^{a-1} \left
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4234024ca410ae3fe84fa727ff884211c4f028b06f4c82bf4ffa3c51b7369e81.png" src="../../_images/4234024ca410ae3fe84fa727ff884211c4f028b06f4c82bf4ffa3c51b7369e81.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binomial_learn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/60a7f190254634300da03e32f2b994893c83309a8e518594e50f93c13068b542.png" src="../../_images/60a7f190254634300da03e32f2b994893c83309a8e518594e50f93c13068b542.png" />
 </div>
 </div>
 <ul class="simple">
@@ -983,7 +1109,7 @@ P(\theta\mid a, b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\, \theta^{a-1} \left
 <h2><span style="color:Orange">So, Why Isn’t Everyone a Bayesian?</span><a class="headerlink" href="#span-style-color-orange-so-why-isn-t-everyone-a-bayesian-span" title="Permalink to this heading">#</a></h2>
 <p>The answer is more complicated than this, but two primary reasons are often cited:</p>
 <ol class="arabic simple">
-<li><p>The calculations needed for Bayesian statistics can be overwhelming for practical applications. However, this is becoming increasing manageable with modern computers. Also, the advent of numerical methods for approximate inference, especially Markov chain Monte Carlo (MCMC) the we will introduce in the next lecture, have tranformed probabilstic data inference.</p></li>
+<li><p>The calculations needed for Bayesian statistics can be overwhelming for practical applications. However, this is becoming increasing manageable with modern computers. Also, the advent of numerical methods for approximate inference, especially <span style="color:violet">Markov chain Monte Carlo</span> (MCMC) the we will introduce in the next lecture, have tranformed probabilstic data inference.</p></li>
 <li><p>The structure requires a prior distribution (the “prior”) on the parameter of interest. If you use a different
 prior you will obtain different results and this “lack of objectivity” makes some people uncomfortable. However, we showed how some problems with sufficiant data can be relatively insensitive to choice of prior.</p></li>
 </ol>
@@ -1008,8 +1134,8 @@ P(D, \alpha, \beta) = P(D,\beta\mid \alpha)\, P(\alpha) = P(D\mid \alpha,\beta)\
 P(D, \alpha, \beta) = P(D,\alpha\mid \beta)\, P(\beta) = P(D\mid \alpha,\beta)\, P(\alpha\mid \beta)\, P(\beta) \; ,
 \]</div>
 <p>The corresponding diagrams are:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png" style="width: 400px;" /></a></img><br></p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png" style="width: 400px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-fully_connected_1.png" style="width: 400px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-fully_connected_2.png" style="width: 400px;" /></a></img><br></p>
 <p>The way to read these diagrams is that a node labeled with <span class="math notranslate nohighlight">\(X\)</span> represents a (multiplicative) factor <span class="math notranslate nohighlight">\(P(X\mid\ldots)\)</span> in the joint probability, where <span class="math notranslate nohighlight">\(\ldots\)</span> lists other nodes whose arrows feed into this node (in any order, thanks to probability calculus Rule-1). A shaded node indicates a random variable that is directly observed (i.e., data) while non-shaded nodes represent (unobserved) latent random variables.</p>
 <p>These diagrams both describe a fully general joint probability with two parameters. The rules for building a fully general joint probability with any number of parameters are:</p>
 <ul class="simple">
@@ -1019,8 +1145,8 @@ P(D, \alpha, \beta) = P(D,\alpha\mid \beta)\, P(\beta) = P(D\mid \alpha,\beta)\,
 </ul>
 <p>With <span class="math notranslate nohighlight">\(n\)</span> parameters, there are then <span class="math notranslate nohighlight">\(n!\)</span> possible diagrams and the number of potential dependencies grows rapidly with <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>To mitigate this factorial growth, we seek pairs of random variables that should not depend on each other. For example, in the two parameter case:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-partial_1.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-partial_1.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-partial_1.png" style="width: 400px;" /></a></img><br></p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-partial_2.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-partial_2.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-partial_2.png" style="width: 400px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-partial_1.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-partial_1.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-partial_1.png" style="width: 400px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-partial_2.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-partial_2.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-partial_2.png" style="width: 400px;" /></a></img><br></p>
 <p>Notice how each diagram tells a different story. For example, the first diagram tells us that the data can be predicted knowing only <span class="math notranslate nohighlight">\(\beta\)</span>, but that our prior knowledge of <span class="math notranslate nohighlight">\(\beta\)</span> depends on <span class="math notranslate nohighlight">\(\alpha\)</span>. In effect, then, simplifying a joint probability involves drawing a diagram that tells a suitable story for your data and models.</p>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Consider observing someone throwing a ball and measuring how far away it lands to infer the strength of gravity:</p>
 <ul class="simple">
@@ -1031,8 +1157,8 @@ P(D, \alpha, \beta) = P(D,\alpha\mid \beta)\, P(\beta) = P(D\mid \alpha,\beta)\,
 <p>Draw one example of a fully general diagram of this inference’s joint probability <span class="math notranslate nohighlight">\(P(r, v, \phi, g, d, w)\)</span>.</p>
 <p>Suppose the thrower always throws as hard as they can, then adjusts the angle according to the wind. Draw a diagram to represent the direct dependencies in this simpler joint probability.</p>
 <p>Write down the posterior we are interested in for this inference problem.</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png" style="width: 400px;" /></a></img><br></p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-projectile_story.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-projectile_story.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-projectile_story.png" style="width: 400px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_fully_connected.png" style="width: 400px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_story.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_story.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-projectile_story.png" style="width: 400px;" /></a></img><br></p>
 <p>The posterior we are most likely interested in for this inference is
 $<span class="math notranslate nohighlight">\(
 P(g\mid r) \; ,
@@ -1046,13 +1172,12 @@ The difference between is these is that we marginalized over the &quot;nuisance&
 <p>The arrows in these diagrams define the direction of conditional dependencies. They often mirror a causal influence in the underlying physical system, but this is not necessary. Probabilistic diagrams with directed edges are known as <em><strong><span style="color:violet">Bayesian networks</span></strong></em> or <em><strong><span style="color:violet">Belief Networks</span></strong></em>.</p>
 <p>It is also possible to draw diagrams where nodes are connected symmetrically, without a specified direction. These are known as <strong>Markov random fields</strong> or <strong>Markov networks</strong> and appropriate when dependencies flow in both directions or in an unknown direction.  You can read more about these <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_random_field">here</a>.</p>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2024</p>
 </section>
 </section>
 
