@@ -530,7 +530,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>emcee
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install emcee
 </pre></div>
 </div>
 </div>
@@ -682,19 +682,22 @@ document.write(`
 </section>
 <section id="span-style-color-orange-problem-2-span">
 <h2><span style="color:Orange">Problem 2</span><a class="headerlink" href="#span-style-color-orange-problem-2-span" title="Permalink to this heading">#</a></h2>
-<p>Suppose you measure a random process that follows an <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_decay">exponential decay law</a> for the number <span class="math notranslate nohighlight">\(n(t)\)</span> of un-decayed states as a function of time <span class="math notranslate nohighlight">\(t\)</span>:
-$<span class="math notranslate nohighlight">\(
+<p>Suppose you measure a random process that follows an <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_decay">exponential decay law</a> for the number <span class="math notranslate nohighlight">\(n(t)\)</span> of un-decayed states as a function of time <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \frac{dn}{dt} = -\lambda n \; ,
-\)</span><span class="math notranslate nohighlight">\(
-and want to infer the posterior probability of the decay rate \)</span>\lambda$ given your data.</p>
-<p>First, implement the function below to evaluate the likelihood of observing <span class="math notranslate nohighlight">\(N\)</span> decay times <span class="math notranslate nohighlight">\(D = \{t_1, t_2, \ldots\}\)</span> as:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>and want to infer the posterior probability of the decay rate <span class="math notranslate nohighlight">\(\lambda\)</span> given your data.</p>
+<p>First, implement the function below to evaluate the likelihood of observing <span class="math notranslate nohighlight">\(N\)</span> decay times <span class="math notranslate nohighlight">\(D = \{t_1, t_2, \ldots\}\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(D\mid \lambda) = \prod_{i=1}^{N}\, P(t_i\mid \lambda)
-\)</span><span class="math notranslate nohighlight">\(
-where the **un-normalized** probability density for exponential decay is:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>where the <strong>un-normalized</strong> probability density for exponential decay is:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(t\mid \lambda) \propto \exp(-\lambda t) \; .
-\)</span>$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decay_likelihood</span><span class="p">(</span><span class="n">decay_times</span><span class="p">,</span> <span class="n">lam</span><span class="p">):</span>
@@ -720,11 +723,12 @@ P(t\mid \lambda) \propto \exp(-\lambda t) \; .
 </div>
 </div>
 </div>
-<p>For our prior, we use the <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_distribution">Gamma distribution</a>, which has two hyperparameters <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>:
-$<span class="math notranslate nohighlight">\(
+<p>For our prior, we use the <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_distribution">Gamma distribution</a>, which has two hyperparameters <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(\lambda\mid \alpha,\beta) = \frac{\beta^\alpha \lambda^{\alpha-1} e^{-\beta\lambda}}{\Gamma(\alpha)} \; .
-\)</span>$
-Implement the function below to evaluate the Gamma distribtion PDF using a numpy expression for the numerator and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.gamma.html">scipy.special.gamma</a> for the denominator:</p>
+\]</div>
+<p>Implement the function below to evaluate the Gamma distribtion PDF using a numpy expression for the numerator and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.gamma.html">scipy.special.gamma</a> for the denominator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.special</span>
@@ -753,12 +757,13 @@ Implement the function below to evaluate the Gamma distribtion PDF using a numpy
 </div>
 </div>
 </div>
-<p>The advantage of this choice of prior is that the evidence integral can be performed analytically:
-$<span class="math notranslate nohighlight">\(
+<p>The advantage of this choice of prior is that the evidence integral can be performed analytically:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(D\mid \alpha,\beta) = \int d\lambda\, P(D\mid\lambda)\, P(P(\lambda\mid \alpha,\beta)
 = \frac{\beta^\alpha (\beta + T)^{-(\alpha+N)} \Gamma(\alpha+N)}{\Gamma(\alpha)} \; .
-\)</span><span class="math notranslate nohighlight">\(
-Use this result to convince yourself that the posterior \)</span>P(\lambda\mid D,\alpha,\beta)<span class="math notranslate nohighlight">\( is another Gamma distribution, but with different hyperparameter values \)</span>\alpha’<span class="math notranslate nohighlight">\( and \)</span>\beta’$.  Priors and posteriors with the same functional form for some likelihood are called <a class="reference external" href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate priors</a>. The <code class="docutils literal notranslate"><span class="pre">binomial_learn</span></code> example in class also used conjugate priors.</p>
+\]</div>
+<p>Use this result to convince yourself that the posterior <span class="math notranslate nohighlight">\(P(\lambda\mid D,\alpha,\beta)\)</span> is another Gamma distribution, but with different hyperparameter values <span class="math notranslate nohighlight">\(\alpha'\)</span> and <span class="math notranslate nohighlight">\(\beta'\)</span>.  Priors and posteriors with the same functional form for some likelihood are called <a class="reference external" href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate priors</a>. The <code class="docutils literal notranslate"><span class="pre">binomial_learn</span></code> example in class also used conjugate priors.</p>
 <p>Implement the function below to learn from measured decay times by updating the prior hyperparameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -849,11 +854,12 @@ Use this result to convince yourself that the posterior \)</span>P(\lambda\mid D
 <section id="span-style-color-orange-problem-3-span">
 <h2><span style="color:Orange">Problem 3</span><a class="headerlink" href="#span-style-color-orange-problem-3-span" title="Permalink to this heading">#</a></h2>
 <p>In this problem you will solve the same decay rate inference problem but this time using a numerical estimate based on Markov-chain Monte Carlo (MCMC).</p>
-<p>Recall that <code class="docutils literal notranslate"><span class="pre">MCMC_sample()</span></code> generates samples using a function proportional to the desired PDF. Implement the function below to evaluate the logarithm of the un-normalized posterior probability density:
-$<span class="math notranslate nohighlight">\(
+<p>Recall that <code class="docutils literal notranslate"><span class="pre">MCMC_sample()</span></code> generates samples using a function proportional to the desired PDF. Implement the function below to evaluate the logarithm of the un-normalized posterior probability density:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \log P(D\mid \lambda) + \log P(\lambda\mid \alpha, \beta) \; .
-\)</span><span class="math notranslate nohighlight">\(
-Do not call your `decay_likelihood()` or `gamma_distribution()` functions in your implementation since the result has better accuracy if you apply the logarithm and simplify analytically. Since MCMC sampling only requires a function proportional to the desired PDF, you can drop any factors in \)</span>P(D\mid \lambda)<span class="math notranslate nohighlight">\( or \)</span>P(\lambda\mid \alpha, \beta)<span class="math notranslate nohighlight">\( that do not depend on \)</span>\lambda$.</p>
+\]</div>
+<p>Do not call your <code class="docutils literal notranslate"><span class="pre">decay_likelihood()</span></code> or <code class="docutils literal notranslate"><span class="pre">gamma_distribution()</span></code> functions in your implementation since the result has better accuracy if you apply the logarithm and simplify analytically. Since MCMC sampling only requires a function proportional to the desired PDF, you can drop any factors in <span class="math notranslate nohighlight">\(P(D\mid \lambda)\)</span> or <span class="math notranslate nohighlight">\(P(\lambda\mid \alpha, \beta)\)</span> that do not depend on <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decay_logf</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">decay_times</span><span class="p">,</span> <span class="n">prior_alpha</span><span class="p">,</span> <span class="n">prior_beta</span><span class="p">):</span>

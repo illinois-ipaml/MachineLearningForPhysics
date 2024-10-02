@@ -13,7 +13,7 @@ You will learn about Bayesian statistics and Markov Chain Monte Carlo.
 * {doc}`lectures/MCMC`
 
 ## *Homework Assignment*
-* Homework 06: Bayesian Statistics and MCMC
+* {doc}`homework/Homework_06`
 
 ## *Supplemental Readings*
   * [Beta Distribution](https://en.wikipedia.org/wiki/Beta_distribution)
