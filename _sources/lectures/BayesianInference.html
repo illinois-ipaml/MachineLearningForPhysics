@@ -1123,7 +1123,7 @@ P(D, \Theta_M, M)
 \]</div>
 <p>When the individual data features, parameters and hyperparameters are all written out, this often ends up being a very high-dimensional function.</p>
 <p>In the most general case, the joint probability requires a huge volume of data to estimate (recall our earlier discussion of <a class="reference internal" href="Dimensionality.html"><span class="doc std std-doc">dimensionality reduction</span></a>). However, many problems can be (approximately) described by a joint probability that is simplified by assuming that some random variables are mutually independent.</p>
-<p>Graphical models are a convenient visualization of the assumed direct dependencies between random variables. For example, suppose we have two parameters <span class="math notranslate nohighlight">\((\alpha, \beta)\)</span> and no hyperparameters, then the joint probability <span class="math notranslate nohighlight">\(P(D, \alpha, \beta)\)</span> can be expanded into a product of conditionals different ways using the rules of probability calculus, e.g.</p>
+<p>Graphical models are a convenient visualization of the assumed direct dependencies between random variables. For example, suppose we have two parameters <span class="math notranslate nohighlight">\((\alpha, \beta)\)</span> and no hyperparameters, then the joint probability <span class="math notranslate nohighlight">\(P(D, \alpha, \beta)\)</span> can be expanded into a product of conditionals in different ways using the rules of probability calculus, e.g.</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(D, \alpha, \beta) = P(D,\beta\mid \alpha)\, P(\alpha) = P(D\mid \alpha,\beta)\, P(\beta\mid \alpha)\, P(\alpha) \; .
