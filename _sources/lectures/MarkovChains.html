@@ -64,10 +64,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/Markov';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/MarkovChains';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Variational Inference" href="Variational.html" />
+    <link rel="next" title="Variational Inference" href="VariationalInference.html" />
     <link rel="prev" title="Stochastic Processes, Markov Chains &amp; Variational Inference" href="../Week_07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -233,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Stochastic Processes and Markov-Chain Theory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Variational.html">Variational Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VariationalInference.html">Variational Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
 </ul>
 </li>
@@ -361,7 +361,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/Markov.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/MarkovChains.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -407,7 +407,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/_sources/lectures/Markov.ipynb" target="_blank"
+      <li><a href="../../_sources/_sources/lectures/MarkovChains.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -517,6 +517,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-practical-advice-span"><span style="color:Orange">Practical Advice</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -844,7 +845,7 @@ x_0, x_1, x_2, \ldots
 <li><p>What conditional probability do the two colors indicate?</p></li>
 <li><p>Explain how the pairplot answers the question “Are <span class="math notranslate nohighlight">\(X_3\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> independent?”, i.e. <span class="math notranslate nohighlight">\(P(X_3\mid X_0) = P(X_3)\)</span>?</p></li>
 </ul>
-<p>Hint: the top-left panel shows <span class="math notranslate nohighlight">\(P(X_0\mid X_0 \le 0.5)\)</span> and <span class="math notranslate nohighlight">\(P(X_0\mid X_0 &gt; 0.5)\)</span>, with no marginalization since <span class="math notranslate nohighlight">\(X_0\)</span> starts the random sequence.</p>
+<p><em><strong><span style="color:LightGreen">Hint</span></strong></em>: the top-left panel shows <span class="math notranslate nohighlight">\(P(X_0\mid X_0 \le 0.5)\)</span> and <span class="math notranslate nohighlight">\(P(X_0\mid X_0 &gt; 0.5)\)</span>, with no marginalization since <span class="math notranslate nohighlight">\(X_0\)</span> starts the random sequence.</p>
 <p>The histograms show the distributions <span class="math notranslate nohighlight">\(P(X_n)\)</span> which are marginalized over <span class="math notranslate nohighlight">\(X_{n-1},\ldots, X_0\)</span>. The scatter plots show the joint distributions <span class="math notranslate nohighlight">\(P(X_i, X_j)\)</span> which are marginalized over <span class="math notranslate nohighlight">\(X_{n-1},\ldots, X_0\)</span> with <span class="math notranslate nohighlight">\(n = \max(i,j)\)</span> and excluding <span class="math notranslate nohighlight">\(X_{\min(i,j)}\)</span>. Note that these are distributions of random variables <span class="math notranslate nohighlight">\(X_n\)</span>, not random values <span class="math notranslate nohighlight">\(x_n\)</span>.</p>
 <p>More explicitly:</p>
 <ul class="simple">
@@ -1033,7 +1034,7 @@ P(X_n\mid X_{n-1}) \; .
 <img alt="../../_images/eb82102a4e13491deb63f63b6360c8c307bdc25ebe7c42b6cb119c15e0e5493b.png" src="../../_images/eb82102a4e13491deb63f63b6360c8c307bdc25ebe7c42b6cb119c15e0e5493b.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">NOTE: </span>:</strong></em> A stationary Markov chain eventually reaches an equilibrium <span class="math notranslate nohighlight">\(P(X_n\mid X_0) \rightarrow \tilde{P}(X_n)\)</span> that does not depend on <span class="math notranslate nohighlight">\(X_0\)</span>.</p>
+<p><em><strong><span style="color:Violet">NOTE: </span>:</strong></em> A stationary Markov chain eventually reaches an equilibrium <span class="math notranslate nohighlight">\(P(X_n\mid X_0) \rightarrow \tilde{P}(X_n)\)</span> that does not depend on <span class="math notranslate nohighlight">\(X_0\)</span>.**</p>
 <p>We saw earlier how, in general, <span class="math notranslate nohighlight">\(X_n\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> are dependent, but we now learn that stationarity tames this behavior and guarantees that <span class="math notranslate nohighlight">\(X_n\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> are independent for sufficiently large <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>We will not prove this result, but here is a less trivial example to help build the case:</p>
 <div class="cell docutils container">
@@ -1416,6 +1417,13 @@ P(q) \propto \exp\left( -\frac{U(q)}{k_B T} \right) \; ,
 <p>This <a class="reference external" href="http://twiecki.github.io/blog/2013/09/23/emcee-pymc/">blog post</a> compares emcee and PyMC3.</p>
 <p>You will see examples of performing MCMC and variational inference with <a class="reference external" href="http://edwardlib.org/">Edward</a> soon.</p>
 </section>
+<section id="span-style-color-orange-acknowledgments-span">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Mark Neubauer</p></li>
+</ul>
+<p>© Copyright 2024</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1458,7 +1466,7 @@ P(q) \propto \exp\left( -\frac{U(q)}{k_B T} \right) \; ,
       </div>
     </a>
     <a class="right-next"
-       href="Variational.html"
+       href="VariationalInference.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -1497,6 +1505,7 @@ P(q) \propto \exp\left( -\frac{U(q)}{k_B T} \right) \; ,
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-practical-advice-span"><span style="color:Orange">Practical Advice</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
