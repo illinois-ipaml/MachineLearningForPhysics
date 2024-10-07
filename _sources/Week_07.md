@@ -10,8 +10,8 @@ You will learn about stochastic processes, Markov Chains and Variational Inferen
 
 ## *Lecture Materials*
 * [Slides](https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing)
-* {doc}`lectures/Markov`
-* {doc}`lectures/Variational`
+* {doc}`lectures/MarkovChains`
+* {doc}`lectures/VariationalInference`
 
 ## *Homework Assignment*
 * Homework 07: Markov Chains

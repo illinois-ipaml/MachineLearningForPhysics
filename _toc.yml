@@ -65,8 +65,8 @@ parts:
         sections:
         - url: https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing
           title: Slides
-        - file: _sources/lectures/Markov
-        - file: _sources/lectures/Variational
+        - file: _sources/lectures/MarkovChains
+        - file: _sources/lectures/VariationalInference
         - file: _sources/homework/Homework_07
       - file: _sources/Week_08 # Optimization and Model Selection
         sections:
