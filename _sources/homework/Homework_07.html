@@ -505,6 +505,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-4-span"><span style="color:Orange">Problem 4</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -531,15 +532,17 @@ document.write(`
 </div>
 <section id="span-style-color-orange-problem-1-span">
 <h2><span style="color:Orange">Problem 1</span><a class="headerlink" href="#span-style-color-orange-problem-1-span" title="Permalink to this heading">#</a></h2>
-<p>We showed in class that a Markov chain can have long-range dependencies,
-$<span class="math notranslate nohighlight">\(
+<p>We showed in class that a Markov chain can have long-range dependencies,</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(X_n\mid X_{n-k}) \ne P(X_n) \; ,
-\)</span><span class="math notranslate nohighlight">\(
-and commented that dependent random variables are usually, but not necessarily, correlated:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>and commented that dependent random variables are usually, but not necessarily, correlated:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \rho \equiv \frac{\langle (X_n - \mu) (X_{n-k} - \mu)\rangle}{\sigma^2} \ne 0 \; ,
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\mu<span class="math notranslate nohighlight">\( and \)</span>\sigma$ are the chain’s long-term mean and standard deviation, respectively.</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> are the chain’s long-term mean and standard deviation, respectively.</p>
 <p>However, it is possible to define (fairly artificial) distributions with dependent random variables that are uncorrelated.  For example:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_1\)</span> is uniformly distributed in <span class="math notranslate nohighlight">\([-1,+1]\)</span>.</p></li>
@@ -601,12 +604,13 @@ where \)</span>\mu<span class="math notranslate nohighlight">\( and \)</span>\si
 </section>
 <section id="span-style-color-orange-problem-2-span">
 <h2><span style="color:Orange">Problem 2</span><a class="headerlink" href="#span-style-color-orange-problem-2-span" title="Permalink to this heading">#</a></h2>
-<p>In this problem, you will implement a Metropolis update rule to sample a Markov chain for the un-normalized probability density:
-$<span class="math notranslate nohighlight">\(
+<p>In this problem, you will implement a Metropolis update rule to sample a Markov chain for the un-normalized probability density:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(x, y) \propto \frac{1}{2} \exp\left[-\frac{(x/s)^2 + (y s)^2}{2}\right] +
 \frac{1}{2} \exp\left[-\frac{(x s)^2 + (y/s)^2}{2}\right]
-\)</span><span class="math notranslate nohighlight">\(
-with hyperparameter \)</span>s &gt; 0$.</p>
+\]</div>
+<p>with hyperparameter <span class="math notranslate nohighlight">\(s &gt; 0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="p">):</span>
@@ -733,7 +737,8 @@ with hyperparameter \)</span>s &gt; 0$.</p>
 <section id="span-style-color-orange-problem-3-span">
 <h2><span style="color:Orange">Problem 3</span><a class="headerlink" href="#span-style-color-orange-problem-3-span" title="Permalink to this heading">#</a></h2>
 <p>In this problem you will implement a Gibbs update rule for the same probability density.</p>
-<p>Implement the function below to sample from the conditional distribution <span class="math notranslate nohighlight">\(P(x\mid y)\)</span>. Hint: each sample can be drawn from a single Gaussian with <span class="math notranslate nohighlight">\(\sigma = s\)</span> or <span class="math notranslate nohighlight">\(\sigma = 1/s\)</span> as long as you weight the contributions from each Gaussian correctly given <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>Implement the function below to sample from the conditional distribution <span class="math notranslate nohighlight">\(P(x\mid y)\)</span>.</p>
+<p><em><strong>Hint</strong></em>: each sample can be drawn from a single Gaussian with <span class="math notranslate nohighlight">\(\sigma = s\)</span> or <span class="math notranslate nohighlight">\(\sigma = 1/s\)</span> as long as you weight the contributions from each Gaussian correctly given <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_conditional</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">gen</span><span class="p">):</span>
@@ -853,28 +858,32 @@ with hyperparameter \)</span>s &gt; 0$.</p>
 </section>
 <section id="span-style-color-orange-problem-4-span">
 <h2><span style="color:Orange">Problem 4</span><a class="headerlink" href="#span-style-color-orange-problem-4-span" title="Permalink to this heading">#</a></h2>
-<p>If we define the potential energy for a “particle” as:
-$<span class="math notranslate nohighlight">\(
+<p>If we define the potential energy for a “particle” as:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 U(x,y) \equiv -\log P(x,y)
-\)</span><span class="math notranslate nohighlight">\(
-it has partial derivatives:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>it has partial derivatives:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \frac{\partial}{\partial x} U(x,y) = x\, \frac{E_1 / s^2 + E_2 s^2}{E_1 + E_2} \quad, \quad
 \frac{\partial}{\partial y} U(x,y) = y\, \frac{E_1 s^2 + E_2 / s^2}{E_1 + E_2}
-\)</span><span class="math notranslate nohighlight">\(
-with
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 E_1(x,y) \equiv \frac{1}{2} \exp\left[-\frac{(x/s)^2 + (y s)^2}{2}\right] \quad, \quad
 E_2(x,y) \equiv \frac{1}{2} \exp\left[-\frac{(x s)^2 + (y/s)^2}{2}\right] \; .
-\)</span><span class="math notranslate nohighlight">\(
-A Hamiltonian MC simulates the trajectory of a particle using the equations of motion:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>A Hamiltonian MC simulates the trajectory of a particle using the equations of motion:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 x \rightarrow x + p_x \Delta t \quad, \quad
 y \rightarrow y + p_y \Delta t \quad, \quad
 p_x \rightarrow p_x - \frac{\partial}{\partial x} U(x,y) \Delta t \quad, \quad
 p_y \rightarrow p_y - \frac{\partial}{\partial y} U(x,y) \Delta t \; ,
-\)</span><span class="math notranslate nohighlight">\(
-where we have set all masses equal to 1 and the temperature \)</span>k_B T = 1$.</p>
+\]</div>
+<p>where we have set all masses equal to 1 and the temperature <span class="math notranslate nohighlight">\(k_B T = 1\)</span>.</p>
 <p>Implement the function below to perform a single <span class="math notranslate nohighlight">\(\Delta t\)</span> step according to the equations above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -980,6 +989,13 @@ where we have set all masses equal to 1 and the temperature \)</span>k_B T = 1$.
 </div>
 </div>
 </section>
+<section id="span-style-color-orange-acknowledgments-span">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Mark Neubauer</p></li>
+</ul>
+<p>© Copyright 2024</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1049,6 +1065,7 @@ where we have set all masses equal to 1 and the temperature \)</span>k_B T = 1$.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-2-span"><span style="color:Orange">Problem 2</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-3-span"><span style="color:Orange">Problem 3</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-4-span"><span style="color:Orange">Problem 4</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
