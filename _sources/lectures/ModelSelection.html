@@ -530,7 +530,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We will be using MCMC for our Bayesian model evaluations, so we include the MCMC helper functions we had before in our <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/lectures/MCMC.html">MCMC notebook</a></p>
+<p>We will be using MCMC for our Bayesian model evaluations, so we include the MCMC helper functions we had before in our <a class="reference external" href="https://illinois-mlp.github.io/MachineLearningForPhysics/_sources/lectures/MarkovChainMonteCarlo.html">MCMC notebook</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
@@ -711,7 +711,7 @@ document.write(`
 </div>
 <section id="span-style-color-orange-bayesian-model-selection-span">
 <h2><span style="color:Orange">Bayesian Model Selection</span><a class="headerlink" href="#span-style-color-orange-bayesian-model-selection-span" title="Permalink to this heading">#</a></h2>
-<p>We <span class="xref myst">originally stated</span> Bayes’ learning rule as:</p>
+<p>We <a class="reference external" href="https://illinois-mlp.github.io/MachineLearningForPhysics/_sources/lectures/BayesianInference.html">originally stated</a> Bayes’ learning rule as:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(\Theta_M\mid D, M) = \frac{P(D\mid \Theta_M, M)\,P(\Theta_M\mid M)}{P(D\mid M)}
@@ -724,7 +724,7 @@ P(\Theta_M\mid D, M) = \frac{P(D\mid \Theta_M, M)\,P(\Theta_M\mid M)}{P(D\mid M)
 <li><p><em><strong><span style="color:Violet">Evidence</span></strong></em>: <span class="math notranslate nohighlight">\(P(D\mid M)\)</span> is the probability of the data given the hyperparameters and <em>marginalized over all possible parameter values given the hyperparameters</em>.</p></li>
 </ol>
 <p>We often omit the model <span class="math notranslate nohighlight">\(M\)</span> in our notation when we are only considering a single model. However, unless there is only one possible model, then we still have to solve a meta-inference problem of comparing possible models. Although this step is often referred to as “<span style="color:Violet">model selection</span>”, it is better to think of it as  <em><strong><span style="color:Violet">model comparison</span></strong></em>, since it can only assign relative probabilities to different models.</p>
-<p>Recalling <span style="color:Violet">Bayes’ Rule</span> (see <a class="reference external" href="https://nbviewer.jupyter.org/github/illinois-mla/syllabus/blob/master/notebooks/Probability.ipynb">Probability</a>), The posterior probability of a model <span class="math notranslate nohighlight">\(M\)</span> given the observed data <span class="math notranslate nohighlight">\(D\)</span> is:</p>
+<p>Recalling <span style="color:Violet">Bayes’ Rule</span> (see <a class="reference external" href="https://illinois-mlp.github.io/MachineLearningForPhysics/_sources/lectures/ProbabilityTheory.html">Probability</a>), The posterior probability of a model <span class="math notranslate nohighlight">\(M\)</span> given the observed data <span class="math notranslate nohighlight">\(D\)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(M\mid D) = \frac{P(D\mid M)\,P(M)}{P(D)} \; ,
@@ -767,7 +767,7 @@ P(M) = \int d\Theta_M\, P(\Theta_M, M) \; .
 }
 \]</div>
 <p>It is easy to lose sight of the big picture with all of this probability calculus, so let’s zoom out to a simple example:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" style="width: 800px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" style="width: 800px;" /></a></img><br></p>
 <p><em><strong><span style="color:Violet">DISCUSS</span></strong></em> Study the observed image <span class="math notranslate nohighlight">\(D\)</span> above with two models in mind:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(M_1\)</span>: The image shows a single piece of paper.</p></li>
@@ -1190,7 +1190,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/844ad14703771133e9c428a504ab2dd0a73526afd5bf7ba2610d09f9de857c8e.png" src="../../_images/844ad14703771133e9c428a504ab2dd0a73526afd5bf7ba2610d09f9de857c8e.png" />
+<img alt="../../_images/8e497eeafc3f2a7f5ad462c1d24533892170f96bf035d2e35e2bc46f7f8831f6.png" src="../../_images/8e497eeafc3f2a7f5ad462c1d24533892170f96bf035d2e35e2bc46f7f8831f6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1200,7 +1200,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f6db1d366a46df1b81eca629ebeab725f0bf3bf1c4306de4e5f85b4475ffdd91.png" src="../../_images/f6db1d366a46df1b81eca629ebeab725f0bf3bf1c4306de4e5f85b4475ffdd91.png" />
+<img alt="../../_images/7bdf344d7016dbe3a706d2a18602c182a598f1f5100185851b8d305fa255bd0f.png" src="../../_images/7bdf344d7016dbe3a706d2a18602c182a598f1f5100185851b8d305fa255bd0f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1210,7 +1210,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7144693532c671f60a93f3de6bd23107a5b160b6306aea235278a58b23924857.png" src="../../_images/7144693532c671f60a93f3de6bd23107a5b160b6306aea235278a58b23924857.png" />
+<img alt="../../_images/8dca2f822c154d06abfb5dc5f5097a06e11c58de1517dc71bebb34d54293b8d3.png" src="../../_images/8dca2f822c154d06abfb5dc5f5097a06e11c58de1517dc71bebb34d54293b8d3.png" />
 </div>
 </div>
 <p>Each of these involved calculations provides a single number, the estimated log of the evidence for <span class="math notranslate nohighlight">\(D\)</span> given <span class="math notranslate nohighlight">\(M\)</span>,</p>
@@ -1364,13 +1364,12 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div></div></div>
 </div>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2024</p>
 </section>
 </section>
 

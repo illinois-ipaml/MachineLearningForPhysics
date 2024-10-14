@@ -950,7 +950,7 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <li><p><span class="math notranslate nohighlight">\(P(D)\)</span> is the “evidence”.</p></li>
 </ul>
 <p>Since we generally cannot calculate the evidence <span class="math notranslate nohighlight">\(P(D)\)</span>, a useful inference method should not require that we know its value.</p>
-<p>The <strong>variational Bayesian inference</strong> method has three steps:</p>
+<p>The <em><strong><span style="color:Violet">variational Bayesian inference</span></strong></em> method has three steps:</p>
 <ul class="simple">
 <li><p>Define a family of PDFs <span class="math notranslate nohighlight">\(q(\theta; s)\)</span> that approximate the true posterior <span class="math notranslate nohighlight">\(P(\theta\mid D)\)</span>.</p></li>
 <li><p>Use optimization to find the value <span class="math notranslate nohighlight">\(s^\ast\)</span> that, according to the KL divergence, best approximates the true posterior.</p></li>
@@ -961,7 +961,8 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
 \begin{aligned}
-\text{KL}(q\parallel p) &amp;= \int d\theta\, q(\theta) \log\left[
+\text{KL}(q\parallel p) &amp;\equiv \int d\theta\, q(\theta)\, \log\frac{q(\theta)}{p(\theta)} \\
+&amp;= \int d\theta\, q(\theta) \log\left[
 \frac{P(D)\, q(\theta)}{P(D\mid \theta)\, P(\theta)}
 \right] \\
 &amp;= \int d\theta\, q(\theta) \left[\log P(D) +
@@ -978,7 +979,7 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <p><em><strong><span style="color:Violet">DISCUSS</span></strong></em>: Describe the <span class="math notranslate nohighlight">\(q(\theta)\)</span> that would minimize the contribution of each term to their sum (assuming a fixed dataset <span class="math notranslate nohighlight">\(D\)</span>).</p>
 <p>Solution:</p>
 <ul class="simple">
-<li><p>The log of the evidence is a constant offset in the sum, independent of <span class="math notranslate nohighlight">\(q\)</span>.\</p></li>
+<li><p>The log of the evidence is a constant offset in the sum, independent of <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
 <li><p>The KL divergence term is minimized when <span class="math notranslate nohighlight">\(q(\theta) = P(\theta)\)</span>, i.e., it drives <span class="math notranslate nohighlight">\(q\)</span> to look like the prior.</p></li>
 <li><p>The log-likelihood term is minimized when <span class="math notranslate nohighlight">\(q(\theta)\)</span> prefers parameters <span class="math notranslate nohighlight">\(\theta\)</span> that explain the data.</p></li>
 </ul>
@@ -1009,7 +1010,12 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <li><p>Minimizing <span class="math notranslate nohighlight">\(-\text{ELBO}(q)\)</span> with respect to <span class="math notranslate nohighlight">\(q\)</span> is equivalent to minimizing <span class="math notranslate nohighlight">\(\text{KL}(q\parallel p)\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\text{ELBO}(q)\)</span> is much easier to calculate since it does not depend on the evidence <span class="math notranslate nohighlight">\(P(D)\)</span>.</p></li>
 </ul>
-<p>Note that, as with the KL divergence, the ELBO can be evaluated in terms of expectation values,</p>
+<p>Note that, as with the KL divergence, the ELBO can be evaluated in terms of expectation values. Remember from before,</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+\text{KL}( q \parallel P ) = \langle \log q(\theta)\rangle_q - \langle \log P(\theta)\rangle_q \;
+\]</div>
+<p>the ELBO can be written as</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \text{ELBO}(q) = \langle \log P(D\mid\theta)\rangle_q + \langle \log P(\theta)\rangle_q - \langle \log q\rangle_q \; .
@@ -1125,7 +1131,7 @@ P(\theta\mid D) = \frac{P(D\mid\theta)\, P(\theta)}{P(D)}
 \text{KL}( q \parallel p ) = \langle \log q(\theta)\rangle_q - \langle \log p(\theta)\rangle_q \; ,
 \]</div>
 <p>to replace the integral with averages. This approach changes our requirements on the family <span class="math notranslate nohighlight">\(q\)</span> from being able to do integrals involving <span class="math notranslate nohighlight">\(q\)</span> to being able to sample from <span class="math notranslate nohighlight">\(q\)</span>, which is generally much easier. Although this method is known as <span style="color:Violet">Black Box Variational Inference</span>, it still lacks the turn-key convenience of MCMC with MH updates.</p>
-<p>The examples above used a single parameter <span class="math notranslate nohighlight">\(\theta\)</span>, to simplify plotting and allow straightforward numerical integration. More interesting problems generally have many parameters, which makes picking a suitable family <span class="math notranslate nohighlight">\(q\)</span> much harder.  A common approach, known as the <strong>mean field approximation</strong>, is to assume that the posterior can be factored:</p>
+<p>The examples above used a single parameter <span class="math notranslate nohighlight">\(\theta\)</span>, to simplify plotting and allow straightforward numerical integration. More interesting problems generally have many parameters, which makes picking a suitable family <span class="math notranslate nohighlight">\(q\)</span> much harder.  A common approach, known as the <span style="color:Violet">mean field approximation</span>, is to assume that the posterior can be factored:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(\theta_1, \theta_2, \ldots\mid D) = p_1(\theta_1)\, p_2(\theta_2) \ldots

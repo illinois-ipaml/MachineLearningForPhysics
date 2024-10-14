@@ -550,6 +550,10 @@ document.write(`
 </ul>
 <p>This is conceptually a straightforward problem, but efficient numerical methods are challenging, especially in high dimensions.</p>
 <p>The simplest method is an exhaustive grid search. In 1D, this boils down to making a plot and reading off the lowest value.  For example (note the useful <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html">np.argmin</a>):</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+f(x) = x^2 - 10 e^{-10000 (x - \pi)^2} 
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -599,13 +603,17 @@ document.write(`
 \boxed{\mathbf{x}_{n+1} = \mathbf{x}_n - \eta \nabla f(\mathbf{x}_n) \;
 }
 \]</div>
-<p>This <strong>gradient descent</strong> method uses a parameter <span class="math notranslate nohighlight">\(\eta\)</span> to control the size of each step: the ball might overshoot if this is too large, but too small values make unnecessary evaluations. In machine learning contexts, <span class="math notranslate nohighlight">\(\eta\)</span> is often referred to as the <strong>learning rate</strong>. There are different strategies for adjusting <span class="math notranslate nohighlight">\(\eta\)</span> on the fly, but no universal best compromise between robustness and efficiency.</p>
+<p>This <span style="color:Violet">gradient descent</span> method uses a parameter <span class="math notranslate nohighlight">\(\eta\)</span> to control the size of each step: the ball might overshoot if this is too large, but too small values make unnecessary evaluations. In machine learning contexts, <span class="math notranslate nohighlight">\(\eta\)</span> is often referred to as the <span style="color:Violet">learning rate</span>. There are different strategies for adjusting <span class="math notranslate nohighlight">\(\eta\)</span> on the fly, but no universal best compromise between robustness and efficiency.</p>
 <p>The second condition is necessary to avoid getting trapped in the false minimum at <span class="math notranslate nohighlight">\(x=0\)</span> in the example above. We often cannot guarantee the second condition but all is not lost: the first condition still allows us to reliably find a <em>local minimum</em>, but we can never know if it is also the global minimum. A practical workaround is to simulate many balls starting from different locations and hope that at least one of them falls into the global minimum.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Convex_function">Convex functions</a> are special since they are guaranteed to meet the second condition. We have already seen that the KL divergence is convex and discussed <a class="reference external" href="https://en.wikipedia.org/wiki/Jensen's_inequality">Jensen’s inequality</a> which applies to convex functions.  Convex functions are extremely important in optimization but rare in the wild: unless you know that your function has a single global minimum, you should generally assume that it has many local minima, especially in many dimensions.</p>
 </section>
 <section id="span-style-color-orange-derivatives-span">
 <h2><span style="color:Orange">Derivatives</span><a class="headerlink" href="#span-style-color-orange-derivatives-span" title="Permalink to this heading">#</a></h2>
 <p>Derivatives of <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> are very useful for optimization and can be calculated several ways. The first method is to work out the derivatives by hand and code them up, for example:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+f(x) = \frac{\cos(e^x)}{x^2}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -614,6 +622,10 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="math notranslate nohighlight">
+\[ \Large
+f^\prime (x) = -2 \frac{\cos(e^x)}{x^3} - e^x \frac{\sin(e^x)}{x^2}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -626,13 +638,13 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(x)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f</span><span class="se">\&#39;</span><span class="s1">(x)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f^{~\prime}(x)$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a3a81e8252eee61bdef3e688fe05caeb745fc0cfd43612f6c1caecd01f026ad1.png" src="../../_images/a3a81e8252eee61bdef3e688fe05caeb745fc0cfd43612f6c1caecd01f026ad1.png" />
+<img alt="../../_images/0c0ad4f0082cee47d37e68a4b8d8db0096834d617ff5c4540e0bbd2856097c1e.png" src="../../_images/0c0ad4f0082cee47d37e68a4b8d8db0096834d617ff5c4540e0bbd2856097c1e.png" />
 </div>
 </div>
 <p>Derivatives can also be calculated numerically using <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference">finite difference equations</a> such as:</p>
@@ -672,6 +684,11 @@ document.write(`
 </div>
 </div>
 </div>
+<p>and the same function <span class="math notranslate nohighlight">\(f{x}\)</span> we had before</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+f_{\text{auto}}(x) \equiv f(x) = \frac{\cos(e^x)}{x^2}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_auto</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -690,14 +707,11 @@ document.write(`
 <p>In this case, the automatic derivates are identical to the exact results up to round-off errors (note the <code class="docutils literal notranslate"><span class="pre">1e-16</span></code> multiplier on the y axis):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_auto</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_auto</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x15dc4ff10&gt;]
-</pre></div>
-</div>
 <img alt="../../_images/625af6041add38cf4a47ebe568bb8e7673b242374bf61b03f06b0c0c10446ffc.png" src="../../_images/625af6041add38cf4a47ebe568bb8e7673b242374bf61b03f06b0c0c10446ffc.png" />
 </div>
 </div>
@@ -722,7 +736,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_32703/2490666034.py:2: RuntimeWarning: invalid value encountered in double_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_25663/2490666034.py:2: RuntimeWarning: invalid value encountered in double_scalars
   return anp.sin(x) / x
 </pre></div>
 </div>
@@ -752,7 +766,7 @@ document.write(`
 </div>
 </div>
 <p><strong>EXERCISE:</strong> Modify the implementation of <code class="docutils literal notranslate"><span class="pre">sinc</span></code> above to cure both of these problems. Hint: <code class="docutils literal notranslate"><span class="pre">grad</span></code> can automatically differentiate through control flow structures (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, etc).</p>
-<p>The simplest fix is to return 1 whenever x is zero:</p>
+<p>The simplest fix is to return 1 whenever <span class="math notranslate nohighlight">\(x\)</span> is zero:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -768,7 +782,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>This gives the correct derivative but still generates a warning because x=0 is treated as an isolated point:</p>
+<p>This gives the correct derivative but still generates a warning because <span class="math notranslate nohighlight">\(x = 0\)</span> is treated as an isolated point:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grad</span><span class="p">(</span><span class="n">sinc</span><span class="p">)(</span><span class="mf">0.</span><span class="p">)</span>
@@ -1017,7 +1031,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (+9.4e-06,+1.6e-05) after 83 iterations making 153+0 calls in 4.27 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (+9.4e-06,+1.6e-05) after 83 iterations making 153+0 calls in 3.43 ms.
 </pre></div>
 </div>
 <img alt="../../_images/5442130363ce3e847bdecc0f7c43fbc3b33afeba7501d1b00ccb5a90752ee733.png" src="../../_images/5442130363ce3e847bdecc0f7c43fbc3b33afeba7501d1b00ccb5a90752ee733.png" />
@@ -1032,7 +1046,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-3.7e-06,-7.2e-06) after 20 iterations making 43+43 calls in 11.19 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-3.7e-06,-7.2e-06) after 20 iterations making 43+43 calls in 9.89 ms.
 </pre></div>
 </div>
 <img alt="../../_images/48721f3e10e4e6bac5e11378c9ff532395b8e5f9a3e91ea3496c66075ebe2ba2.png" src="../../_images/48721f3e10e4e6bac5e11378c9ff532395b8e5f9a3e91ea3496c66075ebe2ba2.png" />
@@ -1046,7 +1060,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-7.4e-06,-1.5e-05) after 20 iterations making 129+43 calls in 5.57 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-7.4e-06,-1.5e-05) after 20 iterations making 129+43 calls in 6.17 ms.
 </pre></div>
 </div>
 <img alt="../../_images/b6de57f6ea9507ab7fc8da09eabd576b851e09dce102d326185f06049f5fe52d.png" src="../../_images/b6de57f6ea9507ab7fc8da09eabd576b851e09dce102d326185f06049f5fe52d.png" />
@@ -1060,7 +1074,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-1.2e-06,-2.3e-06) after 38 iterations making 51+129 calls in 25.32 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-1.2e-06,-2.3e-06) after 38 iterations making 51+129 calls in 26.81 ms.
 </pre></div>
 </div>
 <img alt="../../_images/2799c594d5c86309dc4700b417a9095480bd114d2d986d73751a8da12cbc02ab.png" src="../../_images/2799c594d5c86309dc4700b417a9095480bd114d2d986d73751a8da12cbc02ab.png" />
@@ -1074,7 +1088,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-2.2e-16,-5.6e-16) after 15 iterations making 383+0 calls in 5.51 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-2.2e-16,-5.6e-16) after 15 iterations making 383+0 calls in 5.39 ms.
 </pre></div>
 </div>
 <img alt="../../_images/95d9575072a899ef01388a4637fd297918d7d6c57555ee50005925b765c3b8e1.png" src="../../_images/95d9575072a899ef01388a4637fd297918d7d6c57555ee50005925b765c3b8e1.png" />
@@ -1088,7 +1102,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-7.2e-06,-1.4e-05) after 25 iterations making 99+33 calls in 5.74 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-7.2e-06,-1.4e-05) after 25 iterations making 99+33 calls in 4.65 ms.
 </pre></div>
 </div>
 <img alt="../../_images/6c5b0ebad26359fa6839ebc19480e92c4a168d03b9ab2748f336c695f7f0f4a6.png" src="../../_images/6c5b0ebad26359fa6839ebc19480e92c4a168d03b9ab2748f336c695f7f0f4a6.png" />
@@ -1102,7 +1116,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-5.7e-06,-1.2e-05) after 15 iterations making 54+18 calls in 5.61 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-5.7e-06,-1.2e-05) after 15 iterations making 54+18 calls in 3.90 ms.
 </pre></div>
 </div>
 <img alt="../../_images/33b9ef507d43c6dde6235175f0d0539c7f01abbef9b76776671f0258fad80102.png" src="../../_images/33b9ef507d43c6dde6235175f0d0539c7f01abbef9b76776671f0258fad80102.png" />
@@ -1115,7 +1129,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-4.5e-06,-8.9e-06) after 34 iterations making 123+41 calls in 6.59 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-4.5e-06,-8.9e-06) after 34 iterations making 123+41 calls in 7.22 ms.
 </pre></div>
 </div>
 <img alt="../../_images/7a53fda35f56b2de3389bc9188668cfce9085b3b4819b35b29a573d3c295c0c4.png" src="../../_images/7a53fda35f56b2de3389bc9188668cfce9085b3b4819b35b29a573d3c295c0c4.png" />
@@ -1396,7 +1410,7 @@ f(\theta) = -\log P(\theta\mid D) \; .
 <img alt="../../_images/0b056a3f6ed81a288b3b35b6f3c6bfc9a6e0563852246f6c5a1467d0a0e67f47.png" src="../../_images/0b056a3f6ed81a288b3b35b6f3c6bfc9a6e0563852246f6c5a1467d0a0e67f47.png" />
 </div>
 </div>
-<p>The <span style="color:Violet">stochastic gradient</span> method uses a random subset of the data, called a <strong>minibatch</strong>, during each iteration. Only small changes to <code class="docutils literal notranslate"><span class="pre">StochasticGradient</span></code> above are required to implement this scheme (and no changes are needed to <code class="docutils literal notranslate"><span class="pre">step</span></code>):</p>
+<p>The <span style="color:Violet">stochastic gradient</span> method uses a random subset of the data, called a <span style="color:Violet">minibatch</span>, during each iteration. Only small changes to <code class="docutils literal notranslate"><span class="pre">StochasticGradient</span></code> above are required to implement this scheme (and no changes are needed to <code class="docutils literal notranslate"><span class="pre">step</span></code>):</p>
 <ul class="simple">
 <li><p>Add a <code class="docutils literal notranslate"><span class="pre">seed</span></code> parameter for reproducible random subsets.</p></li>
 <li><p>Specify the minibatch size <code class="docutils literal notranslate"><span class="pre">n_minibatch</span></code> and use <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html">np.random.choice</a> to select it during each iteration.</p></li>
@@ -1465,7 +1479,7 @@ f(\theta) = -\log P(\theta\mid D) \; .
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2024</p>
 </section>
 </section>
 
