@@ -684,7 +684,7 @@ f^\prime (x) = -2 \frac{\cos(e^x)}{x^3} - e^x \frac{\sin(e^x)}{x^2}
 </div>
 </div>
 </div>
-<p>and the same function <span class="math notranslate nohighlight">\(f{x}\)</span> we had before</p>
+<p>and the same function <span class="math notranslate nohighlight">\(f(x)\)</span> we had before</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 f_{\text{auto}}(x) \equiv f(x) = \frac{\cos(e^x)}{x^2}
@@ -765,7 +765,7 @@ f_{\text{auto}}(x) \equiv f(x) = \frac{\cos(e^x)}{x^2}
 </div>
 </div>
 </div>
-<p><strong>EXERCISE:</strong> Modify the implementation of <code class="docutils literal notranslate"><span class="pre">sinc</span></code> above to cure both of these problems. Hint: <code class="docutils literal notranslate"><span class="pre">grad</span></code> can automatically differentiate through control flow structures (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, etc).</p>
+<p><em><strong><span style="color:Violet">EXERCISE</span>:</strong></em> Modify the implementation of <code class="docutils literal notranslate"><span class="pre">sinc</span></code> above to cure both of these problems. Hint: <code class="docutils literal notranslate"><span class="pre">grad</span></code> can automatically differentiate through control flow structures (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, etc).</p>
 <p>The simplest fix is to return 1 whenever <span class="math notranslate nohighlight">\(x\)</span> is zero:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
