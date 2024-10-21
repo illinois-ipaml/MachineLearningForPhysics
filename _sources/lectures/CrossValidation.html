@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Homework 08: Cross Validation" href="../homework/Homework_08.html" />
-    <link rel="prev" title="Learning" href="Learning.html" />
+    <link rel="prev" title="Artificial Intelligence and Machine Learning" href="Learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -248,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Learning.html">Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Learning.html">Artificial Intelligence and Machine Learning</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
 </ul>
@@ -552,7 +552,7 @@ document.write(`
 <section id="span-style-color-lightgreen-train-vs-validate-vs-test-data-span">
 <h3><span style="color:Lightgreen">Train vs. Validate vs. Test Data</span><a class="headerlink" href="#span-style-color-lightgreen-train-vs-validate-vs-test-data-span" title="Permalink to this heading">#</a></h3>
 <p>During an ML model development and evaluation, various types of data are utilized. Below, we review these types of data, their purpose and the differences between each in how they are used.</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/CrossValidation-splits.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/CrossValidation-splits.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/CrossValidation-splits.png" style="width: 800px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/CrossValidation-splits.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/CrossValidation-splits.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/CrossValidation-splits.png" style="width: 800px;" /></a></img><br></p>
 <p><span style="color:Tan">Training Dataset</span>: The sample of data used to fit the model.</p>
 <ul class="simple">
 <li><p>The actual dataset that we use to train the ML model under development (weights and biases in the case of a Neural Network). The model sees and learns from this data. Training data are collections of examples or samples that are used to “teach” or “train” the model. The model uses a training data set to understand the patterns and relationships within the data, thereby learning to make predictions or decisions without being explicitly programmed to perform a specific task.</p></li>
@@ -579,7 +579,7 @@ document.write(`
 <h3><span style="color:Lightgreen">Cross Validation (CV) Process</span><a class="headerlink" href="#span-style-color-lightgreen-cross-validation-cv-process-span" title="Permalink to this heading">#</a></h3>
 <p>Cross validation is a process that provides the ability to estimate model performance on unseen data not used while training. It is a systematic process that can involve tuning the model hyperparameters, testing different properties of the overall datasets, and iterating the training process. There are many variations of the CV process - we will study primarily the <span style="color:violet">K-folds method</span> in this lecture. We will show some examples using random sampling (called “folds”) of these types of data to illustrate the process. For simplicity, we will focus on the test and train data and not consider validation data explicitly in the following.</p>
 <p>The figure below summarizes the data splitting and process:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/CrossValidation-process.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/CrossValidation-process.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/CrossValidation-process.png" style="width: 600px;" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/CrossValidation-process.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/CrossValidation-process.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/CrossValidation-process.png" style="width: 600px;" /></a></img><br></p>
 <p>The basic idea of <em><strong><span style="color:violet">cross validation</span></strong></em> is to:</p>
 <ol class="arabic simple">
 <li><p>split the observed data into separate training and test datasets</p></li>
@@ -1403,7 +1403,7 @@ x \; \rightarrow\; \{ x^0, x^1, \ldots, x^P \} \; ,
 </section>
 <section id="span-style-color-lightgreen-hyperparameter-grid-search-span">
 <h3><span style="color:Lightgreen">Hyperparameter Grid Search</span><a class="headerlink" href="#span-style-color-lightgreen-hyperparameter-grid-search-span" title="Permalink to this heading">#</a></h3>
-<p>The <span class="xref myst">GridSearchCV</span> function puts all the pieces together to scan a grid of one or more hyperparameters for a family of models.  For example, the polynomial degree <span class="math notranslate nohighlight">\(P\)</span> corresponds to a pipeline <code class="docutils literal notranslate"><span class="pre">poly__degree</span></code> parameter, which we vary from 0 to 5 below.</p>
+<p>The <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">GridSearchCV</a> function puts all the pieces together to scan a grid of one or more hyperparameters for a family of models.  For example, the polynomial degree <span class="math notranslate nohighlight">\(P\)</span> corresponds to a pipeline <code class="docutils literal notranslate"><span class="pre">poly__degree</span></code> parameter, which we vary from 0 to 5 below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cv_summary</span><span class="p">(</span><span class="n">cv</span><span class="p">):</span>
@@ -2867,7 +2867,7 @@ x \; \rightarrow\; \{ x^0, x^1, \ldots, x^P \} \; ,
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Learning</p>
+        <p class="prev-next-title">Artificial Intelligence and Machine Learning</p>
       </div>
     </a>
     <a class="right-next"
