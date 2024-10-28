@@ -9,8 +9,8 @@ You will learn about supervised learning and artifical neural networks
 
 ## *Lecture Materials*
 * [Slides](https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing)
-* {doc}`lectures/Supervised`
-* {doc}`lectures/NeuralNetworks`
+* {doc}`lectures/SupervisedLearning`
+* {doc}`lectures/ArtificialNeuralNetworks`
 
 ## *Homework Assignment*
 * Homework 09: Artificial Neural Networks
