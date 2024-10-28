@@ -89,8 +89,8 @@ parts:
         sections:
         - url: https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing
           title: Slides
-        - file: _sources/lectures/Supervised
-        - file: _sources/lectures/NeuralNetworks
+        - file: _sources/lectures/SupervisedLearning
+        - file: _sources/lectures/ArtificialNeuralNetworks
         - file: _sources/homework/Homework_09
   - caption: Deep Learning
     chapters:
