@@ -502,6 +502,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -592,9 +593,10 @@ document.write(`
 <li><p>4 hidden nodes with sigmoid activation</p></li>
 <li><p>1 output node with sigmoid activation</p></li>
 </ul>
-<p>The corresponding mathematical function is:
-$<span class="math notranslate nohighlight">\( \Large
-\begin{align}
+<p>The corresponding mathematical function is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \Large
+\begin{align*}
 y^{out}(\mathbf{x},\Theta)
 &amp;= \phi\left([u_1, u_2, u_3, u_4]\cdot \mathbf{G}(x_1, x_2) + a \right) \\
 \mathbf{G}(x_1, x_2) &amp;= \phi\left(
@@ -606,10 +608,13 @@ v_{41} &amp; v_{42}
 \end{bmatrix} \cdot \begin{bmatrix}x_1 \\ x_2\end{bmatrix} +
 \begin{bmatrix}b_1 \\ b_2 \\ b_3 \\ b_4\end{bmatrix}
 \right)
-\end{align} \\
+\end{align*} \\
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[ \Large
 \phi(s) = \frac{1}{1 + e^{-s}}
-\)</span>$
-In the function, we pack all the parameters into a single array to simplify the later steps.</p>
+\]</div>
+<p>In the function, we pack all the parameters into a single array to simplify the later steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">network</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
@@ -628,6 +633,7 @@ In the function, we pack all the parameters into a single array to simplify the 
 <span class="sd">    float</span>
 <span class="sd">        Value of the network&#39;s single output node.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># YOUR CODE HERE</span>
     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
@@ -681,6 +687,7 @@ y^{train}_i \log y^{out}(\mathbf{X}^{train}_i, \Theta) + (1 - y^{train}_i) \log 
 <span class="sd">    float</span>
 <span class="sd">        The cross-entropy loss value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># YOUR CODE HERE</span>
     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
@@ -754,6 +761,7 @@ y^{train}_i \log y^{out}(\mathbf{X}^{train}_i, \Theta) + (1 - y^{train}_i) \log 
 <span class="sd">        Array of length 17 containing the partial derivatives of the loss function</span>
 <span class="sd">        with respect to each of the parameters.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># YOUR CODE HERE</span>
     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
@@ -795,7 +803,7 @@ y^{train}_i \log y^{out}(\mathbf{X}^{train}_i, \Theta) + (1 - y^{train}_i) \log 
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the learning rate.  The large values of some of the derivatives we found above indicate that <span class="math notranslate nohighlight">\(\eta\)</span> will need to be small in order for the optimization to converge.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">optimize</span><span class="p">(</span><span class="n">initial</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">optimize</span><span class="p">(</span><span class="n">initial</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
     <span class="n">loss_history</span> <span class="o">=</span> <span class="p">[</span><span class="n">loss</span><span class="p">(</span><span class="n">initial</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)]</span>
     <span class="n">params</span> <span class="o">=</span> <span class="n">initial</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">):</span>
@@ -811,6 +819,13 @@ y^{train}_i \log y^{out}(\mathbf{X}^{train}_i, \Theta) + (1 - y^{train}_i) \log 
 </div>
 </div>
 </div>
+</section>
+<section id="span-style-color-orange-acknowledgments-span">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Mark Neubauer</p></li>
+</ul>
+<p>© Copyright 2024</p>
 </section>
 </section>
 
@@ -878,6 +893,7 @@ y^{train}_i \log y^{out}(\mathbf{X}^{train}_i, \Theta) + (1 - y^{train}_i) \log 
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-problem-1-span"><span style="color:Orange">Problem 1</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
