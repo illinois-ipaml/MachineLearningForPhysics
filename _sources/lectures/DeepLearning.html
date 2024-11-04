@@ -520,7 +520,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-reinforcement-learning-span"><span style="color:LightGreen">Reinforcement Learning</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-deep-learning-outlook-span"><span style="color:Orange">Deep Learning Outlook</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-deep-learning-outlook-span"><span style="color:Orange">Deep Learning Outlook</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -561,6 +564,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-04 11:25:21.505756: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE4.1 SSE4.2, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2.12.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>Helpers for Getting, Loading and Locating Data</p>
 <div class="cell docutils container">
@@ -595,6 +610,42 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2024-11-04 11:26:44--  https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/circles_data.hf5
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8002::154, 2606:50c0:8001::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8002::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 19192 (19K) [application/octet-stream]
+Saving to: ‘./tmp_data/circles_data.hf5’
+     0K .......... ........                                   100% 11.1M=0.002s
+2024-11-04 11:26:44 (11.1 MB/s) - ‘./tmp_data/circles_data.hf5’ saved [19192/19192]
+--2024-11-04 11:26:44--  https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/circles_targets.hf5
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8002::154, 2606:50c0:8001::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8002::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15192 (15K) [application/octet-stream]
+Saving to: ‘./tmp_data/circles_targets.hf5’
+     0K .......... ....                                       100% 19.1M=0.001s
+2024-11-04 11:26:45 (19.1 MB/s) - ‘./tmp_data/circles_targets.hf5’ saved [15192/15192]
+--2024-11-04 11:26:45--  https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/spectra_data.hf5
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8002::154, 2606:50c0:8001::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8002::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 414744 (405K) [application/octet-stream]
+Saving to: ‘./tmp_data/spectra_data.hf5’
+     0K .......... .......... .......... .......... .......... 12% 13.9M 0s
+    50K .......... .......... .......... .......... .......... 24% 54.0M 0s
+   100K .......... .......... .......... .......... .......... 37% 15.4M 0s
+   150K .......... .......... .......... .......... .......... 49% 54.6M 0s
+   200K .......... .......... .......... .......... .......... 61% 97.9M 0s
+   250K .......... .......... .......... .......... .......... 74% 16.8M 0s
+   300K .......... .......... .......... .......... .......... 86% 65.7M 0s
+   350K .......... .......... .......... .......... .......... 98%  115M 0s
+   400K .....                                                 100% 80.4M=0.01s
+2024-11-04 11:26:45 (30.1 MB/s) - ‘./tmp_data/spectra_data.hf5’ saved [414744/414744]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -603,9 +654,7 @@ document.write(`
 <p>We previously took a bottom-up look at how a neural network is composed of basic building blocks. Now, we take a top-down look at some of the novel network architectures that are enabling the current <a class="reference external" href="https://www.techrepublic.com/article/the-deep-learning-revolution-how-understanding-the-brain-will-let-us-supercharge-ai/">deep-learning revolution</a>:</p>
 <ul class="simple">
 <li><p>Convolutional networks</p></li>
-<li><p>Unsupervised learning networks</p></li>
 <li><p>Recurrent networks</p></li>
-<li><p>Reinforcement learning</p></li>
 </ul>
 <p>We conclude with some reflections on where “deep learning” is headed.</p>
 <p>The examples below use higher-level tensorflow APIs than we have seen before, so we start with a brief introduction to them.</p>
@@ -666,6 +715,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_8413/8898497.py:1: numeric_column (from tensorflow.python.feature_column.feature_column_v2) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use Keras preprocessing layers instead, either directly or via the `tf.keras.utils.FeatureSpace` utility. Each of `tf.feature_column.*` has a functional equivalent in `tf.keras.layers` for feature preprocessing when training a Keras model.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Next, build the network graph. There are <a class="reference external" href="https://www.tensorflow.org/programmers_guide/estimators#pre-made_estimators">pre-made estimators</a> for standard architectures that are easy to use. For example, to recreate our earlier architecture of a single 4-node hidden layer with sigmoid activation:</p>
 <div class="cell docutils container">
@@ -674,6 +730,13 @@ document.write(`
     <span class="n">model_dir</span><span class="o">=</span><span class="s1">&#39;tfs/circle&#39;</span><span class="p">,</span>
     <span class="n">tf_random_seed</span><span class="o">=</span><span class="mi">123</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_8413/886140264.py:1: RunConfig.__init__ (from tensorflow_estimator.python.estimator.run_config) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
 </pre></div>
 </div>
 </div>
@@ -687,6 +750,16 @@ document.write(`
     <span class="n">activation_fn</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">,</span>
     <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_8413/4123497276.py:1: DNNClassifier.__init__ (from tensorflow_estimator.python.estimator.canned.dnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow_estimator/python/estimator/canned/dnn.py:807: Estimator.__init__ (from tensorflow_estimator.python.estimator.estimator) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
 </pre></div>
 </div>
 </div>
@@ -710,6 +783,56 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow_estimator/python/estimator/estimator.py:385: StopAtStepHook.__init__ (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/training_util.py:396: Variable.initialized_value (from tensorflow.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use Variable.read_value. Variables in 2.X are initialized automatically both in eager and graph (inside tf.defun) contexts.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow_estimator/python/estimator/canned/dnn.py:446: dnn_logit_fn_builder (from tensorflow_estimator.python.estimator.canned.dnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/adagrad.py:138: calling Constant.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow_estimator/python/estimator/model_fn.py:250: EstimatorSpec.__new__ (from tensorflow_estimator.python.estimator.model_fn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow_estimator/python/estimator/estimator.py:1414: NanTensorHook.__init__ (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow_estimator/python/estimator/estimator.py:1417: LoggingTensorHook.__init__ (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/basic_session_run_hooks.py:232: SecondOrStepTimer.__init__ (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow_estimator/python/estimator/estimator.py:1454: CheckpointSaverHook.__init__ (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/monitored_session.py:579: StepCounterHook.__init__ (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/monitored_session.py:586: SummarySaverHook.__init__ (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/monitored_session.py:1455: SessionRunArgs.__new__ (from tensorflow.python.training.session_run_hook) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/monitored_session.py:1454: SessionRunContext.__init__ (from tensorflow.python.training.session_run_hook) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/monitored_session.py:1474: SessionRunValues.__new__ (from tensorflow.python.training.session_run_hook) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-04 11:27:18.350949: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor &#39;Placeholder/_2&#39; with dtype int64 and shape [400,1]
+	 [[{{node Placeholder/_2}}]]
+</pre></div>
+</div>
+</div>
 </div>
 <p>After training, you can list the model parameters and access their values:</p>
 <div class="cell docutils container">
@@ -718,10 +841,29 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dnn/hiddenlayer_0/bias&#39;,
+ &#39;dnn/hiddenlayer_0/bias/t_0/Adagrad&#39;,
+ &#39;dnn/hiddenlayer_0/kernel&#39;,
+ &#39;dnn/hiddenlayer_0/kernel/t_0/Adagrad&#39;,
+ &#39;dnn/logits/bias&#39;,
+ &#39;dnn/logits/bias/t_0/Adagrad&#39;,
+ &#39;dnn/logits/kernel&#39;,
+ &#39;dnn/logits/kernel/t_0/Adagrad&#39;,
+ &#39;global_step&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classifier</span><span class="o">.</span><span class="n">get_variable_value</span><span class="p">(</span><span class="s1">&#39;dnn/hiddenlayer_0/kernel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3.4403975,  3.4750981,  0.0974516,  3.2677941],
+       [-0.809262 ,  2.125613 , -4.950269 , -3.3216147]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -735,10 +877,41 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow_estimator/python/estimator/canned/head.py:635: auc (from tensorflow.python.ops.metrics_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+The value of AUC returned by this may race with the update so this is deprecated. Please use tf.keras.metrics.AUC instead.
+WARNING:tensorflow:Trapezoidal rule is known to produce incorrect PR-AUCs; please switch to &quot;careful_interpolation&quot; instead.
+WARNING:tensorflow:Trapezoidal rule is known to produce incorrect PR-AUCs; please switch to &quot;careful_interpolation&quot; instead.
+WARNING:tensorflow:From /usr/local/lib/python3.11/site-packages/tensorflow/python/training/evaluation.py:260: FinalOpsHook.__init__ (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-04 11:27:32.911288: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor &#39;Placeholder/_2&#39; with dtype int64 and shape [100,1]
+	 [[{{node Placeholder/_2}}]]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;accuracy&#39;: 1.0,
+ &#39;accuracy_baseline&#39;: 0.53,
+ &#39;auc&#39;: 1.0,
+ &#39;auc_precision_recall&#39;: 0.99999994,
+ &#39;average_loss&#39;: 0.13768464,
+ &#39;label/mean&#39;: 0.53,
+ &#39;loss&#39;: 6.8842325,
+ &#39;precision&#39;: 1.0,
+ &#39;prediction/mean&#39;: 0.5394487,
+ &#39;recall&#39;: 1.0,
+ &#39;global_step&#39;: 5000}
 </pre></div>
 </div>
 </div>
@@ -1188,7 +1361,7 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <h1><span style="color:Orange">Deep Learning Outlook</span><a class="headerlink" href="#span-style-color-orange-deep-learning-outlook-span" title="Permalink to this heading">#</a></h1>
 <p>The depth of “deep learning” comes primarily from network architectures that stack many layers. In another sense, deep learning is very shallow since it often performs well using little to no specific knowledge about the problem it is solving, using generic building blocks.</p>
 <p>The field of modern deep learning <a class="reference external" href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf">started around 2012</a> when the architectures described above were first used successfully, and the necessary large-scale computing and datasets were available. Massive neural networks are now the state of the art for many benchmark problems, including image classification, speech recognition and language translation.</p>
-<p>However, less than a decade into the field, there are signs that deep learning is reaching its limits. Some of the pioneers are focusing on new directions such as <a class="reference external" href="https://arxiv.org/abs/1710.09829">capsule networks</a> and <a class="reference external" href="https://arxiv.org/abs/1801.04016">causal inference</a>. Others are taking a <a class="reference external" href="https://arxiv.org/abs/1801.00631">critical look</a> at the current state of the field:</p>
+<p>However, less than a decade into the field, there are signs that deep learning is reaching its limits. Some of the pioneers and others are taking a <a class="reference external" href="https://arxiv.org/abs/1801.00631">critical look</a> at the current state of the field:</p>
 <ul class="simple">
 <li><p>Deep learning does not use data efficiently.</p></li>
 <li><p>Deep learning does not integrate prior knowledge.</p></li>
@@ -1199,6 +1372,13 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 </ul>
 <p>These are mostly concerns for the future of neural networks as a <span style="color:Violet">general model for artificial intelligence</span>, but they also limit the potential of scientific applications.</p>
 <p>However, there are many challenges in scientific data analysis and interpretation that could benefit from deep learning approaches, so I encourage you to follow the field and experiment. Through this course, you now have a pretty solid foundation in data science and machine learning to further your studies toward more advanced and current topics!</p>
+<section id="span-style-color-orange-acknowledgments-span">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Mark Neubauer</p></li>
+</ul>
+<p>© Copyright 2024</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1283,7 +1463,10 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-reinforcement-learning-span"><span style="color:LightGreen">Reinforcement Learning</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-deep-learning-outlook-span"><span style="color:Orange">Deep Learning Outlook</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-deep-learning-outlook-span"><span style="color:Orange">Deep Learning Outlook</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
