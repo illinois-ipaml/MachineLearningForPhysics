@@ -99,6 +99,7 @@ parts:
         - url: https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/DeepLearning
+        - file: _sources/lectures/ConvolutionalRecurrentNeuralNetworks
         - file: _sources/homework/Homework_10
       - file: _sources/Week_12 # Graph Neural Networks
         sections:
