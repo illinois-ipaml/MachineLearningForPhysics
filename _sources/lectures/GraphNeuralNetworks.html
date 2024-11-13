@@ -283,6 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -521,13 +522,14 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-interaction-network-span"><span style="color:Orange">Interaction Network</span></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-graph-datasets-span"><span style="color:LightBlue">Graph Datasets</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-graph-neural-network-span"><span style="color:LightBlue">Graph Neural Network</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><span style="color:LightBlue">Define the training loop</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span style="color:LightBlue">Train</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span style="color:LightBlue">Evaluate on Test Data</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><span style="color:LightBlue">Define the training loop</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span style="color:LightBlue">Train</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><span style="color:LightBlue">Evaluate on Test Data</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
 </li>
@@ -1795,9 +1797,12 @@ TPR = \frac{FP}{TN + FP}
 </section>
 </section>
 <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-orange-interaction-network-span">
 <h1><span style="color:Orange">Interaction Network</span><a class="headerlink" href="#span-style-color-orange-interaction-network-span" title="Permalink to this heading">#</a></h1>
-<p>Now we will look at graph neural networks using the PyTorch Geometric library: <a class="reference external" href="https://pytorch-geometric.readthedocs.io/">https://pytorch-geometric.readthedocs.io/</a>. See <span id="id1">[]</span> for more details.</p>
+<p>Now we will look at graph neural networks using the PyTorch Geometric library: <a class="reference external" href="https://pytorch-geometric.readthedocs.io/">https://pytorch-geometric.readthedocs.io/</a>. See <span id="id2">[]</span> for more details.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
@@ -1904,7 +1909,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(E'_i = \left\{\left(\mathbf{e}'_k, r_k, s_k \right)\right\}_{r_k=i,\; k=1:N^e}\)</span> contains the updated edge features for edges whose receiver node is the <span class="math notranslate nohighlight">\(i^\text{th}\)</span> node, <span class="math notranslate nohighlight">\(E' = \bigcup_i E_i' = \left\{\left(\mathbf{e}'_k, r_k, s_k \right)\right\}_{k=1:N^e}\)</span> is the set of updated edges, and <span class="math notranslate nohighlight">\(V'=\left\{\mathbf{v}'_i\right\}_{i=1:N^v}\)</span> is the set of updated nodes.</p>
 <a class="reference internal image-reference" href="https://github.com/jmduarte/capstone-particle-physics-domain/raw/master/weeks/GN-full-block.png"><img alt="GN full block" src="https://github.com/jmduarte/capstone-particle-physics-domain/raw/master/weeks/GN-full-block.png" style="width: 1000px;" /></a>
-<p>We will define an interaction network model similar to this <a class="reference external" href="https://arxiv.org/abs/1909.12285">paper</a>, but just modeling the particle-particle interactions. It will take as input all of the tracks (with 48 features) without truncating or zero-padding. Another modification is the use of batch normalization <span id="id2">[]</span> layers to improve the stability of the training.</p>
+<p>We will define an interaction network model similar to this <a class="reference external" href="https://arxiv.org/abs/1909.12285">paper</a>, but just modeling the particle-particle interactions. It will take as input all of the tracks (with 48 features) without truncating or zero-padding. Another modification is the use of batch normalization <span id="id3">[]</span> layers to improve the stability of the training.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
@@ -1986,8 +1991,8 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </div>
 </section>
-<section id="id3">
-<h2><span style="color:LightBlue">Define the training loop</span><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<section id="id4">
+<h2><span style="color:LightBlue">Define the training loop</span><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
@@ -2035,8 +2040,8 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </div>
 </section>
-<section id="id4">
-<h2><span style="color:LightBlue">Define training, validation, testing data generators</span><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<section id="id5">
+<h2><span style="color:LightBlue">Define training, validation, testing data generators</span><a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch_geometric.data</span> <span class="kn">import</span> <span class="n">Data</span><span class="p">,</span> <span class="n">DataListLoader</span><span class="p">,</span> <span class="n">Batch</span>
@@ -2092,8 +2097,8 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </div>
 </section>
-<section id="id5">
-<h2><span style="color:LightBlue">Train</span><a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<section id="id6">
+<h2><span style="color:LightBlue">Train</span><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os.path</span> <span class="k">as</span> <span class="nn">osp</span>
@@ -2192,8 +2197,8 @@ New best model saved to: interactionnetwork_best.pth
 </div>
 </div>
 </section>
-<section id="id6">
-<h2><span style="color:LightBlue">Evaluate on Test Data</span><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<section id="id7">
+<h2><span style="color:LightBlue">Evaluate on Test Data</span><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In case you need to load the model from a pth file</span>
@@ -2382,13 +2387,14 @@ New best model saved to: interactionnetwork_best.pth
 </li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-interaction-network-span"><span style="color:Orange">Interaction Network</span></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-graph-datasets-span"><span style="color:LightBlue">Graph Datasets</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-graph-neural-network-span"><span style="color:LightBlue">Graph Neural Network</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><span style="color:LightBlue">Define the training loop</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span style="color:LightBlue">Train</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span style="color:LightBlue">Evaluate on Test Data</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><span style="color:LightBlue">Define the training loop</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span style="color:LightBlue">Train</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><span style="color:LightBlue">Evaluate on Test Data</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
 </li>
