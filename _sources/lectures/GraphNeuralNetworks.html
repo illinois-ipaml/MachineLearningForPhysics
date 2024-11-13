@@ -1758,26 +1758,30 @@ Early stopping after 5 stale epochs
 <h3><span style="color:LightGreen">AUC and ROC Curves</span><a class="headerlink" href="#span-style-color-lightgreen-auc-and-roc-curves-span" title="Permalink to this heading">#</a></h3>
 <p>To better understand this curve, let define the <span style="color:Violet">confusion matrix</span>:</p>
 <p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/GraphNeuralNetworks-ConfusionMatrix.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/GraphNeuralNetworks-ConfusionMatrix.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/GraphNeuralNetworks-ConfusionMatrix.png" style="width: 400px;" /></a></img><br></p>
-<p><span style="color:Violet">True Positive Rate</span> (TPR) is a synonym for recall/sensitivity and is therefore defined as follows:
-$<span class="math notranslate nohighlight">\( \Large
+<p><span style="color:Violet">True Positive Rate</span> (TPR) is a synonym for recall/sensitivity and is therefore defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 TPR = \frac{TP}{TP + FN}
-\)</span>$
-TPR tells us what proportion of the positive class got correctly classified. A simple example would be determining what proportion of the actual sick people were correctly detected by the model.</p>
-<p><span style="color:Violet">False Negative Rate</span> (FNR) is defined as follows:
-$<span class="math notranslate nohighlight">\( \Large
+\]</div>
+<p>TPR tells us what proportion of the positive class got correctly classified. A simple example would be determining what proportion of the actual sick people were correctly detected by the model.</p>
+<p><span style="color:Violet">False Negative Rate</span> (FNR) is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 FNR = \frac{FN}{TP + FN}
-\)</span>$
-FNR tells us what proportion of the positive class got incorrectly classified by the classifier. A higher TPR and a lower FNR are desirable since we want to classify the positive class correctly.</p>
-<p><span style="color:Violet">True Negative Rate</span> (TNR) is a synonym for specificity and is defined as follows:
-$<span class="math notranslate nohighlight">\( \Large
+\]</div>
+<p>FNR tells us what proportion of the positive class got incorrectly classified by the classifier. A higher TPR and a lower FNR are desirable since we want to classify the positive class correctly.</p>
+<p><span style="color:Violet">True Negative Rate</span> (TNR) is a synonym for specificity and is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 TNR = \frac{TN}{TN + FP}
-\)</span>$
-Specificity tells us what proportion of the negative class got correctly classified. Taking the same example as in Sensitivity, Specificity would mean determining the proportion of healthy people who were correctly identified by the model.</p>
-<p><span style="color:Violet">False Positive Rate</span> (FPR) is defined as follows:
-$<span class="math notranslate nohighlight">\( \Large
+\]</div>
+<p>Specificity tells us what proportion of the negative class got correctly classified. Taking the same example as in Sensitivity, Specificity would mean determining the proportion of healthy people who were correctly identified by the model.</p>
+<p><span style="color:Violet">False Positive Rate</span> (FPR) is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 TPR = \frac{FP}{FP + TN}
-\)</span>$
-FPR tells us what proportion of the negative class got incorrectly classified by the classifier. A higher TNR and a lower FPR are desirable since we want to classify the negative class correctly.</p>
+\]</div>
+<p>FPR tells us what proportion of the negative class got incorrectly classified by the classifier. A higher TNR and a lower FPR are desirable since we want to classify the negative class correctly.</p>
 <p>A <span style="color:Violet">ROC curve</span> (receiver operating characteristic curve) is a graph showing the performance of a classification model at all classification thresholds. This curve plots two parameters:</p>
 <ul class="simple">
 <li><p>True Positive Rate</p></li>
