@@ -113,15 +113,22 @@ parts:
         - file: _sources/projects/Project_02_GalaxyZoo
         - file: _sources/projects/Project_02_NuclearGeometryQGP
         - file: _sources/projects/Project_02_AberratedImages
-      - file: _sources/Week_13 # Unsupervised Learning
+      - file: _sources/Week_13 # AI Explainablility and Uncertainty Quantification
         sections:
         - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
           title: Slides
-        - file: _sources/lectures/UnsupervisedLearning
+        - file: _sources/lectures/AIExplainabilityUncertaintyQuantification
   - caption: Explainable AI and Accelerated Machine Learning
     chapters:
-      - file: _sources/Week_14 # Accelerated Machine Learning
+      - file: _sources/Week_14 # Unsupervised Learning and Anomaly Detection
         sections:
         - url: https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing
+          title: Slides
+        - file: _sources/lectures/UnsupervisedLearningAnomalyDetection
+  - caption: Accelerated Machine Learning and Inference
+    chapters:
+      - file: _sources/Week_15 # Accelerated Machine Learning and Inference
+        sections:
+        - url: https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/AcceleratedML
