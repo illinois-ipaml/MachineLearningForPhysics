@@ -7,3 +7,4 @@
 * {doc}`projects/Project_02_GalaxyZoo`
 * {doc}`projects/Project_02_NuclearGeometryQGP`
 * {doc}`projects/Project_02_AberratedImages`
+* {doc}`projects/Project_02_GravitationalWaves`
