@@ -118,6 +118,7 @@ parts:
         - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
           title: Slides
         - file: _sources/lectures/AIExplainabilityUncertaintyQuantification
+        - file: _sources/homework/Homework_11
   - caption: Explainable AI and Accelerated Machine Learning
     chapters:
       - file: _sources/Week_14 # Unsupervised Learning and Anomaly Detection
