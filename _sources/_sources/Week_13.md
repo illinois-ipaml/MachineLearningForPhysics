@@ -1,17 +1,17 @@
-# <span style="color: blue;"><b>Unsupervised Learning, Uncertainties and Anomaly Detection</b></span>
+# <span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span>
 
 ## *Overview*
-You will learn about Unsupervised Learning, Uncertainty Quantification and Anomaly Detection
+You will learn the basics of AI Explainability and Uncertainty Quantification
 
 ## *Goals*
-* Learn about unsupervised learning
+* Learn about AI Explainability and Uncertainty Quantification
 
 ## *Lecture Materials*
 * [Slides](https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing)
-* {doc}`lectures/UnsupervisedLearning`
+* {doc}`lectures/AIExplainabilityUncertaintyQuantification`
 
 ## *Homework Assignment*
-* None
+* {doc}`homework/Homework_08`
 
 ## *Supplemental Readings*
 * None
