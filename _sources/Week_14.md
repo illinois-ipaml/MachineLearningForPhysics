@@ -14,4 +14,5 @@ You will learn the basics of Unsupervised Learning and Anomaly Detection
 * None
 
 ## *Supplemental Readings*
-* None
+* [Variational Autoencoders Explained](https://kvfrans.com/variational-autoencoders-explained)
+* [Intuitively Understanding Variational Autoencoders](Intuitively Understanding Variational Autoencoders)
