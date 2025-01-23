@@ -3,3 +3,4 @@ __pycache__
 *.dat
 *.zip
 tmp_data
+.DS_Store
