@@ -1,6 +1,6 @@
 # <span style="color:Blue">__Instrumentation Physics: Applications of Machine Learning__</span>
 
-<font size="6"> __Physics 503__ &nbsp; *Fall 2024* </font>
+<font size="6"> __Physics 503__ &nbsp; *Fall 2025* </font>
 * *Instructor:* Professor [Mark Neubauer](https://marksneubauer.com)
 * *Class Meetings*: 
   * Mondays and Wednesdays from 12:30 pm to 1:45 pm
