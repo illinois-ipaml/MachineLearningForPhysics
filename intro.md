@@ -197,7 +197,7 @@ Applications:
 * Policies as it relates to COVID-19 can be found at https://covid19.illinois.edu
 * If you feel ill or are unable to come to class or complete class assignments due to issues related to COVID-19, including but not limited to testing positive yourself, feeling ill, caring for a family member with COVID-19, or having unexpected child-care obligations, you should contact your instructor immediately, and you are encouraged to copy your academic advisor. 
   
-### About using code you find on the web or generative AI for homework and projects
+### About using generative AI for homework and projects
 Generative AI systems, such as ChatGPT, can be valuable tools for learning and idea refinement in this course. You are encouraged to use AI as a tutor to clarify programming concepts, debug code, or explore ideas through iterative conversations—similar to working with a peer, TA, or instructor. However, AI should not be used to directly copy-paste solutions or complete homework problems.
 
 If you use generative AI, you must credit the source by including a comment with the original source of any code or information you incorporate into your work. Additionally, provide a brief description of how the AI was used, such as for debugging a function, refining the methodology, or improving the code efficiency. This helps ensure transparency regarding the use of AI in your work.
