@@ -1,7 +1,7 @@
 # <span style="color:Blue">__Instrumentation Physics: Applications of Machine Learning__</span>
 
 <font size="6"> __Physics 503__ &nbsp; *Fall 2025* </font>
-* *Instructor:* Professor [Mark Neubauer](https://marksneubauer.com)
+* *Instructor:* Professor [Mark Neubauer](https://marksneubauer.com), Dr. Aaron Pearlman
 * *Class Meetings*: 
   * Mondays and Wednesdays from 12:30 pm to 1:45 pm
   * *Room*: 262 Loomis Laboratory
@@ -43,11 +43,15 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 * Lecture: Monday from 12:30 pm - 1:45 pm in 262 Loomis
 * Practical Session: Wendesday from 12:30 pm - 1:45 pm in 262 Loomis
 
-### Instructor
+### Instructors
 * Professor [Mark Neubauer](https://marksneubauer.com)
   * email: msn@illinois.edu
   * Office Hour: Wednesday 5:30 pm - 6:30 pm
   * [Zoom](https://illinois.zoom.us/j/85255234488?pwd=eTF3NDVtU1FSZXNpK3BFck9vKzNZdz09)
+* Dr. Aaron Pearlman
+  * email: aaronjp@illinois.edu
+  * Office Hour: Wednesday 3pm - 4pm
+  * 290B Loomis Laboratory
 
 ### TAs 
 * Pin-Yi Li
