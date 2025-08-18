@@ -1,7 +1,9 @@
 # <span style="color:Blue">__Instrumentation Physics: Applications of Machine Learning__</span>
 
 <font size="6"> __Physics 503__ &nbsp; *Fall 2025* </font>
-* *Instructors:* Professor [Mark Neubauer](https://marksneubauer.com), Dr. Aaron Pearlman
+* *Instructors:*
+  * Professor [Mark Neubauer](https://marksneubauer.com)
+  * Dr. Aaron Pearlman
 * *Class Meetings*: 
   * Mondays and Wednesdays from 12:30 pm to 1:45 pm
   * *Room*: 262 Loomis Laboratory
