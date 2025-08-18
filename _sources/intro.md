@@ -15,7 +15,7 @@ __Note__: *This schedule will evolve throughout the semseter*
 | Week          | Topic                 | Homework                               | Projects                   |
 |---------------|-----------------------|----------------------------------------|----------------------------|
 | Aug 25  | {doc}`_sources/Week_01`     | [HW 01](_sources/homework/Homework_01) |                            |
-| Sep 01  | {doc}`_sources/Week_02` (__Sep 01: Labor Day (No class)__) | [HW 02](_sources/homework/Homework_02) |                            |
+| Sep 01  | {doc}`_sources/Week_02` __Sep 03 only, Sep 01 is Labor Day__ | [HW 02](_sources/homework/Homework_02) |                            |
 | Sep 08  | {doc}`_sources/Week_03`     | [HW 03](_sources/homework/Homework_03) |                            |
 | Sep 15  | {doc}`_sources/Week_04`     | [HW 04](_sources/homework/Homework_04) |                            |
 | Sep 22  | {doc}`_sources/Week_05`     | [HW 05](_sources/homework/Homework_05) |                            |
