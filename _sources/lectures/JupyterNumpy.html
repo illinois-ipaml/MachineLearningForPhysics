@@ -536,13 +536,14 @@ document.write(`
 <section id="span-style-color-orange-jupyter-notebooks-span">
 <h2><span style="color:Orange">Jupyter Notebooks</span><a class="headerlink" href="#span-style-color-orange-jupyter-notebooks-span" title="Permalink to this heading">#</a></h2>
 <p>Jupyter is an interactive front-end to a rich ecosystem of python packages that support machine learning and data science tasks. We will use the core set of packages shown below for this course:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/JupyterNumpy-packages.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/JupyterNumpy-packages.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/JupyterNumpy-packages.png" style="width: 800px;" /></a></img><br></p>
-<p>All course notebooks begin with some preamble code to import and configure some frequently used packages:</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/JupyterNumpy-packages.png" width=800></img>
+</div><p>All course notebooks begin with some preamble code to import and configure some frequently used packages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
@@ -562,21 +563,21 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matplotlib 3.7.0
-seaborn 0.12.2
-numpy 1.23.5
-pandas 2.0.3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matplotlib 3.10.1
+seaborn 0.13.2
+numpy 2.2.4
+pandas 2.2.3
 </pre></div>
 </div>
 </div>
 </div>
 <p>You will get plenty of experience with notebooks during this course so we will start with just a few basic survival skills.  For a deeper dive, start with <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html">IPython: Beyond Normal Python</a> in the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/index.html">Python Data Science Handbook</a>.</p>
 <p>Type <code class="docutils literal notranslate"><span class="pre">command?</span></code> to display help on <code class="docutils literal notranslate"><span class="pre">command</span></code>. Try this now for the built-in <code class="docutils literal notranslate"><span class="pre">range</span></code> function then dismiss the help window.</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width="200" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsEnd.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsEnd.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsEnd.svg" width="200" /></a></img><br></p>
 <p>Hit the tab key to display possible completions of a partial name.  Try this now by typing <code class="docutils literal notranslate"><span class="pre">np.arc</span></code> below then hitting TAB.</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width="200" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsEnd.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsEnd.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsEnd.svg" width="200" /></a></img><br></p>
 <p>Your notebook will sometimes be unresponsive while executing a long command that you don’t want to wait for. Use the <em>Interrupt</em> command in the <em>Kernel</em> menu to recover from situations like this.  Try this out now by:</p>
 <ul class="simple">
 <li><p>Uncomment the <code class="docutils literal notranslate"><span class="pre">time.sleep(3600)</span></code> line below, which sleeps for an hour.</p></li>
@@ -632,8 +633,8 @@ pandas 2.0.3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 118 ms, sys: 9.3 ms, total: 127 ms
-Wall time: 127 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 78.5 ms, sys: 12.8 ms, total: 91.3 ms
+Wall time: 90.6 ms
 </pre></div>
 </div>
 </div>
@@ -665,8 +666,8 @@ Wall time: 127 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.21 ms, sys: 4.52 ms, total: 13.7 ms
-Wall time: 15 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.99 ms, sys: 2.16 ms, total: 6.15 ms
+Wall time: 5.43 ms
 </pre></div>
 </div>
 </div>
@@ -810,7 +811,7 @@ Wall time: 15 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.0)
 </pre></div>
 </div>
 </div>
@@ -860,7 +861,7 @@ Wall time: 15 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(4.0)
 </pre></div>
 </div>
 </div>
@@ -1058,13 +1059,12 @@ shapes (3,) (1, 3) broadcast to (1, 3)
 </div>
 </section>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
