@@ -92,8 +92,8 @@ Each project notebook must be submitted via Gradescope for grading.
 
 ## <span style="color:Red">Grading</span>
 * Class attendence and participation: 5%
-* Homework: 65%
-* Projects: 30%
+* Homework: 50%
+* Projects: 45%
 
 Letter grades will be assigned as follows:
 
