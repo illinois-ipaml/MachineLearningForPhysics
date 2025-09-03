@@ -641,8 +641,9 @@ document.write(`
 </div>
 <p>It should be obvious from this plot why the <code class="docutils literal notranslate"><span class="pre">y0</span></code> column is all zeros.</p>
 <p>Implement the function below using <code class="docutils literal notranslate"><span class="pre">sns.distplot</span></code> to show the distribution of <code class="docutils literal notranslate"><span class="pre">x0</span></code> values for each value (0, 1, 2) of the target <code class="docutils literal notranslate"><span class="pre">grp</span></code>.  Your plot should resemble this one:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_groups.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_groups.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_groups.png" style="width: 600px;" /></a></img><br></p>
-<div class="cell docutils container">
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_groups.png" width=600></img>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compare_groups</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot 1D distributions of the x0 feature for each group (grp=0,1,2).</span>
@@ -656,8 +657,9 @@ document.write(`
 </div>
 </div>
 <p>To get some insight into the <code class="docutils literal notranslate"><span class="pre">th0</span></code> target, implement the function below to add a <code class="docutils literal notranslate"><span class="pre">slope</span></code> column to <code class="docutils literal notranslate"><span class="pre">pong_data</span></code> that calculates the initial trajectory slope, then make a scatter plot of <code class="docutils literal notranslate"><span class="pre">slope</span></code> versus <code class="docutils literal notranslate"><span class="pre">th0</span></code> using <code class="docutils literal notranslate"><span class="pre">sns.jointplot</span></code>.  Your plot should resemble this one:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_slope_th0.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_slope_th0.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_slope_th0.png" style="width: 600px;" /></a></img><br></p>
-<div class="cell docutils container">
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Homework02-compare_slope_th0.png" width=600></img>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compare_slope_th0</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display scatter plot of calculated initial slope vs target th0.</span>
