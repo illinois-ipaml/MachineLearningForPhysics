@@ -52,7 +52,7 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
   * [Zoom](https://illinois.zoom.us/j/85255234488?pwd=eTF3NDVtU1FSZXNpK3BFck9vKzNZdz09)
 * Dr. Aaron Pearlman
   * email: aaronjp@illinois.edu
-  * Office Hour: Wednesday 3pm - 4pm
+  * Office Hour: Monday 2pm - 3pm
   * 290B Loomis Laboratory
 
 ### TAs 
