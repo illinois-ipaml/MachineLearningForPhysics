@@ -521,7 +521,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-non-negative-matrix-factorization-span"><span style="color:Lightgreen">Non-negative Matrix Factorization</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-independent-component-analysis-span"><span style="color:Lightgreen">Independent Component Analysis</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-comparisons-of-linear-methods-span"><span style="color:Lightgreen">Comparisons of Linear Methods</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-weighted-pca-span"><span style="color:Lightgreen">Weighted PCA</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
@@ -542,11 +541,13 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -560,27 +561,6 @@ document.write(`
 </div>
 </div>
 <p>This is a module that includes matrix decomposition algorithms, including among others PCA, NMF or ICA. Most of the algorithms of this module can be regarded as dimensionality reduction techniques.</p>
-<p>We will also use the <a class="reference external" href="https://github.com/jakevdp/wpca">wpca package</a>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>wpca
-<span class="kn">import</span><span class="w"> </span><span class="nn">wpca</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
-<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
-Requirement already satisfied: wpca in /usr/local/lib/python3.11/site-packages (0.1)
-<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
-<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
-<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
-<span class=" -Color -Color-Yellow">WARNING: Skipping /usr/local/lib/python3.11/site-packages/six-1.16.0-py3.11.egg-info due to invalid metadata entry &#39;name&#39;</span>
-
-</pre></div>
-</div>
-</div>
-</div>
 <p>Helpers for Getting, Loading and Locating Data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,7 +713,7 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03f8614844523bce900f3d04625cd524ec2144ff25739692ba6175b608549bae.png" src="../../_images/03f8614844523bce900f3d04625cd524ec2144ff25739692ba6175b608549bae.png" />
+<img alt="../../_images/e13b06304c69f5a34c9f125adac95b5b211c9482cec89d7eaf19ac57981f2b67.png" src="../../_images/e13b06304c69f5a34c9f125adac95b5b211c9482cec89d7eaf19ac57981f2b67.png" />
 </div>
 </div>
 <p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: Is this data is still 1D if (refer to the plots below):</p>
@@ -759,7 +739,7 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/21393ef06f0371d0d3deb106c9b4e08db3cd505ba3d802b8fc95a4a55280190b.png" src="../../_images/21393ef06f0371d0d3deb106c9b4e08db3cd505ba3d802b8fc95a4a55280190b.png" />
+<img alt="../../_images/cf8542d69a6f64d976fa05f3f31214787e4d084ba12af552aaef42d45665043c.png" src="../../_images/cf8542d69a6f64d976fa05f3f31214787e4d084ba12af552aaef42d45665043c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -775,7 +755,7 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e33c20ed4740981c367e225d81e4bcd997cec6a5b739654b9caaf082707b8950.png" src="../../_images/e33c20ed4740981c367e225d81e4bcd997cec6a5b739654b9caaf082707b8950.png" />
+<img alt="../../_images/6cb07cea7acbc2a8faf3843d749b611282612a5710ff730704747643df5d6fa4.png" src="../../_images/6cb07cea7acbc2a8faf3843d749b611282612a5710ff730704747643df5d6fa4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -788,7 +768,7 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/96eb90485c02c87a10b6c886cb4f33486f42c84f3a819f3273a46eba8d15d0aa.png" src="../../_images/96eb90485c02c87a10b6c886cb4f33486f42c84f3a819f3273a46eba8d15d0aa.png" />
+<img alt="../../_images/9eb2f62121dbb578ba2b6e915877376099cfdea2fe8d1759f96774f72d7b7016.png" src="../../_images/9eb2f62121dbb578ba2b6e915877376099cfdea2fe8d1759f96774f72d7b7016.png" />
 </div>
 </div>
 <p>We will use <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code> below.  Note from the table above that it appears to be severely undersampled with <span class="math notranslate nohighlight">\(N=200\)</span>, <span class="math notranslate nohighlight">\(D=500\)</span>.</p>
@@ -801,7 +781,7 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/13ea752cc2f07d457fcca5ae59bb511de384b732875cd002863c2f45ab0d2a6a.png" src="../../_images/13ea752cc2f07d457fcca5ae59bb511de384b732875cd002863c2f45ab0d2a6a.png" />
+<img alt="../../_images/7506c05d41604067e28256cb5bcea192fa671f6f913d7484c7567f741b7dfc8a.png" src="../../_images/7506c05d41604067e28256cb5bcea192fa671f6f913d7484c7567f741b7dfc8a.png" />
 </div>
 </div>
 <p>Each sample is a graph of a smooth function with some noise added.  The smooth function has three distinct components:</p>
@@ -816,8 +796,9 @@ Since the data could be reproduced with just normalization parameters (except fo
 <h2><span style="color:Orange">Linear Decompositions</span><a class="headerlink" href="#span-style-color-orange-linear-decompositions-span" title="Permalink to this heading">#</a></h2>
 <p>The goal of a linear decomposition is to automatically identify linear combinations of the original features that account for most of the variance in the data. Note that we are using variance (spread) as a proxy for “useful information”, so it is essential that the relative normalization of our features is meaningful.</p>
 <p>If we represent our data with the <span class="math notranslate nohighlight">\(N\times D\)</span> matrix <span class="math notranslate nohighlight">\(X\)</span>, then a linear decomposition can be represented as the following matrix multiplication:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Dimensionality-LinearDecomposition.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Dimensionality-LinearDecomposition.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Dimensionality-LinearDecomposition.png" style="width: 1000px;" /></a></img><br></p>
-<p>The <span class="math notranslate nohighlight">\(N\times d\)</span> matrix <span class="math notranslate nohighlight">\(Y\)</span> is a reduced representation of the original data <span class="math notranslate nohighlight">\(X\)</span>, with <span class="math notranslate nohighlight">\(d &lt; D\)</span> new features that are linear combinations of the original <span class="math notranslate nohighlight">\(D\)</span> features.  We call the new features “latent variables”, since they were already present in <span class="math notranslate nohighlight">\(X\)</span> but only implicitly.</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Dimensionality-LinearDecomposition.png" width=1000></img>
+</div><p>The <span class="math notranslate nohighlight">\(N\times d\)</span> matrix <span class="math notranslate nohighlight">\(Y\)</span> is a reduced representation of the original data <span class="math notranslate nohighlight">\(X\)</span>, with <span class="math notranslate nohighlight">\(d &lt; D\)</span> new features that are linear combinations of the original <span class="math notranslate nohighlight">\(D\)</span> features.  We call the new features “latent variables”, since they were already present in <span class="math notranslate nohighlight">\(X\)</span> but only implicitly.</p>
 <p>The <span class="math notranslate nohighlight">\(d\times D\)</span> matrix <span class="math notranslate nohighlight">\(M\)</span> specifies the relationship between the old and new features: each column is unit vector for a new feature in terms of the old features.  Note that <span class="math notranslate nohighlight">\(M\)</span> is not square when <span class="math notranslate nohighlight">\(d &lt; D\)</span> and unit vectors are generally not mutually orthogonal (except for the PCA method).</p>
 <p>A linear decomposition is not exact (hence the <span class="math notranslate nohighlight">\(\simeq\)</span> above) and there is no “best” prescription for determining <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(M\)</span>. Below we review the most popular prescriptions implemented in the <a class="reference external" href="http://scikit-learn.org/stable/modules/decomposition.html">sklearn.decomposition</a> module (links are to wikipedia and sklearn documentation):</p>
 <table class="table">
@@ -923,11 +904,37 @@ C = \frac{1}{N-1}\, X^T X
 \]</div>
 <p>          which is an <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance#Calculating_the_sample_covariance">empirical estimate</a> of the true covariance matrix using the data <span class="math notranslate nohighlight">\(X\)</span> comprised of <span class="math notranslate nohighlight">\(N\)</span> observations (samples) of <span class="math notranslate nohighlight">\(D\)</span> features (i.e. <span class="math notranslate nohighlight">\(X\)</span> is a <span class="math notranslate nohighlight">\(N \times D\)</span> matrix)</p>
 <ul class="simple">
-<li><p>Construct <span class="math notranslate nohighlight">\(M\)</span> from the eigenvectors ordered by decreasing eigenvalue (which are all positive) and solve the resulting linear equations for <span class="math notranslate nohighlight">\(Y\)</span>. At this point the decomposition is exact with <span class="math notranslate nohighlight">\(d = D\)</span>; and <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(M\)</span> are <span class="math notranslate nohighlight">\(N \times D\)</span> and <span class="math notranslate nohighlight">\(D \times D\)</span> matrices, respectively.</p></li>
+<li><p>Construct <span class="math notranslate nohighlight">\(M\)</span> from the eigenvectors of the sample covariance matrix <span class="math notranslate nohighlight">\(C\)</span> (<span class="math notranslate nohighlight">\(X^T X\)</span> up to a multiplicative constant) ordered by decreasing eigenvalue (which are all positive) and solve the resulting linear equations for the latent variables <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
+</ul>
+<p>What you need to remember about eigenvectors and eigenvalues is that they always come in pairs, so that every eigenvector has an eigenvalue. Also, their number is equal to the number of dimensions of the data. For example, for a 3-dimensional data set, there are 3 variables, therefore there are 3 eigenvectors with 3 corresponding eigenvalues. The eigenvectors of the covariance matrix <span class="math notranslate nohighlight">\(C\)</span> of the data are referred to as the <em><strong>principal axes</strong></em> of the data, and the projection of the data instances onto these principal axes are called the <em><strong>principal components</strong></em>. The eigenvalues are simply the coefficients attached to the eigenvectors, which give the amount of variance carried in each principal axis. By ranking the eigenvectors in order of their eigenvalues, highest to lowest, you get the principal components in order of significance.</p>
+<p>As with any matrix <span class="math notranslate nohighlight">\(C\)</span>, the eigenvectors <span class="math notranslate nohighlight">\(\vec{v}\)</span> and eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> satisfy</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+C\vec{v} = \lambda \vec{v}
+\]</div>
+<p>Next we put in an identity matrix <span class="math notranslate nohighlight">\(\tilde{1}\)</span> so we are dealing with matrix-vs-matrix:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+C\vec{v} = \lambda \tilde{1} \vec{v}
+\]</div>
+<p>Bring all to left hand side:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+C\vec{v} - \lambda \tilde{1} \vec{v} = 0
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(\vec{v}\)</span> is non-zero then we can (hopefully) solve for <span class="math notranslate nohighlight">\(\lambda\)</span> using just the <em><strong>determinant</strong></em>:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+| C\vec{v} - \lambda \tilde{1} \vec{v} | = 0
+\]</div>
+<p>The rows of <span class="math notranslate nohighlight">\(M\)</span> are the eigenvectors <span class="math notranslate nohighlight">\(\vec{v}\)</span> and ordered by decreasing eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>At this point the decomposition is exact with <span class="math notranslate nohighlight">\(d = D\)</span>; and <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(M\)</span> are <span class="math notranslate nohighlight">\(N \times D\)</span> and <span class="math notranslate nohighlight">\(D \times D\)</span> matrices, respectively.</p>
+<ul class="simple">
 <li><p>Shrink <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(M\)</span> from <span class="math notranslate nohighlight">\(D\)</span> to <span class="math notranslate nohighlight">\(d\)</span> rows (<span class="math notranslate nohighlight">\(M\)</span>) or columns (<span class="math notranslate nohighlight">\(Y\)</span>), which makes the decomposition approximate while discarding the least amount of variance in the original data (which we use as a proxy for “useful information”).</p></li>
 </ul>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Dimensionality-PCAdecomposition.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Dimensionality-PCAdecomposition.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Dimensionality-PCAdecomposition.png" style="width: 1000px;" /></a></img><br></p>
-<p>The full <span class="math notranslate nohighlight">\(M\)</span> matrix (before shrinking <span class="math notranslate nohighlight">\(D\rightarrow d\)</span>  ) is orthogonal which means that</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Dimensionality-PCAdecomposition.png" width=1000></img>
+</div><p>The full <span class="math notranslate nohighlight">\(M\)</span> matrix (before shrinking <span class="math notranslate nohighlight">\(D\rightarrow d\)</span>  ) is orthogonal which means that</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 M^T = M^{-1} ~~~~~~~~~~~~~~ \text{and} ~~~~~~~~~~~~~~ M M^T = \tilde{1}
@@ -937,7 +944,7 @@ M^T = M^{-1} ~~~~~~~~~~~~~~ \text{and} ~~~~~~~~~~~~~~ M M^T = \tilde{1}
 \[ \Large
 X^T X = M^T \Lambda M
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal matrix of the decreasing eigenvalues. Note that this description glosses over some details that you will explore in your homework.</p>
+<p>where <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal matrix of the decreasing eigenvalues (the variances <span class="math notranslate nohighlight">\(\sigma^2\)</span>). Note that this description glosses over some details that you will explore in your homework.</p>
 <p>The resulting latent variables are <em>statistically uncorrelated</em> (which is a weaker statement than <em>statistically independent</em> – see below), i.e., the <a class="reference external" href="https://en.wikipedia.org/wiki/Correlation_coefficient">correlation coefficients</a> between different columns of <span class="math notranslate nohighlight">\(Y\)</span> are approximately zero:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -952,11 +959,11 @@ X^T X = M^T \Lambda M
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d3cdab8dcf01032a4e644dd1a459cf3a8eaf16be9e7460a4846f98747acbd0c3.png" src="../../_images/d3cdab8dcf01032a4e644dd1a459cf3a8eaf16be9e7460a4846f98747acbd0c3.png" />
+<img alt="../../_images/7860c5d617cf932382eb8d12b3cb2c67633a3afc1e931d178a7b42db7b5a5379.png" src="../../_images/7860c5d617cf932382eb8d12b3cb2c67633a3afc1e931d178a7b42db7b5a5379.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/4d5bd2897318e9899d2b60bc21e1d60f93bab837fc53e0e98194d57435099b87.png" src="../../_images/4d5bd2897318e9899d2b60bc21e1d60f93bab837fc53e0e98194d57435099b87.png" />
+<img alt="../../_images/24802f60cd0c6a5f2cd8e50659505774387800113c661c6fa5434debcd9dd5f9.png" src="../../_images/24802f60cd0c6a5f2cd8e50659505774387800113c661c6fa5434debcd9dd5f9.png" />
 </div>
 </div>
 <p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: How many clusters do you expect to see in the scatter plot of <code class="docutils literal notranslate"><span class="pre">y0</span></code> versus <code class="docutils literal notranslate"><span class="pre">y1</span></code> above based on what you know about this dataset?  Can you identify these clusters in plot above?</p>
@@ -987,11 +994,11 @@ X^T X = M^T \Lambda M
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b98645e53451c53210a4a1605cd8a26142353e62b8b08f8a87d24277df05fe63.png" src="../../_images/b98645e53451c53210a4a1605cd8a26142353e62b8b08f8a87d24277df05fe63.png" />
+<img alt="../../_images/4a4bfe802ed76966d49cd50cac3f2d93026cbe78788be4d9a8a4b7e8a1fe1942.png" src="../../_images/4a4bfe802ed76966d49cd50cac3f2d93026cbe78788be4d9a8a4b7e8a1fe1942.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/2f3a3a3a75b301169108c3a2c6bac63fd1486df57fb87e8205e8c28be1ea16f9.png" src="../../_images/2f3a3a3a75b301169108c3a2c6bac63fd1486df57fb87e8205e8c28be1ea16f9.png" />
+<img alt="../../_images/8fe129db12c59dd29e1b77103a86afeb63f9908ba0b6bcaf1aabe4fe3f6103c2.png" src="../../_images/8fe129db12c59dd29e1b77103a86afeb63f9908ba0b6bcaf1aabe4fe3f6103c2.png" />
 </div>
 </div>
 </section>
@@ -1013,11 +1020,11 @@ X_{ij} \rightarrow X_{ij} - \mu_i \quad , \quad \mu_i \equiv \frac{1}{N} \sum_i\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/113583a917f7f794dab2c44d74033c8f8e4a9b41c157e99c2dc20794a73233bd.png" src="../../_images/113583a917f7f794dab2c44d74033c8f8e4a9b41c157e99c2dc20794a73233bd.png" />
+<img alt="../../_images/393d56c60a5b65b4a0008d83fc4cc4d2a43bd39787149a56f6845a083609944e.png" src="../../_images/393d56c60a5b65b4a0008d83fc4cc4d2a43bd39787149a56f6845a083609944e.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/ff40af22e3a44d342fb4cad2f9108f8626a4d11c7d6229bda20dfb32619fe63a.png" src="../../_images/ff40af22e3a44d342fb4cad2f9108f8626a4d11c7d6229bda20dfb32619fe63a.png" />
+<img alt="../../_images/0b8a9d8454959e008ac627d746de392d079577658c7759b5d1fbbcfc61206af4.png" src="../../_images/0b8a9d8454959e008ac627d746de392d079577658c7759b5d1fbbcfc61206af4.png" />
 </div>
 </div>
 <p>To see the importance of the extra latent variable, try with d=2 and note how poorly samples are reconstructed:</p>
@@ -1028,11 +1035,11 @@ X_{ij} \rightarrow X_{ij} - \mu_i \quad , \quad \mu_i \equiv \frac{1}{N} \sum_i\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c517b889ed325dd7c525863fe1b3bc5cf7b82501df54d7ab9ae0bed5c00f094a.png" src="../../_images/c517b889ed325dd7c525863fe1b3bc5cf7b82501df54d7ab9ae0bed5c00f094a.png" />
+<img alt="../../_images/f0d74aa0ea9f3260700168953d31187255a83b726bf6fbc1d7eebeebdb540e91.png" src="../../_images/f0d74aa0ea9f3260700168953d31187255a83b726bf6fbc1d7eebeebdb540e91.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/ac2489ea24011c8a29ad0c1bdbc1263ab3e7147137cb39d80d7d396a20e6a70f.png" src="../../_images/ac2489ea24011c8a29ad0c1bdbc1263ab3e7147137cb39d80d7d396a20e6a70f.png" />
+<img alt="../../_images/f12a844330efc35c74782493048c6556af8af6c55c020aaf2dbaa957ba316e72.png" src="../../_images/f12a844330efc35c74782493048c6556af8af6c55c020aaf2dbaa957ba316e72.png" />
 </div>
 </div>
 </section>
@@ -1052,11 +1059,11 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/20fcae8fa6f8c2728b164a6caf43705dd4e5f43e4fb07d6691214da1b8d9cdbd.png" src="../../_images/20fcae8fa6f8c2728b164a6caf43705dd4e5f43e4fb07d6691214da1b8d9cdbd.png" />
+<img alt="../../_images/82b247c0c9190e5b1af78c7b3ffef60e9bca087601fbcd30e8b448821897c8bc.png" src="../../_images/82b247c0c9190e5b1af78c7b3ffef60e9bca087601fbcd30e8b448821897c8bc.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/d4c793a2c1da4ffa8f3bbe6ac9ed37351a3209ef0f1aaf0a7f176d2b87e73d2d.png" src="../../_images/d4c793a2c1da4ffa8f3bbe6ac9ed37351a3209ef0f1aaf0a7f176d2b87e73d2d.png" />
+<img alt="../../_images/cab44f6d33f38f90d806f449a82a2d4d1c4f0a8eb9af729c8cb5575656d3c8a3.png" src="../../_images/cab44f6d33f38f90d806f449a82a2d4d1c4f0a8eb9af729c8cb5575656d3c8a3.png" />
 </div>
 </div>
 </section>
@@ -1089,7 +1096,7 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e8e4492113a56610daef5fd7f0a0584791330bb4d975edb2fbb0981309f4f45b.png" src="../../_images/e8e4492113a56610daef5fd7f0a0584791330bb4d975edb2fbb0981309f4f45b.png" />
+<img alt="../../_images/d12670b9ac8cbf42a6eb9dab1b5d697736bc70bc33180491bb0cee31289af193.png" src="../../_images/d12670b9ac8cbf42a6eb9dab1b5d697736bc70bc33180491bb0cee31289af193.png" />
 </div>
 </div>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em> Use the <code class="docutils literal notranslate"><span class="pre">demo()</span></code> function with <code class="docutils literal notranslate"><span class="pre">data=pong_data</span></code> and <span class="math notranslate nohighlight">\(d = 1, 2, 3,\ldots\)</span> to determine how many latent variables are necessary to give a good reconstruction.  Do the 1D plots of individual <code class="docutils literal notranslate"><span class="pre">pong_data</span></code> samples make sense?</p>
@@ -1100,11 +1107,11 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d1dee1a60e2dab1d4eb97fbe1e98706fe50c7418f2272648259597333d8a151d.png" src="../../_images/d1dee1a60e2dab1d4eb97fbe1e98706fe50c7418f2272648259597333d8a151d.png" />
+<img alt="../../_images/b363e750f2c8796a191f878945bfb6d894155db067dcefb821a37ddc9866453f.png" src="../../_images/b363e750f2c8796a191f878945bfb6d894155db067dcefb821a37ddc9866453f.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/e9ecc7e1dc3b6c949641a2f253acb46159687bdc81ecd8b5185197939bd5b71d.png" src="../../_images/e9ecc7e1dc3b6c949641a2f253acb46159687bdc81ecd8b5185197939bd5b71d.png" />
+<img alt="../../_images/9db853cf12f2686f153e5ab043f64b588ad46e8e8710c9472cf27d6d7feb5ce6.png" src="../../_images/9db853cf12f2686f153e5ab043f64b588ad46e8e8710c9472cf27d6d7feb5ce6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1114,11 +1121,11 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a26aac6c139aa6a1b848f71acc90163a4ec7cb10d46c08738f3f413244517061.png" src="../../_images/a26aac6c139aa6a1b848f71acc90163a4ec7cb10d46c08738f3f413244517061.png" />
+<img alt="../../_images/fc8b81bcadf093070bb6252798f49e76c24f916c04101d02f5431863966da71a.png" src="../../_images/fc8b81bcadf093070bb6252798f49e76c24f916c04101d02f5431863966da71a.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/0f882838d0e70a0c6c6ce6812f74f0afb5200b99498c3a1f69ecb34e6b8293c1.png" src="../../_images/0f882838d0e70a0c6c6ce6812f74f0afb5200b99498c3a1f69ecb34e6b8293c1.png" />
+<img alt="../../_images/182c7abb875b3b80865971aabca49a968b61442f97837f6ab8c25e00f8389dab.png" src="../../_images/182c7abb875b3b80865971aabca49a968b61442f97837f6ab8c25e00f8389dab.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1128,117 +1135,22 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/30ce3cc75bbaa33f68d6a74501ea6b7ea60d1a6a865d725a3b58fcfe186b3408.png" src="../../_images/30ce3cc75bbaa33f68d6a74501ea6b7ea60d1a6a865d725a3b58fcfe186b3408.png" />
+<img alt="../../_images/c813e0632ec4ad9df7fce4b290915ccadc7adff74b68adfaf4664b78151603b3.png" src="../../_images/c813e0632ec4ad9df7fce4b290915ccadc7adff74b68adfaf4664b78151603b3.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/15b87ef137d1b09e79ad2ee1f1f3da3a7b5ab56e851edee82bf92441a75e6dad.png" src="../../_images/15b87ef137d1b09e79ad2ee1f1f3da3a7b5ab56e851edee82bf92441a75e6dad.png" />
+<img alt="../../_images/f8a7b0eec67b11ac3eb13525fe226729f8c5007d9b04f2fc2b80c2c58aaddd47.png" src="../../_images/f8a7b0eec67b11ac3eb13525fe226729f8c5007d9b04f2fc2b80c2c58aaddd47.png" />
 </div>
 </div>
 <p>Two latent variables (<span class="math notranslate nohighlight">\(d=2\)</span>) are sufficient for a good reconstruction. The abrupt transition at feature 10 in the reconstructed samples is because features 0-9 are ~linearly increasing x values, while features 10-19 are the corresponding ~parabolic y values.  Note that this dataset has negligible noise compared with <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code>.</p>
 </section>
-<section id="span-style-color-lightgreen-weighted-pca-span">
-<h3><span style="color:Lightgreen">Weighted PCA</span><a class="headerlink" href="#span-style-color-lightgreen-weighted-pca-span" title="Permalink to this heading">#</a></h3>
-<p>The linear algorithms presented above work fine with noisy data, but have no way to take advantage of data that includes its own estimate of the noise level.  In the most general case, each element of the data matrix <span class="math notranslate nohighlight">\(X\)</span> has a corresponding RMS error estimate <span class="math notranslate nohighlight">\(\delta X\)</span>, with values <span class="math notranslate nohighlight">\(\rightarrow\infty\)</span> used to indicate missing data. In practice, it is convenient to replace <span class="math notranslate nohighlight">\(\delta X\)</span> with a matrix of weights <span class="math notranslate nohighlight">\(W\)</span> where zero values indicate missing data. For data with Gaussian errors, <span class="math notranslate nohighlight">\(X_{ij} \pm \delta X_{ij}\)</span>, the appropriate weight is usually the <em>inverse variance</em> <span class="math notranslate nohighlight">\(W_{ij} = \delta X_{ij}^{-2}\)</span>.</p>
-<p>The <a class="reference external" href="https://github.com/jakevdp/wpca">wpca package</a> implements two different schemes to incorporate weights into PCA, which give similar results to each other.  Both schemes are used almost identically to sklearn PCA, but with an additional <code class="docutils literal notranslate"><span class="pre">weights</span></code> argument (method = <code class="docutils literal notranslate"><span class="pre">wpca.WPCA</span></code> or <code class="docutils literal notranslate"><span class="pre">wpca.EMPCA</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">W</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Unfortunately, <code class="docutils literal notranslate"><span class="pre">wpca.WPCA</span></code> expects <code class="docutils literal notranslate"><span class="pre">weights=np.sqrt(W)</span></code> but this might be <a class="reference external" href="https://github.com/jakevdp/wpca/issues/2">fixed soon</a>.</p>
-<p>To study these schemes, we will assign weights to <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code> by assuming that each value <span class="math notranslate nohighlight">\(X_{ij}\)</span> is the result of a Poisson process so has inverse variance <span class="math notranslate nohighlight">\(W_{ij} = X_{ij}^{-1}\)</span>.</p>
-<p>The function below allows us to optionally add extra noise that varies across the spectra and remove random chunks of data (by setting their weights to zero).  As usual, ignore the details of this function unless you are interested.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">weighted_pca</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">add_noise</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">spectra_data</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
-    <span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">N</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-    <span class="c1"># Calculate inverse variances assuming Poisson fluctuations in X.</span>
-    <span class="n">W</span> <span class="o">=</span> <span class="n">X</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="c1"># Add some Gaussian noise with a linearly varying RMS, if requested.</span>
-    <span class="k">if</span> <span class="n">add_noise</span><span class="p">:</span>
-        <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">add_noise</span>
-        <span class="k">assert</span> <span class="n">start</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">stop</span> <span class="o">&gt;=</span> <span class="mi">0</span>
-        <span class="n">extra_rms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
-        <span class="n">W</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">+</span> <span class="n">extra_rms</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="n">X</span> <span class="o">+=</span> <span class="n">gen</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">extra_rms</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">W</span> <span class="o">=</span> <span class="n">X</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="c1"># Remove some fraction of data from each sample, if requested.</span>
-    <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">missing</span> <span class="o">&lt;</span> <span class="mf">0.5</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">high</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">missing</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-        <span class="n">stop</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">missing</span> <span class="o">*</span> <span class="n">D</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-            <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">stop</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">stop</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.</span>
-    <span class="c1"># Perform the fit.</span>
-    <span class="n">fit</span> <span class="o">=</span> <span class="n">wpca</span><span class="o">.</span><span class="n">WPCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
-    <span class="n">Xr</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
-    <span class="c1"># Show the reconstruction of some samples.</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">8.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">D</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature #&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature Value&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>First check that we recover similar results to the standard PCA with no added noise or missing data.  The results are not identical (but presumably better now) because we are accounting for the fact that the relative errors are larger for lower fluxes.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_pca</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/e1f0ecc5eabbbacc96bba573cee329af50240c1a18058435218881041b2ab5ba.png" src="../../_images/e1f0ecc5eabbbacc96bba573cee329af50240c1a18058435218881041b2ab5ba.png" />
-</div>
-</div>
-<p>Next, increase the noise across the spectrum.  The larger errors makes the principal components harder to nail down, leading to noisier reconstructions:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_pca</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">add_noise</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4979fbc5e8d8cb8cb8ec6827e3f1ff2490998e3a5de3bb4b176d46b27a4360d5.png" src="../../_images/4979fbc5e8d8cb8cb8ec6827e3f1ff2490998e3a5de3bb4b176d46b27a4360d5.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_pca</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">add_noise</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/8695b097bad77120971b42d4f03b838b9d1ecc3e8e5814e90759b2738f872185.png" src="../../_images/8695b097bad77120971b42d4f03b838b9d1ecc3e8e5814e90759b2738f872185.png" />
-</div>
-</div>
-<p>Finally, remove 10% of the data from each sample (but, crucially, a different 10% from each sample). Note how this allows us to make a sensible guess at the missing data! (statisticians call this <a class="reference external" href="https://en.wikipedia.org/wiki/Imputation_(statistics)">imputation</a>.)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weighted_pca</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/cdeaa172fe29d6562e9bef2fd07088675eb50da80ce4dc8514740f658ac6b7e2.png" src="../../_images/cdeaa172fe29d6562e9bef2fd07088675eb50da80ce4dc8514740f658ac6b7e2.png" />
-</div>
-</div>
 </section>
-</section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
@@ -1314,7 +1226,6 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-non-negative-matrix-factorization-span"><span style="color:Lightgreen">Non-negative Matrix Factorization</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-independent-component-analysis-span"><span style="color:Lightgreen">Independent Component Analysis</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-comparisons-of-linear-methods-span"><span style="color:Lightgreen">Comparisons of Linear Methods</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-weighted-pca-span"><span style="color:Lightgreen">Weighted PCA</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>

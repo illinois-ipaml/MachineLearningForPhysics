@@ -536,7 +536,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
@@ -626,7 +626,7 @@ File ‘./tmp_data/ess_targets.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/66ed4a7262e08208d06ef28b0be5380649fe4622eb86cc9f23c4d6e6193765d9.png" src="../../_images/66ed4a7262e08208d06ef28b0be5380649fe4622eb86cc9f23c4d6e6193765d9.png" />
+<img alt="../../_images/b62cf8d64ead612565fd34101fdc6c9b2ca58bdeaa62b56b93ca79e133afb89b.png" src="../../_images/b62cf8d64ead612565fd34101fdc6c9b2ca58bdeaa62b56b93ca79e133afb89b.png" />
 </div>
 </div>
 <p>The plot above is colored using the true labels stored as column <code class="docutils literal notranslate"><span class="pre">y</span></code> of <code class="docutils literal notranslate"><span class="pre">circles_targets</span></code>.</p>
@@ -639,7 +639,7 @@ File ‘./tmp_data/ess_targets.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b5e9dea3ce4a401d1f1045c4663e44ccf385a84f4d815551d7247d42a71be873.png" src="../../_images/b5e9dea3ce4a401d1f1045c4663e44ccf385a84f4d815551d7247d42a71be873.png" />
+<img alt="../../_images/e59e2926d6c6af7fddd54e5f441bb39d499fb4ee3e21b04f857ad45712de56f0.png" src="../../_images/e59e2926d6c6af7fddd54e5f441bb39d499fb4ee3e21b04f857ad45712de56f0.png" />
 </div>
 </div>
 <p>The clusters found by KMeans are not what we want, but also not surprising given that KMeans partitions samples with a simple dividing line (or hyperplane in higher dimensions).</p>
@@ -675,7 +675,7 @@ x_2 = x_0^2 + x_1^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8ddb96dace0396fe035498c12293267fa6d8ce40505d269f21da6889c7801084.png" src="../../_images/8ddb96dace0396fe035498c12293267fa6d8ce40505d269f21da6889c7801084.png" />
+<img alt="../../_images/f5605fb88f68d26ebeb6998a4fcd494db4926e05cd32a6ff41ed93a5599f61a2.png" src="../../_images/f5605fb88f68d26ebeb6998a4fcd494db4926e05cd32a6ff41ed93a5599f61a2.png" />
 </div>
 </div>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Finally, fit for two KMeans clusters in your new <code class="docutils literal notranslate"><span class="pre">circles_3d</span></code> data and plot the results, as above. Are the results surprising?</p>
@@ -687,7 +687,7 @@ x_2 = x_0^2 + x_1^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a38772daf607433bb60158885d531a6828e920f18ff31c1a70c95e27f0106e4b.png" src="../../_images/a38772daf607433bb60158885d531a6828e920f18ff31c1a70c95e27f0106e4b.png" />
+<img alt="../../_images/0c3e1d3bbe6108765b67b4f6442ea35a77ceeb8bec1183972f383f871e4f8d74.png" src="../../_images/0c3e1d3bbe6108765b67b4f6442ea35a77ceeb8bec1183972f383f871e4f8d74.png" />
 </div>
 </div>
 <p>This is exactly the result we wanted, but not so surprising after seeing the 3D plot above.</p>
@@ -728,12 +728,13 @@ c
 <p>A pairplot of the 7D embedded <code class="docutils literal notranslate"><span class="pre">circles_data</span></code> shows that this is peculiar embedding, but it does allow a linear separation of the two clusters (via its <span class="math notranslate nohighlight">\(x_0^2\)</span> and <span class="math notranslate nohighlight">\(x_1^2\)</span> components). It also seems inefficient, with one feature repeated (<span class="math notranslate nohighlight">\(x_0 x_1\)</span>) and another one constant (<span class="math notranslate nohighlight">\(c\)</span>).  However, this is just the simplest member of a family of embeddings where <span class="math notranslate nohighlight">\(c\)</span> plays an important role in fixing the relative normalization of the different groups of <a class="reference external" href="https://en.wikipedia.org/wiki/Monomial">monomials</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">circles_embedded</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">circles_embedded</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span> <span class="n">diag_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/46d8322b73cf55d7f07270fba5d2b618a92cedd5f2006f839cca3c2ac9c6c610.png" src="../../_images/46d8322b73cf55d7f07270fba5d2b618a92cedd5f2006f839cca3c2ac9c6c610.png" />
+<img alt="../../_images/825733c0eab40387c7dfe1647cf12f37de489cdd64b2fc01239aea36f7136810.png" src="../../_images/825733c0eab40387c7dfe1647cf12f37de489cdd64b2fc01239aea36f7136810.png" />
 </div>
 </div>
 <p>The reason for chosing this peculiar embedding is that it has the following very useful property:</p>
@@ -829,6 +830,14 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:12: SyntaxWarning: invalid escape sequence &#39;\g&#39;
+&lt;&gt;:12: SyntaxWarning: invalid escape sequence &#39;\g&#39;
+/var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_85167/1846596932.py:12: SyntaxWarning: invalid escape sequence &#39;\g&#39;
+  plt.text(0.02, 0.92, &#39;$\gamma={:.1f}$&#39;.format(gamma),
+</pre></div>
+</div>
+</div>
 </div>
 <p>The result is spectacular: our nonlinear data is completely linearized when transformed to a 2D latent variable space. Note that, in this example, we are not performing any overall dimensionality reduction: we started with 2 features, implicitly expanded to an infinite number of features using the RBF kernel, then shrank back down to two latent variables.</p>
 <div class="cell docutils container">
@@ -838,7 +847,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4f81c09a7908c188dc761c3da7f26cdb6323d946f30d02e90702d3082a0d2bb6.png" src="../../_images/4f81c09a7908c188dc761c3da7f26cdb6323d946f30d02e90702d3082a0d2bb6.png" />
+<img alt="../../_images/fe312863d09e3222fcdefff7bd0f2c01d079d409662cf635afec4a7bd03b1951.png" src="../../_images/fe312863d09e3222fcdefff7bd0f2c01d079d409662cf635afec4a7bd03b1951.png" />
 </div>
 </div>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: The results above are quite sensitive to the choice of hyperparameters. To explore this, rerun <code class="docutils literal notranslate"><span class="pre">kpca_demo</span></code> with different values of <span class="math notranslate nohighlight">\(\gamma\)</span>.  What do you conclude?</p>
@@ -851,10 +860,10 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3cb1d97b54cb4890b6c12d2e14807176a3139595da3e461e7493faa0f745fefe.png" src="../../_images/3cb1d97b54cb4890b6c12d2e14807176a3139595da3e461e7493faa0f745fefe.png" />
-<img alt="../../_images/21af4b9398a78f1358819efbd9b4be236fca2e7a4927daca418b72685f6985a0.png" src="../../_images/21af4b9398a78f1358819efbd9b4be236fca2e7a4927daca418b72685f6985a0.png" />
-<img alt="../../_images/f926062c92101b41fe6e6198f8449af0e5a06ec2f35fcf6ae73350377483f1c5.png" src="../../_images/f926062c92101b41fe6e6198f8449af0e5a06ec2f35fcf6ae73350377483f1c5.png" />
-<img alt="../../_images/92367f05d4584e16339cc399af3d93bb072ed169f5ce166ea706655617cb9ca8.png" src="../../_images/92367f05d4584e16339cc399af3d93bb072ed169f5ce166ea706655617cb9ca8.png" />
+<img alt="../../_images/340f47a5d7e247fc55c9b8d03d60973f656155d9f79fd4981f82beb2d5ba8b21.png" src="../../_images/340f47a5d7e247fc55c9b8d03d60973f656155d9f79fd4981f82beb2d5ba8b21.png" />
+<img alt="../../_images/61ed0a9efbd5e5d7f156380c143f364637962986212ea25dff95c939d9bac08a.png" src="../../_images/61ed0a9efbd5e5d7f156380c143f364637962986212ea25dff95c939d9bac08a.png" />
+<img alt="../../_images/8e0f0ed7ad7a10ab901e70aa05a255df3bdd7adb5498bcd425ea794cd4824abb.png" src="../../_images/8e0f0ed7ad7a10ab901e70aa05a255df3bdd7adb5498bcd425ea794cd4824abb.png" />
+<img alt="../../_images/07190da71706a2f8748d226bcd0bfddc274a0dc29ac8a5bcafaba7af3efd875f.png" src="../../_images/07190da71706a2f8748d226bcd0bfddc274a0dc29ac8a5bcafaba7af3efd875f.png" />
 </div>
 </div>
 <p>The results are finely tuned and small variations in <span class="math notranslate nohighlight">\(\gamma\)</span> can destroy the linear separation. Sensitivity to <span class="math notranslate nohighlight">\(\gamma\)</span> is not too surprising since it is a parameter of the kernel function.  However, KernelPCA results can also change dramatically with a small change to the input data.  See <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/issues/10530">this github issue</a> for details.</p>
@@ -865,12 +874,13 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 <p>First lets look at some 3D data that is clearly 2D, but requires a nonlinear decomposition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">ess_data</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">ess_data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/acf47ac15f6d4705c60bb5fdbc8de5b83a0066f79d9baf0df882101c88b659fb.png" src="../../_images/acf47ac15f6d4705c60bb5fdbc8de5b83a0066f79d9baf0df882101c88b659fb.png" />
+<img alt="../../_images/a21df151752a7b28cf78b1d7c99494e448ca76d76b8c7f00253e740fc0fa133b.png" src="../../_images/a21df151752a7b28cf78b1d7c99494e448ca76d76b8c7f00253e740fc0fa133b.png" />
 </div>
 </div>
 <p>The pairplot is confusing until you see the following plot where, in addition, each point is colored according to its true 1D coordinate along the main direction of the manifold (stored in the ‘y’ column of <code class="docutils literal notranslate"><span class="pre">ess_targets</span></code>):</p>
@@ -891,7 +901,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fb623b544ab27a0b28619aae733993c2071ca727465266ada678d19b205f1afe.png" src="../../_images/fb623b544ab27a0b28619aae733993c2071ca727465266ada678d19b205f1afe.png" />
+<img alt="../../_images/b130e50745896328aec0218b56422b2489998a4feeaaa4d47b45ed1b9f916a9b.png" src="../../_images/b130e50745896328aec0218b56422b2489998a4feeaaa4d47b45ed1b9f916a9b.png" />
 </div>
 </div>
 <p>LLE takes advantage of the fact that the manifold is “flat” in the neighborhood of each sample, so can be described locally with a linear approximation.  We construct such a local linear approximation to a sample <span class="math notranslate nohighlight">\(\vec{X}_i\)</span> as:</p>
@@ -945,7 +955,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/742faf6367a7d8512438f7b82f339f5c3f87265f34bed3cbe50b51a2d5c3af51.png" src="../../_images/742faf6367a7d8512438f7b82f339f5c3f87265f34bed3cbe50b51a2d5c3af51.png" />
+<img alt="../../_images/4e97ec2526704beec673d84b1e52e71a48873a545e8b419f23a2eec3e73bb1fb.png" src="../../_images/4e97ec2526704beec673d84b1e52e71a48873a545e8b419f23a2eec3e73bb1fb.png" />
 </div>
 </div>
 <p>Compare this with what a linear PCA finds:</p>
@@ -958,7 +968,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b548233d69eb3ff0dcb940d09c52467d7a598744aab71515e3a82da428e59e83.png" src="../../_images/b548233d69eb3ff0dcb940d09c52467d7a598744aab71515e3a82da428e59e83.png" />
+<img alt="../../_images/466bfd59cd6745871e28b527f14231ab6a24b5e8e4f31a1454d5d1a3cd5f139b.png" src="../../_images/466bfd59cd6745871e28b527f14231ab6a24b5e8e4f31a1454d5d1a3cd5f139b.png" />
 </div>
 </div>
 <p>Or a KernelPCA:</p>
@@ -971,7 +981,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4527ba8e09f430ec1950813dc25335776c203232efc0316c4769773ae137cb57.png" src="../../_images/4527ba8e09f430ec1950813dc25335776c203232efc0316c4769773ae137cb57.png" />
+<img alt="../../_images/d8a4cf9b165d98cbc2a1d3cb47c7420f9e361030d96a8b684729c36f46431c0d.png" src="../../_images/d8a4cf9b165d98cbc2a1d3cb47c7420f9e361030d96a8b684729c36f46431c0d.png" />
 </div>
 </div>
 <p>The sklearn LLE class also provides some variants of LLE that can perform even better on this problem, for example (note the larger <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> required - another example fine tuning):</p>
@@ -984,17 +994,16 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d60f8cab5ff0e5568d0860752a5bc8f53bef6d70471be87ce7077a7e1de949a8.png" src="../../_images/d60f8cab5ff0e5568d0860752a5bc8f53bef6d70471be87ce7077a7e1de949a8.png" />
+<img alt="../../_images/4fbc78d78a1eb756441cdb464df6c038b6726ed5a72e4dae992e986cdd966121.png" src="../../_images/4fbc78d78a1eb756441cdb464df6c038b6726ed5a72e4dae992e986cdd966121.png" />
 </div>
 </div>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
