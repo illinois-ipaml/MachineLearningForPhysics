@@ -914,14 +914,14 @@ f(x) = \int dy\, f(x, y) \; .
 &amp;= f(x) \; ,
 \end{aligned}
 \end{split}\]</div>
-<p>where the fourth line follows from the third Kolmogorov axiom, since the sets <span class="math notranslate nohighlight">\(\{ \omega: y_i \le Y(y) \le y_i + \Delta y\}\)</span> are all disjoint and combine to cover the full sample space <span class="math notranslate nohighlight">\(\Omega\)</span>.  In other words, <strong>marginalizing out</strong> a random variable yields exactly the same joint probability we would have obtained if we had never introduced it in the first place.</p>
+<p>where the fourth line follows from the third Kolmogorov axiom, since the sets <span class="math notranslate nohighlight">\(\{ \omega: y_i \le Y(y) \le y_i + \Delta y\}\)</span> are all disjoint and combine to cover the full sample space <span class="math notranslate nohighlight">\(\Omega\)</span>.  In other words, <strong><span style="color:LightGreen">marginalizing out</span></strong> a random variable yields exactly the same joint probability we would have obtained if we had never introduced it in the first place.</p>
 <p>Finally, a <strong><span style="color:violet">conditional PDF</span></strong> is defined in terms of the following conditional probability:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 f(x\mid y) \equiv \frac{\partial}{\partial x} \lim_{\Delta y\rightarrow 0}
 P\left( \{\omega: X(\omega) \le x\} \mid \{\omega: y \le Y(\omega) \le y + \Delta y\}\right) \; .
 \]</div>
-<p>Using the definition of <strong>conditional probability</strong> above, we find:</p>
+<p>Using the definition of <strong><span style="color:LightGreen">conditional probability</span></strong> above, we find:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
 \begin{aligned}
@@ -1063,12 +1063,12 @@ P(A_2,\ldots\mid B_1,B_2,\ldots) = \int d A_1'\, P(A_1', A_2, \ldots\mid B_1, B_
 \[ \Large
 P(A_1,A_2,\ldots\mid B_2,\ldots) = \int d B_1'\, P(A_1,A_2,\ldots\mid B_1',B_2,\ldots)\,P(B_1'\mid B_2,\ldots) \; .
 \]</div>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Use these rules to show that:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Use these rules to show that:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(\Theta_M \mid D,M) = \frac{P(D\mid\Theta_M ,M)\, P(\Theta_M,M)}{P(D,M)} \; .
 \]</div>
-<p>We will use this result later when we discuss <span style="color:LightGreen">Bayesian inference</span>.</p>
+<p>We will use this result later when we discuss <strong><span style="color:LightGreen">Bayesian inference</span></strong>.</p>
 <p>Apply the rules to the LHS in order to make it look more like the RHS:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
@@ -1079,7 +1079,7 @@ P(\Theta_M \mid D,M) &amp;= \frac{P(D,\Theta_M\mid M)}{P(D\mid M)} &amp; \text{R
 &amp;= \frac{P(D\mid\Theta_M,M)\, P(\Theta_M,M)}{P(D,M)} &amp; \text{simplify}
 \end{aligned}
 \end{split}\]</div>
-</section>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
