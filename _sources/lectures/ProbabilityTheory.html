@@ -568,8 +568,9 @@ document.write(`
 <p>The tuple <span class="math notranslate nohighlight">\((\Omega, {\cal F}, P)\)</span> is a <span style="color:violet">probability space</span>.</p>
 <p>A probability space defines an uncertain process that you can think of as a black box that generate outcomes <span class="math notranslate nohighlight">\(\omega_1, \omega_2, \ldots \in \Omega\)</span>. After each outcome <span class="math notranslate nohighlight">\(\omega_i\)</span>, all events containing <span class="math notranslate nohighlight">\(\omega_i\)</span> are said to have <strong>occurred</strong> (so, in general, multiple events occur simultaneously).  Events <span class="math notranslate nohighlight">\(A, B, \ldots\)</span> occur with probabilities <span class="math notranslate nohighlight">\(P(A), P(B), \ldots\)</span>, so the probability measure <span class="math notranslate nohighlight">\(P\)</span> encodes the dynamics of the uncertain process.</p>
 <p>Recall the basic operations of set theory that we will use frequently below. The box represents the set of all possible outcomes, <span class="math notranslate nohighlight">\(\Omega\)</span>, with individual outcomes <span class="math notranslate nohighlight">\(\omega\)</span> indicated with dots. The labels show some possible subsets within the event space, constructed using the union (<span class="math notranslate nohighlight">\(\cup\)</span>), intersection (<span class="math notranslate nohighlight">\(\cap\)</span>) and complement (<span class="math notranslate nohighlight">\(\setminus\)</span>) operations (in logic, <em>union</em> and <em>intersection</em> are called OR and AND, respectively, and the <em>complement</em> can be thought of as the NOT IN operation):</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-dap/DataAnalysisForPhysicists/main/img/ProbabilityTheory-SetOperations.png"><img alt="https://raw.githubusercontent.com/illinois-dap/DataAnalysisForPhysicists/main/img/ProbabilityTheory-SetOperations.png" class="align-left" src="https://raw.githubusercontent.com/illinois-dap/DataAnalysisForPhysicists/main/img/ProbabilityTheory-SetOperations.png" style="width: 800px;" /></a></img><br></p>
-<p>Should the sample space for a coin toss include the possibility of the coin landing on its edge?  It is up to you.</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ProbabilityTheory-SetOperations.png" width=800></img>
+</div><p>Should the sample space for a coin toss include the possibility of the coin landing on its edge?  It is up to you.</p>
 <p>The choice of <strong>event space</strong> is more constrained since it must satisfy the following conditions:</p>
 <ul class="simple">
 <li><p><span style="color:violet">R1</span>: If event <span class="math notranslate nohighlight">\(A\)</span> is included, then so is its complement <span class="math notranslate nohighlight">\(\Omega \setminus A\)</span>.</p></li>
@@ -693,19 +694,24 @@ P(A\mid B) = P(B\mid A) \frac{P(A)}{P(B)}
 \boxed{
 P(A\mid B) \equiv \frac{P(A\cap B)}{\Sigma_{i}P(B|A_i)P(A_i)}}
 \]</div>
-<p><em><strong><span style="color:violet">EXAMPLE</span></strong></em>: We have a disease that is carried by fraction <span class="math notranslate nohighlight">\(X\)</span> of the population:
-$<span class="math notranslate nohighlight">\(
+<p><em><strong><span style="color:violet">EXAMPLE</span></strong></em>: We have a disease that is carried by fraction <span class="math notranslate nohighlight">\(X\)</span> of the population:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(\text{disease}) = X ~~~~~~~~~~~~~ P(\text{no disease}) = 1 - X
-\)</span>$</p>
-<p>You make a test for the disease and it yields a positive result fraction <span class="math notranslate nohighlight">\(Y\)</span> of the time when a person has the disease:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(X=1\)</span>%.</p>
+<p>You make a test for the disease and it yields a positive result fraction <span class="math notranslate nohighlight">\(Y\)</span> of the time when a person has the disease:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(+|\text{disease}) = Y ~~~~~~~~~~~~~ P(-|\text{disease}) = 1 - Y
-\)</span>$</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Y = 99\)</span>%.</p>
 <p>Since <span class="math notranslate nohighlight">\(Y\)</span> is pretty big, you feel pretty good!</p>
-<p>However, your test has a false positive fraction of <span class="math notranslate nohighlight">\(Z\)</span>. Since <span class="math notranslate nohighlight">\(Z\)</span> is small so you feel OK about the test. Just to be clear:
-$<span class="math notranslate nohighlight">\(
+<p>However, your test has a false positive fraction of <span class="math notranslate nohighlight">\(Z = 4\)</span>%. Since <span class="math notranslate nohighlight">\(Z\)</span> is small so you feel OK about the test. Just to be clear:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(+|\text{no disease}) = Z ~~~~~~~~~~~~~ P(-|\text{no disease}) = 1 - Z
-\)</span>$</p>
+\]</div>
 <p><em>So the question is if a person gets a positive test result, what are the chances they have the disease?</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -815,7 +821,7 @@ F_X(x) &amp;= \lim_{\Delta x\rightarrow 0}\, \sum_i f_X(x_i)\,\Delta x \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1fe5bd93d1572d59fe1e630310fca4a9942bbde9613c50a5806f7668278c2ba9.png" src="../../_images/1fe5bd93d1572d59fe1e630310fca4a9942bbde9613c50a5806f7668278c2ba9.png" />
+<img alt="../../_images/cb05c5ea6ba5655bc3c351abdf108fbd058b7c0f1860b64097e0cdbde32c0fb9.png" src="../../_images/cb05c5ea6ba5655bc3c351abdf108fbd058b7c0f1860b64097e0cdbde32c0fb9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -827,10 +833,10 @@ F_X(x) &amp;= \lim_{\Delta x\rightarrow 0}\, \sum_i f_X(x_i)\,\Delta x \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x15bc49850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1277e6350&gt;
 </pre></div>
 </div>
-<img alt="../../_images/d49e33f571f983f26e596319acaeca6ca0cfa6e95c9900f2a7464f4244eba8bf.png" src="../../_images/d49e33f571f983f26e596319acaeca6ca0cfa6e95c9900f2a7464f4244eba8bf.png" />
+<img alt="../../_images/8612146e571625567707e13b57875160149ab3c145ac99d446f285eb58cabbfb.png" src="../../_images/8612146e571625567707e13b57875160149ab3c145ac99d446f285eb58cabbfb.png" />
 </div>
 </div>
 </section>
@@ -860,7 +866,7 @@ F_X(x) &amp;= \lim_{\Delta x\rightarrow 0}\, \sum_i f_X(x_i)\,\Delta x \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d94e8215491edb826b9eb8406c084e3a62eac0f01e685f417882a85891deb519.png" src="../../_images/d94e8215491edb826b9eb8406c084e3a62eac0f01e685f417882a85891deb519.png" />
+<img alt="../../_images/f6e729ab582a1abc1ba3713bea63e3fd207a47346aaef887e219027eaf464e25.png" src="../../_images/f6e729ab582a1abc1ba3713bea63e3fd207a47346aaef887e219027eaf464e25.png" />
 </div>
 </div>
 </section>
@@ -951,51 +957,68 @@ f(x\mid y) = \frac{f(y\mid x)\,f(x)}{f(y)} = \frac{f(y\mid x)\,f(x)}{\int dx\, f
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">simpson</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.gridspec</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSpec</span>
 
+<span class="k">def</span><span class="w"> </span><span class="nf">prob2d</span><span class="p">(</span><span class="n">cov1</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="n">cov1</span><span class="p">],</span> <span class="p">[</span><span class="n">cov1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span> <span class="c1">#means and covariance matrix</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
 
+    <span class="n">fz</span><span class="p">,</span> <span class="n">ex</span><span class="p">,</span> <span class="n">ey</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="o">*</span><span class="n">z</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">ex</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ex</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">ey</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ey</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">cov1</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="n">cov1</span><span class="p">],</span> <span class="p">[</span><span class="n">cov1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span> <span class="c1">#means and covariance matrix</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">fz</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fy</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">fz</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">fz</span><span class="p">,</span> <span class="n">ex</span><span class="p">,</span> <span class="n">ey</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="o">*</span><span class="n">z</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">ex</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ex</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">ey</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ey</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">ax_fz</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax_fx</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax_fz</span><span class="p">)</span>
+    <span class="n">ax_fy</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax_fz</span><span class="p">)</span>
 
-<span class="n">fx</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">fz</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fy</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">fz</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax_fz</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fz</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">ax_fx</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fx</span><span class="p">)</span>
+    <span class="n">ax_fy</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">fy</span><span class="p">)</span>
 
-<span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">ax_fz</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">ax_fx</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax_fz</span><span class="p">)</span>
-<span class="n">ax_fy</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax_fz</span><span class="p">)</span>
-
-<span class="n">ax_fz</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fz</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="n">ax_fx</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fx</span><span class="p">)</span>
-<span class="n">ax_fy</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">fy</span><span class="p">)</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob2d</span><span class="p">(</span><span class="n">cov1</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6df27beaf7f1659412699f14848cd09b5dc39f805cbb55c366c7a9eb2077df61.png" src="../../_images/6df27beaf7f1659412699f14848cd09b5dc39f805cbb55c366c7a9eb2077df61.png" />
+<img alt="../../_images/728da00026d5b6d3f5e047540b05dc0951f80902877c841cfce244f246bf3e24.png" src="../../_images/728da00026d5b6d3f5e047540b05dc0951f80902877c841cfce244f246bf3e24.png" />
 </div>
 </div>
-<p>We say that random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are <strong>independent</strong> if
-$<span class="math notranslate nohighlight">\(
+<p>We say that random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are <strong>independent</strong> if</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 F(x, y) = F(x) F(y) \; ,
-\)</span><span class="math notranslate nohighlight">\(
-which leads to
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>which leads to</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 f(x, y) = f(x) f(y)
-\)</span><span class="math notranslate nohighlight">\(
-and
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 f(x\mid y) = f(x) \quad , \quad f(y\mid x) = f(y) \; .
-\)</span>$
-The corresponding picture is:</p>
+\]</div>
+<p>The corresponding picture is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob2d</span><span class="p">(</span><span class="n">cov1</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2e0dc72d0f436c0b615f86c8d920da3400dfc634375c8272b6ee3471fdbee12a.png" src="../../_images/2e0dc72d0f436c0b615f86c8d920da3400dfc634375c8272b6ee3471fdbee12a.png" />
+</div>
+</div>
 </section>
 <section id="span-style-color-orange-practical-probability-calculus-span">
 <h2><span style="color:Orange">Practical Probability Calculus</span><a class="headerlink" href="#span-style-color-orange-practical-probability-calculus-span" title="Permalink to this heading">#</a></h2>
@@ -1052,14 +1075,13 @@ P(\Theta_M \mid D,M) &amp;= \frac{P(D,\Theta_M\mid M)}{P(D\mid M)} &amp; \text{R
 \end{aligned}
 \end{split}\]</div>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 <li><p>Bayes example: Anne Sickles</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
