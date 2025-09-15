@@ -566,13 +566,13 @@ document.write(`
 <li><p>A <span style="color:violet">probability measure</span> <span class="math notranslate nohighlight">\(P: {\cal F}\rightarrow [0,1]\)</span> that assigns numerical probabilities to each event.</p></li>
 </ol>
 <p>The tuple <span class="math notranslate nohighlight">\((\Omega, {\cal F}, P)\)</span> is a <span style="color:violet">probability space</span>.</p>
-<p><em><strong><span style="color:violet">EXAMPLE</span>:</strong></em> Consider an electron with the following <strong><span style="color:LightGreen">probability space</span></strong>:</p>
+<hr><p><em><strong><span style="color:violet">EXAMPLE</span>:</strong></em> Consider an electron with the following <strong><span style="color:LightGreen">probability space</span></strong>:</p>
 <ol class="arabic simple">
 <li><p>We are interested in a single electron that we can only observe via its spin. Therefore the <strong><span style="color:LightGreen">sample space</span></strong> consists of its two possible spins: <span class="math notranslate nohighlight">\(\uparrow\)</span> and <span class="math notranslate nohighlight">\(\downarrow\)</span>.</p></li>
 <li><p>Our <strong><span style="color:LightGreen">event space</span></strong> consists of all subsets of the sample space: { }, {<span class="math notranslate nohighlight">\(\uparrow\)</span>}, {<span class="math notranslate nohighlight">\(\downarrow\)</span>}, {<span class="math notranslate nohighlight">\(\uparrow, \downarrow\)</span>}.</p></li>
 <li><p>Our <strong><span style="color:LightGreen">probability measure</span></strong> assigns the probabilities: <span class="math notranslate nohighlight">\(P(\{\,\}) = 0\)</span>, <span class="math notranslate nohighlight">\(P(\{\uparrow\}) = P(\{\downarrow\}) = 0.5\)</span>, <span class="math notranslate nohighlight">\(P(\{\uparrow, \downarrow\}) = 1\)</span>.</p></li>
 </ol>
-<p>A <strong><span style="color:Violet">probability space</span></strong> defines an uncertain process that you can think of as a black box that generate outcomes <span class="math notranslate nohighlight">\(\omega_1, \omega_2, \ldots \in \Omega\)</span>. After each outcome <span class="math notranslate nohighlight">\(\omega_i\)</span>, all events containing <span class="math notranslate nohighlight">\(\omega_i\)</span> are said to have <strong>occurred</strong> (so, in general, multiple events occur simultaneously).  Events <span class="math notranslate nohighlight">\(A, B, \ldots\)</span> occur with probabilities <span class="math notranslate nohighlight">\(P(A), P(B), \ldots\)</span>, so the probability measure <span class="math notranslate nohighlight">\(P\)</span> encodes the dynamics of the uncertain process.</p>
+<hr><p>A <strong><span style="color:Violet">probability space</span></strong> defines an uncertain process that you can think of as a black box that generate outcomes <span class="math notranslate nohighlight">\(\omega_1, \omega_2, \ldots \in \Omega\)</span>. After each outcome <span class="math notranslate nohighlight">\(\omega_i\)</span>, all events containing <span class="math notranslate nohighlight">\(\omega_i\)</span> are said to have <strong>occurred</strong> (so, in general, multiple events occur simultaneously).  Events <span class="math notranslate nohighlight">\(A, B, \ldots\)</span> occur with probabilities <span class="math notranslate nohighlight">\(P(A), P(B), \ldots\)</span>, so the probability measure <span class="math notranslate nohighlight">\(P\)</span> encodes the dynamics of the uncertain process.</p>
 <p>Recall the basic operations of set theory that we will use frequently below. The box represents the set of all possible outcomes, <span class="math notranslate nohighlight">\(\Omega\)</span>, with individual outcomes <span class="math notranslate nohighlight">\(\omega\)</span> indicated with dots. The labels show some possible subsets within the event space, constructed using the union (<span class="math notranslate nohighlight">\(\cup\)</span>), intersection (<span class="math notranslate nohighlight">\(\cap\)</span>) and complement (<span class="math notranslate nohighlight">\(\setminus\)</span>) operations (in logic, <em>union</em> and <em>intersection</em> are called OR and AND, respectively, and the <em>complement</em> can be thought of as the NOT IN operation):</p>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ProbabilityTheory-SetOperations.png" width=800></img>
@@ -588,7 +588,7 @@ document.write(`
 <li><p>The “nothing” event <span class="math notranslate nohighlight">\(A = \{\}\)</span> is included (as the complement of the “everything” event).</p></li>
 </ul>
 <p>The set of all possible subsets of <span class="math notranslate nohighlight">\(\Omega\)</span> is always a valid event space, but other (simpler) choices are possible when you don’t care about some subsets (or don’t know how to assign probabilities to them).</p>
-<p><em><strong><span style="color:violet">EXERCISE</span>:</strong></em> Use the rules above to create the smallest possible event space containing {a} for a sample space consisting of the four possible outcomes {a,b,c,d}.</p>
+<hr><p><em><strong><span style="color:violet">EXERCISE</span>:</strong></em> Use the rules above to create the smallest possible event space containing {a} for a sample space consisting of the four possible outcomes {a,b,c,d}.</p>
 <p>One way to apply the rules is:</p>
 <ul class="simple">
 <li><p>R1: <span class="math notranslate nohighlight">\(\{a\} \Rightarrow \{b,c,d\}\)</span></p></li>
@@ -596,7 +596,7 @@ document.write(`
 <li><p>R1: <span class="math notranslate nohighlight">\(\{a,b,c,d\} \Rightarrow \{\}\)</span></p></li>
 </ul>
 <p>The complete event space is then: <span class="math notranslate nohighlight">\(\{\}, \{a\}, \{b,c,d\}, \{a,b,c,d\}.\)</span></p>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Use the rules above to create the smallest possible event space containing <span class="math notranslate nohighlight">\(\{a\}\)</span> and <span class="math notranslate nohighlight">\(\{b\}\)</span> for the same sample space.</p>
+<hr><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Use the rules above to create the smallest possible event space containing <span class="math notranslate nohighlight">\(\{a\}\)</span> and <span class="math notranslate nohighlight">\(\{b\}\)</span> for the same sample space.</p>
 <p>One way to apply the rules is:</p>
 <ul class="simple">
 <li><p>R1: <span class="math notranslate nohighlight">\(\{a\} \Rightarrow \{b,c,d\}\)</span></p></li>
@@ -608,7 +608,7 @@ document.write(`
 </ul>
 <p>The complete event space is then: <span class="math notranslate nohighlight">\(\{\}, \{a\}, \{b\}, \{a,b\}, \{c,d\}, \{b,c,d\}, \{a,c,d\}, \{a,b,c,d\}\)</span>.</p>
 <p>Note that both of these examples allow us to reason about the probabilities of some outcomes without ever needing specify the probabilities of other outcomes. This only makes sense if we assume that <span class="math notranslate nohighlight">\(P(\Omega) = 1\)</span>, which is one of the Kolmogorov axioms described below.</p>
-<p>Once you have specified your sample and event spaces, you are ready to assign probabilities to each event. This where you make quantitative statements that define how your probability universe works. In the example above we set <span class="math notranslate nohighlight">\(P(\{\uparrow\}) = P(\{\downarrow\}) = 0.5\)</span>, but you could equally well define an alternate reality where <span class="math notranslate nohighlight">\(P(\{\uparrow\}) = 0.2\)</span> and <span class="math notranslate nohighlight">\(P(\{\downarrow\}) = 0.8\)</span>.</p>
+<hr><p>Once you have specified your sample and event spaces, you are ready to assign probabilities to each event. This where you make quantitative statements that define how your probability universe works. In the example above we set <span class="math notranslate nohighlight">\(P(\{\uparrow\}) = P(\{\downarrow\}) = 0.5\)</span>, but you could equally well define an alternate reality where <span class="math notranslate nohighlight">\(P(\{\uparrow\}) = 0.2\)</span> and <span class="math notranslate nohighlight">\(P(\{\downarrow\}) = 0.8\)</span>.</p>
 <p>The <span style="color:violet">Kolmogorov axioms</span> are that:</p>
 <ul class="simple">
 <li><p>For any event <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\Large P(A) \ge 0\)</span>.</p></li>
@@ -619,7 +619,7 @@ document.write(`
 \[ \Large
 P(A_1 \cup A_2 \cup \ldots) = P(A_1) + P(A_2) + \ldots \; .
 \]</div>
-<p><em><strong><span style="color:violet">DISCUSS</strong></em>: How might you formulate a probability space for an electron whose spin is time dependent, e.g., because it is in an energy eigenstate that mixes the two spin states.</p>
+<hr><p><em><strong><span style="color:violet">DISCUSS</strong></em>: How might you formulate a probability space for an electron whose spin is time dependent, e.g., because it is in an energy eigenstate that mixes the two spin states.</p>
 <p>We first need to define all possible outcomes.  Since outcomes are the results of measurements, we need to specify when measurements are performed and whether multiple measurements might be performed on the same electron.</p>
 <p>Suppose measurements are always made at a fixed time <span class="math notranslate nohighlight">\(t_1\)</span> and time <span class="math notranslate nohighlight">\(t_2 &gt; t_1\)</span>, then there are four possible outcomes: <span class="math notranslate nohighlight">\((\uparrow,\uparrow), (\uparrow,\downarrow), (\downarrow,\uparrow), (\downarrow,\downarrow)\)</span>. Next, build an event space containing the outcomes you care about (as in the exercises above). Finally, assign each event’s probability using quantum mechanics.</p>
 <p>This construction could be easily generalized to more measurements at predetermined times, but if measurements are allowed at arbitrary times we need a different approach.  In the most general case, the possible measurements are specified by a sequence of <span class="math notranslate nohighlight">\(M\)</span> increasing times <span class="math notranslate nohighlight">\(0 \le t_1 \le t_2 \le \ldots \le t_M\)</span>, where <span class="math notranslate nohighlight">\(M = 1, 2, 3, \ldots\)</span>. This leads to an infinite (but enumerable) set of resulting possible outcomes.  However, we could still chose a relatively simple event space, for example:</p>
@@ -629,7 +629,7 @@ P(A_1 \cup A_2 \cup \ldots) = P(A_1) + P(A_2) + \ldots \; .
 <li><p>c: no measurements before <span class="math notranslate nohighlight">\(t = 1\,\mu\text{sec}\)</span></p></li>
 <li><p>d: everything event.</p></li>
 </ul>
-<p>The three axioms above are sufficient to derive many useful properties of a probability measure <span class="math notranslate nohighlight">\(P\)</span>, including (<span class="math notranslate nohighlight">\(\subseteq\)</span> means “subset”):</p>
+<hr><p>The three axioms above are sufficient to derive many useful properties of a probability measure <span class="math notranslate nohighlight">\(P\)</span>, including (<span class="math notranslate nohighlight">\(\subseteq\)</span> means “subset”):</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\Large P(A) + P(\Omega\setminus A) = 1\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\Large A\subseteq B \implies P(A) \le P(B)\)</span></p></li>
@@ -659,7 +659,7 @@ P(A\cap B) = P(A) P(B) \; .
 </section>
 <section id="span-style-color-orange-conditional-probability-and-bayes-rule-span">
 <h2><span style="color:Orange">Conditional Probability and Bayes’ Rule</span><a class="headerlink" href="#span-style-color-orange-conditional-probability-and-bayes-rule-span" title="Permalink to this heading">#</a></h2>
-<p>The probability of event <span class="math notranslate nohighlight">\(A\)</span> <strong><span style="color:LightGreen">given that <span class="math notranslate nohighlight">\(B\)</span> has occurred</span></strong>, written <span class="math notranslate nohighlight">\(P(A\mid B)\)</span>, is a central concept in machine learning but does not appear above. Since <span class="math notranslate nohighlight">\(P\)</span> is only defined for events, and <span class="math notranslate nohighlight">\(A\mid B\)</span> is not an event, the notation does not even make sense!  Instead, it is shorthand for this ratio of valid probabilities:</p>
+<p>The probability of event <span class="math notranslate nohighlight">\(A\)</span> <strong>given that <span class="math notranslate nohighlight">\(B\)</span> has occurred</strong>, written <span class="math notranslate nohighlight">\(P(A\mid B)\)</span>, is a central concept in machine learning but does not appear above. Since <span class="math notranslate nohighlight">\(P\)</span> is only defined for events, and <span class="math notranslate nohighlight">\(A\mid B\)</span> is not an event, the notation does not even make sense!  Instead, it is shorthand for this ratio of valid probabilities:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \boxed{
@@ -668,7 +668,7 @@ P(A\mid B) \equiv \frac{P(A\cap B)}{P(B)}} \;.
 <p>This definition requires that <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>, which is not true for all events <span class="math notranslate nohighlight">\(B\)</span>, but then necessarily has a value between zero and one (draw a Venn diagram to convince yourself), so makes sense to describe as a <strong><span style="color:LightGreen">probability</span></strong>.</p>
 <p>Note that we are introducing conditional probability as a <em>definition</em>, not a result of some calculation, but there are other ways to formulate probability theory in which <span class="math notranslate nohighlight">\(P(A\mid B)\)</span> is included in the initial axioms.</p>
 <p><span class="math notranslate nohighlight">\(\to\)</span> <strong>A <span style="color:LightGreen">conditional probability</span> effectively shrinks the sample space <span class="math notranslate nohighlight">\(\Omega\)</span> to the outcomes in <span class="math notranslate nohighlight">\(B\)</span>, resulting in a new probability space with renormalized probabilities.</strong></p>
-<p><em><strong><span style="color:violet">EXERCISE</span>:</strong></em> Study this <a class="reference external" href="https://setosa.io/conditional/">visualization</a> of conditional probability.</p>
+<hr><p><em><strong><span style="color:violet">EXERCISE</span>:</strong></em> Study this <a class="reference external" href="https://setosa.io/conditional/">visualization</a> of conditional probability.</p>
 <ol class="arabic simple">
 <li><p>What is the full sample space of outcomes <span class="math notranslate nohighlight">\(\Omega\)</span>?</p></li>
 <li><p>Explain how the horizontal bars represent events. Are they are complete event space?</p></li>
@@ -680,7 +680,7 @@ P(A\mid B) \equiv \frac{P(A\cap B)}{P(B)}} \;.
 <li><p>Each horizontal bar represents a set of outcomes where the horizontal position lies in some interval. The  events shown are not a complete event space since, for example, they are missing the “nothing” and “everything” events.</p></li>
 <li><p>With the “world” button selected, the histogram shows event probabilities. With any other button select, the  conditional probabilities are shown.</p></li>
 </ol>
-<p>When <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent events, the conditional probability ratio simplifies to:</p>
+<hr><p>When <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent events, the conditional probability ratio simplifies to:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \text{When } A, B\,\text{ are independent}\implies P(A\mid B) = P(A)
@@ -700,7 +700,7 @@ P(A\mid B) = P(B\mid A) \frac{P(A)}{P(B)}
 \boxed{
 P(A\mid B) \equiv \frac{P(A\cap B)}{\Sigma_{i}P(B|A_i)P(A_i)}}
 \]</div>
-<p><em><strong><span style="color:violet">EXAMPLE</span></strong></em>: We have a disease that is carried by fraction <span class="math notranslate nohighlight">\(X\)</span> of the population:</p>
+<hr><p><em><strong><span style="color:violet">EXAMPLE</span></strong></em>: We have a disease that is carried by fraction <span class="math notranslate nohighlight">\(X\)</span> of the population:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(\text{disease}) = X ~~~~~~~~~~~~~ P(\text{no disease}) = 1 - X
@@ -738,7 +738,7 @@ P(+|\text{no disease}) = Z ~~~~~~~~~~~~~ P(-|\text{no disease}) = 1 - Z
 </div>
 </div>
 </div>
-</section>
+<hr></section>
 <section id="span-style-color-orange-random-variables-span">
 <h2><span style="color:Orange">Random Variables</span><a class="headerlink" href="#span-style-color-orange-random-variables-span" title="Permalink to this heading">#</a></h2>
 <p>A probability space connects sets of possible outcomes with numerical probabilities, but we also need a way to characterize the outcomes themselves numerically.  <strong>Random variables</strong> fill this gap.</p>
