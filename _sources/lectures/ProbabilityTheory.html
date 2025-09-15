@@ -566,6 +566,12 @@ document.write(`
 <li><p>A <span style="color:violet">probability measure</span> <span class="math notranslate nohighlight">\(P: {\cal F}\rightarrow [0,1]\)</span> that assigns numerical probabilities to each event.</p></li>
 </ol>
 <p>The tuple <span class="math notranslate nohighlight">\((\Omega, {\cal F}, P)\)</span> is a <span style="color:violet">probability space</span>.</p>
+<p><em><strong><span style="color:violet">EXAMPLE</span>:</strong></em> Consider an electron with the following <strong><span style="color:LightGreen">probability space</span></strong>:</p>
+<ol class="arabic simple">
+<li><p>We are interested in a single electron that we can only observe via its spin. Therefore the <strong><span style="color:LightGreen">sample space</span></strong> consists of its two possible spins: <span class="math notranslate nohighlight">\(\uparrow\)</span> and <span class="math notranslate nohighlight">\(\downarrow\)</span>.</p></li>
+<li><p>Our <strong><span style="color:LightGreen">event space</span></strong> consists of all subsets of the sample space: { }, {<span class="math notranslate nohighlight">\(\uparrow\)</span>}, {<span class="math notranslate nohighlight">\(\downarrow\)</span>}, {<span class="math notranslate nohighlight">\(\uparrow, \downarrow\)</span>}.</p></li>
+<li><p>Our <strong><span style="color:LightGreen">probability measure</span></strong> assigns the probabilities: <span class="math notranslate nohighlight">\(P(\{\,\}) = 0\)</span>, <span class="math notranslate nohighlight">\(P(\{\uparrow\}) = P(\{\downarrow\}) = 0.5\)</span>, <span class="math notranslate nohighlight">\(P(\{\uparrow, \downarrow\}) = 1\)</span>.</p></li>
+</ol>
 <p>A probability space defines an uncertain process that you can think of as a black box that generate outcomes <span class="math notranslate nohighlight">\(\omega_1, \omega_2, \ldots \in \Omega\)</span>. After each outcome <span class="math notranslate nohighlight">\(\omega_i\)</span>, all events containing <span class="math notranslate nohighlight">\(\omega_i\)</span> are said to have <strong>occurred</strong> (so, in general, multiple events occur simultaneously).  Events <span class="math notranslate nohighlight">\(A, B, \ldots\)</span> occur with probabilities <span class="math notranslate nohighlight">\(P(A), P(B), \ldots\)</span>, so the probability measure <span class="math notranslate nohighlight">\(P\)</span> encodes the dynamics of the uncertain process.</p>
 <p>Recall the basic operations of set theory that we will use frequently below. The box represents the set of all possible outcomes, <span class="math notranslate nohighlight">\(\Omega\)</span>, with individual outcomes <span class="math notranslate nohighlight">\(\omega\)</span> indicated with dots. The labels show some possible subsets within the event space, constructed using the union (<span class="math notranslate nohighlight">\(\cup\)</span>), intersection (<span class="math notranslate nohighlight">\(\cap\)</span>) and complement (<span class="math notranslate nohighlight">\(\setminus\)</span>) operations (in logic, <em>union</em> and <em>intersection</em> are called OR and AND, respectively, and the <em>complement</em> can be thought of as the NOT IN operation):</p>
 <div>
@@ -630,7 +636,7 @@ P(A_1 \cup A_2 \cup \ldots) = P(A_1) + P(A_2) + \ldots \; .
 <li><p><span class="math notranslate nohighlight">\(\Large P(A\cap B) \le \min(P(A), P(B))\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\Large P(A\cup B) = P(A) + P(B) - P(A\cap B)\)</span></p></li>
 </ol>
-<p>These all make sense when translated into corresponding Venn diagrams (try it, to convince yourself). The last property is useful for replacing the probability of <strong>A or B</strong> with the probability of <strong>A and B</strong> in an expression (or vice versa).</p>
+<p>These all make sense when translated into corresponding Venn diagrams (try it, to convince yourself). The last property is useful for replacing the probability of <strong><span style="color:LightGreen">A or B</span></strong> with the probability of <strong><span style="color:LightGreen">A and B</span></strong> in an expression (or vice versa).</p>
 <p>We have already seen one special case of the third property above (“disjoint” means non-overlapping):</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -653,15 +659,15 @@ P(A\cap B) = P(A) P(B) \; .
 </section>
 <section id="span-style-color-orange-conditional-probability-and-bayes-rule-span">
 <h2><span style="color:Orange">Conditional Probability and Bayes’ Rule</span><a class="headerlink" href="#span-style-color-orange-conditional-probability-and-bayes-rule-span" title="Permalink to this heading">#</a></h2>
-<p>The probability of event <span class="math notranslate nohighlight">\(A\)</span> <strong>given that <span class="math notranslate nohighlight">\(B\)</span> has occurred</strong>, written <span class="math notranslate nohighlight">\(P(A\mid B)\)</span>, is a central concept in machine learning but does not appear above. Since <span class="math notranslate nohighlight">\(P\)</span> is only defined for events, and <span class="math notranslate nohighlight">\(A\mid B\)</span> is not an event, the notation does not even make sense!  Instead, it is shorthand for this ratio of valid probabilities:</p>
+<p>The probability of event <span class="math notranslate nohighlight">\(A\)</span> <strong><span style="color:LightGreen">given that <span class="math notranslate nohighlight">\(B\)</span> has occurred</span></strong>, written <span class="math notranslate nohighlight">\(P(A\mid B)\)</span>, is a central concept in machine learning but does not appear above. Since <span class="math notranslate nohighlight">\(P\)</span> is only defined for events, and <span class="math notranslate nohighlight">\(A\mid B\)</span> is not an event, the notation does not even make sense!  Instead, it is shorthand for this ratio of valid probabilities:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \boxed{
 P(A\mid B) \equiv \frac{P(A\cap B)}{P(B)}} \;.
 \]</div>
-<p>This definition requires that <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>, which is not true for all events <span class="math notranslate nohighlight">\(B\)</span>, but then necessarily has a value between zero and one (draw a Venn diagram to convince yourself), so makes sense to describe as a <strong>probability</strong>.</p>
+<p>This definition requires that <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>, which is not true for all events <span class="math notranslate nohighlight">\(B\)</span>, but then necessarily has a value between zero and one (draw a Venn diagram to convince yourself), so makes sense to describe as a <strong><span style="color:LightGreen">probability</span></strong>.</p>
 <p>Note that we are introducing conditional probability as a <em>definition</em>, not a result of some calculation, but there are other ways to formulate probability theory in which <span class="math notranslate nohighlight">\(P(A\mid B)\)</span> is included in the initial axioms.</p>
-<p><strong>A conditional probability effectively shrinks the sample space <span class="math notranslate nohighlight">\(\Omega\)</span> to the outcomes in <span class="math notranslate nohighlight">\(B\)</span>, resulting in a new probability space with renormalized probabilities.</strong></p>
+<p><span class="math notranslate nohighlight">\(\to\)</span> <strong>A <span style="color:LightGreen">conditional probability</span> effectively shrinks the sample space <span class="math notranslate nohighlight">\(\Omega\)</span> to the outcomes in <span class="math notranslate nohighlight">\(B\)</span>, resulting in a new probability space with renormalized probabilities.</strong></p>
 <p><em><strong><span style="color:violet">EXERCISE</span>:</strong></em> Study this <a class="reference external" href="https://setosa.io/conditional/">visualization</a> of conditional probability.</p>
 <ol class="arabic simple">
 <li><p>What is the full sample space of outcomes <span class="math notranslate nohighlight">\(\Omega\)</span>?</p></li>
@@ -758,7 +764,7 @@ P(a\le X \le b) \equiv P\left(\{ \omega: a \le X(\omega) \le b \}\right) \; .
 </section>
 <section id="span-style-color-orange-cumulative-distribution-function-span">
 <h2><span style="color:Orange">Cumulative Distribution Function</span><a class="headerlink" href="#span-style-color-orange-cumulative-distribution-function-span" title="Permalink to this heading">#</a></h2>
-<p>One particularly useful condition yields the <strong>cumulative distribution function (CDF)</strong>:</p>
+<p>One particularly useful condition yields the <strong><span style="color:LightGreen">cumulative distribution function</span> (CDF)</strong>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 F_X(x) \equiv P\left(\{ \omega: X(\omega) \le x\} \right) \; .
@@ -767,7 +773,7 @@ F_X(x) \equiv P\left(\{ \omega: X(\omega) \le x\} \right) \; .
 </section>
 <section id="span-style-color-orange-probability-density-function-span">
 <h2><span style="color:Orange">Probability Density Function</span><a class="headerlink" href="#span-style-color-orange-probability-density-function-span" title="Permalink to this heading">#</a></h2>
-<p>When the CDF is differentiable everywhere, we can also calculate the <strong>probability density function (PDF)</strong>:</p>
+<p>When the CDF is differentiable everywhere, we can also calculate the <strong><span style="color:LightGreen">probability density function</span> (PDF)</strong>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 f_X(x) \equiv \frac{d}{dx} F_X(x) \; .
@@ -945,7 +951,7 @@ f(x,y) = f(x\mid y)\, f(y) \; .
 f(x\mid y) = \frac{f(y\mid x)\,f(x)}{f(y)} = \frac{f(y\mid x)\,f(x)}{\int dx\, f(x,y)} \; ,}
 \]</div>
 <p>where we have written out the conditional PDF <span class="math notranslate nohighlight">\(f(y)\)</span> as an integral in the last expression.</p>
-<p><strong>SUMMARY:</strong></p>
+<p><strong><span style="color:Violet">SUMMARY</span>:</strong></p>
 <ul class="simple">
 <li><p>Commas signal a <strong>joint</strong> probability formed by set intersections (logical <em>AND</em>).</p></li>
 <li><p>Missing random variables signal a <strong>marginal</strong> probability with the missing variables “integrated out”.</p></li>
@@ -1063,7 +1069,7 @@ P(A_1,A_2,\ldots\mid B_2,\ldots) = \int d B_1'\, P(A_1,A_2,\ldots\mid B_1',B_2,\
 \[ \Large
 P(\Theta_M \mid D,M) = \frac{P(D\mid\Theta_M ,M)\, P(\Theta_M,M)}{P(D,M)} \; .
 \]</div>
-<p>We will use this result later when we discuss Bayesian inference.</p>
+<p>We will use this result later when we discuss <span style="color:LightGreen">Bayesian inference</span>.</p>
 <p>Apply the rules to the LHS in order to make it look more like the RHS:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
