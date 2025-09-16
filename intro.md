@@ -58,8 +58,8 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ### TAs 
 * Pin-Yi Li
   * email: pinyili2@illinois.edu
-  * Office Hour: Tuesday 3pm - 4pm
-  * 3039 Beckman Institute
+  * Office Hour: Tuesday 9:30-10:30 am
+  * 3039 Beckman Institute or [Zoom](https://illinois.zoom.us/j/87074619841?pwd=joAuQXA7INZtrem1duQAfsGsziZk64.1)
 
 ## <span style="color:Red">Online Tools</span>
 
