@@ -792,6 +792,30 @@ y_{CDF} = 0, \frac{1}{N+1}, \frac{2}{N+1}, \ldots, \frac{N}{N+1}, 1 \; .
 <h2><span style="color:Orange">Problem 3</span><a class="headerlink" href="#span-style-color-orange-problem-3-span" title="Permalink to this heading">#</a></h2>
 <p>Consider a sequence of <span class="math notranslate nohighlight">\(n\)</span> Bernoulli trials with success probabilty <span class="math notranslate nohighlight">\(p\)</span> per trial. A string of consecutive successes is known as a success run. Write a function that returns the counts for runs of length <span class="math notranslate nohighlight">\(k\)</span> for each <span class="math notranslate nohighlight">\(k\)</span> observed in a python dictionary.</p>
 <p>For example: if the trials were <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1]</span></code>, the function should return <code class="docutils literal notranslate"><span class="pre">{1:</span> <span class="pre">2,</span> <span class="pre">2:</span> <span class="pre">1}</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">count_runs</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Count number of success runs of length k.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xs : array of shape (1, nx)</span>
+<span class="sd">        Vector of Bernoulli trials</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Returns a dictionary the counts (val) for runs of length k (key) for each k observed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Using <code class="docutils literal notranslate"><span class="pre">count_runs</span></code> above, write a method <code class="docutils literal notranslate"><span class="pre">run_prob</span></code> that returns the probability of observing at least one run of length <code class="docutils literal notranslate"><span class="pre">k</span></code> or more from <code class="docutils literal notranslate"><span class="pre">n</span></code> trials with success probabilty <code class="docutils literal notranslate"><span class="pre">p</span></code> per trial. This probability is estimated from <code class="docutils literal notranslate"><span class="pre">expts</span></code> simulated experinents.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
