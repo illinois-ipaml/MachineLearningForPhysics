@@ -538,7 +538,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -576,11 +576,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/blobs_data.hf5&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File ‘./tmp_data/blobs_data.hf5’ already there; not retrieving.
 </pre></div>
 </div>
 </div>
@@ -744,8 +739,9 @@ C_{ij} = C_{ji} = \rho_{ij} \sigma_i \sigma_j \; .
 \end{bmatrix}
 \end{split}\]</div>
 <p>describing a 2D elllipse in the <span class="math notranslate nohighlight">\((x_i, x_j)\)</span> plane:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Statistics-Ellipse.png"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Statistics-Ellipse.png" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Statistics-Ellipse.png" style="width: 800px;" /></a></img><br></p>
-<p>Note that you can directly read off the correlation coefficient <span class="math notranslate nohighlight">\(\rho_{ij}\)</span> from any of the points where the ellipse touches its bounding box. The ellipse rotation angle <span class="math notranslate nohighlight">\(\theta\)</span> is given by:</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Statistics-Ellipse.png" width=800></img>
+</div><p>Note that you can directly read off the correlation coefficient <span class="math notranslate nohighlight">\(\rho_{ij}\)</span> from any of the points where the ellipse touches its bounding box. The ellipse rotation angle <span class="math notranslate nohighlight">\(\theta\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \tan 2\theta = \frac{2 C_{ij}}{C_{ii} - C_{jj}} = \frac{2\rho_{ij}\sigma_i\sigma_j}{\sigma_i^2 - \sigma_j^2}
@@ -764,7 +760,7 @@ d = \sqrt{C_{11}^2 - 2 (1 - 2\rho^2) C_{11} C_{22} + C_{22}^2} \; .
 </div>
 <p>The above assumes <span class="math notranslate nohighlight">\(C\)</span> is <span class="math notranslate nohighlight">\(2\times 2\)</span>. In the general <span class="math notranslate nohighlight">\(D\times D\)</span> case, use <code class="docutils literal notranslate"><span class="pre">C[[[j],</span> <span class="pre">[i]],</span> <span class="pre">[[j,</span> <span class="pre">i]]]</span></code> to pick out the <span class="math notranslate nohighlight">\((i,j)\)</span> <span class="math notranslate nohighlight">\(2\times 2\)</span> submatrix.</p>
 <p>A multivariate Gaussian PDF integrated over this ellipse (and marginalized over any additional dimensions) has a total probability of about 39%, also known as its <span style="color:violet">confidence level</span> (CL).  We will see below how to calculate this CL and scale the ellipse for other CLs.</p>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Calculate the empirical covariance matrix of the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> dataset using <code class="docutils literal notranslate"><span class="pre">np.cov</span></code> (pay attention to the <code class="docutils literal notranslate"><span class="pre">rowvar</span></code> arg). Next, calculate the ellipse rotation angles <span class="math notranslate nohighlight">\(\theta\)</span> in degrees for each of this matrix’s 2D projections.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Calculate the empirical covariance matrix of the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> dataset using <code class="docutils literal notranslate"><span class="pre">np.cov</span></code> (pay attention to the <code class="docutils literal notranslate"><span class="pre">rowvar</span></code> arg). Next, calculate the ellipse rotation angles <span class="math notranslate nohighlight">\(\theta\)</span> in degrees for each of this matrix’s 2D projections.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">blobs</span><span class="p">,</span> <span class="n">rowvar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -784,7 +780,7 @@ d = \sqrt{C_{11}^2 - 2 (1 - 2\rho^2) C_{11} C_{22} + C_{22}^2} \; .
 </div>
 </div>
 </div>
-<p>Recall that the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> data was generated as a mixture of three Gaussian blobs, each with different parameters. However, describing a dataset with a single covariance matrix suggests a single Gaussian model. The lesson is that
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>Recall that the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> data was generated as a mixture of three Gaussian blobs, each with different parameters. However, describing a dataset with a single covariance matrix suggests a single Gaussian model. The lesson is that
 we can calculate an empirical covariance for <em>any</em> data, whether or not it is well described a single Gaussian.</p>
 </section>
 </section>
@@ -817,10 +813,10 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d9a5a7ddce23e313e75de4484ff8b8005e25a18a1fd00d92a40c52e91907ec43.png" src="../../_images/d9a5a7ddce23e313e75de4484ff8b8005e25a18a1fd00d92a40c52e91907ec43.png" />
+<img alt="../../_images/4a7e82ff751005c5d8eb7230ae75896ead433e4f7adf21ed0949910723378685.png" src="../../_images/4a7e82ff751005c5d8eb7230ae75896ead433e4f7adf21ed0949910723378685.png" />
 </div>
 </div>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Match the following values to the dotted lines in the graph above of the function <span class="math notranslate nohighlight">\(g(x)\)</span> and probability density <span class="math notranslate nohighlight">\(P(x)\)</span>:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Match the following values to the dotted lines in the graph above of the function <span class="math notranslate nohighlight">\(g(x)\)</span> and probability density <span class="math notranslate nohighlight">\(P(x)\)</span>:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\langle x\rangle = \int dx\, x P(x)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\langle g(x)\rangle = \int dx\, g(x)\,P(x)\)</span></p></li>
@@ -834,13 +830,13 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 <li><p>Lower horizontal (red) line.</p></li>
 </ol>
 <p>Jensen’s inequality is satisfied, as required since <span class="math notranslate nohighlight">\(g(x)\)</span> is convex.</p>
-</section>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
