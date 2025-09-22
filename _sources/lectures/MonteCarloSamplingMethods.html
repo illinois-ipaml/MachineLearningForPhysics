@@ -536,7 +536,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-vegas-method-span"><span style="color:LightBlue">Vegas Method</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -554,7 +554,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span> 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -602,8 +602,7 @@ F = \int_a^b f(x) dx
 {\text{lim}}_{N→∞} \langle F^N \rangle = F
 \]</div>
 <p>The question becomes, what is the best way to choose <span class="math notranslate nohighlight">\(X_i\)</span> to match the real system?  The goal is to get the best approximation as quickly as possible.</p>
-<hr class="docutils" />
-<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Lets appoximate the definite integral using the Monte Carlo integration method:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Lets appoximate the definite integral using the Monte Carlo integration method:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \int \limits_0^\pi \sin x ~dx
@@ -716,8 +715,7 @@ F = \int_a^b f(x) dx
 <img alt="../../_images/6521589b7bfd4e056636c59679cf640a07aef7f729a4edb9000cbfd1652b1ead.png" src="../../_images/6521589b7bfd4e056636c59679cf640a07aef7f729a4edb9000cbfd1652b1ead.png" />
 </div>
 </div>
-<hr class="docutils" />
-<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Lets appoximate the definite integral</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Lets appoximate the definite integral</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \int \limits_0^1 x^2 ~dx
@@ -831,8 +829,7 @@ F = \int_a^b f(x) dx
 <img alt="../../_images/ea50de98b9f735f4d863643946a54728ec5be3ebb7a2aa8db8e914bc00c13cc4.png" src="../../_images/ea50de98b9f735f4d863643946a54728ec5be3ebb7a2aa8db8e914bc00c13cc4.png" />
 </div>
 </div>
-<hr class="docutils" />
-<section id="span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span">
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><section id="span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span">
 <h3><span style="color:LightBlue">Multidimensional Monte Carlo integration and variance scaling</span><a class="headerlink" href="#span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span" title="Permalink to this heading">#</a></h3>
 <p>We can estimate the Monte Carlo variance of the approximation as</p>
 <div class="math notranslate nohighlight">
@@ -953,9 +950,8 @@ E ~ \Biggl[ \sum\limits_i Y_i \Biggr] = \sum\limits_i E\bigl[ Y_i \bigr]   ~~~~~
 ~~~~~~~~~~~~~~ = \frac{1}{N} ~ \sum\limits_{i=1}^N ~\int\limits_a^b f(x)  ~dx \\
 ~~ = \int\limits_a^b f(x)  ~dx \\
 \end{split}\]</div>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-</section>
-<hr class="docutils" />
 <section id="span-style-color-lightblue-change-of-variables-span">
 <h3><span style="color:LightBlue">Change of Variables</span><a class="headerlink" href="#span-style-color-lightblue-change-of-variables-span" title="Permalink to this heading">#</a></h3>
 <p>The Cauchy distribution is given by</p>
@@ -1131,8 +1127,7 @@ h(x) = \frac{1}{a} ~p(x/a)
 h(x) = p ~(x - a)
 \]</div>
 <p>In these cases, the parameter a is typically chosen using some adaptive algorithm, giving rise to adaptive importance sampling. Alternatively, a different distribution can be chosen as shown in the example below.</p>
-<hr class="docutils" />
-<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Suppose we want to estimate the tail probability of <span class="math notranslate nohighlight">\(\square (0,1)\)</span> for <span class="math notranslate nohighlight">\(P(X&gt;5)\)</span>.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Suppose we want to estimate the tail probability of <span class="math notranslate nohighlight">\(\square (0,1)\)</span> for <span class="math notranslate nohighlight">\(P(X&gt;5)\)</span>.</p>
 <p>Regular MC integration using samples from <span class="math notranslate nohighlight">\(\square (0,1)\)</span> is hopeless since nearly all samples will be rejected. However, we can use the exponential density truncated at 5 as the importance function and use importance sampling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1214,14 +1209,13 @@ h(x) = p ~(x - a)
 </div>
 </div>
 </div>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-</section>
-<hr class="docutils" />
 <section id="span-style-color-lightblue-vegas-method-span">
 <h3><span style="color:LightBlue">Vegas Method</span><a class="headerlink" href="#span-style-color-lightblue-vegas-method-span" title="Permalink to this heading">#</a></h3>
 <p>The VEGAS algorithm, due to G. Peter Lepage, is a method for reducing error in Monte Carlo simulations by using a known or approximate probability distribution function to concentrate the search in those areas of the integrand that make the greatest contribution to the final integral.</p>
 <p>The VEGAS algorithm is based on importance sampling. It samples points from the probability distribution described by the function <span class="math notranslate nohighlight">\(|f|\)</span> so that the points are concentrated in the regions that make the largest contribution to the integral</p>
-<p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: 4-D Monte Carlo integration with Vegas</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: 4-D Monte Carlo integration with Vegas</p>
 <p>Here we illustrate the use of <a class="reference external" href="https://vegas.readthedocs.io/en/latest/vegas.html#module-vegas">vegas</a> by estimating the following integral:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -1280,16 +1274,15 @@ result = 0.9973(41)    Q = 0.87
 <img alt="../../_images/bd141b6f1a91f40367f326dd4bfe4794c8e5362758753dc052d5384826c30519.png" src="../../_images/bd141b6f1a91f40367f326dd4bfe4794c8e5362758753dc052d5384826c30519.png" />
 </div>
 </div>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-</section>
-<hr class="docutils" />
-<section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-acknowledgments-span">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 <li><p>From APS DSECOP materials and <a class="reference external" href="https://people.duke.edu/~ccc14/sta-663-2016/15C_MonteCarloIntegration.html">https://people.duke.edu/~ccc14/sta-663-2016/15C_MonteCarloIntegration.html</a></p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
@@ -1380,7 +1373,7 @@ result = 0.9973(41)    Q = 0.87
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-vegas-method-span"><span style="color:LightBlue">Vegas Method</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
