@@ -218,7 +218,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Bayesian Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 03: Bayesian Statistics and MCMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -698,9 +698,9 @@ P(D\mid M) \rightarrow \sum_k\, P(D\mid \Theta_{M,k}, M)\, P(\Theta_{M,k}\mid M)
 </ul>
 <p><span style="color:LightGreen">Solution</span>:</p>
 <ul class="simple">
-<li><p>Define the <em><strong><span style="color:violet">data</span></strong></em> <span class="math notranslate nohighlight">\(D\)</span> as the observation that the person is wearing an “England” t-shirt.</p></li>
-<li><p>Define the <em><strong><span style="color:violet">model</span></strong></em> to have a single parameter, the person’s nationality <span class="math notranslate nohighlight">\(\Theta \in \{ \text{English}, \text{!English}\}\)</span>.</p></li>
-<li><p>We don’t need to specify a full <em><strong><span style="color:violet">likelihood function</span></strong></em> over all possible data since we only have a single datum. Instead, it is sufficient to assign the likelihood probabilities:</p></li>
+<li><p>Define the <strong><span style="color:violet">data</span></strong> <span class="math notranslate nohighlight">\(D\)</span> as the observation that the person is wearing an “England” t-shirt.</p></li>
+<li><p>Define the <strong><span style="color:violet">model</span></strong> to have a single parameter, the person’s nationality <span class="math notranslate nohighlight">\(\Theta \in \{ \text{English}, \text{!English}\}\)</span>.</p></li>
+<li><p>We don’t need to specify a full <strong><span style="color:violet">likelihood function</span></strong> over all possible data since we only have a single datum. Instead, it is sufficient to assign the likelihood probabilities:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -708,14 +708,14 @@ P(D\mid \text{English}) = 0.4 \quad , \quad P(D\mid \text{!English}) = 0.1
 \]</div>
 <p>Note that the likelihood probabilities do not sum to one since the likelihood is normalized over the data, not the model, unlike the prior probabilities which must sum to one.</p>
 <ul class="simple">
-<li><p>Assign the <em><strong><span style="color:violet">prior probabilities</span></strong></em> for attendees at the conference:</p></li>
+<li><p>Assign the <strong><span style="color:violet">prior probabilities</span></strong> for attendees at the conference:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(\text{English}) = 0.2 \quad , \quad P(\text{!English}) = 0.8
 \]</div>
 <ul class="simple">
-<li><p>We can now calculate the LHS of the generalized Bayes’ rule which gives an estimate of the probabilty that the person is English given the shirt (Note: we calculate the <em><strong><span style="color:violet">evidence</span></strong></em> <span class="math notranslate nohighlight">\(P(D)\)</span> using a sum rather than integral, because <span class="math notranslate nohighlight">\(\Theta\)</span> is discrete.):</p></li>
+<li><p>We can now calculate the LHS of the generalized Bayes’ rule which gives an estimate of the probabilty that the person is English given the shirt (Note: we calculate the <strong><span style="color:violet">evidence</span></strong> <span class="math notranslate nohighlight">\(P(D)\)</span> using a sum rather than integral, because <span class="math notranslate nohighlight">\(\Theta\)</span> is discrete.):</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
@@ -729,10 +729,10 @@ P(\text{English}\mid D) &amp;= \frac{P(D\mid \text{English})\, P(\text{English})
 <p>You would have probably assigned different probabilities, since these are subjective assessments where reasonable people can disagree. However, by allowing some subjectivity we are able to make a precise statement under some (subjective) assumptions.</p>
 <p>A simple example like this can be represented graphically in the 2D space of joint probability <span class="math notranslate nohighlight">\(P(D, \Theta)\)</span>:</p>
 <div>
-<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-BayesBoxes.png" width=800 align=left></img>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Bayes-BayesBoxes.png" width=800></img>
 </div><hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>The generalized Bayes’ rule can be viewed as a learning rule that updates our knowledge as new information becomes available:</p>
 <div>
-<img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-UpdateRule.png" width=800 align=left></img>
+<img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Bayes-UpdateRule.png" width=800></img>
 </div><p>The generalized Bayes’ rule can be viewed as a learning rule that updates our knowledge as new information becomes available:</p>
 <p>The implied timeline motivates the <em>posterior</em> and <em>prior</em> terminology, although there is no requirement that the prior be based on data collected before the “new” data.</p>
 <p>Bayesian inference problems can be tricky to get right, even when they sound straightforward, so it is important to clearly spell out what you know or assume, and what you wish to learn:</p>
@@ -992,7 +992,7 @@ P(\text{English}\mid D) &amp;= \frac{P(D\mid \text{English})\, P(\text{English})
 \[ \Large
 P(D\mid M) = \int d\Theta_M' P(D\mid \Theta_M', M)\, P(\Theta_M'\mid M) \; .
 \]</div>
-<p>With careful choices of the prior and likelihood function, this integral can be performed analytically. However, for most practical work, an approximate <em>numerical approach</em> is required. Popular methods include <strong>Markov-Chain Monte Carlo</strong> and <strong>Variational Inference</strong>, which we will meet soon.</p>
+<p>With careful choices of the prior and likelihood function, this integral can be performed analytically. However, for most practical work, an approximate <em>numerical approach</em> is required. Popular methods include <strong><span style="color:violet">Markov-Chain Monte Carlo</span></strong> and <strong><span style="color:violet">Variational Inference</span></strong>, which we will meet soon.</p>
 </section>
 <section id="span-style-color-orange-what-priors-should-i-use-span">
 <h2><span style="color:Orange">What Priors Should I Use?</span><a class="headerlink" href="#span-style-color-orange-what-priors-should-i-use-span" title="Permalink to this heading">#</a></h2>
