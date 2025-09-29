@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/MCMC';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/MarkovChainMonteCarlo';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Homework 06: Bayesian Statistics and MCMC" href="../homework/Homework_06.html" />
@@ -372,7 +372,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/MCMC.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/MarkovChainMonteCarlo.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -418,7 +418,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/_sources/lectures/MCMC.ipynb" target="_blank"
+      <li><a href="../../_sources/_sources/lectures/MarkovChainMonteCarlo.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -535,32 +535,27 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">neighbors</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>emcee
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="span-style-color-orange-markov-chain-monte-carlo-span">
 <h2><span style="color:Orange">Markov Chain Monte Carlo</span><a class="headerlink" href="#span-style-color-orange-markov-chain-monte-carlo-span" title="Permalink to this heading">#</a></h2>
-<p><strong>Markov-chain Monte Carlo</strong> (MCMC) is an algorithm to generate random samples from an un-normalized probability density.  In other words, you want sample from <span class="math notranslate nohighlight">\(P(\vec{z})\)</span> but can only evaluate <span class="math notranslate nohighlight">\(f(\vec{z})\)</span> where the two are related by</p>
+<p><em><strong><span style="color:violet">Markov-chain Monte Carlo</strong></em> (MCMC) is an algorithm to generate random samples from an un-normalized probability density.  In other words, you want sample from <span class="math notranslate nohighlight">\(P(\vec{z})\)</span> but can only evaluate <span class="math notranslate nohighlight">\(f(\vec{z})\)</span> where the two are related by</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(\vec{z}) = \frac{f(\vec{z})}{\int d\vec{z}\,f(\vec{z})} \; .
 \]</div>
 <p>Note that <span class="math notranslate nohighlight">\(0 \le P(\vec{z}) \le 1\)</span> requires that <span class="math notranslate nohighlight">\(f(\vec{z}) \ge 0\)</span> everywhere and that the integral has a non-zero finite value.</p>
-<section id="span-style-color-lightgreen-examples-span">
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><section id="span-style-color-lightgreen-examples-span">
 <h3><span style="color:Lightgreen">Examples</span><a class="headerlink" href="#span-style-color-lightgreen-examples-span" title="Permalink to this heading">#</a></h3>
 <p>We will start with some simple motivating examples before diving into the Bayesian applications and the theory of Markov chains.</p>
 <p>The function</p>
@@ -584,7 +579,7 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1d333fb2ca93ffce7fb7e8f77836d3ef8279a439d5449609e448ec8b55b78233.png" src="../../_images/1d333fb2ca93ffce7fb7e8f77836d3ef8279a439d5449609e448ec8b55b78233.png" />
+<img alt="../../_images/7c3e43a26c3e4ea8e554a477670e0ebd983d0facf20eed8d8556f8bb80680a6b.png" src="../../_images/7c3e43a26c3e4ea8e554a477670e0ebd983d0facf20eed8d8556f8bb80680a6b.png" />
 </div>
 </div>
 <p>However, the normalization integral cannot be evaluated analytically (it is related to the <a class="reference external" href="https://en.wikipedia.org/wiki/Elliptic_integral#Complete_elliptic_integral_of_the_first_kind">complete elliptic integral of the first kind</a>), so this is a good candidate for MCMC sampling using the <code class="docutils literal notranslate"><span class="pre">MCMC_sample</span></code> function (which wraps <a class="reference external" href="http://dfm.io/emcee/">emcee</a>):</p>
@@ -839,10 +834,10 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b6e631490194034b22991c6def55e83fc50e930c2099ac0baca03decffd96058.png" src="../../_images/b6e631490194034b22991c6def55e83fc50e930c2099ac0baca03decffd96058.png" />
+<img alt="../../_images/d5e348b8f5e7d2fdad5697b5ed4387c6a702fe9dfa5515fbabf188acd6f5a6ea.png" src="../../_images/d5e348b8f5e7d2fdad5697b5ed4387c6a702fe9dfa5515fbabf188acd6f5a6ea.png" />
 </div>
 </div>
-<p>What are MCMC samples good for? They allow us to estimate the expectation value of an arbitrary <span class="math notranslate nohighlight">\(g(z)\)</span> using <a class="reference external" href="https://en.wikipedia.org/wiki/Importance_sampling">importance sampling</a>:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>What are MCMC samples good for? They allow us to estimate the expectation value of an arbitrary <span class="math notranslate nohighlight">\(g(z)\)</span> using <a class="reference external" href="https://en.wikipedia.org/wiki/Importance_sampling">importance sampling</a>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \langle g(\vec{z})\rangle_P \equiv \int d\vec{z}\, g(\vec{z})\, P(\vec{z})
@@ -857,7 +852,7 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2729666505147651
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.2740147079636278)
 </pre></div>
 </div>
 </div>
@@ -870,7 +865,7 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5414157152385632
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.5304571809549571)
 </pre></div>
 </div>
 </div>
@@ -887,13 +882,13 @@ f(z) = \begin{cases}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plotfit</span><span class="p">(</span><span class="n">zlim</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">Pmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">zlim</span><span class="p">,</span> <span class="o">+</span><span class="n">zlim</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">4</span><span class="p">))</span>
-    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">4</span><span class="p">))</span> <span class="c1"># f = unnormalized function (numerator)</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span> <span class="c1"># P = normalized (through KDE) function from samples  </span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(z)$&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$P(z)$&#39;</span><span class="p">)</span>
-    <span class="n">ratio</span> <span class="o">=</span> <span class="n">f</span> <span class="o">/</span> <span class="n">P</span>
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">f</span> <span class="o">/</span> <span class="n">P</span> <span class="c1"># estimate of normalization integral</span>
     <span class="n">sel</span> <span class="o">=</span> <span class="n">P</span> <span class="o">&gt;</span> <span class="n">Pmin</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="n">ratio</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$P(z)/f(z)$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="n">ratio</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(z)/P(z)$&#39;</span><span class="p">)</span>
     <span class="n">mean_ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratio</span><span class="p">[</span><span class="n">sel</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean P(z)/f(z) = </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_ratio</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">mean_ratio</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
@@ -905,14 +900,10 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean P(z)/f(z) = 1.761
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean P(z)/f(z) = 1.766
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.11/site-packages/sklearn/base.py:464: UserWarning: X does not have valid feature names, but KernelDensity was fitted with feature names
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="../../_images/e2f634aae7bcdfcebb355fe6e3e898a12b386a9cdd10f854cf5f3b42215d6fb8.png" src="../../_images/e2f634aae7bcdfcebb355fe6e3e898a12b386a9cdd10f854cf5f3b42215d6fb8.png" />
+<img alt="../../_images/1f7eeb2cae1b7d32b1958e6a4270e5e7aa22e87c4657a2bf0d13eb04551376ca.png" src="../../_images/1f7eeb2cae1b7d32b1958e6a4270e5e7aa22e87c4657a2bf0d13eb04551376ca.png" />
 </div>
 </div>
 <p>The estimated <span class="math notranslate nohighlight">\(P(z)\)</span> does not look great, but since it is just a scaled version of the smooth un-normalized <span class="math notranslate nohighlight">\(f(z)\)</span>, their ratio at each <span class="math notranslate nohighlight">\(z\)</span> is an estimate of the integral:</p>
@@ -922,7 +913,7 @@ f(z) = \begin{cases}
 \]</div>
 <p>Therefore the mean of <span class="math notranslate nohighlight">\(f(z) / P(z)\)</span> provides an estimate of the normalization integral.  In practice, we restrict this mean to <span class="math notranslate nohighlight">\(z\)</span> values where <span class="math notranslate nohighlight">\(P(z)\)</span> is above some minimum to avoid regions where the empirical density estimate is poorly determined.</p>
 <p>In the example above, the true value of the integral rounds to 1.748 so our numerical accuracy is roughly 1%.</p>
-<p>Next, we try a multidimensional example:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>Next, we try a multidimensional example:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
 f(\vec{z}, \vec{z}_0, r) =
@@ -984,28 +975,28 @@ f(\vec{z}, \vec{z}_0, r) =
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.259713</td>
-      <td>-2.203604</td>
+      <td>2.056148</td>
+      <td>-1.290368</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.309191</td>
-      <td>-2.229413</td>
+      <td>2.056148</td>
+      <td>-1.290368</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.309191</td>
-      <td>-2.229413</td>
+      <td>2.056148</td>
+      <td>-1.290368</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.088120</td>
-      <td>-2.572700</td>
+      <td>2.056148</td>
+      <td>-1.290368</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.060867</td>
-      <td>-2.592232</td>
+      <td>1.830559</td>
+      <td>-1.291290</td>
     </tr>
   </tbody>
 </table>
@@ -1022,7 +1013,7 @@ f(\vec{z}, \vec{z}_0, r) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b0cf5eb60ecc90e043b99259048a3caa259f25d2d4fb61908888a560c0ceae58.png" src="../../_images/b0cf5eb60ecc90e043b99259048a3caa259f25d2d4fb61908888a560c0ceae58.png" />
+<img alt="../../_images/aecc74c9b12796461a20533e73b2b385ee6ec39b298e6c273fa600f5955a13c5.png" src="../../_images/aecc74c9b12796461a20533e73b2b385ee6ec39b298e6c273fa600f5955a13c5.png" />
 </div>
 </div>
 <p>With multidimensional samples, we can estimate expectation values of marginal PDFs just as easily as the full joint PDF.  In our 2D example, the marginal PDFs are:</p>
@@ -1044,7 +1035,7 @@ P_X(x) = \int dy\, P(x, y) \quad , \quad P_Y(y) = \int dx\, P(x, y) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7725143963252327
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7585619568721117)
 </pre></div>
 </div>
 </div>
@@ -1073,7 +1064,7 @@ P_X(x) = \int dy\, P(x, y) \quad , \quad P_Y(y) = \int dx\, P(x, y) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12ee4baf0e65d2b7a51d5b202084018a9d72a438e9c7b496d12dae08cf7f13e6.png" src="../../_images/12ee4baf0e65d2b7a51d5b202084018a9d72a438e9c7b496d12dae08cf7f13e6.png" />
+<img alt="../../_images/899719684d0a80d028cbc4c9b6c188c7acd6d635d9e71b2a087a0738d26a8176.png" src="../../_images/899719684d0a80d028cbc4c9b6c188c7acd6d635d9e71b2a087a0738d26a8176.png" />
 </div>
 </div>
 </section>
@@ -1115,7 +1106,7 @@ P(\vec{x}\mid \Theta_M, M) =
 \[ \Large
 P(\vec{x}_1, \vec{x}_2, \ldots\mid \Theta_M, M) = \prod_{i=1}^N\, P(\vec{x}_i\mid \Theta_M, M)
 \]</div>
-<p>As an example, consider fitting a straight line <span class="math notranslate nohighlight">\(y = m x + b\)</span>, with parameters <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, to data with two features <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. The relevant log-likelihood function is:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXAMPLE</span></strong></em>: Consider fitting a straight line <span class="math notranslate nohighlight">\(y = m x + b\)</span>, with parameters <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, to data with two features <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. The relevant log-likelihood function is:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \log{\cal L}(m, b; D) = -\frac{N}{2}\log(2\pi\sigma_y^2)
@@ -1137,7 +1128,7 @@ P(\vec{x}_1, \vec{x}_2, \ldots\mid \Theta_M, M) = \prod_{i=1}^N\, P(\vec{x}_i\mi
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f5d8465d9ff11b1e8981cf6959602c410eed26d5fef1d213cfb6cb2a8249ace7.png" src="../../_images/f5d8465d9ff11b1e8981cf6959602c410eed26d5fef1d213cfb6cb2a8249ace7.png" />
+<img alt="../../_images/ddbc1052860c27b312b1a96b1cff884c12a6e233906b2449c5475d4300f4e042.png" src="../../_images/ddbc1052860c27b312b1a96b1cff884c12a6e233906b2449c5475d4300f4e042.png" />
 </div>
 </div>
 <p>Next, define the log-likelihood function:</p>
@@ -1177,7 +1168,7 @@ P(b,m\mid \sigma_y) = 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8fb0355cbf53fc7120c9c56926ff276fea39db27a7dcc049c57f937d7cbdfc8b.png" src="../../_images/8fb0355cbf53fc7120c9c56926ff276fea39db27a7dcc049c57f937d7cbdfc8b.png" />
+<img alt="../../_images/14ee1de6ca8dd2ad2dddb180bcb7426a86158526bcdbf7681df70830cfec0929.png" src="../../_images/14ee1de6ca8dd2ad2dddb180bcb7426a86158526bcdbf7681df70830cfec0929.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1244,7 +1235,7 @@ P(b,m\mid \sigma_y) = 1
 </table>
 </div></div></div>
 </div>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em> We always require a starting point to generate MCMC samples. In this example, we used the true parameter values as starting points:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em> We always require a starting point to generate MCMC samples. In this example, we used the true parameter values as starting points:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="p">[</span><span class="n">m_true</span><span class="p">],</span> <span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="n">b_true</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1429,12 +1420,13 @@ P(\Theta\mid M) = \prod_j P(\theta_j\mid M)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.0</span><span class="p">));</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2ba8bc116952afda63944eec00e082eb3682372482185842cdd3c1e2fa0955fd.png" src="../../_images/2ba8bc116952afda63944eec00e082eb3682372482185842cdd3c1e2fa0955fd.png" />
+<img alt="../../_images/54b65627a5179963e58e658797abbc3aa83bde4fb0c425ed09f6fcbafe1e9f45.png" src="../../_images/54b65627a5179963e58e658797abbc3aa83bde4fb0c425ed09f6fcbafe1e9f45.png" />
 </div>
 </div>
 <p>We can also add a prior on <span class="math notranslate nohighlight">\(b\)</span>.  For example, suppose a previous measurement found <span class="math notranslate nohighlight">\(b = -0.20 \pm 0.02\)</span> (in which case, the new data is not adding much information about <span class="math notranslate nohighlight">\(b\)</span>):</p>
@@ -1448,15 +1440,16 @@ P(\Theta\mid M) = \prod_j P(\theta_j\mid M)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.0</span><span class="p">));</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1cc7b4d4ae126db06521e14ec91fd6bf086ce2574b0b390bb9878bac06c9446f.png" src="../../_images/1cc7b4d4ae126db06521e14ec91fd6bf086ce2574b0b390bb9878bac06c9446f.png" />
+<img alt="../../_images/158bf6475f3391527fa6199fafea7dc7392fe96c9d1a205a6cd7619b862ab60d.png" src="../../_images/158bf6475f3391527fa6199fafea7dc7392fe96c9d1a205a6cd7619b862ab60d.png" />
 </div>
 </div>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em> Suppose we know that all <span class="math notranslate nohighlight">\(y_i\)</span> values have the same error <span class="math notranslate nohighlight">\(\sigma_y\)</span> but we do not know its value.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em> Suppose we know that all <span class="math notranslate nohighlight">\(y_i\)</span> values have the same error <span class="math notranslate nohighlight">\(\sigma_y\)</span> but we do not know its value.</p>
 <ul class="simple">
 <li><p>Generate samples of <span class="math notranslate nohighlight">\((m, b, \sigma_y)\)</span> using <code class="docutils literal notranslate"><span class="pre">m=[m_true],</span> <span class="pre">b=[b_true],</span> <span class="pre">sigy=[sigy_true]</span></code>.</p></li>
 <li><p>Look at the samples with an <code class="docutils literal notranslate"><span class="pre">sns.pairplot</span></code>.</p></li>
@@ -1473,12 +1466,13 @@ P(\Theta\mid M) = \prod_j P(\theta_j\mid M)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/88de83ae79c77bfa196e3711dc5b6f0f96658abb550ca61b082c0fddf048cf42.png" src="../../_images/88de83ae79c77bfa196e3711dc5b6f0f96658abb550ca61b082c0fddf048cf42.png" />
+<img alt="../../_images/00413013121d0ed28a963d99bfaa3b325593652488e2ed1256218de02adb7a38.png" src="../../_images/00413013121d0ed28a963d99bfaa3b325593652488e2ed1256218de02adb7a38.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1491,24 +1485,24 @@ P(\Theta\mid M) = \prod_j P(\theta_j\mid M)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f02852497ca525d759c5f8e696ec36e93c3e487b05406b9ea6e4a029f08b7f91.png" src="../../_images/f02852497ca525d759c5f8e696ec36e93c3e487b05406b9ea6e4a029f08b7f91.png" />
+<img alt="../../_images/89a2e9a74fd92f117f7447d927141a44bd2950d8c7c8f89069f05c49838b5bb9.png" src="../../_images/89a2e9a74fd92f117f7447d927141a44bd2950d8c7c8f89069f05c49838b5bb9.png" />
 </div>
 </div>
 <p>For a more in-depth case study of the many subtleties in fitting a straight line, read this 55-page <a class="reference external" href="https://arxiv.org/abs/1008.4686">article by Hogg, Bovy and Lang</a>.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-</section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
