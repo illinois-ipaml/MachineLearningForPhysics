@@ -534,10 +534,12 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -577,7 +579,7 @@ document.write(`
 \[ \Large
 \text{KL}( q \parallel p ) = \langle \log q(\theta)\rangle_q - \langle \log p(\theta)\rangle_q \; .
 \]</div>
-<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>:</p>
 <ul class="simple">
 <li><p>Is KL divergence symmetric, <span class="math notranslate nohighlight">\(\text{KL}(q\parallel p) = \text{KL}(p\parallel q)\)</span>?</p></li>
 <li><p>What is the value of <span class="math notranslate nohighlight">\(\text{KL}(q\parallel p)\)</span> when <span class="math notranslate nohighlight">\(p = q\)</span>?</p></li>
@@ -620,11 +622,10 @@ f(q) = q \log q/p
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9cfa01899b943a21503f0b396ae9915da96695bdfbda860426ac61028826e673.png" src="../../_images/9cfa01899b943a21503f0b396ae9915da96695bdfbda860426ac61028826e673.png" />
+<img alt="../../_images/3c3d995129c642543e9a4295a1c63a65bbb7b4d022a207dac897bb2e29d614ed.png" src="../../_images/3c3d995129c642543e9a4295a1c63a65bbb7b4d022a207dac897bb2e29d614ed.png" />
 </div>
 </div>
-<hr class="docutils" />
-<div class="cell docutils container">
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_KL</span><span class="p">(</span><span class="n">log_q</span><span class="p">,</span> <span class="n">log_p</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the KL divergence of q wrt p for single-parameter PDFs.</span>
@@ -658,7 +659,7 @@ f(q) = q \log q/p
     <span class="n">nonzero</span> <span class="o">=</span> <span class="n">log_q</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
     <span class="n">q_log_q</span><span class="p">[</span><span class="n">nonzero</span><span class="p">]</span> <span class="o">=</span> <span class="n">log_q</span><span class="p">[</span><span class="n">nonzero</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_q</span><span class="p">[</span><span class="n">nonzero</span><span class="p">])</span>
     <span class="n">integrand</span> <span class="o">=</span> <span class="n">q_log_q</span> <span class="o">-</span> <span class="n">log_p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_q</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="n">theta</span><span class="p">),</span> <span class="n">integrand</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="n">theta</span><span class="p">),</span> <span class="n">integrand</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_KL</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">q_scale_range</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">p_scale</span><span class="p">,</span> <span class="n">theta_range</span><span class="p">):</span>
@@ -781,7 +782,7 @@ f(q) = q \log q/p
 
     <span class="c1"># Calculate the evidence and posterior.</span>
     <span class="n">log_post</span> <span class="o">=</span> <span class="n">log_L</span> <span class="o">+</span> <span class="n">log_P</span>
-    <span class="n">log_evidence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_post</span><span class="p">),</span> <span class="n">theta</span><span class="p">))</span>
+    <span class="n">log_evidence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_post</span><span class="p">),</span> <span class="n">theta</span><span class="p">))</span>
     <span class="n">log_post</span> <span class="o">-=</span> <span class="n">log_evidence</span>
     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">log_post</span><span class="p">))</span>
 
@@ -859,11 +860,11 @@ f(q) = q \log q/p
 
 plot_KL(q, q_scale_range, p, p_scale, theta_range)
     Explanatory plots for the KL divergence.
-    
+
     q and p are arbitrary PDFs defined in scipy.stats. q represents a
     family of PDFs by allowing its scale factor to vary in some range.
     The target pdf p uses a fixed scale factor.
-    
+
     Parameters
     ----------
     q : str
@@ -881,7 +882,7 @@ plot_KL(q, q_scale_range, p, p_scale, theta_range)
 </div>
 </div>
 </div>
-<p>For our first example, we chose a family <span class="math notranslate nohighlight">\(q\)</span> that includes the target <span class="math notranslate nohighlight">\(p\)</span>. This is generally not feasible but nicely demonstrates our earlier claim that KL <span class="math notranslate nohighlight">\(\ge 0\)</span> with KL <span class="math notranslate nohighlight">\(=0\)</span> when <span class="math notranslate nohighlight">\(q=p\)</span>.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: For our first example, we chose a family <span class="math notranslate nohighlight">\(q\)</span> that includes the target <span class="math notranslate nohighlight">\(p\)</span>. This is generally not feasible but nicely demonstrates our earlier claim that KL <span class="math notranslate nohighlight">\(\ge 0\)</span> with KL <span class="math notranslate nohighlight">\(=0\)</span> when <span class="math notranslate nohighlight">\(q=p\)</span>.</p>
 <p>In this example, we explore the family of PDFs <span class="math notranslate nohighlight">\(q(\theta; s)\)</span> by varying the scale factor <span class="math notranslate nohighlight">\(s\)</span>. More generally, the family can be explored with any (multidimensional) parameterization that is convenient for calculations. We need a parameterization of the family <span class="math notranslate nohighlight">\(q\)</span> in order to use standard optimization algorithms to find the minimum KL divergence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -890,11 +891,11 @@ plot_KL(q, q_scale_range, p, p_scale, theta_range)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8766e896d59540cf12612ec359ac92aaf4d14d2c1261c6349105cb64e6aacf22.png" src="../../_images/8766e896d59540cf12612ec359ac92aaf4d14d2c1261c6349105cb64e6aacf22.png" />
+<img alt="../../_images/d04c42708123476245a27465c1a350b987819818604a7278301dd15e74655dea.png" src="../../_images/d04c42708123476245a27465c1a350b987819818604a7278301dd15e74655dea.png" />
 </div>
 </div>
 <p>Note how (in the bottom left panel) the KL integrand has positive and negative regions: the net area is always positive, however, since KL <span class="math notranslate nohighlight">\(\ge 0\)</span>.</p>
-<p>For our next example, we consider the more realistic case where the family <span class="math notranslate nohighlight">\(q\)</span> does not include the target <span class="math notranslate nohighlight">\(p\)</span> so we have to settle for the “closest” approximation, according to the KL divergence:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: For our next example, we consider the more realistic case where the family <span class="math notranslate nohighlight">\(q\)</span> does not include the target <span class="math notranslate nohighlight">\(p\)</span> so we have to settle for the “closest” approximation, according to the KL divergence:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_KL</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="n">q_scale_range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="s1">&#39;laplace&#39;</span><span class="p">,</span> <span class="n">p_scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">theta_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">+</span><span class="mi">5</span><span class="p">])</span>
@@ -902,11 +903,12 @@ plot_KL(q, q_scale_range, p, p_scale, theta_range)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/68b93ce4f9d15cd2dd0e6033cb3f7e91ed6cf16ab886d31a64a4b079e1fe4f58.png" src="../../_images/68b93ce4f9d15cd2dd0e6033cb3f7e91ed6cf16ab886d31a64a4b079e1fe4f58.png" />
+<img alt="../../_images/0ece9f31fe3164e65e174d52dc5e226f400589b35e1e946fbd1b66b8d95626a2.png" src="../../_images/0ece9f31fe3164e65e174d52dc5e226f400589b35e1e946fbd1b66b8d95626a2.png" />
 </div>
 </div>
 <p>Notice how the “closest” <span class="math notranslate nohighlight">\(q\)</span> now has KL <span class="math notranslate nohighlight">\(&gt;0\)</span>.  It also avoids regions where <span class="math notranslate nohighlight">\(p \simeq 0\)</span>, since that would blow up the KL integrand.</p>
-<p>The example above showed that a Gaussian PDF with <span class="math notranslate nohighlight">\(s \simeq 1\)</span> gives the best match a Laplacian PDF with <span class="math notranslate nohighlight">\(s = 0.8\)</span>. Now, turn this around and find the closest Laplacian <span class="math notranslate nohighlight">\(q\)</span> to a Gaussian <span class="math notranslate nohighlight">\(p\)</span> with <span class="math notranslate nohighlight">\(s = 1\)</span>:</p>
+<p>The example above showed that a Gaussian PDF with <span class="math notranslate nohighlight">\(s \simeq 1\)</span> gives the best match a Laplacian PDF with <span class="math notranslate nohighlight">\(s = 0.8\)</span>.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Next, turn this around and find the closest Laplacian <span class="math notranslate nohighlight">\(q\)</span> to a Gaussian <span class="math notranslate nohighlight">\(p\)</span> with <span class="math notranslate nohighlight">\(s = 1\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_KL</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;laplace&#39;</span><span class="p">,</span> <span class="n">q_scale_range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="n">p_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">theta_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">+</span><span class="mi">5</span><span class="p">])</span>
@@ -914,12 +916,11 @@ plot_KL(q, q_scale_range, p, p_scale, theta_range)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/04b5245b1a73f11f9699a7df231dc567f654575b3bcf6bcf2d10265e63a91cb0.png" src="../../_images/04b5245b1a73f11f9699a7df231dc567f654575b3bcf6bcf2d10265e63a91cb0.png" />
+<img alt="../../_images/2944226f34f977461f8073c5bd292b3bd96f20afffce1c99b1b2303f5e9f5604.png" src="../../_images/2944226f34f977461f8073c5bd292b3bd96f20afffce1c99b1b2303f5e9f5604.png" />
 </div>
 </div>
 <p>The answer is a Laplacian with <span class="math notranslate nohighlight">\(s\simeq 0.74\)</span>, rather than <span class="math notranslate nohighlight">\(0.8\)</span>, so a round trip does not end up back where we started!  However, this shouldn’t surprise us because the KL divergence is not symmetric in <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<hr class="docutils" />
-<p>Note that the KL divergences between Gaussian and Laplacian distributions in the examples above can all be calculated analytically, which is useful for testing but not generally true. The analytic results are summarized below, for reference:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>Note that the KL divergences between Gaussian and Laplacian distributions in the examples above can all be calculated analytically, which is useful for testing but not generally true. The analytic results are summarized below, for reference:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -961,7 +962,7 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <li><p><span class="math notranslate nohighlight">\(P(D)\)</span> is the “evidence”.</p></li>
 </ul>
 <p>Since we generally cannot calculate the evidence <span class="math notranslate nohighlight">\(P(D)\)</span>, a useful inference method should not require that we know its value.</p>
-<p>The <em><strong><span style="color:Violet">variational Bayesian inference</span></strong></em> method has three steps:</p>
+<p>The <span style="color:Violet">variational Bayesian inference</span> method has three steps:</p>
 <ul class="simple">
 <li><p>Define a family of PDFs <span class="math notranslate nohighlight">\(q(\theta; s)\)</span> that approximate the true posterior <span class="math notranslate nohighlight">\(P(\theta\mid D)\)</span>.</p></li>
 <li><p>Use optimization to find the value <span class="math notranslate nohighlight">\(s^\ast\)</span> that, according to the KL divergence, best approximates the true posterior.</p></li>
@@ -972,8 +973,7 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <div class="math notranslate nohighlight">
 \[\begin{split} \Large
 \begin{aligned}
-\text{KL}(q\parallel p) &amp;\equiv \int d\theta\, q(\theta)\, \log\frac{q(\theta)}{p(\theta)} \\
-&amp;= \int d\theta\, q(\theta) \log\left[
+\text{KL}(q\parallel p) &amp;= \int d\theta\, q(\theta) \log\left[
 \frac{P(D)\, q(\theta)}{P(D\mid \theta)\, P(\theta)}
 \right] \\
 &amp;= \int d\theta\, q(\theta) \left[\log P(D) +
@@ -987,16 +987,15 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <li><p>The KL divergence of <span class="math notranslate nohighlight">\(q(\theta)\)</span> with respect to the prior <span class="math notranslate nohighlight">\(P(\theta)\)</span>.</p></li>
 <li><p>The <span class="math notranslate nohighlight">\(q\)</span>-weighted log-likelihood of the data.</p></li>
 </ul>
-<p><em><strong><span style="color:Violet">DISCUSS</span></strong></em>: Describe the <span class="math notranslate nohighlight">\(q(\theta)\)</span> that would minimize the contribution of each term to their sum (assuming a fixed dataset <span class="math notranslate nohighlight">\(D\)</span>).</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS</span></strong></em>: Describe the <span class="math notranslate nohighlight">\(q(\theta)\)</span> that would minimize the contribution of each term to their sum (assuming a fixed dataset <span class="math notranslate nohighlight">\(D\)</span>).</p>
 <p>Solution:</p>
 <ul class="simple">
-<li><p>The log of the evidence is a constant offset in the sum, independent of <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
+<li><p>The log of the evidence is a constant offset in the sum, independent of <span class="math notranslate nohighlight">\(q\)</span>.\</p></li>
 <li><p>The KL divergence term is minimized when <span class="math notranslate nohighlight">\(q(\theta) = P(\theta)\)</span>, i.e., it drives <span class="math notranslate nohighlight">\(q\)</span> to look like the prior.</p></li>
 <li><p>The log-likelihood term is minimized when <span class="math notranslate nohighlight">\(q(\theta)\)</span> prefers parameters <span class="math notranslate nohighlight">\(\theta\)</span> that explain the data.</p></li>
 </ul>
 <p>The competition between the last two terms is exactly what we need for a useful learning rule that balances prior knowledge with the information gained from new data.</p>
-<hr class="docutils" />
-<p>We can rewrite the expression above in terms of the log-evidence as:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>We can rewrite the expression above in terms of the log-evidence as:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \log P(D) = \int d\theta\, q(\theta) \log P(D\mid\theta) - \text{KL}(q\parallel P) + \text{KL}(q\parallel p) \; .
@@ -1021,12 +1020,7 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <li><p>Minimizing <span class="math notranslate nohighlight">\(-\text{ELBO}(q)\)</span> with respect to <span class="math notranslate nohighlight">\(q\)</span> is equivalent to minimizing <span class="math notranslate nohighlight">\(\text{KL}(q\parallel p)\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\text{ELBO}(q)\)</span> is much easier to calculate since it does not depend on the evidence <span class="math notranslate nohighlight">\(P(D)\)</span>.</p></li>
 </ul>
-<p>Note that, as with the KL divergence, the ELBO can be evaluated in terms of expectation values. Remember from before,</p>
-<div class="math notranslate nohighlight">
-\[ \Large
-\text{KL}( q \parallel P ) = \langle \log q(\theta)\rangle_q - \langle \log P(\theta)\rangle_q \;
-\]</div>
-<p>the ELBO can be written as</p>
+<p>Note that, as with the KL divergence, the ELBO can be evaluated in terms of expectation values,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \text{ELBO}(q) = \langle \log P(D\mid\theta)\rangle_q + \langle \log P(\theta)\rangle_q - \langle \log q\rangle_q \; .
@@ -1044,12 +1038,12 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 
 plot_ELBO(q, q_scale_range, likelihood, prior, theta_range, n_data, seed=123)
     Explanatory plots for the evidence lower bound (ELBO).
-    
+
     Data is modeled with a single offset (loc) parameter theta with an arbitrary
     likelihood and prior. A random sample of generated data is used to calculate
     the posterior, which is approximated by adjusting the scale parameter of
     the arbitrary PDF family q.
-    
+
     Parameters
     ----------
     q : str
@@ -1073,7 +1067,7 @@ plot_ELBO(q, q_scale_range, likelihood, prior, theta_range, n_data, seed=123)
 </div>
 </div>
 </div>
-<p>The example below specifies a <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.laplace.html">Laplacian PDF</a> for observing <span class="math notranslate nohighlight">\(x\)</span> with an unknown offset parameter <span class="math notranslate nohighlight">\(\theta\)</span>,</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: The example below specifies a <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.laplace.html">Laplacian PDF</a> for observing <span class="math notranslate nohighlight">\(x\)</span> with an unknown offset parameter <span class="math notranslate nohighlight">\(\theta\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(x\mid \theta) = \frac{1}{2}\, e^{-|x - \theta|} \; .
@@ -1102,10 +1096,10 @@ P(\theta\mid D) = \frac{P(D\mid\theta)\, P(\theta)}{P(D)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/add9d86e238507b41cba0e5dc960ab619612de6c147b3adf2bb11e364706806d.png" src="../../_images/add9d86e238507b41cba0e5dc960ab619612de6c147b3adf2bb11e364706806d.png" />
+<img alt="../../_images/8dad1c45de2928c7809761fe64d871fac8b6721c50636dd6d2c98ea2bb59fbe5.png" src="../../_images/8dad1c45de2928c7809761fe64d871fac8b6721c50636dd6d2c98ea2bb59fbe5.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">DISCUSS</span></strong></em></p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS</span></strong></em></p>
 <ul class="simple">
 <li><p>Is the offset between the KL divergence and -ELBO significant on the scale of variations shown in the upper-right panel?</p></li>
 <li><p>Is the posterior dominated by the prior or the new data in this example?</p></li>
@@ -1114,7 +1108,7 @@ P(\theta\mid D) = \frac{P(D\mid\theta)\, P(\theta)}{P(D)}
 <p>The offset equals <span class="math notranslate nohighlight">\(\log P(D) \simeq -145\)</span> so is very significant compared with the variations <span class="math notranslate nohighlight">\(\simeq 0.3\)</span> shown in the upper-right panel.  However, since the offset is constant (with respect to <span class="math notranslate nohighlight">\(s\)</span>) it does not affect the location of the minimum.</p>
 <p>Referring to the top-left panel, the posterior has a standard deviation <span class="math notranslate nohighlight">\(s\simeq 0.1\)</span> but but prior is much wider with <span class="math notranslate nohighlight">\(s = 1\)</span>, so the posterior is dominated by the new data.</p>
 <p>Doubling the number of data samples will make the data even more informative, leading to a narrower posterior. The best-fitting <span class="math notranslate nohighlight">\(q\)</span> will therefore also be narrow, leading to a minimum KL divergence (upper-right panel) at a lower value of <span class="math notranslate nohighlight">\(s\)</span>.</p>
-<p>Re-run the example above with <code class="docutils literal notranslate"><span class="pre">n_data</span></code> changed from 100 to 200 to confirm these predictions:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Re-run the example above with <code class="docutils literal notranslate"><span class="pre">n_data</span></code> changed from 100 to 200 to confirm these predictions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_ELBO</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="n">q_scale_range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span> <span class="n">likelihood</span><span class="o">=</span><span class="s1">&#39;laplace&#39;</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;norm&#39;</span><span class="p">,</span>
@@ -1123,7 +1117,7 @@ P(\theta\mid D) = \frac{P(D\mid\theta)\, P(\theta)}{P(D)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b5022690dff5f3014c134e9d871f3b74a4e56418772110d86a7117e07702736c.png" src="../../_images/b5022690dff5f3014c134e9d871f3b74a4e56418772110d86a7117e07702736c.png" />
+<img alt="../../_images/925a1a24d7fed419e1896d2caaf7c7741f6e7e7c61fb1a883a60c15502baaa6a.png" src="../../_images/925a1a24d7fed419e1896d2caaf7c7741f6e7e7c61fb1a883a60c15502baaa6a.png" />
 </div>
 </div>
 </section>
@@ -1154,7 +1148,7 @@ P(\theta_1, \theta_2, \ldots\mid D) = p_1(\theta_1)\, p_2(\theta_2) \ldots
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
