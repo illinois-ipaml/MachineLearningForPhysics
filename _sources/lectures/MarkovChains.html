@@ -546,7 +546,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
@@ -836,7 +836,7 @@ x_0, x_1, x_2, \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7a6e6e1e1f6a919a65700a3843b502937fdbf7dd02294258e6b9a07862afdc00.png" src="../../_images/7a6e6e1e1f6a919a65700a3843b502937fdbf7dd02294258e6b9a07862afdc00.png" />
+<img alt="../../_images/2110b3ba4ded4d687486b9d31df52017bcb44be733b063f3df1753de6be458e0.png" src="../../_images/2110b3ba4ded4d687486b9d31df52017bcb44be733b063f3df1753de6be458e0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -846,10 +846,10 @@ x_0, x_1, x_2, \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0da824d68d1048d631a7419a7d236a79d1e74dbefddfb57dd8e201ef15a29fc3.png" src="../../_images/0da824d68d1048d631a7419a7d236a79d1e74dbefddfb57dd8e201ef15a29fc3.png" />
+<img alt="../../_images/0e3b6c057147e7b2a623ff9fe63c8f68584a685f497c916924c3e0551eb917f5.png" src="../../_images/0e3b6c057147e7b2a623ff9fe63c8f68584a685f497c916924c3e0551eb917f5.png" />
 </div>
 </div>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>  For each panel of the pairplot above:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>  For each panel of the pairplot above:</p>
 <ul class="simple">
 <li><p>What distribution of random variables does each panel show?</p></li>
 <li><p>What correlated random variables are marginalized out, if any?</p></li>
@@ -876,17 +876,18 @@ x_0, x_1, x_2, \ldots
 </ul>
 <p>The difference between the two <span class="math notranslate nohighlight">\(x_3\)</span> histograms demonstrates that <span class="math notranslate nohighlight">\(P(X_3\mid X_0) \ne P(X_3)\)</span>, therefore <span class="math notranslate nohighlight">\(X_3\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> are <em>dependent</em>. In other words, <span class="math notranslate nohighlight">\(X_3\)</span> “remembers” <span class="math notranslate nohighlight">\(X_0\)</span>.</p>
 <p>Note that dependence nearly always implies correlation, but it is possible to construct <a class="reference external" href="https://en.wikipedia.org/wiki/Uncorrelated_random_variables#Example_of_dependence_without_correlation">artificial counter-examples</a>.</p>
-<hr class="docutils" />
-<p>An observer watching many different sequences generated from the same black box would need to measure all these conditional probabilities to fully describe the process:
-$<span class="math notranslate nohighlight">\(
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>An observer watching many different sequences generated from the same black box would need to measure all these conditional probabilities to fully describe the process:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 P(X_0) \;,\;
 P(X_1\mid X_0) \;,\;
 P(X_2\mid X_1, X_0) \;,\; \ldots \;,\;
 P(X_n\mid P_{n-1}, P_{n-2}\ldots, P_0) \; .
-\)</span>$</p>
+\]</div>
 <p>The <span style="color:violet">equivalent Bayesian network</span> (up to <span class="math notranslate nohighlight">\(n=3\)</span>) is:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-stochastic_graph.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-stochastic_graph.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-stochastic_graph.png" style="width: 400px;" /></a></img><br></p>
-</section>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-stochastic_graph.png" width=400></img>
+</div></section>
 <section id="span-style-color-orange-markov-chain-span">
 <h2><span style="color:Orange">Markov Chain</span><a class="headerlink" href="#span-style-color-orange-markov-chain-span" title="Permalink to this heading">#</a></h2>
 <p>A <span style="color:violet">Markov chain</span> is a special type of stochastic process where <span class="math notranslate nohighlight">\(X_{n}\)</span> <span style="color:violet">only depends directly</span> on <span class="math notranslate nohighlight">\(X_{n-1}\)</span> and not on any earlier samples. In this case, we say that <span class="math notranslate nohighlight">\(X_n\)</span> and <span class="math notranslate nohighlight">\(X_{n-2}\)</span> are <a class="reference external" href="https://en.wikipedia.org/wiki/Conditional_independence">conditionally independent</a>.</p>
@@ -897,8 +898,9 @@ P(X_n\mid P_{n-1}, P_{n-2}\ldots, P_0) \; .
 P(X_0) \;,\; P(X_1\mid X_0) \;,\; P(X_2\mid X_1) \;,\; \ldots \;,\; P(X_n\mid X_{n-1}) \; .
 \]</div>
 <p>The <span style="color:violet">equivalent Bayesian network</span> (up to <span class="math notranslate nohighlight">\(n=3\)</span>) is:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-markov_graph.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-markov_graph.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-markov_graph.png" style="width: 600px;" /></a></img><br></p>
-<p>Random variables without a direct connection (arrow) are conditionally independent.</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-markov_graph.png" width=600></img>
+</div><p>Random variables without a direct connection (arrow) are conditionally independent.</p>
 <section id="span-style-color-lightgreen-stationary-markov-chains-span">
 <h3><span style="color:Lightgreen">Stationary Markov Chains</span><a class="headerlink" href="#span-style-color-lightgreen-stationary-markov-chains-span" title="Permalink to this heading">#</a></h3>
 <p>An important subset of Markov chains are <span style="color:violet">stationary</span>, which makes our observer’s job even easier since they have the property that</p>
@@ -937,7 +939,7 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/67e2da54b777ecb01c10c613db657fece49c57b70467e7ff381d23df84f1dde9.png" src="../../_images/67e2da54b777ecb01c10c613db657fece49c57b70467e7ff381d23df84f1dde9.png" />
+<img alt="../../_images/6d8b7ce0b548446f794adb0c813f8d19d51d7e8c8a3c022058e594b919af7cef.png" src="../../_images/6d8b7ce0b548446f794adb0c813f8d19d51d7e8c8a3c022058e594b919af7cef.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -947,7 +949,7 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/70e4fa3a2911e0cda351cb465537c00865d372e08efa1919496e7024ea1f1f02.png" src="../../_images/70e4fa3a2911e0cda351cb465537c00865d372e08efa1919496e7024ea1f1f02.png" />
+<img alt="../../_images/3e358e646fd5a730c286b45c74d6c59fcee87034885e5a7e1cb2a681bdce9c85.png" src="../../_images/3e358e646fd5a730c286b45c74d6c59fcee87034885e5a7e1cb2a681bdce9c85.png" />
 </div>
 </div>
 <p>The pairplot above demonstrates that <span class="math notranslate nohighlight">\(X_n\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> are still dependent,</p>
@@ -1004,7 +1006,7 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ad305c7b93e0ec2fe1a0b29336027823c705dfc61413e74f685c0366f2fa0da7.png" src="../../_images/ad305c7b93e0ec2fe1a0b29336027823c705dfc61413e74f685c0366f2fa0da7.png" />
+<img alt="../../_images/9676fd837aa09152a703e0f83829c143ff6a305fe372bf60c1a881451751d1b5.png" src="../../_images/9676fd837aa09152a703e0f83829c143ff6a305fe372bf60c1a881451751d1b5.png" />
 </div>
 </div>
 <p>The blue line shows the mean <span class="math notranslate nohighlight">\(X_1\)</span> at each <span class="math notranslate nohighlight">\(X_0\)</span>,</p>
@@ -1029,9 +1031,8 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 <p>This plot only shows the update rule and does not depend on how we chose an initial value for the Markov chain.</p>
 <p>A reversible Markov chain has <span class="math notranslate nohighlight">\(P(X_1\mid X_0) = P(X_0\mid X_1)\)</span>, which makes this plot symmetric under the interchange of its axes. In other words, mirroring the plot along the diagonal should not change its appearance. Since this is not true in this example, <code class="docutils literal notranslate"><span class="pre">StationaryMarkovExample</span></code> is not reversible.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-</section>
-<hr class="docutils" />
 <section id="span-style-color-lightgreen-equilibrium-distributions-span">
 <h3><span style="color:Lightgreen">Equilibrium Distributions</span><a class="headerlink" href="#span-style-color-lightgreen-equilibrium-distributions-span" title="Permalink to this heading">#</a></h3>
 <p>Repeated use of the (same) update rule associated with a stationary Markov chain reveals a useful feature. These plots show 1, 2, 4, and 8 iterations of the same rule:</p>
@@ -1042,10 +1043,10 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eb82102a4e13491deb63f63b6360c8c307bdc25ebe7c42b6cb119c15e0e5493b.png" src="../../_images/eb82102a4e13491deb63f63b6360c8c307bdc25ebe7c42b6cb119c15e0e5493b.png" />
+<img alt="../../_images/61d33f39900c1d0b3edb5765f3a76556a964d099dba66954b7c689f57fad5c80.png" src="../../_images/61d33f39900c1d0b3edb5765f3a76556a964d099dba66954b7c689f57fad5c80.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">NOTE: </span>:</strong></em> A stationary Markov chain eventually reaches an equilibrium <span class="math notranslate nohighlight">\(P(X_n\mid X_0) \rightarrow \tilde{P}(X_n)\)</span> that does not depend on <span class="math notranslate nohighlight">\(X_0\)</span>.**</p>
+<p><em><strong><span style="color:Violet">NOTE: </span>:</strong></em> A stationary Markov chain eventually reaches an equilibrium <span class="math notranslate nohighlight">\(P(X_n\mid X_0) \rightarrow \tilde{P}(X_n)\)</span> that does not depend on <span class="math notranslate nohighlight">\(X_0\)</span>.</p>
 <p>We saw earlier how, in general, <span class="math notranslate nohighlight">\(X_n\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> are dependent, but we now learn that stationarity tames this behavior and guarantees that <span class="math notranslate nohighlight">\(X_n\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> are independent for sufficiently large <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>We will not prove this result, but here is a less trivial example to help build the case:</p>
 <div class="cell docutils container">
@@ -1068,7 +1069,7 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/abf6a68abec50e5d93505ce83a85732348e95e9cd21f36ab04c758a440c10f2f.png" src="../../_images/abf6a68abec50e5d93505ce83a85732348e95e9cd21f36ab04c758a440c10f2f.png" />
+<img alt="../../_images/7b7e063649bf6d64963331aea3d1d7430078a76264ade98bc2ab3cb70308ebc5.png" src="../../_images/7b7e063649bf6d64963331aea3d1d7430078a76264ade98bc2ab3cb70308ebc5.png" />
 </div>
 </div>
 <p>For practical applications, there are two issues to deal with:</p>
@@ -1077,7 +1078,7 @@ P(X_n\mid X_{n-1}) \; .
 <li><p>Given some stationary Markov chain, we can generate samples from <em>some</em> equilibrium distribution <span class="math notranslate nohighlight">\(\tilde{P}(X_n)\)</span>, but how do we build a chain to sample a specific distribution?</p></li>
 </ul>
 <p>The second issue requires solving an <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_problem">inverse problem</a>, which is generally challenging. However, there is a general class of solutions that we will look at below.</p>
-<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Define your own Markov chain, following the <code class="docutils literal notranslate"><span class="pre">StationaryMarkovExample</span></code> above, and make similar plots. Is your chain stationary? For a challenge, try to build a reversible chain.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Define your own Markov chain, following the <code class="docutils literal notranslate"><span class="pre">StationaryMarkovExample</span></code> above, and make similar plots. Is your chain stationary? For a challenge, try to build a reversible chain.</p>
 <p>The test for a stationary chain is whether it only uses <code class="docutils literal notranslate"><span class="pre">history[-1]</span></code> in its <code class="docutils literal notranslate"><span class="pre">update()</span></code> method.  The test for a reversible chain is whether its plot of <span class="math notranslate nohighlight">\(P(X_1\mid X_0)\)</span> is symmetric about the diagonal.</p>
 <p>Here is an example of a reversible (and therefore stationary) Markov chain:</p>
 <div class="cell docutils container">
@@ -1100,13 +1101,12 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9fa3c2f0f5744881815220d97bc485ea8684d874fda57ddaac12e97c544a1db3.png" src="../../_images/9fa3c2f0f5744881815220d97bc485ea8684d874fda57ddaac12e97c544a1db3.png" />
+<img alt="../../_images/10c93a25e51ef34e8fd70c38e0b360ca73c1d03cd4c9f61e303203ae67876cdd.png" src="../../_images/10c93a25e51ef34e8fd70c38e0b360ca73c1d03cd4c9f61e303203ae67876cdd.png" />
 </div>
 </div>
 <p>Note that we can use the diagonal symmetry of the first plot to confirm that this is a reversible chain.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-</section>
-<hr class="docutils" />
 <section id="span-style-color-orange-custom-markov-chain-span">
 <h2><span style="color:Orange">Custom Markov Chain</span><a class="headerlink" href="#span-style-color-orange-custom-markov-chain-span" title="Permalink to this heading">#</a></h2>
 <p>The <span style="color:Violet">Metropolis-Hastings-Green</span> (MHG) algorithm is a general approach to designing a custom Markov chain that has a specified target probability density, <span class="math notranslate nohighlight">\(\tilde{P}(X_n)\)</span>.  All practical algorithms are special cases of MHG:</p>
@@ -1128,9 +1128,9 @@ P(X_n\mid X_{n-1}) \; .
 <p>See this <a class="reference external" href="http://twiecki.github.io/blog/2014/01/02/visualizing-mcmc/">blog post</a> for helpful animations comparing some of these methods.</p>
 <section id="span-style-color-lightgreen-metropolis-hastings-updates-span">
 <h3><span style="color:Lightgreen">Metropolis-Hastings Updates</span><a class="headerlink" href="#span-style-color-lightgreen-metropolis-hastings-updates-span" title="Permalink to this heading">#</a></h3>
-<p>The MH algorithm relies on a <strong>proposal distribution</strong> <span class="math notranslate nohighlight">\(Q(X_{n+1}\mid X_n)\)</span> that is easier to sample from than the target distribution <span class="math notranslate nohighlight">\(\tilde{P}(X_{n+1}\mid X_n)\)</span>.  (If you knew how to sample <span class="math notranslate nohighlight">\(P\)</span> directly, you would not need MCMC!)</p>
+<p>The MH algorithm relies on a <span style="color:violet">proposal distribution</span> <span class="math notranslate nohighlight">\(Q(X_{n+1}\mid X_n)\)</span> that is easier to sample from than the <span style="color:violet">target distribution</span> <span class="math notranslate nohighlight">\(\tilde{P}(X_{n+1}\mid X_n)\)</span>.  (If you knew how to sample <span class="math notranslate nohighlight">\(P\)</span> directly, you would not need MCMC!)</p>
 <p>We often use a multivariate Gaussian for <span class="math notranslate nohighlight">\(Q\)</span> since it is easy to sample from. Any proposal distribution is valid, but choosing a <span class="math notranslate nohighlight">\(Q\)</span> “closer” to <span class="math notranslate nohighlight">\(P\)</span> generally reaches the desired equilibrium faster.</p>
-<p>The proposal distribution can either be used to update to the current state (“random walk”) or to generate a new state:</p>
+<p>The proposal distribution can either be used to update relative to the current state (“random walk”) or to generate a new state:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sample_proposal</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">gen</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
@@ -1158,10 +1158,10 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/613b23b9cc3fc6a326d7ea80a0754beb3e351750a107d062187599e6844d1de8.png" src="../../_images/613b23b9cc3fc6a326d7ea80a0754beb3e351750a107d062187599e6844d1de8.png" />
+<img alt="../../_images/79b1b41ec4a6c559471fd4470bb366fcfaaf484a7c07f197ab5d69b550fdba2d.png" src="../../_images/79b1b41ec4a6c559471fd4470bb366fcfaaf484a7c07f197ab5d69b550fdba2d.png" />
 </div>
 </div>
-<p>During each update we evaluate a proposed move to <span class="math notranslate nohighlight">\(x_{n+1}\)</span> by calculating the <strong>Hastings ratio</strong>,</p>
+<p>During each update we evaluate a proposed move to <span class="math notranslate nohighlight">\(x_{n+1}\)</span> by calculating the <span style="color:violet">Hastings ratio</span>,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_{n+1})}{Q(x_{n+1}\mid x_n)} \; ,
@@ -1215,7 +1215,7 @@ r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_
 </div>
 </div>
 </div>
-<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Define the un-normalized PDF for samples that are uniformly distributed within a (hyper)cube spanning <span class="math notranslate nohighlight">\([-1,+1]\)</span> along each axis:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Define the un-normalized PDF for samples that are uniformly distributed within a (hyper)cube spanning <span class="math notranslate nohighlight">\([-1,+1]\)</span> along each axis:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logP</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1257,7 +1257,7 @@ r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/72169a4ef848da1802655e5c31e8a124352616d3618d51522180f8619ee93639.png" src="../../_images/72169a4ef848da1802655e5c31e8a124352616d3618d51522180f8619ee93639.png" />
+<img alt="../../_images/7b6206e4436000b76729cbaaa67b4681d78ff83d56493fe0d15098bc72a8384f.png" src="../../_images/7b6206e4436000b76729cbaaa67b4681d78ff83d56493fe0d15098bc72a8384f.png" />
 </div>
 </div>
 <p>Note that the unique points in the sample do cover the square uniformly and there is no obvious imprint of the Gaussian proposal distribution. However, there are also many repetitions and, more generally, successive points are highly correlated with each other.</p>
@@ -1269,7 +1269,7 @@ r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/da8f93ecb4b29ee90daefe20f491cfe87ae30fd35cb75667c952fad609c7e7eb.png" src="../../_images/da8f93ecb4b29ee90daefe20f491cfe87ae30fd35cb75667c952fad609c7e7eb.png" />
+<img alt="../../_images/1970f18da2a203d03e3f4ea15f7058993208b016103a2943c84b586831a5952e.png" src="../../_images/1970f18da2a203d03e3f4ea15f7058993208b016103a2943c84b586831a5952e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1279,15 +1279,14 @@ r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e32c131561e086516bc5257e688d1bd173e66fb420ea24ecb1179401ef5a15eb.png" src="../../_images/e32c131561e086516bc5257e688d1bd173e66fb420ea24ecb1179401ef5a15eb.png" />
+<img alt="../../_images/e76d1836813b3b661d6f5ee230d2f63713bccca39f55fabcef0fe0e5b7c352ae.png" src="../../_images/e76d1836813b3b661d6f5ee230d2f63713bccca39f55fabcef0fe0e5b7c352ae.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Study the two examples above and describe how and why they are failing to sample the desired target distribution. Do the locations of repeated samples make sense?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Study the two examples above and describe how and why they are failing to sample the desired target distribution. Do the locations of repeated samples make sense?</p>
 <p>The first example uses independent updates with a proposal distribution that is too narrow (<span class="math notranslate nohighlight">\(\sigma = 0.3\)</span>) to sample the edges of the box efficiently.  As a result, points far from the initial point (the origin) are repeated often and the chain would need to be much longer to populate the corners. Note that, although the density of samples is higher close to the origin, when weighted by the number of repetitions, the generated chain correctly samples the target (flat) distribution.</p>
 <p>The second example use random-walk updates with a proposal distribution that is much narrower than the target (<span class="math notranslate nohighlight">\(\sigma = 0.05\)</span>) so tends to explore the target space slowly with long range correlations between samples. We have effectively simulated the <a class="reference external" href="https://en.wikipedia.org/wiki/Brownian_motion">Brownian motion</a> of a particle in a 2D fluid. With a long enough chain, our particle will explore the full square, spending about the same amount of time in each part of it, but this is not true of shorter sections of the chain. Note how repeated samples occur only at the edges of square, where there is a high probability of a proposed sample falling outside the square and therefore being rejected.</p>
 <p>Both of these examples are “correct” implementations of MH updates, but also have peculiar features that you might care about when using MCMC for pratical work. The lesson is that you should generally not assume that an MCMC chain has any desirable properties beyond its minimum guarantee of asymptotically sampling <span class="math notranslate nohighlight">\(\tilde{P}(X_n)\)</span>.</p>
-<hr class="docutils" />
-<p>When the proposal distribution <span class="math notranslate nohighlight">\(Q\)</span> is reversible, it cancels in the Hastings ratio,</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>When the proposal distribution <span class="math notranslate nohighlight">\(Q\)</span> is reversible, it cancels in the Hastings ratio,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_{n+1})}{Q(x_{n+1}\mid x_n)} \;\rightarrow\; \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)} \; .
@@ -1332,7 +1331,7 @@ r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_
 \[ \Large
 \frac{\partial}{\partial z_i}\, \log\tilde{P}(\vec{x}) \; .
 \]</div>
-<p>The resulting <strong>Hamiltonian sampling</strong> method relies on a nifty physics analogy.</p>
+<p>The resulting <span style="color:violet">Hamiltonian sampling</span> method relies on a nifty physics analogy.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Hamiltonian_mechanics">Recall</a> that the equations of motion for a classical system of particles with Hamiltonian <span class="math notranslate nohighlight">\(H\)</span> are:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -1422,18 +1421,17 @@ P(q) \propto \exp\left( -\frac{U(q)}{k_B T} \right) \; ,
 <p>Which package should you use?</p>
 <ul class="simple">
 <li><p>For initial exploratory work, start with <a class="reference external" href="http://dfm.io/emcee/">emcee</a>, which implements <a class="reference external" href="http://dx.doi.org/10.2140/camcos.2010.5.65">ensemble sampling</a> where many independent “walkers” simultaneously crawl around your target space, and has a nice <a class="reference external" href="https://en.wikipedia.org/wiki/Affine_geometry">affine invariance</a> property, where the efficiency is not affected by any linear (aka “affine”) transformation of your target space.</p></li>
-<li><p>Look into <a class="reference external" href="http://docs.pymc.io/notebooks/getting_started.html">PyMC3</a> or <a class="reference external" href="http://edwardlib.org/">Edward</a> to explore HMC and other more advanced updating rules. These are generally more complex to use and have rigid rules for specifying your target <span class="math notranslate nohighlight">\(\tilde{P}\)</span>.</p></li>
+<li><p>Look into <a class="reference external" href="http://docs.pymc.io/notebooks/getting_started.html">PyMC3</a> or other frameworks to explore HMC and other more advanced updating rules. These are generally more complex to use and have rigid rules for specifying your target <span class="math notranslate nohighlight">\(\tilde{P}\)</span>.</p></li>
 <li><p>Consider an alternative approximate method for Bayesian inference, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Variational_Bayesian_methods">variational inference</a>, with different tradeoffs.</p></li>
 </ul>
-<p>This <a class="reference external" href="http://twiecki.github.io/blog/2013/09/23/emcee-pymc/">blog post</a> compares emcee and PyMC3.</p>
-<p>You will see examples of performing MCMC and variational inference with <a class="reference external" href="http://edwardlib.org/">Edward</a> soon.</p>
+<p>This <a class="reference external" href="http://twiecki.github.io/blog/2013/09/23/emcee-pymc/">blog post</a> compares emcee and PyMC3. You will see examples of performing MCMC and variational inference with PyMC3 soon.</p>
 </section>
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
