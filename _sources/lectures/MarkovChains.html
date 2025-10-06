@@ -512,7 +512,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-stochastic-processes-span"><span style="color:Orange">Stochastic Processes</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-stochastic-processes-span"><span style="color:Orange">Stochastic Processes</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-examples-in-the-wild-span"><span style="color:LightGreen">Examples in the Wild</span></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-markov-chain-span"><span style="color:Orange">Markov Chain</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-stationary-markov-chains-span"><span style="color:Lightgreen">Stationary Markov Chains</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-reversible-markov-chains-span"><span style="color:Orange">Reversible Markov Chains</span></a></li>
@@ -564,6 +567,54 @@ document.write(`
 x_0, x_1, x_2, \ldots
 \]</div>
 <p>where, in general, the value <span class="math notranslate nohighlight">\(x_n\)</span> depends on the history of all previous samples, so the black box has long-term memory. The values appearing at the <span class="math notranslate nohighlight">\(n\)</span>-th position of many runs of the black box sample the random variable <span class="math notranslate nohighlight">\(X_n\)</span>. In general, samples can be multi-dimensional, <span class="math notranslate nohighlight">\(\vec{x}_i\)</span>, but this does not present any special challenges or require new concepts so we will stick with the cleaner 1D notation in the following.</p>
+<section id="span-style-color-lightgreen-examples-in-the-wild-span">
+<h3><span style="color:LightGreen">Examples in the Wild</span><a class="headerlink" href="#span-style-color-lightgreen-examples-in-the-wild-span" title="Permalink to this heading">#</a></h3>
+<p>Stochastic processes describe systems or phenomena evolving over time with inherent randomness. Here are common examples, categorized for clarity:</p>
+<ol class="arabic simple">
+<li><p><strong><span style="color:Orange">Markov Chains</span></strong>:</p>
+<ul class="simple">
+<li><p><em><span style="color:Pink">Weather Patterns</span></em>: Modeling daily weather (e.g., sunny, rainy, cloudy) where the probability of tomorrow’s weather depends only on today’s state.</p></li>
+<li><p><em><span style="color:Pink">Board Games</span></em>: Moves in games like Snakes and Ladders, where the next position depends on a random dice roll.</p></li>
+</ul>
+</li>
+<li><p><strong><span style="color:Orange">Poisson Processes</span></strong>:</p>
+<ul class="simple">
+<li><p><em><span style="color:Pink">Customer Arrivals</span></em>: The number of customers arriving at a store or calls to a call center in a fixed time interval, modeled with random, independent arrivals.</p></li>
+<li><p><em><span style="color:Pink">Radioactive Decay</span></em>: The timing of particle emissions from a radioactive source, occurring at a constant average rate.</p></li>
+</ul>
+</li>
+<li><p><strong><span style="color:Orange">Brownian Motion/Wiener Process</span></strong>:</p>
+<ul class="simple">
+<li><p><em><span style="color:Pink">Stock Prices</span></em>: Modeling stock price movements as a continuous-time random walk with small, random fluctuations.</p></li>
+<li><p><em><span style="color:Pink">Particle Movement</span></em>: The random motion of particles suspended in a fluid (e.g., pollen grains in water).</p></li>
+</ul>
+</li>
+<li><p><strong><span style="color:Orange">Random Walks</span></strong>:</p>
+<ul class="simple">
+<li><p><em><span style="color:Pink">Gambler’s Ruin</span></em>: A gambler’s fortune increasing or decreasing by random bets, potentially reaching zero or a target amount.</p></li>
+<li><p><em><span style="color:Pink">Animal Foraging</span></em>: An animal’s movement in search of food, modeled as a series of random steps in different directions.</p></li>
+</ul>
+</li>
+<li><p><strong><span style="color:Orange">Queuing Processes</span></strong>:</p>
+<ul class="simple">
+<li><p><em><span style="color:Pink">Supermarket Lines</span></em>: The number of customers in a queue, with random arrivals and service times (e.g., M/M/1 queue model).</p></li>
+<li><p><em><span style="color:Pink">Network Traffic</span></em>: Data packets arriving at a router, with random inter-arrival times and processing durations.</p></li>
+</ul>
+</li>
+<li><p><strong><span style="color:Orange">Branching Processes</span></strong>:</p>
+<ul class="simple">
+<li><p><em><span style="color:Pink">Population Growth</span></em>: Modeling the number of offspring in a population (e.g., bacteria dividing or family trees), where each individual produces a random number of descendants.</p></li>
+<li><p><em><span style="color:Pink">Disease Spread</span></em>: The number of infected individuals in an epidemic, with random transmission events.</p></li>
+</ul>
+</li>
+<li><p><strong><span style="color:Orange">Time Series</span></strong>:</p>
+<ul class="simple">
+<li><p><em><span style="color:Pink">Temperature Fluctuations</span></em>: Daily temperature readings modeled with random noise and autoregressive components.</p></li>
+<li><p><em><span style="color:Pink">Economic Indicators</span></em>: Random variations in GDP or unemployment rates over time, involving trends and seasonality.</p></li>
+</ul>
+</li>
+</ol>
+<p>These examples illustrate how stochastic processes model randomness in diverse fields like finance, biology, physics, and operations research. Each process is defined by probabilistic rules governing transitions or evolution over time.</p>
 <p>We will start with a simple example of a general stochastic process. Below is a helper Class <code class="docutils literal notranslate"><span class="pre">StochasticProcess</span></code> that we will make use of in our study of stochastic processes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -849,7 +900,7 @@ x_0, x_1, x_2, \ldots
 <img alt="../../_images/0e3b6c057147e7b2a623ff9fe63c8f68584a685f497c916924c3e0551eb917f5.png" src="../../_images/0e3b6c057147e7b2a623ff9fe63c8f68584a685f497c916924c3e0551eb917f5.png" />
 </div>
 </div>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>  For each panel of the pairplot above:</p>
+<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>  For each panel of the pairplot above:</p>
 <ul class="simple">
 <li><p>What distribution of random variables does each panel show?</p></li>
 <li><p>What correlated random variables are marginalized out, if any?</p></li>
@@ -876,7 +927,8 @@ x_0, x_1, x_2, \ldots
 </ul>
 <p>The difference between the two <span class="math notranslate nohighlight">\(x_3\)</span> histograms demonstrates that <span class="math notranslate nohighlight">\(P(X_3\mid X_0) \ne P(X_3)\)</span>, therefore <span class="math notranslate nohighlight">\(X_3\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> are <em>dependent</em>. In other words, <span class="math notranslate nohighlight">\(X_3\)</span> “remembers” <span class="math notranslate nohighlight">\(X_0\)</span>.</p>
 <p>Note that dependence nearly always implies correlation, but it is possible to construct <a class="reference external" href="https://en.wikipedia.org/wiki/Uncorrelated_random_variables#Example_of_dependence_without_correlation">artificial counter-examples</a>.</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>An observer watching many different sequences generated from the same black box would need to measure all these conditional probabilities to fully describe the process:</p>
+<hr class="docutils" />
+<p>An observer watching many different sequences generated from the same black box would need to measure all these conditional probabilities to fully describe the process:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 P(X_0) \;,\;
@@ -888,6 +940,7 @@ P(X_n\mid P_{n-1}, P_{n-2}\ldots, P_0) \; .
 <div>
 <img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Markov-stochastic_graph.png" width=400></img>
 </div></section>
+</section>
 <section id="span-style-color-orange-markov-chain-span">
 <h2><span style="color:Orange">Markov Chain</span><a class="headerlink" href="#span-style-color-orange-markov-chain-span" title="Permalink to this heading">#</a></h2>
 <p>A <span style="color:violet">Markov chain</span> is a special type of stochastic process where <span class="math notranslate nohighlight">\(X_{n}\)</span> <span style="color:violet">only depends directly</span> on <span class="math notranslate nohighlight">\(X_{n-1}\)</span> and not on any earlier samples. In this case, we say that <span class="math notranslate nohighlight">\(X_n\)</span> and <span class="math notranslate nohighlight">\(X_{n-2}\)</span> are <a class="reference external" href="https://en.wikipedia.org/wiki/Conditional_independence">conditionally independent</a>.</p>
@@ -1031,8 +1084,9 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 <p>This plot only shows the update rule and does not depend on how we chose an initial value for the Markov chain.</p>
 <p>A reversible Markov chain has <span class="math notranslate nohighlight">\(P(X_1\mid X_0) = P(X_0\mid X_1)\)</span>, which makes this plot symmetric under the interchange of its axes. In other words, mirroring the plot along the diagonal should not change its appearance. Since this is not true in this example, <code class="docutils literal notranslate"><span class="pre">StationaryMarkovExample</span></code> is not reversible.</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
+</section>
+<hr class="docutils" />
 <section id="span-style-color-lightgreen-equilibrium-distributions-span">
 <h3><span style="color:Lightgreen">Equilibrium Distributions</span><a class="headerlink" href="#span-style-color-lightgreen-equilibrium-distributions-span" title="Permalink to this heading">#</a></h3>
 <p>Repeated use of the (same) update rule associated with a stationary Markov chain reveals a useful feature. These plots show 1, 2, 4, and 8 iterations of the same rule:</p>
@@ -1078,7 +1132,7 @@ P(X_n\mid X_{n-1}) \; .
 <li><p>Given some stationary Markov chain, we can generate samples from <em>some</em> equilibrium distribution <span class="math notranslate nohighlight">\(\tilde{P}(X_n)\)</span>, but how do we build a chain to sample a specific distribution?</p></li>
 </ul>
 <p>The second issue requires solving an <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_problem">inverse problem</a>, which is generally challenging. However, there is a general class of solutions that we will look at below.</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Define your own Markov chain, following the <code class="docutils literal notranslate"><span class="pre">StationaryMarkovExample</span></code> above, and make similar plots. Is your chain stationary? For a challenge, try to build a reversible chain.</p>
+<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Define your own Markov chain, following the <code class="docutils literal notranslate"><span class="pre">StationaryMarkovExample</span></code> above, and make similar plots. Is your chain stationary? For a challenge, try to build a reversible chain.</p>
 <p>The test for a stationary chain is whether it only uses <code class="docutils literal notranslate"><span class="pre">history[-1]</span></code> in its <code class="docutils literal notranslate"><span class="pre">update()</span></code> method.  The test for a reversible chain is whether its plot of <span class="math notranslate nohighlight">\(P(X_1\mid X_0)\)</span> is symmetric about the diagonal.</p>
 <p>Here is an example of a reversible (and therefore stationary) Markov chain:</p>
 <div class="cell docutils container">
@@ -1105,8 +1159,9 @@ P(X_n\mid X_{n-1}) \; .
 </div>
 </div>
 <p>Note that we can use the diagonal symmetry of the first plot to confirm that this is a reversible chain.</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
+</section>
+<hr class="docutils" />
 <section id="span-style-color-orange-custom-markov-chain-span">
 <h2><span style="color:Orange">Custom Markov Chain</span><a class="headerlink" href="#span-style-color-orange-custom-markov-chain-span" title="Permalink to this heading">#</a></h2>
 <p>The <span style="color:Violet">Metropolis-Hastings-Green</span> (MHG) algorithm is a general approach to designing a custom Markov chain that has a specified target probability density, <span class="math notranslate nohighlight">\(\tilde{P}(X_n)\)</span>.  All practical algorithms are special cases of MHG:</p>
@@ -1215,7 +1270,7 @@ r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_
 </div>
 </div>
 </div>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Define the un-normalized PDF for samples that are uniformly distributed within a (hyper)cube spanning <span class="math notranslate nohighlight">\([-1,+1]\)</span> along each axis:</p>
+<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Define the un-normalized PDF for samples that are uniformly distributed within a (hyper)cube spanning <span class="math notranslate nohighlight">\([-1,+1]\)</span> along each axis:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logP</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1282,11 +1337,12 @@ r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_
 <img alt="../../_images/e76d1836813b3b661d6f5ee230d2f63713bccca39f55fabcef0fe0e5b7c352ae.png" src="../../_images/e76d1836813b3b661d6f5ee230d2f63713bccca39f55fabcef0fe0e5b7c352ae.png" />
 </div>
 </div>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Study the two examples above and describe how and why they are failing to sample the desired target distribution. Do the locations of repeated samples make sense?</p>
+<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Study the two examples above and describe how and why they are failing to sample the desired target distribution. Do the locations of repeated samples make sense?</p>
 <p>The first example uses independent updates with a proposal distribution that is too narrow (<span class="math notranslate nohighlight">\(\sigma = 0.3\)</span>) to sample the edges of the box efficiently.  As a result, points far from the initial point (the origin) are repeated often and the chain would need to be much longer to populate the corners. Note that, although the density of samples is higher close to the origin, when weighted by the number of repetitions, the generated chain correctly samples the target (flat) distribution.</p>
 <p>The second example use random-walk updates with a proposal distribution that is much narrower than the target (<span class="math notranslate nohighlight">\(\sigma = 0.05\)</span>) so tends to explore the target space slowly with long range correlations between samples. We have effectively simulated the <a class="reference external" href="https://en.wikipedia.org/wiki/Brownian_motion">Brownian motion</a> of a particle in a 2D fluid. With a long enough chain, our particle will explore the full square, spending about the same amount of time in each part of it, but this is not true of shorter sections of the chain. Note how repeated samples occur only at the edges of square, where there is a high probability of a proposed sample falling outside the square and therefore being rejected.</p>
 <p>Both of these examples are “correct” implementations of MH updates, but also have peculiar features that you might care about when using MCMC for pratical work. The lesson is that you should generally not assume that an MCMC chain has any desirable properties beyond its minimum guarantee of asymptotically sampling <span class="math notranslate nohighlight">\(\tilde{P}(X_n)\)</span>.</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>When the proposal distribution <span class="math notranslate nohighlight">\(Q\)</span> is reversible, it cancels in the Hastings ratio,</p>
+<hr class="docutils" />
+<p>When the proposal distribution <span class="math notranslate nohighlight">\(Q\)</span> is reversible, it cancels in the Hastings ratio,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 r(x_{n+1}, x_n) = \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)}\, \frac{Q(x_n\mid x_{n+1})}{Q(x_{n+1}\mid x_n)} \;\rightarrow\; \frac{\tilde{P}(x_{n+1})}{\tilde{P}(x_n)} \; .
@@ -1498,7 +1554,10 @@ P(q) \propto \exp\left( -\frac{U(q)}{k_B T} \right) \; ,
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-stochastic-processes-span"><span style="color:Orange">Stochastic Processes</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-stochastic-processes-span"><span style="color:Orange">Stochastic Processes</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-examples-in-the-wild-span"><span style="color:LightGreen">Examples in the Wild</span></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-markov-chain-span"><span style="color:Orange">Markov Chain</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-stationary-markov-chains-span"><span style="color:Lightgreen">Stationary Markov Chains</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-reversible-markov-chains-span"><span style="color:Orange">Reversible Markov Chains</span></a></li>
