@@ -513,7 +513,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-bayesian-model-selection-span"><span style="color:Orange">Bayesian Model Selection</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-how-many-peaks">Case Study: How Many Peaks?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-case-study-how-many-peaks-span"><span style="color:Orange">Case Study: How Many Peaks?</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
@@ -532,7 +532,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
@@ -541,7 +541,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We will be using MCMC for our Bayesian model evaluations, so we include the MCMC helper functions we had before in our <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/lectures/MCMC.html">MCMC notebook</a></p>
+<p>We will be using MCMC for our Bayesian model evaluations, so we include the MCMC helper functions we had before in our <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/lectures/MarkovChainMonteCarlo.html">MCMC notebook</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
@@ -761,25 +761,25 @@ P(M) = \int d\Theta_M\, P(\Theta_M, M) \; .
 <li><p>We were able to perform inference for a given model without ever calculating its evidence <span class="math notranslate nohighlight">\(P(D\mid M)\)</span>, but that is no longer possible for model comparison.</p></li>
 <li><p>To calculate the “super evidence” we must be able to specify <em>all possible models</em>.</p></li>
 </ul>
-<p>However, we can sidestep the second problem if we only want to compare two possible models, <span class="math notranslate nohighlight">\(M_1\)</span> and <span class="math notranslate nohighlight">\(M_2\)</span>, without specifying (or perhaps even knowing) the set of possible models. We use the <span style="color:Violet">odds ratio</span> for this comparison,</p>
+<p>However, we can sidestep the second problem if we only want to compare two possible models, <span class="math notranslate nohighlight">\(M_1\)</span> and <span class="math notranslate nohighlight">\(M_2\)</span>, without specifying (or perhaps even knowing) the set of possible models. We use the  <em><strong><span style="color:Violet">odds ratio</span></strong></em> for this comparison,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \boxed{
 \text{odds ratio =}\quad
-\frac{P(M_1\mid D)}{P(M_2\mid D)} = \frac{P(D\mid M_1)\, P(M_1)}{P(D\mid M_2)\,P(M_2)} \; ,
+\frac{P(M_1\mid D)}{P(M_2\mid D)} = \frac{P(D\mid M_1)\, P(M_1)}{P(D\mid M_2)\,P(M_2)} \;
 }
 \]</div>
-<p>where, conveniently, the “super evidence” <span class="math notranslate nohighlight">\(P(D)\)</span> cancels in the ratio. The ratio of “model likelihoods” appearing on the right-hand side is known as the <strong>Bayes factor</strong>:</p>
+<p>where, conveniently, the “super evidence” <span class="math notranslate nohighlight">\(P(D)\)</span> cancels in the ratio. The ratio of “model likelihoods” appearing on the right-hand side is known as the <span style="color:Violet">Bayes factor</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \boxed{
 \text{Bayes factor =}\quad
-\frac{P(D\mid M_1)}{P(D\mid M_2)} \; .
+\frac{P(D\mid M_1)}{P(D\mid M_2)} \;
 }
 \]</div>
 <p>It is easy to lose sight of the big picture with all of this probability calculus, so let’s zoom out to a simple example:</p>
 <p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" style="width: 800px;" /></a></img><br></p>
-<p><em><strong><span style="color:Violet">DISCUSS</span></strong></em> Study the observed image <span class="math notranslate nohighlight">\(D\)</span> above with two models in mind:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS</span></strong></em> Study the observed image <span class="math notranslate nohighlight">\(D\)</span> above with two models in mind:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(M_1\)</span>: The image shows a single piece of paper.</p></li>
 <li><p><span class="math notranslate nohighlight">\(M_2\)</span>: The image shows two pieces of paper.</p></li>
@@ -809,10 +809,9 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 \]</div>
 <p>For <span class="math notranslate nohighlight">\(M_2\)</span>, the likelihood of the observed image <span class="math notranslate nohighlight">\(D\)</span> will be zero except when the parameters of the second piece of paper have it line up perfectly under the ruler. Since this represents a small fraction of the full range of <span class="math notranslate nohighlight">\(M_2\)</span> parameters, <span class="math notranslate nohighlight">\(P(D\mid M_2)\)</span> is heavily penalized compared with <span class="math notranslate nohighlight">\(P(D\mid M_1)\)</span>, leading to a large Bayes factor.</p>
 <p>This is an example of <a class="reference external" href="https://en.wikipedia.org/wiki/Occam's_razor">Occam’s razor</a> in action: Bayesian inference prefers the simplest explanation (model), independently of any prior knowledge.</p>
-</section>
-<hr class="docutils" />
-<section id="case-study-how-many-peaks">
-<h2>Case Study: How Many Peaks?<a class="headerlink" href="#case-study-how-many-peaks" title="Permalink to this heading">#</a></h2>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
+<section id="span-style-color-orange-case-study-how-many-peaks-span">
+<h2><span style="color:Orange">Case Study: How Many Peaks?</span><a class="headerlink" href="#span-style-color-orange-case-study-how-many-peaks-span" title="Permalink to this heading">#</a></h2>
 <p>Generate some random samples of a single feature <span class="math notranslate nohighlight">\(x\)</span> drawn from a mixture of two Gaussians:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -851,7 +850,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/907afa090b1a69b5578e5f4966fbac13ec75634208ad6827d74ada1bcd66dceb.png" src="../../_images/907afa090b1a69b5578e5f4966fbac13ec75634208ad6827d74ada1bcd66dceb.png" />
+<img alt="../../_images/94de5283ccdb148ecfa97c579434024b7d9eafb13f644c055e5f64effafda99c.png" src="../../_images/94de5283ccdb148ecfa97c579434024b7d9eafb13f644c055e5f64effafda99c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -861,7 +860,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f6395022dc74f1b02f7463a89c0107ac2d27dc1bbdef23798086e78aa532e533.png" src="../../_images/f6395022dc74f1b02f7463a89c0107ac2d27dc1bbdef23798086e78aa532e533.png" />
+<img alt="../../_images/71593b680576405e04b8688b1307b406d0667184a47a89faeb9481a29a6e8ba4.png" src="../../_images/71593b680576405e04b8688b1307b406d0667184a47a89faeb9481a29a6e8ba4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -871,7 +870,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/48e6c91b1f4a1eb39c05922707c248c792d4160784213db201672a5bfd6b0056.png" src="../../_images/48e6c91b1f4a1eb39c05922707c248c792d4160784213db201672a5bfd6b0056.png" />
+<img alt="../../_images/b2190388190629038d360f1290f3d549b4acbc95c8f9be9b67e7da7e00528a7d.png" src="../../_images/b2190388190629038d360f1290f3d549b4acbc95c8f9be9b67e7da7e00528a7d.png" />
 </div>
 </div>
 <p>Note that each sample has an integer number of entries drawn from each Gaussian, so the true <code class="docutils literal notranslate"><span class="pre">frac1</span></code> is only realized on average.</p>
@@ -881,7 +880,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 <li><p>M2: Two Gaussians with equal proportions (<code class="docutils literal notranslate"><span class="pre">frac1=0.5</span></code>), means with a fixed separation <span class="math notranslate nohighlight">\(\mu_2 - \mu_1 = 0.6\)</span>, and unknown sigmas <span class="math notranslate nohighlight">\(\sigma_1\)</span>, <span class="math notranslate nohighlight">\(\sigma_2\)</span>.</p></li>
 </ul>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">Da</span></code> is drawn from M1 and <code class="docutils literal notranslate"><span class="pre">Db</span></code>, <code class="docutils literal notranslate"><span class="pre">Dc</span></code> are drawn from M2.</p>
-<p><strong>DISCUSS:</strong> For each of these three datasets, predict whether the Bayes’ factor for M1 relative to M2 will be:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS:</span></strong></em> For each of these three datasets, predict whether the Bayes’ factor for M1 relative to M2 will be:</p>
 <ul class="simple">
 <li><p>Much larger than 1, i.e., strongly favoring M1.</p></li>
 <li><p>About 1, i.e. unable to discriminate between M1 and M2 based on the data alone.</p></li>
@@ -891,14 +890,13 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 <p><code class="docutils literal notranslate"><span class="pre">Da</span></code> should strongly favor M1 since the fixed separation of the M2 means makes it very unlikely to have been generated by M2.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Db</span></code> should very strongly favor M2, since no reasonable statistical fluctuation of M1 would ever reproduce it.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Dc</span></code> should be unable to discriminate between M1 and M2 since, although it was produced by M2, M1 might produce data like this with the right statistical fluctuations.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Bayes_factor#Interpretation">Jeffreys proposed a scale</a> for thresholds in the Bayes’ factor:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bayes_factor#Interpretation">Jeffreys proposed a scale</a> for thresholds in the Bayes’ factor:</p>
 <ul class="simple">
 <li><p>larger than 100 is “decisive evidence” in favor of M1.</p></li>
 <li><p>larger than 10 is “strong evidence” in favor of M1.</p></li>
 <li><p>smaller than 0.1 is “strong evidence” in favor of M2.</p></li>
 <li><p>smaller than 0.01 is “decisive evidence” in favor of M2.</p></li>
 </ul>
-<hr class="docutils" />
 <p>To compare models for given data <span class="math notranslate nohighlight">\(D\)</span>, we perform the following steps for each candidate model <span class="math notranslate nohighlight">\(M\)</span>:</p>
 <ul class="simple">
 <li><p>Perform a Bayesian inference with HMC assuming <span class="math notranslate nohighlight">\(M\)</span> to obtain samples of <span class="math notranslate nohighlight">\((\mu, \sigma)\)</span> drawn from the posterior <span class="math notranslate nohighlight">\(P(\theta\mid D, M)\)</span>.</p></li>
@@ -1049,11 +1047,11 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2ea9c61a73ad065d60d1ea8a757d4fd485739e980388a27703c804d6af06c5a3.png" src="../../_images/2ea9c61a73ad065d60d1ea8a757d4fd485739e980388a27703c804d6af06c5a3.png" />
+<img alt="../../_images/36c4cb1a0a078161f98bf837a204409a70de515bf4572ccd18f0c68f6f774a9d.png" src="../../_images/36c4cb1a0a078161f98bf837a204409a70de515bf4572ccd18f0c68f6f774a9d.png" />
 </div>
 </div>
 <p>In the left-hand plot above, the solid black contours show the shape of the un-normalized posterior and the dashed red contours show the GMM density model fit to the MCMC samples. These do not need to agree exactly, but better agreement will lead to a more accurate estimate of the evidence <span class="math notranslate nohighlight">\(P(Da\mid M1)\)</span>.  In this example, we are using a GMM with a single component but the posterior is slightly non-Gaussian, so we could try increasing the number of MCMC samples and adding another GMM component.</p>
-<p>The right-hand plot shows many independent estimates of the evidence, calculated as the ratio of the un-normalized posterior (solid black contours) and GMM density model (dashed red contours) on a uniform 2D grid of <span class="math notranslate nohighlight">\((\mu, \sigma)\)</span> points.  To combine these independent estimates, we take the median of the green values, where the posterior probability is largest (so this procedure should be more accurate). Review the <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/lectures/MCMC.html">MCMC notebook</a> for a simpler 1D example of evidence estimation with the same approach.</p>
+<p>The right-hand plot shows many independent estimates of the evidence, calculated as the ratio of the un-normalized posterior (solid black contours) and GMM density model (dashed red contours) on a uniform 2D grid of <span class="math notranslate nohighlight">\((\mu, \sigma)\)</span> points.  To combine these independent estimates, we take the median of the green values, where the posterior probability is largest (so this procedure should be more accurate). Review the <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/lectures/MarkovChainMonteCarlo.html">Markov Chain Montel Carlo notebook</a> for a simpler 1D example of evidence estimation with the same approach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E_Db_M1</span> <span class="o">=</span> <span class="n">calculate_M1_evidence</span><span class="p">(</span><span class="n">Db</span><span class="p">)</span>
@@ -1061,7 +1059,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/633a495047b20c987ec9d6389de11c44239d530b85ccf43e7644715350996ec7.png" src="../../_images/633a495047b20c987ec9d6389de11c44239d530b85ccf43e7644715350996ec7.png" />
+<img alt="../../_images/9b3a610cb5bfa855d167cb6a8790700f70474f08a8a3fc995dda20124da79180.png" src="../../_images/9b3a610cb5bfa855d167cb6a8790700f70474f08a8a3fc995dda20124da79180.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1071,7 +1069,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/928ea613361149f9913d4452fba810244fa50b35a3fba88287b83f3ac0b4b83f.png" src="../../_images/928ea613361149f9913d4452fba810244fa50b35a3fba88287b83f3ac0b4b83f.png" />
+<img alt="../../_images/24ec2ef93945196f2bc2b5da6be625a979e9ac824b52edda2bc3b34b43c04635.png" src="../../_images/24ec2ef93945196f2bc2b5da6be625a979e9ac824b52edda2bc3b34b43c04635.png" />
 </div>
 </div>
 <p>The calculation of the evidence for D assuming model M2 is very similar, but now in the 3D parameter space (mu, t1, t2):</p>
@@ -1117,9 +1115,9 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
     <span class="c1"># Calculate projections onto each pair of parameters with numerical 1D integration.</span>
     <span class="c1"># --------------------------------------------------------------------------</span>
     <span class="n">numerator_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_numerator_grid</span><span class="p">)</span>
-    <span class="n">proj_mu_sigma1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">numerator_grid</span><span class="p">,</span> <span class="n">sigma2_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-    <span class="n">proj_mu_sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">numerator_grid</span><span class="p">,</span> <span class="n">sigma1_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">proj_sigma1_sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">numerator_grid</span><span class="p">,</span> <span class="n">mu_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">proj_mu_sigma1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">numerator_grid</span><span class="p">,</span> <span class="n">sigma2_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">proj_mu_sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">numerator_grid</span><span class="p">,</span> <span class="n">sigma1_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">proj_sigma1_sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">numerator_grid</span><span class="p">,</span> <span class="n">mu_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
     <span class="c1"># --------------------------------------------------------------------------</span>
     <span class="c1"># Estimate the posterior density from the generated samples with a GMM.</span>
     <span class="c1"># --------------------------------------------------------------------------</span>
@@ -1137,9 +1135,9 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
     <span class="c1"># Calculate projections onto each pair of parameters with numerical 1D integration.</span>
     <span class="c1"># --------------------------------------------------------------------------</span>
     <span class="n">density_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_density_grid</span><span class="p">)</span>
-    <span class="n">dproj_mu_sigma1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">density_grid</span><span class="p">,</span> <span class="n">sigma2_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-    <span class="n">dproj_mu_sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">density_grid</span><span class="p">,</span> <span class="n">sigma1_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">dproj_sigma1_sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">density_grid</span><span class="p">,</span> <span class="n">mu_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">dproj_mu_sigma1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">density_grid</span><span class="p">,</span> <span class="n">sigma2_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">dproj_mu_sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">density_grid</span><span class="p">,</span> <span class="n">sigma1_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">dproj_sigma1_sigma2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">density_grid</span><span class="p">,</span> <span class="n">mu_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
     <span class="c1"># --------------------------------------------------------------------------</span>
     <span class="c1"># Use the the 5% of grid points with the largest numerator for the evidence estimate.</span>
     <span class="c1"># --------------------------------------------------------------------------</span>
@@ -1201,7 +1199,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8e497eeafc3f2a7f5ad462c1d24533892170f96bf035d2e35e2bc46f7f8831f6.png" src="../../_images/8e497eeafc3f2a7f5ad462c1d24533892170f96bf035d2e35e2bc46f7f8831f6.png" />
+<img alt="../../_images/09d2e9408ad80ae2951e49d94078371f8726c1fb8643ca75f6cec666eb0d448f.png" src="../../_images/09d2e9408ad80ae2951e49d94078371f8726c1fb8643ca75f6cec666eb0d448f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1211,7 +1209,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7bdf344d7016dbe3a706d2a18602c182a598f1f5100185851b8d305fa255bd0f.png" src="../../_images/7bdf344d7016dbe3a706d2a18602c182a598f1f5100185851b8d305fa255bd0f.png" />
+<img alt="../../_images/ebaa2d25601ea025a8f16b8979958c998468e6db0b85e7e1146d06e9a2af16e9.png" src="../../_images/ebaa2d25601ea025a8f16b8979958c998468e6db0b85e7e1146d06e9a2af16e9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1221,7 +1219,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8dca2f822c154d06abfb5dc5f5097a06e11c58de1517dc71bebb34d54293b8d3.png" src="../../_images/8dca2f822c154d06abfb5dc5f5097a06e11c58de1517dc71bebb34d54293b8d3.png" />
+<img alt="../../_images/ba232fe6a53aa19a84fc5652dc0edc3f4e479bdaec1aecad5a7aa1ad8bfae7b4.png" src="../../_images/ba232fe6a53aa19a84fc5652dc0edc3f4e479bdaec1aecad5a7aa1ad8bfae7b4.png" />
 </div>
 </div>
 <p>Each of these involved calculations provides a single number, the estimated log of the evidence for <span class="math notranslate nohighlight">\(D\)</span> given <span class="math notranslate nohighlight">\(M\)</span>,</p>
@@ -1380,7 +1378,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
@@ -1448,7 +1446,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-bayesian-model-selection-span"><span style="color:Orange">Bayesian Model Selection</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-how-many-peaks">Case Study: How Many Peaks?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-case-study-how-many-peaks-span"><span style="color:Orange">Case Study: How Many Peaks?</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
