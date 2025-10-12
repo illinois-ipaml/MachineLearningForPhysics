@@ -535,12 +535,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -585,20 +587,21 @@ f(x) = x^2 - 10 e^{-10000 (x - \pi)^2}
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>min f(x) at x = 0.0
 </pre></div>
 </div>
-<img alt="../../_images/ad933fae96513eefce3ac32beaf89efcc0aae7a889fa196c63dc34f6d3b04f7c.png" src="../../_images/ad933fae96513eefce3ac32beaf89efcc0aae7a889fa196c63dc34f6d3b04f7c.png" />
+<img alt="../../_images/d990ada15922d4c0a8ce78359cc48f5d3d7f62ea18258612f97d078ce7761836.png" src="../../_images/d990ada15922d4c0a8ce78359cc48f5d3d7f62ea18258612f97d078ce7761836.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Study the example above and explain why it fails to find the true minimum of <span class="math notranslate nohighlight">\(f(x)\)</span>. Make a different plot that does find the true minimum.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Study the example above and explain why it fails to find the true minimum of <span class="math notranslate nohighlight">\(f(x)\)</span>. Make a different plot that does find the true minimum.</p>
 <p>A search using a grid with spacing <span class="math notranslate nohighlight">\(\Delta x\)</span> can completely miss features narrower than <span class="math notranslate nohighlight">\(\Delta x\)</span>, so is only reliable when you have some prior knowledge that your <span class="math notranslate nohighlight">\(f(x)\)</span> does not have features narrower than some limit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6706556152825265f3110fbe286cf464d8f7a6cee069b47f22b01e9fb20206e3.png" src="../../_images/6706556152825265f3110fbe286cf464d8f7a6cee069b47f22b01e9fb20206e3.png" />
+<img alt="../../_images/5e04f5abe4a19a95d9d9a5537d48e5497c850cd6e2fecb386368e96dcd524ae4.png" src="../../_images/5e04f5abe4a19a95d9d9a5537d48e5497c850cd6e2fecb386368e96dcd524ae4.png" />
 </div>
 </div>
 <p>The main computational cost of optimization is usually the evaluation of <span class="math notranslate nohighlight">\(f\)</span>, so an important metric for any optimizer is the number of times it evaluates <span class="math notranslate nohighlight">\(f\)</span>.</p>
@@ -650,12 +653,13 @@ f^\prime (x) = -2 \frac{\cos(e^x)}{x^3} - e^x \frac{\sin(e^x)}{x^2}
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(x)$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f^{~\prime}(x)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0c0ad4f0082cee47d37e68a4b8d8db0096834d617ff5c4540e0bbd2856097c1e.png" src="../../_images/0c0ad4f0082cee47d37e68a4b8d8db0096834d617ff5c4540e0bbd2856097c1e.png" />
+<img alt="../../_images/e202651aaa19b818eb5b09f61a320ad8fb3eb8fb731f49c9c337c1c05b17e3d0.png" src="../../_images/e202651aaa19b818eb5b09f61a320ad8fb3eb8fb731f49c9c337c1c05b17e3d0.png" />
 </div>
 </div>
 <p>Derivatives can also be calculated numerically using <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference">finite difference equations</a> such as:</p>
@@ -677,12 +681,13 @@ f^\prime (x) = -2 \frac{\cos(e^x)}{x^3} - e^x \frac{\sin(e^x)}{x^2}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">fp_numeric</span> <span class="o">-</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;absolute error&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">fp_numeric</span> <span class="o">-</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;relative error&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4d060e08f0a89ac73b6d40e2d200c0421c3a1cf90b509b7a10155638ecadbf87.png" src="../../_images/4d060e08f0a89ac73b6d40e2d200c0421c3a1cf90b509b7a10155638ecadbf87.png" />
+<img alt="../../_images/4188d5edbb3905e44c9192b96380ec9f160982a16db5488b69b1b6c4aee98984.png" src="../../_images/4188d5edbb3905e44c9192b96380ec9f160982a16db5488b69b1b6c4aee98984.png" />
 </div>
 </div>
 <p>There is also a third hybrid approach that has proven very useful in machine learning, especially for training deep neural networks: <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation">automatic differentiation</a>. This requires that a small set of primitive functions (sin, cos, exp, log, …) are handled analytically, and then composition of these primitives is handled by applying the rules of differentiation (chain rule, product rule, etc) directly to the code that evaluates <code class="docutils literal notranslate"><span class="pre">f(x)</span></code>.</p>
@@ -718,12 +723,13 @@ f_{\text{auto}}(x) \equiv f(x) = \frac{\cos(e^x)}{x^2}
 <p>In this case, the automatic derivates are identical to the exact results up to round-off errors (note the <code class="docutils literal notranslate"><span class="pre">1e-16</span></code> multiplier on the y axis):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_auto</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fp_auto</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">fp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/625af6041add38cf4a47ebe568bb8e7673b242374bf61b03f06b0c0c10446ffc.png" src="../../_images/625af6041add38cf4a47ebe568bb8e7673b242374bf61b03f06b0c0c10446ffc.png" />
+<img alt="../../_images/7b4173235e31d32b298cb99c815dd8c0f77738fc382ea5652f21c2454b419891.png" src="../../_images/7b4173235e31d32b298cb99c815dd8c0f77738fc382ea5652f21c2454b419891.png" />
 </div>
 </div>
 <p>Note that automatic differentiation cannot perform miracles.  For example, the following implementation of</p>
@@ -747,11 +753,7 @@ f_{\text{auto}}(x) \equiv f(x) = \frac{\cos(e^x)}{x^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_25663/2490666034.py:2: RuntimeWarning: invalid value encountered in double_scalars
-  return anp.sin(x) / x
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nan
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(nan)
 </pre></div>
 </div>
 </div>
@@ -763,20 +765,12 @@ f_{\text{auto}}(x) \equiv f(x) = \frac{\cos(e^x)}{x^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.11/site-packages/autograd/tracer.py:48: RuntimeWarning: invalid value encountered in divide
-  return f_raw(*args, **kwargs)
-/usr/local/lib/python3.11/site-packages/autograd/numpy/numpy_vjps.py:52: RuntimeWarning: divide by zero encountered in divide
-  defvjp(anp.true_divide, lambda ans, x, y : unbroadcast_f(x, lambda g: g / y),
-/usr/local/lib/python3.11/site-packages/autograd/numpy/numpy_vjps.py:53: RuntimeWarning: invalid value encountered in double_scalars
-  lambda ans, x, y : unbroadcast_f(y, lambda g: - g * x / y**2))
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nan
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(nan)
 </pre></div>
 </div>
 </div>
 </div>
-<p><em><strong><span style="color:Violet">EXERCISE</span>:</strong></em> Modify the implementation of <code class="docutils literal notranslate"><span class="pre">sinc</span></code> above to cure both of these problems. Hint: <code class="docutils literal notranslate"><span class="pre">grad</span></code> can automatically differentiate through control flow structures (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, etc).</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span>:</strong></em> Modify the implementation of <code class="docutils literal notranslate"><span class="pre">sinc</span></code> above to cure both of these problems. Hint: <code class="docutils literal notranslate"><span class="pre">grad</span></code> can automatically differentiate through control flow structures (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, etc).</p>
 <p>The simplest fix is to return 1 whenever <span class="math notranslate nohighlight">\(x\)</span> is zero:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -801,10 +795,6 @@ f_{\text{auto}}(x) \equiv f(x) = \frac{\cos(e^x)}{x^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.11/site-packages/autograd/tracer.py:14: UserWarning: Output seems independent of input.
-  warnings.warn(&quot;Output seems independent of input.&quot;)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(0.)
 </pre></div>
 </div>
@@ -891,53 +881,36 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_rosenbrock</span><span class="p">(</span><span class="n">xrange</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">yrange</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">ngrid</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-                    <span class="n">shaded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">all_calls</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the Rosenbrock function with some optional decorations.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    xrange : tuple</span>
-<span class="sd">        Tuple (xlo, xhi) with the x range to plot.</span>
-<span class="sd">    yrange : tuple</span>
-<span class="sd">        Tuple (ylo, yhi) with the y range to plot.</span>
-<span class="sd">    ngrid : int</span>
-<span class="sd">        Number of grid points along x and y to use.</span>
-<span class="sd">    shaded : bool</span>
-<span class="sd">        Draw a shaded background using a log scale for the colormap.</span>
-<span class="sd">    path : array or None</span>
-<span class="sd">        Array of shape (npath,2) with (x,y) coordinates along a path to draw.</span>
-<span class="sd">        A large &quot;X&quot; will mark the starting point.</span>
-<span class="sd">    all_calls : array or None</span>
-<span class="sd">        Array of shape (ncall,2) with (x,y) coordinates of additional calls to</span>
-<span class="sd">        indicate on the plot. Only points not in path will be visually distinct.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Tabulate the Rosenbrock function on the specified grid.</span>
+                    <span class="n">shaded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">all_calls</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">xrange</span><span class="p">,</span> <span class="n">ngrid</span><span class="p">)</span>
     <span class="n">y_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">yrange</span><span class="p">,</span> <span class="n">ngrid</span><span class="p">)</span>
     <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x_grid</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_grid</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_grid</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="c1"># Plot the function.</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
     <span class="k">if</span> <span class="n">shaded</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">xrange</span><span class="p">,</span> <span class="o">*</span><span class="n">yrange</span><span class="p">],</span>
-                   <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">y_grid</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">],</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">xrange</span><span class="p">,</span> <span class="o">*</span><span class="n">yrange</span><span class="p">],</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">y_grid</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">],</span>
                    <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.0g</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">all_calls</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">all_calls</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.0g</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">all_calls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">all_calls</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">path</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">path</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">*</span><span class="n">xrange</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">*</span><span class="n">yrange</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">xrange</span><span class="p">,</span> <span class="n">yrange</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">path</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">path</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">*</span><span class="n">xrange</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">*</span><span class="n">yrange</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xrange</span><span class="p">,</span> <span class="n">yrange</span><span class="p">,</span> <span class="n">ax</span>
 </pre></div>
 </div>
 </div>
@@ -945,28 +918,30 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 <p>This function has a curved valley with a shallow minimum at <span class="math notranslate nohighlight">\((x,y) = (1,1)\)</span> and steeply rising sides:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rosenbrock</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rosenbrock</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8271b17d1622208a501128fd4dc9625f8bb501364ddcbc6fea10e029b499f53d.png" src="../../_images/8271b17d1622208a501128fd4dc9625f8bb501364ddcbc6fea10e029b499f53d.png" />
+<img alt="../../_images/5af377f260f6a57918b3dba17f5224f58e6c09e4b9377a0125b82e4411dc6d73.png" src="../../_images/5af377f260f6a57918b3dba17f5224f58e6c09e4b9377a0125b82e4411dc6d73.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Is the Rosenbrock function convex?  In other words, does a straight line between any two points on its surface always lie above the surface?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Is the Rosenbrock function convex?  In other words, does a straight line between any two points on its surface always lie above the surface?</p>
 <p>The Rosenbrock function is not convex. Take, for example, the line <span class="math notranslate nohighlight">\(x_1 = 1\)</span> shown above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e635f6521486c7f32bbde53201a230ff5b01af4dbd7501a5cc88f7db68bb117.png" src="../../_images/6e635f6521486c7f32bbde53201a230ff5b01af4dbd7501a5cc88f7db68bb117.png" />
+<img alt="../../_images/4bf0efadd94c65412a795c646bb513df48719cdfb7fdbc178e9d745c9dcf71de.png" src="../../_images/4bf0efadd94c65412a795c646bb513df48719cdfb7fdbc178e9d745c9dcf71de.png" />
 </div>
 </div>
-<p>The <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">scipy.optimize</a> module implements a suite of standard general-purpose algorithms that are accessible via its <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">minimize</a> function. For example, to find the minimum of the Rosenbrock function starting from <span class="math notranslate nohighlight">\((-1,0)\)</span> and using the robust <a class="reference external" href="https://en.wikipedia.org/wiki/Nelder-Mead_method">Nelder-Mead</a> algorithm (aka <i>downhill simplex method</i> or <i>amoeba method</i>), which does not use derivatives:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>The <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">scipy.optimize</a> module implements a suite of standard general-purpose algorithms that are accessible via its <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">minimize</a> function. For example, to find the minimum of the Rosenbrock function starting from <span class="math notranslate nohighlight">\((-1,0)\)</span> and using the robust <a class="reference external" href="https://en.wikipedia.org/wiki/Nelder-Mead_method">Nelder-Mead</a> algorithm (aka <i>downhill simplex method</i> or <i>amoeba method</i>), which does not use derivatives:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;Nelder-Mead&#39;</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
@@ -1029,7 +1004,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error is (</span><span class="si">{:+.2g}</span><span class="s1">,</span><span class="si">{:+.2g}</span><span class="s1">) after </span><span class="si">{}</span><span class="s1"> iterations making </span><span class="si">{}</span><span class="s1">+</span><span class="si">{}</span><span class="s1"> calls in </span><span class="si">{:.2f}</span><span class="s1"> ms.&#39;</span>
           <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span> <span class="n">opt</span><span class="o">.</span><span class="n">nit</span><span class="p">,</span> <span class="n">opt</span><span class="o">.</span><span class="n">nfev</span><span class="p">,</span> <span class="n">njev</span><span class="p">,</span> <span class="mf">1e3</span> <span class="o">*</span> <span class="p">(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">)))</span>    
 
-    <span class="n">xrange</span><span class="p">,</span> <span class="n">yrange</span> <span class="o">=</span> <span class="n">plot_rosenbrock</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">all_calls</span><span class="o">=</span><span class="n">all_calls</span><span class="p">)</span>
+    <span class="n">xrange</span><span class="p">,</span> <span class="n">yrange</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plot_rosenbrock</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">all_calls</span><span class="o">=</span><span class="n">all_calls</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1042,14 +1017,14 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (+9.4e-06,+1.6e-05) after 83 iterations making 153+0 calls in 3.43 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (+9.4e-06,+1.6e-05) after 83 iterations making 153+0 calls in 9.15 ms.
 </pre></div>
 </div>
-<img alt="../../_images/5442130363ce3e847bdecc0f7c43fbc3b33afeba7501d1b00ccb5a90752ee733.png" src="../../_images/5442130363ce3e847bdecc0f7c43fbc3b33afeba7501d1b00ccb5a90752ee733.png" />
+<img alt="../../_images/649538d25e8aa2bfce47759944fffcc7ce6e087d3bfac096305d795478e41557.png" src="../../_images/649538d25e8aa2bfce47759944fffcc7ce6e087d3bfac096305d795478e41557.png" />
 </div>
 </div>
 <p>In this example, we found the true minimum with an error below <span class="math notranslate nohighlight">\(10^{-4}\)</span> in each coordinate (as requested) using about 150 calls to evaluate <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>, but an exhaustive grid search would have required more than <span class="math notranslate nohighlight">\(10^{8}\)</span> calls to achieve comparable accuracy!</p>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Conjugate_gradient_method">conjugate-gradient (CG) method</a> uses gradient derivatives to always move downhill:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Conjugate_gradient_method">conjugate-gradient (CG) method</a> uses gradient derivatives to always move downhill:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimize_rosenbrock</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span> <span class="n">use_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1057,10 +1032,10 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-3.7e-06,-7.2e-06) after 20 iterations making 43+43 calls in 9.89 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-3.7e-06,-7.2e-06) after 20 iterations making 43+43 calls in 10.42 ms.
 </pre></div>
 </div>
-<img alt="../../_images/48721f3e10e4e6bac5e11378c9ff532395b8e5f9a3e91ea3496c66075ebe2ba2.png" src="../../_images/48721f3e10e4e6bac5e11378c9ff532395b8e5f9a3e91ea3496c66075ebe2ba2.png" />
+<img alt="../../_images/c7d46bc959eabb86b466144e9847df9fb3de815724ae569c9fb2f00c60c7cb94.png" src="../../_images/c7d46bc959eabb86b466144e9847df9fb3de815724ae569c9fb2f00c60c7cb94.png" />
 </div>
 </div>
 <p>CG can follow essentially the same path using numerical estimates of the gradient derivatives, which requires more evaluations of <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> but is still faster in this case:</p>
@@ -1071,13 +1046,13 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-7.4e-06,-1.5e-05) after 20 iterations making 129+43 calls in 6.17 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-7.4e-06,-1.5e-05) after 20 iterations making 129+43 calls in 7.75 ms.
 </pre></div>
 </div>
-<img alt="../../_images/b6de57f6ea9507ab7fc8da09eabd576b851e09dce102d326185f06049f5fe52d.png" src="../../_images/b6de57f6ea9507ab7fc8da09eabd576b851e09dce102d326185f06049f5fe52d.png" />
+<img alt="../../_images/adc2a488f63f7d3737e378f7f6bfc51d423fcf5ad5d307c9fb98fec974c7081e.png" src="../../_images/adc2a488f63f7d3737e378f7f6bfc51d423fcf5ad5d307c9fb98fec974c7081e.png" />
 </div>
 </div>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Newton's_method_in_optimization">Newton’s CG method</a> requires analytic derivatives and makes heavy use of them to measure and exploit the curvature of the local surface:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><a class="reference external" href="https://en.wikipedia.org/wiki/Newton's_method_in_optimization">Newton’s CG method</a> requires analytic derivatives and makes heavy use of them to measure and exploit the curvature of the local surface:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimize_rosenbrock</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;Newton-CG&#39;</span><span class="p">,</span> <span class="n">use_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1085,13 +1060,13 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-1.2e-06,-2.3e-06) after 38 iterations making 51+129 calls in 26.81 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-1.2e-06,-2.3e-06) after 38 iterations making 51+129 calls in 23.60 ms.
 </pre></div>
 </div>
-<img alt="../../_images/2799c594d5c86309dc4700b417a9095480bd114d2d986d73751a8da12cbc02ab.png" src="../../_images/2799c594d5c86309dc4700b417a9095480bd114d2d986d73751a8da12cbc02ab.png" />
+<img alt="../../_images/3cedf34cb1b5393cf469206ffd75aa702cbe9ca0944b09be604dc794b446ae05.png" src="../../_images/3cedf34cb1b5393cf469206ffd75aa702cbe9ca0944b09be604dc794b446ae05.png" />
 </div>
 </div>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Powell's_method">Powell’s method</a> does not use derivatives but requires many auxiliary evaluations of <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><a class="reference external" href="https://en.wikipedia.org/wiki/Powell's_method">Powell’s method</a> does not use derivatives but requires many auxiliary evaluations of <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimize_rosenbrock</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;Powell&#39;</span><span class="p">,</span> <span class="n">use_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1099,13 +1074,13 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-2.2e-16,-5.6e-16) after 15 iterations making 383+0 calls in 5.39 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-2.2e-16,-5.6e-16) after 15 iterations making 383+0 calls in 3.91 ms.
 </pre></div>
 </div>
-<img alt="../../_images/95d9575072a899ef01388a4637fd297918d7d6c57555ee50005925b765c3b8e1.png" src="../../_images/95d9575072a899ef01388a4637fd297918d7d6c57555ee50005925b765c3b8e1.png" />
+<img alt="../../_images/d284dc23fcc5e511250de74ab9e95002b4127edd720850a15ab3a6d035e17fdd.png" src="../../_images/d284dc23fcc5e511250de74ab9e95002b4127edd720850a15ab3a6d035e17fdd.png" />
 </div>
 </div>
-<p>Finally, the <a class="reference external" href="https://en.wikipedia.org/wiki/Broyden-Fletcher-Goldfarb-Shanno_algorithm">BFGS method</a> is a good all-around default choice, with or without derivatives:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>Finally, the <a class="reference external" href="https://en.wikipedia.org/wiki/Broyden-Fletcher-Goldfarb-Shanno_algorithm">BFGS method</a> is a good all-around default choice, with or without derivatives:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimize_rosenbrock</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;BFGS&#39;</span><span class="p">,</span> <span class="n">use_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1113,10 +1088,10 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-7.2e-06,-1.4e-05) after 25 iterations making 99+33 calls in 4.65 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-7.2e-06,-1.4e-05) after 25 iterations making 99+33 calls in 5.98 ms.
 </pre></div>
 </div>
-<img alt="../../_images/6c5b0ebad26359fa6839ebc19480e92c4a168d03b9ab2748f336c695f7f0f4a6.png" src="../../_images/6c5b0ebad26359fa6839ebc19480e92c4a168d03b9ab2748f336c695f7f0f4a6.png" />
+<img alt="../../_images/677ed421a4f8172ffe9efc5f4e44ff2cd90819b839cc369ed393832640aaa0cf.png" src="../../_images/677ed421a4f8172ffe9efc5f4e44ff2cd90819b839cc369ed393832640aaa0cf.png" />
 </div>
 </div>
 <p>The choice of initial starting point can have a big effect on the optimization cost, as measured by the number of calls to evaluate <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>.  For example, compare:</p>
@@ -1130,7 +1105,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-5.7e-06,-1.2e-05) after 15 iterations making 54+18 calls in 3.90 ms.
 </pre></div>
 </div>
-<img alt="../../_images/33b9ef507d43c6dde6235175f0d0539c7f01abbef9b76776671f0258fad80102.png" src="../../_images/33b9ef507d43c6dde6235175f0d0539c7f01abbef9b76776671f0258fad80102.png" />
+<img alt="../../_images/fe3d720c39c0d6e9bd7f0d492dc7468267d8dfa7948546aacfce0e2179cd9a10.png" src="../../_images/fe3d720c39c0d6e9bd7f0d492dc7468267d8dfa7948546aacfce0e2179cd9a10.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1140,19 +1115,20 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-4.5e-06,-8.9e-06) after 34 iterations making 123+41 calls in 7.22 ms.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error is (-4.5e-06,-8.9e-06) after 34 iterations making 123+41 calls in 7.77 ms.
 </pre></div>
 </div>
-<img alt="../../_images/7a53fda35f56b2de3389bc9188668cfce9085b3b4819b35b29a573d3c295c0c4.png" src="../../_images/7a53fda35f56b2de3389bc9188668cfce9085b3b4819b35b29a573d3c295c0c4.png" />
+<img alt="../../_images/5cde90dff76046ea53bc54b19600273fd69b9531506e0ca14b17e369668142e3.png" src="../../_images/5cde90dff76046ea53bc54b19600273fd69b9531506e0ca14b17e369668142e3.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Predict which initial starting points would require the most calls to evaluate <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> for the Rosenbrock function?  Does your answer depend on the optimization method?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</span></strong></em>: Predict which initial starting points would require the most calls to evaluate <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> for the Rosenbrock function?  Does your answer depend on the optimization method?</p>
 <p>The cost can be very sensitive to the initial conditions in ways that are difficult to predict. Different methods will have different sensitivities but, generally, the slower more robust methods should be less sensitive with more predictable costs.</p>
 <p>The function below maps the cost as a function of the starting point:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cost_map</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">ngrid</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
-    <span class="n">xrange</span><span class="p">,</span> <span class="n">yrange</span> <span class="o">=</span> <span class="n">plot_rosenbrock</span><span class="p">(</span><span class="n">shaded</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">xrange</span><span class="p">,</span> <span class="n">yrange</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plot_rosenbrock</span><span class="p">(</span><span class="n">shaded</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     <span class="n">x0_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">xrange</span><span class="p">,</span> <span class="n">ngrid</span><span class="p">)</span>
     <span class="n">y0_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">yrange</span><span class="p">,</span> <span class="n">ngrid</span><span class="p">)</span>
     <span class="n">cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">ngrid</span><span class="p">,</span> <span class="n">ngrid</span><span class="p">))</span>
@@ -1160,9 +1136,10 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
         <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">y0</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y0_vec</span><span class="p">):</span>
             <span class="n">opt</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="p">,</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">)</span>
             <span class="n">cost</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">nfev</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">xrange</span><span class="p">,</span> <span class="o">*</span><span class="n">yrange</span><span class="p">],</span>
-               <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Number of calls&#39;</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">xrange</span><span class="p">,</span> <span class="o">*</span><span class="n">yrange</span><span class="p">],</span>
+                   <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Number of calls&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1175,7 +1152,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e4b2297ec58b475190165da460a14ea4500a21f99e0a126e8b5ec6a2941d4fad.png" src="../../_images/e4b2297ec58b475190165da460a14ea4500a21f99e0a126e8b5ec6a2941d4fad.png" />
+<img alt="../../_images/f1375f16bca6822dff8e733aba2fb25614dfe42c626446b293f5a298bde69ebd.png" src="../../_images/f1375f16bca6822dff8e733aba2fb25614dfe42c626446b293f5a298bde69ebd.png" />
 </div>
 </div>
 <p>The Nelder-Mead “ox”, in contrast, is more expensive overall (both plots use the same color scale), but has a smoother cost function (but there are still some isolated “hot spots”):</p>
@@ -1186,10 +1163,10 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fb742f0f8ffe5e1976b2f4ba6b91d53efaf8c60aa2b8217fb2fb24cb8233561b.png" src="../../_images/fb742f0f8ffe5e1976b2f4ba6b91d53efaf8c60aa2b8217fb2fb24cb8233561b.png" />
+<img alt="../../_images/2f1839beb0ade795aa40cb97148efed16d39043112475131c48ccb9311cca76b.png" src="../../_images/2f1839beb0ade795aa40cb97148efed16d39043112475131c48ccb9311cca76b.png" />
 </div>
 </div>
-<p>When the function you are optimizing is derived from a likelihood (which includes a chi-squared likelihood for binned data), there are some other optimization packages that you might find useful:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>When the function you are optimizing is derived from a likelihood (which includes a chi-squared likelihood for binned data), there are some other optimization packages that you might find useful:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://cars9.uchicago.edu/software/python/lmfit/">lmfit</a>: a more user-friendly front-end to <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>.</p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/MINUIT">minuit</a>: a favorite in the particle physics community that is generally more robust and provides tools to estimate (frequentist) parameter uncertainties.</p></li>
@@ -1221,7 +1198,7 @@ f(x_0, x_1) = (1 - x_0)^2 + 100 (x_1 - x_0 ^2)^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c13669308b69ce895230092bcfa44f26daefdc2924d276ac9a0b6ad372c36e80.png" src="../../_images/c13669308b69ce895230092bcfa44f26daefdc2924d276ac9a0b6ad372c36e80.png" />
+<img alt="../../_images/8c929522d3814725cef273d5f92146558c0ebd1c60648077bd2d9cc816e1c11a.png" src="../../_images/8c929522d3814725cef273d5f92146558c0ebd1c60648077bd2d9cc816e1c11a.png" />
 </div>
 </div>
 <p>The corresponding negative-log-likelihood (NLL) function of the <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameters is then (we write it out explicitly using autograd numpy calls so we can perform automatic differentiation later):</p>
@@ -1345,17 +1322,16 @@ f(\theta) = -\log P(\theta\mid D) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0cf87d9f51ef65d18e112d4e4122e08839433439c5b4b017aab762b4da7f53d2.png" src="../../_images/0cf87d9f51ef65d18e112d4e4122e08839433439c5b4b017aab762b4da7f53d2.png" />
+<img alt="../../_images/2672aa6145744aea096dec5d905b241176dfd78440720eaeb50a7755c65d26f0.png" src="../../_images/2672aa6145744aea096dec5d905b241176dfd78440720eaeb50a7755c65d26f0.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">DISCUSS</strong></em></span>: Why is <span class="math notranslate nohighlight">\(f(\theta)\)</span> not centered at the true value <span class="math notranslate nohighlight">\((\mu, \sigma) = (0, 1)\)</span>?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS</strong></em></span>: Why is <span class="math notranslate nohighlight">\(f(\theta)\)</span> not centered at the true value <span class="math notranslate nohighlight">\((\mu, \sigma) = (0, 1)\)</span>?</p>
 <p>There are two reasons:</p>
 <ul class="simple">
 <li><p>Statistical fluctuations in the randomly generated data will generally offset the maximum likelihood contours. The expected size of this shift is referred to as the <em><strong><span style="color:Violet">statistical uncertainty</span></strong></em>.</p></li>
 <li><p>The priors favor a lower value of <span class="math notranslate nohighlight">\(\sigma\)</span>, which pulls these contours down. The size of this shift will be negligible for an informative experiment, and significant when there is insufficient data.</p></li>
 </ul>
-<hr class="docutils" />
-<p><em><strong><span style="color:Violet">DISCUSS</span></strong></em>: How do you expect the plot above to change if only half of the data is used?  How would using the first or second half change the plot?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS</span></strong></em>: How do you expect the plot above to change if only half of the data is used?  How would using the first or second half change the plot?</p>
 <p>Using half of the data will increase the statistical uncertainty, resulting in larger contours. Independent subsets of the data will have uncorrelated shifts due to the statistical uncertainty.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1364,7 +1340,7 @@ f(\theta) = -\log P(\theta\mid D) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/40b216222f9966c446ff05844bc9d9ca9906f724ad9cd0f36bc0e035e131fc04.png" src="../../_images/40b216222f9966c446ff05844bc9d9ca9906f724ad9cd0f36bc0e035e131fc04.png" />
+<img alt="../../_images/ab7fdba7c16a57e0b7cab85db9334e7a62b48a585da390adcfeb5c2277905d94.png" src="../../_images/ab7fdba7c16a57e0b7cab85db9334e7a62b48a585da390adcfeb5c2277905d94.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1374,7 +1350,7 @@ f(\theta) = -\log P(\theta\mid D) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ede1b24e783449d61e9f8e2bf8a2b531efbcd43ce26428011309869595da678a.png" src="../../_images/ede1b24e783449d61e9f8e2bf8a2b531efbcd43ce26428011309869595da678a.png" />
+<img alt="../../_images/d00a69464485d2bf7f9bc01363b2c0626859d1f32c92ca1441776bcd546730eb.png" src="../../_images/d00a69464485d2bf7f9bc01363b2c0626859d1f32c92ca1441776bcd546730eb.png" />
 </div>
 </div>
 <p>We will optimize this function using a simple gradient descent with a fixed learning rate <span class="math notranslate nohighlight">\(\eta\)</span>:</p>
@@ -1418,10 +1394,10 @@ f(\theta) = -\log P(\theta\mid D) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b056a3f6ed81a288b3b35b6f3c6bfc9a6e0563852246f6c5a1467d0a0e67f47.png" src="../../_images/0b056a3f6ed81a288b3b35b6f3c6bfc9a6e0563852246f6c5a1467d0a0e67f47.png" />
+<img alt="../../_images/4f24528d2eea44d365894577e0b2b39abe668f77718269e463320405001cdc94.png" src="../../_images/4f24528d2eea44d365894577e0b2b39abe668f77718269e463320405001cdc94.png" />
 </div>
 </div>
-<p>The <span style="color:Violet">stochastic gradient</span> method uses a random subset of the data, called a <span style="color:Violet">minibatch</span>, during each iteration. Only small changes to <code class="docutils literal notranslate"><span class="pre">StochasticGradient</span></code> above are required to implement this scheme (and no changes are needed to <code class="docutils literal notranslate"><span class="pre">step</span></code>):</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>The <span style="color:Violet">stochastic gradient</span> method uses a random subset of the data, called a <span style="color:Violet">minibatch</span>, during each iteration. Only small changes to <code class="docutils literal notranslate"><span class="pre">StochasticGradient</span></code> above are required to implement this scheme (and no changes are needed to <code class="docutils literal notranslate"><span class="pre">step</span></code>):</p>
 <ul class="simple">
 <li><p>Add a <code class="docutils literal notranslate"><span class="pre">seed</span></code> parameter for reproducible random subsets.</p></li>
 <li><p>Specify the minibatch size <code class="docutils literal notranslate"><span class="pre">n_minibatch</span></code> and use <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html">np.random.choice</a> to select it during each iteration.</p></li>
@@ -1450,7 +1426,7 @@ f(\theta) = -\log P(\theta\mid D) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7585d4b96889fe635393d97bdb7687987778e92200510f0189e9e73337f98516.png" src="../../_images/7585d4b96889fe635393d97bdb7687987778e92200510f0189e9e73337f98516.png" />
+<img alt="../../_images/337ed3d64c797abd5aa76709de05e0c637337d04769fdd3f1c5ac62884e41082.png" src="../../_images/337ed3d64c797abd5aa76709de05e0c637337d04769fdd3f1c5ac62884e41082.png" />
 </div>
 </div>
 <p>Note that the learning-rate decay is essential to prevent the optimizer wandering aimlessly once it gets close to the minimum:</p>
@@ -1462,7 +1438,7 @@ f(\theta) = -\log P(\theta\mid D) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cd0d8bb7637e2bd3afb3fb041322b7183d75c7087a72212721b22ea78efd9038.png" src="../../_images/cd0d8bb7637e2bd3afb3fb041322b7183d75c7087a72212721b22ea78efd9038.png" />
+<img alt="../../_images/cc42b9c34f980a7823ebd9f76fe8fecdd655c04be4dcf9571b736cb40a46bf91.png" src="../../_images/cc42b9c34f980a7823ebd9f76fe8fecdd655c04be4dcf9571b736cb40a46bf91.png" />
 </div>
 </div>
 <p>Remarkably, <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">stochastic gradient descent (SGD)</a> works with even smaller minibatches, with some careful tuning of the hyperparameters, although it might converge to a slightly different minimum. For example:</p>
@@ -1474,7 +1450,7 @@ f(\theta) = -\log P(\theta\mid D) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/83dea33c1be88c89c58378856e7bbaf28c58247a3d8b0bdbdcf4b7f966d22cc6.png" src="../../_images/83dea33c1be88c89c58378856e7bbaf28c58247a3d8b0bdbdcf4b7f966d22cc6.png" />
+<img alt="../../_images/0d79f76c08897f341c43c11cc957b63469828f1a9173ee524e26770f8c1362e8.png" src="../../_images/0d79f76c08897f341c43c11cc957b63469828f1a9173ee524e26770f8c1362e8.png" />
 </div>
 </div>
 <p>Comparing this example with our <code class="docutils literal notranslate"><span class="pre">GradientDescent</span></code> above, we find that the number of steps has increased 5x while the amount of data used during each iteration has decreased 10x, so roughly a net factor of 2 improvement in overall performance.</p>
@@ -1484,13 +1460,12 @@ f(\theta) = -\log P(\theta\mid D) \; .
 <li><p>The noise introduced by SGD helps prevent “over-learning” of the training data and improves the resulting ability to generalize to data outside the training set. We will revisit this theme soon.</p></li>
 </ul>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
