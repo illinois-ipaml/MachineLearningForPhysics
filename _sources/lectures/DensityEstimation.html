@@ -556,7 +556,7 @@ document.write(`
 <p>We will also use the <a class="reference external" href="http://www.astroml.org/">astroML package</a> below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install astroML
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>astroML
 <span class="kn">import</span><span class="w"> </span><span class="nn">astroML.density_estimation</span>
 </pre></div>
 </div>
@@ -621,7 +621,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d9424c53df9a689ec9c2c7b3a7df1bc3abde7161d20533dd9945dd279a63b0f8.png" src="../../_images/d9424c53df9a689ec9c2c7b3a7df1bc3abde7161d20533dd9945dd279a63b0f8.png" />
+<img alt="../../_images/4fdb9e433ffcfde56c9b29ddbc9c6e35b28d86b0214760239fc000b636b311b9.png" src="../../_images/4fdb9e433ffcfde56c9b29ddbc9c6e35b28d86b0214760239fc000b636b311b9.png" />
 </div>
 </div>
 </section>
@@ -700,7 +700,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cd6adbf181ac7c5d2ec1173a80c31623cb1ad5364a131f36220fd60ad317efb7.png" src="../../_images/cd6adbf181ac7c5d2ec1173a80c31623cb1ad5364a131f36220fd60ad317efb7.png" />
+<img alt="../../_images/2ae09f40ded0ca0950d7499ef427ce1f2109e2398079356dc44b0a710256eb42.png" src="../../_images/2ae09f40ded0ca0950d7499ef427ce1f2109e2398079356dc44b0a710256eb42.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -710,7 +710,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/44cf45a1e5b06aea8551692580f6234471b21b9cc64b5f750a04e1bc42eb81a7.png" src="../../_images/44cf45a1e5b06aea8551692580f6234471b21b9cc64b5f750a04e1bc42eb81a7.png" />
+<img alt="../../_images/1ced15cef37ceeea20cc031c55a2a63327e50c4b359ead311a5e39aca22c054f.png" src="../../_images/1ced15cef37ceeea20cc031c55a2a63327e50c4b359ead311a5e39aca22c054f.png" />
 </div>
 </div>
 <p>These histogram density estimates are not very useful because we have chosen fixed bins that are too small for so few samples.  As an alternative, we can use the data to determine the binning, e.g. with the <a class="reference external" href="https://en.wikipedia.org/wiki/Freedman-Diaconis_rule">Freedman-Diaconnis rule</a> that <code class="docutils literal notranslate"><span class="pre">sns.distplot</span></code> uses when <code class="docutils literal notranslate"><span class="pre">bins=None</span></code>:</p>
@@ -721,7 +721,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10b681c20fad7d976cdec21b37ea040a5b22efefe9921b2377d37c5e7bb11948.png" src="../../_images/10b681c20fad7d976cdec21b37ea040a5b22efefe9921b2377d37c5e7bb11948.png" />
+<img alt="../../_images/ddf14b3d38a7771c50aaeab36abf92b14efeebcadd48f81d76ab0c8166a5ee60.png" src="../../_images/ddf14b3d38a7771c50aaeab36abf92b14efeebcadd48f81d76ab0c8166a5ee60.png" />
 </div>
 </div>
 <p>This is an improvement, but an even better use of the data is to center the contribution of each sample on the sample itself, which is the key idea of <strong>kernel density estimation</strong>:</p>
@@ -732,7 +732,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/79f1e0ba036aea95d7a0967697ad8e4ba54f680be3f0c589a9291b80dcb13d75.png" src="../../_images/79f1e0ba036aea95d7a0967697ad8e4ba54f680be3f0c589a9291b80dcb13d75.png" />
+<img alt="../../_images/406851fc43d7892b369fcba81444993c54d222306c3c03fd0bfdb0603682c136.png" src="../../_images/406851fc43d7892b369fcba81444993c54d222306c3c03fd0bfdb0603682c136.png" />
 </div>
 </div>
 <p>There is nothing special about the “tophat” shape assigned to each sample, which we call the <strong>kernel</strong>, and other choices are equally valid, e.g.</p>
@@ -743,7 +743,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/654e904875aafbfa75ce2c7e64588ca4978800f2eb8c29de957f9f92be2afd2d.png" src="../../_images/654e904875aafbfa75ce2c7e64588ca4978800f2eb8c29de957f9f92be2afd2d.png" />
+<img alt="../../_images/a8822f695421c49f8187db25941c59c99cbe779f9e54a8119073247aa7c775bc.png" src="../../_images/a8822f695421c49f8187db25941c59c99cbe779f9e54a8119073247aa7c775bc.png" />
 </div>
 </div>
 <p><em><strong><span style="color:violet">NOTE</span></strong></em>: this <span style="color:violet">kernel</span> is not the same as the <span style="color:violet">kernel functions</span> we discussed earlier:</p>
@@ -759,7 +759,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4dcbe1c12610230a97cbf9a4e3315bee669643d843df774c079383b86fedff84.png" src="../../_images/4dcbe1c12610230a97cbf9a4e3315bee669643d843df774c079383b86fedff84.png" />
+<img alt="../../_images/8ce89215c3d7fc56818a7ad2efe01e894072e8306e49e6b2a355f8e11c53893a.png" src="../../_images/8ce89215c3d7fc56818a7ad2efe01e894072e8306e49e6b2a355f8e11c53893a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -769,7 +769,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4fd57aeda8faba668755f5e983d89896058c95ba728fa5c1d6891da37e46064d.png" src="../../_images/4fd57aeda8faba668755f5e983d89896058c95ba728fa5c1d6891da37e46064d.png" />
+<img alt="../../_images/347512c6814bfc4e355e829a197624e3213049eab46577b7992ff6629cb2cfad.png" src="../../_images/347512c6814bfc4e355e829a197624e3213049eab46577b7992ff6629cb2cfad.png" />
 </div>
 </div>
 <p>The <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KernelDensity.html">sklearn implementation</a> of <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimation (KDE)</a> uses the familiar calling pattern, with two significant hyperparameters:</p>
@@ -789,7 +789,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/654e904875aafbfa75ce2c7e64588ca4978800f2eb8c29de957f9f92be2afd2d.png" src="../../_images/654e904875aafbfa75ce2c7e64588ca4978800f2eb8c29de957f9f92be2afd2d.png" />
+<img alt="../../_images/a8822f695421c49f8187db25941c59c99cbe779f9e54a8119073247aa7c775bc.png" src="../../_images/a8822f695421c49f8187db25941c59c99cbe779f9e54a8119073247aa7c775bc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -799,7 +799,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/20d8d75db6435417bf0a7b61e8d0089318f910ee093f7807c61da8c89fbd65bf.png" src="../../_images/20d8d75db6435417bf0a7b61e8d0089318f910ee093f7807c61da8c89fbd65bf.png" />
+<img alt="../../_images/62cb0003193e1f4fca161d113756ff81dd41f96d9167681b9a81af4f3f721882.png" src="../../_images/62cb0003193e1f4fca161d113756ff81dd41f96d9167681b9a81af4f3f721882.png" />
 </div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: How should the bandwidth be tuned, if at all, to account for:</p>
@@ -823,7 +823,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e5cd94fdbb498d69298c782e23fd25d916271e23b263bf4ec902f6f795cf76a9.png" src="../../_images/e5cd94fdbb498d69298c782e23fd25d916271e23b263bf4ec902f6f795cf76a9.png" />
+<img alt="../../_images/69b7ba5643ecbafb5013c9143ce31960ced01841699f9444678cc03693011e5f.png" src="../../_images/69b7ba5643ecbafb5013c9143ce31960ced01841699f9444678cc03693011e5f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -834,7 +834,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/458f3894b38d9955388d44d21f6d12d1b6805ba63c4711f06e9af86e7a685b9a.png" src="../../_images/458f3894b38d9955388d44d21f6d12d1b6805ba63c4711f06e9af86e7a685b9a.png" />
+<img alt="../../_images/d5ba35e3e452a7450dbc5942c5c4be79d5d227b825eb24b2f205836b8d8f67c2.png" src="../../_images/d5ba35e3e452a7450dbc5942c5c4be79d5d227b825eb24b2f205836b8d8f67c2.png" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">sns.displot</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.jointplot</span></code> visualizations can also superimpose a KDE in 1D and 2D, although with less convenient control of the hyperparameters, e.g.</p>
@@ -848,7 +848,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8b2c71d0460a82affb743941dac82325f645c64954d36ade39e1815fd12454ef.png" src="../../_images/8b2c71d0460a82affb743941dac82325f645c64954d36ade39e1815fd12454ef.png" />
+<img alt="../../_images/341102ed96c674ea5e85ea15bdfdacf16cb5301d25be8487dd5cb118b31179d7.png" src="../../_images/341102ed96c674ea5e85ea15bdfdacf16cb5301d25be8487dd5cb118b31179d7.png" />
 </div>
 </div>
 <p>For more quantitative applications, first run a <code class="docutils literal notranslate"><span class="pre">KernelDensity</span></code> fit with the usual calling convention:</p>
@@ -906,7 +906,7 @@ b_i = x_{\min} + (x_{\max} - x_{\min}) \frac{i}{B} \quad , \quad i = 0, 1, \ldot
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f87511ec967673b4fd5c5671f0cce51011e872a539eb54ada272645fa3879cc9.png" src="../../_images/f87511ec967673b4fd5c5671f0cce51011e872a539eb54ada272645fa3879cc9.png" />
+<img alt="../../_images/2691107ba6ed29214ed5353549cbcc85ff88c04832eb3b21ab17dab57f822070.png" src="../../_images/2691107ba6ed29214ed5353549cbcc85ff88c04832eb3b21ab17dab57f822070.png" />
 </div>
 </div>
 <p>The most general Gaussian kernel would have <span class="math notranslate nohighlight">\(D(D+1)/2\)</span> shape parameters (covariance matrix elements) that vary slowly over the <span class="math notranslate nohighlight">\(N\)</span>-dimensional parameter space, instead of a single <code class="docutils literal notranslate"><span class="pre">bandwidth</span></code> parameter.</p>
@@ -963,7 +963,7 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8.91534159e-03, 2.43144309e-03, 2.90695614e-17])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.01703431e-02, 1.12305962e-02, 1.14493549e-16])
 </pre></div>
 </div>
 </div>
@@ -976,12 +976,12 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 3.35920221,  6.8992151 ,  6.23358241],
-        [ 5.28533637,  9.77821911,  3.46514107],
-        [ 4.33487451,  5.45480832,  6.40348508],
-        [11.82288738,  3.12351438,  9.23645078],
-        [10.7868612 , -1.14385655, 13.29797882]]),
- array([0, 0, 0, 1, 2]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[9.08776030e+00, 5.18614914e+00, 8.45747850e+00],
+        [1.35964154e+01, 5.67723068e+00, 1.45469294e+01],
+        [1.18657188e+01, 1.42661790e-03, 1.49977988e+01],
+        [3.55900392e+00, 9.43986076e+00, 4.75033020e+00],
+        [2.79794415e+00, 4.11623484e+00, 5.37144909e+00]]),
+ array([0, 1, 1, 2, 2]))
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1007,7 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2474b59e735d257ea59274dc9dab1ab084170b162abe56cc688600d7ed101aa3.png" src="../../_images/2474b59e735d257ea59274dc9dab1ab084170b162abe56cc688600d7ed101aa3.png" />
+<img alt="../../_images/d15ad01c9c23553efff56e06ca4742d69d4b96dbb3ba3bdb30dc9de9a17440a1.png" src="../../_images/d15ad01c9c23553efff56e06ca4742d69d4b96dbb3ba3bdb30dc9de9a17440a1.png" />
 </div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>Sometimes the individual <span class="math notranslate nohighlight">\(\alpha_i\)</span>, <span class="math notranslate nohighlight">\(\mu_i\)</span> and <span class="math notranslate nohighlight">\(C_i\)</span> parameters of each fitted component are useful.  For example, the parameters of the earlier 3D GMM fit are (do the shapes of each array make sense?):</p>
@@ -1020,21 +1020,21 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.501 0.249 0.25 ]
-[[ 3.928  5.98   4.992]
- [ 7.916  5.033 10.016]
- [11.918  1.013 13.981]]
-[[[ 1.028e+00  4.800e-02 -2.700e-02]
-  [ 4.800e-02  2.805e+00 -2.600e-02]
-  [-2.700e-02 -2.600e-02  9.880e-01]]
-
- [[ 3.871e+00 -1.511e+00 -2.020e-01]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.249 0.25  0.501]
+[[ 7.916  5.033 10.016]
+ [11.918  1.013 13.981]
+ [ 3.928  5.98   4.992]]
+[[[ 3.871e+00 -1.511e+00 -2.020e-01]
   [-1.511e+00  1.027e+00 -4.000e-03]
   [-2.020e-01 -4.000e-03  1.992e+00]]
 
  [[ 9.260e-01  9.000e-02 -2.000e-03]
   [ 9.000e-02  3.758e+00  9.890e-01]
-  [-2.000e-03  9.890e-01  1.072e+00]]]
+  [-2.000e-03  9.890e-01  1.072e+00]]
+
+ [[ 1.028e+00  4.800e-02 -2.700e-02]
+  [ 4.800e-02  2.805e+00 -2.600e-02]
+  [-2.700e-02 -2.600e-02  9.880e-01]]]
 </pre></div>
 </div>
 </div>
@@ -1204,7 +1204,7 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AIC = 23357.804, BIC = 23520.230
 </pre></div>
 </div>
-<img alt="../../_images/363f402d4fc7fbd0be1a1b7c0ad9be3e322baaa57fde97ddb45ad9ff4058f50f.png" src="../../_images/363f402d4fc7fbd0be1a1b7c0ad9be3e322baaa57fde97ddb45ad9ff4058f50f.png" />
+<img alt="../../_images/40c0af1d15a4aa85f2acf809225d2bcb1af536d8a16a16b87cbb0160bc8010fd.png" src="../../_images/40c0af1d15a4aa85f2acf809225d2bcb1af536d8a16a16b87cbb0160bc8010fd.png" />
 </div>
 </div>
 <p>Although GMM is primarily a density estimator, a GMM fit can also be used for clustering, with the advantage that we can calculate the relative probability of cluster membership for borderline samples. However, some care is required to interpret GMM for clustering since, unlike other clustering methods, GMM components can be highly overlapping and a single “visual cluster” is often fit with multiple Gaussians.</p>
@@ -1217,10 +1217,10 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AIC = 3186.266, BIC = 3434.928
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AIC = 3187.868, BIC = 3436.530
 </pre></div>
 </div>
-<img alt="../../_images/726ad11a2845346110d5ebe04cf104b8b9f475247c91efd27b233f48bfe614d7.png" src="../../_images/726ad11a2845346110d5ebe04cf104b8b9f475247c91efd27b233f48bfe614d7.png" />
+<img alt="../../_images/d047c7b1a449df03162820cbdf92c83e2385f45049ffcf4e3d263b056916df88.png" src="../../_images/d047c7b1a449df03162820cbdf92c83e2385f45049ffcf4e3d263b056916df88.png" />
 </div>
 </div>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike information criterion (AIC)</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_information_criterion">Bayesian information criterion (BIC)</a> are different measures of the <span style="color:violet">goodness-of-fit</span> of the GMM to the data.  They both reward small residuals while penalizing extra fit parameters, to provide guidance on how many components to use.  However, both methods are ad-hoc and you should prefer the (more expensive) model selection methods we will see later whenever the answer really matters.</p>
@@ -1241,7 +1241,7 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cccdc64b180fb37638f026c7e981d613c12e242ade249ae7d78a0245e4a7d91e.png" src="../../_images/cccdc64b180fb37638f026c7e981d613c12e242ade249ae7d78a0245e4a7d91e.png" />
+<img alt="../../_images/1f19dfbab73b47c5a6a591128502ecf3abdcd2e2aa78b398f4e3afd96dc09d92.png" src="../../_images/1f19dfbab73b47c5a6a591128502ecf3abdcd2e2aa78b398f4e3afd96dc09d92.png" />
 </div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>GMM is closely related to two other algorithms we have already encountered, <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> and <code class="docutils literal notranslate"><span class="pre">FactorAnalysis</span></code>:</p>
@@ -1285,9 +1285,9 @@ G(\vec{x} ; \vec{\mu}, C) = \left(2\pi\right)^{-D/2}\,\left| C\right|^{-1/2}\,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4619bd2347ab712559053088f799385fbbd89d95ca77a6549e2faba6d1095ea5.png" src="../../_images/4619bd2347ab712559053088f799385fbbd89d95ca77a6549e2faba6d1095ea5.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.59 s, sys: 1.15 s, total: 2.74 s
-Wall time: 726 ms
+<img alt="../../_images/c0a8e887120f82c206e8895223f70727fdc21089c447bfab4563c325736779d1.png" src="../../_images/c0a8e887120f82c206e8895223f70727fdc21089c447bfab4563c325736779d1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.63 s, sys: 781 ms, total: 3.41 s
+Wall time: 1.55 s
 </pre></div>
 </div>
 </div>
@@ -1300,9 +1300,9 @@ Wall time: 726 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d2db45491b227b149d0c5fdf46834621b936a122ad0096e0b4f1d145d7c40444.png" src="../../_images/d2db45491b227b149d0c5fdf46834621b936a122ad0096e0b4f1d145d7c40444.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.3 s, sys: 1.26 s, total: 11.5 s
-Wall time: 9.6 s
+<img alt="../../_images/91ffafd62b37bd0e0c91a98a77c34ca0937caeaf002d0f90502650863d412f82.png" src="../../_images/91ffafd62b37bd0e0c91a98a77c34ca0937caeaf002d0f90502650863d412f82.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21.5 s, sys: 905 ms, total: 22.4 s
+Wall time: 21 s
 </pre></div>
 </div>
 </div>
@@ -1315,9 +1315,9 @@ Wall time: 9.6 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/582a1a7d456009c89066dcf3fe07a8d49adfb88883df5d3f6062794b82d92ffe.png" src="../../_images/582a1a7d456009c89066dcf3fe07a8d49adfb88883df5d3f6062794b82d92ffe.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.3 s, sys: 1.22 s, total: 11.5 s
-Wall time: 9.63 s
+<img alt="../../_images/af405e118d24469fff18e9894939b120edc63deb22058aaaac090a33947c95ed.png" src="../../_images/af405e118d24469fff18e9894939b120edc63deb22058aaaac090a33947c95ed.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21.6 s, sys: 1.01 s, total: 22.6 s
+Wall time: 21.1 s
 </pre></div>
 </div>
 </div>
