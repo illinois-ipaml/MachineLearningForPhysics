@@ -579,7 +579,7 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7c3e43a26c3e4ea8e554a477670e0ebd983d0facf20eed8d8556f8bb80680a6b.png" src="../../_images/7c3e43a26c3e4ea8e554a477670e0ebd983d0facf20eed8d8556f8bb80680a6b.png" />
+<img alt="../../_images/33b7be2b5fd5a811b4213832e8a2cc410952c4cf3f329f01f16774757aaed4c1.png" src="../../_images/33b7be2b5fd5a811b4213832e8a2cc410952c4cf3f329f01f16774757aaed4c1.png" />
 </div>
 </div>
 <p>However, the normalization integral cannot be evaluated analytically (it is related to the <a class="reference external" href="https://en.wikipedia.org/wiki/Elliptic_integral#Complete_elliptic_integral_of_the_first_kind">complete elliptic integral of the first kind</a>), so this is a good candidate for MCMC sampling using the <code class="docutils literal notranslate"><span class="pre">MCMC_sample</span></code> function (which wraps <a class="reference external" href="http://dfm.io/emcee/">emcee</a>):</p>
@@ -834,7 +834,7 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d5e348b8f5e7d2fdad5697b5ed4387c6a702fe9dfa5515fbabf188acd6f5a6ea.png" src="../../_images/d5e348b8f5e7d2fdad5697b5ed4387c6a702fe9dfa5515fbabf188acd6f5a6ea.png" />
+<img alt="../../_images/3170ea3ae82bace5b25794f3927e02e504d3992f5783d69372f1812639e52375.png" src="../../_images/3170ea3ae82bace5b25794f3927e02e504d3992f5783d69372f1812639e52375.png" />
 </div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>What are MCMC samples good for? They allow us to estimate the expectation value of an arbitrary <span class="math notranslate nohighlight">\(g(z)\)</span> using <a class="reference external" href="https://en.wikipedia.org/wiki/Importance_sampling">importance sampling</a>:</p>
@@ -852,7 +852,7 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.2740147079636278)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.2729666505147651)
 </pre></div>
 </div>
 </div>
@@ -865,7 +865,7 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.5304571809549571)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.5414157152385632)
 </pre></div>
 </div>
 </div>
@@ -900,10 +900,10 @@ f(z) = \begin{cases}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean P(z)/f(z) = 1.766
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean P(z)/f(z) = 1.761
 </pre></div>
 </div>
-<img alt="../../_images/1f7eeb2cae1b7d32b1958e6a4270e5e7aa22e87c4657a2bf0d13eb04551376ca.png" src="../../_images/1f7eeb2cae1b7d32b1958e6a4270e5e7aa22e87c4657a2bf0d13eb04551376ca.png" />
+<img alt="../../_images/3ed88991303846091ab0bc23c1c0916f3371d3446cea69c8c3a75439e47f0973.png" src="../../_images/3ed88991303846091ab0bc23c1c0916f3371d3446cea69c8c3a75439e47f0973.png" />
 </div>
 </div>
 <p>The estimated <span class="math notranslate nohighlight">\(P(z)\)</span> does not look great, but since it is just a scaled version of the smooth un-normalized <span class="math notranslate nohighlight">\(f(z)\)</span>, their ratio at each <span class="math notranslate nohighlight">\(z\)</span> is an estimate of the integral:</p>
@@ -975,28 +975,28 @@ f(\vec{z}, \vec{z}_0, r) =
   <tbody>
     <tr>
       <th>0</th>
-      <td>2.056148</td>
-      <td>-1.290368</td>
+      <td>0.151537</td>
+      <td>-0.575190</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.056148</td>
-      <td>-1.290368</td>
+      <td>0.157340</td>
+      <td>-0.592389</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2.056148</td>
-      <td>-1.290368</td>
+      <td>0.157340</td>
+      <td>-0.592389</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2.056148</td>
-      <td>-1.290368</td>
+      <td>-0.111930</td>
+      <td>-0.261769</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.830559</td>
-      <td>-1.291290</td>
+      <td>-0.143943</td>
+      <td>-0.296305</td>
     </tr>
   </tbody>
 </table>
@@ -1013,7 +1013,7 @@ f(\vec{z}, \vec{z}_0, r) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aecc74c9b12796461a20533e73b2b385ee6ec39b298e6c273fa600f5955a13c5.png" src="../../_images/aecc74c9b12796461a20533e73b2b385ee6ec39b298e6c273fa600f5955a13c5.png" />
+<img alt="../../_images/19fb71622a8976d6cd5ff5016834446b6772bafe3c75797f8d58da7e9d502b51.png" src="../../_images/19fb71622a8976d6cd5ff5016834446b6772bafe3c75797f8d58da7e9d502b51.png" />
 </div>
 </div>
 <p>With multidimensional samples, we can estimate expectation values of marginal PDFs just as easily as the full joint PDF.  In our 2D example, the marginal PDFs are:</p>
@@ -1035,7 +1035,7 @@ P_X(x) = \int dy\, P(x, y) \quad , \quad P_Y(y) = \int dx\, P(x, y) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7585619568721117)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7498779978326038)
 </pre></div>
 </div>
 </div>
@@ -1064,7 +1064,7 @@ P_X(x) = \int dy\, P(x, y) \quad , \quad P_Y(y) = \int dx\, P(x, y) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/899719684d0a80d028cbc4c9b6c188c7acd6d635d9e71b2a087a0738d26a8176.png" src="../../_images/899719684d0a80d028cbc4c9b6c188c7acd6d635d9e71b2a087a0738d26a8176.png" />
+<img alt="../../_images/e0b48a7019b556c3e99a0c854dc7e5bfd7613ebf9164797437aa1c385ca130f5.png" src="../../_images/e0b48a7019b556c3e99a0c854dc7e5bfd7613ebf9164797437aa1c385ca130f5.png" />
 </div>
 </div>
 </section>
@@ -1128,7 +1128,7 @@ P(\vec{x}_1, \vec{x}_2, \ldots\mid \Theta_M, M) = \prod_{i=1}^N\, P(\vec{x}_i\mi
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ddbc1052860c27b312b1a96b1cff884c12a6e233906b2449c5475d4300f4e042.png" src="../../_images/ddbc1052860c27b312b1a96b1cff884c12a6e233906b2449c5475d4300f4e042.png" />
+<img alt="../../_images/496c5f843fb04cbfaa7eb4b66bf5b325c498819504c5564f98405c1c25b53812.png" src="../../_images/496c5f843fb04cbfaa7eb4b66bf5b325c498819504c5564f98405c1c25b53812.png" />
 </div>
 </div>
 <p>Next, define the log-likelihood function:</p>
@@ -1168,7 +1168,7 @@ P(b,m\mid \sigma_y) = 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/14ee1de6ca8dd2ad2dddb180bcb7426a86158526bcdbf7681df70830cfec0929.png" src="../../_images/14ee1de6ca8dd2ad2dddb180bcb7426a86158526bcdbf7681df70830cfec0929.png" />
+<img alt="../../_images/ae258d8004a78f1fc964cab3e863ed90e008d526f038c9ff41e1fd6e2459ceae.png" src="../../_images/ae258d8004a78f1fc964cab3e863ed90e008d526f038c9ff41e1fd6e2459ceae.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1426,7 +1426,7 @@ P(\Theta\mid M) = \prod_j P(\theta_j\mid M)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/54b65627a5179963e58e658797abbc3aa83bde4fb0c425ed09f6fcbafe1e9f45.png" src="../../_images/54b65627a5179963e58e658797abbc3aa83bde4fb0c425ed09f6fcbafe1e9f45.png" />
+<img alt="../../_images/2a5371d8ba79272fa7acfad795e852dc47d23ed39f8a790f6fbd0e9c00d62064.png" src="../../_images/2a5371d8ba79272fa7acfad795e852dc47d23ed39f8a790f6fbd0e9c00d62064.png" />
 </div>
 </div>
 <p>We can also add a prior on <span class="math notranslate nohighlight">\(b\)</span>.  For example, suppose a previous measurement found <span class="math notranslate nohighlight">\(b = -0.20 \pm 0.02\)</span> (in which case, the new data is not adding much information about <span class="math notranslate nohighlight">\(b\)</span>):</p>
@@ -1446,7 +1446,7 @@ P(\Theta\mid M) = \prod_j P(\theta_j\mid M)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/158bf6475f3391527fa6199fafea7dc7392fe96c9d1a205a6cd7619b862ab60d.png" src="../../_images/158bf6475f3391527fa6199fafea7dc7392fe96c9d1a205a6cd7619b862ab60d.png" />
+<img alt="../../_images/fa685a0a126642669549b90c79dbfcbba9ed268a50633efc3925e7271db8df78.png" src="../../_images/fa685a0a126642669549b90c79dbfcbba9ed268a50633efc3925e7271db8df78.png" />
 </div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em> Suppose we know that all <span class="math notranslate nohighlight">\(y_i\)</span> values have the same error <span class="math notranslate nohighlight">\(\sigma_y\)</span> but we do not know its value.</p>
@@ -1472,7 +1472,7 @@ P(\Theta\mid M) = \prod_j P(\theta_j\mid M)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/00413013121d0ed28a963d99bfaa3b325593652488e2ed1256218de02adb7a38.png" src="../../_images/00413013121d0ed28a963d99bfaa3b325593652488e2ed1256218de02adb7a38.png" />
+<img alt="../../_images/712e203e248c97f2e5fec28934be960473ec8adffc053723f3d1cbe4cfe7eb20.png" src="../../_images/712e203e248c97f2e5fec28934be960473ec8adffc053723f3d1cbe4cfe7eb20.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1491,7 +1491,7 @@ P(\Theta\mid M) = \prod_j P(\theta_j\mid M)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/89a2e9a74fd92f117f7447d927141a44bd2950d8c7c8f89069f05c49838b5bb9.png" src="../../_images/89a2e9a74fd92f117f7447d927141a44bd2950d8c7c8f89069f05c49838b5bb9.png" />
+<img alt="../../_images/895ccab33111f64bf9611596f577c703335695aeac26637db8c54fdc876018c2.png" src="../../_images/895ccab33111f64bf9611596f577c703335695aeac26637db8c54fdc876018c2.png" />
 </div>
 </div>
 <p>For a more in-depth case study of the many subtleties in fitting a straight line, read this 55-page <a class="reference external" href="https://arxiv.org/abs/1008.4686">article by Hogg, Bovy and Lang</a>.</p>
