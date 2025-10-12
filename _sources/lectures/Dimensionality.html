@@ -596,15 +596,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File ‘./tmp_data/line_data.csv’ already there; not retrieving.
-File ‘./tmp_data/pong_data.hf5’ already there; not retrieving.
-File ‘./tmp_data/cluster_3d_data.hf5’ already there; not retrieving.
-File ‘./tmp_data/cosmo_targets.hf5’ already there; not retrieving.
-File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="span-style-color-orange-load-data-span">
@@ -713,10 +704,10 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e13b06304c69f5a34c9f125adac95b5b211c9482cec89d7eaf19ac57981f2b67.png" src="../../_images/e13b06304c69f5a34c9f125adac95b5b211c9482cec89d7eaf19ac57981f2b67.png" />
+<img alt="../../_images/d40862ca0c5916fd6b522b71fd8ca3e8a39a92edb0c05a64e791e8b1dcc0d3c8.png" src="../../_images/d40862ca0c5916fd6b522b71fd8ca3e8a39a92edb0c05a64e791e8b1dcc0d3c8.png" />
 </div>
 </div>
-<p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: Is this data is still 1D if (refer to the plots below):</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: Is this data is still 1D if (refer to the plots below):</p>
 <ul class="simple">
 <li><p>we add some small scatter in the <span class="math notranslate nohighlight">\(2^\mathrm{nd}\)</span> dimension?</p></li>
 <li><p>we perform a coordinate rotation so that <span class="math notranslate nohighlight">\(y \sim m x\)</span>?</p></li>
@@ -725,10 +716,8 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 <p>The scatter adds new information in a second dimension, but we can approximately ignore it under two assumptions:</p>
 <ul class="simple">
 <li><p>The relative scaling of the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> columns is meaningful (which is almost certainly not true if these columns have different dimensions - recall our earlier comments about normalizing data).</p></li>
-<li><p>The origin of the scatter is due to measurement error or some other un-informative process.</p></li>
+<li><p>The origin of the scatter is due to measurement error or some other un-informative process:</p></li>
 </ul>
-<p>The rotation does not change the effective dimensionality of the data.</p>
-<p>A non-linear relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> also does not change the underlying dimensionality since we could, in principle, perform a non-linear change of coordinates to undo it.  However, we can expect that non-linear relationships will be harder to deal with than linear ones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add some scatter in the 2nd dimension.</span>
@@ -739,9 +728,10 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cf8542d69a6f64d976fa05f3f31214787e4d084ba12af552aaef42d45665043c.png" src="../../_images/cf8542d69a6f64d976fa05f3f31214787e4d084ba12af552aaef42d45665043c.png" />
+<img alt="../../_images/af64b9f96649d102f5b3a7fe0b8dee7ef1890a186bb20b3ecb86f0b076a585b0.png" src="../../_images/af64b9f96649d102f5b3a7fe0b8dee7ef1890a186bb20b3ecb86f0b076a585b0.png" />
 </div>
 </div>
+<p>The rotation does not change the effective dimensionality of the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rotate by 30 deg counter-clockwise.</span>
@@ -755,9 +745,10 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6cb07cea7acbc2a8faf3843d749b611282612a5710ff730704747643df5d6fa4.png" src="../../_images/6cb07cea7acbc2a8faf3843d749b611282612a5710ff730704747643df5d6fa4.png" />
+<img alt="../../_images/ee172429875aaa876f7e303bc63adf90f74a8ccc7999411f7f6dc5cce9842d17.png" src="../../_images/ee172429875aaa876f7e303bc63adf90f74a8ccc7999411f7f6dc5cce9842d17.png" />
 </div>
 </div>
+<p>A non-linear relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> also does not change the underlying dimensionality since we could, in principle, perform a non-linear change of coordinates to undo it.  However, we can expect that non-linear relationships will be harder to deal with than linear ones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the nonlinear y ~ x ** 2 + x instead of y ~ x.</span>
@@ -768,10 +759,10 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9eb2f62121dbb578ba2b6e915877376099cfdea2fe8d1759f96774f72d7b7016.png" src="../../_images/9eb2f62121dbb578ba2b6e915877376099cfdea2fe8d1759f96774f72d7b7016.png" />
+<img alt="../../_images/594843a85c1945eeca8be86937bb5e4c894dd90c086794a69422df617207c1e1.png" src="../../_images/594843a85c1945eeca8be86937bb5e4c894dd90c086794a69422df617207c1e1.png" />
 </div>
 </div>
-<p>We will use <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code> below.  Note from the table above that it appears to be severely undersampled with <span class="math notranslate nohighlight">\(N=200\)</span>, <span class="math notranslate nohighlight">\(D=500\)</span>.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>We will use <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code> below.  Note from the table above that it appears to be severely undersampled with <span class="math notranslate nohighlight">\(N=200\)</span>, <span class="math notranslate nohighlight">\(D=500\)</span>.</p>
 <p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Plot some rows (samples) of <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code> using <code class="docutils literal notranslate"><span class="pre">plt.plot(spectra_data.iloc[i],</span> <span class="pre">'.')</span></code> to get a feel for this dataset. What do you think the effective dimensionality of this data is?  (Hint: how many independent parameters you would need to generate this data?)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -781,7 +772,7 @@ File ‘./tmp_data/spectra_data.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7506c05d41604067e28256cb5bcea192fa671f6f913d7484c7567f741b7dfc8a.png" src="../../_images/7506c05d41604067e28256cb5bcea192fa671f6f913d7484c7567f741b7dfc8a.png" />
+<img alt="../../_images/2e3be36750a9511fca156fad3a5f0666d55d06014ee5933879f81f62da4885e0.png" src="../../_images/2e3be36750a9511fca156fad3a5f0666d55d06014ee5933879f81f62da4885e0.png" />
 </div>
 </div>
 <p>Each sample is a graph of a smooth function with some noise added.  The smooth function has three distinct components:</p>
@@ -888,6 +879,7 @@ Since the data could be reproduced with just normalization parameters (except fo
         <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">(d=</span><span class="si">{}</span><span class="s1">): $\sigma = </span><span class="si">{:.1e}</span><span class="s1">$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Xr</span> <span class="o">-</span> <span class="n">X</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
              <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -906,7 +898,7 @@ C = \frac{1}{N-1}\, X^T X
 <ul class="simple">
 <li><p>Construct <span class="math notranslate nohighlight">\(M\)</span> from the eigenvectors of the sample covariance matrix <span class="math notranslate nohighlight">\(C\)</span> (<span class="math notranslate nohighlight">\(X^T X\)</span> up to a multiplicative constant) ordered by decreasing eigenvalue (which are all positive) and solve the resulting linear equations for the latent variables <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
 </ul>
-<p>What you need to remember about eigenvectors and eigenvalues is that they always come in pairs, so that every eigenvector has an eigenvalue. Also, their number is equal to the number of dimensions of the data. For example, for a 3-dimensional data set, there are 3 variables, therefore there are 3 eigenvectors with 3 corresponding eigenvalues. The eigenvectors of the covariance matrix <span class="math notranslate nohighlight">\(C\)</span> of the data are referred to as the <em><strong>principal axes</strong></em> of the data, and the projection of the data instances onto these principal axes are called the <em><strong>principal components</strong></em>. The eigenvalues are simply the coefficients attached to the eigenvectors, which give the amount of variance carried in each principal axis. By ranking the eigenvectors in order of their eigenvalues, highest to lowest, you get the principal components in order of significance.</p>
+<p>What you need to remember about eigenvectors and eigenvalues is that they always come in pairs, so that every eigenvector has an eigenvalue. Also, their number is equal to the number of dimensions of the data. For example, for a 3-dimensional data set, there are 3 variables, therefore there are 3 eigenvectors with 3 corresponding eigenvalues. The eigenvectors of the covariance matrix <span class="math notranslate nohighlight">\(C\)</span> of the data are referred to as the <span style="color:violet">principal axes</span> of the data, and the projection of the data instances onto these principal axes are called the <span style="color:violet">principal components</span>. The eigenvalues are simply the coefficients attached to the eigenvectors, which give the amount of variance carried in each principal axis. By ranking the eigenvectors in order of their eigenvalues, highest to lowest, you get the principal components in order of significance.</p>
 <p>As with any matrix <span class="math notranslate nohighlight">\(C\)</span>, the eigenvectors <span class="math notranslate nohighlight">\(\vec{v}\)</span> and eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> satisfy</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -959,14 +951,14 @@ X^T X = M^T \Lambda M
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7860c5d617cf932382eb8d12b3cb2c67633a3afc1e931d178a7b42db7b5a5379.png" src="../../_images/7860c5d617cf932382eb8d12b3cb2c67633a3afc1e931d178a7b42db7b5a5379.png" />
+<img alt="../../_images/0552d8f3799b7c10f16778541cf17f001d5f56982dbfc860cf609e4850e2a014.png" src="../../_images/0552d8f3799b7c10f16778541cf17f001d5f56982dbfc860cf609e4850e2a014.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/24802f60cd0c6a5f2cd8e50659505774387800113c661c6fa5434debcd9dd5f9.png" src="../../_images/24802f60cd0c6a5f2cd8e50659505774387800113c661c6fa5434debcd9dd5f9.png" />
+<img alt="../../_images/0f0f690b52012914fb26e38c2f6190284539317992af6cd7918272440caaa732.png" src="../../_images/0f0f690b52012914fb26e38c2f6190284539317992af6cd7918272440caaa732.png" />
 </div>
 </div>
-<p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: How many clusters do you expect to see in the scatter plot of <code class="docutils literal notranslate"><span class="pre">y0</span></code> versus <code class="docutils literal notranslate"><span class="pre">y1</span></code> above based on what you know about this dataset?  Can you identify these clusters in plot above?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">DISCUSS</span></strong></em>: How many clusters do you expect to see in the scatter plot of <code class="docutils literal notranslate"><span class="pre">y0</span></code> versus <code class="docutils literal notranslate"><span class="pre">y1</span></code> above based on what you know about this dataset?  Can you identify these clusters in plot above?</p>
 <p>We expect to see 4 clusters, corresponding to spectra with:</p>
 <ul class="simple">
 <li><p>No peaks.</p></li>
@@ -994,11 +986,11 @@ X^T X = M^T \Lambda M
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4a4bfe802ed76966d49cd50cac3f2d93026cbe78788be4d9a8a4b7e8a1fe1942.png" src="../../_images/4a4bfe802ed76966d49cd50cac3f2d93026cbe78788be4d9a8a4b7e8a1fe1942.png" />
+<img alt="../../_images/111c6712752333366abb966fc24a3674bc44ee9ef5ed0679a8a559f7aa34a742.png" src="../../_images/111c6712752333366abb966fc24a3674bc44ee9ef5ed0679a8a559f7aa34a742.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/8fe129db12c59dd29e1b77103a86afeb63f9908ba0b6bcaf1aabe4fe3f6103c2.png" src="../../_images/8fe129db12c59dd29e1b77103a86afeb63f9908ba0b6bcaf1aabe4fe3f6103c2.png" />
+<img alt="../../_images/169538f6419f8141bf7b700028fa0ce5165ca628241fb784b19f295ce94f6aac.png" src="../../_images/169538f6419f8141bf7b700028fa0ce5165ca628241fb784b19f295ce94f6aac.png" />
 </div>
 </div>
 </section>
@@ -1020,11 +1012,11 @@ X_{ij} \rightarrow X_{ij} - \mu_i \quad , \quad \mu_i \equiv \frac{1}{N} \sum_i\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/393d56c60a5b65b4a0008d83fc4cc4d2a43bd39787149a56f6845a083609944e.png" src="../../_images/393d56c60a5b65b4a0008d83fc4cc4d2a43bd39787149a56f6845a083609944e.png" />
+<img alt="../../_images/87482c8d28bc98b46dad1588c7ed8b7f7184e1cdb4e68e993a97e08abf5e776e.png" src="../../_images/87482c8d28bc98b46dad1588c7ed8b7f7184e1cdb4e68e993a97e08abf5e776e.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/0b8a9d8454959e008ac627d746de392d079577658c7759b5d1fbbcfc61206af4.png" src="../../_images/0b8a9d8454959e008ac627d746de392d079577658c7759b5d1fbbcfc61206af4.png" />
+<img alt="../../_images/af8957c8f814fafcf1ae241c8b83d9eb4b20077d0a3df32f3cd8c285748dd668.png" src="../../_images/af8957c8f814fafcf1ae241c8b83d9eb4b20077d0a3df32f3cd8c285748dd668.png" />
 </div>
 </div>
 <p>To see the importance of the extra latent variable, try with d=2 and note how poorly samples are reconstructed:</p>
@@ -1035,11 +1027,11 @@ X_{ij} \rightarrow X_{ij} - \mu_i \quad , \quad \mu_i \equiv \frac{1}{N} \sum_i\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f0d74aa0ea9f3260700168953d31187255a83b726bf6fbc1d7eebeebdb540e91.png" src="../../_images/f0d74aa0ea9f3260700168953d31187255a83b726bf6fbc1d7eebeebdb540e91.png" />
+<img alt="../../_images/77314b5db16815476e1b3e9ef08d97348b672f964663aa99292201d33b0c3304.png" src="../../_images/77314b5db16815476e1b3e9ef08d97348b672f964663aa99292201d33b0c3304.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/f12a844330efc35c74782493048c6556af8af6c55c020aaf2dbaa957ba316e72.png" src="../../_images/f12a844330efc35c74782493048c6556af8af6c55c020aaf2dbaa957ba316e72.png" />
+<img alt="../../_images/226403b94e4458648d0041ce93700734716dd0ecde1ae54ac7874c089215b5ee.png" src="../../_images/226403b94e4458648d0041ce93700734716dd0ecde1ae54ac7874c089215b5ee.png" />
 </div>
 </div>
 </section>
@@ -1059,11 +1051,11 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/82b247c0c9190e5b1af78c7b3ffef60e9bca087601fbcd30e8b448821897c8bc.png" src="../../_images/82b247c0c9190e5b1af78c7b3ffef60e9bca087601fbcd30e8b448821897c8bc.png" />
+<img alt="../../_images/1227f96e663c2067519ebc52fbbbd92f1c85a4fc2a5112b1618ca7dbc1583c4c.png" src="../../_images/1227f96e663c2067519ebc52fbbbd92f1c85a4fc2a5112b1618ca7dbc1583c4c.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/cab44f6d33f38f90d806f449a82a2d4d1c4f0a8eb9af729c8cb5575656d3c8a3.png" src="../../_images/cab44f6d33f38f90d806f449a82a2d4d1c4f0a8eb9af729c8cb5575656d3c8a3.png" />
+<img alt="../../_images/405c75337975474c4542a1699060f3b3a6329f3c7ed4c28bebcf461db9cda010.png" src="../../_images/405c75337975474c4542a1699060f3b3a6329f3c7ed4c28bebcf461db9cda010.png" />
 </div>
 </div>
 </section>
@@ -1096,10 +1088,10 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d12670b9ac8cbf42a6eb9dab1b5d697736bc70bc33180491bb0cee31289af193.png" src="../../_images/d12670b9ac8cbf42a6eb9dab1b5d697736bc70bc33180491bb0cee31289af193.png" />
+<img alt="../../_images/544580611168abf88723bd744b4db4e983be34e2f4a5a2848826e32e62847ce2.png" src="../../_images/544580611168abf88723bd744b4db4e983be34e2f4a5a2848826e32e62847ce2.png" />
 </div>
 </div>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em> Use the <code class="docutils literal notranslate"><span class="pre">demo()</span></code> function with <code class="docutils literal notranslate"><span class="pre">data=pong_data</span></code> and <span class="math notranslate nohighlight">\(d = 1, 2, 3,\ldots\)</span> to determine how many latent variables are necessary to give a good reconstruction.  Do the 1D plots of individual <code class="docutils literal notranslate"><span class="pre">pong_data</span></code> samples make sense?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em> Use the <code class="docutils literal notranslate"><span class="pre">demo()</span></code> function with <code class="docutils literal notranslate"><span class="pre">data=pong_data</span></code> and <span class="math notranslate nohighlight">\(d = 1, 2, 3,\ldots\)</span> to determine how many latent variables are necessary to give a good reconstruction.  Do the 1D plots of individual <code class="docutils literal notranslate"><span class="pre">pong_data</span></code> samples make sense?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demo</span><span class="p">(</span><span class="s1">&#39;PCA&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pong_data</span><span class="p">)</span>
@@ -1107,11 +1099,11 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b363e750f2c8796a191f878945bfb6d894155db067dcefb821a37ddc9866453f.png" src="../../_images/b363e750f2c8796a191f878945bfb6d894155db067dcefb821a37ddc9866453f.png" />
+<img alt="../../_images/1575d1c6ff3a75712d41d6e6b2a24ac6a36affb40a9cccbf1540339da8c78316.png" src="../../_images/1575d1c6ff3a75712d41d6e6b2a24ac6a36affb40a9cccbf1540339da8c78316.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/9db853cf12f2686f153e5ab043f64b588ad46e8e8710c9472cf27d6d7feb5ce6.png" src="../../_images/9db853cf12f2686f153e5ab043f64b588ad46e8e8710c9472cf27d6d7feb5ce6.png" />
+<img alt="../../_images/0942b1348d025f0fe7a5eefe7139d85b35af6581808717d93b653eb62f1d39b9.png" src="../../_images/0942b1348d025f0fe7a5eefe7139d85b35af6581808717d93b653eb62f1d39b9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1121,11 +1113,11 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fc8b81bcadf093070bb6252798f49e76c24f916c04101d02f5431863966da71a.png" src="../../_images/fc8b81bcadf093070bb6252798f49e76c24f916c04101d02f5431863966da71a.png" />
+<img alt="../../_images/9851b11384de0d38dc4777b47eb8447fb26e3217f6c3d8eb40ccd994e431bed6.png" src="../../_images/9851b11384de0d38dc4777b47eb8447fb26e3217f6c3d8eb40ccd994e431bed6.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/182c7abb875b3b80865971aabca49a968b61442f97837f6ab8c25e00f8389dab.png" src="../../_images/182c7abb875b3b80865971aabca49a968b61442f97837f6ab8c25e00f8389dab.png" />
+<img alt="../../_images/f55e134ba252ed9634236b2ef382829a65a75f28568ba118f39c229210715412.png" src="../../_images/f55e134ba252ed9634236b2ef382829a65a75f28568ba118f39c229210715412.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1135,11 +1127,11 @@ P(y_1, y_2, y_3, \ldots) = P(y_1) P(y_2) P(y_3) \ldots
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c813e0632ec4ad9df7fce4b290915ccadc7adff74b68adfaf4664b78151603b3.png" src="../../_images/c813e0632ec4ad9df7fce4b290915ccadc7adff74b68adfaf4664b78151603b3.png" />
+<img alt="../../_images/e17f1ecbacb51cd49b42d33756ce12391789fb5f55ac2d312decea5621d26989.png" src="../../_images/e17f1ecbacb51cd49b42d33756ce12391789fb5f55ac2d312decea5621d26989.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 850x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../../_images/f8a7b0eec67b11ac3eb13525fe226729f8c5007d9b04f2fc2b80c2c58aaddd47.png" src="../../_images/f8a7b0eec67b11ac3eb13525fe226729f8c5007d9b04f2fc2b80c2c58aaddd47.png" />
+<img alt="../../_images/7e04a007280cac3d0dd65d5ab08586bfe984a24c12d786da47175812097cba27.png" src="../../_images/7e04a007280cac3d0dd65d5ab08586bfe984a24c12d786da47175812097cba27.png" />
 </div>
 </div>
 <p>Two latent variables (<span class="math notranslate nohighlight">\(d=2\)</span>) are sufficient for a good reconstruction. The abrupt transition at feature 10 in the reconstructed samples is because features 0-9 are ~linearly increasing x values, while features 10-19 are the corresponding ~parabolic y values.  Note that this dataset has negligible noise compared with <code class="docutils literal notranslate"><span class="pre">spectra_data</span></code>.</p>
