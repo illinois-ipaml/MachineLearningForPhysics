@@ -580,14 +580,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File ‘./tmp_data/circles_data.hf5’ already there; not retrieving.
-File ‘./tmp_data/circles_targets.hf5’ already there; not retrieving.
-File ‘./tmp_data/ess_data.hf5’ already there; not retrieving.
-File ‘./tmp_data/ess_targets.hf5’ already there; not retrieving.
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="span-style-color-orange-load-data-span">
@@ -626,11 +618,11 @@ File ‘./tmp_data/ess_targets.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b62cf8d64ead612565fd34101fdc6c9b2ca58bdeaa62b56b93ca79e133afb89b.png" src="../../_images/b62cf8d64ead612565fd34101fdc6c9b2ca58bdeaa62b56b93ca79e133afb89b.png" />
+<img alt="../../_images/d0ff08392d480b8365ee8f688cd60803e0116d09e99714aefab8e23bd89ac871.png" src="../../_images/d0ff08392d480b8365ee8f688cd60803e0116d09e99714aefab8e23bd89ac871.png" />
 </div>
 </div>
 <p>The plot above is colored using the true labels stored as column <code class="docutils literal notranslate"><span class="pre">y</span></code> of <code class="docutils literal notranslate"><span class="pre">circles_targets</span></code>.</p>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Use KMeans to fit this data as two clusters and plot the results using <code class="docutils literal notranslate"><span class="pre">plot_circles(labels=fit.labels_)</span></code>.  Are the results surprising?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Use KMeans to fit this data as two clusters and plot the results using <code class="docutils literal notranslate"><span class="pre">plot_circles(labels=fit.labels_)</span></code>.  Are the results surprising?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">circles_data</span><span class="p">)</span>
@@ -639,11 +631,11 @@ File ‘./tmp_data/ess_targets.hf5’ already there; not retrieving.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e59e2926d6c6af7fddd54e5f441bb39d499fb4ee3e21b04f857ad45712de56f0.png" src="../../_images/e59e2926d6c6af7fddd54e5f441bb39d499fb4ee3e21b04f857ad45712de56f0.png" />
+<img alt="../../_images/767233de7f9fa6cc2993bd838f9c89e5fd9761a217d8c33b8b6c00de293c93ca.png" src="../../_images/767233de7f9fa6cc2993bd838f9c89e5fd9761a217d8c33b8b6c00de293c93ca.png" />
 </div>
 </div>
 <p>The clusters found by KMeans are not what we want, but also not surprising given that KMeans partitions samples with a simple dividing line (or hyperplane in higher dimensions).</p>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Create a new dataset called <code class="docutils literal notranslate"><span class="pre">circles_3d</span></code> that is a copy of <code class="docutils literal notranslate"><span class="pre">circles_data</span></code> but with a new feature added:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Create a new dataset called <code class="docutils literal notranslate"><span class="pre">circles_3d</span></code> that is a copy of <code class="docutils literal notranslate"><span class="pre">circles_data</span></code> but with a new feature added:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 x_2 = x_0^2 + x_1^2 \; .
@@ -675,10 +667,10 @@ x_2 = x_0^2 + x_1^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f5605fb88f68d26ebeb6998a4fcd494db4926e05cd32a6ff41ed93a5599f61a2.png" src="../../_images/f5605fb88f68d26ebeb6998a4fcd494db4926e05cd32a6ff41ed93a5599f61a2.png" />
+<img alt="../../_images/dd07bac4817d0fdf1d07df36f580c5d763a650ce49f5fcbdef9e64de786b7188.png" src="../../_images/dd07bac4817d0fdf1d07df36f580c5d763a650ce49f5fcbdef9e64de786b7188.png" />
 </div>
 </div>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Finally, fit for two KMeans clusters in your new <code class="docutils literal notranslate"><span class="pre">circles_3d</span></code> data and plot the results, as above. Are the results surprising?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Finally, fit for two KMeans clusters in your new <code class="docutils literal notranslate"><span class="pre">circles_3d</span></code> data and plot the results, as above. Are the results surprising?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">circles_3d</span><span class="p">)</span>
@@ -687,7 +679,7 @@ x_2 = x_0^2 + x_1^2 \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0c3e1d3bbe6108765b67b4f6442ea35a77ceeb8bec1183972f383f871e4f8d74.png" src="../../_images/0c3e1d3bbe6108765b67b4f6442ea35a77ceeb8bec1183972f383f871e4f8d74.png" />
+<img alt="../../_images/bf64189623e6d0c72707714622203a1261fd774b94811349fff3d8d9c0d550b0.png" src="../../_images/bf64189623e6d0c72707714622203a1261fd774b94811349fff3d8d9c0d550b0.png" />
 </div>
 </div>
 <p>This is exactly the result we wanted, but not so surprising after seeing the 3D plot above.</p>
@@ -734,7 +726,7 @@ c
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/825733c0eab40387c7dfe1647cf12f37de489cdd64b2fc01239aea36f7136810.png" src="../../_images/825733c0eab40387c7dfe1647cf12f37de489cdd64b2fc01239aea36f7136810.png" />
+<img alt="../../_images/12228ee647904d378e96df08e1186c37126e28af2120b29dbfae21683b777f2d.png" src="../../_images/12228ee647904d378e96df08e1186c37126e28af2120b29dbfae21683b777f2d.png" />
 </div>
 </div>
 <p>The reason for chosing this peculiar embedding is that it has the following very useful property:</p>
@@ -833,7 +825,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:12: SyntaxWarning: invalid escape sequence &#39;\g&#39;
 &lt;&gt;:12: SyntaxWarning: invalid escape sequence &#39;\g&#39;
-/var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_85167/1846596932.py:12: SyntaxWarning: invalid escape sequence &#39;\g&#39;
+/var/folders/8v/dp0_b8m1779_y4yzc28yjqs40000gn/T/ipykernel_57327/1846596932.py:12: SyntaxWarning: invalid escape sequence &#39;\g&#39;
   plt.text(0.02, 0.92, &#39;$\gamma={:.1f}$&#39;.format(gamma),
 </pre></div>
 </div>
@@ -847,10 +839,10 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fe312863d09e3222fcdefff7bd0f2c01d079d409662cf635afec4a7bd03b1951.png" src="../../_images/fe312863d09e3222fcdefff7bd0f2c01d079d409662cf635afec4a7bd03b1951.png" />
+<img alt="../../_images/635442e7f167dfa2240429a74d4d3a8ba7b65abf7fdb6fbf0d48b04c470420f0.png" src="../../_images/635442e7f167dfa2240429a74d4d3a8ba7b65abf7fdb6fbf0d48b04c470420f0.png" />
 </div>
 </div>
-<p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: The results above are quite sensitive to the choice of hyperparameters. To explore this, rerun <code class="docutils literal notranslate"><span class="pre">kpca_demo</span></code> with different values of <span class="math notranslate nohighlight">\(\gamma\)</span>.  What do you conclude?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: The results above are quite sensitive to the choice of hyperparameters. To explore this, rerun <code class="docutils literal notranslate"><span class="pre">kpca_demo</span></code> with different values of <span class="math notranslate nohighlight">\(\gamma\)</span>.  What do you conclude?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">gamma</span> <span class="ow">in</span> <span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">):</span>
@@ -860,10 +852,10 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/340f47a5d7e247fc55c9b8d03d60973f656155d9f79fd4981f82beb2d5ba8b21.png" src="../../_images/340f47a5d7e247fc55c9b8d03d60973f656155d9f79fd4981f82beb2d5ba8b21.png" />
-<img alt="../../_images/61ed0a9efbd5e5d7f156380c143f364637962986212ea25dff95c939d9bac08a.png" src="../../_images/61ed0a9efbd5e5d7f156380c143f364637962986212ea25dff95c939d9bac08a.png" />
-<img alt="../../_images/8e0f0ed7ad7a10ab901e70aa05a255df3bdd7adb5498bcd425ea794cd4824abb.png" src="../../_images/8e0f0ed7ad7a10ab901e70aa05a255df3bdd7adb5498bcd425ea794cd4824abb.png" />
-<img alt="../../_images/07190da71706a2f8748d226bcd0bfddc274a0dc29ac8a5bcafaba7af3efd875f.png" src="../../_images/07190da71706a2f8748d226bcd0bfddc274a0dc29ac8a5bcafaba7af3efd875f.png" />
+<img alt="../../_images/f9ec0a17e8a5fb49a4a668274770796f3dbba28fe20d2dc645320241f47780ee.png" src="../../_images/f9ec0a17e8a5fb49a4a668274770796f3dbba28fe20d2dc645320241f47780ee.png" />
+<img alt="../../_images/dcedc2868f3607908efd844768e6fc55cc21cebf3be74b8e285e1e83968b4a06.png" src="../../_images/dcedc2868f3607908efd844768e6fc55cc21cebf3be74b8e285e1e83968b4a06.png" />
+<img alt="../../_images/9f68c1fe3b724ca739a82fbc9db35534fbea1083365b913062dc20cad89256a8.png" src="../../_images/9f68c1fe3b724ca739a82fbc9db35534fbea1083365b913062dc20cad89256a8.png" />
+<img alt="../../_images/e50a57fd9e157c64be1a8b8fcaf86bc566ffdf52cd105387ace9ffb8d4ee5992.png" src="../../_images/e50a57fd9e157c64be1a8b8fcaf86bc566ffdf52cd105387ace9ffb8d4ee5992.png" />
 </div>
 </div>
 <p>The results are finely tuned and small variations in <span class="math notranslate nohighlight">\(\gamma\)</span> can destroy the linear separation. Sensitivity to <span class="math notranslate nohighlight">\(\gamma\)</span> is not too surprising since it is a parameter of the kernel function.  However, KernelPCA results can also change dramatically with a small change to the input data.  See <a class="reference external" href="https://github.com/scikit-learn/scikit-learn/issues/10530">this github issue</a> for details.</p>
@@ -880,7 +872,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a21df151752a7b28cf78b1d7c99494e448ca76d76b8c7f00253e740fc0fa133b.png" src="../../_images/a21df151752a7b28cf78b1d7c99494e448ca76d76b8c7f00253e740fc0fa133b.png" />
+<img alt="../../_images/135c41cb8e944e2efe69a3658cc2569539ff0980eb68ab226ff2d673585837cb.png" src="../../_images/135c41cb8e944e2efe69a3658cc2569539ff0980eb68ab226ff2d673585837cb.png" />
 </div>
 </div>
 <p>The pairplot is confusing until you see the following plot where, in addition, each point is colored according to its true 1D coordinate along the main direction of the manifold (stored in the ‘y’ column of <code class="docutils literal notranslate"><span class="pre">ess_targets</span></code>):</p>
@@ -901,7 +893,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b130e50745896328aec0218b56422b2489998a4feeaaa4d47b45ed1b9f916a9b.png" src="../../_images/b130e50745896328aec0218b56422b2489998a4feeaaa4d47b45ed1b9f916a9b.png" />
+<img alt="../../_images/a63766c0b7e1f78e653344c5f8b07f9e69c03502358c669c9db0101169be9120.png" src="../../_images/a63766c0b7e1f78e653344c5f8b07f9e69c03502358c669c9db0101169be9120.png" />
 </div>
 </div>
 <p>LLE takes advantage of the fact that the manifold is “flat” in the neighborhood of each sample, so can be described locally with a linear approximation.  We construct such a local linear approximation to a sample <span class="math notranslate nohighlight">\(\vec{X}_i\)</span> as:</p>
@@ -955,7 +947,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4e97ec2526704beec673d84b1e52e71a48873a545e8b419f23a2eec3e73bb1fb.png" src="../../_images/4e97ec2526704beec673d84b1e52e71a48873a545e8b419f23a2eec3e73bb1fb.png" />
+<img alt="../../_images/f564e6b6a571bb2f1b7b37e951fbe563d20ade9277d3357e068508fc171787e4.png" src="../../_images/f564e6b6a571bb2f1b7b37e951fbe563d20ade9277d3357e068508fc171787e4.png" />
 </div>
 </div>
 <p>Compare this with what a linear PCA finds:</p>
@@ -968,7 +960,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/466bfd59cd6745871e28b527f14231ab6a24b5e8e4f31a1454d5d1a3cd5f139b.png" src="../../_images/466bfd59cd6745871e28b527f14231ab6a24b5e8e4f31a1454d5d1a3cd5f139b.png" />
+<img alt="../../_images/275221dbc65bc654cbce4077d8957710933ed96ef2076295c9c8d03d34f2afb4.png" src="../../_images/275221dbc65bc654cbce4077d8957710933ed96ef2076295c9c8d03d34f2afb4.png" />
 </div>
 </div>
 <p>Or a KernelPCA:</p>
@@ -981,7 +973,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d8a4cf9b165d98cbc2a1d3cb47c7420f9e361030d96a8b684729c36f46431c0d.png" src="../../_images/d8a4cf9b165d98cbc2a1d3cb47c7420f9e361030d96a8b684729c36f46431c0d.png" />
+<img alt="../../_images/9a546350d36e8fe7020a5c0a06e14500382d4d3466be4d653f668aadde15efb2.png" src="../../_images/9a546350d36e8fe7020a5c0a06e14500382d4d3466be4d653f668aadde15efb2.png" />
 </div>
 </div>
 <p>The sklearn LLE class also provides some variants of LLE that can perform even better on this problem, for example (note the larger <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> required - another example fine tuning):</p>
@@ -994,7 +986,7 @@ K(X_i, X_j) = \exp\left(-\gamma \left| X_i - X_j\right|^2\right) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4fbc78d78a1eb756441cdb464df6c038b6726ed5a72e4dae992e986cdd966121.png" src="../../_images/4fbc78d78a1eb756441cdb464df6c038b6726ed5a72e4dae992e986cdd966121.png" />
+<img alt="../../_images/e5ca0035af92d113b6d6ae704ab355a4238f4e14b6ab2ae989efd12e162c915e.png" src="../../_images/e5ca0035af92d113b6d6ae704ab355a4238f4e14b6ab2ae989efd12e162c915e.png" />
 </div>
 </div>
 </section>

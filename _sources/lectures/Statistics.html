@@ -614,7 +614,7 @@ document.write(`
 \sigma_x^2 \equiv \langle\left( x - \overline{x} \right)^2\rangle \; ,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma_x\)</span> is called the <span style="color:violet">standard deviation of x</span>.</p>
-<p>Finally, the <strong>correlation between x and y</strong> is defined as:</p>
+<p>Finally, the <strong><span style="color:violet">correlation between x and y</span></strong> is defined as:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 \text{Corr}_{xy} \equiv \langle\left( x - \overline{x}\right) \left( y - \overline{y}\right)\rangle \; .
@@ -638,14 +638,6 @@ x,y\, \text{uncorrelated}\quad\Rightarrow\quad \text{Corr}_{xy} = \rho_{xy} = 0 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0    6.920270
-x1    4.502004
-x2    8.492347
-dtype: float64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -653,26 +645,10 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0    12.684951
-x1     6.807913
-x2    15.503924
-dtype: float64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">blobs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0    3.561594
-x1    2.609198
-x2    3.937502
-dtype: float64
 </pre></div>
 </div>
 </div>
@@ -773,13 +749,6 @@ d = \sqrt{C_{11}^2 - 2 (1 - 2\rho^2) C_{11} C_{22} + C_{22}^2} \; .
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 123.3
-0 2 -138.2
-1 2 151.0
-</pre></div>
-</div>
-</div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>Recall that the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> data was generated as a mixture of three Gaussian blobs, each with different parameters. However, describing a dataset with a single covariance matrix suggests a single Gaussian model. The lesson is that
 we can calculate an empirical covariance for <em>any</em> data, whether or not it is well described a single Gaussian.</p>
@@ -813,9 +782,6 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4a7e82ff751005c5d8eb7230ae75896ead433e4f7adf21ed0949910723378685.png" src="../../_images/4a7e82ff751005c5d8eb7230ae75896ead433e4f7adf21ed0949910723378685.png" />
-</div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXERCISE</span></strong></em>: Match the following values to the dotted lines in the graph above of the function <span class="math notranslate nohighlight">\(g(x)\)</span> and probability density <span class="math notranslate nohighlight">\(P(x)\)</span>:</p>
 <ol class="arabic simple">
@@ -831,7 +797,7 @@ g(\langle \vec{x} \ldots\rangle) \le \langle g(\vec{x})\rangle \; .
 <li><p>Lower horizontal (red) line.</p></li>
 </ol>
 <p>Jensen’s inequality is satisfied, as required since <span class="math notranslate nohighlight">\(g(x)\)</span> is convex.</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
+</section>
 <section id="span-style-color-orange-acknowledgments-span">
 <h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
