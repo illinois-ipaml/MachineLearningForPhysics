@@ -550,27 +550,39 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ski</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">skl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">cluster</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_UltraColdAtoms.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_UltraColdAtoms.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_UltraColdAtoms.png" style="width: 600px;" /></a></img><br></p>
-</section>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_UltraColdAtoms.png" width=600></img>
+</div></section>
 <section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>Over the past 20-30 years the groundwork has been lain for precise experimental control of atomic gases at ultracold temperatures. These ultracold atom gas experiments explore the quantum mechanics of their underlying atomic systems to a diverse set applications ranging from the simulation of computationally intractable physics problems [1] to the sensing of new physics beyond the standard model [2]. Most experiments in this field rely on directly imaging the ultracold gas they make, in order to extract data about the size and shape of the atomic number density distribution being imaged.</p>
-<p>The goal of this project is introduce you to some image processing techniques from the world of data science and machine learning, as well as to get familiar with an image as a data element. As you will demonstrate, images are a kind of data with a very large number of features, but where almost all of those features within some region of interest are highly correlated. Of interest in this project is how the effects of real imaging systems distort the information contained in an image, and how those effects can be unfolded from the data to recover information about the true density distribution.</p>
-<p>Capturing all possible kinds of aberrations and noise present in real experimental data of ultracold atom images is outside the scope of the simulated test data in this project. Instead, we limit ourselves to few a key effects: optical aberrations in the form of defocus and primary spherical aberrations, pixelization from a finite detector resolution, and at times toy number density noise simulated as simply Gaussian noise.</p>
+<p>Over the past 20-30 years the groundwork has been laid for precise experimental control of atomic gases at ultracold temperatures. These ultracold atom gas experiments explore the quantum mechanics of their underlying atomic systems to a diverse set applications ranging from the simulation of computationally difficult physics problems [1] to the sensing of new physics beyond the standard model [2]. Most experiments in this field rely on directly imaging the ultracold gas they make, in order to extract data about the size and shape of the atomic number density distribution being imaged.</p>
+<p>The goal of this project is to introduce you to some relevant image processing techniques, as well as to get familiar with an image as a data element. As you will demonstrate, images are a kind of data with a very large number of features, but where almost all of those features within some region of interest are highly correlated. Of interest in this project is how the effects of real imaging systems distort the information contained in an image, and how those effects can be unfolded from the data to recover information about the true density distribution.</p>
+<p>Capturing all possible kinds of aberrations and noise present in real experimental data of ultracold atom images is outside the scope of the simulated test data in this project. Instead, we limit ourselves to a few key effects: optical aberrations in the form of defocus and primary spherical aberrations, pixelization from a finite detector resolution, and at times toy number density noise simulated as simple Gaussian noise.</p>
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Data is available <a class="reference external" href="https://github.com/illinois-ipaml/MachineLearningForPhysics/tree/a97555ae5506e24bf9e42b283390155788962b53/_sources/projects/Project_01_Aberrated_images_additional_material">here</a> on the course GitHub, along with ImageSimulation.ipynb, the notebook used to generate the data. You are encouraged to read through that notebook to see how the simulation works and even generate your own datasets if desired.</p>
-<p>You are welcome to access the images however works best for you, but a simple solution is to download the dataset folder to the same path where this notebook (or the one you plan to do your analysis in) is and use the following helper function to important an image based on the true parameters of the underlying density distribution—found in the image file name.</p>
+<p>File URLs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz</a></p></li>
+</ul>
+<p>You should untar this file into your local directory and access the image files from there:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Heavy_tails/HiNA.atom_num=100000.*.tiff</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Number_estimate/LoNA.atom_num=10000.*.tiff</span></code></p></li>
+</ul>
+<p>Also included is <code class="docutils literal notranslate"><span class="pre">ImageSimulation.ipynb</span></code>, which is the notebook used to generate the data you will find in that folder. You are encouraged to read through that notebook to see how the simulation works and even generate your own datasets if desired.</p>
+<p>You are welcome to access the images however works best for you, but a simple solution is to download the dataset folder to the same path as this notebook (or the one you plan to do your analysis in) and use the following helper function to important an image based on the true parameters of the underlying density distribution—found in the image file name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Import_Image</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">imaging_sys</span><span class="p">,</span> <span class="n">atom_number</span><span class="p">,</span> <span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">,</span> <span class="n">mu_z</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">sigma_z</span><span class="p">,</span> <span class="n">Z_04</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Import_Image</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">imaging_sys</span><span class="p">,</span> <span class="n">atom_number</span><span class="p">,</span> <span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">,</span> <span class="n">mu_z</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">sigma_z</span><span class="p">,</span> <span class="n">Z04</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Important an image following the project file naming structure.</span>
 <span class="sd">    </span>
 <span class="sd">    :param dataset_name: str</span>
@@ -591,14 +603,14 @@ document.write(`
 <span class="sd">        Density distribution true sigma y.</span>
 <span class="sd">    :param sigma_z: float</span>
 <span class="sd">        Density distribution true sigma z.</span>
-<span class="sd">    :param Z_04: float</span>
+<span class="sd">    :param Z04: float</span>
 <span class="sd">        Coefficient of spherical aberrations.</span>
 <span class="sd">    :param seed: int</span>
 <span class="sd">        Seed for Gaussian noise.</span>
 <span class="sd">    :return: </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">dataset_name</span> <span class="o">=</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="n">imaging_sys</span> <span class="o">+</span> <span class="s1">&#39;atom_num=</span><span class="si">%i</span><span class="s1">.mu=(</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">).sigma=(</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">).Z04=</span><span class="si">%0.1f</span><span class="s1">.seed=</span><span class="si">%i</span><span class="s1">.tiff&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">atom_number</span><span class="p">,</span> <span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_z</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">sigma_z</span><span class="p">,</span> <span class="n">Z04</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">imaging_sys</span> <span class="o">+</span> <span class="s1">&#39;.atom_num=</span><span class="si">%i</span><span class="s1">.mu=(</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">).sigma=(</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">).Z04=</span><span class="si">%0.1f</span><span class="s1">.seed=</span><span class="si">%i</span><span class="s1">.tiff&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">atom_number</span><span class="p">,</span> <span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">,</span> <span class="n">mu_z</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">sigma_z</span><span class="p">,</span> <span class="n">Z04</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
     <span class="n">im</span> <span class="o">=</span> <span class="n">ski</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">dataset_name</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">im</span>
 </pre></div>
@@ -610,13 +622,13 @@ document.write(`
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>What is a cold atom gas? How cold are we talking? How do experiments bring atoms down to those temperatures?</p>
+<p>What is a cold atom gas? How cold are we talking? How do experiments bring atoms down to these temperatures?</p>
 <p>When you research these experiments you will find that the Alkali atoms (Rb, K, Na, etc.) compose the majority set of species used. Why these atoms? Hint: recall high school chemistry. What do these atoms have in common with everyone’s favorite quantum system, the hydrogen atom?</p>
 <p>A helpful resource is Foot’s <em>Atomic Physics</em> [3].</p>
 </section>
 <section id="span-style-color-lightgreen-question-02-span">
 <h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
-<p>When attempting to measure the number density distribution of cold atom gas in experiment, we typically release the gas from any kind of confinement it was in and let it expand in free-fall before taking an image. When we take a picture thereafter the density distribution often has the shape of Gaussian. Why is that? Think stat mech.</p>
+<p>When attempting to measure the number density distribution of cold atom gas in experiment, we typically release the gas from any kind of confinement and let it expand in free-fall before taking an image at some time-of-flight (TOF). When we take a picture thereafter the density distribution often has the shape of Gaussian. Why is that? Think stat mech.</p>
 </section>
 <section id="span-style-color-lightgreen-question-03-span">
 <h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
@@ -630,27 +642,26 @@ document.write(`
 <h3><span style="color:LightGreen">Questions 04</span><a class="headerlink" href="#span-style-color-lightgreen-questions-04-span" title="Permalink to this heading">#</a></h3>
 <p>In the previous question the resolution we were interested in describes the size of the image of a point source in the plane transverse to the axis the image propagates along. What about along the imaging axis? We often calls this axial resolution the depth of field (DOF), although when we want a number to describe it different sources define that value differently.</p>
 <p>How are the DOF and transverse resolution related to each other? No mathematical relationship is necessary here (although you can if you want to, so long as you restrict yourself to thinking about the axial PSF along <span class="math notranslate nohighlight">\(\rho=0\)</span>).</p>
-<hr class="docutils" />
-<p>To answer the rest of the questions in first chunk of this project we will use images from the <strong>Number_estimate</strong> and <strong>Heavy_tails</strong> datasets. This data was generated in the ImageSimulation.ipynb, found at the link above. The images in the <strong>Heavy_tails</strong> dataset depict cold atom gases of variable <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> and <span class="math notranslate nohighlight">\(\sigma_z\)</span> at an arbitrary atom number, and those in the <strong>Number_estimate</strong> dataset contain images of a large isotropic (<span class="math notranslate nohighlight">\(\sigma_{xy}=\sigma_z=20\)</span> um) gas across a range of atom numbers and with number noise varying from shot to shot.</p>
-<p>In generating these images, there are handful of fixed hyperparameters chosen to match a realistic set of experimental conditions. Here we are imaging a thermal gas of Rb<span class="math notranslate nohighlight">\(^{87}\)</span> atoms with a <span class="math notranslate nohighlight">\(\lambda=780\)</span> nm (near-infrared) light. That light is collected as by one of two imaging system: a (relatively) high numerical aperture (<span class="math notranslate nohighlight">\(\text{NA}=0.4\)</span>) lens and a lower resolution (<span class="math notranslate nohighlight">\(\text{NA}=0.2\)</span>) one. The image is projected on to a camera sensor with a pixel size of <span class="math notranslate nohighlight">\(\text{PS}=13\)</span> um, by a telescope with and <span class="math notranslate nohighlight">\(\text{M}=20\times\)</span> or <span class="math notranslate nohighlight">\(\text{M}=4\times\)</span> magnification respectively for each lens.</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>To answer the rest of the questions in first chunk of this project we will use images from the <strong>Number_estimate</strong> and <strong>Heavy_tails</strong> datasets. This data was generated in the ImageSimulation.ipynb, found at the link above. The images in the <strong>Heavy_tails</strong> dataset depict cold atom gases of variable <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> and <span class="math notranslate nohighlight">\(\sigma_z\)</span> at an arbitrary atom number, and those in the <strong>Number_estimate</strong> dataset contain images of a large isotropic (<span class="math notranslate nohighlight">\(\sigma_{xy}=\sigma_z=20\)</span> um) gas across a range of atom numbers and with number noise varying from shot to shot.</p>
+<p>In generating these images, there are handful of fixed hyperparameters chosen to match a realistic set of experimental conditions. Here we are imaging a thermal gas of Rb<span class="math notranslate nohighlight">\(^{87}\)</span> atoms with a <span class="math notranslate nohighlight">\(\lambda=780\)</span> nm (near-infrared) light. That light is collected by one of two imaging system: a (relatively) high numerical aperture (<span class="math notranslate nohighlight">\(\text{NA}=0.4\)</span>) lens and a lower resolution (<span class="math notranslate nohighlight">\(\text{NA}=0.2\)</span>) one. The image is projected on to a camera sensor with a pixel size of <span class="math notranslate nohighlight">\(\text{PS}=13\)</span> um, by a telescope with and <span class="math notranslate nohighlight">\(\text{M}=20\times\)</span> or <span class="math notranslate nohighlight">\(\text{M}=4\times\)</span> magnification respectively for each lens.</p>
 <p>The images in the <strong>Heavy_tails</strong> dataset were generated with the high NA system and no number noise and the those in <strong>Number_estimate</strong> dataset were generated with the low NA system including number noise.</p>
-<p>With the <strong>Number_estimate</strong> dataset you will explore how noise effects your ability to accurately estimate the total number of atoms in an image. Please ImageSimulation.ipynb for a fuller explanation as to what this noise represents.</p>
+<p>With the <strong>Number_estimate</strong> dataset you will explore how noise effects your ability to accurately estimate the total number of atoms in an image. Please refer to ImageSimulation.ipynb for a fuller explanation as to what this noise represents.</p>
 <p>With the <strong>Heavy_tails</strong> dataset you will test the ability of a simple linear decomposition to reduce the dimensionality of the data and confirm whether the ‘compressed’ image still retains relevant features of the gas. Images involving gases generated with <span class="math notranslate nohighlight">\(\sigma_z\gtrsim \text{DOF}\)</span> will acquire a noticeable tail in the image, diverging from the true Gaussian number density distribution. Of interest is how this tail is carried through to the compressed and reconstructed images.</p>
 </section>
 <section id="span-style-color-lightgreen-question-06-span">
 <h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
 <p>The data here in this project are images—2D arrays containing greyscale information of the irradiance associated with the image of the gas. What is the dimension of this kind of data?</p>
-<p>Consider the <strong>Number_estimate</strong> dataset of images and take each image as a sample across all dimensions of the image data. Suppose the question we are interested in is: Can we determine that the number of atoms in the image is greater than <span class="math notranslate nohighlight">\(X\)</span>? How many samples would we need to fully sample the parameter space of images here if none of the pixels in an image were correlated?</p>
+<p>Consider the <strong>Number_estimate</strong> dataset of images and take each image as a sample across all dimensions of the image data. Suppose the question we are interested in is: Can we determine that the number of atoms in the image is greater than <span class="math notranslate nohighlight">\(X\)</span>? How many samples would we need to fully sample the parameter space of images here, if none of the pixels in an image were correlated?</p>
 </section>
 <section id="span-style-color-lightgreen-quesiton-07-span">
 <h3><span style="color:LightGreen">Quesiton 07</span><a class="headerlink" href="#span-style-color-lightgreen-quesiton-07-span" title="Permalink to this heading">#</a></h3>
-<p>Take images from the <strong>Number_estimate</strong> dataset where the total atom number of true distribution is <span class="math notranslate nohighlight">\(N=100000\)</span> and draw an appropriately binned histogram of the total atom number in the image by summing over all the pixels in the image. Repeat this for the <span class="math notranslate nohighlight">\(N=10000\)</span> subset of the dataset.</p>
-<p><strong>Note</strong>: in reality the total atom number in these kind of images doesn’t come directly from the</p>
+<p>Take images from the <strong>Number_estimate</strong> dataset where the total atom number of the true distribution is of order <span class="math notranslate nohighlight">\(N\sim10^5\)</span> and draw an appropriately binned histogram of the total atom number in the image by summing over all the pixels in the image. Repeat this for the <span class="math notranslate nohighlight">\(N\sim10^4\)</span> subset of the dataset.</p>
+<p><strong>Note</strong>: in reality image data for cold atom gases isn’t presented directly in terms of the number density, but rather a parameter proportional to it referred to as optical depths (OD). See the ImageSimulation.ipynb for more details.</p>
 <p>How are these histograms distinct from each other?</p>
 </section>
 <section id="span-style-color-lightgreen-question-08-span">
 <h3><span style="color:LightGreen">Question 08</span><a class="headerlink" href="#span-style-color-lightgreen-question-08-span" title="Permalink to this heading">#</a></h3>
-<p>Draw histograms for the rest of the data in the <strong>Number_estimate</strong> dataset. Implement a KMeans fit of the 1D atom number data to attempt to recover the true atom number of each image, when comparing images in the following subsets of atom numbers: (7000, 10000, 13000), (70000, 100000, 130000), and (97000, 100000, 103000).</p>
+<p>Implement a KMeans fit of the 1D atom number data to attempt to recover the true atom number of each image, when comparing images in <span class="math notranslate nohighlight">\(N\sim10^4\)</span> and <span class="math notranslate nohighlight">\(N\sim10^5\)</span> orders separately.</p>
 <p>Are you able to clearly resolve the atom number for each of the subsets above?</p>
 </section>
 <section id="span-style-color-lightgreen-question-09-span">
@@ -668,13 +679,12 @@ document.write(`
 <li><p>[<strong><span style="color:Red">4</span></strong>] Foot, C. (2005). Atomic physics. Oxford University Press, USA.</p></li>
 </ul>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Initial version: Max Gold with some guidence from Mark Neubauer</p></li>
+<li><p>Initial version: Max Gold with some guidance from Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2023</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
