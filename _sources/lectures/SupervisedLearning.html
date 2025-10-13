@@ -541,7 +541,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
@@ -583,28 +583,6 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/line_data.csv&#39;</span><span class="p">)</span>
 <span class="n">wget_data</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/line_targets.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2024-10-27 23:33:57--  https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/line_data.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 114763 (112K) [text/plain]
-Saving to: ‘./tmp_data/line_data.csv’
-     0K .......... .......... .......... .......... .......... 44% 2.76M 0s
-    50K .......... .......... .......... .......... .......... 89% 8.43M 0s
-   100K .......... ..                                         100%  193M=0.02s
-2024-10-27 23:33:58 (4.65 MB/s) - ‘./tmp_data/line_data.csv’ saved [114763/114763]
---2024-10-27 23:33:58--  https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/data/line_targets.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 39419 (38K) [text/plain]
-Saving to: ‘./tmp_data/line_targets.csv’
-     0K .......... .......... .......... ........             100% 5.75M=0.007s
-2024-10-27 23:33:58 (5.75 MB/s) - ‘./tmp_data/line_targets.csv’ saved [39419/39419]
 </pre></div>
 </div>
 </div>
@@ -685,8 +663,7 @@ Y = X W + \delta Y \; ,
 \[ \Large
 y = X w + \delta y \; .
 \]</div>
-<hr class="docutils" />
-<p>We further assume that:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>We further assume that:</p>
 <ul class="simple">
 <li><p>There is no (or negligible) noise in <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
 <li><p>Each feature in <span class="math notranslate nohighlight">\(Y\)</span> has zero mean, i.e., <code class="docutils literal notranslate"><span class="pre">np.mean(Y,</span> <span class="pre">axis=0)</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p></li>
@@ -784,7 +761,7 @@ S \equiv \sum_{i=1}^N \left| Y_i - (X W)_i \right|^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/91bf288f5710396113b324306e1c70a05be30bc585ec2424cfa5cc1c8d83b49a.png" src="../../_images/91bf288f5710396113b324306e1c70a05be30bc585ec2424cfa5cc1c8d83b49a.png" />
+<img alt="../../_images/bb27cbb5ac0363d929c7351ebf96550d41f27e806344997d5768a24fe848a687.png" src="../../_images/bb27cbb5ac0363d929c7351ebf96550d41f27e806344997d5768a24fe848a687.png" />
 </div>
 </div>
 <p>In our probabilistic language, <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> finds the maximum likelihood (ML) point estimate assuming homoscedastic Gaussian errors. This can also be interpreted as a maximum a-posteriori (MAP) point estimate if we believe that the priors should all be uniform.</p>
@@ -800,8 +777,7 @@ W = (X^T X)^{-1} X^T Y \; .
 (X^T X)^{-1} = X^{-1} (X^T)^{-1} \; \Rightarrow \; W = X^{-1} Y \; .
 \]</div>
 <p>This is only valid when <span class="math notranslate nohighlight">\(X\)</span> is a square matrix, <span class="math notranslate nohighlight">\(N = n\)</span>, in which case finding <span class="math notranslate nohighlight">\(W\)</span> reduces to solving a system of <span class="math notranslate nohighlight">\(N\)</span> linear equations in <span class="math notranslate nohighlight">\(N\)</span> unknowns. In the more general case where <span class="math notranslate nohighlight">\(N &gt; n\)</span>, we have an overdetermined system of equations and seek the best compromise solution given the expected errors. If <span class="math notranslate nohighlight">\(N &lt; n\)</span>, the problem is underdetermined and <span class="math notranslate nohighlight">\(X^T X\)</span> is not invertible.</p>
-<hr class="docutils" />
-<p>We can also directly solve the more general problem of Gaussian errors described by an <span class="math notranslate nohighlight">\(n\times n\)</span> sample covariance <span class="math notranslate nohighlight">\(C\)</span>:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>We can also directly solve the more general problem of Gaussian errors described by an <span class="math notranslate nohighlight">\(n\times n\)</span> sample covariance <span class="math notranslate nohighlight">\(C\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 W = (X^T C_N X)^{-1} ~X^T~ C_N^{-1}~ Y
@@ -860,7 +836,7 @@ W = (X^T C_N X)^{-1} ~X^T~ C_N^{-1}~ Y
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3318f1ab5aeea9b144f322d2b3b0703a1c4e3cb57ef716b1a081348f155c7492.png" src="../../_images/3318f1ab5aeea9b144f322d2b3b0703a1c4e3cb57ef716b1a081348f155c7492.png" />
+<img alt="../../_images/ea2c9c7e3173a6ca3fc94f4c3efcf2426e1b1a098995878b00b764934726421c.png" src="../../_images/ea2c9c7e3173a6ca3fc94f4c3efcf2426e1b1a098995878b00b764934726421c.png" />
 </div>
 </div>
 <p>These are mean point estimates of <span class="math notranslate nohighlight">\(Y'\)</span> given new <span class="math notranslate nohighlight">\(X'\)</span>, so of limited use when you want to make probabilistic statements about what your have learned.  However, the likelihood is Gaussian in the model parameters:</p>
@@ -907,11 +883,11 @@ E = \sigma^{-2} (X^T X)^{-1} \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a662bf89e9e6c5db95f564c9550a3bf66350bb524b7ef18df31311f8f87405c5.png" src="../../_images/a662bf89e9e6c5db95f564c9550a3bf66350bb524b7ef18df31311f8f87405c5.png" />
+<img alt="../../_images/2c398150c06dc97674a99a2bf96fac85399dadcfafa01eccdd54585a5364f58d.png" src="../../_images/2c398150c06dc97674a99a2bf96fac85399dadcfafa01eccdd54585a5364f58d.png" />
 </div>
 </div>
 <p>Note that we are not propagating the uncertainty in <span class="math notranslate nohighlight">\(y_0\)</span> here.</p>
-</section>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 <section id="span-style-color-tan-example-span-span-style-color-violet-linear-deconvolution-span">
 <h4><em><strong><span style="color:Tan">Example</strong></em></span>: <span style="color:Violet">Linear Deconvolution</span><a class="headerlink" href="#span-style-color-tan-example-span-span-style-color-violet-linear-deconvolution-span" title="Permalink to this heading">#</a></h4>
 <p>The examples above have a large <span class="math notranslate nohighlight">\(N\)</span> but only one feature in <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, <span class="math notranslate nohighlight">\(n=m=1\)</span>, so that <span class="math notranslate nohighlight">\(W\)</span> is just a single number, the slope of the line.  For a more complex example, suppose we have an instrument with an unknown response, <span class="math notranslate nohighlight">\(R(t,t')\)</span>, that transforms each input pulse <span class="math notranslate nohighlight">\(z(t)\)</span> into an output pulse via convolution</p>
@@ -963,15 +939,14 @@ z'_i = \sum_j R_{ij} z_j \; ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bf90f588b8ea89f57d475fff3534e7f0b37eabe9c6e07b48122197ed5ceb5d4a.png" src="../../_images/bf90f588b8ea89f57d475fff3534e7f0b37eabe9c6e07b48122197ed5ceb5d4a.png" />
+<img alt="../../_images/1bf3bcbda562a1e433cc85aeb18aa9862b2122c524e6c2c47b49b842b744bf70.png" src="../../_images/1bf3bcbda562a1e433cc85aeb18aa9862b2122c524e6c2c47b49b842b744bf70.png" />
 </div>
 </div>
-<p><em><strong><span style="color:Violet">EXERCISE</strong></em>: With <span class="math notranslate nohighlight">\(n\)</span> features (timesteps) in the input data <span class="math notranslate nohighlight">\(X\)</span> and the same number <span class="math notranslate nohighlight">\(m=n\)</span> of features in the target data <span class="math notranslate nohighlight">\(Y\)</span>, what is the minimum number of samples required to estimate the instrument response matrix <span class="math notranslate nohighlight">\(R\)</span>?</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXERCISE</strong></em>: With <span class="math notranslate nohighlight">\(n\)</span> features (timesteps) in the input data <span class="math notranslate nohighlight">\(X\)</span> and the same number <span class="math notranslate nohighlight">\(m=n\)</span> of features in the target data <span class="math notranslate nohighlight">\(Y\)</span>, what is the minimum number of samples required to estimate the instrument response matrix <span class="math notranslate nohighlight">\(R\)</span>?</p>
 <p>The response matrix has <span class="math notranslate nohighlight">\(n m = n^2\)</span> unknown parameters. While there are symmetries in <span class="math notranslate nohighlight">\(R\)</span> that could reduce this number significantly, a linear regression does not know about these symmetries.</p>
 <p>Each of the <span class="math notranslate nohighlight">\(N\)</span> samples provides an independent linear equation in the unknown parameters. Therefore, the problem has an exact solution when <span class="math notranslate nohighlight">\(N = n^2\)</span> in the absence of any noise. When <span class="math notranslate nohighlight">\(N &lt; n^2\)</span>, the problem is formally ill-determined since <span class="math notranslate nohighlight">\(X^T X\)</span> is not invertible. However, a solution is still possible using a <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">pseudo matrix inverse</a> and sometimes gives reasonable results.</p>
 <p>With <span class="math notranslate nohighlight">\(N &gt; n^2\)</span>, the problem is overdetermined, but we could expect additional samples to improve the answer when noise is present.</p>
-<hr class="docutils" />
-<p>Try fitting with <span class="math notranslate nohighlight">\(N = 2 n^2\)</span>, <span class="math notranslate nohighlight">\(N = n^2\)</span> or <span class="math notranslate nohighlight">\(N = n\)</span>:</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>Try fitting with <span class="math notranslate nohighlight">\(N = 2 n^2\)</span>, <span class="math notranslate nohighlight">\(N = n^2\)</span> or <span class="math notranslate nohighlight">\(N = n\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -997,7 +972,7 @@ z'_i = \sum_j R_{ij} z_j \; ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0acbfc271e6e146b6abf535ae45d08910d971b5b1930538c27e7e459f355f98e.png" src="../../_images/0acbfc271e6e146b6abf535ae45d08910d971b5b1930538c27e7e459f355f98e.png" />
+<img alt="../../_images/cf9c7e1c30a27aa6916d57b478326cd1027bb57cf51babf1f00a3c8845e10bc4.png" src="../../_images/cf9c7e1c30a27aa6916d57b478326cd1027bb57cf51babf1f00a3c8845e10bc4.png" />
 </div>
 </div>
 <p>The examples above have no noise in <span class="math notranslate nohighlight">\(Y\)</span> (except for tiny round-off errors) so now try adding some noise:</p>
@@ -1008,7 +983,7 @@ z'_i = \sum_j R_{ij} z_j \; ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03aa394b644a01dd72786b0f50a9abce51e331467d25afe5ca02d68336b6d0d3.png" src="../../_images/03aa394b644a01dd72786b0f50a9abce51e331467d25afe5ca02d68336b6d0d3.png" />
+<img alt="../../_images/22aa79c93b094e685a228a547ad8e9229fde12c671f8e5419bc94bc9dbd92b58.png" src="../../_images/22aa79c93b094e685a228a547ad8e9229fde12c671f8e5419bc94bc9dbd92b58.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1028,7 +1003,7 @@ z'_i = \sum_j R_{ij} z_j \; ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/79f1d0da147372bfb27b1eea280e2c9f28065616aeedf8e3b06f48499ab32e4d.png" src="../../_images/79f1d0da147372bfb27b1eea280e2c9f28065616aeedf8e3b06f48499ab32e4d.png" />
+<img alt="../../_images/a2c70d240ff429824f47ae484377d0f3e6530181976d9ac051b6a9cfb2b2cdc6.png" src="../../_images/a2c70d240ff429824f47ae484377d0f3e6530181976d9ac051b6a9cfb2b2cdc6.png" />
 </div>
 </div>
 <p>This clearly not what we are looking for, so what happened?  The problem is that the solution amplifies noise and finds a “best” solution that involves large cancellations between positive (red) and negative (blue) values (notice the <span class="math notranslate nohighlight">\(10^{12}\)</span> in the colorbar scale!)  This is not a problem that more samples can easily cure.</p>
@@ -1063,7 +1038,7 @@ R = \alpha \sum_{i=1}^N \left| W_i \right|^2 \; ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4c446f5143ede47594abf91fafaeffda2b16a2238fdfeec2fb3256f1023b8e20.png" src="../../_images/4c446f5143ede47594abf91fafaeffda2b16a2238fdfeec2fb3256f1023b8e20.png" />
+<img alt="../../_images/a7547856a1e7611dd811a716f302f5a2f1501138beff782055fea6ae7ea1dcbf.png" src="../../_images/a7547856a1e7611dd811a716f302f5a2f1501138beff782055fea6ae7ea1dcbf.png" />
 </div>
 </div>
 <p>This has eliminated the wild fluctuations around <span class="math notranslate nohighlight">\(\pm 10^{12}\)</span> but is still noisy. Note how additional data now improves the solution, especially in the corners.</p>
@@ -1086,7 +1061,7 @@ R = \alpha \sum_{i=1}^N \left| W_i \right|^2 \; ,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d8aec12f43f8528a6d7529de77b9302ef83778a2aee680d63244d71d0fe46af9.png" src="../../_images/d8aec12f43f8528a6d7529de77b9302ef83778a2aee680d63244d71d0fe46af9.png" />
+<img alt="../../_images/183dfe954b9542cacef552fae72322062bdc537079a14977e6cceb5ca7c83b39.png" src="../../_images/183dfe954b9542cacef552fae72322062bdc537079a14977e6cceb5ca7c83b39.png" />
 </div>
 </div>
 <p>The sum of squares used in <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(R\)</span> above is called an <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_%28mathematics%29#Euclidean_norm">L2 norm</a> and measures the usual Euclidean distance:</p>
@@ -1124,12 +1099,12 @@ R = \alpha ||W||_1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/80291f676228f81f378996911bf61b649a1cd6250d91baff43c3b76357a41454.png" src="../../_images/80291f676228f81f378996911bf61b649a1cd6250d91baff43c3b76357a41454.png" />
+<img alt="../../_images/a97d1d1759743dd0c9f012f2ae2138bfcfbca9019b91e6604c056efd12de59a4.png" src="../../_images/a97d1d1759743dd0c9f012f2ae2138bfcfbca9019b91e6604c056efd12de59a4.png" />
 </div>
 </div>
 <p>The results are indeed sparse, but that is probably not the best prior to use in this problem.</p>
 <p>For more regularization options, look at <a class="reference external" href="http://scikit-learn.org/stable/modules/linear_model.html#elastic-net">ElasticNet</a> which combines both L2 and L1 terms.</p>
-</section>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 <section id="span-style-color-tan-example-span-span-style-color-violet-basis-function-linear-regression-span">
 <h4><em><strong><span style="color:Tan">Example</strong></em></span>: <span style="color:Violet">Basis Function Linear Regression</span><a class="headerlink" href="#span-style-color-tan-example-span-span-style-color-violet-basis-function-linear-regression-span" title="Permalink to this heading">#</a></h4>
 <p>For our final example, we will see how “linear” regression can solve problems that appear quite nonlinear. Suppose our model is</p>
@@ -1152,7 +1127,7 @@ Y = a X e^{-X^2} + b \sin X^2 + \delta Y
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/647cf6a899aa9b1e7b21b068900ba16e0a50f3380a01cedc2769fdbcac7e00b8.png" src="../../_images/647cf6a899aa9b1e7b21b068900ba16e0a50f3380a01cedc2769fdbcac7e00b8.png" />
+<img alt="../../_images/fcaa92b664cad100b313881a8b2ff8c68296bebac027d55a4d69813c3565f407.png" src="../../_images/fcaa92b664cad100b313881a8b2ff8c68296bebac027d55a4d69813c3565f407.png" />
 </div>
 </div>
 <p>If we replace the <span class="math notranslate nohighlight">\(N\times 1\)</span> dataset <span class="math notranslate nohighlight">\(X\)</span> with a <span class="math notranslate nohighlight">\(N\times 2\)</span> dataset <span class="math notranslate nohighlight">\(Z\)</span> of new features <span class="math notranslate nohighlight">\((Z_1, Z_2)\)</span>:</p>
@@ -1199,7 +1174,7 @@ a \\ b
 </div>
 </div>
 </div>
-<p><em><strong><span style="color:Violet">DISCUSS:</strong></em> Suppose we have a multiplicative model for our data,</p>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS:</strong></em> Suppose we have a multiplicative model for our data,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 y = A x_1^a x_2^b \; ,
@@ -1207,12 +1182,12 @@ y = A x_1^a x_2^b \; ,
 <p>would it be valid to transform <span class="math notranslate nohighlight">\(y \rightarrow \log y\)</span> and treat this as a linear regression problem?</p>
 <p>Since</p>
 <div class="math notranslate nohighlight">
-\[
+\[ \Large
 \log y = \log A + a \log x_1 + b \log x_2 \; ,
 \]</div>
 <p>we could use</p>
 <div class="math notranslate nohighlight">
-\[
+\[ \Large
 Z = \log X
 \]</div>
 <p>and solve for <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> as linear-regression coefficients.  This is a useful trick, but with an important caveat: the linear regression solution assumes Gaussian uncertainties in <span class="math notranslate nohighlight">\(y\)</span>, but after this transform you would need Gaussian uncertainties in <span class="math notranslate nohighlight">\(\log y\)</span>.  In particular, if your original uncertainties in <span class="math notranslate nohighlight">\(y\)</span> were Gaussian, they will not be Gaussian in <span class="math notranslate nohighlight">\(\log y\)</span>.</p>
@@ -1225,7 +1200,7 @@ Z = \log X
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 

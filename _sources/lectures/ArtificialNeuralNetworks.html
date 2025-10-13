@@ -555,7 +555,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span>
@@ -573,12 +573,6 @@ document.write(`
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">TqdmCallback</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-10-27 23:44:50.053177: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: SSE4.1 SSE4.2, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
 </div>
@@ -702,7 +696,7 @@ To enable the following instructions: SSE4.1 SSE4.2, in other operations, rebuil
 
 <span class="k">def</span><span class="w"> </span><span class="nf">trace_forward</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement the module forward hook API.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    input : tuple or tensor</span>
@@ -710,7 +704,7 @@ To enable the following instructions: SSE4.1 SSE4.2, in other operations, rebuil
 <span class="sd">        copy to this module&#39;s `input` attribute.</span>
 <span class="sd">    output : tuple or tensor</span>
 <span class="sd">        Output tensor(s) to this module. We save a detached</span>
-<span class="sd">        copy to this module&#39;s `output` attribute.        </span>
+<span class="sd">        copy to this module&#39;s `output` attribute.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
         <span class="n">module</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="p">[</span><span class="n">I</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">]</span>
@@ -866,8 +860,9 @@ X_\text{out} = N(X_\text{in}; \Theta)
 f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
 \]</div>
 <p>with <span class="math notranslate nohighlight">\(D+1\)</span> parameters consisting of <span class="math notranslate nohighlight">\(D\)</span> <span style="color:Violet">weights</span> <span class="math notranslate nohighlight">\(w_i\)</span> and a single <span style="color:Violet">bias</span> <span class="math notranslate nohighlight">\(b\)</span>. The corresponding <a class="reference external" href="http://alexlenail.me/NN-SVG/index.html">graph</a> (with <span class="math notranslate nohighlight">\(D=8\)</span>) is:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_unit.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_unit.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_unit.png" style="width: 400px;" /></a></img><br></p>
-<p>where the left nodes correspond to the elements of the input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, the edges correspond to the elements of <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> (thickness ~ strength, red/blue are pos/neg values), and the right node is the output value <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>. The recipe for obtaining the output value is then:</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_unit.png" width=400></img>
+</div><p>where the left nodes correspond to the elements of the input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, the edges correspond to the elements of <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> (thickness ~ strength, red/blue are pos/neg values), and the right node is the output value <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>. The recipe for obtaining the output value is then:</p>
 <ul class="simple">
 <li><p>propagate each input value <span class="math notranslate nohighlight">\(x_i\)</span> with a strength <span class="math notranslate nohighlight">\(w_i\)</span>,</p></li>
 <li><p>sum the values <span class="math notranslate nohighlight">\(x_i w_i\)</span>,</p></li>
@@ -929,7 +924,7 @@ f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">y_range</span><span class="p">,</span> <span class="o">+</span><span class="n">y_range</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-    
+
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plot_activations</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;relu,elu,softplus&#39;</span><span class="p">)</span>
 <span class="n">plot_activations</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;sigmoid,tanh,softsign&#39;</span><span class="p">)</span>
@@ -938,7 +933,7 @@ f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/408b9c7e3a0864862474801c17cebcad6e9ef58a634b0a73969d9adcc5e30a3b.png" src="../../_images/408b9c7e3a0864862474801c17cebcad6e9ef58a634b0a73969d9adcc5e30a3b.png" />
+<img alt="../../_images/8ba10d00787ea5bfe1718759b6c46acd7f2aca51c35e202e82acf801eca3d64e.png" src="../../_images/8ba10d00787ea5bfe1718759b6c46acd7f2aca51c35e202e82acf801eca3d64e.png" />
 </div>
 </div>
 <p>Note that all activations saturate (at -1 or 0) for <span class="math notranslate nohighlight">\(s\rightarrow -\infty\)</span>, but differ in their behavior when <span class="math notranslate nohighlight">\(s\rightarrow +\infty\)</span> (linear vs saturate at +1).</p>
@@ -967,8 +962,9 @@ f_m(\mathbf{x}_i) = \phi\left(\mathbf{x}_i\cdot \mathbf{w}_m + b_m\right) \; ,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{w}_m\)</span> is the <span class="math notranslate nohighlight">\(m\)</span>-th column of <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(b_m\)</span> is the <span class="math notranslate nohighlight">\(m\)</span>-th element of <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>.</p>
 <p>The corresponding graph (with <span class="math notranslate nohighlight">\(D=8\)</span> and <span class="math notranslate nohighlight">\(M=4\)</span>) is:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_layer.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_layer.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_layer.png" style="width: 400px;" /></a></img><br></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">nn_unit</span></code> function we defined above already implements a layer if we pass it matrices <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(W\)</span> and a vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>. For example:</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_layer.png" width=400></img>
+</div><p>The <code class="docutils literal notranslate"><span class="pre">nn_unit</span></code> function we defined above already implements a layer if we pass it matrices <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(W\)</span> and a vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nn_unit</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">w</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">phi</span><span class="o">=</span><span class="n">sigmoid</span><span class="p">)</span>
@@ -992,8 +988,9 @@ f_m(\mathbf{x}_i) = \phi\left(\mathbf{x}_i\cdot \mathbf{w}_m + b_m\right) \; ,
 N(X) = H\left(G\left(F(X)\right)\right) \; ,
 \]</div>
 <p>with a corresponding graph:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_graph.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_graph.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_graph.png" style="width: 900px;" /></a></img><br></p>
-<p>Nodes between the input (leftmost) and output (rightmost) nodes are known as <span style="color:Violet">hidden nodes</span>.</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-nn_graph.png" width=900></img>
+</div><p>Nodes between the input (leftmost) and output (rightmost) nodes are known as <span style="color:Violet">hidden nodes</span>.</p>
 <p>The corresponding code for arbitrary layers is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1045,8 +1042,9 @@ N(X) = H\left(G\left(F(X)\right)\right) \; ,
 </section>
 <section id="span-style-color-orange-visual-perspective-span">
 <h2><span style="color:Orange">Visual Perspective</span><a class="headerlink" href="#span-style-color-orange-visual-perspective-span" title="Permalink to this heading">#</a></h2>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-activation_maps.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-activation_maps.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-activation_maps.png" style="width: 900px;" /></a></img><br></p>
-<p><em><strong><span style="color:Violet">EXERCISE</span>:</strong></em> Identify which activation function was used to make each plot above, which shows the building block</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-activation_maps.png" width=900></img>
+</div><p><em><strong><span style="color:Violet">EXERCISE</span>:</strong></em> Identify which activation function was used to make each plot above, which shows the building block</p>
 <div class="math notranslate nohighlight">
 \[\Large
 f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
@@ -1075,7 +1073,7 @@ f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aa99022e30fd58b1c8f4f2ff3d49d02ecc212f1d86866b974c99980c5d2a677b.png" src="../../_images/aa99022e30fd58b1c8f4f2ff3d49d02ecc212f1d86866b974c99980c5d2a677b.png" />
+<img alt="../../_images/e7917afe858252bd85f73eee6be3d949c184e5b219bd43a53eecc033590d538d.png" src="../../_images/e7917afe858252bd85f73eee6be3d949c184e5b219bd43a53eecc033590d538d.png" />
 </div>
 </div>
 <p>Study the plots below which show the hidden (left) and output (right) node values for a network with 2 + 2 + 1 nodes. Each graph shows the node value as a function of the 2D input value.</p>
@@ -1090,7 +1088,7 @@ f(\mathbf{x}) = \phi\left(\mathbf{x}\cdot\mathbf{w} + b\right)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5224095d5a0e2278bb1ec8d68b30c8838c33c0833cceb7e0a0d6adc57c2d1312.png" src="../../_images/5224095d5a0e2278bb1ec8d68b30c8838c33c0833cceb7e0a0d6adc57c2d1312.png" />
+<img alt="../../_images/e6c0c4867c1275e3d03b1b79e279cef15418dfbe95fada4689b31dc628de23a3.png" src="../../_images/e6c0c4867c1275e3d03b1b79e279cef15418dfbe95fada4689b31dc628de23a3.png" />
 </div>
 </div>
 <p>The histogram on the second layer plot shows the distribution of</p>
@@ -1106,16 +1104,18 @@ s = X W  + b
 <p>The diagram below show the tensors flowing forward (left to right) in a typical fully connected graph. The main flow consists of <span class="math notranslate nohighlight">\(N\)</span> input samples flowing from <span class="math notranslate nohighlight">\(X_0\)</span> to <span class="math notranslate nohighlight">\(X_4\)</span> with a number of features that varies between layers.</p>
 <p>The computation of each layer’s output is parameterized by the weight and bias tensors shown: note how their shapes are determined by the number of input and output features for each layer. The parameter tensors are usually randomly initialized (more on this soon) so only the input <span class="math notranslate nohighlight">\(X_0\)</span> and target <span class="math notranslate nohighlight">\(Y\)</span> are needed to drive the calculation (and so must be copied to GPU memory when using hardware acceleration).</p>
 <p>The final output <span class="math notranslate nohighlight">\(X_4\)</span> is compared with the target values <span class="math notranslate nohighlight">\(Y\)</span> to calculate a “loss” <span class="math notranslate nohighlight">\(\ell(X_4, Y)\)</span> that decreases as <span class="math notranslate nohighlight">\(X_4\)</span> becomes more similar to <span class="math notranslate nohighlight">\(Y\)</span> (more on this soon).</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-forward_flow.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-forward_flow.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-forward_flow.png" style="width: 1000px;" /></a></img><br></p>
-<p>The diagram below shows the gradient (partial derivative) tensors flowing backwards (“backpropagation”) through the same graph using the chain rule:</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-forward_flow.png" width=1000></img>
+</div><p>The diagram below shows the gradient (partial derivative) tensors flowing backwards (“backpropagation”) through the same graph using the chain rule:</p>
 <div class="math notranslate nohighlight">
 \[\Large
 \frac{\partial \ell}{\partial X_n} = \frac{\partial \ell}{\partial X_{n+1}} \frac{\partial X_{n+1}}{\partial X_n}
 \quad, \quad
 \frac{\partial \ell}{\partial W_{n+1}} = \frac{\partial \ell}{\partial X_{n+1}} \frac{\partial X_{n+1}}{\partial W_{n+1}} \; .
 \]</div>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-backward_flow.png"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-backward_flow.png" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-backward_flow.png" style="width: 1000px;" /></a></img><br></p>
-<p>Note that these gradient tensors are just numbers, not functions. All of these tensors occupy the (limited) GPU memory when using hardware acceleration but, in most applications, only the final output and the parameter gradients are stored (with 32-bit floating point precision).</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/NeuralNetworks-backward_flow.png" width=1000></img>
+</div><p>Note that these gradient tensors are just numbers, not functions. All of these tensors occupy the (limited) GPU memory when using hardware acceleration but, in most applications, only the final output and the parameter gradients are stored (with 32-bit floating point precision).</p>
 <p>When working with large datasets, the <span class="math notranslate nohighlight">\(N\)</span> input samples are usually broken up into fixed-size randomly subsampled “minibatches”. Optimiztion with the resulting parameter gradients leads to the “stochastic gradient descent” (SGD) algorithm.</p>
 </section>
 <section id="span-style-color-orange-feedforward-neural-network-keras-and-tensorflow-span">
@@ -1293,7 +1293,7 @@ We use the mean squared error loss and the gradient descenet algorithm <code cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a7573ba613e94ed08c89aa29efce26d2", "version_major": 2, "version_minor": 0}</script><img alt="../../_images/1eefa6598df5fe1a5736d33c218956086614e6e7a376d8b935eef2218b8eaa57.png" src="../../_images/1eefa6598df5fe1a5736d33c218956086614e6e7a376d8b935eef2218b8eaa57.png" />
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dd53d821b1244696909399d0b638438e", "version_major": 2, "version_minor": 0}</script><img alt="../../_images/d5f4a0fdc2916bbfbfe294dc228dc5eba8381806c6fa463fc9dae05caeeba86f.png" src="../../_images/d5f4a0fdc2916bbfbfe294dc228dc5eba8381806c6fa463fc9dae05caeeba86f.png" />
 </div>
 </div>
 <p>Not bad!
@@ -1576,7 +1576,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0f265fa159ec229947281b2fc7d0f040e16d26e2ae1df69ec9a0fc85cc456024.png" src="../../_images/0f265fa159ec229947281b2fc7d0f040e16d26e2ae1df69ec9a0fc85cc456024.png" />
+<img alt="../../_images/9744269ad50891aacd97c4056fc4b10d37dd3bdfd01938766eef7d7d528caea9.png" src="../../_images/9744269ad50891aacd97c4056fc4b10d37dd3bdfd01938766eef7d7d528caea9.png" />
 </div>
 </div>
 <p>How does torch initialize the parameters (weights and biases) for each layer?</p>
@@ -1587,7 +1587,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7f10099d683126631f7714704a03bac7b9c9df770133daf040e950baa6c5f0cd.png" src="../../_images/7f10099d683126631f7714704a03bac7b9c9df770133daf040e950baa6c5f0cd.png" />
+<img alt="../../_images/0a7f5edfb22cfa21f3928480c861642b02a89ff561c52d11e0489c73ca431514.png" src="../../_images/0a7f5edfb22cfa21f3928480c861642b02a89ff561c52d11e0489c73ca431514.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1597,7 +1597,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/732179626154c203df296186a29dbacd2865e2939ef244738d7140da043fde2e.png" src="../../_images/732179626154c203df296186a29dbacd2865e2939ef244738d7140da043fde2e.png" />
+<img alt="../../_images/0058fee421c4a1057cbd219369dcfb3f55b93391f4257f5c46b3e068f26892f4.png" src="../../_images/0058fee421c4a1057cbd219369dcfb3f55b93391f4257f5c46b3e068f26892f4.png" />
 </div>
 </div>
 <p>These initial parameter values are sampled from uniform distributions centered on zero with a spread that depends on the number of inputs to the layer:</p>
@@ -1614,7 +1614,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1eb5b60a18be4137e0021cbff6540e26ac317604127feef1613ddd9c85dce8fc.png" src="../../_images/1eb5b60a18be4137e0021cbff6540e26ac317604127feef1613ddd9c85dce8fc.png" />
+<img alt="../../_images/aa7077e27bfd4f797d5ebeaf2229e4f8f0cdc42974969be965ece2505a1b3949.png" src="../../_images/aa7077e27bfd4f797d5ebeaf2229e4f8f0cdc42974969be965ece2505a1b3949.png" />
 </div>
 </div>
 <p>A scatter plot of the the first <code class="docutils literal notranslate"><span class="pre">Tanh</span></code> activation function’s input and output values just traces out function since it is applied element wise.  Note how most of input values do not saturate, which is generally desirable for efficient learning.</p>
@@ -1625,7 +1625,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dae175557c5540cae83655212cb4c4290d9364ec7afb06d9589fe1e9f3287420.png" src="../../_images/dae175557c5540cae83655212cb4c4290d9364ec7afb06d9589fe1e9f3287420.png" />
+<img alt="../../_images/e2eee411528d326310054e5bd3fc5a1c3105889723df21fa75361a33710ff125.png" src="../../_images/e2eee411528d326310054e5bd3fc5a1c3105889723df21fa75361a33710ff125.png" />
 </div>
 </div>
 <p>The non-linear activation distorts and clips the output so it no longer resembles a Gaussian:</p>
@@ -1636,7 +1636,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ab4a1ca1d247d291b875e06e782cae06db22d94fb618770f583234f04d5ea01b.png" src="../../_images/ab4a1ca1d247d291b875e06e782cae06db22d94fb618770f583234f04d5ea01b.png" />
+<img alt="../../_images/8d81d4dad9193dce54744d4fe4fbaee18b54e10bb7256f55a4cebbfd83bfc8a6.png" src="../../_images/8d81d4dad9193dce54744d4fe4fbaee18b54e10bb7256f55a4cebbfd83bfc8a6.png" />
 </div>
 </div>
 <p>However, the next <code class="docutils literal notranslate"><span class="pre">Linear</span></code> module restores the Gaussian distribution!  How does this happen when neither its inputs nor its parameters have a Gaussian distribution? (Answer: the <a class="reference external" href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a> which we briefly covered <a class="reference external" href="https://nbviewer.jupyter.org/github/dkirkby/MachineLearningStatistics/blob/master/notebooks/Statistics.ipynb">earlier</a>).</p>
@@ -1647,7 +1647,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a0a1e60edf2bef1decc442da5629a0f04fbefd568355bdf1eea6708e44296b8f.png" src="../../_images/a0a1e60edf2bef1decc442da5629a0f04fbefd568355bdf1eea6708e44296b8f.png" />
+<img alt="../../_images/36cc4ae391d076c9b782a098647c10486786b5bde230ee34df825330d7586aa8.png" src="../../_images/36cc4ae391d076c9b782a098647c10486786b5bde230ee34df825330d7586aa8.png" />
 </div>
 </div>
 <p>The next activation is <code class="docutils literal notranslate"><span class="pre">ReLU</span></code>, which effectively piles up all negative values from the previous <code class="docutils literal notranslate"><span class="pre">Linear</span></code> module into the zero bin:</p>
@@ -1658,7 +1658,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ed51b22eb35de5d777eb5f415b4fc8b6035389ca6da54b0c8b0f8371e242afd7.png" src="../../_images/ed51b22eb35de5d777eb5f415b4fc8b6035389ca6da54b0c8b0f8371e242afd7.png" />
+<img alt="../../_images/3111f9b914c88bcaa6519e9378e384802e69127fe00ce539118a5eb90e8bf828.png" src="../../_images/3111f9b914c88bcaa6519e9378e384802e69127fe00ce539118a5eb90e8bf828.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1668,7 +1668,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/40736cd1aafc6ac6b495bc5de947ff1fe6e488fa8d0f921c6858c46f0f149937.png" src="../../_images/40736cd1aafc6ac6b495bc5de947ff1fe6e488fa8d0f921c6858c46f0f149937.png" />
+<img alt="../../_images/4a6e32d6e316dedb36f68e4862b71b7218064b349ee8b75043975420b938d616.png" src="../../_images/4a6e32d6e316dedb36f68e4862b71b7218064b349ee8b75043975420b938d616.png" />
 </div>
 </div>
 <p>The final linear layer’s output is again roughly Gaussian, thanks to the central limit theorem:</p>
@@ -1679,7 +1679,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/616ac9120b6c9bb451801405abefc863aa044c926642370051e4bcdf04d5e4f0.png" src="../../_images/616ac9120b6c9bb451801405abefc863aa044c926642370051e4bcdf04d5e4f0.png" />
+<img alt="../../_images/1874ef8722c5936f775edbc0c4182dd50ed11e67769a1aff78b77cbb45c9dcf6.png" src="../../_images/1874ef8722c5936f775edbc0c4182dd50ed11e67769a1aff78b77cbb45c9dcf6.png" />
 </div>
 </div>
 <p>So far we have only looked at distributions of the tensors involved in the forward pass, but there is also a lot to learn from the backwards gradient tensors that we do not have time to delve in to.  For example, this scatter plot offers some insight into a suitable learning rate for the second <code class="docutils literal notranslate"><span class="pre">Linear</span></code> module’s weight parameters:</p>
@@ -1690,7 +1690,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/489b8182e58e09b35df0a38de17a54133e7f5213f0050b3200a35ad93904e2d9.png" src="../../_images/489b8182e58e09b35df0a38de17a54133e7f5213f0050b3200a35ad93904e2d9.png" />
+<img alt="../../_images/1063798cd693b1ae34158c450fc8ccaa73acb9e29fd09b3a4ca696f092968ede.png" src="../../_images/1063798cd693b1ae34158c450fc8ccaa73acb9e29fd09b3a4ca696f092968ede.png" />
 </div>
 </div>
 <p>Note that the normalization of the loss function feeds directly into these gradients, so needs to be considered when setting the learning rate:</p>
@@ -1724,7 +1724,7 @@ tensor([0.4928, 0.0345], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/40c4ec78071ef93044d0d07212783a4da2c018c4233bf6227699b4a2a2cc1503.png" src="../../_images/40c4ec78071ef93044d0d07212783a4da2c018c4233bf6227699b4a2a2cc1503.png" />
+<img alt="../../_images/6ba460c6c2ce72c0665a2f0e83bd8ac4ac33e68a1603581cb51cfa9934cb43f4.png" src="../../_images/6ba460c6c2ce72c0665a2f0e83bd8ac4ac33e68a1603581cb51cfa9934cb43f4.png" />
 </div>
 </div>
 </section>
@@ -1862,13 +1862,13 @@ but we can not directly interpret their values as category probabilities since t
         <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span> <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span> <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ylo</span><span class="p">,</span> <span class="n">yhi</span><span class="p">],</span> <span class="p">[</span><span class="n">ylo</span><span class="p">,</span> <span class="n">yhi</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    
+
 <span class="n">plot_softmax</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5fa190e8dd55c6e1f9280b3d5339f1c8dee4957838399e397939d70e683cd136.png" src="../../_images/5fa190e8dd55c6e1f9280b3d5339f1c8dee4957838399e397939d70e683cd136.png" />
+<img alt="../../_images/4c7b431fe1d578bb834b458cf2bb8037836f0151e2ba1b279bcaaa2fa6ec95c1.png" src="../../_images/4c7b431fe1d578bb834b458cf2bb8037836f0151e2ba1b279bcaaa2fa6ec95c1.png" />
 </div>
 </div>
 <p>The example above assumed output activations that can be large and positive, such as <code class="docutils literal notranslate"><span class="pre">relu</span></code> or <code class="docutils literal notranslate"><span class="pre">elu</span></code>. However, the strength of the <em>winner takes all</em> effect depends on how the outputs are scaled, and is relatively weak for output activations that saturate on both sides, such as <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code> or <code class="docutils literal notranslate"><span class="pre">tanh</span></code>, which is why these are generally not used for classification outputs:</p>
@@ -1879,7 +1879,7 @@ but we can not directly interpret their values as category probabilities since t
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ab6bc6e44066d0e46a50733b6674c9139253eb20d371e863044669e22a4883c0.png" src="../../_images/ab6bc6e44066d0e46a50733b6674c9139253eb20d371e863044669e22a4883c0.png" />
+<img alt="../../_images/9d6979af188ffd82d80d186e5c0f2271cbad9ad80a0b761974f771225613824e.png" src="../../_images/9d6979af188ffd82d80d186e5c0f2271cbad9ad80a0b761974f771225613824e.png" />
 </div>
 </div>
 <p>Note that we assume <span style="color:Violet">one-hot encoding</span> of the vector target values <span class="math notranslate nohighlight">\(\mathbf{y}^{out}\)</span>, which is not very efficient (unless using sparse-optimized data structures) compared to a single integer target value <span class="math notranslate nohighlight">\(y^{train} = 0, 1, \ldots, C-1\)</span>. However, sklearn has a <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">convenient utility</a> to convert integers to one-hot encoded vectors (use <code class="docutils literal notranslate"><span class="pre">sparse=True</span></code> to return vectors in an efficient <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/sparse.html">scipy sparse array</a>).</p>
@@ -1890,7 +1890,7 @@ but we can not directly interpret their values as category probabilities since t
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 </ul>
-<p>© Copyright 2024</p>
+<p>© Copyright 2025</p>
 </section>
 </section>
 
