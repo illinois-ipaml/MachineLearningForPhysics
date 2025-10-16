@@ -1332,39 +1332,40 @@ x \; \rightarrow\; \{ x^0, x^1, \ldots, x^P \} \; ,
 </section>
 <section id="span-style-color-lightgreen-comparison-with-bayesian-evidence-using-pymc-span">
 <h3><span style="color:Lightgreen">Comparison with Bayesian Evidence Using PyMC</span><a class="headerlink" href="#span-style-color-lightgreen-comparison-with-bayesian-evidence-using-pymc-span" title="Permalink to this heading">#</a></h3>
-<p>The function below estimates the Bayesian evidence for the data <span class="math notranslate nohighlight">\(D=(X,y)\)</span> given a polynomial model of degree <span class="math notranslate nohighlight">\(P\)</span>, using the same MCMC techniques we saw earlier. The evidence calculation requires an additional ingredient that we never specified for cross validation: a prior on the <span class="math notranslate nohighlight">\(P + 1\)</span> polynomial coefficients, which has a similar effect to a regularization term in an sklearn linear regression.  We adopt a Gaussian prior on each coefficient with the same scale, chosen to be large enough that the likelihood will dominate the posterior.</p>
-<p>The evidence calculation method via the <strong>GMM-based approach</strong> implemented in <code class="docutils literal notranslate"><span class="pre">estimate_log_evidence</span></code> below, is <strong>mathematically sound</strong> as an approximate method for estimating the log marginal likelihood (log evidence).</p>
-<p>The logic follows the identity:
-$<span class="math notranslate nohighlight">\(
+<p>The function below estimates the Bayesian evidence for the data <span class="math notranslate nohighlight">\(D=(X,y)\)</span> given a polynomial model of degree <span class="math notranslate nohighlight">\(P\)</span>, using the same MCMC techniques we saw earlier but implemented within the <a class="reference external" href="https://www.pymc.io">PyMC framework</a>. PyMC is a probabilistic programming library for Python that allows users to build Bayesian models with a simple Python API and fit them using Markov chain Monte Carlo (MCMC) methods. The evidence calculation requires an additional ingredient that we never specified for cross validation: a prior on the <span class="math notranslate nohighlight">\(P + 1\)</span> polynomial coefficients, which has a similar effect to a regularization term in an sklearn linear regression.  We adopt a Gaussian prior on each coefficient with the same scale, chosen to be large enough that the likelihood will dominate the posterior.</p>
+<p>The evidence calculation method via the <span style="color:Violet">GMM-based approach</span> implemented in <code class="docutils literal notranslate"><span class="pre">estimate_log_evidence</span></code> below, is mathematically sound as an approximate method for estimating the log marginal likelihood (log evidence).</p>
+<p>The logic follows the identity:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \log P(D|M) = \log P(D, \Theta|M) - \log P(\Theta|D, M)
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\log P(D, \Theta|M)<span class="math notranslate nohighlight">\( is the \)</span>\mathbf{\text{log joint probability}}<span class="math notranslate nohighlight">\( (\)</span>\log \text{likelihood} + \log \text{prior}<span class="math notranslate nohighlight">\() and \)</span>\log P(\Theta|D, M)<span class="math notranslate nohighlight">\( is the \)</span>\mathbf{\text{log posterior density}}$.</p>
-<p>The code implements a function, <code class="docutils literal notranslate"><span class="pre">calculate_evidence</span></code>, which offers several methods for estimating the log marginal likelihood (<span class="math notranslate nohighlight">\(\log Z = \log P(D|M)\)</span>). The key method for direct evidence estimation is the <strong>Gaussian Mixture Model (GMM) approximation</strong>, which we encountered before.</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\log P(D, \Theta|M)\)</span> is the <span class="math notranslate nohighlight">\(\mathbf{\text{log joint probability}}\)</span> (<span class="math notranslate nohighlight">\(\log \text{likelihood} + \log \text{prior}\)</span>) and <span class="math notranslate nohighlight">\(\log P(\Theta|D, M)\)</span> is the <span class="math notranslate nohighlight">\(\mathbf{\text{log posterior density}}\)</span>.</p>
+<p>The code implements a function, <code class="docutils literal notranslate"><span class="pre">calculate_evidence</span></code>, which offers several methods for estimating the log marginal likelihood (<span class="math notranslate nohighlight">\(\log Z = \log P(D|M)\)</span>). The key method for direct evidence estimation is the <span style="color:Violet">Gaussian Mixture Model (GMM) approximation</span>, which we encountered before.</p>
 <section id="span-style-color-orange-the-pymc-model-and-mcmc-sampling-span">
 <h4><span style="color:Orange">The PyMC Model and MCMC Sampling</span><a class="headerlink" href="#span-style-color-orange-the-pymc-model-and-mcmc-sampling-span" title="Permalink to this heading">#</a></h4>
 <ol class="arabic simple">
-<li><p><strong>Model Definition:</strong> A <strong>polynomial regression</strong> model of degree <span class="math notranslate nohighlight">\(d\)</span> is defined in <strong>PyMC</strong>, where the number of parameters is <span class="math notranslate nohighlight">\(P = d+1\)</span>.</p>
+<li><p><span style="color:LightBlue">Model Definition</span>: A <strong>polynomial regression</strong> model of degree <span class="math notranslate nohighlight">\(d\)</span> is defined in <strong>PyMC</strong>, where the number of parameters is <span class="math notranslate nohighlight">\(P = d+1\)</span>.</p>
 <ul class="simple">
 <li><p><strong>Prior:</strong> All coefficients are assigned a <strong>Gaussian prior</strong> <span class="math notranslate nohighlight">\(\text{Normal}(0, \sigma_{\text{coef}})\)</span>.</p></li>
 <li><p><strong>Likelihood:</strong> The observed data <span class="math notranslate nohighlight">\(y_{\text{data}}\)</span> is modeled as <span class="math notranslate nohighlight">\(\text{Normal}(\mu, \sigma_y)\)</span>, where <span class="math notranslate nohighlight">\(\mu\)</span> is the polynomial fit (<span class="math notranslate nohighlight">\(\mathbf{X} \cdot \Theta\)</span>) and <span class="math notranslate nohighlight">\(\sigma_y\)</span> is the known observation standard deviation.</p></li>
 </ul>
 </li>
-<li><p><strong>Sampling:</strong> <strong>NUTS (or HMC) MCMC</strong> sampling is performed to generate samples from the <strong>posterior distribution</strong> <span class="math notranslate nohighlight">\(P(\Theta|D, M)\)</span>. These samples are extracted as <code class="docutils literal notranslate"><span class="pre">coef_samples</span></code> (shape: <span class="math notranslate nohighlight">\(N_{\text{samples}} \times P\)</span>).</p></li>
+<li><p><span style="color:LightBlue">Sampling</span>: <strong>NUTS (or HMC) MCMC</strong> sampling is performed to generate samples from the <strong>posterior distribution</strong> <span class="math notranslate nohighlight">\(P(\Theta|D, M)\)</span>. These samples are extracted as <code class="docutils literal notranslate"><span class="pre">coef_samples</span></code> (shape: <span class="math notranslate nohighlight">\(N_{\text{samples}} \times P\)</span>).</p></li>
 </ol>
 </section>
 <section id="span-style-color-orange-gmm-based-log-evidence-calculation-span">
 <h4><span style="color:Orange">GMM-Based Log Evidence Calculation</span><a class="headerlink" href="#span-style-color-orange-gmm-based-log-evidence-calculation-span" title="Permalink to this heading">#</a></h4>
-<p>The <span class="math notranslate nohighlight">\(\mathbf{\text{estimate\_log\_evidence}}\)</span> function takes the MCMC samples and a pre-evaluated grid to estimate <span class="math notranslate nohighlight">\(\log Z\)</span>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">estimate_log_evidence</span></code> function takes the MCMC samples and a pre-evaluated grid to estimate <span class="math notranslate nohighlight">\(\log Z\)</span>.</p>
 <section id="a-span-style-color-purple-log-joint-calculation-span-the-numerator">
 <h5>A. <span style="color: Purple">Log Joint Calculation</span> (The Numerator)<a class="headerlink" href="#a-span-style-color-purple-log-joint-calculation-span-the-numerator" title="Permalink to this heading">#</a></h5>
 <p>The <strong>log joint probability</strong> <span class="math notranslate nohighlight">\(\log P(D, \Theta|M)\)</span> is calculated on a parameter grid (<span class="math notranslate nohighlight">\(\Theta_{\text{grid}}\)</span>) derived from the MCMC samples.</p>
 <ol class="arabic simple">
-<li><p><strong>Grid Construction (<code class="docutils literal notranslate"><span class="pre">create_param_grid</span></code>):</strong> A dense grid (<span class="math notranslate nohighlight">\(\Theta_{\text{grid}}\)</span>) is constructed using <strong>percentiles</strong> of the MCMC samples. This efficiently covers the high-probability region of the parameter space.</p></li>
-<li><p><strong>Log Joint Evaluation:</strong> The log joint probability (<code class="docutils literal notranslate"><span class="pre">log_numerator</span></code>) is calculated for every point on the grid <strong>outside the PyMC model</strong> using closed-form expressions for the prior and likelihood:</p>
+<li><p><span style="color:LightBlue">Grid Construction</span> (<code class="docutils literal notranslate"><span class="pre">create_param_grid</span></code>): A dense grid (<span class="math notranslate nohighlight">\(\Theta_{\text{grid}}\)</span>) is constructed using <strong>percentiles</strong> of the MCMC samples. This efficiently covers the high-probability region of the parameter space.</p></li>
+<li><p><span style="color:LightBlue">Log Joint Evaluation</span>: The log joint probability (<code class="docutils literal notranslate"><span class="pre">log_numerator</span></code>) is calculated for every point on the grid <strong>outside the PyMC model</strong> using closed-form expressions for the prior and likelihood:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf{\text{log\_prior}}\)</span>: Sum of the log PDFs of the independent Gaussian priors for <span class="math notranslate nohighlight">\(\Theta\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf{\text{log\_lik}}\)</span>: Sum of the log PDFs of the Gaussian likelihood evaluated at the grid parameters.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf{\text{log\_numerator}} = \text{log\_prior} + \text{log\_lik}\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_prior</span></code>: Sum of the log PDFs of the independent Gaussian priors for <span class="math notranslate nohighlight">\(\Theta\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_lik</span></code>: Sum of the log PDFs of the Gaussian likelihood evaluated at the grid parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_numerator</span></code> = <code class="docutils literal notranslate"><span class="pre">log_prior</span></code> + <code class="docutils literal notranslate"><span class="pre">log_lik</span></code>.</p></li>
 </ul>
 </li>
 </ol>
@@ -1373,9 +1374,9 @@ where \)</span>\log P(D, \Theta|M)<span class="math notranslate nohighlight">\( 
 <h5>B. <span style="color: Purple">Log Posterior Estimation</span> (The Denominator)<a class="headerlink" href="#b-span-style-color-purple-log-posterior-estimation-span-the-denominator" title="Permalink to this heading">#</a></h5>
 <p>The log posterior density, <span class="math notranslate nohighlight">\(\log P(\Theta|D, M)\)</span>, is approximated using a <strong>Gaussian Mixture Model (GMM)</strong>.</p>
 <ol class="arabic simple">
-<li><p><strong>GMM Fitting:</strong> A GMM is fitted to the <strong>MCMC samples</strong> (<span class="math notranslate nohighlight">\(\Theta_{\text{samples}}\)</span>). The GMM is trained on the distribution from which the samples were drawn, which is <span class="math notranslate nohighlight">\(P(\Theta|D, M)\)</span>.</p></li>
-<li><p><strong>Density Evaluation:</strong> The GMM provides an estimate of the log posterior density (<span class="math notranslate nohighlight">\(\mathbf{\text{use\_log\_density}}\)</span>) at the selected grid points using <code class="docutils literal notranslate"><span class="pre">fit.score_samples</span></code>.</p></li>
-<li><p><strong>Optimization:</strong> The method iterates over a range of GMM components (<span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(\text{max\_components}\)</span>). The number of components that minimizes the <strong>spread</strong> (inter-quantile range) of the <span class="math notranslate nohighlight">\(\log Z\)</span> estimates across the grid is chosen as the optimal one.</p></li>
+<li><p><span style="color:LightBlue">GMM Fitting</span>: A GMM is fitted to the <strong>MCMC samples</strong> (<span class="math notranslate nohighlight">\(\Theta_{\text{samples}}\)</span>). The GMM is trained on the distribution from which the samples were drawn, which is <span class="math notranslate nohighlight">\(P(\Theta|D, M)\)</span>.</p></li>
+<li><p><span style="color:LightBlue">Density Evaluation</span>: The GMM provides an estimate of the log posterior density (<span class="math notranslate nohighlight">\(\mathbf{\text{use\_log\_density}}\)</span>) at the selected grid points using <code class="docutils literal notranslate"><span class="pre">fit.score_samples</span></code>.</p></li>
+<li><p><span style="color:LightBlue">Optimization</span>: The method iterates over a range of GMM components (<span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(\text{max\_components}\)</span>). The number of components that minimizes the <strong>spread</strong> (inter-quantile range) of the <span class="math notranslate nohighlight">\(\log Z\)</span> estimates across the grid is chosen as the optimal one.</p></li>
 </ol>
 </section>
 <section id="c-span-style-color-purple-final-estimate-span">
@@ -1383,7 +1384,7 @@ where \)</span>\log P(D, \Theta|M)<span class="math notranslate nohighlight">\( 
 <p>The estimate for <span class="math notranslate nohighlight">\(\log Z\)</span> is calculated for each grid point and optimal GMM component:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
-\mathbf{\log \hat{P}(D|M)} = \mathbf{\text{use\_log\_numerator}} - \mathbf{\text{use\_log\_density}}
+\mathbf{\log \hat{P}(D|M)} = \textrm{use\_log\_numerator} - \textrm{use\_log\_density}
 \]</div>
 <p>The final result is the <strong>median</strong> of these stable estimates, providing a robust approximation of the log evidence.</p>
 <div class="cell docutils container">
