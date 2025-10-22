@@ -586,6 +586,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File ‘./tmp_data/line_data.csv’ already there; not retrieving.
+File ‘./tmp_data/line_targets.csv’ already there; not retrieving.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="span-style-color-orange-load-data-span">
@@ -702,7 +708,7 @@ y = X w + \delta y \; .
 <p>i.e., all <span class="math notranslate nohighlight">\(m\)</span> features have the same variance <span class="math notranslate nohighlight">\(C_{ii}\)</span> for sample <span class="math notranslate nohighlight">\(i\)</span>, but samples are potentially correlated.  The resulting <span class="math notranslate nohighlight">\(n\times n\)</span> “sample covariance matrix” <span class="math notranslate nohighlight">\(C\)</span> then specifies the likelihood</p>
 <div class="math notranslate nohighlight">
 \[ \Large
-P(X,Y\mid W, C) = \prod_{k=1}^m\, \left(2\pi C\right)^{-1/2}\,
+P(Y\mid X, W, C) = \prod_{k=1}^m\, \left(2\pi C\right)^{-1/2}\,
 \exp\left[ -\frac{1}{2} (Y - X W)_k^T ~C^{-1}~ (Y - X W)_k\right] \; ,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\((Y - X W)_k\)</span> is the column of <span class="math notranslate nohighlight">\(N\)</span> values (one per sample) for the <span class="math notranslate nohighlight">\(k\)</span>-th feature of <span class="math notranslate nohighlight">\(Y\)</span>. Note that we treat the elements of <span class="math notranslate nohighlight">\(C\)</span> as fixed hyperparameters in standard linear regression.</p>
@@ -756,11 +762,14 @@ S \equiv \sum_{i=1}^N \left| Y_i - (X W)_i \right|^2
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$X$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">+</span><span class="mf">1.</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">+</span><span class="mf">1.</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.0, 1.0)
+</pre></div>
+</div>
 <img alt="../../_images/bb27cbb5ac0363d929c7351ebf96550d41f27e806344997d5768a24fe848a687.png" src="../../_images/bb27cbb5ac0363d929c7351ebf96550d41f27e806344997d5768a24fe848a687.png" />
 </div>
 </div>
@@ -796,7 +805,7 @@ W = (X^T C_N X)^{-1} ~X^T~ C_N^{-1}~ Y
 <p>Pass the diagonal elements of <span class="math notranslate nohighlight">\(C\)</span> as the third argument to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit_w</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit_w</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">dy</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">W_w</span> <span class="o">=</span> <span class="n">fit_w</span><span class="o">.</span><span class="n">coef_</span> 
 <span class="n">y0_w</span> <span class="o">=</span> <span class="n">fit_w</span><span class="o">.</span><span class="n">intercept_</span>
 </pre></div>
@@ -812,7 +821,7 @@ W = (X^T C_N X)^{-1} ~X^T~ C_N^{-1}~ Y
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.194]
- [1.187]]
+ [1.193]]
 </pre></div>
 </div>
 </div>
@@ -836,7 +845,7 @@ W = (X^T C_N X)^{-1} ~X^T~ C_N^{-1}~ Y
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ea2c9c7e3173a6ca3fc94f4c3efcf2426e1b1a098995878b00b764934726421c.png" src="../../_images/ea2c9c7e3173a6ca3fc94f4c3efcf2426e1b1a098995878b00b764934726421c.png" />
+<img alt="../../_images/9dc3a61b667a891f314664e55a7bb9eb2ec6d6eefdb9df53321b52095505744c.png" src="../../_images/9dc3a61b667a891f314664e55a7bb9eb2ec6d6eefdb9df53321b52095505744c.png" />
 </div>
 </div>
 <p>These are mean point estimates of <span class="math notranslate nohighlight">\(Y'\)</span> given new <span class="math notranslate nohighlight">\(X'\)</span>, so of limited use when you want to make probabilistic statements about what your have learned.  However, the likelihood is Gaussian in the model parameters:</p>
@@ -848,7 +857,7 @@ P(X, Y\mid W, C) = \prod_{k=1}^m\, \left(2\pi E\right)^{-1/2}\,
 <p>where <span class="math notranslate nohighlight">\(W_0\)</span> is the ML weight matrix, <span class="math notranslate nohighlight">\((W - W_0)_k\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>-th column with <span class="math notranslate nohighlight">\(n\)</span> rows, and <span class="math notranslate nohighlight">\(E\)</span> is its <span class="math notranslate nohighlight">\(n\times n\)</span> covariance, given by:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
-E = (X^T C X)^{-1} \; .
+E = (X^T C^{-1} X)^{-1} \; .
 \]</div>
 <p>For homoscedastic errors <span class="math notranslate nohighlight">\(\sigma\)</span>, this reduces to</p>
 <div class="math notranslate nohighlight">
@@ -859,7 +868,8 @@ E = \sigma^{-2} (X^T X)^{-1} \; .
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">dy</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">)))</span>
+<span class="n">C_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">dy</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">C_inv</span><span class="p">,</span> <span class="n">X</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -883,7 +893,7 @@ E = \sigma^{-2} (X^T X)^{-1} \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2c398150c06dc97674a99a2bf96fac85399dadcfafa01eccdd54585a5364f58d.png" src="../../_images/2c398150c06dc97674a99a2bf96fac85399dadcfafa01eccdd54585a5364f58d.png" />
+<img alt="../../_images/d20342555138bfbe60acf51e3b63b77ff7aabb281bb08c7ff336227620103acc.png" src="../../_images/d20342555138bfbe60acf51e3b63b77ff7aabb281bb08c7ff336227620103acc.png" />
 </div>
 </div>
 <p>Note that we are not propagating the uncertainty in <span class="math notranslate nohighlight">\(y_0\)</span> here.</p>
