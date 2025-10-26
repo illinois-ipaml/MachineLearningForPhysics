@@ -9,6 +9,7 @@ You will learn about supervised learning and artifical neural networks
 
 ## *Lecture Materials*
 * [Slides](https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing)
+* {doc}`lectures/GPU101`
 * {doc}`lectures/SupervisedLearning`
 * {doc}`lectures/ArtificialNeuralNetworks`
 
