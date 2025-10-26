@@ -10,7 +10,7 @@ You will learn about Bayesian statistics and Markov Chain Monte Carlo.
 ## *Lecture Materials*
 * [Slides](https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing)
 * {doc}`lectures/BayesianInference`
-* {doc}`lectures/MCMC`
+* {doc}`lectures/MarkovChainMonteCarlo`
 
 ## *Homework Assignment*
 * {doc}`homework/Homework_06`
