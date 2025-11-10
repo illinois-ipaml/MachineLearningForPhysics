@@ -678,6 +678,13 @@ A graph is a data type that is modelled as a set of objects which can be represe
 </div>
 <p>PyG provides access to a couple of graph datasets. For this notebook, we are going to use <a class="reference external" href="https://en.wikipedia.org/wiki/Zachary%27s_karate_club">Zachary’s karate club</a> network <a class="reference external" href="https://karateclub.readthedocs.io/en/latest/modules/dataset.html">dataset</a>.</p>
 <p>Zachary’s karate club is a great example of social relationships within a small group. This set of data indicated the interactions of club members outside of the club. This dataset also documented the conflict between the instructor, Mr.Hi, and the club president, John because of course price. In the end, half of the members formed a new club around Mr.Hi, and the other half either stayed at the old karate club or gave up karate.</p>
+<p>The four classes in Zachary’s karate club dataset are the four communities identified by modularity-based clustering: those loyal to the owner, those who followed the instructor, those who were conflicted, and those who left both clubs. The exact labels for these classes can vary depending on the study, but they represent the main factions that emerged as the club split:</p>
+<ul class="simple">
+<li><p><span style="color:Violet">The Owner’s Faction</span>: Members who sided with John A, the club’s owner, to manage the club’s prices.</p></li>
+<li><p><span style="color:Violet">The Instructor’s Faction</span>: Members who followed the instructor, Mr. Hi, in forming a new club.</p></li>
+<li><p><span style="color:Violet">The Conflicted Faction</span>: Members who were undecided about which leader to follow, creating a community of their own.</p></li>
+<li><p><span style="color:Violet">The Quitters</span>: Members who maintained some relationship with both factions but ultimately stopped practicing karate at all.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">KarateClub</span>
@@ -850,11 +857,10 @@ Is undirected: True
 </div>
 </div>
 <p>There is much more analysis that can be done with GNNs on the Karate Club dataseet. See <a class="reference external" href="https://www.linkedin.com/pulse/community-detection-social-networks-case-study-zacharys-marin/">here</a> for examples. Our goal in this lecture was to use it an way to introduce the implementation and use of GNNs within the Pytorch framework.</p>
-<p>We will now turn to examples using simulated open data from the CMS experiment at the LHC.  The algorithms’ inputs are features of the reconstructed charged particles in a jet and the secondary vertices associated with them. Describing the jet shower as a combination of particle-to-particle and particle-to-vertex interactions, the model is trained to learn a jet representation on which the classification problem isoptimized.</p>
+<p>We will now turn to examples using simulated open data from the CMS experiment at the LHC.  The algorithms’ inputs are features of the reconstructed charged particles in a jet and the secondary vertices associated with them. Describing the jet shower as a combination of particle-to-particle and particle-to-vertex interactions, the model is trained to learn a jet representation on which the classification problem is optimized.</p>
 <p>We show below an example using a community model called “DeepSets” and then compare to an Interaction Model GNN.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-orange-deep-sets-span">
 <h1><span style="color:Orange">Deep Sets</span><a class="headerlink" href="#span-style-color-orange-deep-sets-span" title="Permalink to this heading">#</a></h1>
 <p>We will start by looking at Deep Sets networks using PyTorch. The architecture is based on the following paper: <a class="reference external" href="https://papers.nips.cc/paper/2017/file/f22e4747da1aa27e363d86d40ff442fe-Paper.pdf">DeepSets</a></p>
@@ -898,6 +904,7 @@ Is undirected: True
 </div>
 </div>
 </div>
+<p>The DeepSets model is a neural network architecture designed to process sets of data by ensuring the output is invariant to the order of the input elements. It works by first applying a neural network (<span class="math notranslate nohighlight">\(\phi\)</span>) to each element individually to generate an embedding, then aggregating these embeddings using a permutation-invariant operation like summation, and finally passing the aggregated result through a second neural network (<span class="math notranslate nohighlight">\(\rho\)</span>) for a prediction. This two-step process allows the model to learn arbitrary set functions and is used for tasks where the order of inputs does not matter, such as recommendation systems or classifying point clouds.</p>
 <section id="span-style-color-lightblue-data-loader-span">
 <h2><span style="color:LightBlue">Data Loader</span><a class="headerlink" href="#span-style-color-lightblue-data-loader-span" title="Permalink to this heading">#</a></h2>
 <p>Here we have to define the dataset loader.</p>
