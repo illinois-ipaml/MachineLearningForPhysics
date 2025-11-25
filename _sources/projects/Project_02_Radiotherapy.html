@@ -302,7 +302,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-
 <li class="toctree-l2"><a class="reference internal" href="Project_02_BentPipeSurrogate.html">Fluid Dynamics of a Bent Pipe</a></li>
 </ul>
 </li>
@@ -563,7 +562,7 @@ document.write(`
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Original Source</p>
+<p>Original Source <strong>[<span style="color:Red">1</span>]</strong></p>
 <ul class="simple">
 <li><p><a class="github reference external" href="https://github.com/ababier/open-kbp">ababier/open-kbp</a></p></li>
 </ul>
@@ -578,7 +577,7 @@ document.write(`
 <h3><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-absorption-scattering-span" title="Permalink to this heading">#</a></h3>
 <p>X-rays attenuate exponentially upon entering the body by the Beer-Lambert Law.</p>
 <div class="math notranslate nohighlight">
-\[
+\[ \Large
 I(x) = I_0 e^{-\mu x}
 \]</div>
 <div class="math notranslate nohighlight">
@@ -861,31 +860,34 @@ dm = \text{mass of tissue (kilograms)}
 </div>
 </div>
 </div>
-<p>We’d like to inject a physics loss that encodes the actual attenuation and radiation dose delivery of the beam, rewarding correct dose distribution between the spine and tumor. We need to upgrade our simple Q-learning method into a Deep-Q Network (DQN). This should only require simple structural changes (refer to our reinforcement learning <a class="reference external" href="https://illinois-mlp.github.io/MachineLearningForPhysics/_sources/lectures/ReinforcementLearning.html">notebook</a>). Typically, these would use a Bellman loss. With our new physics-loss it should resemble:
-$<span class="math notranslate nohighlight">\(
+<p>We’d like to inject a physics loss that encodes the actual attenuation and radiation dose delivery of the beam, rewarding correct dose distribution between the spine and tumor. We need to upgrade our simple Q-learning method into a Deep-Q Network (DQN). This should only require simple structural changes (refer to our reinforcement learning <a class="reference external" href="https://illinois-mlp.github.io/MachineLearningForPhysics/_sources/lectures/ReinforcementLearning.html">notebook</a>). Typically, these would use a Bellman loss. With our new physics-loss it should resemble:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 L_{\text{Total}} = L_{\text{Bellman}} + \lambda_{\text{Physics}} L_{\text{Physics}}
-\)</span>$</p>
-<p>The physics loss takes the following form:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>The physics loss takes the following form:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 L_{\text{Physics}} =
 \lambda_{\text{PTV}} \cdot \text{Underdose}_{\text{PTV}} +
 \lambda_{\text{Spine}} \cdot \text{Overdose}_{\text{Organs}}
-\)</span><span class="math notranslate nohighlight">\(
-Each \)</span>\lambda<span class="math notranslate nohighlight">\( assigns 'weight' to a term, tinkering with these may prove beneficial.
-The Underdose term penalizes not giving the tumor the maximum dose (1)
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>Each <span class="math notranslate nohighlight">\(\lambda\)</span> assigns ‘weight’ to a term, tinkering with these may prove beneficial. The Underdose term penalizes not giving the tumor the maximum dose (1)</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \text{Underdose}_{\text{PTV}} = \mathbb{E} \left[ \max \left( 0,\ 1 - D_{\text{PTV}} \right) \right]
-\)</span>$</p>
+\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(D_{\text{PTV}}\)</span>: dose received by pixels inside the tumor (PTV mask)</p></li>
 <li><p><span class="math notranslate nohighlight">\(1 - D_{\text{PTV}}\)</span>: underdose per pixel (1 is max dose)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\max(0, 1 - D_{\text{PTV}})\)</span>: penalizes only underdosed regions</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}[\cdot]\)</span>: average</p></li>
 </ul>
-<p>The Overdose term penalizes giving the organs too much dose
-$<span class="math notranslate nohighlight">\(
+<p>The Overdose term penalizes giving the organs too much dose</p>
+<div class="math notranslate nohighlight">
+\[ \Large
 \text{Overdose}_{\text{Organs}} = \mathbb{E} \left[ \max \left( 0,\ D_{\text{Organs}} - D_{\text{safe}} \right) \right]
-\)</span>$</p>
+\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(D_{\text{safe}}\)</span>: Safety threshold for organ (max dose it can receive). <strong>You can find these online</strong></p></li>
 </ul>
