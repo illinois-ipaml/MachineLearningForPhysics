@@ -113,6 +113,7 @@ parts:
         - file: _sources/projects/Project_02_GalaxyZoo
         - file: _sources/projects/Project_02_AberratedImages
         - file: _sources/projects/Project_02_GravitationalWaves
+        - file: _sources/projects/Project_02_AnisotropyQGP
       - file: _sources/Week_13 # AI Explainablility and Uncertainty Quantification
         sections:
         - url: https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing
