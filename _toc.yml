@@ -111,7 +111,6 @@ parts:
         - file: _sources/projects/Project_02_HiggsTauTau
         - file: _sources/projects/Project_02_ExoticParticles
         - file: _sources/projects/Project_02_GalaxyZoo
-        - file: _sources/projects/Project_02_NuclearGeometryQGP
         - file: _sources/projects/Project_02_AberratedImages
         - file: _sources/projects/Project_02_GravitationalWaves
       - file: _sources/Week_13 # AI Explainablility and Uncertainty Quantification
