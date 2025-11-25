@@ -560,16 +560,13 @@ document.write(`
 <p>Please refer to the corresponding <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/projects/Project_01_ExoticParticles.html">Project 01 notebook</a> for background questions related to this project. In this project, you are to focus on machine learning application(s).</p>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>Implement and train a shallow neural network (NN) described in ref <strong>[1]</strong> for one of the exotic particle hypotheses. You should implement a NN one that makes the training time manageable, like one of the shallow networks with hyperparameters shown in Table 2 of ref <strong>[1]</strong> or even a smaller network. Can you show the NN classification output?</p>
+<p>First implement and train a shallow neural network (NN) described in ref <strong>[<span style="color:Red">1</span>]</strong> for one of the exotic particle hypotheses. You should implement a NN one that makes the training time manageable on a CPU, like one of the shallow networks with hyperparameters shown in Table 2 of ref <strong>[<span style="color:Red">1</span>]</strong> or even a smaller network. Next train a fully-connected deep neural network (DNN) using a GPU by increasing the number of hidden layers and neuron within the layers. The exact DNN setup is up to you, as long as it has meaningfully more trainable parameters than the shallow NN from the first part. Show the classification output for signal and background for both networks, as well as the ROC curve and AUC metric.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
 <p><strong>[<span style="color:Red">1</span>]</strong> P.J. Sadowski, D. Whiteson, P. Baldi, “Searching for Exotic Particles in High-Energy Physics with Deep Learning”, <em>Nature Commun. 5 (2014) 4308</em>, e-Print: <a class="reference external" href="https://arxiv.org/abs/1402.4735">1402.4735</a> [hep-ph]</p>
-<p><strong>[<span style="color:Red">2</span>]</strong> P. Baldi, K. Cranmer, T. Faucett, P. Sadowski, D. Whiteson, “Parameterized Machine Learning for High-Energy Physics”, <em>Eur.Phys.J.C 76 (2016) 5, 235</em>, e-Print: <a class="reference external" href="https://arxiv.org/abs/1601.07913">1601.07913</a> [hep-ex]</p>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">

@@ -537,7 +537,7 @@ document.write(`
 <img src="https://raw.githubusercontent.com/illinois-dap/DataAnalysisForPhysicists/main/img/Project_HiggsTauTau-EventDisplay.jpg" width=700></img>
 </div><section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>From <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/file/e1d5be1c7f2f456670de3d53c7b54f4a-Paper.pdf">[1]</a>, “The Higgs boson is an elementary particle in the Standard Model of particle physics, produced by the quantum excitation of the Higgs field, one of the fields in particle physics <a class="reference external" href="http://theory.It">theory.It</a> is named after physicist Peter Higgs, who in 1964, along with six other scientists, proposed the mechanism, which suggested the existence of such a particle. Its existence was confirmed by the ATLAS and CMS collaborations based on collisions in the LHC at CERN.</p>
+<p>From <strong>[<span style="color:Red">1</span>]</strong>, “The Higgs boson is an elementary particle in the Standard Model of particle physics, produced by the quantum excitation of the Higgs field, one of the fields in particle physics <a class="reference external" href="http://theory.It">theory.It</a> is named after physicist Peter Higgs, who in 1964, along with six other scientists, proposed the mechanism, which suggested the existence of such a particle. Its existence was confirmed by the ATLAS and CMS collaborations based on collisions in the LHC at CERN.</p>
 <p>On December 10, 2013, two of the physicists, Peter Higgs and François Englert, were awarded the Nobel Prize in Physics for their theoretical predictions. Although Higgs’s name has come to be associated with this theory, several researchers between about 1964 and 1972 independently developed different parts of it.”</p>
 <p>The Standard Model (SM) of particle physics predicts the existence of a Higgs boson. It was discovered at CERN in 2012 by the ATLAS and CMS collaborations, with contributions to the data analysis in the discovery paper by Neubauer’s research group at Illinois.</p>
 </section>
@@ -554,18 +554,16 @@ document.write(`
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
-<p>Please refer to the corresponding Project 01 notebook for background questions related to this project. In this project, you are to focused on machine learning application(s).</p>
+<p>Please refer to the corresponding <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/projects/Project_01_HiggsTauTau.html">Project 01 notebook</a> for background questions related to this project. In this project, you are to focus on machine learning application(s).</p>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>Implement and train one of the neural networks (NN) described in <strong>[1]</strong>. Be sure to set aside test data from the original data set which is not used in the training. You should implement a NN one that makes the training time manageable, like one of the shallow networks with hyperparameters shown in Table 1 of <strong>[1]</strong> or even a smaller network. Can you show the NN classification output (analogous to Figure 4)?</p>
+<p>Implement and train one of the neural networks (NN) described in <strong>[<span style="color:Red">1</span>]</strong>. Be sure to set aside test data from the original data set which is not used in the training. First implement a shallow NN one that makes the training time manageable on a CPU, like one of the shallow networks with hyperparameters shown in Table 1 of <strong>[<span style="color:Red">1</span>]</strong> or even a smaller network. Next train a fully-connected deep neural network (DNN) using a GPU by increasing the number of hidden layers and neuron within the layers. The exact DNN setup is up to you, as long as it has meaningfully more trainable parameters than the shallow NN from the first part. Show the classification output for signal and background (analogous to Figure 4) for both networks, as well as the ROC curve and AUC metric.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<p><strong>[<span style="color:Red">1</span>]</strong> P.J. Sadowski, D. Whiteson, P. Baldi, “Searching for Higgs Boson Decay Modes with Deep Learning”, <em>Advances in Neural Information Processing Systems 27 (NIPS 2014)</em> (<a class="reference external" href="https://papers.nips.cc/paper/2014/hash/e1d5be1c7f2f456670de3d53c7b54f4a-Abstract.html">https://papers.nips.cc/paper/2014/hash/e1d5be1c7f2f456670de3d53c7b54f4a-Abstract.html</a>)</p>
+<p><strong>[<span style="color:Red">1</span>]</strong> P.J. Sadowski, D. Whiteson, P. Baldi, “Searching for Higgs Boson Decay Modes with Deep Learning”, <em>Advances in Neural Information Processing Systems 27 (NIPS 2014)</em> (<a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/file/44f58a78b6dd03bf9ccb526e7c7538d5-Paper.pdf">https://papers.nips.cc/paper_files/paper/2014/file/44f58a78b6dd03bf9ccb526e7c7538d5-Paper.pdf</a>)</p>
 </section>
-<hr class="docutils" />
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
