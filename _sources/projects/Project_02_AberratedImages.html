@@ -514,7 +514,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
@@ -537,11 +536,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="aberrated-image-recovery-of-ultracold-atoms">
 <h1>Aberrated Image Recovery of Ultracold Atoms<a class="headerlink" href="#aberrated-image-recovery-of-ultracold-atoms" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_UltraColdAtoms.png" width=600></img>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
@@ -552,20 +553,23 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<div>
-<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_UltraColdAtoms.png" width=600></img>
-</div></section>
 <section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>Over the past 20-30 years the groundwork has been laid for precise experimental control of atomic gases at ultracold temperatures. These ultracold atom gas experiments explore the quantum mechanics of their underlying atomic systems to a diverse set applications ranging from the simulation of computationally difficult physics problems [1] to the sensing of new physics beyond the standard model [2]. Most experiments in this field rely on directly imaging the ultracold gas they make, in order to extract data about the size and shape of the atomic number density distribution being imaged.</p>
+<p>Over the past 20-30 years the groundwork has been laid for precise experimental control of atomic gases at ultracold temperatures. These ultracold atom gas experiments explore the quantum mechanics of their underlying atomic systems to a diverse set applications ranging from the simulation of computationally difficult physics problems [<strong><span style="color:Red">1</span></strong>] to the sensing of new physics beyond the standard model [<strong><span style="color:Red">2</span></strong>]. Most experiments in this field rely on directly imaging the ultracold gas they make, in order to extract data about the size and shape of the atomic number density distribution being imaged.</p>
 <p>The goal of this project is to introduce you to some relevant image processing techniques, as well as to get familiar with an image as a data element. As you will demonstrate, images are a kind of data with a very large number of features, but where almost all of those features within some region of interest are highly correlated. Of interest in this project is how the effects of real imaging systems distort the information contained in an image, and how those effects can be unfolded from the data to recover information about the true density distribution.</p>
 <p>Capturing all possible kinds of aberrations and noise present in real experimental data of ultracold atom images is outside the scope of the simulated test data in this project. Instead, we limit ourselves to a few key effects: optical aberrations in the form of defocus and primary spherical aberrations, pixelization from a finite detector resolution, and at times toy number density noise simulated as simple Gaussian noise.</p>
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Data is available <a class="reference external" href="https://github.com/illinois-ipaml/MachineLearningForPhysics/tree/main/_sources/projects/Project_01_Aberrated_images_additional_material">here</a> on the course GitHub, along with ImageSimulation.ipynb, the notebook used to generate the data. You are encouraged to read through that notebook to see how the simulation works and even generate your own datasets if desired.</p>
+<p>File URLs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz</a></p></li>
+</ul>
+<p>You should untar this file into your local directory and access the image files from there:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Heavy_tails/HiNA.atom_num=100000.*.tiff</span></code></p></li>
+</ul>
+<p>Also included is <code class="docutils literal notranslate"><span class="pre">ImageSimulation.ipynb</span></code>, which is the notebook used to generate the data you will find in that folder. You are encouraged to read through that notebook to see how the simulation works and even generate your own datasets if desired.</p>
 <p>You are welcome to access the images however works best for you, but a simple solution is to download the dataset folder to the same path as this notebook (or the one you plan to do your analysis in) and use the following helper function to important an image based on the true parameters of the underlying density distribution—found in the image file name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,18 +611,16 @@ document.write(`
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
-<p>In this part of the project you will attempt to use two kinds of blind deconvolution algorithms to recover the measurement response, or PSF, of a cold atom imaging system. Sometimes in experiment we can’t reliably create gases far below the Rayleigh criterion in order to directly measure the PSF. Additionally, some optical aberrations can’t be corrected for. Spherical aberrations represent a source of systematic error that may need addressing. The inability to make resolution limited objects also poses a problem when trying to bring an image in focus, as several planes will appear to be all in focus at once. The ability to suss out the measurement response without much knowledge a priori is therefore an incredibly valuable tool for the fast implementation of new imaging systems.</p>
-<p>The images in this dataset have been generated with the same ImageSimulation.ipynb available at the data source link. Again we are utilizing the high numerical aperture (<span class="math notranslate nohighlight">\(\text{NA} = 0.4\)</span>) imaging system with an <span class="math notranslate nohighlight">\(M=20\times\)</span> telescope projecting the image on to the same <span class="math notranslate nohighlight">\(\text{PS}=13\)</span> um detector. The images are limited to small isotropic gases (<span class="math notranslate nohighlight">\(\sigma = (1.0 \pm 0.5)\)</span> um), still above the resolution limit, therefore we will crop a smaller region of interest of only <span class="math notranslate nohighlight">\(25\)</span> um about the center of the gases and work with less data. As hinted at above, a moderate amount of spherical aberrations will be present in the response (<span class="math notranslate nohighlight">\(Z_0^4=0.3\)</span>) and images will be taken about with object centered at planes <span class="math notranslate nohighlight">\(\pm 5\)</span> um about the true best focus.</p>
-<p>Also available in the dataset is a truePSF.tiff image which contains measurement of the imaging system response of an object much smaller than the Rayleigh criterion, i.e. the true PSF of the imaging system. Import this as a separate data object, which you will compare to your fitted responses. Note that the PSF here is also ‘pixel limited’ meaning we can’t resolve the first minima of the diffraction pattern.</p>
+<p>Please refer to the corresponding <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/projects/Project_01_AberratedImages.html">Project 01 notebook</a> for background questions related to this project. In this project, you are to focus on machine learning application(s).</p>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>Implement a linear deconvolution of the data in order to estimate the PSF of the aberrated imaging system used to generate the data. Display images of the fitted response and a few images before and after deconvolution with the fitted response. A useful starting place would to implement a regression algorithm from the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> toolbox with Tikhonov regularization.</p>
-<p>How well does your fitted response compare to true PSF? Use an explicit metric.</p>
+<p>Take the images in the <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> dataset. Use singular value decomposition (SVD) to generate a compressed version of each image, by decomposing the data and sampling a rank-<span class="math notranslate nohighlight">\(k\)</span> subset of the latent variable space. Reconstruct images for a handful of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>At what point do images with the same <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> but different <span class="math notranslate nohighlight">\(\sigma_z\)</span> appear to have the same sized tail in the compressed parameter space?</p>
 </section>
 <section id="span-style-color-lightgreen-question-02-span">
 <h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
-<p>Read through chapter 5 of [3], and implement a similarly structured convolutional neural network (CNN) to perform a blind deconvolution of the PSF in the dataset here. [4] and [5] may also provide useful frameworks.</p>
-<p>Compare with the response you get from the linear deconvolution in question 01.</p>
+<p>Read through chapter 5 of [<strong><span style="color:Red">5</span></strong>], and implement a similarly structured convolutional neural network (CNN) to extract features from the images in the <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> dataset.</p>
+<p>Display a few images from the output of the network? How do they compare to your latent space representations of the data from your SVD?</p>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
@@ -704,7 +706,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
