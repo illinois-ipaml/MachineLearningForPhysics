@@ -1,6 +1,6 @@
 # <span style="color:Blue">__Instrumentation Physics: Applications of Machine Learning__</span>
 
-<font size="6"> __Physics 503__ &nbsp; *Fall 2025* </font>
+<font size="6"> __Physics 503__ &nbsp; *Fall 2026* </font>
 * *Instructors:*
   * Professor [Mark Neubauer](https://marksneubauer.com)
   * Dr. Aaron Pearlman
