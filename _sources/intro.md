@@ -5,7 +5,7 @@
   * Professor [Mark Neubauer](https://marksneubauer.com)
   * Dr. Aaron Pearlman
 * *Class Meetings*: 
-  * Mondays and Wednesdays from 12:30 pm to 1:45 pm
+  * Mondays and Wednesdays from 10:30 am to 11:45 am
   * *Room*: 262 Loomis Laboratory
 * 4 credit hours
 
@@ -14,22 +14,22 @@ __Note__: *This schedule will evolve throughout the semseter*
 
 | Week          | Topic                 | Homework                               | Projects                   |
 |---------------|-----------------------|----------------------------------------|----------------------------|
-| Aug 25  | {doc}`_sources/Week_01`     | [HW 01](_sources/homework/Homework_01) |                            |
-| Sep 01  | {doc}`_sources/Week_02` __Sep 1 is Labor Day__ | [HW 02](_sources/homework/Homework_02) |                            |
-| Sep 08  | {doc}`_sources/Week_03`     | [HW 03](_sources/homework/Homework_03) |                            |
-| Sep 15  | {doc}`_sources/Week_04`     | [HW 04](_sources/homework/Homework_04) |                            |
-| Sep 22  | {doc}`_sources/Week_05`     | [HW 05](_sources/homework/Homework_05) |                            |
-| Sep 29  | {doc}`_sources/Week_06`     | [HW 06](_sources/homework/Homework_06) |                            |
-| Oct 06  | {doc}`_sources/Week_07`     | [HW 07](_sources/homework/Homework_07) | {doc}`_sources/Project_01` |
-| Oct 13  | {doc}`_sources/Week_08`     | NO HW                                  |                            |
-| Oct 20  | {doc}`_sources/Week_09`     | [HW 08](_sources/homework/Homework_08) |                            |
-| Oct 27  | {doc}`_sources/Week_10`     | [HW 09](_sources/homework/Homework_09) |                            |
-| Nov 03  | {doc}`_sources/Week_11`     | [HW 10](_sources/homework/Homework_10) |                            |
+| Aug 24  | {doc}`_sources/Week_01`     | [HW 01](_sources/homework/Homework_01) |                            |
+| Aug 31  | {doc}`_sources/Week_02`     | [HW 02](_sources/homework/Homework_02) |                            |
+| Sep 07  | {doc}`_sources/Week_03` __Sep 7 is Labor Day__  | [HW 03](_sources/homework/Homework_03) |        |
+| Sep 14  | {doc}`_sources/Week_04`     | [HW 04](_sources/homework/Homework_04) |                            |
+| Sep 21  | {doc}`_sources/Week_05`     | [HW 05](_sources/homework/Homework_05) |                            |
+| Sep 28  | {doc}`_sources/Week_06`     | [HW 06](_sources/homework/Homework_06) |                            |
+| Oct 05  | {doc}`_sources/Week_07`     | [HW 07](_sources/homework/Homework_07) | {doc}`_sources/Project_01` |
+| Oct 12  | {doc}`_sources/Week_08`     | NO HW                                  |                            |
+| Oct 19  | {doc}`_sources/Week_09`     | [HW 08](_sources/homework/Homework_08) |                            |
+| Oct 26  | {doc}`_sources/Week_10`     | [HW 09](_sources/homework/Homework_09) |                            |
+| Nov 02  | {doc}`_sources/Week_11`     | [HW 10](_sources/homework/Homework_10) |                            |
 | Nov 09  | {doc}`_sources/Week_12`     | NO HW                                  |                            |
-| Nov 17  | {doc}`_sources/Week_13`     | [HW 11](_sources/homework/Homework_11) | {doc}`_sources/Project_02` |
-| Nov 24  | __FALL BREAK - NO CLASSES__ |                                        |                            |
-| Dec 01  | {doc}`_sources/Week_14`     | NO HW                                  |                            |
-| Dec 08  | {doc}`_sources/Week_15`     | NO HW                                  |                            |
+| Nov 16  | {doc}`_sources/Week_13`     | [HW 11](_sources/homework/Homework_11) | {doc}`_sources/Project_02` |
+| Nov 23  | __FALL BREAK - NO CLASSES__ |                                        |                            |
+| Nov 30  | {doc}`_sources/Week_14`     | NO HW                                  |                            |
+| Dec 07  | {doc}`_sources/Week_15`     | NO HW                                  |                            |
 
 ## <span style="color:Red">Overview</span>
 
@@ -56,10 +56,10 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
   * 290B Loomis Laboratory
 
 ### TAs 
-* Pin-Yi Li
-  * email: pinyili2@illinois.edu
-  * Office Hour: Tuesday 9:30-10:30 am
-  * 3039 Beckman Institute or [Zoom](https://illinois.zoom.us/j/87074619841?pwd=joAuQXA7INZtrem1duQAfsGsziZk64.1)
+* Joel Kelsey
+  * email: joelk3@illinois.edu
+  * Office Hour: TBD
+  * TBD
 
 ## <span style="color:Red">Online Tools</span>
 
