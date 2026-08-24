@@ -103,8 +103,8 @@ In-person attendence for each lecture is mandatory (unless otherwise informed by
 
 ## <span style="color:Red">Grading</span>
 * Class attendence and participation: 5%
-* In-class quizzes: 10%
-* Homework: 40%
+* In-class quizzes: 15%
+* Homework: 35%
 * Projects: 45%
 
 Letter grades will be assigned as follows:
