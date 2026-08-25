@@ -42,7 +42,7 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ## <span style="color:Red">Course Logistics</span>
 ### Format
 * This course will consist of two meetings per week: one lecture period and one in-class practical session.
-* Lecture: Monday from 10:30 am - 11:45 am in 262 Loomis
+* Lectures: Monday from 10:30 am - 11:45 am in 262 Loomis
 * Practical Session: Wendesday from 12:30 pm - 1:45 pm in 262 Loomis
 
 ### Instructors
@@ -57,8 +57,7 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 ### TAs 
 * Joel Kelsey
   * email: joelk3@illinois.edu
-  * Office Hour: TBD
-  * TBD
+  * Office Hour: By Appointment
 
 ## <span style="color:Red">Online Tools</span>
 
