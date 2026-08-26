@@ -41,7 +41,7 @@ A distinguishing feature of this course is its sharp focus on endeavors in the d
 
 ## <span style="color:Red">Course Logistics</span>
 ### Format
-* This course will consist of two meetings per week: one lecture period and one in-class practical session.
+* This course will consist of two meetings per week: most will be in lecture with some in-class practical time on Wednesdays.
 * Lectures: Monday/Wednesday from 10:30 am - 11:45 am in 262 Loomis
 
 ### Instructors
