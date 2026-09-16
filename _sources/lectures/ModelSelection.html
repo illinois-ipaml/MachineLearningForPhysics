@@ -270,10 +270,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
 
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
@@ -787,8 +783,9 @@ P(M) = \int d\Theta_M\, P(\Theta_M, M) \; .
 }
 \]</div>
 <p>It is easy to lose sight of the big picture with all of this probability calculus, so let’s zoom out to a simple example:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" style="width: 800px;" /></a></img><br></p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS</span></strong></em> Study the observed image <span class="math notranslate nohighlight">\(D\)</span> above with two models in mind:</p>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/ModelSelection-OccamFactor.jpg" width=800></img>
+</div><hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS</span></strong></em> Study the observed image <span class="math notranslate nohighlight">\(D\)</span> above with two models in mind:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(M_1\)</span>: The image shows a single piece of paper.</p></li>
 <li><p><span class="math notranslate nohighlight">\(M_2\)</span>: The image shows two pieces of paper.</p></li>
@@ -859,7 +856,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/94de5283ccdb148ecfa97c579434024b7d9eafb13f644c055e5f64effafda99c.png" src="../../_images/94de5283ccdb148ecfa97c579434024b7d9eafb13f644c055e5f64effafda99c.png" />
+<img alt="../../_images/ea7ba34a5884806c4e493ce4fed53ce635136b88db57c2f55b5d8e36f431881b.png" src="../../_images/ea7ba34a5884806c4e493ce4fed53ce635136b88db57c2f55b5d8e36f431881b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -869,7 +866,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/71593b680576405e04b8688b1307b406d0667184a47a89faeb9481a29a6e8ba4.png" src="../../_images/71593b680576405e04b8688b1307b406d0667184a47a89faeb9481a29a6e8ba4.png" />
+<img alt="../../_images/c6ee6cd033109139666bdef976d33d9ce7d7cef9cfea757f2692257eda6f739c.png" src="../../_images/c6ee6cd033109139666bdef976d33d9ce7d7cef9cfea757f2692257eda6f739c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -879,7 +876,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b2190388190629038d360f1290f3d549b4acbc95c8f9be9b67e7da7e00528a7d.png" src="../../_images/b2190388190629038d360f1290f3d549b4acbc95c8f9be9b67e7da7e00528a7d.png" />
+<img alt="../../_images/cb5e85cc65eb1d6b743eadb68a358f9386859b7ea3a0661887e0759aff88ebd1.png" src="../../_images/cb5e85cc65eb1d6b743eadb68a358f9386859b7ea3a0661887e0759aff88ebd1.png" />
 </div>
 </div>
 <p>Note that each sample has an integer number of entries drawn from each Gaussian, so the true <code class="docutils literal notranslate"><span class="pre">frac1</span></code> is only realized on average.</p>
@@ -903,6 +900,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 <ul class="simple">
 <li><p>larger than 100 is “decisive evidence” in favor of M1.</p></li>
 <li><p>larger than 10 is “strong evidence” in favor of M1.</p></li>
+<li><p>larger (smaller) than one favors M1 over M2 (M2 over M1)</p></li>
 <li><p>smaller than 0.1 is “strong evidence” in favor of M2.</p></li>
 <li><p>smaller than 0.01 is “decisive evidence” in favor of M2.</p></li>
 </ul>
@@ -1056,7 +1054,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/36c4cb1a0a078161f98bf837a204409a70de515bf4572ccd18f0c68f6f774a9d.png" src="../../_images/36c4cb1a0a078161f98bf837a204409a70de515bf4572ccd18f0c68f6f774a9d.png" />
+<img alt="../../_images/c17a2855e1c278373629a2f48b8312d9ad59da463cb63e482f4fe92f17c59ffa.png" src="../../_images/c17a2855e1c278373629a2f48b8312d9ad59da463cb63e482f4fe92f17c59ffa.png" />
 </div>
 </div>
 <p>In the left-hand plot above, the solid black contours show the shape of the un-normalized posterior and the dashed red contours show the GMM density model fit to the MCMC samples. These do not need to agree exactly, but better agreement will lead to a more accurate estimate of the evidence <span class="math notranslate nohighlight">\(P(Da\mid M1)\)</span>.  In this example, we are using a GMM with a single component but the posterior is slightly non-Gaussian, so we could try increasing the number of MCMC samples and adding another GMM component.</p>
@@ -1068,7 +1066,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9b3a610cb5bfa855d167cb6a8790700f70474f08a8a3fc995dda20124da79180.png" src="../../_images/9b3a610cb5bfa855d167cb6a8790700f70474f08a8a3fc995dda20124da79180.png" />
+<img alt="../../_images/c365d8158ed3fb52463557fe0094b20c740d606eef7e7ffad6ff7377b0a37402.png" src="../../_images/c365d8158ed3fb52463557fe0094b20c740d606eef7e7ffad6ff7377b0a37402.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1078,7 +1076,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/24ec2ef93945196f2bc2b5da6be625a979e9ac824b52edda2bc3b34b43c04635.png" src="../../_images/24ec2ef93945196f2bc2b5da6be625a979e9ac824b52edda2bc3b34b43c04635.png" />
+<img alt="../../_images/5b6f288535cefcccf64962798990e0687ef72164c4561f840c579526c4873b84.png" src="../../_images/5b6f288535cefcccf64962798990e0687ef72164c4561f840c579526c4873b84.png" />
 </div>
 </div>
 <p>The calculation of the evidence for D assuming model M2 is very similar, but now in the 3D parameter space (mu, t1, t2):</p>
@@ -1208,7 +1206,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5012daf7cf28648497f4bf77f796481f18a0e401aaed9f5bcf4c64a66a64f21c.png" src="../../_images/5012daf7cf28648497f4bf77f796481f18a0e401aaed9f5bcf4c64a66a64f21c.png" />
+<img alt="../../_images/3d9dfe20901143b7f58f2bd02bf7260771ad71d59fba4fdf8a7c2644c5d2bec2.png" src="../../_images/3d9dfe20901143b7f58f2bd02bf7260771ad71d59fba4fdf8a7c2644c5d2bec2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1218,7 +1216,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/060d581f715577868fdc35f6b2bd24b4f39e6807a13e7d1c2266b37c27aa9ba1.png" src="../../_images/060d581f715577868fdc35f6b2bd24b4f39e6807a13e7d1c2266b37c27aa9ba1.png" />
+<img alt="../../_images/aa85c9763411854b9b265cb9e4fe242b5681190d88c34bda421bb4bb4a65047c.png" src="../../_images/aa85c9763411854b9b265cb9e4fe242b5681190d88c34bda421bb4bb4a65047c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1228,7 +1226,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b402fa6f32158026f667b65ad65833011238b6c764134a4f1f9debd9d38ca107.png" src="../../_images/b402fa6f32158026f667b65ad65833011238b6c764134a4f1f9debd9d38ca107.png" />
+<img alt="../../_images/d0a2db3d1bc9c2b1327beff062d3db3c76d8c51f26d38f5be682a2f790a47d04.png" src="../../_images/d0a2db3d1bc9c2b1327beff062d3db3c76d8c51f26d38f5be682a2f790a47d04.png" />
 </div>
 </div>
 <p>Each of these involved calculations provides a single number, the estimated log of the evidence for <span class="math notranslate nohighlight">\(D\)</span> given <span class="math notranslate nohighlight">\(M\)</span>,</p>
@@ -1309,7 +1307,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
     <tr>
       <th>Dc</th>
       <td>-143.3</td>
-      <td>-141.6</td>
+      <td>-141.7</td>
       <td>-0.7</td>
       <td>-0.7</td>
     </tr>
@@ -1319,11 +1317,11 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
 </div>
 <p>To summarize in words:</p>
 <ul class="simple">
-<li><p>M1 is “strongly” (but not “decisively”) supported by <code class="docutils literal notranslate"><span class="pre">Da</span></code>.</p></li>
-<li><p>M2 is “decisively” supported by <code class="docutils literal notranslate"><span class="pre">Db</span></code></p></li>
-<li><p>M2 is mildy supported by <code class="docutils literal notranslate"><span class="pre">Dc</span></code>, but the evidence is not “strong”.</p></li>
+<li><p>Odds ratio = 15.8 <span class="math notranslate nohighlight">\(\to\)</span> M1 is “strongly” (but not “decisively”) supported by <code class="docutils literal notranslate"><span class="pre">Da</span></code>.</p></li>
+<li><p>Odds ratio = 6.3 <span class="math notranslate nohighlight">\(\times 10^{-19}\)</span> <span class="math notranslate nohighlight">\(\to\)</span> M2 is “decisively” supported by <code class="docutils literal notranslate"><span class="pre">Db</span></code></p></li>
+<li><p>Odds ratio = 0.2 <span class="math notranslate nohighlight">\(\to\)</span> M2 is mildy supported by <code class="docutils literal notranslate"><span class="pre">Dc</span></code>, but the evidence is not “strong”.</p></li>
 </ul>
-<p>If we have a prior bias that M1 is 10x more likely than M1, this would mostly affect our assessment for <code class="docutils literal notranslate"><span class="pre">Dc</span></code>, which now slightly prefers M1:</p>
+<p>If we have a prior bias that M1 is 10x more likely than M1, this would mostly affect our assessment for <code class="docutils literal notranslate"><span class="pre">Dc</span></code>, which now slightly prefers M1 since Odds ratio 0.2 <span class="math notranslate nohighlight">\(\to\)</span> 2.0:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summarize</span><span class="p">(</span><span class="n">M1_prior</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">M2_prior</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1373,7 +1371,7 @@ P(D\mid M_i) = \int d\Theta_i\, P(D, \Theta_i\mid M_i) \; .
     <tr>
       <th>Dc</th>
       <td>-143.3</td>
-      <td>-141.6</td>
+      <td>-141.7</td>
       <td>-0.7</td>
       <td>0.3</td>
     </tr>

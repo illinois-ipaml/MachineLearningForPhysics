@@ -270,10 +270,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
 
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
@@ -631,7 +627,7 @@ f(q) = q \log q/p
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5052386ceef7d7e4110eab312bc8e69215d22f6ff6571c0209d44ca65fdcf132.png" src="../../_images/5052386ceef7d7e4110eab312bc8e69215d22f6ff6571c0209d44ca65fdcf132.png" />
+<img alt="../../_images/9d815efb0569419617109d0d80fffdf45970023bdb77e32dc64c552ff031c2b7.png" src="../../_images/9d815efb0569419617109d0d80fffdf45970023bdb77e32dc64c552ff031c2b7.png" />
 </div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><div class="cell docutils container">
@@ -742,7 +738,7 @@ f(q) = q \log q/p
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">KLqP</span><span class="p">,</span> <span class="n">integrand</span> <span class="o">=</span> <span class="n">calculate_KL</span><span class="p">(</span><span class="n">log_q</span><span class="p">,</span> <span class="n">log_prior</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
     <span class="n">integrand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_q</span><span class="p">)</span> <span class="o">*</span> <span class="n">log_likelihood</span> <span class="o">-</span> <span class="n">integrand</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="n">theta</span><span class="p">),</span> <span class="n">integrand</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="n">theta</span><span class="p">),</span> <span class="n">integrand</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_ELBO</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">q_scale_range</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">prior</span><span class="p">,</span> <span class="n">theta_range</span><span class="p">,</span> <span class="n">n_data</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
@@ -900,7 +896,7 @@ plot_KL(q, q_scale_range, p, p_scale, theta_range)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e25fa4e64be9045b32c32bc33acde97f8634a02ab393ecb4c4697adfe3442c22.png" src="../../_images/e25fa4e64be9045b32c32bc33acde97f8634a02ab393ecb4c4697adfe3442c22.png" />
+<img alt="../../_images/a2ea375aa030595fc6304dfb8c78d61a45809c0fb4faa39fe724438de6390507.png" src="../../_images/a2ea375aa030595fc6304dfb8c78d61a45809c0fb4faa39fe724438de6390507.png" />
 </div>
 </div>
 <p>Note how (in the bottom left panel) the KL integrand has positive and negative regions: the net area is always positive, however, since KL <span class="math notranslate nohighlight">\(\ge 0\)</span>.</p>
@@ -912,7 +908,7 @@ plot_KL(q, q_scale_range, p, p_scale, theta_range)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/86ddca20b3b1c289bbbf3c453ccc9e26d62d089bfac05a258884b28a8d6176a7.png" src="../../_images/86ddca20b3b1c289bbbf3c453ccc9e26d62d089bfac05a258884b28a8d6176a7.png" />
+<img alt="../../_images/2998ea092aa4033508d9941e3a51f9efc3271aafbd06af0ab21f338bc600d310.png" src="../../_images/2998ea092aa4033508d9941e3a51f9efc3271aafbd06af0ab21f338bc600d310.png" />
 </div>
 </div>
 <p>Notice how the “closest” <span class="math notranslate nohighlight">\(q\)</span> now has KL <span class="math notranslate nohighlight">\(&gt;0\)</span>.  It also avoids regions where <span class="math notranslate nohighlight">\(p \simeq 0\)</span>, since that would blow up the KL integrand.</p>
@@ -925,7 +921,7 @@ plot_KL(q, q_scale_range, p, p_scale, theta_range)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/59886f2787e1f530ec9dee93db5b8f757cacc6afa6156d4c1278dc4b3fb9ffd7.png" src="../../_images/59886f2787e1f530ec9dee93db5b8f757cacc6afa6156d4c1278dc4b3fb9ffd7.png" />
+<img alt="../../_images/85d22d6dec845488d9df10a392eebdbcc950489d65794fc4b3fb5da7f7be621b.png" src="../../_images/85d22d6dec845488d9df10a392eebdbcc950489d65794fc4b3fb5da7f7be621b.png" />
 </div>
 </div>
 <p>The answer is a Laplacian with <span class="math notranslate nohighlight">\(s\simeq 0.74\)</span>, rather than <span class="math notranslate nohighlight">\(0.8\)</span>, so a round trip does not end up back where we started!  However, this shouldn’t surprise us because the KL divergence is not symmetric in <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -1029,6 +1025,7 @@ p(\theta) = P(\theta\mid D) = \frac{P(D\mid \theta)\, P(\theta)}{P(D)} \; ,
 <li><p>Minimizing <span class="math notranslate nohighlight">\(-\text{ELBO}(q)\)</span> with respect to <span class="math notranslate nohighlight">\(q\)</span> is equivalent to minimizing <span class="math notranslate nohighlight">\(\text{KL}(q\parallel p)\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\text{ELBO}(q)\)</span> is much easier to calculate since it does not depend on the evidence <span class="math notranslate nohighlight">\(P(D)\)</span>.</p></li>
 </ul>
+<p>The ELBO is strongly connected to <a class="reference external" href="https://en.wikipedia.org/wiki/Information_theory">information theory and entropy</a>. Specifically, the ELBO is not just a loss function for variational inference; it is an information-theoretic objective that balances how much information from the input data is encoded into the latent space (bits) versus how accurately that data can be reconstructed.</p>
 <p>Note that, as with the KL divergence, the ELBO can be evaluated in terms of expectation values,</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -1105,7 +1102,7 @@ P(\theta\mid D) = \frac{P(D\mid\theta)\, P(\theta)}{P(D)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/69d6df8f320dc00c24ce6cc80a20767d5c2edf9687bc14066a97eb2689c3da6f.png" src="../../_images/69d6df8f320dc00c24ce6cc80a20767d5c2edf9687bc14066a97eb2689c3da6f.png" />
+<img alt="../../_images/07c407f82bc4eb01880fcb99a22ef23389cf178b3c8de3b4c0cc831a9ec8775e.png" src="../../_images/07c407f82bc4eb01880fcb99a22ef23389cf178b3c8de3b4c0cc831a9ec8775e.png" />
 </div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">DISCUSS</span></strong></em></p>
@@ -1126,7 +1123,7 @@ P(\theta\mid D) = \frac{P(D\mid\theta)\, P(\theta)}{P(D)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9c14958090255a5061a806df6c4f4e1efc3fa893ced6f8d63e8a179e09e57313.png" src="../../_images/9c14958090255a5061a806df6c4f4e1efc3fa893ced6f8d63e8a179e09e57313.png" />
+<img alt="../../_images/9e372e4947c633ec3aabd07aeefa60f8036993179e28d1efc8b045d0d47962b1.png" src="../../_images/9e372e4947c633ec3aabd07aeefa60f8036993179e28d1efc8b045d0d47962b1.png" />
 </div>
 </div>
 </section>
