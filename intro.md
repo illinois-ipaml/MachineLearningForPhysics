@@ -20,8 +20,8 @@ __Note__: *This schedule will evolve throughout the semseter*
 | Sep 14  | {doc}`_sources/Week_04`     | [HW 04](_sources/homework/Homework_04) |                            |
 | Sep 21  | {doc}`_sources/Week_05`     | [HW 05](_sources/homework/Homework_05) |                            |
 | Sep 28  | {doc}`_sources/Week_06`     | [HW 06](_sources/homework/Homework_06) |                            |
-| Oct 05  | {doc}`_sources/Week_07`     | HW 07                                  | {doc}`_sources/Project_01` |
-| Oct 12  | {doc}`_sources/Week_08`     | NO HW                                  |                            |
+| Oct 05  | {doc}`_sources/Week_07`     | [HW 07](_sources/homework/Homework_07) |                            |
+| Oct 12  | {doc}`_sources/Week_08`     | NO HW                                  | {doc}`_sources/Project_01` |
 | Oct 19  | {doc}`_sources/Week_09`     | HW 08                                  |                            |
 | Oct 26  | {doc}`_sources/Week_10`     | HW 09                                  |                            |
 | Nov 02  | {doc}`_sources/Week_11`     | HW 10                                  |                            |
