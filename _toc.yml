@@ -59,6 +59,7 @@ parts:
         - file: _sources/projects/Project_01_ExoticParticles
         - file: _sources/projects/Project_01_GalaxyZoo
         - file: _sources/projects/Project_01_NuclearGeometryQGP
+        - file: _sources/projects/Project_01_AnisotropyQGP
         - file: _sources/projects/Project_01_AberratedImages
         - file: _sources/projects/Project_01_DarkEnergySurvey
       - file: _sources/Week_07 # Stochastic Processes, Markov Chains & Variational Inference

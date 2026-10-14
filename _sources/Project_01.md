@@ -6,5 +6,6 @@
 * {doc}`projects/Project_01_ExoticParticles`
 * {doc}`projects/Project_01_GalaxyZoo`
 * {doc}`projects/Project_01_NuclearGeometryQGP`
+* {doc}`projects/Project_01_AnisotropyQGP.ipynb`
 * {doc}`projects/Project_01_DarkEnergySurvey`
 * {doc}`projects/Project_01_AberratedImages`
