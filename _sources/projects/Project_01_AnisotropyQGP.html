@@ -1,0 +1,935 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Anisotropy in the Quark-Gluon Plasma &#8212; PHYS 503</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_01_AnisotropyQGP';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Aberrated Image Recovery of Ultracold Atoms" href="Project_01_AberratedImages.html" />
+    <link rel="prev" title="Nuclear Geometry and Characterization of the Quark-Gluon Plasma" href="Project_01_NuclearGeometryQGP.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PHYS 503 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    <span style="color:Blue">Instrumentation Physics: Applications of Machine Learning</span>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Pandas.html">Handling Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Visualization.html">Visualizing Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Clustering.html">Finding Structure in Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityTheory.html">Probability Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityDistributions.html">Important Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/DensityEstimation.html">Estimating Probability Density from Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MonteCarloSamplingMethods.html">Monte Carlo and Sampling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/BayesianInference.html">Bayesian Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_NuclearGeometryQGP.html">Nuclear Geometry and Characterization of the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Anisotropy in the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/VariationalInference.html">Variational Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ModelSelection.html">Bayesian Model Selection</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Learning.html">Artificial Intelligence and Machine Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/CrossValidation.html">Cross Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/SupervisedLearning.html">Supervised Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/DeepLearning.html">Deep Learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/GraphNeuralNetworks.html">Graph Neural Networks</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_GravitationalWaves.html">Detection of Gravitational Waves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_Radiotherapy.html">Beam Angle Optimization for Radiative Cancer Therapy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_TailPulsePileupRejection.html">Precision Neutron Counting with Tail Pulse Pileup Rejection</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Project_02_BentPipeSurrogate.html">Fluid Dynamics of a Bent Pipe</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/projects/Project_01_AnisotropyQGP.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/illinois-ipaml/MachineLearningForPhysics" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/_sources/projects/Project_01_AnisotropyQGP.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Anisotropy in the Quark-Gluon Plasma</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-background">Part A: Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-measuring-v-n">Part B: Measuring <span class="math notranslate nohighlight">\(v_n\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-trento-initial-states">Part C: TRENTO initial states</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-d-jets-and-energy-loss">Part D: Jets and energy loss</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="anisotropy-in-the-quark-gluon-plasma">
+<h1>Anisotropy in the Quark-Gluon Plasma<a class="headerlink" href="#anisotropy-in-the-quark-gluon-plasma" title="Permalink to this heading">#</a></h1>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Project_AnisotropyQGP-Figure.png" width=400></img>
+</div><section id="span-style-color-orange-learning-objectives-span">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#span-style-color-orange-learning-objectives-span" title="Permalink to this heading">#</a></h2>
+<p>By the end of this project you should be able to:</p>
+<ul class="simple">
+<li><p>explain how azimuthal anisotropy (<span class="math notranslate nohighlight">\(v_n\)</span>) arises in heavy-ion collisions, both for low-momentum particles and for high-energy jets;</p></li>
+<li><p>compute <span class="math notranslate nohighlight">\(v_n\)</span> from a set of particle angles, with and without knowledge of the symmetry plane, and estimate its statistical uncertainty;</p></li>
+<li><p>read, visualize and characterize simulated initial states of heavy-ion collisions (TRENTO), including centrality selection and eccentricities;</p></li>
+<li><p>inspect an input dataset critically and discover how it was generated; and</p></li>
+<li><p>build a simple Monte Carlo model of jet energy loss in the quark-gluon plasma and use it to predict jet <span class="math notranslate nohighlight">\(v_2\)</span>.</p></li>
+</ul>
+<p>In Project 02 you will fit this model to ATLAS data and train neural networks on the TRENTO events.</p>
+</section>
+<section id="span-style-color-orange-overview-span">
+<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
+<p>The quark-gluon plasma (QGP) is a deconfined state of matter created in heavy-ion collisions at the Large Hadron Collider (LHC) and the Relativistic Heavy Ion Collider (RHIC) <a class="reference external" href="https://arxiv.org/abs/1802.04801">[5]</a>. The initial overlap region of the two nuclei is not round, and its shape fluctuates from event to event. The QGP transmits this spatial anisotropy to the final-state particles in two ways:</p>
+<ul class="simple">
+<li><p><strong>Low-momentum particles</strong> inherit it through the collective, hydrodynamic expansion of the QGP (“flow”).</p></li>
+<li><p><strong>High-energy jets</strong> inherit it because they lose energy while traversing the QGP. Jets that travel through more medium lose more energy, so the jet yield at a given momentum depends on the jet’s direction relative to the shape of the collision region.</p></li>
+</ul>
+<p>Both effects appear as azimuthal anisotropy coefficients <span class="math notranslate nohighlight">\(v_n\)</span> <a class="reference external" href="https://arxiv.org/abs/0809.2949">[1]</a>. In this project you will learn how to characterize the shapes of the QGP produced in these collisions, using the TRENTO model of the initial state <a class="reference external" href="https://doi.org/10.1103/PhysRevC.92.011901">[2]</a>. You will then use those shapes to build a model of how jets lose energy as they traverse the medium <a class="reference external" href="https://arxiv.org/abs/1512.07443">[3]</a>, whose predictions you will compare with ATLAS measurements <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">[4]</a>.</p>
+</section>
+<section id="span-style-color-orange-data-sources-span">
+<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>TRENTO initial states</strong> <a class="reference external" href="https://doi.org/10.1103/PhysRevC.92.011901">[2]</a>: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/events.hdf">https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/events.hdf</a> (208 MB). This is an HDF5 file in the standard TRENTO output format (see the <a class="reference external" href="http://qcd.phy.duke.edu/trento/">TRENTO documentation</a>). It contains 10,000 <strong>minimum-bias</strong> Pb+Pb events, <code class="docutils literal notranslate"><span class="pre">event_0</span></code> … <code class="docutils literal notranslate"><span class="pre">event_9999</span></code>. Each event is a 100 × 100 grid covering −10 fm &lt; x, y &lt; 10 fm in 0.2 fm cells, and stores the event properties as attributes: impact parameter <code class="docutils literal notranslate"><span class="pre">b</span></code> (fm), number of participants <code class="docutils literal notranslate"><span class="pre">npart</span></code>, integrated reduced thickness <code class="docutils literal notranslate"><span class="pre">mult</span></code>, and eccentricities <code class="docutils literal notranslate"><span class="pre">e2</span></code>–<code class="docutils literal notranslate"><span class="pre">e5</span></code>.</p></li>
+<li><p><strong>Jet energies</strong>: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/jet_energy.txt">https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/jet_energy.txt</a> (35 MB). One jet energy (GeV) per line, 4.68 million values. Look at it carefully in Project 01, Question 07.</p></li>
+<li><p><strong>ATLAS jet <span class="math notranslate nohighlight">\(v_2\)</span> measurement</strong> <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">[4]</a>: digitized values for 5–10% centrality are given in the code below. The exact published values are available from <a class="reference external" href="https://www.hepdata.net/record/ins1967021">HEPData</a>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download a file from the course mirror once; later calls reuse the local copy.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">filename</span>
+
+<span class="n">events</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;events.hdf&quot;</span><span class="p">),</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">jet_energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;jet_energy.txt&quot;</span><span class="p">))</span>
+
+<span class="n">GRID_STEP</span> <span class="o">=</span> <span class="mf">0.2</span>                                   <span class="c1"># fm per cell</span>
+<span class="n">grid_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">-</span> <span class="mf">49.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">GRID_STEP</span>      <span class="c1"># cell-centre coordinates in fm, from -9.9 to +9.9</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">),</span> <span class="s2">&quot;TRENTO events;&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">jet_energy</span><span class="p">),</span> <span class="s2">&quot;jet energies&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="s2">&quot;event_0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-orange-questions-span">
+<h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
+<p>Answer each question in a markdown cell directly below it (add code cells where needed). For the background questions, aim for one to two well-organized paragraphs, and <strong>cite your sources</strong>. Your notebook should run from top to bottom without errors. Fix your random seeds so that your results are reproducible.</p>
+<section id="part-a-background">
+<h3>Part A: Background<a class="headerlink" href="#part-a-background" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="span-style-color-lightgreen-question-01-span">
+<h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
+<p>Read Section 1.2 of Ref. <a class="reference external" href="https://arxiv.org/abs/0809.2949">[1]</a>.</p>
+<ul class="simple">
+<li><p>What are the reaction plane and the participant plane (their Fig. 2), and why do they differ?</p></li>
+<li><p>Write down the Fourier expansion of the azimuthal particle distribution, their Eq. (1), and explain what <span class="math notranslate nohighlight">\(v_1\)</span>, <span class="math notranslate nohighlight">\(v_2\)</span> and <span class="math notranslate nohighlight">\(v_3\)</span> describe.</p></li>
+<li><p>Their Eq. (2) relates two-particle correlations to <span class="math notranslate nohighlight">\(\langle v_n^2\rangle\)</span>. Explain why this is useful in an experiment, where the symmetry plane is not known. What is the “nonflow” term <span class="math notranslate nohighlight">\(\delta_n\)</span>?</p></li>
+</ul>
+</section>
+<section id="span-style-color-lightgreen-question-02-span">
+<h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
+<p>What is a jet, and what is meant by <strong>jet quenching</strong>? Why do jets that traverse more QGP lose more energy, and how does this produce a non-zero jet <span class="math notranslate nohighlight">\(v_2\)</span> in non-central collisions? What is <strong>centrality</strong>, and how is it determined experimentally? Ref. <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">[4]</a> (Section 1) and Ref. <a class="reference external" href="https://arxiv.org/abs/1802.04801">[5]</a> are good starting points.</p>
+<section id="part-b-measuring-v-n">
+<h4>Part B: Measuring <span class="math notranslate nohighlight">\(v_n\)</span><a class="headerlink" href="#part-b-measuring-v-n" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+<section id="span-style-color-lightgreen-question-03-span">
+<h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
+<p>Write a function to evaluate <span class="math notranslate nohighlight">\(v_n\)</span> from an array of particle (or jet) azimuthal angles in two ways:</p>
+<ol class="arabic simple">
+<li><p><strong>With a known symmetry plane</strong> <span class="math notranslate nohighlight">\(\Psi_n\)</span>, using Eq. (1) of Ref. <a class="reference external" href="https://arxiv.org/abs/0809.2949">[1]</a>: <span class="math notranslate nohighlight">\(v_n = \langle \cos n(\phi - \Psi_n)\rangle\)</span>.</p></li>
+<li><p><strong>Without knowing</strong> <span class="math notranslate nohighlight">\(\Psi_n\)</span>, using the two-particle correlation of Eq. (2), assuming the nonflow term <span class="math notranslate nohighlight">\(\delta_n = 0\)</span>. (Nonflow comes from correlated particle decays and similar effects, which we will not consider in this project.) With <span class="math notranslate nohighlight">\(Q_n = \sum_j e^{in\phi_j}\)</span> for <span class="math notranslate nohighlight">\(M\)</span> particles, the average over all pairs <span class="math notranslate nohighlight">\(i \neq j\)</span> can be computed without a double loop as <span class="math notranslate nohighlight">\(\langle \cos n(\phi_i - \phi_j)\rangle = \left(|Q_n|^2 - M\right)/\left(M(M-1)\right)\)</span>. Show why.</p></li>
+</ol>
+<p>Note that <span class="math notranslate nohighlight">\(v_n\)</span> is defined from the <strong>number</strong> of particles at each angle. It is not weighted by their energy.</p>
+<p>Test both methods on toy events. Draw angles from <span class="math notranslate nohighlight">\(dN/d\phi \propto 1 + 2v_2\cos 2(\phi - \Psi_2)\)</span> with <span class="math notranslate nohighlight">\(v_2 = 0.05\)</span> and a random <span class="math notranslate nohighlight">\(\Psi_2\)</span> in each event (e.g., by accept–reject sampling). Do you recover the input? How does the statistical uncertainty on <span class="math notranslate nohighlight">\(v_2\)</span> scale with the number of particles? (<em>Hint:</em> <span class="math notranslate nohighlight">\(\sigma_{v_n} \approx 1/\sqrt{2N}\)</span> for method 1.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">psi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    n   : harmonic number</span>
+<span class="sd">    phi : array of azimuthal angles (radians)</span>
+<span class="sd">    psi : symmetry-plane angle Psi_n; if None, use the two-particle (Q-vector) method</span>
+<span class="sd">    Returns v_n.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="part-c-trento-initial-states">
+<h4>Part C: TRENTO initial states<a class="headerlink" href="#part-c-trento-initial-states" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+<section id="span-style-color-lightgreen-question-04-span">
+<h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-span" title="Permalink to this heading">#</a></h3>
+<p>Following the “Working with Python” example in the <a class="reference external" href="http://qcd.phy.duke.edu/trento/examples.html">TRENTO documentation</a>, read the events in <code class="docutils literal notranslate"><span class="pre">events.hdf</span></code> and display the grids of several events with different impact parameters.</p>
+<ul class="simple">
+<li><p>Describe the structure of the data: what is stored for each event, and what are the units of the grid coordinates? What quantity is on the “z” (colour) axis? Read Ref. <a class="reference external" href="https://doi.org/10.1103/PhysRevC.92.011901">[2]</a>, and the description of <code class="docutils literal notranslate"><span class="pre">mult</span></code> in the TRENTO documentation.</p></li>
+<li><p>Verify numerically that <code class="docutils literal notranslate"><span class="pre">mult</span></code> equals the sum of the grid values times the area of a grid cell, <span class="math notranslate nohighlight">\((0.2\ \mathrm{fm})^2\)</span>.</p></li>
+<li><p>Plot the distributions of <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">npart</span></code> and <code class="docutils literal notranslate"><span class="pre">mult</span></code> for all events.</p></li>
+</ul>
+</section>
+<section id="span-style-color-lightgreen-question-05-span">
+<h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-span" title="Permalink to this heading">#</a></h3>
+<p>Centrality is defined by ranking events by the amount of particle production. The file contains <strong>minimum-bias</strong> events, so you have to select centrality classes yourself.</p>
+<ul class="simple">
+<li><p>Sort the events by <code class="docutils literal notranslate"><span class="pre">mult</span></code> (largest first), and assign each event a centrality percentile.</p></li>
+<li><p>Plot <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">npart</span></code> as functions of centrality.</p></li>
+<li><p>Select the events in the <strong>5–10%</strong> centrality class, which we will compare with ATLAS data. How many events are there? What range of impact parameters do they span?</p></li>
+</ul>
+</section>
+<section id="span-style-color-lightgreen-question-06-span">
+<h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
+<p>The eccentricities stored with each event follow Ref. <a class="reference external" href="https://doi.org/10.1103/PhysRevC.92.011901">[2]</a>. Their magnitudes, together with an angle <span class="math notranslate nohighlight">\(\Phi_n\)</span> that we define here, are</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_n e^{in\Phi_n} = -\frac{\int r^n e^{in\phi}\, T_R(x, y)\, dx\, dy}{\int r^n\, T_R(x, y)\, dx\, dy},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_R\)</span> is the grid value and <span class="math notranslate nohighlight">\((r, \phi)\)</span> are measured from the centre of mass of the event. Note the weight <span class="math notranslate nohighlight">\(r^n\)</span>. The minus sign is our convention for the angle and does not affect <span class="math notranslate nohighlight">\(\varepsilon_n\)</span>. Some other references, including the NuclearGeometryQGP projects, use <span class="math notranslate nohighlight">\(r^2\)</span> for all <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<ul class="simple">
+<li><p>Write a function that computes <span class="math notranslate nohighlight">\(\varepsilon_n\)</span> and the angle <span class="math notranslate nohighlight">\(\Phi_n\)</span> from a grid. Check that it reproduces the stored <code class="docutils literal notranslate"><span class="pre">e2</span></code>–<code class="docutils literal notranslate"><span class="pre">e5</span></code>.</p></li>
+<li><p>Draw the direction <span class="math notranslate nohighlight">\(\Phi_2\)</span> on top of a few event images. Because of the minus sign in the definition, <span class="math notranslate nohighlight">\(\Phi_2\)</span> points along the <em>short</em> axis of the overlap region. Why is this the direction in which we expect the most jets to survive?</p></li>
+<li><p>Plot <span class="math notranslate nohighlight">\(\langle\varepsilon_2\rangle\)</span> and <span class="math notranslate nohighlight">\(\langle\varepsilon_3\rangle\)</span> as functions of centrality, and explain their behaviour.</p></li>
+</ul>
+<section id="part-d-jets-and-energy-loss">
+<h4>Part D: Jets and energy loss<a class="headerlink" href="#part-d-jets-and-energy-loss" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+<section id="span-style-color-lightgreen-question-07-span">
+<h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-span" title="Permalink to this heading">#</a></h3>
+<p>Explore <code class="docutils literal notranslate"><span class="pre">jet_energy.txt</span></code>.</p>
+<ul class="simple">
+<li><p>Plot the distribution of jet energies on a logarithmic scale.</p></li>
+<li><p>Look at consecutive values in the file. Do you notice a pattern? Plot the distribution separately for the even-numbered and odd-numbered lines, and compare them value by value.</p></li>
+<li><p>What do you conclude about how this jet sample was generated? In particular, look at the region below about 100 GeV.</p></li>
+<li><p>Why does this matter if we want to model jets in ATLAS’s measured range, 71–398 GeV, <em>after</em> they have lost energy?</p></li>
+<li><p>Fit a power law <span class="math notranslate nohighlight">\(dN/dE \propto E^{-n}\)</span> to the distribution where it is unbiased (e.g., by maximum likelihood). We will use it as the initial jet spectrum in the next questions.</p></li>
+</ul>
+</section>
+<section id="span-style-color-lightgreen-question-08-span">
+<h3><span style="color:LightGreen">Question 08</span><a class="headerlink" href="#span-style-color-lightgreen-question-08-span" title="Permalink to this heading">#</a></h3>
+<p>Ref. <a class="reference external" href="https://arxiv.org/abs/1512.07443">[3]</a> models the energy loss of a jet in the QGP (their Eqs. (1) and (2)) as a function of the jet energy <span class="math notranslate nohighlight">\(E(\tau)\)</span>, the energy density of the medium <span class="math notranslate nohighlight">\(e(\tau)\)</span>, and the path length <span class="math notranslate nohighlight">\(\tau\)</span> travelled by the jet. We use a slightly generalized form with four parameters:</p>
+<div class="math notranslate nohighlight">
+\[
+\Large \frac{dE}{d\tau} = -\kappa\, E(\tau)^{\alpha}\, e(\tau)^{\beta}\, \tau^{\gamma}
+\]</div>
+<p>The minus sign makes the jet <em>lose</em> energy for <span class="math notranslate nohighlight">\(\kappa &gt; 0\)</span>. The radiative (pQCD) case of Ref. <a class="reference external" href="https://arxiv.org/abs/1512.07443">[3]</a>, their Eq. (2), corresponds to <span class="math notranslate nohighlight">\(\alpha = 0\)</span>, <span class="math notranslate nohighlight">\(\beta = 3/4\)</span>, <span class="math notranslate nohighlight">\(\gamma = 1\)</span>. As a simplification, we use the TRENTO grid <span class="math notranslate nohighlight">\(T_R(x, y)\)</span> as the medium density <span class="math notranslate nohighlight">\(e\)</span> and treat it as static. This neglects the expansion and cooling of the QGP.</p>
+<p>Write a function that places a jet in a TRENTO event and lets it propagate through the medium, losing energy along the way:</p>
+<ul class="simple">
+<li><p>Choose the starting point at random, with probability proportional to <span class="math notranslate nohighlight">\(T_R^2\)</span>. Hard scatterings scale with the density of binary nucleon–nucleon collisions, <span class="math notranslate nohighlight">\(\propto T_A T_B\)</span>. For TRENTO’s default parameter <span class="math notranslate nohighlight">\(p = 0\)</span>, <span class="math notranslate nohighlight">\(T_R = \sqrt{T_A T_B}\)</span>, so this is <span class="math notranslate nohighlight">\(T_R^2\)</span>. The settings used to generate this file are not documented, so treat this as an approximation. Choose the direction uniformly in <span class="math notranslate nohighlight">\([0, 2\pi)\)</span>.</p></li>
+<li><p>Step the jet forward in small steps (<span class="math notranslate nohighlight">\(d\tau = 0.2\)</span> fm, one grid cell, works well). Interpolate the density at the jet position (e.g., <code class="docutils literal notranslate"><span class="pre">scipy.ndimage.map_coordinates</span></code>), and update <span class="math notranslate nohighlight">\(E\)</span>. Stop when the jet leaves the grid or its energy reaches zero.</p></li>
+<li><p>Return the final energy and the jet direction relative to the event’s <span class="math notranslate nohighlight">\(\Phi_2\)</span>.</p></li>
+</ul>
+<p>Using one 5–10% event and the pQCD exponents, plot the fractional energy loss as a function of the jet direction relative to <span class="math notranslate nohighlight">\(\Phi_2\)</span>, and as a function of the path length through the medium, for a few values of <span class="math notranslate nohighlight">\(\kappa\)</span>. Explain what you see.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eloss</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span> <span class="n">dtau</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    event : TRENTO grid (100 x 100 array)</span>
+<span class="sd">    E     : array of initial jet energies (GeV)</span>
+<span class="sd">    kappa, alpha, beta, gamma : energy-loss model parameters</span>
+<span class="sd">    rng   : numpy random Generator (for reproducibility)</span>
+<span class="sd">    Returns arrays of final jet energies and jet angles relative to the event&#39;s Phi_2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-lightgreen-question-09-span">
+<h3><span style="color:LightGreen">Question 09</span><a class="headerlink" href="#span-style-color-lightgreen-question-09-span" title="Permalink to this heading">#</a></h3>
+<p><strong>A first prediction.</strong> For the 5–10% centrality events, generate a large sample of jets. Draw the initial energies from your power-law spectrum from Question 07, propagate them with your Question 08 code (pQCD exponents, and a few values of <span class="math notranslate nohighlight">\(\kappa\)</span>), and compute the jet <span class="math notranslate nohighlight">\(v_2\)</span> in each of ATLAS’s <span class="math notranslate nohighlight">\(p_T\)</span> bins (defined in the cell below) using your <code class="docutils literal notranslate"><span class="pre">vn</span></code> function from Question 03. At the LHC, jets are so energetic that they are effectively massless, so <span class="math notranslate nohighlight">\(p_T \approx E\)</span> for our purposes.</p>
+<ul class="simple">
+<li><p>Estimate the statistical uncertainty of each <span class="math notranslate nohighlight">\(v_2\)</span> value by <strong>subsampling</strong>: compute <span class="math notranslate nohighlight">\(v_2\)</span> for many independent sub-samples, and use the spread of the results. Compare it with the expectation from Question 03.</p></li>
+<li><p>Plot your predictions together with the ATLAS data (Fig. 7 of Ref. [4]), and the inclusive 71–398 GeV value (Fig. 8 of Ref. [4]). How does <span class="math notranslate nohighlight">\(v_2\)</span> depend on <span class="math notranslate nohighlight">\(\kappa\)</span>? Is there a value that describes the data reasonably well?</p></li>
+<li><p>Very few jets end up in the highest <span class="math notranslate nohighlight">\(p_T\)</span> bins. How could you reduce the statistical uncertainty there without simulating far more jets? (<em>Hint:</em> importance sampling.)</p></li>
+</ul>
+<p>You will fit the model parameters properly in Project 02.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ATLAS jet v2 for 5-10% centrality Pb+Pb collisions, Fig. 7 of Ref. [4], digitized with https://plotdigitizer.com/app.</span>
+<span class="c1"># Exact values (with separate statistical and systematic uncertainties) are available on HEPData (record ins1967021).</span>
+<span class="n">pt_bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">71</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">158</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">251</span><span class="p">,</span> <span class="mi">316</span><span class="p">,</span> <span class="mi">398</span><span class="p">])</span>   <span class="c1"># GeV; 9 bins</span>
+<span class="n">v2_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0248856</span><span class="p">,</span> <span class="mf">0.0221773</span><span class="p">,</span> <span class="mf">0.0195450</span><span class="p">,</span> <span class="mf">0.0180492</span><span class="p">,</span> <span class="mf">0.0178510</span><span class="p">,</span>
+                      <span class="mf">0.0086814</span><span class="p">,</span> <span class="mf">0.0120297</span><span class="p">,</span> <span class="mf">0.0036979</span><span class="p">,</span> <span class="mf">0.0138812</span><span class="p">])</span>
+<span class="n">v2_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0050671</span><span class="p">,</span> <span class="mf">0.0049263</span><span class="p">,</span> <span class="mf">0.0042100</span><span class="p">,</span> <span class="mf">0.0038375</span><span class="p">,</span> <span class="mf">0.0038205</span><span class="p">,</span>
+                      <span class="mf">0.0041046</span><span class="p">,</span> <span class="mf">0.0048910</span><span class="p">,</span> <span class="mf">0.0053504</span><span class="p">,</span> <span class="mf">0.0092933</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="span-style-color-orange-references-span">
+<h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
+<p><strong>[<span style="color:Red">1</span>]</strong> S. A. Voloshin, A. M. Poskanzer, R. Snellings, “Collective phenomena in non-central nuclear collisions,” in <em>Relativistic Heavy Ion Physics</em>, Landolt-Börnstein <strong>I/23</strong>, 293 (Springer, 2010). <a class="reference external" href="https://doi.org/10.1007/978-3-642-01539-7_10">doi:10.1007/978-3-642-01539-7_10</a>, <a class="reference external" href="https://arxiv.org/abs/0809.2949">arXiv:0809.2949</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> J. S. Moreland, J. E. Bernhard, S. A. Bass, “Alternative ansatz to wounded nucleon and binary collision scaling in high-energy nuclear collisions,” <em>Phys. Rev. C</em> <strong>92</strong>, 011901 (2015). <a class="reference external" href="https://doi.org/10.1103/PhysRevC.92.011901">doi:10.1103/PhysRevC.92.011901</a>, <a class="reference external" href="https://arxiv.org/abs/1412.4708">arXiv:1412.4708</a>. Code documentation: <a class="reference external" href="http://qcd.phy.duke.edu/trento/">http://qcd.phy.duke.edu/trento/</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> B. Betz, F. Senzel, C. Greiner, M. Gyulassy, “The impact of the medium and the jet-medium coupling on jet measurements at RHIC and LHC,” arXiv preprint (2015). <a class="reference external" href="https://arxiv.org/abs/1512.07443">arXiv:1512.07443</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> ATLAS Collaboration, “Measurements of azimuthal anisotropies of jet production in Pb+Pb collisions at √s<sub>NN</sub> = 5.02 TeV with the ATLAS detector,” <em>Phys. Rev. C</em> <strong>105</strong>, 064903 (2022). <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">doi:10.1103/PhysRevC.105.064903</a>, <a class="reference external" href="https://arxiv.org/abs/2111.06606">arXiv:2111.06606</a>. Numerical data: <a class="reference external" href="https://www.hepdata.net/record/ins1967021">HEPData</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> W. Busza, K. Rajagopal, W. van der Schee, “Heavy Ion Collisions: The Big Picture, and the Big Questions,” <em>Ann. Rev. Nucl. Part. Sci.</em> <strong>68</strong>, 339 (2018). <a class="reference external" href="https://doi.org/10.1146/annurev-nucl-101917-020852">doi:10.1146/annurev-nucl-101917-020852</a>, <a class="reference external" href="https://arxiv.org/abs/1802.04801">arXiv:1802.04801</a></p>
+</section>
+<section id="span-style-color-orange-acknowledgements-span">
+<h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Abraham Holterman with some guidance from Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
+</ul>
+<p>© Copyright 2026</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_sources/projects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Project_01_NuclearGeometryQGP.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Nuclear Geometry and Characterization of the Quark-Gluon Plasma</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Project_01_AberratedImages.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Aberrated Image Recovery of Ultracold Atoms</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-background">Part A: Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-measuring-v-n">Part B: Measuring <span class="math notranslate nohighlight">\(v_n\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-trento-initial-states">Part C: TRENTO initial states</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-d-jets-and-energy-loss">Part D: Jets and energy loss</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mark Neubauer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

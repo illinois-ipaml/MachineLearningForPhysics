@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Anisotropy in the Quark Gluon Plasma &#8212; PHYS 503</title>
+    <title>Anisotropy in the Quark-Gluon Plasma &#8212; PHYS 503</title>
   
   
   
@@ -225,7 +225,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Project_01_NuclearGeometryQGP.html">Nuclear Geometry and Characterization of the Quark Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_NuclearGeometryQGP.html">Nuclear Geometry and Characterization of the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
 </ul>
@@ -290,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_GravitationalWaves.html">Detection of Gravitational Waves</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Anisotropy in the Quark Gluon Plasma</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Anisotropy in the Quark-Gluon Plasma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_Radiotherapy.html">Beam Angle Optimization for Radiative Cancer Therapy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_TailPulsePileupRejection.html">Precision Neutron Counting with Tail Pulse Pileup Rejection</a></li>
 
@@ -507,7 +508,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Anisotropy in the Quark Gluon Plasma</h1>
+    <h1>Anisotropy in the Quark-Gluon Plasma</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -524,9 +525,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
@@ -543,171 +541,127 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="anisotropy-in-the-quark-gluon-plasma">
-<h1>Anisotropy in the Quark Gluon Plasma<a class="headerlink" href="#anisotropy-in-the-quark-gluon-plasma" title="Permalink to this heading">#</a></h1>
+<h1>Anisotropy in the Quark-Gluon Plasma<a class="headerlink" href="#anisotropy-in-the-quark-gluon-plasma" title="Permalink to this heading">#</a></h1>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Project_AnisotropyQGP-Figure.png" width=400></img>
-</div><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="span-style-color-orange-overview-span">
+</div><section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>The Quark Gluon Plasma is a deconfined state of matter created in heavy ion collisions in the Large Hadron Collider. In this project you will learn how to characterize the shapes of the quark gluon plasma produced in these collisions, and leverage the shapes to characterize how particles lose energy while traversing through the medium.</p>
+<p>In <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/projects/Project_01_AnisotropyQGP.html">Project 01</a> you characterized the shapes of TRENTO initial states <a class="reference external" href="https://doi.org/10.1103/PhysRevC.92.011901">[2]</a>, built a Monte Carlo model of jet energy loss in the QGP <a class="reference external" href="https://arxiv.org/abs/1512.07443">[3]</a>, and made a first prediction of the jet <span class="math notranslate nohighlight">\(v_2\)</span> measured by ATLAS <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">[4]</a>. In this project you will:</p>
+<ul class="simple">
+<li><p>fit the energy-loss model to the ATLAS data with an optimization method, and quantify the uncertainty of the fitted parameters;</p></li>
+<li><p>study how each event’s jet <span class="math notranslate nohighlight">\(v_2\)</span> is related to its initial eccentricity <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>; and</p></li>
+<li><p>train a convolutional neural network (CNN) to act as a fast <strong>surrogate</strong> for the jet simulation, predicting an event’s jet <span class="math notranslate nohighlight">\(v_2\)</span> directly from its initial-state image.</p></li>
+</ul>
+<p>Reuse your functions from Project 01 (<code class="docutils literal notranslate"><span class="pre">vn</span></code>, the eccentricity calculation, the centrality selection, the power-law jet spectrum, and <code class="docutils literal notranslate"><span class="pre">eloss</span></code>).</p>
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>The data for this project can be found at:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/events.hdf">https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/events.hdf</a></p></li>
+<li><p><strong>TRENTO initial states</strong> <a class="reference external" href="https://doi.org/10.1103/PhysRevC.92.011901">[2]</a>: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/events.hdf">https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/events.hdf</a> (208 MB). This is an HDF5 file in the standard TRENTO output format (see the <a class="reference external" href="http://qcd.phy.duke.edu/trento/">TRENTO documentation</a>). It contains 10,000 <strong>minimum-bias</strong> Pb+Pb events, <code class="docutils literal notranslate"><span class="pre">event_0</span></code> … <code class="docutils literal notranslate"><span class="pre">event_9999</span></code>. Each event is a 100 × 100 grid covering −10 fm &lt; x, y &lt; 10 fm in 0.2 fm cells, and stores the event properties as attributes: impact parameter <code class="docutils literal notranslate"><span class="pre">b</span></code> (fm), number of participants <code class="docutils literal notranslate"><span class="pre">npart</span></code>, integrated reduced thickness <code class="docutils literal notranslate"><span class="pre">mult</span></code>, and eccentricities <code class="docutils literal notranslate"><span class="pre">e2</span></code>–<code class="docutils literal notranslate"><span class="pre">e5</span></code>.</p></li>
+<li><p><strong>Jet energies</strong>: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/jet_energy.txt">https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/jet_energy.txt</a> (35 MB). One jet energy (GeV) per line, 4.68 million values. Look at it carefully in Project 01, Question 07.</p></li>
+<li><p><strong>ATLAS jet <span class="math notranslate nohighlight">\(v_2\)</span> measurement</strong> <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">[4]</a>: digitized values for 5–10% centrality are given in the code below. The exact published values are available from <a class="reference external" href="https://www.hepdata.net/record/ins1967021">HEPData</a>.</p></li>
 </ul>
-<p>Jet Energy information:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/jet_energy.txt">https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/jet_energy.txt</a></p></li>
-</ul>
-<p>TRENTO heavy ion initial states:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://qcd.phy.duke.edu/trento/examples.html">http://qcd.phy.duke.edu/trento/examples.html</a></p></li>
-</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2024/data/projects/AnisotropyQGP/&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download a file from the course mirror once; later calls reuse the local copy.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">filename</span>
+
+<span class="n">events</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;events.hdf&quot;</span><span class="p">),</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">jet_energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;jet_energy.txt&quot;</span><span class="p">))</span>
+
+<span class="n">GRID_STEP</span> <span class="o">=</span> <span class="mf">0.2</span>                                   <span class="c1"># fm per cell</span>
+<span class="n">grid_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">-</span> <span class="mf">49.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">GRID_STEP</span>      <span class="c1"># cell-centre coordinates in fm, from -9.9 to +9.9</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">),</span> <span class="s2">&quot;TRENTO events;&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">jet_energy</span><span class="p">),</span> <span class="s2">&quot;jet energies&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="s2">&quot;event_0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">))</span>
+
+
+<span class="c1"># ATLAS jet v2 for 5-10% centrality Pb+Pb collisions, Fig. 7 of Ref. [4], digitized with https://plotdigitizer.com/app.</span>
+<span class="c1"># Exact values (with separate statistical and systematic uncertainties) are available on HEPData (record ins1967021).</span>
+<span class="n">pt_bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">71</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">158</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">251</span><span class="p">,</span> <span class="mi">316</span><span class="p">,</span> <span class="mi">398</span><span class="p">])</span>   <span class="c1"># GeV; 9 bins</span>
+<span class="n">v2_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0248856</span><span class="p">,</span> <span class="mf">0.0221773</span><span class="p">,</span> <span class="mf">0.0195450</span><span class="p">,</span> <span class="mf">0.0180492</span><span class="p">,</span> <span class="mf">0.0178510</span><span class="p">,</span>
+                      <span class="mf">0.0086814</span><span class="p">,</span> <span class="mf">0.0120297</span><span class="p">,</span> <span class="mf">0.0036979</span><span class="p">,</span> <span class="mf">0.0138812</span><span class="p">])</span>
+<span class="n">v2_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0050671</span><span class="p">,</span> <span class="mf">0.0049263</span><span class="p">,</span> <span class="mf">0.0042100</span><span class="p">,</span> <span class="mf">0.0038375</span><span class="p">,</span> <span class="mf">0.0038205</span><span class="p">,</span>
+                      <span class="mf">0.0041046</span><span class="p">,</span> <span class="mf">0.0048910</span><span class="p">,</span> <span class="mf">0.0053504</span><span class="p">,</span> <span class="mf">0.0092933</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
+<p><strong>General instructions</strong></p>
+<ul class="simple">
+<li><p>Answer each question in a markdown cell directly below it (add code cells where needed). Your notebook should run from top to bottom without errors.</p></li>
+<li><p>Fix your random seeds, so that your results are reproducible.</p></li>
+<li><p>For the neural networks, use PyTorch, as in the <em>Convolutional and Recurrent Neural Networks</em>, <em>Deep Learning</em> and <em>GPU 101</em> lectures. Keep separate training, validation and test sets. Plot training and validation loss versus epoch, and report the number of trainable parameters, the training time and the hardware used.</p></li>
+</ul>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>One of the most important signals of the quark gluon plasma in heavy ion collisions is the presence of “azimuthal anisotropy.” Azimuthal anisotropy in heavy ion collisions is quantified by <span class="math notranslate nohighlight">\(v_n\)</span>, the coefficients in a fourier series fit to momentum deposits in particle detectors. Using equations (1) and (2) in <a class="reference external" href="https://arxiv.org/pdf/0809.2949.pdf">https://arxiv.org/pdf/0809.2949.pdf</a>, write a method to evaluate <span class="math notranslate nohighlight">\(v_n\)</span> for an array of particles and angles. Assume the <span class="math notranslate nohighlight">\(\delta_n\)</span> in equation 2 is 0 – the term comes from correlated particle decays which we will not consider in this project.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">particles</span><span class="p">):</span>
-    
-    <span class="c1"># particles is a nx2 array, particles[i][0] is the energy of the i-th particle and particles[i][1] is the angle of the i-th particle</span>
-    
-
-
-    <span class="k">return</span> <span class="n">v</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>Fitting the energy-loss model.</strong> Using an optimization method discussed in class, find the parameters of the energy-loss model that best describe the ATLAS 5–10% data (Fig. 7 of Ref. <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">[4]</a>, values in the cell above). Minimize a <span class="math notranslate nohighlight">\(\chi^2\)</span> that includes both the experimental uncertainties and the statistical uncertainty of your simulation.</p>
+<p>Things to think about:</p>
+<ul class="simple">
+<li><p><strong>Your objective function is noisy,</strong> because it is computed from a Monte Carlo simulation. Gradient-based optimizers can be confused by this. Use a fixed random seed for every evaluation (“common random numbers”), so that the objective is a smooth function of the parameters. Consider a gradient-free method (e.g. Nelder–Mead), a grid scan, or Bayesian optimization.</p></li>
+<li><p><strong>Not all parameters can be determined from <span class="math notranslate nohighlight">\(v_2\)</span> alone.</strong> For example, the TRENTO density has an arbitrary overall normalization. How is <span class="math notranslate nohighlight">\(\kappa\)</span> related to it? Start by fitting <span class="math notranslate nohighlight">\(\kappa\)</span> with the pQCD exponents (<span class="math notranslate nohighlight">\(\alpha = 0\)</span>, <span class="math notranslate nohighlight">\(\beta = 3/4\)</span>, <span class="math notranslate nohighlight">\(\gamma = 1\)</span>) fixed. Then free one exponent at a time, and explain which parameters the data constrain.</p></li>
+<li><p><strong>Which <span class="math notranslate nohighlight">\(p_T\)</span> bins to use:</strong> remember what you learned about the jet sample in Project 01, Question 07.</p></li>
+</ul>
+<p>What are your best-fit values? Plot your model’s predicted <span class="math notranslate nohighlight">\(v_2\)</span> together with the ATLAS data, and compare the inclusive 71–398 GeV value with Fig. 8 of Ref. <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">[4]</a>.</p>
 </section>
 <section id="span-style-color-lightgreen-question-02-span">
 <h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
-<p>Azimuthal anisotropy in heavy ion collisions arises because of asymmetry in the initial states of heavy ion collisions. These initial states can be modeled by software like TRENTO.</p>
-<p><a class="reference external" href="http://qcd.phy.duke.edu/trento/index.html">http://qcd.phy.duke.edu/trento/index.html</a></p>
-<p><a class="reference external" href="https://arxiv.org/pdf/1412.4708.pdf">https://arxiv.org/pdf/1412.4708.pdf</a></p>
-<p>Using the “Examples” in the documentation, read and produce images of some TRENTO PbPb events. They should be found in the TRENTO data file. In a couple sentences, write about the dimensions of this data: how do we quantify the QGP initial state? What units are used for position within the event, and what’s the “z” axis on all of these plots?</p>
+<p><strong>Parameter uncertainties.</strong> Estimate the uncertainty of your fitted parameter(s). Use either the curvature of <span class="math notranslate nohighlight">\(\chi^2\)</span> near its minimum (<span class="math notranslate nohighlight">\(\Delta\chi^2 = 1\)</span>), or a bootstrap, in which you refit pseudo-datasets generated by fluctuating the ATLAS points within their uncertainties. <em>Optional:</em> sample the posterior distribution of the parameters with MCMC (e.g. <code class="docutils literal notranslate"><span class="pre">emcee</span></code>), as in the <em>Bayesian Statistics and Markov Chain Monte Carlo</em> lecture, and show the corner plot.</p>
 </section>
 <section id="span-style-color-lightgreen-question-03-span">
 <h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
-<p>This paper: <a class="reference external" href="https://arxiv.org/pdf/1512.07443.pdf">https://arxiv.org/pdf/1512.07443.pdf</a> addresses how high energy sprays of particles (called jets) lose energy as they traverse the QGP medium.</p>
-<p>As you can see in Eqs. (1) and (2), the authors describe jet energy loss in the QGP as a function of <span class="math notranslate nohighlight">\(E(\tau)\)</span>, the energy of the jet, <span class="math notranslate nohighlight">\(e(\tau)\)</span>, the energy density of the medium, and <span class="math notranslate nohighlight">\(|\tau|\)</span>, the path length that the jet has travelled. We will tweak this model slightly, and add some hyperparameters:</p>
-<div class="math notranslate nohighlight">
-\[ \Large
- \frac{dE}{d\tau} = cE(\tau)^{\alpha}e(\tau)^{\beta}|\tau|^\gamma
- \]</div>
-<p>For this question, we will place a jet into a TRENTO event, and allow it to propagate through the medium, losing energy along the way.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eloss</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span><span class="n">event</span><span class="p">,</span><span class="n">E</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">g</span><span class="p">):</span>
-
-    <span class="c1"># Event is the event number of the TRENTO event used in this exercise</span>
-    <span class="c1"># E is the initial energy of the jet</span>
-    <span class="c1"># c,a,b,g are the parameters from the model</span>
-
-    <span class="c1"># Initialize by importing the correct TRENTO event, selecting a random location within the event, and picking a random angle for the jet to propagate</span>
-    <span class="c1"># using a timestep (dtau = 1 will suffice), allow the jet to pass through the event, and lose energy</span>
-    <span class="c1"># return the final energy held by the jet</span>
-
-    <span class="k">return</span> <span class="n">E</span><span class="p">,</span><span class="n">theta</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>Eccentricity and jet <span class="math notranslate nohighlight">\(v_2\)</span>, event by event.</strong> With your best-fit parameters, compute the jet <span class="math notranslate nohighlight">\(v_2\)</span> (inclusive 71–398 GeV, relative to each event’s own <span class="math notranslate nohighlight">\(\Phi_2\)</span>) for each TRENTO event in the 0–50% centrality range. Use enough jets per event (several thousand) that the statistical uncertainty on each event’s <span class="math notranslate nohighlight">\(v_2\)</span> is small compared with the spread between events.</p>
+<ul class="simple">
+<li><p>Plot <span class="math notranslate nohighlight">\(v_2\)</span> versus <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>, and compute their correlation coefficient. Colour the points by centrality.</p></li>
+<li><p>Is the relation approximately linear (<span class="math notranslate nohighlight">\(v_2 \approx k\,\varepsilon_2\)</span>)? How much of the scatter is due to the finite number of jets per event, and how much is physical? (<em>Hint:</em> compare the scatter with <span class="math notranslate nohighlight">\(1/\sqrt{2N_{\rm jets}}\)</span>.)</p></li>
+<li><p>Is <span class="math notranslate nohighlight">\(\varepsilon_2\)</span> alone a good predictor of jet <span class="math notranslate nohighlight">\(v_2\)</span>, or does the event size (<code class="docutils literal notranslate"><span class="pre">mult</span></code>) also matter?</p></li>
+</ul>
 </section>
 <section id="span-style-color-lightgreen-question-04-span">
 <h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-span" title="Permalink to this heading">#</a></h3>
-<p>Now we will start putting the pieces together. Let’s see how well our model replicates real <span class="math notranslate nohighlight">\(v_n\)</span> data taken at the LHC!</p>
-<p>First, sample initial jet energies (in GeV) from the data in the jet energy data file.</p>
-<p>Then, using the TRENTO events, generate an array of final jet energies and angles. Using your code from problem 1,  evaluate <span class="math notranslate nohighlight">\(v_2\)</span>. Make sure to explain any uncertainty or “errorbars” in your answer. An easy way to evaluate these errorbars is by subsampling your data (calculate <span class="math notranslate nohighlight">\(v_2\)</span> many times on a smaller sample size, and evaluate the uncertainty of the distribution of your <span class="math notranslate nohighlight">\(v_2\)</span> values)</p>
-<p>Compare your answer to results in this paper: <a class="reference external" href="https://arxiv.org/pdf/2111.06606.pdf">https://arxiv.org/pdf/2111.06606.pdf</a>. Specifically, fig. 8. in the 5-10% centrality bin.</p>
-<p>NOTE:</p>
-<p>1.) “Centrality” is a term used to denote how large the overlap region between the two colliding nuclei is, and it takes values from 0% to 100% (head-on collisions take values closer to 0-10%, while more glancing collisions end up in the 90-100% range). For simplicity, the TRENTO events for this project are all within the 5-10% centrality range.</p>
-<p>2.) <span class="math notranslate nohighlight">\(p_T\)</span> is used to denote “transverse momentum,” or the amount of momentum that a jet carries perpendicular to the collider beamline. Jets at the LHC have so much energy that we can consider them to be approximately massless, meaning that for our modeling purposes <span class="math notranslate nohighlight">\(p_T\)</span> is essentially interchangeable with energy.</p>
-</section>
-<section id="span-style-color-lightgreen-question-05-span">
-<h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-span" title="Permalink to this heading">#</a></h3>
-<p>Using an optimization method discussed in class, find “optimized” values for your coefficents <span class="math notranslate nohighlight">\(c,\alpha,\beta,\gamma\)</span>.</p>
-<p>Your loss function should use 5-10% centrality data from figure 7 of <a class="reference external" href="https://arxiv.org/pdf/2111.06606.pdf">https://arxiv.org/pdf/2111.06606.pdf</a> as datapoints for this regression. For simplicity, I have included them here using <a class="reference external" href="https://plotdigitizer.com/app">https://plotdigitizer.com/app</a></p>
-<p>What are your final values? Plot your model’s predicted <span class="math notranslate nohighlight">\(v_2\)</span> values alongside the experimentally determined ones.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v2_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
- <span class="mf">0.0248856</span><span class="p">,</span>
- <span class="mf">0.0221773</span><span class="p">,</span>
- <span class="mf">0.0195450</span><span class="p">,</span>
- <span class="mf">0.0180492</span><span class="p">,</span>
- <span class="mf">0.0178510</span><span class="p">,</span>
- <span class="mf">0.0086814</span><span class="p">,</span>
- <span class="mf">0.0120297</span><span class="p">,</span>
- <span class="mf">0.0036979</span><span class="p">,</span>
- <span class="mf">0.0138812</span><span class="p">,</span>
-<span class="p">])</span>
-<span class="n">v2_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
- <span class="mf">0.0050671</span><span class="p">,</span>
- <span class="mf">0.0049263</span><span class="p">,</span>
- <span class="mf">0.0042100</span><span class="p">,</span>
- <span class="mf">0.0038375</span><span class="p">,</span>
- <span class="mf">0.0038205</span><span class="p">,</span>
- <span class="mf">0.0041046</span><span class="p">,</span>
- <span class="mf">0.0048910</span><span class="p">,</span>
- <span class="mf">0.0053504</span><span class="p">,</span>
- <span class="mf">0.0092933</span><span class="p">,</span>
-<span class="p">])</span>
-
-<span class="n">pt_bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">79</span><span class="p">,</span><span class="mi">89</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">126</span><span class="p">,</span><span class="mi">158</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">251</span><span class="p">,</span><span class="mi">316</span><span class="p">,</span><span class="mi">398</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="span-style-color-lightgreen-question-06-span">
-<h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
-<p>Eccentricity, <span class="math notranslate nohighlight">\(\varepsilon_n\)</span>, is a similarly defined quantity to <span class="math notranslate nohighlight">\(v_n\)</span>, designed to measure azimuthal anisotropy for heavy ion initial state models. While <span class="math notranslate nohighlight">\(v_n\)</span> is defined in terms of the distribution of particle angles in a detector, <span class="math notranslate nohighlight">\(\varepsilon_n\)</span> is defined using the energy density of an heavy ion initial state, a quantity which is only accessible by theoretical models. You can find more information about eccentricity in <a class="reference external" href="https://arxiv.org/pdf/1412.4708.pdf">https://arxiv.org/pdf/1412.4708.pdf</a>, and the eccentricities <span class="math notranslate nohighlight">\(\varepsilon_n\)</span> for each TRENTO event are included in the files you used earlier for problem 2.</p>
-<p>Using your optimized code, compute <span class="math notranslate nohighlight">\(v_2\)</span> for the TRENTO events. Then, plot the correlation between each event’s <span class="math notranslate nohighlight">\(\varepsilon_2\)</span> and <span class="math notranslate nohighlight">\(v_2\)</span>.</p>
-</section>
-<section id="span-style-color-lightgreen-question-07-span">
-<h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-span" title="Permalink to this heading">#</a></h3>
-<p>Using the TRENTO events, train a Neural Network to produce new heavy ion initial state energy density grids (100x100 pixels) simply by knowing the 2,3,4th, and 5th <span class="math notranslate nohighlight">\(\varepsilon_n\)</span> coefficients. A successful model should be able to produce events with output eccentricity values that correspond to the inputs.</p>
-<p>Then, calculate <span class="math notranslate nohighlight">\(v_2\)</span> from these generated events, and plot the correlation between <span class="math notranslate nohighlight">\(\varepsilon_2\)</span> and <span class="math notranslate nohighlight">\(v_2\)</span>. Was your answer similar to the plot you made for question 6?</p>
+<p><strong>A CNN surrogate for the jet simulation.</strong> The jet simulation is slow, because each event needs thousands of jets. Train a convolutional neural network that takes a TRENTO image (100 × 100 grid) as input and predicts that event’s jet <span class="math notranslate nohighlight">\(v_2\)</span>. Use the per-event values from Question 03 as training targets; you may need to simulate more events to have enough training data.</p>
+<ul class="simple">
+<li><p>Describe your network and its input preprocessing. Should the input be normalized per event, or would that remove useful information? Can you exploit symmetries, for example by rotating or reflecting images (and correspondingly <span class="math notranslate nohighlight">\(\Phi_2\)</span>) for data augmentation, since <span class="math notranslate nohighlight">\(v_2\)</span> is defined relative to the event’s own <span class="math notranslate nohighlight">\(\Phi_2\)</span>?</p></li>
+<li><p>Your training targets are <strong>noisy</strong>, because each one comes from a finite number of jets. Explain why a network trained with a mean-squared-error loss still learns the <em>expected</em> <span class="math notranslate nohighlight">\(v_2\)</span>. Compare the network’s test-set error with the statistical noise of the targets.</p></li>
+<li><p>Plot predicted versus simulated <span class="math notranslate nohighlight">\(v_2\)</span> on the test set. Repeat the <span class="math notranslate nohighlight">\(v_2\)</span>-versus-<span class="math notranslate nohighlight">\(\varepsilon_2\)</span> plot of Question 03 using the CNN predictions. Is it similar?</p></li>
+<li><p>How much faster is the CNN than the simulation? How could such a surrogate be used, for example in the fit of Question 01?</p></li>
+</ul>
+<p><em>Optional extension: generating initial states.</em> Train a <strong>conditional generative model</strong> that produces new 100 × 100 TRENTO-like initial-state grids from a requested set of eccentricities <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>–<span class="math notranslate nohighlight">\(\varepsilon_5\)</span>. You may also want to condition on <code class="docutils literal notranslate"><span class="pre">mult</span></code>, since the eccentricities alone do not fix the size of the event. Generative models such as variational autoencoders and GANs are introduced in the <em>Unsupervised Learning</em> lecture.</p>
+<p>A successful model should produce events whose eccentricities, computed with your function from Project 01, match the requested values, and which look like real TRENTO events. Compute the jet <span class="math notranslate nohighlight">\(v_2\)</span> of some generated events, either with the simulation or with your CNN surrogate, and compare the <span class="math notranslate nohighlight">\(v_2\)</span>-versus-<span class="math notranslate nohighlight">\(\varepsilon_2\)</span> correlation with that of Question 03.</p>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<p>[1] Voloshin, Sergei A.  Poskanzer, Arthur M. and Snellings, Raimond  “Collective phenomena in non-central nuclear collisions”, e-Print <a class="reference external" href="https://arxiv.org/abs/0809.2949">0809.2949</a> [nucl-ex]</p>
-<p>[2] Moreland, J. Scott and Bernhard, Jonah E. and Bass, Steffen A. “Alternative ansatz to wounded nucleon and binary collision scaling in high-energy nuclear collisions” _Phys.Rev.C 97 (2015) 1, e-Print <a class="reference external" href="https://arxiv.org/abs/0809.2949">1412.4708</a> [nucl-th]</p>
-<p>[3] B. Betz, F. Senzel, C. Greiner and M. Gyulassy,
-``The impact of the medium and the jet-medium coupling on jet measurements at RHIC and LHC,’’
-<a class="reference external" href="https://arxiv.org/abs/1512.07443">1512.07443</a> [hep-ph].</p>
-<p>[4] G. Aad et al. [ATLAS],
-``Measurements of azimuthal anisotropies of jet production in Pb+Pb collisions at <span class="math notranslate nohighlight">\(\sqrt{s_{NN}} =\)</span> 5.02 TeV with the ATLAS detector,’’
-Phys. Rev. C 105, no.6, 064903 (2022)
-doi:10.1103/PhysRevC.105.064903
-[arXiv:2111.06606 [nucl-ex]].</p>
+<p><strong>[<span style="color:Red">1</span>]</strong> S. A. Voloshin, A. M. Poskanzer, R. Snellings, “Collective phenomena in non-central nuclear collisions,” in <em>Relativistic Heavy Ion Physics</em>, Landolt-Börnstein <strong>I/23</strong>, 293 (Springer, 2010). <a class="reference external" href="https://doi.org/10.1007/978-3-642-01539-7_10">doi:10.1007/978-3-642-01539-7_10</a>, <a class="reference external" href="https://arxiv.org/abs/0809.2949">arXiv:0809.2949</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> J. S. Moreland, J. E. Bernhard, S. A. Bass, “Alternative ansatz to wounded nucleon and binary collision scaling in high-energy nuclear collisions,” <em>Phys. Rev. C</em> <strong>92</strong>, 011901 (2015). <a class="reference external" href="https://doi.org/10.1103/PhysRevC.92.011901">doi:10.1103/PhysRevC.92.011901</a>, <a class="reference external" href="https://arxiv.org/abs/1412.4708">arXiv:1412.4708</a>. Code documentation: <a class="reference external" href="http://qcd.phy.duke.edu/trento/">http://qcd.phy.duke.edu/trento/</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> B. Betz, F. Senzel, C. Greiner, M. Gyulassy, “The impact of the medium and the jet-medium coupling on jet measurements at RHIC and LHC,” arXiv preprint (2015). <a class="reference external" href="https://arxiv.org/abs/1512.07443">arXiv:1512.07443</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> ATLAS Collaboration, “Measurements of azimuthal anisotropies of jet production in Pb+Pb collisions at √s<sub>NN</sub> = 5.02 TeV with the ATLAS detector,” <em>Phys. Rev. C</em> <strong>105</strong>, 064903 (2022). <a class="reference external" href="https://doi.org/10.1103/PhysRevC.105.064903">doi:10.1103/PhysRevC.105.064903</a>, <a class="reference external" href="https://arxiv.org/abs/2111.06606">arXiv:2111.06606</a>. Numerical data: <a class="reference external" href="https://www.hepdata.net/record/ins1967021">HEPData</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> W. Busza, K. Rajagopal, W. van der Schee, “Heavy Ion Collisions: The Big Picture, and the Big Questions,” <em>Ann. Rev. Nucl. Part. Sci.</em> <strong>68</strong>, 339 (2018). <a class="reference external" href="https://doi.org/10.1146/annurev-nucl-101917-020852">doi:10.1146/annurev-nucl-101917-020852</a>, <a class="reference external" href="https://arxiv.org/abs/1802.04801">arXiv:1802.04801</a></p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Initial version: Abraham Holterman with some guidence from Mark Neubauer</p></li>
+<li><p>Initial version: Abraham Holterman with some guidance from Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -781,9 +735,6 @@ doi:10.1103/PhysRevC.105.064903
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>

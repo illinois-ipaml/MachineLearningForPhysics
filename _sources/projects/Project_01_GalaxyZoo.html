@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_01_GalaxyZoo';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Nuclear Geometry and Characterization of the Quark Gluon Plasma" href="Project_01_NuclearGeometryQGP.html" />
+    <link rel="next" title="Nuclear Geometry and Characterization of the Quark-Gluon Plasma" href="Project_01_NuclearGeometryQGP.html" />
     <link rel="prev" title="Searching for Exotic Particles" href="Project_01_ExoticParticles.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -223,7 +223,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Galaxy Zoo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Project_01_NuclearGeometryQGP.html">Nuclear Geometry and Characterization of the Quark Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_NuclearGeometryQGP.html">Nuclear Geometry and Characterization of the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
 </ul>
@@ -288,7 +289,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_GravitationalWaves.html">Detection of Gravitational Waves</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Project_02_AnisotropyQGP.html">Anisotropy in the Quark Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_Radiotherapy.html">Beam Angle Optimization for Radiative Cancer Therapy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_TailPulsePileupRejection.html">Precision Neutron Counting with Tail Pulse Pileup Rejection</a></li>
 
@@ -515,6 +516,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
@@ -543,44 +545,110 @@ document.write(`
 <h1>Galaxy Zoo<a class="headerlink" href="#galaxy-zoo" title="Permalink to this heading">#</a></h1>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_GalaxyZoo-galaxypic.png" width=500></img>
-</div><section id="span-style-color-orange-overview-span">
+</div><section id="span-style-color-orange-learning-objectives-span">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#span-style-color-orange-learning-objectives-span" title="Permalink to this heading">#</a></h2>
+<p>By the end of this project you should be able to:</p>
+<ul class="simple">
+<li><p>explain what the Sloan Digital Sky Survey is and why galaxy morphology matters for understanding galaxy formation and evolution;</p></li>
+<li><p>describe how Galaxy Zoo turns many volunteer classifications into a decision tree of vote fractions;</p></li>
+<li><p>load and interpret the Galaxy Zoo Kaggle labels, and connect each of the 37 numbers to a question and answer in the decision tree; and</p></li>
+<li><p>explore the label distributions and some example images, the starting point for training a convolutional neural network in Project 02.</p></li>
+</ul>
+</section>
+<section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>Understanding how and why we are here is one of the fundamental questions for the ages. Part of the answer to this question lies in the origins of galaxies, such as our own Milky Way. Yet questions remain about how the Milky Way (or any of the other ~100 billion galaxies in our Universe) was formed and has evolved. Galaxies come in all shapes, sizes and colors: from beautiful spirals to huge ellipticals. “Kevin Schawinski, previously an astrophysicist at Oxford University and co-founder of Galaxy Zoo, described the problem that led to Galaxy Zoo’s creation when he was set the task of classifying the morphology of more than 900,000 galaxies by eye that had been imaged by the Sloan Digital Sky Survey at the Apache Point Observatory in New Mexico, USA.”</p>
+<p>Understanding how and why we are here is one of the fundamental questions for the ages. Part of the answer lies in the origins of galaxies, such as our own Milky Way. Yet questions remain about how the Milky Way, or any of the hundreds of billions of other galaxies in the observable Universe, formed and evolved. Galaxies come in all shapes, sizes and colours, from beautiful spirals to huge ellipticals. Their <strong>morphology</strong> (shape and structure) records their dynamical history, including mergers, bars, bulges and spiral arms.</p>
+<p>The Sloan Digital Sky Survey (SDSS) <a class="reference external" href="https://doi.org/10.1086/301513">[4]</a> has imaged a large fraction of the sky and measured spectra for about a million galaxies, far too many for professional astronomers to classify by eye. In 2007 the <strong>Galaxy Zoo</strong> project began asking members of the public to classify the SDSS galaxies online. The first project collected morphologies for nearly 900,000 galaxies <a class="reference external" href="https://doi.org/10.1111/j.1365-2966.2010.17432.x">[3]</a>. <strong>Galaxy Zoo 2</strong> then asked volunteers a more detailed series of questions, organized as a decision tree, and published more than 16 million classifications of 304,122 galaxies <a class="reference external" href="https://doi.org/10.1093/mnras/stt1458">[1]</a>.</p>
+<p>In 2013–2014, the <a class="reference external" href="https://www.kaggle.com/competitions/galaxy-zoo-the-galaxy-challenge">Galaxy Challenge</a> on Kaggle <a class="reference external" href="https://www.kaggle.com/competitions/galaxy-zoo-the-galaxy-challenge">[5]</a> asked participants to predict the Galaxy Zoo 2 vote fractions directly from the images. The winning entry used a rotation-invariant convolutional neural network <a class="reference external" href="https://doi.org/10.1093/mnras/stv632">[2]</a>. In this project you will explore that dataset. In Project 02 you will train a CNN on it.</p>
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Original Source</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.kaggle.com/competitions/galaxy-zoo-the-galaxy-challenge/data">https://www.kaggle.com/competitions/galaxy-zoo-the-galaxy-challenge/data</a> (requires Kaggle account)</p></li>
-</ul>
-<p>File URLs</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/all_ones_benchmark.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/all_ones_benchmark.zip</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/all_zeros_benchmark.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/all_zeros_benchmark.zip</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/central_pixel_benchmark.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/central_pixel_benchmark.zip</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/images_test_rev1.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/images_test_rev1.zip</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/images_training_rev1.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/images_training_rev1.zip</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/training_solutions_rev1.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/training_solutions_rev1.zip</a></p></li>
-</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>File (course mirror)</p></th>
+<th class="head"><p>Size</p></th>
+<th class="head"><p>Contents</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/training_solutions_rev1.zip"><code class="docutils literal notranslate"><span class="pre">training_solutions_rev1.zip</span></code></a></p></td>
+<td><p>4.9 MB</p></td>
+<td><p><strong>The labels:</strong> <code class="docutils literal notranslate"><span class="pre">GalaxyID</span></code> + 37 vote fractions for each of the 61,578 training galaxies</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/images_training_rev1.zip"><code class="docutils literal notranslate"><span class="pre">images_training_rev1.zip</span></code></a></p></td>
+<td><p>830 MB</p></td>
+<td><p>61,578 training images, <code class="docutils literal notranslate"><span class="pre">&lt;GalaxyID&gt;.jpg</span></code>, 424 × 424 pixel RGB (SDSS <em>gri</em> colour composites)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/images_test_rev1.zip"><code class="docutils literal notranslate"><span class="pre">images_test_rev1.zip</span></code></a></p></td>
+<td><p>1.1 GB</p></td>
+<td><p>79,975 test images. The competition’s evaluation set; <strong>no labels are provided</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/all_zeros_benchmark.zip"><code class="docutils literal notranslate"><span class="pre">all_zeros_benchmark.zip</span></code></a>, <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/all_ones_benchmark.zip"><code class="docutils literal notranslate"><span class="pre">all_ones_benchmark.zip</span></code></a>, <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/central_pixel_benchmark.zip"><code class="docutils literal notranslate"><span class="pre">central_pixel_benchmark.zip</span></code></a></p></td>
+<td><p>&lt; 1 MB each</p></td>
+<td><p>Example <strong>submissions</strong> (predictions for the test galaxies) from trivial baseline methods. They show the submission format; they are <strong>not</strong> labels</p></td>
+</tr>
+</tbody>
+</table>
+<p>The original data are on <a class="reference external" href="https://www.kaggle.com/competitions/galaxy-zoo-the-galaxy-challenge/data">Kaggle</a>; downloading them there requires a Kaggle account and accepting the competition rules.</p>
+<p><strong>About the labels.</strong> The 37 numbers for each galaxy are <em>not</em> independent class probabilities. They are the weighted fractions of Galaxy Zoo volunteers who gave each response, propagated down the decision tree. The answers to the first question (Class 1) sum to 1. The answers to each later question sum to the fraction of volunteers who reached that question. For example, Class 2 (“edge-on?”) sums to Class 1.2 (“features or disk”).</p>
+<p>The cell below downloads the small label file (and, on first use, the 830 MB training-image archive) and defines a helper to display a galaxy image directly from the zip archive, with no need to extract 61,578 files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/GalaxyZoo/&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download a file from the course mirror once; later calls reuse the local copy.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">filename</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;training_solutions_rev1.zip&quot;</span><span class="p">))</span>   <span class="c1"># pandas reads the CSV inside the zip directly</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">train_zip</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;images_training_rev1.zip&quot;</span><span class="p">))</span>  <span class="c1"># ~830 MB, downloaded once</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">show_galaxy</span><span class="p">(</span><span class="n">galaxy_id</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">train_zip</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;images_training_rev1/</span><span class="si">{</span><span class="n">galaxy_id</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">)))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span> <span class="ow">or</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">galaxy_id</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+<span class="n">labels</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
+<p>Answer each question in a markdown cell directly below it (add code cells where needed). For the background questions (01 to 03), aim for one to two well-organized paragraphs, and <strong>cite your sources</strong>. The references at the end of this notebook are a good starting point. Your notebook should run from top to bottom without errors.</p>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>What is the Sky Survey? What motivated scientists to create such a survey?</p>
+<p>What is the Sloan Digital Sky Survey (SDSS) <a class="reference external" href="https://doi.org/10.1086/301513">[4]</a>? What telescope and instruments does it use, what does it measure (imaging in which filters, spectroscopy), and what motivated scientists to create such a survey? The Galaxy Zoo images are <em>gri</em> colour composites. What does that mean?</p>
 </section>
 <section id="span-style-color-lightgreen-question-02-span">
 <h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
-<p>Galaxy Zoo guides its citizen scientists through a nested decision tree - this is what constitutes the classification process. ​Why is it important to be able to classify galaxies? Why are the different shapes of galaxies so important? What information is provided from different galaxy colors?</p>
+<p>Galaxy Zoo guides its volunteers through a decision tree of questions. Why is it important to be able to classify galaxies by morphology? What do the different shapes of galaxies (for example ellipticals, spirals, bars, bulges and mergers) tell us about how they formed and evolved? What information do galaxy colours provide?</p>
+<p>According to Ref. <a class="reference external" href="https://doi.org/10.1093/mnras/stv632">[2]</a> (Section 2), the organizers of the Kaggle challenge removed many of the over-represented red elliptical and blue spiral galaxies from the dataset. Why would they do that?</p>
 </section>
 <section id="span-style-color-lightgreen-question-03-span">
 <h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
-<p>After reading a thorough reading of the paper in <a class="reference external" href="https://arxiv.org/pdf/1308.3496.pdf">[1]</a>, ​describe what constitutes the decision tree. What are the conditions described in the decision tree?</p>
+<p>After a careful reading of Ref. <a class="reference external" href="https://doi.org/10.1093/mnras/stt1458">[1]</a>, especially Fig. 1 and Table 2, describe the Galaxy Zoo 2 decision tree. What are its tasks (questions) and possible responses? Which tasks are asked of every galaxy, and which only follow particular earlier answers? Trace the path a volunteer would follow for (a) a smooth, round elliptical galaxy and (b) a face-on barred spiral with two arms.</p>
 </section>
 <section id="span-style-color-lightgreen-question-04-span">
 <h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-span" title="Permalink to this heading">#</a></h3>
-<p>Download file <code class="docutils literal notranslate"><span class="pre">central_pixel_benchmark.zip</span></code> from either of the data source locations above.</p>
-<p>The header of the Benchmark data looks something like this:</p>
+<p>The label file <code class="docutils literal notranslate"><span class="pre">training_solutions_rev1.csv</span></code> has the following columns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GalaxyID</span><span class="p">,</span>
 <span class="n">Class1</span><span class="mf">.1</span><span class="p">,</span> <span class="n">Class1</span><span class="mf">.2</span><span class="p">,</span> <span class="n">Class1</span><span class="mf">.3</span><span class="p">,</span>
 <span class="n">Class2</span><span class="mf">.1</span><span class="p">,</span> <span class="n">Class2</span><span class="mf">.2</span><span class="p">,</span>
@@ -595,42 +663,58 @@ document.write(`
 <span class="n">Class11</span><span class="mf">.1</span><span class="p">,</span> <span class="n">Class11</span><span class="mf">.2</span><span class="p">,</span> <span class="n">Class11</span><span class="mf">.3</span><span class="p">,</span> <span class="n">Class11</span><span class="mf">.4</span><span class="p">,</span> <span class="n">Class11</span><span class="mf">.5</span><span class="p">,</span> <span class="n">Class11</span><span class="mf">.6</span>
 </pre></div>
 </div>
-<p>Label each class number with each corresponding decision tree conditions.</p>
+<p>Make a table that labels each column with its question and response in the decision tree. For example, <code class="docutils literal notranslate"><span class="pre">Class1.1</span></code> = Task 01 “Is the galaxy simply smooth and rounded…?”, response “smooth”.</p>
 </section>
 <section id="span-style-color-lightgreen-question-05-span">
 <h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-span" title="Permalink to this heading">#</a></h3>
-<p>Sample data would look something like the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">100018</span><span class="p">,</span>
-<span class="mf">0.468481225</span><span class="p">,</span> <span class="mf">0.506184901</span><span class="p">,</span> <span class="mf">0.025333873</span><span class="p">,</span>
-<span class="mf">0.099843579</span><span class="p">,</span> <span class="mf">0.406341321</span><span class="p">,</span>
-<span class="mf">0.095166943</span><span class="p">,</span> <span class="mf">0.311174378</span><span class="p">,</span>
-<span class="mf">0.185079516</span><span class="p">,</span> <span class="mf">0.221261805</span><span class="p">,</span>
-<span class="mf">0.019014618</span><span class="p">,</span> <span class="mf">0.157050124</span><span class="p">,</span> <span class="mf">0.194385937</span><span class="p">,</span> <span class="mf">0.035890642</span><span class="p">,</span>
-<span class="mf">0.214294993</span><span class="p">,</span> <span class="mf">0.785705007</span><span class="p">,</span>
-<span class="mf">0.195926631</span><span class="p">,</span> <span class="mf">0.221751402</span><span class="p">,</span> <span class="mf">0.050803194</span><span class="p">,</span>
-<span class="mf">0.038988255</span><span class="p">,</span> <span class="mf">0.014478764</span><span class="p">,</span> <span class="mf">0.027519262</span><span class="p">,</span> <span class="mf">0.023837245</span><span class="p">,</span> <span class="mf">0.063030884</span><span class="p">,</span> <span class="mf">0.043247289</span><span class="p">,</span> <span class="mf">0.003193269</span><span class="p">,</span>
-<span class="mf">0.066031673</span><span class="p">,</span> <span class="mf">0.010392192</span><span class="p">,</span> <span class="mf">0.023419713</span><span class="p">,</span>
-<span class="mf">0.082313979</span><span class="p">,</span> <span class="mf">0.07125346</span><span class="p">,</span> <span class="mf">0.031512075</span><span class="p">,</span>
-<span class="mf">0.012281073</span><span class="p">,</span> <span class="mf">0.079963984</span><span class="p">,</span> <span class="mf">0.01434553</span><span class="p">,</span> <span class="mf">0.006368535</span><span class="p">,</span> <span class="mf">0.006648832</span><span class="p">,</span> <span class="mi">0</span>
+<p>Here is the label row for the first galaxy in the training set, <code class="docutils literal notranslate"><span class="pre">GalaxyID</span></code> 100008:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">100008</span><span class="p">,</span>
+<span class="mf">0.383147</span><span class="p">,</span> <span class="mf">0.616853</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.616853</span><span class="p">,</span>
+<span class="mf">0.038452149</span><span class="p">,</span> <span class="mf">0.578400851</span><span class="p">,</span>
+<span class="mf">0.418397819</span><span class="p">,</span> <span class="mf">0.198455181</span><span class="p">,</span>
+<span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.104752126</span><span class="p">,</span> <span class="mf">0.512100874</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="mf">0.054453</span><span class="p">,</span> <span class="mf">0.945547</span><span class="p">,</span>
+<span class="mf">0.201462524</span><span class="p">,</span> <span class="mf">0.181684476</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0272265</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0272265</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="mf">0.279952491</span><span class="p">,</span> <span class="mf">0.138445328</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.092885571</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.325512248</span>
 </pre></div>
 </div>
-<p>The first one is the <code class="docutils literal notranslate"><span class="pre">GalaxyID</span></code> and the following are the probabilities of each node. Can you tell what is the most likely (highest likelihood) Class for this galaxy?</p>
+<ol class="arabic simple">
+<li><p>Using the explanation of the labels in the Data Sources section, verify numerically, for the whole training set, that the responses to each question sum to the vote fraction of the response that leads to it (for example, Class 2 sums to Class 1.2, and Class 10 and Class 11 each sum to Class 4.1). Which questions sum to 1?</p></li>
+<li><p>For galaxy 100008, what is the most popular answer to each question it was asked? Trace the most likely path through the decision tree. Note that comparing raw numbers <em>across</em> different questions is not meaningful. Why not?</p></li>
+<li><p>Display the image of galaxy 100008 with <code class="docutils literal notranslate"><span class="pre">show_galaxy(100008)</span></code>. Do you agree with the volunteers?</p></li>
+</ol>
 </section>
 <section id="span-style-color-lightgreen-question-06-span">
 <h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
-<p>Draw the classification distribution histogram. Can you tell which type of Galaxy is the majority distribution?</p>
+<p>Explore the label distributions for the whole training set:</p>
+<ol class="arabic simple">
+<li><p>Plot histograms of the three Class 1 vote fractions (smooth, features/disk, star/artifact). Assign each galaxy to the top-level category with the largest Class 1 vote fraction. How many galaxies fall into each category? Which type is the majority?</p></li>
+<li><p>Many galaxies are ambiguous. What fraction of galaxies have a clear majority (say, a vote fraction above 0.8) for “smooth” or for “features/disk”? Show a few example images from each group, and a few ambiguous ones.</p></li>
+<li><p>Choose at least two deeper questions (for example, bar or no bar, or the number of spiral arms). Plot their vote-fraction distributions and comment on them.</p></li>
+<li><p>Is the distribution of galaxy types in this dataset representative of galaxies in the Universe? Relate your answer to Question 02.</p></li>
+</ol>
+<p><em>Optional extension:</em> the Kaggle score was the root-mean-square error (RMSE) between predicted and true values over all 37 outputs. Split the labelled training set into two halves. Compute the RMSE you would get on one half by predicting the mean label vector of the other half for every galaxy. Then try a smarter non-image baseline of your own. These numbers are the baselines your CNN in Project 02 has to beat.</p>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<p><strong>[<span style="color:Red">1</span>]</strong> K.W. Willet, <em><a class="reference external" href="http://et.al">et.al</a></em>, “Galaxy Zoo 2: detailed morphological classifications for 304,122 galaxies from the Sloan Digital Sky Survey”, <em>Mon.Not.Roy.Astron.Soc</em>. 435 (2013) 2835, e-Print: <a class="reference external" href="https://arxiv.org/abs/1308.3496">1308.3496</a> [<a class="reference external" href="http://astro-ph.CO">astro-ph.CO</a>]</p>
+<p><strong>[<span style="color:Red">1</span>]</strong> K. W. Willett <em>et al.</em>, “Galaxy Zoo 2: detailed morphological classifications for 304,122 galaxies from the Sloan Digital Sky Survey,” <em>Mon. Not. R. Astron. Soc.</em> <strong>435</strong>, 2835 (2013). <a class="reference external" href="https://doi.org/10.1093/mnras/stt1458">doi:10.1093/mnras/stt1458</a>, <a class="reference external" href="https://arxiv.org/abs/1308.3496">arXiv:1308.3496</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> S. Dieleman, K. W. Willett, J. Dambre, “Rotation-invariant convolutional neural networks for galaxy morphology prediction,” <em>Mon. Not. R. Astron. Soc.</em> <strong>450</strong>, 1441 (2015). <a class="reference external" href="https://doi.org/10.1093/mnras/stv632">doi:10.1093/mnras/stv632</a>, <a class="reference external" href="https://arxiv.org/abs/1503.07077">arXiv:1503.07077</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> C. Lintott <em>et al.</em>, “Galaxy Zoo 1: data release of morphological classifications for nearly 900,000 galaxies,” <em>Mon. Not. R. Astron. Soc.</em> <strong>410</strong>, 166 (2011). <a class="reference external" href="https://doi.org/10.1111/j.1365-2966.2010.17432.x">doi:10.1111/j.1365-2966.2010.17432.x</a>, <a class="reference external" href="https://arxiv.org/abs/1007.3265">arXiv:1007.3265</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> D. G. York <em>et al.</em>, “The Sloan Digital Sky Survey: Technical Summary,” <em>Astron. J.</em> <strong>120</strong>, 1579 (2000). <a class="reference external" href="https://doi.org/10.1086/301513">doi:10.1086/301513</a>, <a class="reference external" href="https://arxiv.org/abs/astro-ph/0006396">arXiv:astro-ph/0006396</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> Galaxy Zoo – The Galaxy Challenge, Kaggle competition (2013–2014). <a class="reference external" href="https://www.kaggle.com/competitions/galaxy-zoo-the-galaxy-challenge">https://www.kaggle.com/competitions/galaxy-zoo-the-galaxy-challenge</a></p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -678,7 +762,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Nuclear Geometry and Characterization of the Quark Gluon Plasma</p>
+        <p class="prev-next-title">Nuclear Geometry and Characterization of the Quark-Gluon Plasma</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -697,6 +781,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
