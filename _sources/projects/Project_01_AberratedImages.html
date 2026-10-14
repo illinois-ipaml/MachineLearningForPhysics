@@ -518,16 +518,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-background">Part A: Background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-questions-04-span"><span style="color:LightGreen">Questions 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-images-as-data">Part B: Images as data</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-quesiton-07-span"><span style="color:LightGreen">Quesiton 07</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
 </ul>
@@ -547,78 +552,114 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="aberrated-image-recovery-of-ultracold-atoms">
 <h1>Aberrated Image Recovery of Ultracold Atoms<a class="headerlink" href="#aberrated-image-recovery-of-ultracold-atoms" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">skimage</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ski</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">skl</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">cluster</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_UltraColdAtoms.png" width=600></img>
-</div></section>
+</div><section id="span-style-color-orange-learning-objectives-span">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#span-style-color-orange-learning-objectives-span" title="Permalink to this heading">#</a></h2>
+<p>By the end of this project you should be able to:</p>
+<ul class="simple">
+<li><p>explain how ultracold atomic gases are produced and imaged, and why their density is often Gaussian;</p></li>
+<li><p>describe the resolution limits of an imaging system: the point spread function, the Airy disk, the depth of field and pixelization;</p></li>
+<li><p>treat an image as a high-dimensional data element, and explain why its pixels are highly correlated;</p></li>
+<li><p>estimate a physical quantity (the atom number) from noisy images, and use K-means clustering to try to resolve discrete values; and</p></li>
+<li><p>use the singular value decomposition (SVD) to compress images and identify which features survive compression.</p></li>
+</ul>
+</section>
 <section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>Over the past 20-30 years the groundwork has been laid for precise experimental control of atomic gases at ultracold temperatures. These ultracold atom gas experiments explore the quantum mechanics of their underlying atomic systems to a diverse set applications ranging from the simulation of computationally difficult physics problems [1] to the sensing of new physics beyond the standard model [2]. Most experiments in this field rely on directly imaging the ultracold gas they make, in order to extract data about the size and shape of the atomic number density distribution being imaged.</p>
-<p>The goal of this project is to introduce you to some relevant image processing techniques, as well as to get familiar with an image as a data element. As you will demonstrate, images are a kind of data with a very large number of features, but where almost all of those features within some region of interest are highly correlated. Of interest in this project is how the effects of real imaging systems distort the information contained in an image, and how those effects can be unfolded from the data to recover information about the true density distribution.</p>
-<p>Capturing all possible kinds of aberrations and noise present in real experimental data of ultracold atom images is outside the scope of the simulated test data in this project. Instead, we limit ourselves to a few key effects: optical aberrations in the form of defocus and primary spherical aberrations, pixelization from a finite detector resolution, and at times toy number density noise simulated as simple Gaussian noise.</p>
+<p>Over the past 20–30 years the groundwork has been laid for precise experimental control of atomic gases at ultracold temperatures. Ultracold atom experiments exploit the quantum mechanics of their underlying atomic systems for a diverse set of applications, ranging from the simulation of computationally difficult physics problems <a class="reference external" href="https://doi.org/10.1126/science.1209019">[1]</a> to searches for new physics beyond the Standard Model <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.119.153001">[2]</a>. Most experiments in this field rely on directly imaging the ultracold gas, to extract the size and shape of the atomic number density distribution.</p>
+<p>The goal of this project is to introduce you to some relevant image-processing techniques, and to get familiar with an image as a data element. As you will see, images are a kind of data with a very large number of features, almost all of which are highly correlated within a region of interest. Of particular interest is how a real imaging system distorts the information contained in an image, and how those effects can be unfolded from the data to recover information about the true density distribution.</p>
+<p>Capturing all possible kinds of aberrations and noise in real images of ultracold atoms is outside the scope of the simulated data in this project. Instead, we limit ourselves to a few key effects:</p>
+<ul class="simple">
+<li><p>optical aberrations, in the form of defocus and primary spherical aberration;</p></li>
+<li><p>pixelization from the finite resolution of the detector; and</p></li>
+<li><p>in some datasets, a simple model of number noise.</p></li>
+</ul>
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>File URLs</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz</a></p></li>
+<li><p>Course mirror: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz</a> (1 MB). The code below downloads and extracts it.</p></li>
 </ul>
-<p>You should untar this file into your local directory and access the image files from there:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Heavy_tails/HiNA.atom_num=100000.*.tiff</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Number_estimate/LoNA.atom_num=10000.*.tiff</span></code></p></li>
-</ul>
-<p>Also included is <code class="docutils literal notranslate"><span class="pre">ImageSimulation.ipynb</span></code>, which is the notebook used to generate the data you will find in that folder. You are encouraged to read through that notebook to see how the simulation works and even generate your own datasets if desired.</p>
-<p>You are welcome to access the images however works best for you, but a simple solution is to download the dataset folder to the same path as this notebook (or the one you plan to do your analysis in) and use the following helper function to important an image based on the true parameters of the underlying density distribution—found in the image file name.</p>
+<p>The archive contains two folders of simulated images, stored as TIFF files of floating-point values, plus the notebook <code class="docutils literal notranslate"><span class="pre">ImageSimulation.ipynb</span></code> that generated them (also <a class="reference external" href="https://github.com/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/projects/Project_01_AberratedImages_additional_material/ImageSimulation.ipynb">available in the course repository</a>). You are encouraged to read that notebook to see how the simulation works, and even to generate your own datasets.</p>
+<p>All images simulate a thermal gas of <span class="math notranslate nohighlight">\(^{87}\)</span>Rb atoms imaged with <span class="math notranslate nohighlight">\(\lambda = 780\)</span> nm light onto a camera with pixel size <span class="math notranslate nohighlight">\(\text{PS} = 13\)</span> µm. The true parameters of each image are encoded in its file name, e.g. <code class="docutils literal notranslate"><span class="pre">HiNA.atom_num=100000.mu=(0.0...0.0...0.0).sigma=(1.0...1.0...20.0).Z04=0.2.seed=0.tiff</span></code>: the imaging system, the atom number <span class="math notranslate nohighlight">\(N\)</span>, the centre <span class="math notranslate nohighlight">\(\mu\)</span> and widths <span class="math notranslate nohighlight">\(\sigma = (\sigma_x, \sigma_y, \sigma_z)\)</span> of the Gaussian density in µm (with <span class="math notranslate nohighlight">\(z\)</span> the imaging axis), the spherical-aberration coefficient <code class="docutils literal notranslate"><span class="pre">Z04</span></code>, and the random seed of the noise.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>Imaging system</p></th>
+<th class="head"><p>Images</p></th>
+<th class="head"><p>Image size</p></th>
+<th class="head"><p>Gas widths <span class="math notranslate nohighlight">\(\sigma\)</span> (µm)</p></th>
+<th class="head"><p>Atom numbers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Number_estimate</span></code></p></td>
+<td><p>Low NA: NA = 0.2, magnification M = 4, no spherical aberration (<code class="docutils literal notranslate"><span class="pre">Z04</span></code> = 0)</p></td>
+<td><p>60</p></td>
+<td><p>6 × 6 pixels</p></td>
+<td><p>(10, 10, 10)</p></td>
+<td><p>9,000 / 10,000 / 11,000 and 99,000 / 100,000 / 101,000; 10 noise seeds each</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code></p></td>
+<td><p>High NA: NA = 0.4, M = 20, <code class="docutils literal notranslate"><span class="pre">Z04</span></code> = 0.2</p></td>
+<td><p>18</p></td>
+<td><p>30 × 30 pixels</p></td>
+<td><p><span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> ∈ {1, 2.5, 5, 10, 20}, with <span class="math notranslate nohighlight">\(\sigma_z = \sigma_{xy}\)</span> or <span class="math notranslate nohighlight">\(\sigma_z = 20\)</span></p></td>
+<td><p>100,000; 2 noise seeds each</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Noise model.</strong> Every image is normalized so that its pixels sum to the atom number <span class="math notranslate nohighlight">\(N\)</span>. Then noise is added to each pixel with a standard deviation equal to the square root of the pixel value (see <code class="docutils literal notranslate"><span class="pre">ImSim</span></code> in <code class="docutils literal notranslate"><span class="pre">ImageSimulation.ipynb</span></code>). This is a toy model for fluctuations in the measured density. It can produce small negative pixel values, which were deliberately left in.</p>
+<p><strong>Field of view.</strong> The simulation grid extends only ±10 µm in each direction, transverse and axial. Gases that are large compared with this, such as the <span class="math notranslate nohighlight">\(\sigma = 10\)</span>–20 µm gases, are therefore truncated. You will look at the consequences in Question 05.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Import_Image</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">imaging_sys</span><span class="p">,</span> <span class="n">atom_number</span><span class="p">,</span> <span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">,</span> <span class="n">mu_z</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">sigma_z</span><span class="p">,</span> <span class="n">Z04</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Important an image following the project file naming structure.</span>
-<span class="sd">    </span>
-<span class="sd">    :param dataset_name: str</span>
-<span class="sd">        Name of the dataset.</span>
-<span class="sd">    :param imaging_sys: str</span>
-<span class="sd">        Name of the imaging system (e.g. &#39;LoNA&#39; or &#39;HiNA&#39;).</span>
-<span class="sd">    :param atom_number: int</span>
-<span class="sd">        Atom number normalization factor. </span>
-<span class="sd">    :param mu_x: float</span>
-<span class="sd">        Density distribution true mean x.</span>
-<span class="sd">    :param mu_y: float</span>
-<span class="sd">        Density distribution true mean y.</span>
-<span class="sd">    :param mu_z: float</span>
-<span class="sd">        Density distribution true mean z.</span>
-<span class="sd">    :param sigma_x: float</span>
-<span class="sd">        Density distribution true sigma x.</span>
-<span class="sd">    :param sigma_y: float</span>
-<span class="sd">        Density distribution true sigma y.</span>
-<span class="sd">    :param sigma_z: float</span>
-<span class="sd">        Density distribution true sigma z.</span>
-<span class="sd">    :param Z04: float</span>
-<span class="sd">        Coefficient of spherical aberrations.</span>
-<span class="sd">    :param seed: int</span>
-<span class="sd">        Seed for Gaussian noise.</span>
-<span class="sd">    :return: </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">dataset_name</span> <span class="o">=</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="n">imaging_sys</span> <span class="o">+</span> <span class="s1">&#39;.atom_num=</span><span class="si">%i</span><span class="s1">.mu=(</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">).sigma=(</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">...</span><span class="si">%0.1f</span><span class="s1">).Z04=</span><span class="si">%0.1f</span><span class="s1">.seed=</span><span class="si">%i</span><span class="s1">.tiff&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">atom_number</span><span class="p">,</span> <span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">,</span> <span class="n">mu_z</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">sigma_z</span><span class="p">,</span> <span class="n">Z04</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">ski</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">dataset_name</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">im</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">skimage.io</span>
+
+<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/AberratedImages/data.tgz&quot;</span>
+
+<span class="c1"># Download and extract the data once</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s2">&quot;Number_estimate&quot;</span><span class="p">):</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">DATA_URL</span><span class="p">,</span> <span class="s2">&quot;data.tgz&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;data.tgz&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>   <span class="c1"># safe extraction (Python &gt;= 3.12, and recent 3.8-3.11)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+<span class="n">PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?P&lt;system&gt;\w+)\.atom_num=(?P&lt;N&gt;\d+)\.&quot;</span>
+                     <span class="sa">r</span><span class="s2">&quot;mu=\((?P&lt;mu_x&gt;[-\d.]+?)\.\.\.(?P&lt;mu_y&gt;[-\d.]+?)\.\.\.(?P&lt;mu_z&gt;[-\d.]+?)\)\.&quot;</span>
+                     <span class="sa">r</span><span class="s2">&quot;sigma=\((?P&lt;sigma_x&gt;[\d.]+?)\.\.\.(?P&lt;sigma_y&gt;[\d.]+?)\.\.\.(?P&lt;sigma_z&gt;[\d.]+?)\)\.&quot;</span>
+                     <span class="sa">r</span><span class="s2">&quot;Z04=(?P&lt;Z04&gt;[\d.]+)\.seed=(?P&lt;seed&gt;\d+)\.tiff&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_dataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load all images in a dataset folder into a DataFrame: one row per image,</span>
+<span class="sd">    with the true parameters parsed from the file name and the image itself in column &#39;image&#39;.&quot;&quot;&quot;</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="s2">&quot;*.tiff&quot;</span><span class="p">))):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">PATTERN</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;system&quot;</span><span class="p">}</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;system&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="s2">&quot;system&quot;</span><span class="p">]</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">})</span>
+
+<span class="n">number_df</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;Number_estimate&quot;</span><span class="p">)</span>
+<span class="n">tails_df</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;Heavy_tails&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">number_df</span><span class="p">),</span> <span class="s2">&quot;Number_estimate images of shape&quot;</span><span class="p">,</span> <span class="n">number_df</span><span class="o">.</span><span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tails_df</span><span class="p">),</span> <span class="s2">&quot;Heavy_tails images of shape&quot;</span><span class="p">,</span> <span class="n">tails_df</span><span class="o">.</span><span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">tails_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -626,71 +667,104 @@ document.write(`
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
+<p>Answer each question in a markdown cell directly below it (add code cells where needed). For the background questions, aim for one to two well-organized paragraphs, and <strong>cite your sources</strong>. Your notebook should run from top to bottom without errors.</p>
+<section id="part-a-background">
+<h3>Part A: Background<a class="headerlink" href="#part-a-background" title="Permalink to this heading">#</a></h3>
+</section>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>What is a cold atom gas? How cold are we talking? How do experiments bring atoms down to these temperatures?</p>
-<p>When you research these experiments you will find that the Alkali atoms (Rb, K, Na, etc.) compose the majority set of species used. Why these atoms? Hint: recall high school chemistry. What do these atoms have in common with everyone’s favorite quantum system, the hydrogen atom?</p>
-<p>A helpful resource is Foot’s <em>Atomic Physics</em> [3].</p>
+<p>What is an ultracold atomic gas? How cold are we talking? How do experiments bring atoms down to these temperatures?</p>
+<p>When you research these experiments, you will find that alkali atoms (Rb, K, Na, etc.) are the most commonly used species. Why these atoms? (<em>Hint:</em> recall high-school chemistry. What do these atoms have in common with everyone’s favourite quantum system, the hydrogen atom?)</p>
+<p>A helpful resource is Foot’s <em>Atomic Physics</em> <span class="xref myst">[3]</span>.</p>
 </section>
 <section id="span-style-color-lightgreen-question-02-span">
 <h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
-<p>When attempting to measure the number density distribution of cold atom gas in experiment, we typically release the gas from any kind of confinement and let it expand in free-fall before taking an image at some time-of-flight (TOF). When we take a picture thereafter the density distribution often has the shape of Gaussian. Why is that? Think stat mech.</p>
+<p>To measure the number density distribution of an ultracold gas, we typically release the gas from its trap and let it expand in free fall before taking an image after some time of flight (TOF). The density distribution in such an image often has a Gaussian shape. Why is that? (<em>Hint:</em> think statistical mechanics. What is the velocity distribution of a thermal gas, and how does the cloud size grow with TOF?) How can a TOF measurement be used to determine the temperature of the gas?</p>
 </section>
 <section id="span-style-color-lightgreen-question-03-span">
 <h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
-<p>Real imaging systems have a finite resolution set by the diffraction limit. Given a point source emitting a spherical EM field, a real lens will propagate the field from the object plane to the imaging plane, projecting a pattern which we call the imaging response function, or <a class="reference external" href="https://en.wikipedia.org/wiki/Point_spread_function">point spread function (PSF)</a>, of the system. For any object with finite size, we can think of the resultant image as being formed by a sum over the PSF associated with each point in the object, i.e. a convolution.</p>
-<p>For a circular lens the shape of the best focus PSF (meaning the shape of an image formed from a point source located on the imaging axis at the best focus) we refer to as the <a class="reference external" href="https://en.wikipedia.org/wiki/Airy_disk">Airy disk</a>. Its first set of zeros are located at <span class="math notranslate nohighlight">\(\rho\approx3.83\)</span>, for a dimensionless radial component <span class="math notranslate nohighlight">\(\rho\)</span>.</p>
-<p>Given this information and the functional form of the Airy disk, estimate the amount of irradiance (or weight) that sits in the central peak of the pattern relative to the whole distribution.</p>
-<p>If you were to approximate this distribution to a Gaussian with the same peak irradiance, how would the first minima of the Airy disk relate to the <span class="math notranslate nohighlight">\(1/e^2\)</span> waist of the Gaussian distribution?</p>
-<p>In addition to provided links, another useful resource is Goodman’s <em>Introduction to Fourier Optics</em> [4].</p>
+<p>Real imaging systems have a finite resolution, set by the diffraction limit. Consider a point source emitting a spherical electromagnetic wave. A real lens propagates the field from the object plane to the image plane, producing a pattern called the imaging response function, or <a class="reference external" href="https://en.wikipedia.org/wiki/Point_spread_function">point spread function (PSF)</a>, of the system. Any object of finite size can be thought of as a collection of point sources, so its image is the sum of the PSFs of all its points, i.e. a convolution.</p>
+<p>For a circular lens, the PSF at best focus, for a point source on the optical axis, is the <a class="reference external" href="https://en.wikipedia.org/wiki/Airy_disk">Airy disk</a>, <span class="math notranslate nohighlight">\(I(\rho) = I_0 \left[2J_1(\rho)/\rho\right]^2\)</span>. Here <span class="math notranslate nohighlight">\(\rho = 2\pi\,\text{NA}\, r/\lambda\)</span> is a dimensionless radial coordinate, and its first zero is at <span class="math notranslate nohighlight">\(\rho \approx 3.83\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Calculate the fraction of the total irradiance (power) contained in the central peak, inside the first zero.</p></li>
+<li><p>Approximate the Airy disk by a Gaussian, <span class="math notranslate nohighlight">\(I_0 \exp(-2\rho^2/w^2)\)</span>, with the same peak irradiance <em>and</em> the same total power. How is the first zero of the Airy disk related to the <span class="math notranslate nohighlight">\(1/e^2\)</span> radius <span class="math notranslate nohighlight">\(w\)</span> of the Gaussian? Compare with a least-squares Gaussian fit to the central peak.</p></li>
+<li><p>Convert the radius of the first zero to µm for the two imaging systems used in this project (NA = 0.4 and NA = 0.2, <span class="math notranslate nohighlight">\(\lambda = 780\)</span> nm).</p></li>
+</ol>
+<p>In addition to the links above, a useful resource is Goodman’s <em>Introduction to Fourier Optics</em> <span class="xref myst">[4]</span>.</p>
 </section>
-<section id="span-style-color-lightgreen-questions-04-span">
-<h3><span style="color:LightGreen">Questions 04</span><a class="headerlink" href="#span-style-color-lightgreen-questions-04-span" title="Permalink to this heading">#</a></h3>
-<p>In the previous question the resolution we were interested in describes the size of the image of a point source in the plane transverse to the axis the image propagates along. What about along the imaging axis? We often calls this axial resolution the depth of field (DOF), although when we want a number to describe it different sources define that value differently.</p>
-<p>How are the DOF and transverse resolution related to each other? No mathematical relationship is necessary here (although you can if you want to, so long as you restrict yourself to thinking about the axial PSF along <span class="math notranslate nohighlight">\(\rho=0\)</span>).</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>To answer the rest of the questions in first chunk of this project we will use images from the <strong>Number_estimate</strong> and <strong>Heavy_tails</strong> datasets. This data was generated in the ImageSimulation.ipynb, found at the link above. The images in the <strong>Heavy_tails</strong> dataset depict cold atom gases of variable <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> and <span class="math notranslate nohighlight">\(\sigma_z\)</span> at an arbitrary atom number, and those in the <strong>Number_estimate</strong> dataset contain images of a large isotropic (<span class="math notranslate nohighlight">\(\sigma_{xy}=\sigma_z=20\)</span> um) gas across a range of atom numbers and with number noise varying from shot to shot.</p>
-<p>In generating these images, there are handful of fixed hyperparameters chosen to match a realistic set of experimental conditions. Here we are imaging a thermal gas of Rb<span class="math notranslate nohighlight">\(^{87}\)</span> atoms with a <span class="math notranslate nohighlight">\(\lambda=780\)</span> nm (near-infrared) light. That light is collected by one of two imaging system: a (relatively) high numerical aperture (<span class="math notranslate nohighlight">\(\text{NA}=0.4\)</span>) lens and a lower resolution (<span class="math notranslate nohighlight">\(\text{NA}=0.2\)</span>) one. The image is projected on to a camera sensor with a pixel size of <span class="math notranslate nohighlight">\(\text{PS}=13\)</span> um, by a telescope with and <span class="math notranslate nohighlight">\(\text{M}=20\times\)</span> or <span class="math notranslate nohighlight">\(\text{M}=4\times\)</span> magnification respectively for each lens.</p>
-<p>The images in the <strong>Heavy_tails</strong> dataset were generated with the high NA system and no number noise and the those in <strong>Number_estimate</strong> dataset were generated with the low NA system including number noise.</p>
-<p>With the <strong>Number_estimate</strong> dataset you will explore how noise effects your ability to accurately estimate the total number of atoms in an image. Please refer to ImageSimulation.ipynb for a fuller explanation as to what this noise represents.</p>
-<p>With the <strong>Heavy_tails</strong> dataset you will test the ability of a simple linear decomposition to reduce the dimensionality of the data and confirm whether the ‘compressed’ image still retains relevant features of the gas. Images involving gases generated with <span class="math notranslate nohighlight">\(\sigma_z\gtrsim \text{DOF}\)</span> will acquire a noticeable tail in the image, diverging from the true Gaussian number density distribution. Of interest is how this tail is carried through to the compressed and reconstructed images.</p>
+<section id="span-style-color-lightgreen-question-04-span">
+<h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-span" title="Permalink to this heading">#</a></h3>
+<p>The resolution in Question 03 describes the size of the image of a point source in the plane transverse to the optical axis. What about along the optical axis? This axial resolution is often called the depth of field (DOF), although different sources define its value differently.</p>
+<ul class="simple">
+<li><p>How are the DOF and the transverse resolution related to each other, and how does each scale with NA? No derivation is necessary, although you may give one if you restrict yourself to the axial PSF along <span class="math notranslate nohighlight">\(\rho = 0\)</span>.</p></li>
+<li><p>Estimate the DOF for the two imaging systems in this project.</p></li>
+<li><p>Each camera pixel corresponds to <span class="math notranslate nohighlight">\(\text{PS}/M\)</span> in the object plane. For each imaging system, which limits the resolution of the images: diffraction or pixel size?</p></li>
+<li><p>Which of the gases in the <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> dataset are thicker along <span class="math notranslate nohighlight">\(z\)</span> than the DOF? What do you expect their images to look like?</p></li>
+</ul>
+<hr style="border:1px solid gray; margin: 2em 0;"><section id="part-b-images-as-data">
+<h4>Part B: Images as data<a class="headerlink" href="#part-b-images-as-data" title="Permalink to this heading">#</a></h4>
+<p>The remaining questions use the <code class="docutils literal notranslate"><span class="pre">Number_estimate</span></code> and <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> datasets described in the Data Sources section.</p>
+<ul class="simple">
+<li><p>With the <code class="docutils literal notranslate"><span class="pre">Number_estimate</span></code> dataset, you will explore how noise affects your ability to estimate the total number of atoms in an image.</p></li>
+<li><p>With the <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> dataset, you will test the ability of a simple linear decomposition (SVD) to reduce the dimensionality of the data, and check whether the “compressed” images still retain the relevant features of the gas. Gases with <span class="math notranslate nohighlight">\(\sigma_z \gtrsim\)</span> DOF acquire a noticeable tail in the image, which departs from the true Gaussian density distribution. Of interest is how this tail is carried through to the compressed and reconstructed images.</p></li>
+</ul>
+</section>
+</section>
+<section id="span-style-color-lightgreen-question-05-span">
+<h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-span" title="Permalink to this heading">#</a></h3>
+<p>Display a selection of images from both datasets, with axes in µm in the object plane (use the pixel size <span class="math notranslate nohighlight">\(\text{PS}/M\)</span>). Plot horizontal line profiles through the centre of each <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> image on a logarithmic scale.</p>
+<ul class="simple">
+<li><p>Check that the sum over the pixels of each image is close to its atom number <span class="math notranslate nohighlight">\(N\)</span>.</p></li>
+<li><p>For which <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> images is the gas truncated by the ±10 µm field of view? (<em>Hint:</em> compare the pixel values at the edge of each image with its peak.) What does this imply about which images can meaningfully be used to study the tails?</p></li>
+<li><p>Compare the images with <span class="math notranslate nohighlight">\(\sigma_{xy} = 1\)</span> µm and <span class="math notranslate nohighlight">\(\sigma_z = 1\)</span> or 20 µm. What differences do you see, and why?</p></li>
+</ul>
 </section>
 <section id="span-style-color-lightgreen-question-06-span">
 <h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
-<p>The data here in this project are images—2D arrays containing greyscale information of the irradiance associated with the image of the gas. What is the dimension of this kind of data?</p>
-<p>Consider the <strong>Number_estimate</strong> dataset of images and take each image as a sample across all dimensions of the image data. Suppose the question we are interested in is: Can we determine that the number of atoms in the image is greater than <span class="math notranslate nohighlight">\(X\)</span>? How many samples would we need to fully sample the parameter space of images here, if none of the pixels in an image were correlated?</p>
+<p>The data in this project are images: 2D arrays of greyscale values representing the irradiance of the image of the gas. If each image is treated as a single sample, what is the dimension of the data for each dataset?</p>
+<p>Suppose the question we are interested in is: is the number of atoms in an image greater than some value <span class="math notranslate nohighlight">\(X\)</span>? If none of the pixels were correlated, roughly how many samples would we need to sample the space of possible images? Assume, for example, that each pixel can take one of only 10 distinguishable values. Why is the true number of degrees of freedom of these images much smaller?</p>
 </section>
-<section id="span-style-color-lightgreen-quesiton-07-span">
-<h3><span style="color:LightGreen">Quesiton 07</span><a class="headerlink" href="#span-style-color-lightgreen-quesiton-07-span" title="Permalink to this heading">#</a></h3>
-<p>Take images from the <strong>Number_estimate</strong> dataset where the total atom number of the true distribution is of order <span class="math notranslate nohighlight">\(N\sim10^5\)</span> and draw an appropriately binned histogram of the total atom number in the image by summing over all the pixels in the image. Repeat this for the <span class="math notranslate nohighlight">\(N\sim10^4\)</span> subset of the dataset.</p>
-<p><strong>Note</strong>: in reality image data for cold atom gases isn’t presented directly in terms of the number density, but rather a parameter proportional to it referred to as optical depths (OD). See the ImageSimulation.ipynb for more details.</p>
-<p>How are these histograms distinct from each other?</p>
+<section id="span-style-color-lightgreen-question-07-span">
+<h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-span" title="Permalink to this heading">#</a></h3>
+<p>Take the images in the <code class="docutils literal notranslate"><span class="pre">Number_estimate</span></code> dataset with a true atom number of order <span class="math notranslate nohighlight">\(N \sim 10^4\)</span>. Estimate the atom number in each image by summing over all its pixels, and draw an appropriately binned histogram of these estimates. Repeat this for the <span class="math notranslate nohighlight">\(N \sim 10^5\)</span> subset of the dataset.</p>
+<p><strong>Note:</strong> in a real experiment, images of ultracold gases are not recorded directly in terms of the number density, but in terms of a quantity proportional to the column density called the optical depth (OD). See <code class="docutils literal notranslate"><span class="pre">ImageSimulation.ipynb</span></code> for details.</p>
+<p>How are these two histograms different from each other? Compare the spread of the estimates for each true <span class="math notranslate nohighlight">\(N\)</span> with what you expect from the noise model described in the Data Sources section. How does the <em>relative</em> uncertainty of the atom number scale with <span class="math notranslate nohighlight">\(N\)</span>?</p>
 </section>
 <section id="span-style-color-lightgreen-question-08-span">
 <h3><span style="color:LightGreen">Question 08</span><a class="headerlink" href="#span-style-color-lightgreen-question-08-span" title="Permalink to this heading">#</a></h3>
-<p>Implement a KMeans fit of the 1D atom number data to attempt to recover the true atom number of each image, when comparing images in <span class="math notranslate nohighlight">\(N\sim10^4\)</span> and <span class="math notranslate nohighlight">\(N\sim10^5\)</span> orders separately.</p>
-<p>Are you able to clearly resolve the atom number for each of the subsets above?</p>
+<p>Use K-means clustering on the 1D atom-number estimates from Question 07 to try to recover the true atom number of each image. Treat the <span class="math notranslate nohighlight">\(N \sim 10^4\)</span> and <span class="math notranslate nohighlight">\(N \sim 10^5\)</span> images separately, with 3 clusters each.</p>
+<ul class="simple">
+<li><p>Compare the cluster assignments with the true atom numbers (e.g. with a confusion matrix, or <code class="docutils literal notranslate"><span class="pre">sklearn.metrics.adjusted_rand_score</span></code>).</p></li>
+<li><p>Are you able to clearly resolve the atom number in each subset? Explain the difference between the subsets, in terms of the spacing between the true atom numbers and the noise you found in Question 07.</p></li>
+<li><p>Roughly how many images per atom number, or how much less noise, would you need to resolve the <span class="math notranslate nohighlight">\(N \sim 10^5\)</span> subset as well as the <span class="math notranslate nohighlight">\(N \sim 10^4\)</span> one?</p></li>
+</ul>
 </section>
 <section id="span-style-color-lightgreen-question-09-span">
 <h3><span style="color:LightGreen">Question 09</span><a class="headerlink" href="#span-style-color-lightgreen-question-09-span" title="Permalink to this heading">#</a></h3>
-<p>Take the images in the <strong>Heavy_tails</strong> dataset. Use singular value decomposition (SVD) to generate a compressed version of each image, by decomposing the data and sampling a rank-<span class="math notranslate nohighlight">\(k\)</span> subset of the latent variable space. Reconstruct images for a handful of <span class="math notranslate nohighlight">\(k\)</span>.</p>
-<p>At what point do images with the same <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> but different <span class="math notranslate nohighlight">\(\sigma_z\)</span> appear to have the same sized tail in the compressed parameter space?</p>
+<p>Use the singular value decomposition (SVD) to compress the <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> images. Write each 30 × 30 image as <span class="math notranslate nohighlight">\(M = U S V^T\)</span> and keep only the <span class="math notranslate nohighlight">\(k\)</span> largest singular values to form a rank-<span class="math notranslate nohighlight">\(k\)</span> approximation <span class="math notranslate nohighlight">\(M_k\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Plot the singular values of each image on a logarithmic scale. A 2D Gaussian with independent <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> widths is an <em>exactly</em> rank-1 matrix. Show why. What, then, do the smaller singular values represent?</p></li>
+<li><p>Reconstruct the images for a handful of <span class="math notranslate nohighlight">\(k\)</span> (e.g. 1, 2, 3, 5, 10), and compare line profiles (on a log scale) of the reconstructions with the original images.</p></li>
+<li><p>Focus on pairs of images with the same <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> but different <span class="math notranslate nohighlight">\(\sigma_z\)</span>, especially <span class="math notranslate nohighlight">\(\sigma_{xy} = 1\)</span> and 2.5 µm (see Question 05). Up to what <span class="math notranslate nohighlight">\(k\)</span> do the two images in each pair appear to have the same-sized tail in the compressed representation? At what <span class="math notranslate nohighlight">\(k\)</span> does the difference become visible? Compare the singular-value spectra of the two images in each pair.</p></li>
+<li><p><em>Optional:</em> instead of compressing each image separately, flatten all 18 images into 900-dimensional vectors and perform an SVD (PCA) of the whole dataset. What do the leading components look like?</p></li>
+</ol>
+<p><a id="references"></a></p>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>[<strong><span style="color:Red">1</span></strong>] S. S. Kondov, W. R. McGehee, J. J. Zirbel, and B. DeMarco, Science 334, 66 (2011).</p></li>
-<li><p>[<strong><span style="color:Red">2</span></strong>] W. B. Cairncross, D. N. Gresh, M. Grau, K. C. Cossel, T. S. Roussy, Y. Ni, Y. Zhou, J. Ye, and E. A. Cornell, Physical Review Letters 119, (2017).</p></li>
-<li><p>[<strong><span style="color:Red">3</span></strong>] Goodman, J. W. (2005). Introduction to Fourier optics. 3rd ed.</p></li>
-<li><p>[<strong><span style="color:Red">4</span></strong>] Foot, C. (2005). Atomic physics. Oxford University Press, USA.</p></li>
-</ul>
+<p><strong>[<span style="color:Red">1</span>]</strong> S. S. Kondov, W. R. McGehee, J. J. Zirbel, B. DeMarco, “Three-dimensional Anderson localization of ultracold matter,” <em>Science</em> <strong>334</strong>, 66 (2011). <a class="reference external" href="https://doi.org/10.1126/science.1209019">doi:10.1126/science.1209019</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> W. B. Cairncross <em>et al.</em>, “Precision measurement of the electron’s electric dipole moment using trapped molecular ions,” <em>Phys. Rev. Lett.</em> <strong>119</strong>, 153001 (2017). <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.119.153001">doi:10.1103/PhysRevLett.119.153001</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> C. J. Foot, <em>Atomic Physics</em> (Oxford University Press, 2005).</p>
+<p><strong>[<span style="color:Red">4</span>]</strong> J. W. Goodman, <em>Introduction to Fourier Optics</em>, 3rd ed. (Roberts &amp; Company, 2005).</p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Max Gold with some guidance from Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -757,16 +831,21 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-background">Part A: Background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-questions-04-span"><span style="color:LightGreen">Questions 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-images-as-data">Part B: Images as data</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-quesiton-07-span"><span style="color:LightGreen">Quesiton 07</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
 </ul>
