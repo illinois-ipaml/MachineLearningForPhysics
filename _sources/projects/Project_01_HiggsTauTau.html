@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_01_HiggsTauTau';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -515,13 +517,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-source-span"><span style="color:Orange">Data Source</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-physics-background">Part A: Physics background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-exploring-the-h-to-tau-tau-dataset">Part B: Exploring the <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> dataset</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
@@ -544,66 +551,151 @@ document.write(`
 <h1>Higgs Boson Decaying to Tau Leptons<a class="headerlink" href="#higgs-boson-decaying-to-tau-leptons" title="Permalink to this heading">#</a></h1>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_HiggsTauTau-EventDisplay.jpg" width=800></img>
-</div><section id="span-style-color-orange-overview-span">
-<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>From <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/file/e1d5be1c7f2f456670de3d53c7b54f4a-Paper.pdf">[1]</a>, “The Higgs boson is an elementary particle in the Standard Model of particle physics, produced by the quantum excitation of the Higgs field, one of the fields in particle physics theory. It is named after physicist Peter Higgs, who in 1964, along with six other scientists, proposed the mechanism, which suggested the existence of such a particle. Its existence was confirmed by the ATLAS and CMS collaborations based on collisions in the LHC at CERN.</p>
-<p>On December 10, 2013, two of the physicists, Peter Higgs and François Englert, were awarded the Nobel Prize in Physics for their theoretical predictions. Although Higgs’s name has come to be associated with this theory, several researchers between about 1964 and 1972 independently developed different parts of it.”</p>
-<p>The Standard Model (SM) of particle physics predicts the existence of a Higgs boson. It was discovered at CERN in 2012 by the ATLAS and CMS collaborations, with contributions to the data analysis in the discovery paper by Neubauer’s research group at Illinois. See this <a class="reference external" href="https://youtu.be/__btEwKQB2I?t=1">video</a> for more about the central role that the Higgs boson plays in the standard model of particle physics and Illinois researchers’ role in its discovery.</p>
+</div>
+<p><em>Event display from the ATLAS experiment showing a candidate Higgs boson decaying to a pair of τ leptons. Image: ATLAS Experiment © CERN.</em></p>
+<section id="span-style-color-orange-learning-objectives-span">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#span-style-color-orange-learning-objectives-span" title="Permalink to this heading">#</a></h2>
+<p>By the end of this project you should be able to:</p>
+<ul class="simple">
+<li><p>explain why the LHC can produce the Higgs boson and how the ATLAS and CMS detectors observe its decay products;</p></li>
+<li><p>describe the Higgs boson’s role in the Standard Model, its main decay modes, and why <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> is an important channel;</p></li>
+<li><p>load and inspect a large simulated collider dataset efficiently;</p></li>
+<li><p>connect each feature in the dataset to a physical quantity measured or reconstructed in a detector; and</p></li>
+<li><p>use histograms to judge which features best separate signal (<span class="math notranslate nohighlight">\(H\to\tau\tau\)</span>) from background (<span class="math notranslate nohighlight">\(Z\to\tau\tau\)</span>), the starting point for the machine-learning classifiers in Project 02.</p></li>
+</ul>
 </section>
-<section id="span-style-color-orange-data-sources-span">
-<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Original Source</p>
+<section id="span-style-color-orange-overview-span">
+<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
+<p>In July 2012 the ATLAS and CMS collaborations at CERN’s Large Hadron Collider (LHC) announced the discovery of a new particle with a mass near 125 GeV, consistent with the Higgs boson predicted by the Standard Model (SM). Neubauer’s research group at Illinois contributed to the data analysis in the ATLAS discovery paper. François Englert and Peter Higgs received the 2013 Nobel Prize in Physics for the theoretical prediction. <a class="reference external" href="https://doi.org/10.1016/j.physletb.2012.08.020">[3]</a>, <a class="reference external" href="https://doi.org/10.1016/j.physletb.2012.08.021">[4]</a>, <a class="reference external" href="https://www.nobelprize.org/prizes/physics/2013/summary/">[5]</a></p>
+<p>See this <a class="reference external" href="https://youtu.be/__btEwKQB2I">video</a> for more on the central role that the Higgs boson plays in the SM and on Illinois researchers’ role in its discovery.</p>
+<p>The discovery relied mainly on the Higgs boson’s decays to other bosons (<span class="math notranslate nohighlight">\(\gamma\gamma\)</span>, <span class="math notranslate nohighlight">\(ZZ^*\)</span>, <span class="math notranslate nohighlight">\(WW^*\)</span>). The SM also predicts that the Higgs boson couples to <strong>fermions</strong>, with strength proportional to the fermion’s mass. Its decay to a pair of τ leptons, <span class="math notranslate nohighlight">\(H\to\tau^+\tau^-\)</span>, has a sizeable branching ratio and a manageable background, which makes it the most sensitive direct probe of the Higgs coupling to leptons. In 2014, when the reference papers for this project were written <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.114.111801">[2]</a>, <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> had not yet been observed at the 5σ level. It was established later by the combined ATLAS and CMS Run 1 analysis <a class="reference external" href="https://doi.org/10.1007/JHEP08%282016%29045">[8]</a> and then by CMS alone <a class="reference external" href="https://doi.org/10.1016/j.physletb.2018.02.004">[9]</a>.</p>
+<p>The main challenge is that the process <span class="math notranslate nohighlight">\(Z\to\tau^+\tau^-\)</span> produces exactly the same visible final state and is far more common. In this project you will explore the simulated dataset that Baldi, Sadowski and Whiteson used to show that deep neural networks can separate the two processes better than traditional approaches <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.114.111801">[2]</a>.</p>
+</section>
+<section id="span-style-color-orange-data-source-span">
+<h2><span style="color:Orange">Data Source</span><a class="headerlink" href="#span-style-color-orange-data-source-span" title="Permalink to this heading">#</a></h2>
+<p><strong>Higgs to Tau Tau dataset</strong> (UCI MLPhysics portal, D. Whiteson) <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/">[10]</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/00280/HIGGS.csv.gz">https://archive.ics.uci.edu/ml/machine-learning-databases/00280/HIGGS.csv.gz</a></p></li>
+<li><p>Directory: <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/">https://mlphysics.ics.uci.edu/data/htautau/</a> (also read <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> there)</p></li>
+<li><p><strong>Signal</strong> (<span class="math notranslate nohighlight">\(gg\to H\to\tau^+\tau^-\)</span>): <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/htautau.txt.gz">https://mlphysics.ics.uci.edu/data/htautau/htautau.txt.gz</a> (3.8 GB)</p></li>
+<li><p><strong>Background</strong> (<span class="math notranslate nohighlight">\(Z\to\tau^+\tau^-\)</span>): <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/ztautau.txt.gz">https://mlphysics.ics.uci.edu/data/htautau/ztautau.txt.gz</a> (3.7 GB)</p></li>
 </ul>
-<p>File URLs</p>
+<p><strong>What’s in the files</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/HiggsTauTau/HIGGS.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/HiggsTauTau/HIGGS.csv.gz</a></p></li>
+<li><p>Signal and background are in <strong>separate files</strong>, and there is <strong>no label column</strong>. You have to create the label yourself (1 = signal, 0 = background).</p></li>
+<li><p>Each row is one simulated event with 25 <strong>whitespace-separated</strong> columns and <strong>no header</strong>. The first 10 columns are low-level features and the remaining 15 are high-level features computed from them. Values are in physical units (GeV for momenta and masses, radians for angles), not normalized.</p></li>
+<li><p>Only the selected events are included: those where both τ leptons decayed leptonically (<span class="math notranslate nohighlight">\(\tau\to\ell\nu\bar\nu\)</span>, with <span class="math notranslate nohighlight">\(\ell = e,\mu\)</span>), giving two charged leptons, missing transverse momentum from the neutrinos, and possibly jets.</p></li>
 </ul>
+<p><strong>Practical tips</strong></p>
+<ul class="simple">
+<li><p>Together the files are about 7.5 GB compressed, so <strong>don’t download them in full</strong>. The cell below streams and decompresses only the first <code class="docutils literal notranslate"><span class="pre">N_EVENTS</span></code> rows of each file over the network, which takes seconds.</p></li>
+<li><p>Plain <code class="docutils literal notranslate"><span class="pre">pd.read_csv(&lt;URL&gt;,</span> <span class="pre">nrows=...)</span></code> downloads the whole file before applying <code class="docutils literal notranslate"><span class="pre">nrows</span></code>. Wrapping the stream in <code class="docutils literal notranslate"><span class="pre">gzip.GzipFile</span></code> as below avoids this.</p></li>
+<li><p>The first rows of each file are as random a sample as any other rows, so a few hundred thousand events per class are plenty for this project.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://mlphysics.ics.uci.edu/data/htautau/&quot;</span>
+<span class="n">N_EVENTS</span> <span class="o">=</span> <span class="mi">250_000</span>  <span class="c1"># per class; increase once your code works</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_events</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">nrows</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream the first `nrows` events of a gzipped file without downloading all of it.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">,</span> <span class="n">gzip</span><span class="o">.</span><span class="n">GzipFile</span><span class="p">(</span><span class="n">fileobj</span><span class="o">=</span><span class="n">response</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+
+<span class="n">sig</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="s2">&quot;htautau.txt.gz&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>
+<span class="n">bkg</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="s2">&quot;ztautau.txt.gz&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>
+
+<span class="c1"># The files have no header; name the columns f00..f24 until you identify them (Question 06).</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;f</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+<span class="n">sig</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">bkg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+<span class="n">sig</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">],</span> <span class="n">bkg</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sig</span><span class="p">,</span> <span class="n">bkg</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
+<p>Answer each question in a markdown cell directly below it (add code cells where needed). For the background questions in Part A, aim for one to two well-organized paragraphs, and <strong>cite your sources</strong>. The references at the end of this notebook are a good starting point. Your notebook should run from top to bottom without errors.</p>
+<section id="part-a-physics-background">
+<h3>Part A: Physics background<a class="headerlink" href="#part-a-physics-background" title="Permalink to this heading">#</a></h3>
+</section>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>What is the Large Hadron Collider (LHC)? What is it about the LHC that makes it possible to produce heavy particles like the Higgs boson?</p>
+<p>What is the Large Hadron Collider (LHC)? What about the LHC makes it possible to produce heavy particles like the Higgs boson? Include the relevant quantitative parameters, such as the proton–proton center-of-mass energy <span class="math notranslate nohighlight">\(\sqrt{s}\)</span> and the luminosity, and explain why each one matters for producing a rare, heavy particle.</p>
 </section>
 <section id="span-style-color-lightgreen-question-02-span">
 <h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
-<p>The Higgs boson is the last particle in the SM to be discovered and completes the constituent picture of that theory in the SM. In what way(s) does the Higgs boson play a particularly important role in the SM?</p>
+<p>The Higgs boson was the last particle predicted by the Standard Model (SM) to be discovered. In what ways does it play a particularly important role in the SM? Consider, for example, how the <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> bosons and the fermions acquire mass.</p>
 </section>
 <section id="span-style-color-lightgreen-question-03-span">
 <h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
-<p>The Higgs boson is unstable and rapidly decays. The Higgs boson has several ways that it can decay (“decay modes”). What are these decay modes and what is decay probability for each? (Obviously not asking for any calculation here, just information from available references).</p>
+<p>The Higgs boson is unstable and decays almost immediately. It has several possible decays (“decay modes”). List the main decay modes of a 125 GeV Higgs boson and the SM-predicted branching ratio of each in a table, citing your source (for example, Refs. <a class="reference external" href="https://pdg.lbl.gov/2025/reviews/rpp2025-rev-higgs-boson.pdf">[6]</a> or <a class="reference external" href="https://doi.org/10.23731/CYRM-2017-002">[7]</a>). No calculation is needed. Then briefly comment:</p>
+<ul class="simple">
+<li><p>Why is <span class="math notranslate nohighlight">\(H\to b\bar b\)</span> the most common decay, yet the discovery was made mainly in the <span class="math notranslate nohighlight">\(H\to\gamma\gamma\)</span> and <span class="math notranslate nohighlight">\(H\to ZZ^*\to 4\ell\)</span> channels?</p></li>
+<li><p>Why is <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> a particularly attractive channel for measuring the Higgs coupling to fermions?</p></li>
+</ul>
 </section>
 <section id="span-style-color-lightgreen-question-04-span">
 <h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-span" title="Permalink to this heading">#</a></h3>
-<p>Briefly describe the ATLAS and CMS experiments that collect proton-proton collision data at the LHC to study the Higgs boson.</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>The remaining questions refer to the following data source:</p>
-<p><a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/00280/HIGGS.csv.gz">https://archive.ics.uci.edu/ml/machine-learning-databases/00280/HIGGS.csv.gz</a></p>
+<p>Briefly describe the ATLAS and CMS experiments that record LHC proton–proton collision data to study the Higgs boson. What are the main detector subsystems, and which particles does each one measure?</p>
+<p>A τ lepton decays before it reaches the detector. How does a τ lepton show up in the detector when it decays leptonically, and when it decays hadronically? Why does <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> always produce missing transverse momentum?</p>
+<hr style="border:1px solid gray; margin: 2em 0;"><section id="part-b-exploring-the-h-to-tau-tau-dataset">
+<h4>Part B: Exploring the <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> dataset<a class="headerlink" href="#part-b-exploring-the-h-to-tau-tau-dataset" title="Permalink to this heading">#</a></h4>
+<p>The remaining questions use the dataset described in the Data Source section above.</p>
+</section>
 </section>
 <section id="span-style-color-lightgreen-question-05-span">
 <h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-span" title="Permalink to this heading">#</a></h3>
-<p>What is the size and shape of the data set?</p>
+<p>How many signal events and how many background events does the full dataset contain, and how many columns does each file have? Explain how you determined the counts without loading the full dataset into memory. For example, you could stream each file in chunks with <code class="docutils literal notranslate"><span class="pre">pd.read_csv(...,</span> <span class="pre">chunksize=...)</span></code>, or count lines with <code class="docutils literal notranslate"><span class="pre">gunzip</span> <span class="pre">-c</span> <span class="pre">file</span> <span class="pre">|</span> <span class="pre">wc</span> <span class="pre">-l</span></code> if you have downloaded it. This takes a few minutes per file, so run it once and record the result. Compare your counts with the number of simulated events quoted in Ref. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a>.</p>
 </section>
 <section id="span-style-color-lightgreen-question-06-span">
 <h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
-<p>The data has been produced using Monte Carlo simulations. The first 21 features (columns 2-22) are kinematic properties measured by the particle detectors in the LHC accelerator. The last seven features are functions of the first 21 features; these are high-level features derived by physicists to help discriminate between the two classes. When you read through the reference paper <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/file/e1d5be1c7f2f456670de3d53c7b54f4a-Paper.pdf">[1]</a>, what particle properties do those 28 features represent?</p>
+<p>Read Section 2 of Ref. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a> (also summarized in the <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> file in the data directory) and answer the following:</p>
+<ol class="arabic simple">
+<li><p>Write the <strong>signal</strong> and <strong>background</strong> processes as chains of decays down to the particles that reach the detector. Explain why the two processes leave the same set of final-state objects, and which physical differences between the Higgs boson and the <span class="math notranslate nohighlight">\(Z\)</span> boson (mass, spin) could still distinguish them.</p></li>
+<li><p>The paper lists the low-level features as the momenta of the two charged leptons, the missing transverse momentum, and jet information. It lists the high-level features as axial missing momentum, scalar sum of momenta, relative missing momentum, <span class="math notranslate nohighlight">\(\Delta\phi(\ell^+,\ell^-)\)</span>, <span class="math notranslate nohighlight">\(\Delta\eta(\ell^+,\ell^-)\)</span>, <span class="math notranslate nohighlight">\(\Delta R(\ell^+,\ell^-)\)</span>, <span class="math notranslate nohighlight">\(m_{\ell\ell}\)</span>, the missing-mass <span class="math notranslate nohighlight">\(m_{\rm MMC}\)</span> <a class="reference external" href="https://doi.org/10.1016/j.nima.2011.07.009">[11]</a>, sphericity, transverse sphericity, and the invariant mass of all visible objects. Briefly explain what each quantity measures and why it might help separate <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> from <span class="math notranslate nohighlight">\(Z\to\tau\tau\)</span>.</p></li>
+<li><p>The data files <strong>do not document the column order</strong>. Use the value ranges of the columns (e.g. <span class="math notranslate nohighlight">\(p_T \geq 20\)</span> GeV, <span class="math notranslate nohighlight">\(|\eta| &lt; 2.5\)</span>, <span class="math notranslate nohighlight">\(-\pi \leq \phi \leq \pi\)</span>) and your physics knowledge to identify as many of the 25 columns as you can. Where possible, <strong>verify</strong> an identification by recomputing the quantity from other columns. For example, compute <span class="math notranslate nohighlight">\(\Delta R(\ell_1,\ell_2)\)</span> or the dilepton invariant mass <span class="math notranslate nohighlight">\(m_{\ell\ell}^2 \approx 2\,p_{T1}\,p_{T2}\,[\cosh(\Delta\eta) - \cos(\Delta\phi)]\)</span> from the lepton columns and compare. Summarize your results in a table, and rename the columns of your DataFrame accordingly.</p></li>
+</ol>
 </section>
 <section id="span-style-color-lightgreen-question-07-span">
 <h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-span" title="Permalink to this heading">#</a></h3>
-<p>Using the data set, Could you draw the histogram of 28 normalized features for signal and background separately? Could you tell the significant differences from these histograms?</p>
+<p>Plot histograms of all 25 features with signal and background <strong>overlaid on the same axes</strong>. Normalize each histogram to unit area (e.g., <code class="docutils literal notranslate"><span class="pre">density=True</span></code> with the same bin edges for both classes), and arrange the plots in a grid (e.g., 5 × 5). Use sensible ranges or log scales where long tails hide the structure, and label the axes with the quantity and its units.</p>
+<p>Note that some columns use special values when a quantity is undefined. For example, look for spikes at exactly 0 or −1 in jet-related variables or <span class="math notranslate nohighlight">\(m_{\rm MMC}\)</span>. How should such values be handled when you plot them or feed them to a classifier?</p>
+<p>Which features show the most significant differences between signal and background? Which show almost none? Explain the differences physically, using your answer to Question 06. Compare your plots with Figs. 2 and 3 of Ref. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a>.</p>
+<p><em>Optional extension:</em> rank the features by a single number that measures separation, for example the area under the ROC curve obtained when each feature is used alone as a discriminant (<code class="docutils literal notranslate"><span class="pre">sklearn.metrics.roc_auc_score</span></code>). Do the high-level features separate the classes better than the low-level ones?</p>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<p><strong>[<span style="color:Red">1</span>]</strong> P.J. Sadowski, D. Whiteson, P. Baldi, “Searching for Higgs Boson Decay Modes with Deep Learning”, <em>Advances in Neural Information Processing Systems 27 (NIPS 2014)</em> (<a class="reference external" href="https://papers.nips.cc/paper/2014/hash/e1d5be1c7f2f456670de3d53c7b54f4a-Abstract.html">https://papers.nips.cc/paper/2014/hash/e1d5be1c7f2f456670de3d53c7b54f4a-Abstract.html</a>)</p>
+<p><strong>[<span style="color:Red">1</span>]</strong> P. Sadowski, D. Whiteson, P. Baldi, “Searching for Higgs Boson Decay Modes with Deep Learning,” <em>Advances in Neural Information Processing Systems 27 (NIPS 2014)</em>. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">Abstract</a>, <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/file/44f58a78b6dd03bf9ccb526e7c7538d5-Paper.pdf">PDF</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> P. Baldi, P. Sadowski, D. Whiteson, “Enhanced Higgs Boson to τ⁺τ⁻ Search with Deep Learning,” <em>Phys. Rev. Lett.</em> <strong>114</strong>, 111801 (2015). <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.114.111801">doi:10.1103/PhysRevLett.114.111801</a>, <a class="reference external" href="https://arxiv.org/abs/1410.3469">arXiv:1410.3469</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> ATLAS Collaboration, “Observation of a new particle in the search for the Standard Model Higgs boson with the ATLAS detector at the LHC,” <em>Phys. Lett. B</em> <strong>716</strong>, 1 (2012). <a class="reference external" href="https://doi.org/10.1016/j.physletb.2012.08.020">doi:10.1016/j.physletb.2012.08.020</a>, <a class="reference external" href="https://arxiv.org/abs/1207.7214">arXiv:1207.7214</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> CMS Collaboration, “Observation of a new boson at a mass of 125 GeV with the CMS experiment at the LHC,” <em>Phys. Lett. B</em> <strong>716</strong>, 30 (2012). <a class="reference external" href="https://doi.org/10.1016/j.physletb.2012.08.021">doi:10.1016/j.physletb.2012.08.021</a>, <a class="reference external" href="https://arxiv.org/abs/1207.7235">arXiv:1207.7235</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> The Nobel Prize in Physics 2013 (F. Englert and P. W. Higgs). <a class="reference external" href="https://www.nobelprize.org/prizes/physics/2013/summary/">https://www.nobelprize.org/prizes/physics/2013/summary/</a></p>
+<p><strong>[<span style="color:Red">6</span>]</strong> Particle Data Group, “Status of Higgs Boson Physics,” in <em>Review of Particle Physics</em> (2025). <a class="reference external" href="https://pdg.lbl.gov/2025/reviews/rpp2025-rev-higgs-boson.pdf">https://pdg.lbl.gov/2025/reviews/rpp2025-rev-higgs-boson.pdf</a></p>
+<p><strong>[<span style="color:Red">7</span>]</strong> LHC Higgs Cross Section Working Group, “Handbook of LHC Higgs Cross Sections: 4. Deciphering the Nature of the Higgs Sector,” CERN Yellow Report CERN-2017-002-M (2017). <a class="reference external" href="https://doi.org/10.23731/CYRM-2017-002">doi:10.23731/CYRM-2017-002</a>, <a class="reference external" href="https://arxiv.org/abs/1610.07922">arXiv:1610.07922</a></p>
+<p><strong>[<span style="color:Red">8</span>]</strong> ATLAS and CMS Collaborations, “Measurements of the Higgs boson production and decay rates and constraints on its couplings from a combined ATLAS and CMS analysis of the LHC pp collision data at √s = 7 and 8 TeV,” <em>JHEP</em> <strong>08</strong>, 045 (2016). <a class="reference external" href="https://doi.org/10.1007/JHEP08%282016%29045">doi:10.1007/JHEP08(2016)045</a>, <a class="reference external" href="https://arxiv.org/abs/1606.02266">arXiv:1606.02266</a></p>
+<p><strong>[<span style="color:Red">9</span>]</strong> CMS Collaboration, “Observation of the Higgs boson decay to a pair of τ leptons with the CMS detector,” <em>Phys. Lett. B</em> <strong>779</strong>, 283 (2018). <a class="reference external" href="https://doi.org/10.1016/j.physletb.2018.02.004">doi:10.1016/j.physletb.2018.02.004</a>, <a class="reference external" href="https://arxiv.org/abs/1708.00373">arXiv:1708.00373</a></p>
+<p><strong>[<span style="color:Red">10</span>]</strong> D. Whiteson, Higgs to Tau Tau dataset, UCI MLPhysics data portal. <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/">https://mlphysics.ics.uci.edu/data/htautau/</a></p>
+<p><strong>[<span style="color:Red">11</span>]</strong> A. Elagin, P. Murat, A. Pranko, A. Safonov, “A new mass reconstruction technique for resonances decaying to di-tau,” <em>Nucl. Instrum. Meth. A</em> <strong>654</strong>, 481 (2011). <a class="reference external" href="https://doi.org/10.1016/j.nima.2011.07.009">doi:10.1016/j.nima.2011.07.009</a>, <a class="reference external" href="https://arxiv.org/abs/1012.4686">arXiv:1012.4686</a></p>
+<p><strong>[<span style="color:Red">12</span>]</strong> ATLAS Collaboration, “Dataset from the ATLAS Higgs Boson Machine Learning Challenge 2014,” CERN Open Data Portal. <a class="reference external" href="https://doi.org/10.7483/OPENDATA.ATLAS.ZBP2.M5T8">doi:10.7483/OPENDATA.ATLAS.ZBP2.M5T8</a>. This is a related <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> dataset from full ATLAS detector simulation, for further exploration.</p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -670,13 +762,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-source-span"><span style="color:Orange">Data Source</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-physics-background">Part A: Physics background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-exploring-the-h-to-tau-tau-dataset">Part B: Exploring the <span class="math notranslate nohighlight">\(H\to\tau\tau\)</span> dataset</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>

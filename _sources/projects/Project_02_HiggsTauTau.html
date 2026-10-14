@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_02_HiggsTauTau';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -516,9 +518,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-source-span"><span style="color:Orange">Data Source</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
@@ -537,42 +541,110 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="higgs-boson-decaying-to-tau-leptons">
 <h1>Higgs Boson Decaying to Tau Leptons<a class="headerlink" href="#higgs-boson-decaying-to-tau-leptons" title="Permalink to this heading">#</a></h1>
 <div>
-<img src="https://raw.githubusercontent.com/illinois-dap/DataAnalysisForPhysicists/main/img/Project_HiggsTauTau-EventDisplay.jpg" width=700></img>
-</div><section id="span-style-color-orange-overview-span">
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_HiggsTauTau-EventDisplay.jpg" width=700></img>
+</div>
+<p><em>Event display from the ATLAS experiment showing a candidate Higgs boson decaying to a pair of τ leptons. Image: ATLAS Experiment © CERN.</em></p>
+<section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>From <strong>[<span style="color:Red">1</span>]</strong>, “The Higgs boson is an elementary particle in the Standard Model of particle physics, produced by the quantum excitation of the Higgs field, one of the fields in particle physics <a class="reference external" href="http://theory.It">theory.It</a> is named after physicist Peter Higgs, who in 1964, along with six other scientists, proposed the mechanism, which suggested the existence of such a particle. Its existence was confirmed by the ATLAS and CMS collaborations based on collisions in the LHC at CERN.</p>
-<p>On December 10, 2013, two of the physicists, Peter Higgs and François Englert, were awarded the Nobel Prize in Physics for their theoretical predictions. Although Higgs’s name has come to be associated with this theory, several researchers between about 1964 and 1972 independently developed different parts of it.”</p>
-<p>The Standard Model (SM) of particle physics predicts the existence of a Higgs boson. It was discovered at CERN in 2012 by the ATLAS and CMS collaborations, with contributions to the data analysis in the discovery paper by Neubauer’s research group at Illinois.</p>
+<p>In <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/projects/Project_01_HiggsTauTau.html">Project 01</a> you explored simulated <span class="math notranslate nohighlight">\(gg\to H\to\tau^+\tau^-\)</span> (signal) and <span class="math notranslate nohighlight">\(Z\to\tau^+\tau^-\)</span> (background) events and studied which features separate them. In this project you will train neural-network classifiers on these events and reproduce the main result of Refs. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a> and <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.114.111801">[2]</a>: a <strong>deep</strong> network trained only on the low-level detector measurements can match or beat a <strong>shallow</strong> network that also uses the high-level features physicists constructed by hand.</p>
 </section>
-<section id="span-style-color-orange-data-sources-span">
-<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Original Source</p>
+<section id="span-style-color-orange-data-source-span">
+<h2><span style="color:Orange">Data Source</span><a class="headerlink" href="#span-style-color-orange-data-source-span" title="Permalink to this heading">#</a></h2>
+<p>The data are the same as in Project 01: <strong>Higgs to Tau Tau dataset</strong> (UCI MLPhysics portal, D. Whiteson) <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/">[3]</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/00280/HIGGS.csv.gz">https://archive.ics.uci.edu/ml/machine-learning-databases/00280/HIGGS.csv.gz</a></p></li>
+<li><p>Signal: <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/htautau.txt.gz">https://mlphysics.ics.uci.edu/data/htautau/htautau.txt.gz</a> (44.3 million events, 3.8 GB)</p></li>
+<li><p>Background: <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/ztautau.txt.gz">https://mlphysics.ics.uci.edu/data/htautau/ztautau.txt.gz</a> (42.8 million events, 3.7 GB)</p></li>
 </ul>
-<p>File URLs</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys503/fa2023/data/projects/HiggsTauTau/HIGGS.csv.gz">https://courses.physics.illinois.edu/phys503/fa2023/data/projects/HiggsTauTau/HIGGS.csv.gz</a></p></li>
-</ul>
+<p>Each file contains whitespace-separated rows of 25 features, with no header and no label column. <strong>Columns 0–9 are the low-level features and columns 10–24 are the high-level features.</strong> Use the column identifications you made in Project 01.</p>
+<p>The cell below streams the first <code class="docutils literal notranslate"><span class="pre">N_EVENTS</span></code> events of each file (no full download), adds labels, and splits them into training, validation and test sets. Start small while you develop your code, then increase <code class="docutils literal notranslate"><span class="pre">N_EVENTS</span></code> for your final results. A shallow network on a CPU is comfortable with a few hundred thousand events per class. On a GPU, aim for several million.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://mlphysics.ics.uci.edu/data/htautau/&quot;</span>
+<span class="n">N_EVENTS</span> <span class="o">=</span> <span class="mi">250_000</span>  <span class="c1"># per class; increase for your final results</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_events</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">nrows</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream the first `nrows` events of a gzipped file without downloading all of it.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">,</span> <span class="n">gzip</span><span class="o">.</span><span class="n">GzipFile</span><span class="p">(</span><span class="n">fileobj</span><span class="o">=</span><span class="n">response</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+
+<span class="n">sig</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="s2">&quot;htautau.txt.gz&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>
+<span class="n">bkg</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="s2">&quot;ztautau.txt.gz&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">sig</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">bkg</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sig</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bkg</span><span class="p">))])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="n">LOW</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>    <span class="c1"># low-level features</span>
+<span class="n">HIGH</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>  <span class="c1"># high-level features</span>
+
+<span class="c1"># 60% train / 20% validation / 20% test, stratified by class</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_tmp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_tmp</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_tmp</span><span class="p">,</span> <span class="n">y_tmp</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_tmp</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_train_s</span><span class="p">,</span> <span class="n">X_val_s</span><span class="p">,</span> <span class="n">X_test_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">X_train</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="n">X_val</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">X_test</span><span class="p">)]})</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
-<p>Please refer to the corresponding <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/projects/Project_01_HiggsTauTau.html">Project 01 notebook</a> for background questions related to this project. In this project, you are to focus on machine learning application(s).</p>
+<p><strong>General instructions</strong></p>
+<ul class="simple">
+<li><p>Use PyTorch, as in the <em>Deep Learning</em> and <em>GPU 101</em> lectures.</p></li>
+<li><p>Keep a <strong>test set</strong> that is never used for training, hyperparameter tuning or early stopping. Use a separate <strong>validation set</strong> for those.</p></li>
+<li><p>Fit any input scaling (e.g. <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>) on the training set only, then apply it to the validation and test sets.</p></li>
+<li><p>Plot training and validation loss versus epoch for every network you train, so you can see whether it has converged or overfit.</p></li>
+<li><p>For each network, report the number of trainable parameters, the training time, and the hardware used (CPU or GPU model).</p></li>
+<li><p>The papers trained on tens of millions of events for hundreds of epochs. You are <strong>not</strong> expected to match their AUC values exactly. Explain any differences you see.</p></li>
+</ul>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>Implement and train one of the neural networks (NN) described in <strong>[<span style="color:Red">1</span>]</strong>. Be sure to set aside test data from the original data set which is not used in the training. First implement a shallow NN one that makes the training time manageable on a CPU, like one of the shallow networks with hyperparameters shown in Table 1 of <strong>[<span style="color:Red">1</span>]</strong> or even a smaller network. Next train a fully-connected deep neural network (DNN) using a GPU by increasing the number of hidden layers and neuron within the layers. The exact DNN setup is up to you, as long as it has meaningfully more trainable parameters than the shallow NN from the first part. Show the classification output for signal and background (analogous to Figure 4) for both networks, as well as the ROC curve and AUC metric.</p>
+<p><strong>Shallow network.</strong> Implement and train a shallow neural network (one hidden layer) like those in Ref. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a>. Choose its hyperparameters from Table 1 of that paper, or use an even smaller network so that training is manageable on a CPU. Use the complete set of 25 features. Section 3.3 of the paper describes the remaining hyperparameters it used: tanh hidden units, a logistic output, mini-batches of 100, and momentum. You may use a modern optimizer such as Adam instead, but say so.</p>
+<p>Show the distribution of the network output for signal and for background test events, overlaid and normalized to unit area (analogous to Fig. 4 of Ref. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a>), the ROC curve, and the AUC on the test set.</p>
+</section>
+<section id="span-style-color-lightgreen-question-02-span">
+<h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Deep network.</strong> Train a fully-connected deep neural network (DNN) on a GPU, with meaningfully more trainable parameters than your shallow network from Question 01. Table 2 of Ref. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a> gives the depths (3–6 hidden layers) and widths (100 or 300 units) the paper considered. The exact architecture is up to you. Use the complete feature set, and show the same output-distribution plot, ROC curve and AUC as in Question 01. Overlay the shallow and deep ROC curves on one plot.</p>
+</section>
+<section id="span-style-color-lightgreen-question-03-span">
+<h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Which features matter?</strong> Retrain your deep network (and, if time allows, your shallow network) using (a) only the 10 low-level features, (b) only the 15 high-level features, and (c) all 25 features. Summarize the test-set AUCs in a table like Table 3 of Ref. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a>.</p>
+<ul class="simple">
+<li><p>Does the deep network trained on the low-level features alone recover the information in the hand-crafted high-level features?</p></li>
+<li><p>How do your conclusions compare with those of the paper?</p></li>
+<li><p>What does this imply for how physicists design analyses?</p></li>
+</ul>
+<p><em>Optional extensions</em></p>
+<ul class="simple">
+<li><p>Convert your best AUC into an expected discovery significance as in Fig. 5 of Ref. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">[1]</a>.</p></li>
+<li><p>Compare your networks with a boosted decision tree (e.g. <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.HistGradientBoostingClassifier</span></code> or XGBoost) trained on the same features. BDTs were the standard tool in particle physics at the time.</p></li>
+</ul>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<p><strong>[<span style="color:Red">1</span>]</strong> P.J. Sadowski, D. Whiteson, P. Baldi, “Searching for Higgs Boson Decay Modes with Deep Learning”, <em>Advances in Neural Information Processing Systems 27 (NIPS 2014)</em> (<a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/file/44f58a78b6dd03bf9ccb526e7c7538d5-Paper.pdf">https://papers.nips.cc/paper_files/paper/2014/file/44f58a78b6dd03bf9ccb526e7c7538d5-Paper.pdf</a>)</p>
+<p><strong>[<span style="color:Red">1</span>]</strong> P. Sadowski, D. Whiteson, P. Baldi, “Searching for Higgs Boson Decay Modes with Deep Learning,” <em>Advances in Neural Information Processing Systems 27 (NIPS 2014)</em>. <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/hash/44f58a78b6dd03bf9ccb526e7c7538d5-Abstract.html">Abstract</a>, <a class="reference external" href="https://papers.nips.cc/paper_files/paper/2014/file/44f58a78b6dd03bf9ccb526e7c7538d5-Paper.pdf">PDF</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> P. Baldi, P. Sadowski, D. Whiteson, “Enhanced Higgs Boson to τ⁺τ⁻ Search with Deep Learning,” <em>Phys. Rev. Lett.</em> <strong>114</strong>, 111801 (2015). <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.114.111801">doi:10.1103/PhysRevLett.114.111801</a>, <a class="reference external" href="https://arxiv.org/abs/1410.3469">arXiv:1410.3469</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> D. Whiteson, Higgs to Tau Tau dataset, UCI MLPhysics data portal. <a class="reference external" href="https://mlphysics.ics.uci.edu/data/htautau/">https://mlphysics.ics.uci.edu/data/htautau/</a></p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -640,9 +712,11 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-source-span"><span style="color:Orange">Data Source</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>

@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_02_ExoticParticles';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -518,7 +520,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#track-a-higgs">Track A: HIGGS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-a1-span"><span style="color:LightGreen">Question A1</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-a2-span"><span style="color:LightGreen">Question A2</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-a3-span"><span style="color:LightGreen">Question A3</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#track-b-hepmass">Track B: HEPMASS</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-b1-span"><span style="color:LightGreen">Question B1</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-b2-span"><span style="color:LightGreen">Question B2</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-b3-span"><span style="color:LightGreen">Question B3</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
@@ -537,45 +548,152 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="searching-for-exotic-particles">
 <h1>Searching for Exotic Particles<a class="headerlink" href="#searching-for-exotic-particles" title="Permalink to this heading">#</a></h1>
 <div>
-<img src="https://raw.githubusercontent.com/illinois-dap/DataAnalysisForPhysicists/main/img/Project_ExoticParticles-Figure.jpg" width=400></img>
-</div><section id="span-style-color-orange-overview-span">
+<img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_ExoticParticles-Figure.jpg" width=400></img>
+</div>
+<p><em>The SM predicts a single Higgs boson. Supersymmetric extensions such as the Minimal Supersymmetric Standard Model (MSSM) predict five: <span class="math notranslate nohighlight">\(h\)</span>, <span class="math notranslate nohighlight">\(H\)</span>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(H^\pm\)</span>.</em></p>
+<section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>A number of theories that propose to explain what happened in the very early universe (the first small fraction of a second) and link elementary particle physics and cosmology predict the existence of exotic particles that have yet to be discovered. IF these particles exist, they could contribute significantly to the dark matter in the universe and/or explain other puzzles in particle physics.</p>
+<p>In <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/projects/Project_01_ExoticParticles.html">Project 01</a> you explored two benchmark datasets for exotic-particle searches: <strong>HIGGS</strong> (a heavy neutral Higgs boson decaying via a charged Higgs boson, vs. <span class="math notranslate nohighlight">\(t\bar t\)</span>) and <strong>HEPMASS</strong> (a new particle <span class="math notranslate nohighlight">\(X\to t\bar t\)</span> of unknown mass, vs. <span class="math notranslate nohighlight">\(t\bar t\)</span>). In this project you will train neural-network classifiers on one of them.</p>
+<p><strong>Choose one track:</strong></p>
+<ul class="simple">
+<li><p><strong>Track A: HIGGS.</strong> Reproduce the main result of Ref. <a class="reference external" href="https://doi.org/10.1038/ncomms5308">[1]</a>: deep networks trained on low-level features outperform shallow networks, even when the shallow networks are given hand-crafted high-level features.</p></li>
+<li><p><strong>Track B: HEPMASS.</strong> Reproduce the main result of Ref. <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">[2]</a>: a single <em>parameterized</em> network that takes the hypothesized mass <span class="math notranslate nohighlight">\(m_X\)</span> as an input can replace a set of networks trained at fixed masses, and can interpolate to masses it never saw during training.</p></li>
+</ul>
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Original Source</p>
+<p>The data are the same as in Project 01. See that notebook for the full description, including the <strong>header bug in the HEPMASS <code class="docutils literal notranslate"><span class="pre">1000_*</span></code> files</strong>, which the code below works around.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/HEPMASS">https://archive.ics.uci.edu/ml/datasets/HEPMASS</a> ​ (top-level description)</p></li>
+<li><p>HIGGS: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/HiggsTauTau/HIGGS.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/HiggsTauTau/HIGGS.csv.gz</a> (11 million events). There is no header; column 0 is the label, columns 1–21 are low-level features and columns 22–28 are high-level features.</p></li>
+<li><p>HEPMASS: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/</a> (<code class="docutils literal notranslate"><span class="pre">1000_*</span></code>, <code class="docutils literal notranslate"><span class="pre">not1000_*</span></code> and <code class="docutils literal notranslate"><span class="pre">all_*</span></code> training and test files, with 7 M and 3.5 M events respectively). Column 0 is the label, followed by 27 features (22 low-level, then 5 high-level) and, for <code class="docutils literal notranslate"><span class="pre">not1000</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code>, the mass.</p></li>
 </ul>
-<p>File URLs</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/1000_test.csv.gz">https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/1000_test.csv.gz</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/1000_train.csv.gz">https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/1000_train.csv.gz</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/all_test.csv.gz">https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/all_test.csv.gz</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/all_train.csv.gz">https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/all_train.csv.gz</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/not1000_test.csv.gz">https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/not1000_test.csv.gz</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/not1000_train.csv.gz">https://courses.physics.illinois.edu/phys503/fa2023/data/projects/ExoticParticles/hepmass/not1000_train.csv.gz</a></p></li>
-</ul>
+<p>The cells below stream only the first <code class="docutils literal notranslate"><span class="pre">N_EVENTS</span></code> events of each file over the network, so you never need to download the full files. Start small while you develop your code, then increase <code class="docutils literal notranslate"><span class="pre">N_EVENTS</span></code> for your final results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_events</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream the first `nrows` events of a gzipped CSV without downloading all of it.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">,</span> <span class="n">gzip</span><span class="o">.</span><span class="n">GzipFile</span><span class="p">(</span><span class="n">fileobj</span><span class="o">=</span><span class="n">response</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">skip_header</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Track A (HIGGS) data</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_EVENTS</span> <span class="o">=</span> <span class="mi">500_000</span>  <span class="c1"># increase for your final results</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="s2">&quot;HiggsTauTau/HIGGS.csv.gz&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">LOW</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>    <span class="c1"># 21 low-level features</span>
+<span class="n">HIGH</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>  <span class="c1"># 7 high-level features</span>
+
+<span class="c1"># 60% train / 20% validation / 20% test, stratified by class</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_tmp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_tmp</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_tmp</span><span class="p">,</span> <span class="n">y_tmp</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_tmp</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">X_train</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="n">X_val</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">X_test</span><span class="p">)]})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Track B (HEPMASS) data</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_EVENTS</span> <span class="o">=</span> <span class="mi">500_000</span>  <span class="c1"># per file; increase for your final results</span>
+<span class="n">HEP</span> <span class="o">=</span> <span class="n">BASE_URL</span> <span class="o">+</span> <span class="s2">&quot;ExoticParticles/hepmass/&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_hepmass</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">nrows</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="n">HEP</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.csv.gz&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># skip the (buggy) header line</span>
+    <span class="k">return</span> <span class="n">d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># features (incl. mass column if present), label</span>
+
+<span class="n">X_1000_train</span><span class="p">,</span> <span class="n">y_1000_train</span> <span class="o">=</span> <span class="n">read_hepmass</span><span class="p">(</span><span class="s2">&quot;1000_train&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>        <span class="c1"># 27 features, signal at m_X = 1000 GeV</span>
+<span class="n">X_1000_test</span><span class="p">,</span> <span class="n">y_1000_test</span> <span class="o">=</span> <span class="n">read_hepmass</span><span class="p">(</span><span class="s2">&quot;1000_test&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>
+<span class="n">X_not1000_train</span><span class="p">,</span> <span class="n">y_not1000_train</span> <span class="o">=</span> <span class="n">read_hepmass</span><span class="p">(</span><span class="s2">&quot;not1000_train&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>  <span class="c1"># 27 features + mass (500, 750, 1250, 1500 GeV)</span>
+<span class="n">X_all_train</span><span class="p">,</span> <span class="n">y_all_train</span> <span class="o">=</span> <span class="n">read_hepmass</span><span class="p">(</span><span class="s2">&quot;all_train&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>              <span class="c1"># 27 features + mass (500 ... 1500 GeV)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">X_1000_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_not1000_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X_not1000_train</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
-<p>Please refer to the corresponding <a class="reference external" href="https://illinois-ipaml.github.io/MachineLearningForPhysics/_sources/projects/Project_01_ExoticParticles.html">Project 01 notebook</a> for background questions related to this project. In this project, you are to focus on machine learning application(s).</p>
-<section id="span-style-color-lightgreen-question-01-span">
-<h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>First implement and train a shallow neural network (NN) described in ref <strong>[<span style="color:Red">1</span>]</strong> for one of the exotic particle hypotheses. You should implement a NN one that makes the training time manageable on a CPU, like one of the shallow networks with hyperparameters shown in Table 2 of ref <strong>[<span style="color:Red">1</span>]</strong> or even a smaller network. Next train a fully-connected deep neural network (DNN) using a GPU by increasing the number of hidden layers and neuron within the layers. The exact DNN setup is up to you, as long as it has meaningfully more trainable parameters than the shallow NN from the first part. Show the classification output for signal and background for both networks, as well as the ROC curve and AUC metric.</p>
+<p><strong>General instructions</strong></p>
+<ul class="simple">
+<li><p>Use PyTorch, as in the <em>Deep Learning</em> and <em>GPU 101</em> lectures.</p></li>
+<li><p>Keep a <strong>test set</strong> that is never used for training, hyperparameter tuning or early stopping. Use a separate <strong>validation set</strong> for those.</p></li>
+<li><p>Fit any input scaling (e.g. <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>) on the training set only, then apply it to the validation and test sets.</p></li>
+<li><p>Plot training and validation loss versus epoch for every network you train, so you can see whether it has converged or overfit.</p></li>
+<li><p>For each network, report the number of trainable parameters, the training time, and the hardware used (CPU or GPU model).</p></li>
+<li><p>The papers trained on tens of millions of events for hundreds of epochs. You are <strong>not</strong> expected to match their AUC values exactly. Explain any differences you see.</p></li>
+</ul>
+<section id="track-a-higgs">
+<h3>Track A: HIGGS<a class="headerlink" href="#track-a-higgs" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="span-style-color-lightgreen-question-a1-span">
+<h3><span style="color:LightGreen">Question A1</span><a class="headerlink" href="#span-style-color-lightgreen-question-a1-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Shallow network.</strong> Implement and train a shallow neural network (one hidden layer) like those in Ref. <a class="reference external" href="https://doi.org/10.1038/ncomms5308">[1]</a>. Choose its hyperparameters from the shallow-network options in Supplementary Table 2 of the <a class="reference external" href="https://arxiv.org/abs/1402.4735">arXiv version</a> (Supplementary Table 4 of the journal version), or use an even smaller network so that training is manageable on a CPU. Use the complete set of 28 features. The <em>Methods</em> section describes the remaining hyperparameters: tanh hidden units, a logistic output, mini-batches of 100, momentum, and weight decay. You may use a modern optimizer such as Adam instead, but say so.</p>
+<p>Show the distribution of the network output for signal and for background test events, overlaid and normalized to unit area, the ROC curve, and the AUC on your test set. Compare with the shallow-network (NN) row of Table 1 of Ref. <a class="reference external" href="https://doi.org/10.1038/ncomms5308">[1]</a>.</p>
+</section>
+<section id="span-style-color-lightgreen-question-a2-span">
+<h3><span style="color:LightGreen">Question A2</span><a class="headerlink" href="#span-style-color-lightgreen-question-a2-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Deep network.</strong> Train a fully-connected deep neural network on a GPU, with meaningfully more trainable parameters than your shallow network. The paper’s choice was 5 hidden layers of 300 units (see Supplementary Tables 1 and 3 of the <a class="reference external" href="https://arxiv.org/abs/1402.4735">arXiv version</a>), but the exact architecture is up to you. Show the same plots and AUC as in Question 01, and overlay the shallow and deep ROC curves on one plot.</p>
+</section>
+<section id="span-style-color-lightgreen-question-a3-span">
+<h3><span style="color:LightGreen">Question A3</span><a class="headerlink" href="#span-style-color-lightgreen-question-a3-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Which features matter?</strong> Retrain your deep network (and, if time allows, your shallow network) using (a) only the 21 low-level features, (b) only the 7 high-level features, and (c) all 28 features. Summarize the test-set AUCs in a table like Table 1 of Ref. <a class="reference external" href="https://doi.org/10.1038/ncomms5308">[1]</a>.</p>
+<ul class="simple">
+<li><p>Does the deep network trained on the low-level features alone recover the information in the high-level features?</p></li>
+<li><p>How do your conclusions compare with those of the paper?</p></li>
+</ul>
+<hr style="border:1px solid gray; margin: 2em 0;"><section id="track-b-hepmass">
+<h4>Track B: HEPMASS<a class="headerlink" href="#track-b-hepmass" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+<section id="span-style-color-lightgreen-question-b1-span">
+<h3><span style="color:LightGreen">Question B1</span><a class="headerlink" href="#span-style-color-lightgreen-question-b1-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Fixed-mass network.</strong> Train a fully-connected neural network on the <code class="docutils literal notranslate"><span class="pre">1000</span></code> training data (27 features, signal at <span class="math notranslate nohighlight">\(m_X = 1000\)</span> GeV). Set aside part of the training data for validation. Evaluate it on the <code class="docutils literal notranslate"><span class="pre">1000_test</span></code> data: show the distribution of the network output for signal and for background test events, overlaid and normalized to unit area, the ROC curve, and the AUC. The architecture used in Ref. <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">[2]</a> was 5 hidden layers of 500 ReLU units with a logistic output. Start with something smaller on a CPU, then scale up on a GPU.</p>
+</section>
+<section id="span-style-color-lightgreen-question-b2-span">
+<h3><span style="color:LightGreen">Question B2</span><a class="headerlink" href="#span-style-color-lightgreen-question-b2-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Parameterized network.</strong> Train a network on the <code class="docutils literal notranslate"><span class="pre">all</span></code> training data with the mass as an additional (28th) input. The mass column is in GeV while the other features are normalized, so scale it as well. Remember that background events carry a randomly assigned mass. Evaluate it on <code class="docutils literal notranslate"><span class="pre">1000_test</span></code>, appending a mass column set to 1000 GeV for every event.</p>
+<p>Then train the same architecture on the <code class="docutils literal notranslate"><span class="pre">not1000</span></code> data, which contains <strong>no</strong> signal events at <span class="math notranslate nohighlight">\(m_X = 1000\)</span> GeV, and evaluate it on <code class="docutils literal notranslate"><span class="pre">1000_test</span></code> in the same way. Overlay the ROC curves of all three networks (fixed at 1000 GeV, parameterized on <code class="docutils literal notranslate"><span class="pre">all</span></code>, parameterized on <code class="docutils literal notranslate"><span class="pre">not1000</span></code>), as in Fig. 7 of Ref. <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">[2]</a>. Can the parameterized network interpolate to a mass it never saw?</p>
+</section>
+<section id="span-style-color-lightgreen-question-b3-span">
+<h3><span style="color:LightGreen">Question B3</span><a class="headerlink" href="#span-style-color-lightgreen-question-b3-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Mass dependence.</strong> Your network from Question B2 trained on the <code class="docutils literal notranslate"><span class="pre">all</span></code> data can be evaluated at any hypothesized mass. Feed the <code class="docutils literal notranslate"><span class="pre">1000_test</span></code> events to it with the mass input set in turn to 500, 750, 1000, 1250 and 1500 GeV, and plot the AUC as a function of the input mass. Explain the shape of this curve. Why is the network’s performance best when the input mass matches the true mass of the signal?</p>
+<p>Explain in your own words why the parameterized approach is useful in a real search for a particle of unknown mass.</p>
+<p><em>Optional extension (either track):</em> compare your networks with a boosted decision tree (e.g. <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.HistGradientBoostingClassifier</span></code> or XGBoost) trained on the same features. BDTs were the standard tool in particle physics at the time.</p>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<p><strong>[<span style="color:Red">1</span>]</strong> P.J. Sadowski, D. Whiteson, P. Baldi, “Searching for Exotic Particles in High-Energy Physics with Deep Learning”, <em>Nature Commun. 5 (2014) 4308</em>, e-Print: <a class="reference external" href="https://arxiv.org/abs/1402.4735">1402.4735</a> [hep-ph]</p>
+<p><strong>[<span style="color:Red">1</span>]</strong> P. Baldi, P. Sadowski, D. Whiteson, “Searching for exotic particles in high-energy physics with deep learning,” <em>Nature Communications</em> <strong>5</strong>, 4308 (2014). <a class="reference external" href="https://doi.org/10.1038/ncomms5308">doi:10.1038/ncomms5308</a>, <a class="reference external" href="https://arxiv.org/abs/1402.4735">arXiv:1402.4735</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> P. Baldi, K. Cranmer, T. Faucett, P. Sadowski, D. Whiteson, “Parameterized neural networks for high-energy physics,” <em>Eur. Phys. J. C</em> <strong>76</strong>, 235 (2016). <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">doi:10.1140/epjc/s10052-016-4099-4</a>, <a class="reference external" href="https://arxiv.org/abs/1601.07913">arXiv:1601.07913</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> D. Whiteson, “HIGGS” [Dataset], UCI Machine Learning Repository (2014). <a class="reference external" href="https://doi.org/10.24432/C5V312">doi:10.24432/C5V312</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> D. Whiteson, “HEPMASS” [Dataset], UCI Machine Learning Repository (2016). <a class="reference external" href="https://doi.org/10.24432/C5PP5W">doi:10.24432/C5PP5W</a></p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -645,7 +763,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#track-a-higgs">Track A: HIGGS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-a1-span"><span style="color:LightGreen">Question A1</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-a2-span"><span style="color:LightGreen">Question A2</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-a3-span"><span style="color:LightGreen">Question A3</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#track-b-hepmass">Track B: HEPMASS</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-b1-span"><span style="color:LightGreen">Question B1</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-b2-span"><span style="color:LightGreen">Question B2</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-b3-span"><span style="color:LightGreen">Question B3</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>

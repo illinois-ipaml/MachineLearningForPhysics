@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_01_ExoticParticles';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -515,18 +517,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-physics-background">Part A: Physics background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-the-hepmass-dataset">Part B: The HEPMASS dataset</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-the-higgs-dataset">Part C: The HIGGS dataset</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-10-span"><span style="color:LightGreen">Question 10</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-11-span"><span style="color:LightGreen">Question 11</span></a></li>
 </ul>
@@ -548,92 +558,191 @@ document.write(`
 <h1>Searching for Exotic Particles<a class="headerlink" href="#searching-for-exotic-particles" title="Permalink to this heading">#</a></h1>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/Project_ExoticParticles-Figure.jpg" width=500></img>
-</div><section id="span-style-color-orange-overview-span">
+</div>
+<p><em>The SM predicts a single Higgs boson. Supersymmetric extensions such as the Minimal Supersymmetric Standard Model (MSSM) predict five: the light neutral <span class="math notranslate nohighlight">\(h\)</span>, a heavy neutral <span class="math notranslate nohighlight">\(H\)</span>, a pseudoscalar <span class="math notranslate nohighlight">\(A\)</span>, and two charged bosons <span class="math notranslate nohighlight">\(H^\pm\)</span>.</em></p>
+<section id="span-style-color-orange-learning-objectives-span">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#span-style-color-orange-learning-objectives-span" title="Permalink to this heading">#</a></h2>
+<p>By the end of this project you should be able to:</p>
+<ul class="simple">
+<li><p>explain why physicists expect new particles beyond the Standard Model (SM) and how they would be searched for at the LHC;</p></li>
+<li><p>describe the hypothetical signal processes and the SM backgrounds in two benchmark datasets;</p></li>
+<li><p>load and inspect very large tabular physics datasets efficiently, and spot problems in file formats;</p></li>
+<li><p>connect each feature to a physical quantity reconstructed in a collider detector; and</p></li>
+<li><p>use histograms to judge which features separate signal from background, and how this depends on the unknown mass of the new particle. This is the starting point for the classifiers in Project 02.</p></li>
+</ul>
+</section>
+<section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>A number of theories that propose to explain what happened in the very early universe (the first small fraction of a second) and link elementary particle physics and cosmology predict the existence of exotic particles that have yet to be discovered. IF these particles exist, they could contribute significantly to the dark matter in the universe and/or explain other puzzles in particle physics.</p>
+<p>The SM of particle physics is extraordinarily successful, but it leaves important questions open. It contains no dark-matter candidate, it does not explain the matter–antimatter asymmetry of the universe, and it does not explain why the Higgs boson mass is so much lighter than the Planck scale. Many proposed extensions of the SM, including supersymmetry and models with extended Higgs sectors or new heavy gauge bosons, predict <strong>exotic particles</strong> that have not yet been discovered. Several of these theories also link elementary particle physics to cosmology and the very early universe. If such particles exist, some could contribute significantly to the dark matter in the universe or resolve other puzzles in particle physics.</p>
+<p>In July 2012 the ATLAS and CMS collaborations at CERN’s Large Hadron Collider (LHC) announced the discovery of a new particle with a mass near 125 GeV, consistent with the Higgs boson predicted by the Standard Model (SM). Neubauer’s research group at Illinois contributed to the data analysis in the ATLAS discovery paper. François Englert and Peter Higgs received the 2013 Nobel Prize in Physics for the theoretical prediction. <a class="reference external" href="https://doi.org/10.1016/j.physletb.2012.08.020">[3]</a>, <a class="reference external" href="https://doi.org/10.1016/j.physletb.2012.08.021">[4]</a>, <a class="reference external" href="https://www.nobelprize.org/prizes/physics/2013/summary/">[5]</a> Whether the 125 GeV boson is the <em>only</em> Higgs boson is still an open question. Searching for additional Higgs bosons and other new heavy particles is a central goal of the LHC programme.</p>
+<p>Exotic signals are rare and sit under large backgrounds from SM processes that produce the same detector signature. Physicists use machine learning, trained on Monte Carlo simulations, to separate them. In this project you will explore two public benchmark datasets built for this purpose:</p>
+<ul class="simple">
+<li><p><strong>HEPMASS</strong> <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">[2]</a>: a hypothetical heavy particle <span class="math notranslate nohighlight">\(X\)</span> of <em>unknown mass</em> decaying to a top-quark pair, <span class="math notranslate nohighlight">\(X\to t\bar t\)</span>, against the SM background of <span class="math notranslate nohighlight">\(t\bar t\)</span> production.</p></li>
+<li><p><strong>HIGGS</strong> <a class="reference external" href="https://doi.org/10.1038/ncomms5308">[1]</a>: a heavy neutral Higgs boson <span class="math notranslate nohighlight">\(H^0\)</span> decaying through a charged Higgs boson <span class="math notranslate nohighlight">\(H^\pm\)</span> to <span class="math notranslate nohighlight">\(W^\mp W^\pm b\bar b\)</span>, against the SM <span class="math notranslate nohighlight">\(t\bar t\)</span> background.</p></li>
+</ul>
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Original Source</p>
+<p><strong>HEPMASS dataset</strong> (UCI Machine Learning Repository, D. Whiteson, 2016) <a class="reference external" href="https://doi.org/10.24432/C5PP5W">[6]</a></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/HEPMASS">https://archive.ics.uci.edu/ml/datasets/HEPMASS</a> ​ (top-level description)</p></li>
-</ul>
-<p>File URLs</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/1000_test.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/1000_test.csv.gz</a></p></li>
+<li><p>Dataset page: <a class="reference external" href="https://archive.ics.uci.edu/dataset/347/hepmass">https://archive.ics.uci.edu/dataset/347/hepmass</a></p></li>
+<li><p>Course mirror (please use these). Each training file has 7 million events (about 1.7 GB compressed) and each test file 3.5 million (about 0.9 GB):</p>
+<ul>
 <li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/1000_train.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/1000_train.csv.gz</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/all_test.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/all_test.csv.gz</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/all_train.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/all_train.csv.gz</a></p></li>
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/not1000_test.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/not1000_test.csv.gz</a></p></li>
+<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/1000_test.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/1000_test.csv.gz</a></p></li>
 <li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/not1000_train.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/not1000_train.csv.gz</a></p></li>
+<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/not1000_test.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/not1000_test.csv.gz</a></p></li>
+<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/all_train.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/all_train.csv.gz</a></p></li>
+<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/all_test.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/all_test.csv.gz</a></p></li>
 </ul>
+</li>
+</ul>
+<p>The mass of the new particle is unknown, so there are three versions of the dataset. Each is 50% signal and 50% background, split into a training set of 7 million events and a test set of 3.5 million.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1000</span></code>: the signal particle has <span class="math notranslate nohighlight">\(m_X = 1000\)</span> GeV. There is no mass feature, since all signal events have the same mass.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not1000</span></code>: <span class="math notranslate nohighlight">\(m_X\)</span> is drawn uniformly from {500, 750, 1250, 1500} GeV. The mass is included as an extra input feature; background events are assigned a mass chosen at random from the same set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span></code>: <span class="math notranslate nohighlight">\(m_X\)</span> is drawn uniformly from {500, 750, 1000, 1250, 1500} GeV, with the mass feature handled as for <code class="docutils literal notranslate"><span class="pre">not1000</span></code>.</p></li>
+</ul>
+<p>The first column is the class label (1 = signal, 0 = background). It is followed by 27 normalized features (22 low-level, then 5 high-level) and, for <code class="docutils literal notranslate"><span class="pre">not1000</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code>, a 28th column holding the mass. The dataset authors preprocessed several features by taking <span class="math notranslate nohighlight">\(\log(x + 10^{-5})\)</span> and then rescaling. See the <a class="reference external" href="https://mlphysics.ics.uci.edu/data/hepmass/readme.txt">readme</a> for details.</p>
+<p>⚠️ <strong>File-format trap:</strong> each file starts with a header line beginning with <code class="docutils literal notranslate"><span class="pre">#</span></code>. In the <code class="docutils literal notranslate"><span class="pre">1000_*</span></code> files this header lists only 27 names (<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">label,</span> <span class="pre">f0</span> <span class="pre">…</span> <span class="pre">f25</span></code>), but every data row has 28 values. A plain <code class="docutils literal notranslate"><span class="pre">pd.read_csv(&quot;1000_train.csv.gz&quot;)</span></code> therefore silently makes the <strong>label the DataFrame index</strong> and shifts every column name by one. Skip the header and supply your own column names, as in the cell below.</p>
+<p><strong>HIGGS dataset</strong> (UCI Machine Learning Repository, D. Whiteson, 2014) <a class="reference external" href="https://doi.org/10.24432/C5V312">[7]</a></p>
+<ul class="simple">
+<li><p>Dataset page: <a class="reference external" href="https://archive.ics.uci.edu/dataset/280/higgs">https://archive.ics.uci.edu/dataset/280/higgs</a></p></li>
+<li><p>Course mirror (please use this; 11 million events, about 2.8 GB compressed): <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/HiggsTauTau/HIGGS.csv.gz">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/HiggsTauTau/HIGGS.csv.gz</a></p></li>
+<li><p>There is no header row. Column 1 is the label, followed by 21 low-level and 7 high-level features (described in Question 10). The dataset authors use the last 500,000 rows as the test set.</p></li>
+</ul>
+<p><strong>Practical tips</strong></p>
+<ul class="simple">
+<li><p>The full files are large. The cell below streams and decompresses only the first <code class="docutils literal notranslate"><span class="pre">N_EVENTS</span></code> rows of each file over the network, which takes seconds. Plain <code class="docutils literal notranslate"><span class="pre">pd.read_csv(&lt;URL&gt;,</span> <span class="pre">nrows=...)</span></code> downloads the whole file before applying <code class="docutils literal notranslate"><span class="pre">nrows</span></code>.</p></li>
+<li><p>A few hundred thousand events per dataset are plenty for this project.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">N_EVENTS</span> <span class="o">=</span> <span class="mi">300_000</span>  <span class="c1"># per file; increase once your code works</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_events</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream the first `nrows` events of a gzipped CSV without downloading all of it.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">,</span> <span class="n">gzip</span><span class="o">.</span><span class="n">GzipFile</span><span class="p">(</span><span class="n">fileobj</span><span class="o">=</span><span class="n">response</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">skip_header</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+
+<span class="c1"># --- HEPMASS ---</span>
+<span class="n">HEPMASS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/ExoticParticles/hepmass/&quot;</span>
+<span class="n">hepmass_features</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;f</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">27</span><span class="p">)]</span>
+
+<span class="n">hep1000</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="n">HEPMASS_URL</span> <span class="o">+</span> <span class="s2">&quot;1000_train.csv.gz&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hep1000</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">hepmass_features</span>
+
+<span class="n">hepnot1000</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="n">HEPMASS_URL</span> <span class="o">+</span> <span class="s2">&quot;not1000_train.csv.gz&quot;</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hepnot1000</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">hepmass_features</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">]</span>
+
+<span class="c1"># --- HIGGS ---</span>
+<span class="n">HIGGS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/HiggsTauTau/HIGGS.csv.gz&quot;</span>
+<span class="n">higgs_low</span> <span class="o">=</span> <span class="p">([</span><span class="s2">&quot;lepton_pT&quot;</span><span class="p">,</span> <span class="s2">&quot;lepton_eta&quot;</span><span class="p">,</span> <span class="s2">&quot;lepton_phi&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;missing_energy_magnitude&quot;</span><span class="p">,</span> <span class="s2">&quot;missing_energy_phi&quot;</span><span class="p">]</span>
+             <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;jet</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;pt&quot;</span><span class="p">,</span> <span class="s2">&quot;eta&quot;</span><span class="p">,</span> <span class="s2">&quot;phi&quot;</span><span class="p">,</span> <span class="s2">&quot;btag&quot;</span><span class="p">)])</span>
+<span class="n">higgs_high</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;m_jj&quot;</span><span class="p">,</span> <span class="s2">&quot;m_jjj&quot;</span><span class="p">,</span> <span class="s2">&quot;m_lv&quot;</span><span class="p">,</span> <span class="s2">&quot;m_jlv&quot;</span><span class="p">,</span> <span class="s2">&quot;m_bb&quot;</span><span class="p">,</span> <span class="s2">&quot;m_wbb&quot;</span><span class="p">,</span> <span class="s2">&quot;m_wwbb&quot;</span><span class="p">]</span>
+
+<span class="n">higgs</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="n">HIGGS_URL</span><span class="p">,</span> <span class="n">N_EVENTS</span><span class="p">)</span>
+<span class="n">higgs</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">higgs_low</span> <span class="o">+</span> <span class="n">higgs_high</span>
+
+<span class="n">hep1000</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
+<p>Answer each question in a markdown cell directly below it (add code cells where needed). For the background questions in Part A, aim for one to two well-organized paragraphs, and <strong>cite your sources</strong>. The references at the end of this notebook are a good starting point. Your notebook should run from top to bottom without errors.</p>
+<section id="part-a-physics-background">
+<h3>Part A: Physics background<a class="headerlink" href="#part-a-physics-background" title="Permalink to this heading">#</a></h3>
+</section>
 <section id="span-style-color-lightgreen-question-01-span">
 <h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
-<p>What is the Large Hadron Collider (LHC)? What is it about the LHC that makes it possible to produce heavy particles like the Higgs boson?</p>
+<p>What is the Large Hadron Collider (LHC)? What about the LHC makes it possible to produce heavy particles like the Higgs boson? Include the relevant quantitative parameters, such as the proton–proton center-of-mass energy <span class="math notranslate nohighlight">\(\sqrt{s}\)</span> and the luminosity, and explain why each one matters for producing a rare, heavy particle.</p>
 </section>
 <section id="span-style-color-lightgreen-question-02-span">
 <h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
-<p>The Higgs boson is the last particle in the SM to be discovered and completes the constituent picture of that theory in the SM. In what way(s) does the Higgs boson play a particularly important role in the SM?</p>
+<p>The Higgs boson was the last particle predicted by the Standard Model (SM) to be discovered. In what ways does it play a particularly important role in the SM? Consider, for example, how the <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> bosons and the fermions acquire mass.</p>
+<p>What open questions does the SM leave unanswered that motivate searches for new particles?</p>
 </section>
 <section id="span-style-color-lightgreen-question-03-span">
 <h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
-<p>Briefly describe the ATLAS and CMS experiments that collect proton-proton collision data at the LHC to study the Higgs boson.</p>
+<p>Briefly describe the ATLAS and CMS experiments that record LHC proton–proton collision data. What are the main detector subsystems, and which particles does each one measure? Relate your answer to the objects that appear in the datasets below: electrons and muons, jets, <span class="math notranslate nohighlight">\(b\)</span>-tagged jets, and missing transverse momentum.</p>
 </section>
 <section id="span-style-color-lightgreen-question-04-span">
 <h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-span" title="Permalink to this heading">#</a></h3>
-<p>Based on ref <a class="reference external" href="https://arxiv.org/pdf/1402.4735.pdf">[1]</a>, can you describe what the exotic particles in the benchmark models (a) HIGGS and (b) SUSY are why they would be important for fundamental physics?</p>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>The remaining questions refer to the following data source: <a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/00347">https://archive.ics.uci.edu/ml/machine-learning-databases/00347</a> (also linked from above)
-Machine learning is used in high-energy physics experiments to search for the signatures of exotic particles. These signatures are learned from Monte Carlo simulations of the collisions that produce these particles and the resulting decay products. In each of the three data sets from the data source, the goal is to separate particle-producing collisions from a background source.</p>
-<p>The mass of the new particle is unknown, so three separate data sets are provided. In each data set, 50% of the data is from a signal process, while 50% is from the background process. The data is separated into a training set of 7 million examples and a test set of 3.5 million for each.</p>
-<ul class="simple">
-<li><p>In the <code class="docutils literal notranslate"><span class="pre">1000</span></code> dataset, the signal particle has mass=1000. (Note: this dataset does not include a mass feature since all signal examples have the same mass.)</p></li>
-<li><p>In the <code class="docutils literal notranslate"><span class="pre">not1000</span></code> dataset, the signal particle’s mass is drawn uniformly from the set {500, 750, 1250, 1500}. The mass is included as an input feature; for the background examples, the mass is selected randomly from this same set.</p></li>
-</ul>
-<p>Download the <code class="docutils literal notranslate"><span class="pre">not1000_train.csv.gz</span></code> and <code class="docutils literal notranslate"><span class="pre">1000_training.csv.gz</span></code> files from the data source</p>
+<p>Based on Ref. <a class="reference external" href="https://doi.org/10.1038/ncomms5308">[1]</a>, describe the exotic particles in the two benchmark models (a) HIGGS and (b) SUSY. Why would discovering them be important for fundamental physics? For each model, write the signal process as a chain of decays and name the SM background process that mimics it.</p>
+<hr style="border:1px solid gray; margin: 2em 0;"><section id="part-b-the-hepmass-dataset">
+<h4>Part B: The HEPMASS dataset<a class="headerlink" href="#part-b-the-hepmass-dataset" title="Permalink to this heading">#</a></h4>
+<p>Questions 05 to 09 use the HEPMASS dataset. Use the <code class="docutils literal notranslate"><span class="pre">1000_train</span></code> and <code class="docutils literal notranslate"><span class="pre">not1000_train</span></code> files.</p>
+</section>
 </section>
 <section id="span-style-color-lightgreen-question-05-span">
 <h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-span" title="Permalink to this heading">#</a></h3>
-<p>What is the size and shape of each data set?</p>
+<p>What are the size and shape of each of the three HEPMASS datasets (training and test)? Check the signal fraction and the set of mass values that appear in each. Inspect the raw header line of each file. What problem do you find in the <code class="docutils literal notranslate"><span class="pre">1000</span></code> files, and what would happen if you read them with a default <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> call?</p>
 </section>
 <section id="span-style-color-lightgreen-question-06-span">
 <h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
-<p>The data set’s first column is the class label (1 for signal, 0 for background), followed by the 27 normalized features (22 low-level features then 5 high-level features), and a 28th mass feature for dataset <code class="docutils literal notranslate"><span class="pre">not1000</span></code>. See the ​original paper  (ref <a class="reference external" href="https://arxiv.org/pdf/1601.07913.pdf">[2]</a>) for more detailed information. Can you explain what those normalized features are?</p>
+<p>Read Ref. <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">[2]</a> and the dataset <a class="reference external" href="https://mlphysics.ics.uci.edu/data/hepmass/readme.txt">readme</a>, then answer:</p>
+<ol class="arabic simple">
+<li><p>What are the signal (<span class="math notranslate nohighlight">\(X\to t\bar t\)</span>) and background (<span class="math notranslate nohighlight">\(t\bar t\)</span>) processes? Write each as a chain of decays down to the final-state objects in the semi-leptonic channel.</p></li>
+<li><p>What physical quantity does each of the 27 features represent: the lepton, the missing transverse momentum, the number of jets, and the jets’ <span class="math notranslate nohighlight">\(p_T\)</span>, <span class="math notranslate nohighlight">\(\eta\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(b\)</span>-tag values, plus the high-level masses <span class="math notranslate nohighlight">\(m_{jj}\)</span>, <span class="math notranslate nohighlight">\(m_{jjj}\)</span>, <span class="math notranslate nohighlight">\(m_{\ell\nu}\)</span>, <span class="math notranslate nohighlight">\(m_{j\ell\nu}\)</span> and <span class="math notranslate nohighlight">\(m_{WWbb}\)</span>? A table is a good format.</p></li>
+<li><p>The features have been preprocessed (log transform and rescaling). Why might the dataset authors have done this, and what does it mean for interpreting the histograms in physical units?</p></li>
+</ol>
 </section>
 <section id="span-style-color-lightgreen-question-07-span">
 <h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-span" title="Permalink to this heading">#</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">1000</span></code> data set, can you draw the histogram of 27 normalized features for signal and background separately? Can you describe the significant differences between these histograms?</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">1000</span></code> dataset, plot histograms of all 27 features with signal and background <strong>overlaid on the same axes</strong>, normalized to unit area with the same bin edges for both classes. Arrange the plots in a grid. Which features show the most significant differences between signal and background, and why? Explain physically, using your answer to Question 06.</p>
 </section>
 <section id="span-style-color-lightgreen-question-08-span">
 <h3><span style="color:LightGreen">Question 08</span><a class="headerlink" href="#span-style-color-lightgreen-question-08-span" title="Permalink to this heading">#</a></h3>
-<p>Do the same data process as Q4 for <code class="docutils literal notranslate"><span class="pre">not1000</span></code> data set.</p>
+<p>Repeat Question 07 for the <code class="docutils literal notranslate"><span class="pre">not1000</span></code> dataset. In addition, plot the distribution of the reconstructed resonance mass <span class="math notranslate nohighlight">\(m_{WWbb}\)</span> for signal <strong>separately for each value of the mass feature</strong>, overlaid with the background. Compare with Fig. 4 of Ref. <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">[2]</a>.</p>
 </section>
 <section id="span-style-color-lightgreen-question-09-span">
 <h3><span style="color:LightGreen">Question 09</span><a class="headerlink" href="#span-style-color-lightgreen-question-09-span" title="Permalink to this heading">#</a></h3>
-<p>What difference do you find from <code class="docutils literal notranslate"><span class="pre">not1000</span></code> data set and <code class="docutils literal notranslate"><span class="pre">1000</span></code> data set ?</p>
+<p>What differences do you find between the <code class="docutils literal notranslate"><span class="pre">not1000</span></code> and <code class="docutils literal notranslate"><span class="pre">1000</span></code> datasets? How does the separation between signal and background depend on <span class="math notranslate nohighlight">\(m_X\)</span>? Why are background events assigned a random value of the mass feature? What advantage does a classifier that takes the mass as an input (a “parameterized” classifier, Ref. <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">[2]</a>) have over training a separate classifier for each mass?</p>
+<hr style="border:1px solid gray; margin: 2em 0;"><section id="part-c-the-higgs-dataset">
+<h4>Part C: The HIGGS dataset<a class="headerlink" href="#part-c-the-higgs-dataset" title="Permalink to this heading">#</a></h4>
+<p>Questions 10 and 11 use the HIGGS dataset.</p>
+</section>
 </section>
 <section id="span-style-color-lightgreen-question-10-span">
 <h3><span style="color:LightGreen">Question 10</span><a class="headerlink" href="#span-style-color-lightgreen-question-10-span" title="Permalink to this heading">#</a></h3>
-<p>The data has been produced using Monte Carlo simulations. The first 21 features (columns 2-22) are kinematic properties measured by the particle detectors in the LHC accelerator. The last seven features are functions of the first 21 features; these are high-level features derived by physicists to help discriminate between the two classes. When you read through the reference paper <a class="reference external" href="https://arxiv.org/pdf/1402.4735.pdf">[2]</a>, what particle properties do those 28 features represent?</p>
+<p>What is the size and shape of the HIGGS dataset, and what fraction of its events are signal? The UCI description says the first 21 features (columns 2–22) are kinematic properties measured by the detector, and the last 7 are high-level features that physicists derived from the first 21 to help discriminate between the two classes. Using Ref. <a class="reference external" href="https://doi.org/10.1038/ncomms5308">[1]</a>, explain what physical quantity each of the 28 features represents (<span class="math notranslate nohighlight">\(p_T\)</span>, <span class="math notranslate nohighlight">\(\eta\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(b\)</span>-tag, missing energy, and the invariant masses <span class="math notranslate nohighlight">\(m_{jj}\)</span>, <span class="math notranslate nohighlight">\(m_{jjj}\)</span>, <span class="math notranslate nohighlight">\(m_{\ell\nu}\)</span>, <span class="math notranslate nohighlight">\(m_{j\ell\nu}\)</span>, <span class="math notranslate nohighlight">\(m_{b\bar b}\)</span>, <span class="math notranslate nohighlight">\(m_{Wb\bar b}\)</span>, <span class="math notranslate nohighlight">\(m_{WWb\bar b}\)</span>). For the high-level features, what would you expect each invariant-mass distribution to look like for signal compared with background, and why?</p>
 </section>
 <section id="span-style-color-lightgreen-question-11-span">
 <h3><span style="color:LightGreen">Question 11</span><a class="headerlink" href="#span-style-color-lightgreen-question-11-span" title="Permalink to this heading">#</a></h3>
-<p>Using the data sets in this project, can you draw the histogram of 28 normalized features for signal and background separately? Could you tell the significant differences from these histogram?</p>
+<p>Plot histograms of all 28 HIGGS features with signal and background overlaid, normalized to unit area, in a grid (e.g., 7 × 4). Which features show the most significant differences between signal and background? Do the high-level features separate the classes better than the low-level ones? How do your conclusions compare with those for HEPMASS?</p>
+<p><em>Optional extension:</em> for both datasets, rank the features by a single number that measures separation, for example the area under the ROC curve obtained when each feature is used alone as a discriminant (<code class="docutils literal notranslate"><span class="pre">sklearn.metrics.roc_auc_score</span></code>), and compare the ranking with your visual impression.</p>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<p><strong>[<span style="color:Red">1</span>]</strong> P.J. Sadowski, D. Whiteson, P. Baldi, “Searching for Exotic Particles in High-Energy Physics with Deep Learning”, <em>Nature Commun. 5 (2014) 4308</em>, e-Print: <a class="reference external" href="https://arxiv.org/abs/1402.4735">1402.4735</a> [hep-ph]</p>
-<p><strong>[<span style="color:Red">2</span>]</strong> P. Baldi, K. Cranmer, T. Faucett, P. Sadowski, D. Whiteson, “Parameterized Machine Learning for High-Energy Physics”, <em>Eur.Phys.J.C 76 (2016) 5, 235</em>, e-Print: <a class="reference external" href="https://arxiv.org/abs/1601.07913">1601.07913</a> [hep-ex]</p>
+<p><strong>[<span style="color:Red">1</span>]</strong> P. Baldi, P. Sadowski, D. Whiteson, “Searching for exotic particles in high-energy physics with deep learning,” <em>Nature Communications</em> <strong>5</strong>, 4308 (2014). <a class="reference external" href="https://doi.org/10.1038/ncomms5308">doi:10.1038/ncomms5308</a>, <a class="reference external" href="https://arxiv.org/abs/1402.4735">arXiv:1402.4735</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> P. Baldi, K. Cranmer, T. Faucett, P. Sadowski, D. Whiteson, “Parameterized neural networks for high-energy physics,” <em>Eur. Phys. J. C</em> <strong>76</strong>, 235 (2016). <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-016-4099-4">doi:10.1140/epjc/s10052-016-4099-4</a>, <a class="reference external" href="https://arxiv.org/abs/1601.07913">arXiv:1601.07913</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> ATLAS Collaboration, “Observation of a new particle in the search for the Standard Model Higgs boson with the ATLAS detector at the LHC,” <em>Phys. Lett. B</em> <strong>716</strong>, 1 (2012). <a class="reference external" href="https://doi.org/10.1016/j.physletb.2012.08.020">doi:10.1016/j.physletb.2012.08.020</a>, <a class="reference external" href="https://arxiv.org/abs/1207.7214">arXiv:1207.7214</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> CMS Collaboration, “Observation of a new boson at a mass of 125 GeV with the CMS experiment at the LHC,” <em>Phys. Lett. B</em> <strong>716</strong>, 30 (2012). <a class="reference external" href="https://doi.org/10.1016/j.physletb.2012.08.021">doi:10.1016/j.physletb.2012.08.021</a>, <a class="reference external" href="https://arxiv.org/abs/1207.7235">arXiv:1207.7235</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> The Nobel Prize in Physics 2013 (F. Englert and P. W. Higgs). <a class="reference external" href="https://www.nobelprize.org/prizes/physics/2013/summary/">https://www.nobelprize.org/prizes/physics/2013/summary/</a></p>
+<p><strong>[<span style="color:Red">6</span>]</strong> D. Whiteson, “HEPMASS” [Dataset], UCI Machine Learning Repository (2016). <a class="reference external" href="https://doi.org/10.24432/C5PP5W">doi:10.24432/C5PP5W</a></p>
+<p><strong>[<span style="color:Red">7</span>]</strong> D. Whiteson, “HIGGS” [Dataset], UCI Machine Learning Repository (2014). <a class="reference external" href="https://doi.org/10.24432/C5V312">doi:10.24432/C5V312</a></p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -700,18 +809,26 @@ Machine learning is used in high-energy physics experiments to search for the si
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-physics-background">Part A: Physics background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-the-hepmass-dataset">Part B: The HEPMASS dataset</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-the-higgs-dataset">Part C: The HIGGS dataset</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-10-span"><span style="color:LightGreen">Question 10</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-11-span"><span style="color:LightGreen">Question 11</span></a></li>
 </ul>
