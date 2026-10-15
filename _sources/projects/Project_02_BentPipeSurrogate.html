@@ -292,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_02_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_GravitationalWaves.html">Detection of Gravitational Waves</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Project_02_Radiotherapy.html">Beam Angle Optimization for Radiative Cancer Therapy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_Radiotherapy.html">Beam Angle Optimization for Radiation Therapy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_TailPulsePileupRejection.html">Precision Neutron Counting with Tail Pulse Pileup Rejection</a></li>
 
 
@@ -519,30 +519,36 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-1-2-motivation-for-creating-a-surrogate-model-span"><span style="color:Orange">Questions 1 &amp; 2: Motivation for creating a surrogate model</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-01-02-motivation-for-creating-a-surrogate-model-span"><span style="color:Orange">Questions 01 &amp; 02: Motivation for creating a surrogate model</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-cfd-runtime-span"><span style="color:LightGreen">Question 01: CFD runtime</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-structure-from-the-cfd-simulation-span"><span style="color:Orange">Data structure from the CFD simulation</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-the-3-quantities-span"><span style="color:LightGreen">Question 02: the 3 quantities </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-the-3-quantities-span"><span style="color:LightGreen">Question 02: the 3 quantities</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-preparation-span"><span style="color:Orange">Data preparation</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-data-preprocessing-span"><span style="color:LightGreen">Question 03: Data preprocessing</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-reynolds-number-re-span"><span style="color:LightGreen">Reynolds Number (Re)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-reynolds-number-re-span"><span style="color:LightGreen">Reynolds number (Re)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-predictability-and-re-span"><span style="color:LightGreen">Question 04: Predictability and Re</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-visualizing-understanding-the-data-span"><span style="color:LightGreen">Visualizing understanding the data</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-visualizing-the-data-span"><span style="color:LightGreen">Visualizing the data</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-real-time-monitoring-of-the-pipe-by-ml-span"><span style="color:Orange">Real-time monitoring  of the pipe by ML</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-fully-connected-feedforward-neural-network-fcfnn-approach-span"><span style="color:LightGreen">Question 05: Fully Connected Feedforward Neural Network (FCFNN) approach</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-graph-neural-networks-span"><span style="color:LightGreen">Question 06: Graph neural networks</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-visualizing-the-output-of-the-models-span"><span style="color:LightGreen">Question 07: Visualizing the output of the models</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-evaluation-of-the-models-span"><span style="color:LightGreen">Question 08: Evaluation of the models </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-relationship-between-re-and-loss-span"><span style="color:LightGreen">Question 09: Relationship between Re and loss </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-10-possible-improvements-optional-span"><span style="color:LightGreen">Question 10: Possible improvements (optional) </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-how-good-does-a-surrogate-need-to-be-baselines-first-span"><span style="color:Orange">How good does a surrogate need to be? Baselines first</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-baselines-span"><span style="color:LightGreen">Question 05: Baselines</span></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-neural-network-surrogates-span"><span style="color:Orange">Neural-network surrogates</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-fully-connected-feedforward-neural-network-fcfnn-span"><span style="color:LightGreen">Question 06: Fully connected feedforward neural network (FCFNN)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-graph-neural-network-gnn-span"><span style="color:LightGreen">Question 07: Graph neural network (GNN)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-predicting-a-whole-flow-field-span"><span style="color:LightGreen">Question 08: Predicting a whole flow field</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-evaluating-the-models-span"><span style="color:LightGreen">Question 09: Evaluating the models</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-10-relationship-between-re-and-error-span"><span style="color:LightGreen">Question 10: Relationship between Re and error</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-11-possible-improvements-optional-span"><span style="color:LightGreen">Question 11: Possible improvements (optional)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
 </ul>
             </nav>
@@ -561,147 +567,159 @@ document.write(`
 <img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Project_BentPipeSurrogate_splash.png" width=600>
 </div><section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>Computational Fluid Dynamics (CFD) simulations are an essential but computationally expensive and time-consuming process. Surrogate modeling using machine learning can greatly speed up predictions by approximating the simulation results. In this notebook, we compare two surrogate approaches:</p>
+<p>Computational fluid dynamics (CFD) simulations are essential but computationally expensive. A <strong>surrogate model</strong> trained on simulation results can predict the flow almost instantly, which makes real-time monitoring possible. In this project you will build surrogate models for the coolant flow in the “hot leg” of a pressurized-water nuclear reactor (a pipe with a 120° elbow), using CFD data from Ref. <a class="reference external" href="https://doi.org/10.1038/s41529-025-00557-y">[1]</a>.</p>
+<p>You will compare:</p>
 <ul class="simple">
-<li><p>A Fully Connected Feedforward Neural Network (FCFNN) baseline, treating each point independently.</p></li>
-<li><p>A Graph Neural Network (GNN) surrogate, leveraging the spatial mesh as a graph.</p></li>
+<li><p>simple <strong>baselines</strong> that interpolate between stored simulations;</p></li>
+<li><p>a <strong>fully connected feedforward neural network (FCFNN)</strong>, which treats each point of the mesh independently; and</p></li>
+<li><p>a <strong>graph neural network (GNN)</strong>, which treats the mesh as a graph and passes messages between neighbouring points.</p></li>
 </ul>
-<p>We will train these surrogates on ground truth CFD data (outputs: turbulent kinetic energy, pressure, velocity) for a bent-pipe flow, and compare their performance using residual analysis, we will also compare their runtime to see which fits best for real-time monitoring for the pipe.</p>
-<p>By the end of this project hopefully you will be able to see the utility of surrogate models in fluid dynamics.</p>
+<p>You will evaluate them on held-out simulations by their accuracy, their runtime, and their dependence on the Reynolds number. By the end of this project you should have a clear picture of when a neural-network surrogate is useful and when a simpler method wins.</p>
 </section>
-<section id="span-style-color-orange-questions-1-2-motivation-for-creating-a-surrogate-model-span">
-<h2><span style="color:Orange">Questions 1 &amp; 2: Motivation for creating a surrogate model</span><a class="headerlink" href="#span-style-color-orange-questions-1-2-motivation-for-creating-a-surrogate-model-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-orange-learning-objectives-span">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#span-style-color-orange-learning-objectives-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Explain why CFD simulations are expensive and what a surrogate model offers.</p></li>
+<li><p>Prepare simulation output on an unstructured mesh for machine learning: masking, splitting by simulation, and normalization.</p></li>
+<li><p>Implement a fully connected network and a message-passing graph neural network in PyTorch.</p></li>
+<li><p>Evaluate surrogates fairly: with held-out simulations, appropriate error metrics, and simple baselines.</p></li>
+</ul>
+</section>
+<section id="span-style-color-orange-questions-01-02-motivation-for-creating-a-surrogate-model-span">
+<h2><span style="color:Orange">Questions 01 &amp; 02: Motivation for creating a surrogate model</span><a class="headerlink" href="#span-style-color-orange-questions-01-02-motivation-for-creating-a-surrogate-model-span" title="Permalink to this heading">#</a></h2>
 <section id="span-style-color-lightgreen-question-01-cfd-runtime-span">
 <h3><span style="color:LightGreen">Question 01: CFD runtime</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-cfd-runtime-span" title="Permalink to this heading">#</a></h3>
-<p>Why do traditional CFD simulations take so long to run? visit <a class="reference external" href="https://colab.research.google.com/github/josealvarez97/The-Ultimate-Guide-to-Write-Your-First-CFD-Solver/blob/main/The_Ultimate_Guide_to_Write_Your_First_CFD_Solver.ipynb#scrollTo=fA1MTpR-FSmu">Jose Alvarez and Mahmud Nobe’s</a> notebook to learn more about the math that goes behind the scenes when using a CFD simulation (hint: the infamous Navier–Stokes equation). Answer below:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<p>Why do traditional CFD simulations take so long to run? Visit <a class="reference external" href="https://colab.research.google.com/github/josealvarez97/The-Ultimate-Guide-to-Write-Your-First-CFD-Solver/blob/main/The_Ultimate_Guide_to_Write_Your_First_CFD_Solver.ipynb">Jose Alvarez and Mahmud Nobe’s notebook</a> to learn more about the mathematics behind a CFD simulation (hint: the infamous Navier–Stokes equations). Ref. <a class="reference external" href="https://doi.org/10.1038/s41529-025-00557-y">[1]</a> reports how long its simulations took; how does that compare with the time needed to evaluate a trained neural network?</p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<div><img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 </section>
 <section id="span-style-color-orange-data-structure-from-the-cfd-simulation-span">
 <h2><span style="color:Orange">Data structure from the CFD simulation</span><a class="headerlink" href="#span-style-color-orange-data-structure-from-the-cfd-simulation-span" title="Permalink to this heading">#</a></h2>
-<p>Training a surrogate model requires a large amount of data in the desired range, which is why we will use the data from <a class="reference external" href="https://www.nature.com/articles/s41529-025-00557-y">this</a> paper to train our model.</p>
-<p>The system is a relatively simple bent pipe, structured as .txt files ranging from 0 to 200, with each file having a different velocity input towards the pipe. Each simulation file node data:</p>
-<p><code class="docutils literal notranslate"><span class="pre">([nodenumber</span> <span class="pre">,</span>&#160;&#160;&#160; <span class="pre">x-coordinate,</span>&#160;&#160;&#160;&#160; <span class="pre">y-coordinate,</span>&#160;&#160;&#160;&#160; <span class="pre">z-coordinate,</span> <span class="pre">turb-kinetic-energy,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">pressure,</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">temperature,</span> <span class="pre">velocity-magnitude])</span></code>.</p>
-<p>We drop the node index and filter out wall nodes (where velocity is zero) and we will ignore temperature. We then split into training and evaluation sets and compute normalization statistics.</p>
+<p>The data come from the CFD study of Ref. <a class="reference external" href="https://doi.org/10.1038/s41529-025-00557-y">[1]</a>. That study modelled a scaled-down (25 mm diameter) version of the hot leg of an AP1000 pressurized-water reactor, with a 120° elbow, an inlet temperature of 594.3 K, and turbulent flow. The paper ran 5000 simulations; this project uses a subset of 201 of them, available in the GitHub repository <a class="reference external" href="https://github.com/lightiet/bended_pipe">lightiet/bended_pipe</a> (about 340 MB).</p>
+<ul class="simple">
+<li><p>There are 201 files, <code class="docutils literal notranslate"><span class="pre">axial_output_0.txt</span></code> … <code class="docutils literal notranslate"><span class="pre">axial_output_200.txt</span></code>, one per simulation. Each simulation has a different <strong>inlet velocity</strong> <span class="math notranslate nohighlight">\(U\)</span>, between about 0.66 and 0.80 m/s.</p></li>
+<li><p>Each file lists 11,340 mesh nodes on the <strong>central plane</strong> of the pipe, with columns <code class="docutils literal notranslate"><span class="pre">[nodenumber,</span> <span class="pre">x-coordinate,</span> <span class="pre">y-coordinate,</span> <span class="pre">z-coordinate,</span> <span class="pre">turb-kinetic-energy,</span> <span class="pre">pressure,</span> <span class="pre">temperature,</span> <span class="pre">velocity-magnitude]</span></code>, in SI units (m, m²/s², Pa (gauge), K, m/s).</p></li>
+<li><p>The mesh is the same in every simulation. Because all nodes lie on one plane, the y-coordinate is constant.</p></li>
+<li><p>324 nodes lie on the pipe wall, where the velocity is zero (the no-slip condition). We drop them.</p></li>
+<li><p>The temperature is the same everywhere (594.3 K), so we ignore it.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lightiet/bended_pipe.git
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the data (about 340 MB); skip if already present</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s2">&quot;bended_pipe&quot;</span><span class="p">):</span>
+    <span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/lightiet/bended_pipe.git
 </pre></div>
 </div>
 </div>
 </div>
 <section id="span-style-color-lightgreen-question-02-the-3-quantities-span">
-<h3><span style="color:LightGreen">Question 02: the 3 quantities </span><a class="headerlink" href="#span-style-color-lightgreen-question-02-the-3-quantities-span" title="Permalink to this heading">#</a></h3>
-<p>Why is it important to monitor these 3 quantities in a system of interest? as a reminder they are</p>
+<h3><span style="color:LightGreen">Question 02: the 3 quantities</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-the-3-quantities-span" title="Permalink to this heading">#</a></h3>
+<p>Why is it important to monitor these three quantities in a reactor’s primary coolant loop? Ref. <a class="reference external" href="https://doi.org/10.1038/s41529-025-00557-y">[1]</a> discusses this in the context of materials degradation.</p>
 <ul class="simple">
-<li><p>Turbulent Kinetic Energy (TKE)</p></li>
+<li><p>turbulent kinetic energy (TKE)</p></li>
 <li><p>pressure</p></li>
 <li><p>velocity</p></li>
 </ul>
-<p>Answer below:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<div><img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 </section>
 <section id="span-style-color-orange-data-preparation-span">
 <h2><span style="color:Orange">Data preparation</span><a class="headerlink" href="#span-style-color-orange-data-preparation-span" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>torch-geometric
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">GCNConv</span><span class="p">,</span> <span class="n">knn_graph</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_undirected</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">NearestNeighbors</span>
+
 <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;device:&quot;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="span-style-color-lightgreen-question-03-data-preprocessing-span">
 <h3><span style="color:LightGreen">Question 03: Data preprocessing</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-data-preprocessing-span" title="Permalink to this heading">#</a></h3>
-<p>Prepare the data for training.</p>
-<p>think about the desired goal of this project, what should be the shape of the input and output vectors?</p>
+<p>Prepare the data for training. Think about the goal of this project: what should the shape of the input and output vectors be?</p>
+<ol class="arabic simple">
+<li><p>Fill a NumPy array <code class="docutils literal notranslate"><span class="pre">data_tensor</span></code> of shape <code class="docutils literal notranslate"><span class="pre">(num_sims,</span> <span class="pre">nodes_per_sim,</span> <span class="pre">6)</span></code> with the features <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z,</span> <span class="pre">TKE,</span> <span class="pre">pressure,</span> <span class="pre">velocity]</span></code>.</p></li>
+<li><p>Build a boolean mask over the nodes that keeps only the non-wall nodes (velocity ≠ 0), and apply it. Check that the wall nodes are the same in every simulation.</p></li>
+</ol>
+<p>After masking, node index 2 lies on the inlet plane (<span class="math notranslate nohighlight">\(z = 0\)</span>), where the velocity is uniform. Its velocity is therefore the inlet velocity <span class="math notranslate nohighlight">\(U\)</span> of the simulation (see <code class="docutils literal notranslate"><span class="pre">get_inlet_vel</span></code> below). Verify this for a few simulations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span>     <span class="o">=</span> <span class="s2">&quot;bended_pipe/test_output_data&quot;</span>
-<span class="n">file_pattern</span> <span class="o">=</span> <span class="s2">&quot;axial_output_</span><span class="si">{}</span><span class="s2">.txt&quot;</span>
-<span class="n">start_index</span>  <span class="o">=</span> <span class="mi">0</span>
-<span class="n">end_index</span>    <span class="o">=</span> <span class="mi">200</span>  <span class="c1">#</span>
-<span class="n">num_sims</span> <span class="o">=</span> <span class="n">end_index</span> <span class="o">-</span> <span class="n">start_index</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span>      <span class="o">=</span> <span class="s2">&quot;bended_pipe/test_output_data&quot;</span>
+<span class="n">file_pattern</span>  <span class="o">=</span> <span class="s2">&quot;axial_output_</span><span class="si">{}</span><span class="s2">.txt&quot;</span>
+<span class="n">num_sims</span>      <span class="o">=</span> <span class="mi">201</span>
 <span class="n">nodes_per_sim</span> <span class="o">=</span> <span class="mi">11340</span>
 
 <span class="c1"># 1) Fill in the correct shape: (num_sims, nodes_per_sim, number_of_features)</span>
-<span class="c1">#    Features here are: x, y, z, TKE, pressure, velocity</span>
-<span class="n">data_tensor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span> <span class="c1"># YOUR CODE HERE</span>
+<span class="c1">#    Features: x, y, z, TKE, pressure, velocity</span>
+<span class="n">data_tensor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># YOUR CODE HERE</span>
 
-<span class="k">for</span> <span class="n">sim_idx</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">start_index</span><span class="p">,</span> <span class="n">end_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
-    <span class="n">fn</span>  <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">file_pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-    <span class="n">raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># shape (11340, 8)</span>
-    <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="p">[</span><span class="n">raw</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>              <span class="c1"># sort by node number</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">file_pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># shape (11340, 8)</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="p">[</span><span class="n">raw</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>                                                 <span class="c1"># sort by node number</span>
+    <span class="c1"># 2) Select the columns [x, y, z, TKE, pressure, velocity]</span>
+    <span class="c1">#    raw has columns [node#, x, y, z, TKE, pressure, temperature, velocity]</span>
+    <span class="n">data_tensor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># YOUR CODE HERE</span>
 
-    <span class="c1"># 2) Select the correct columns for [x, y, z, TKE, pressure, velocity]:</span>
-    <span class="c1">#    Remember: raw has columns [node#, x, y, z, TKE, pressure, temp, velocity]</span>
-    <span class="n">data_tensor</span><span class="p">[</span><span class="n">sim_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw</span><span class="p">[:,]</span> <span class="c1"># YOUR CODE HERE</span>
-
-<span class="c1"># 3) Build a mask that drops any node where velocity (last feature) == 0:</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="c1"># YOUR CODE HERE</span>
+<span class="c1"># 3) Boolean mask over nodes, True where the velocity (last feature) is non-zero</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># YOUR CODE HERE</span>
 <span class="n">data_tensor</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[:,</span> <span class="n">mask</span><span class="p">,</span> <span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data_sorted!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data_tensor shape:&quot;</span><span class="p">,</span> <span class="n">data_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#segregate data to training and eval</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_inlet_vel</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inlet velocity U of a simulation: node 2 (after masking) lies on the inlet plane, where the velocity is uniform.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">data_tensor</span><span class="p">[</span><span class="n">sim_idx</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">U_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">get_inlet_vel</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;inlet velocities: </span><span class="si">{</span><span class="n">U_all</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">U_all</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+
+<span class="c1"># Split by *simulation* (not by node) into training and evaluation sets</span>
 <span class="n">perm</span>      <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">num_sims</span><span class="p">)</span>
 <span class="n">split_pt</span>  <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">num_sims</span><span class="p">)</span>
 <span class="n">eval_idx</span>  <span class="o">=</span> <span class="n">perm</span><span class="p">[:</span><span class="n">split_pt</span><span class="p">]</span>
 <span class="n">train_idx</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[</span><span class="n">split_pt</span><span class="p">:]</span>
-
 <span class="n">train_tensor</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="n">train_idx</span><span class="p">]</span>
 <span class="n">eval_tensor</span>  <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="n">eval_idx</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape of the training tensor is&quot;</span> <span class="p">,</span> <span class="n">train_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape of the evaluation tensor is&quot;</span> <span class="p">,</span> <span class="n">eval_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;training tensor:&quot;</span><span class="p">,</span> <span class="n">train_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; evaluation tensor:&quot;</span><span class="p">,</span> <span class="n">eval_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="span-style-color-lightgreen-reynolds-number-re-span">
-<h3><span style="color:LightGreen">Reynolds Number (Re)</span><a class="headerlink" href="#span-style-color-lightgreen-reynolds-number-re-span" title="Permalink to this heading">#</a></h3>
-<p>The equation for Reynolds number is</p>
+<h3><span style="color:LightGreen">Reynolds number (Re)</span><a class="headerlink" href="#span-style-color-lightgreen-reynolds-number-re-span" title="Permalink to this heading">#</a></h3>
+<p>The Reynolds number is</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 Re = \frac{\rho U D}{\mu}
 \]</div>
-<ul class="simple">
-<li><p>ρ is the density of the water</p></li>
-<li><p>U is the flow velocity (usually taken at the inlet)</p></li>
-<li><p>D is the diameter of the opening which is 0.025 m in our case</p></li>
-<li><p>μ is the dynamic viscosity of the water.</p></li>
-</ul>
-<p>This equation is especially important in fluid dynamics since it characterizes the regime of the system, when Re is high that means that the system is more turbulent and chaotic, and when Re is low the system is laminar and predictable.</p>
+<p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the density of the coolant, <span class="math notranslate nohighlight">\(U\)</span> is the inlet velocity, <span class="math notranslate nohighlight">\(D = 0.025\)</span> m is the pipe diameter, and <span class="math notranslate nohighlight">\(\mu\)</span> is the dynamic viscosity.</p>
+<p>It characterizes the flow regime. At low Re the flow is laminar and predictable, while at high Re it is turbulent and chaotic. For water at the reactor’s conditions (594.3 K and a typical primary-loop pressure of 15.5 MPa), <span class="math notranslate nohighlight">\(\rho \approx 677\)</span> kg/m³ and <span class="math notranslate nohighlight">\(\mu \approx 8.0\times10^{-5}\)</span> Pa·s. These values come from the IAPWS formulation, e.g. via the <code class="docutils literal notranslate"><span class="pre">CoolProp</span></code> package. Ref. [1] treats the coolant as having constant density and viscosity but does not quote the values it used, so treat these as representative.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reynolds</span><span class="p">(</span><span class="n">U</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">87500</span> <span class="o">*</span> <span class="n">U</span> <span class="c1">#in our case we only have one variable in the equation, U, the constants turn out to be 87500 after simplification</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RHO</span> <span class="o">=</span> <span class="mf">677.0</span>     <span class="c1"># kg/m^3, water at 594.3 K and 15.5 MPa</span>
+<span class="n">MU</span>  <span class="o">=</span> <span class="mf">8.0e-5</span>    <span class="c1"># Pa s</span>
+<span class="n">D</span>   <span class="o">=</span> <span class="mf">0.025</span>     <span class="c1"># m</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reynolds</span><span class="p">(</span><span class="n">U</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">RHO</span> <span class="o">*</span> <span class="n">U</span> <span class="o">*</span> <span class="n">D</span> <span class="o">/</span> <span class="n">MU</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re range of the dataset: </span><span class="si">{</span><span class="n">reynolds</span><span class="p">(</span><span class="n">U_all</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">reynolds</span><span class="p">(</span><span class="n">U_all</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -709,148 +727,131 @@ Re = \frac{\rho U D}{\mu}
 </section>
 <section id="span-style-color-lightgreen-question-04-predictability-and-re-span">
 <h3><span style="color:LightGreen">Question 04: Predictability and Re</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-predictability-and-re-span" title="Permalink to this heading">#</a></h3>
-<p>based on what you just read, what do you think the relationship between our surrogate model’s accuracy and Re will be? Answer below:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="span-style-color-lightgreen-visualizing-understanding-the-data-span">
-<h3><span style="color:LightGreen">Visualizing understanding the data</span><a class="headerlink" href="#span-style-color-lightgreen-visualizing-understanding-the-data-span" title="Permalink to this heading">#</a></h3>
-<p>The following is a code snippet to visualize the data and help you gain intuition of what the data looks like</p>
+<p>Is the flow in this dataset laminar or turbulent? Based on what you just read, what do you expect the relationship between a surrogate model’s accuracy and Re to be? Note how wide (or narrow) the range of Re in this dataset is.</p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<div><img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="span-style-color-lightgreen-visualizing-the-data-span">
+<h3><span style="color:LightGreen">Visualizing the data</span><a class="headerlink" href="#span-style-color-lightgreen-visualizing-the-data-span" title="Permalink to this heading">#</a></h3>
+<p>The following code plots the three fields for the simulations with the lowest, median and highest inlet velocity, to help you gain intuition about the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mini helper function</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_inlet_vel</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-   <span class="k">return</span> <span class="p">(</span><span class="n">data_tensor</span><span class="p">[</span><span class="n">sim_idx</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1">#3rd node&#39;s velocity is the inlet velocity</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) extract the velocity arrays for each simulation</span>
-<span class="n">velocities</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># shape: (201, N_nodes)</span>
-
-<span class="c1"># 2) compute per‐simulation statistics</span>
-<span class="n">max_vels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">velocities</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># highest velocity in each sim</span>
-<span class="n">min_vels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">velocities</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># lowest velocity in each sim</span>
-
-<span class="c1"># 3) find the best (lowest max), worst (highest max), and the median‐case sim</span>
-<span class="n">best_idx</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">max_vels</span><span class="p">)</span>
-<span class="n">worst_idx</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">max_vels</span><span class="p">)</span>
-
-<span class="c1"># for the median‐case, sort by max_vel and pick the middle simulation</span>
-<span class="n">sorted_by_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">max_vels</span><span class="p">)</span>
-<span class="n">median_idx</span>    <span class="o">=</span> <span class="n">sorted_by_max</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sorted_by_max</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
-
-<span class="c1"># collect indices for plotting</span>
-<span class="n">sim_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">best_idx</span><span class="p">,</span> <span class="n">median_idx</span><span class="p">,</span> <span class="n">worst_idx</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var_names</span>   <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TKE&#39;</span><span class="p">,</span> <span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;Velocity&#39;</span><span class="p">]</span>
-<span class="n">case_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Re best case&#39;</span><span class="p">,</span> <span class="s1">&#39;Re 50</span><span class="si">% c</span><span class="s1">ase&#39;</span><span class="p">,</span> <span class="s1">&#39;Re worst case&#39;</span><span class="p">]</span>
-
-<span class="n">vmins</span><span class="p">,</span> <span class="n">vmaxs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_names</span><span class="p">)):</span>
-    <span class="n">vals</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="n">sim_indices</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">idx</span><span class="p">]</span>
-    <span class="n">vmins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-    <span class="n">vmaxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">U_all</span><span class="p">)</span>
+<span class="n">sim_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">order</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">order</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">],</span> <span class="n">order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">case_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lowest U&#39;</span><span class="p">,</span> <span class="s1">&#39;median U&#39;</span><span class="p">,</span> <span class="s1">&#39;highest U&#39;</span><span class="p">]</span>
+<span class="n">var_names</span>   <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TKE&#39;</span><span class="p">,</span> <span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;Velocity&#39;</span><span class="p">]</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data_tensor</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">sim</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sim_indices</span><span class="p">,</span> <span class="n">case_labels</span><span class="p">):</span>
-    <span class="c1"># get inlet velocity and compute Reynolds number</span>
-    <span class="n">inlet_vel</span> <span class="o">=</span> <span class="n">get_inlet_vel</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
-    <span class="n">Re_number</span> <span class="o">=</span> <span class="n">reynolds</span><span class="p">(</span><span class="n">inlet_vel</span><span class="p">)</span>
-
-    <span class="n">x</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="n">sim</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="n">sim</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span>
-
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_names</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">var_names</span><span class="p">):</span>
-        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="n">sim</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">idx</span><span class="p">]</span>
-        <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-            <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">vmin</span><span class="o">=</span><span class="n">vmins</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmaxs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-        <span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-
-    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> (Re = </span><span class="si">{</span><span class="n">Re_number</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">sc</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">data_tensor</span><span class="p">[</span><span class="n">sim</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">idx</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">name</span><span class="p">);</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x (m)&quot;</span><span class="p">);</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;z (m)&quot;</span><span class="p">);</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: U = </span><span class="si">{</span><span class="n">U_all</span><span class="p">[</span><span class="n">sim</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m/s, Re = </span><span class="si">{</span><span class="n">reynolds</span><span class="p">(</span><span class="n">U_all</span><span class="p">[</span><span class="n">sim</span><span class="p">])</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-real-time-monitoring-of-the-pipe-by-ml-span">
-<h2><span style="color:Orange">Real-time monitoring  of the pipe by ML</span><a class="headerlink" href="#span-style-color-orange-real-time-monitoring-of-the-pipe-by-ml-span" title="Permalink to this heading">#</a></h2>
-<p>Now that we’ve established that CFD models require significant computational resources, naturally they are not suitable for real-time prediction of a system’s state. This is where machine learning becomes valuable: by training models specifically on the geometry and outputs of our system, we can achieve accurate, real-time predictions.</p>
-<p>Two approaches are presented below—try both and compare their performance.</p>
-<section id="span-style-color-lightgreen-question-05-fully-connected-feedforward-neural-network-fcfnn-approach-span">
-<h3><span style="color:LightGreen">Question 05: Fully Connected Feedforward Neural Network (FCFNN) approach</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-fully-connected-feedforward-neural-network-fcfnn-approach-span" title="Permalink to this heading">#</a></h3>
-<p>let’s try the simplest method we have at our disposal, a FCFNN.
-Build an FCFNN that takes in the <code class="docutils literal notranslate"><span class="pre">[x,y,z,U]</span></code> and spits out <code class="docutils literal notranslate"><span class="pre">[TKE,</span> <span class="pre">Pressure,</span> <span class="pre">Velocity]</span></code></p>
-<p>To begin, we’ll load the data into a tensor and normalize it to prepare it for training.</p>
+<section id="span-style-color-orange-how-good-does-a-surrogate-need-to-be-baselines-first-span">
+<h2><span style="color:Orange">How good does a surrogate need to be? Baselines first</span><a class="headerlink" href="#span-style-color-orange-how-good-does-a-surrogate-need-to-be-baselines-first-span" title="Permalink to this heading">#</a></h2>
+<p>Before training neural networks, establish what simple methods achieve. We measure the error of a predicted field <span class="math notranslate nohighlight">\(\hat f\)</span> against the true field <span class="math notranslate nohighlight">\(f\)</span> of one simulation, separately for each quantity, as a relative <span class="math notranslate nohighlight">\(L_2\)</span> error normalized by the spatial variation of the true field:</p>
+<div class="math notranslate nohighlight">
+\[ \epsilon = \frac{\lVert \hat f - f \rVert_2}{\lVert f - \bar f \rVert_2}, \]</div>
+<p>where the norms run over all nodes and <span class="math notranslate nohighlight">\(\bar f\)</span> is the spatial mean. A pointwise relative error <span class="math notranslate nohighlight">\(|\hat f - f|/|f|\)</span> is misleading here, because pressure and TKE can be close to zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords_train</span> <span class="o">=</span> <span class="n">train_tensor</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">inlet_flat</span>   <span class="o">=</span> <span class="n">train_tensor</span><span class="p">[:,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># velocity at node 2</span>
-<span class="n">Xcat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">coords_train</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-                   <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">inlet_flat</span><span class="p">,</span> <span class="n">coords_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">//</span><span class="n">inlet_flat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">])</span>
-<span class="n">Y_flat</span> <span class="o">=</span> <span class="n">train_tensor</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="n">mu_in</span><span class="p">,</span>  <span class="n">s_in</span>  <span class="o">=</span> <span class="n">Xcat</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">Xcat</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="o">+</span> <span class="mf">1e-8</span>
-<span class="n">mu_out</span><span class="p">,</span> <span class="n">s_out</span> <span class="o">=</span> <span class="n">Y_flat</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">Y_flat</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-8</span>
-
-<span class="n">norm_stats</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">mu_in</span><span class="p">,</span>  <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">s_in</span><span class="p">,</span>   <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">mu_out</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">s_out</span><span class="p">,</span>  <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rel_l2</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">true</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Relative L2 error per field. pred, true: arrays of shape (N_nodes, 3) for [TKE, pressure, velocity].&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">true</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">true</span> <span class="o">-</span> <span class="n">true</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we have</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mu_in,</span> <span class="pre">s_in</span></code></p></li>
-</ul>
-<p>which are the per‑feature mean and standard deviation of inputs [x, y, z, U]</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mu_out,</span> <span class="pre">s_out</span></code></p></li>
-</ul>
-<p>which are  the per‑feature mean and standard deviation of targets [TKE, Pressure, Velocity].</p>
+<section id="span-style-color-lightgreen-question-05-baselines-span">
+<h3><span style="color:LightGreen">Question 05: Baselines</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-baselines-span" title="Permalink to this heading">#</a></h3>
+<p>Implement two baselines that use only the stored training simulations, and evaluate them on every simulation in the evaluation set:</p>
+<ol class="arabic simple">
+<li><p><strong>Nearest neighbour:</strong> predict the fields of the training simulation whose inlet velocity is closest to <span class="math notranslate nohighlight">\(U\)</span>.</p></li>
+<li><p><strong>Linear interpolation:</strong> interpolate each node’s values linearly in <span class="math notranslate nohighlight">\(U\)</span> between the two training simulations whose inlet velocities bracket <span class="math notranslate nohighlight">\(U\)</span>.</p></li>
+</ol>
+<p>Report the median <code class="docutils literal notranslate"><span class="pre">rel_l2</span></code> for each field. Also perform a principal component analysis (SVD) of the training fields of each quantity, across simulations, after subtracting the mean field. What fraction of the variance between simulations is captured by the first mode? What does that tell you about how complicated the mapping from <span class="math notranslate nohighlight">\(U\)</span> to the flow field is?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<div><img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<section id="span-style-color-orange-neural-network-surrogates-span">
+<h2><span style="color:Orange">Neural-network surrogates</span><a class="headerlink" href="#span-style-color-orange-neural-network-surrogates-span" title="Permalink to this heading">#</a></h2>
+<p>Now that we have established that CFD requires significant computational resources, we can see why it is not suitable for real-time prediction of a system’s state. Machine learning offers an alternative: a model trained on simulations of the system’s geometry can predict its state almost instantly. Two approaches follow; implement both and compare them with each other and with the baselines.</p>
+<p>Because the y-coordinate is constant, we use <span class="math notranslate nohighlight">\((x, z)\)</span> as the spatial coordinates. Each node’s input features are therefore <span class="math notranslate nohighlight">\([x, z, U]\)</span>, and its targets are <span class="math notranslate nohighlight">\([\text{TKE}, \text{pressure}, \text{velocity}]\)</span>. The normalization statistics are computed from the training set only.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">node_inputs</span><span class="p">(</span><span class="n">tensor</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Per-node inputs [x, z, U] for every simulation in `tensor`: shape (n_sims, N_nodes, 3).&quot;&quot;&quot;</span>
+    <span class="n">n_sims</span><span class="p">,</span> <span class="n">n_nodes</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">xz</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">tensor</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">n_nodes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">xz</span><span class="p">,</span> <span class="n">U</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span> <span class="o">=</span> <span class="n">node_inputs</span><span class="p">(</span><span class="n">train_tensor</span><span class="p">),</span> <span class="n">train_tensor</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">X_eval</span><span class="p">,</span>  <span class="n">Y_eval</span>  <span class="o">=</span> <span class="n">node_inputs</span><span class="p">(</span><span class="n">eval_tensor</span><span class="p">),</span>  <span class="n">eval_tensor</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="n">mu_in</span><span class="p">,</span>  <span class="n">s_in</span>  <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mu_out</span><span class="p">,</span> <span class="n">s_out</span> <span class="o">=</span> <span class="n">Y_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Y_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">norm_stats</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mu_in&quot;</span><span class="p">:</span> <span class="n">mu_in</span><span class="p">,</span> <span class="s2">&quot;s_in&quot;</span><span class="p">:</span> <span class="n">s_in</span><span class="p">,</span> <span class="s2">&quot;mu_out&quot;</span><span class="p">:</span> <span class="n">mu_out</span><span class="p">,</span> <span class="s2">&quot;s_out&quot;</span><span class="p">:</span> <span class="n">s_out</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-lightgreen-question-06-fully-connected-feedforward-neural-network-fcfnn-span">
+<h3><span style="color:LightGreen">Question 06: Fully connected feedforward neural network (FCFNN)</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-fully-connected-feedforward-neural-network-fcfnn-span" title="Permalink to this heading">#</a></h3>
+<p>Start with the simplest method: an FCFNN that maps a single node’s inputs <span class="math notranslate nohighlight">\([x, z, U]\)</span> to its outputs <span class="math notranslate nohighlight">\([\text{TKE}, \text{pressure}, \text{velocity}]\)</span>. Every node of every training simulation is one training example (about 1.8 million examples), so train with mini-batches.</p>
+<p>Train it, plot the training loss, and save the model together with the normalization statistics, as in the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FCFNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="c1">#YOUR CODE HERE</span>
-<span class="n">model</span> <span class="o">=</span> 
-<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;fcfnn_checkpoint.pth&#39;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">output_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># YOUR CODE HERE</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># YOUR CODE HERE</span>
+        <span class="k">pass</span>
+
+<span class="n">fcfnn</span> <span class="o">=</span> <span class="n">FCFNN</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="c1"># YOUR CODE HERE: training loop on the normalized inputs/targets</span>
+
+<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">({</span><span class="s2">&quot;model_state_dict&quot;</span><span class="p">:</span> <span class="n">fcfnn</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s2">&quot;norm_stats&quot;</span><span class="p">:</span> <span class="n">norm_stats</span><span class="p">},</span> <span class="s2">&quot;fcfnn_checkpoint.pt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="span-style-color-lightgreen-question-06-graph-neural-networks-span">
-<h3><span style="color:LightGreen">Question 06: Graph neural networks</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-graph-neural-networks-span" title="Permalink to this heading">#</a></h3>
-<p>Treat each mesh point in the CFD simulation as a node whose behavior is influenced by its neighbors, and capture these local interactions with a graph neural network. Construct a GNN that first builds a K‑nearest‑neighbor graph based on the 3D coordinates, then processes the normalized input features<code class="docutils literal notranslate"><span class="pre">[x,y,z,U]</span></code> through an encoder, several graph‑convolution layers, and a decoder to predict the three target fields <code class="docutils literal notranslate"><span class="pre">[TKE,</span> <span class="pre">Pressure,</span> <span class="pre">Velocity]</span></code> just like the FCFNN.</p>
-<p>Be sure to standardize both inputs and outputs before training.</p>
+<section id="span-style-color-lightgreen-question-07-graph-neural-network-gnn-span">
+<h3><span style="color:LightGreen">Question 07: Graph neural network (GNN)</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-graph-neural-network-gnn-span" title="Permalink to this heading">#</a></h3>
+<p>Treat each mesh node as a node of a graph, whose behaviour is influenced by its neighbours, and capture these local interactions with a graph neural network <a class="reference external" href="https://arxiv.org/abs/1704.01212">[4]</a>, <a class="reference external" href="https://arxiv.org/abs/2010.03409">[5]</a>. Construct a GNN that:</p>
+<ol class="arabic simple">
+<li><p>builds a <span class="math notranslate nohighlight">\(k\)</span>-nearest-neighbour graph from the <span class="math notranslate nohighlight">\((x, z)\)</span> coordinates (the mesh is the same for all simulations, so the graph is built once);</p></li>
+<li><p>maps the normalized node features <span class="math notranslate nohighlight">\([x, z, U]\)</span> to a hidden representation with an <strong>encoder</strong>;</p></li>
+<li><p>applies several <strong>message-passing layers</strong>: each node updates its representation using its own state and the mean of its neighbours’ states;</p></li>
+<li><p>maps back to <span class="math notranslate nohighlight">\([\text{TKE}, \text{pressure}, \text{velocity}]\)</span> with a <strong>decoder</strong>.</p></li>
+</ol>
+<p>Each training example is a whole simulation (one graph). Implement the missing pieces in plain PyTorch. You can implement the neighbour aggregation with <code class="docutils literal notranslate"><span class="pre">torch.Tensor.index_add_</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SEED</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="n">hidden_dim</span>     <span class="o">=</span> <span class="mi">128</span>
-<span class="n">num_layers</span>     <span class="o">=</span> <span class="mi">3</span>
-<span class="n">learning_rate</span>  <span class="o">=</span> <span class="mf">1e-3</span>
-<span class="n">epochs</span>          <span class="o">=</span> <span class="mi">15</span>
-<span class="n">batch_size</span>      <span class="o">=</span> <span class="mi">1</span>
-<span class="n">k_neighbors</span>     <span class="o">=</span> <span class="mi">6</span>      <span class="c1"># for KNN graph</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_dim</span>    <span class="o">=</span> <span class="mi">128</span>
+<span class="n">num_layers</span>    <span class="o">=</span> <span class="mi">3</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">epochs</span>        <span class="o">=</span> <span class="mi">15</span>
+<span class="n">k_neighbors</span>   <span class="o">=</span> <span class="mi">6</span>
 </pre></div>
 </div>
 </div>
@@ -859,254 +860,161 @@ Build an FCFNN that takes in the <code class="docutils literal notranslate"><spa
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_knn_graph</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Given coords of shape (N,3), build a 2xE edge_index tensor</span>
-<span class="sd">    connecting each node to its k nearest neighbors (excluding itself).</span>
-<span class="sd">    Returns: torch.LongTensor edge_index</span>
+<span class="sd">    coords: array (N, 2) of node coordinates.</span>
+<span class="sd">    Returns edge_index, a LongTensor of shape (2, N*k): edge_index[0] = source node i,</span>
+<span class="sd">    edge_index[1] = one of the k nearest neighbours of i (excluding i itself).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FlowDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_tensor</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm_stats</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_tensor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mu_in</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s_in</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu_out</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s_out</span> <span class="o">=</span> <span class="n">norm_stats</span>
-        <span class="c1"># coords identical for every sim</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_tensor</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:</span><span class="mi">3</span><span class="p">][</span><span class="n">mask</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">edge_index</span> <span class="o">=</span> <span class="n">build_knn_graph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">k_neighbors</span><span class="p">)</span>
+    <span class="c1"># YOUR CODE HERE (hint: sklearn.neighbors.NearestNeighbors)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FlowDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;One item = one simulation: normalized node inputs x (N, 3) and targets y (N, 3).&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">norm_stats</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">node_inputs</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm_stats</span><span class="p">[</span><span class="s2">&quot;mu_in&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">norm_stats</span><span class="p">[</span><span class="s2">&quot;s_in&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="p">(</span><span class="n">tensor</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">-</span> <span class="n">norm_stats</span><span class="p">[</span><span class="s2">&quot;mu_out&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">norm_stats</span><span class="p">[</span><span class="s2">&quot;s_out&quot;</span><span class="p">]</span>
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-        <span class="c1"># 2) Extract xyz positions and inlet velocity and normalize inputs (x) and outputs (y)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+                <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
 
-        <span class="c1"># YOUR CODE HERE</span>
 
-        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edge_index</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">collate_graph</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">GraphConvLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GraphConvLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="c1"># Initialize linear layers for self‑ and neighbor contributions</span>
+        <span class="c1"># linear maps for the node&#39;s own state and for the aggregated neighbour states</span>
         <span class="c1"># YOUR CODE HERE</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">):</span>
-        <span class="c1">#implement message passing</span>
+        <span class="c1"># message passing: mean over neighbours, combine with own state, non-linearity (+ residual connection)</span>
         <span class="c1"># YOUR CODE HERE</span>
+        <span class="k">pass</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FlowGNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_dim</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="c1"># 1) Define an encoder to map input features to hidden_dim</span>
-        <span class="c1"># 2) Create a sequence of GraphConvLayer modules</span>
-        <span class="c1"># 3) Define a decoder to map back to output dimension</span>
-
+        <span class="c1"># encoder, n_layers GraphConvLayers, decoder</span>
         <span class="c1"># YOUR CODE HERE</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">):</span>
-        <span class="c1"># implement GNN forward</span>
         <span class="c1"># YOUR CODE HERE</span>
+        <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now create a training loop</p>
+<p>Now train the GNN. The graph is the same for every simulation, so it is built once and moved to the device.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span> <span class="o">=</span> <span class="n">FlowDataset</span><span class="p">(</span><span class="n">train_tensor</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">norm_stats</span><span class="p">)</span>
-<span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">FlowGNN</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
-<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="c1">#YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edge_index</span> <span class="o">=</span> <span class="n">build_knn_graph</span><span class="p">(</span><span class="n">data_tensor</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span> <span class="n">k_neighbors</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">FlowDataset</span><span class="p">(</span><span class="n">train_tensor</span><span class="p">,</span> <span class="n">norm_stats</span><span class="p">),</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;gnn_checkpoint.pth&#39;</span><span class="p">)</span>
+<span class="n">gnn</span> <span class="o">=</span> <span class="n">FlowGNN</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">gnn</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE: loop over train_loader (x, y have a leading batch dimension of 1), plot/print the loss</span>
+    <span class="k">pass</span>
+
+<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">({</span><span class="s2">&quot;model_state_dict&quot;</span><span class="p">:</span> <span class="n">gnn</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s2">&quot;norm_stats&quot;</span><span class="p">:</span> <span class="n">norm_stats</span><span class="p">},</span> <span class="s2">&quot;gnn_checkpoint.pt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="span-style-color-lightgreen-question-07-visualizing-the-output-of-the-models-span">
-<h3><span style="color:LightGreen">Question 07: Visualizing the output of the models</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-visualizing-the-output-of-the-models-span" title="Permalink to this heading">#</a></h3>
-<p>Implement a function <code class="docutils literal notranslate"><span class="pre">predict_fields(U)</span></code> that, given an inlet velocity <code class="docutils literal notranslate"><span class="pre">U</span></code> and model <code class="docutils literal notranslate"><span class="pre">GNN</span></code> or <code class="docutils literal notranslate"><span class="pre">FCFNN</span></code>, computes and returns the model’s predicted field values across the entire pipe.</p>
+<section id="span-style-color-lightgreen-question-08-predicting-a-whole-flow-field-span">
+<h3><span style="color:LightGreen">Question 08: Predicting a whole flow field</span><a class="headerlink" href="#span-style-color-lightgreen-question-08-predicting-a-whole-flow-field-span" title="Permalink to this heading">#</a></h3>
+<p>The function below loads a saved model and predicts the fields over the whole pipe for a given inlet velocity <span class="math notranslate nohighlight">\(U\)</span>. Read it and make sure you understand each step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_fields</span><span class="p">(</span><span class="n">U</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">model_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Given inlet velocity U, returns an (N, 6) array:</span>
-<span class="sd">    [x, y, z, TKE_pred, pressure_pred, velocity_pred]</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords_xz</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">predict_fields</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">model_type</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Predict [TKE, pressure, velocity] at every node for inlet velocity U. Returns an array (N_nodes, 3).&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">model_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;GNN&quot;</span><span class="p">:</span>
-        <span class="n">ckpt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;flow_gnn_checkpoint.pt&quot;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">FlowGNN</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">)</span>
+        <span class="n">ckpt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;gnn_checkpoint.pt&quot;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">FlowGNN</span><span class="p">(</span><span class="n">in_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">model_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;FCFNN&quot;</span><span class="p">:</span>
-        <span class="n">ckpt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;fcfnn_checkpoint.pt&quot;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">FCFNN</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">hidden_dims</span><span class="o">=</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,)</span><span class="o">*</span><span class="n">num_layers</span><span class="p">,</span> <span class="n">output_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#you might want to change these values to match your model</span>
+        <span class="n">ckpt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;fcfnn_checkpoint.pt&quot;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">FCFNN</span><span class="p">()</span>   <span class="c1"># change the arguments here if you changed the architecture</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported model_type: </span><span class="si">{</span><span class="n">model_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">ckpt</span><span class="p">[</span><span class="s1">&#39;model_state_dict&#39;</span><span class="p">])</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">ckpt</span><span class="p">[</span><span class="s2">&quot;model_state_dict&quot;</span><span class="p">])</span>
     <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-    <span class="n">mu_in</span><span class="p">,</span> <span class="n">s_in</span><span class="p">,</span> <span class="n">mu_out</span><span class="p">,</span> <span class="n">s_out</span> <span class="o">=</span> <span class="n">ckpt</span><span class="p">[</span><span class="s1">&#39;norm_stats&#39;</span><span class="p">]</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="n">ckpt</span><span class="p">[</span><span class="s2">&quot;norm_stats&quot;</span><span class="p">]</span>
 
-    <span class="n">coords_np</span>  <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-    <span class="n">edge_index</span> <span class="o">=</span> <span class="n">build_knn_graph</span><span class="p">(</span><span class="n">coords_np</span><span class="p">,</span> <span class="n">k_neighbors</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-
-    <span class="n">N</span> <span class="o">=</span> <span class="n">coords_np</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">U_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">U</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-    <span class="n">X_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">coords_np</span><span class="p">,</span> <span class="n">U_col</span><span class="p">])</span>
-    <span class="n">X_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_raw</span> <span class="o">-</span> <span class="n">mu_in</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span> <span class="o">/</span> <span class="n">s_in</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-
-    <span class="n">x_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X_norm</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">coords_xz</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">coords_xz</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="n">U</span><span class="p">)])</span>
+    <span class="n">x_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">((</span><span class="n">X</span> <span class="o">-</span> <span class="n">ns</span><span class="p">[</span><span class="s2">&quot;mu_in&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">ns</span><span class="p">[</span><span class="s2">&quot;s_in&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">model_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;GNN&quot;</span><span class="p">:</span>
-            <span class="n">out_norm</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">Data</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_t</span><span class="p">,</span> <span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">out_norm</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_t</span><span class="p">)</span>
-
-    <span class="c1"># De-normalize outputs</span>
-    <span class="n">Y_pred</span> <span class="o">=</span> <span class="p">(</span><span class="n">out_norm</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">*</span> <span class="n">s_out</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span> <span class="o">+</span> <span class="n">mu_out</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-
-    <span class="c1"># Return stacked coords + predictions</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">coords_np</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">])</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_t</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">)</span> <span class="k">if</span> <span class="n">model_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;GNN&quot;</span> <span class="k">else</span> <span class="n">model</span><span class="p">(</span><span class="n">x_t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">*</span> <span class="n">ns</span><span class="p">[</span><span class="s2">&quot;s_out&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ns</span><span class="p">[</span><span class="s2">&quot;mu_out&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we are ready! with the simple call of a function and an input of inlet velocity, we can get the profile for the whole pipe.</p>
-<p>Now let’s test the run time and plot an example.</p>
 </section>
-<section id="span-style-color-lightgreen-question-08-evaluation-of-the-models-span">
-<h3><span style="color:LightGreen">Question 08: Evaluation of the models </span><a class="headerlink" href="#span-style-color-lightgreen-question-08-evaluation-of-the-models-span" title="Permalink to this heading">#</a></h3>
+<section id="span-style-color-lightgreen-question-09-evaluating-the-models-span">
+<h3><span style="color:LightGreen">Question 09: Evaluating the models</span><a class="headerlink" href="#span-style-color-lightgreen-question-09-evaluating-the-models-span" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Runtime:</strong> time a single call of <code class="docutils literal notranslate"><span class="pre">predict_fields</span></code> for each model (exclude the first call, which includes loading and warm-up), and compare it with the time for a CFD simulation (Question 01).</p></li>
+<li><p><strong>Accuracy:</strong> for every simulation in the evaluation set, predict the fields at its own inlet velocity, and compute <code class="docutils literal notranslate"><span class="pre">rel_l2</span></code> for each model. Compare the median errors with the baselines of Question 05.</p></li>
+<li><p><strong>Error maps:</strong> for one evaluation simulation, plot the predicted fields of both models next to the true fields, and plot maps of the absolute error divided by the range of each true field.</p></li>
+</ol>
+<p>Which method works best for this use case, and why? Think about how many independent parameters describe this family of flows (Question 05), and what a network that maps coordinates to field values has to learn <a class="reference external" href="https://arxiv.org/abs/2006.10739">[6]</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Time GNN prediction</span>
-<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="n">gnn_output</span> <span class="o">=</span> <span class="c1">#YOUR CODE HERE</span>
-<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GNN predict_fields took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-
-<span class="c1"># Time FCFNN prediction</span>
-<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="n">fcfnn_output</span> <span class="o">=</span> <span class="c1">#YOUR CODE HERE</span>
-<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FCFNN predict_fields took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-
-<span class="c1"># plot outputs</span>
-<span class="n">var_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TKE&#39;</span><span class="p">,</span> <span class="s1">&#39;Pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;Velocity&#39;</span><span class="p">]</span>
-<span class="n">model_outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">gnn_output</span><span class="p">,</span> <span class="n">fcfnn_output</span><span class="p">]</span>
-<span class="n">model_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GNN&#39;</span><span class="p">,</span> <span class="s1">&#39;FCFNN&#39;</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">model_out</span><span class="p">,</span> <span class="n">model_label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">model_outputs</span><span class="p">,</span> <span class="n">model_labels</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">model_out</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">model_out</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
-
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_names</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">var_names</span><span class="p">):</span>
-        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="n">model_out</span><span class="p">[:,</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">idx</span><span class="p">]</span>
-        <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_label</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-
-    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_label</span><span class="si">}</span><span class="s2"> Single Simulation Visualization&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>As you can see this is quite powerful, we no longer need to compute the profile of the pipe using CFD anymore, we can just call the predict_fields function and we will get what we need in an instant!</p>
-<p>now before we use this model to monitor our pipe, we should check for validity, the code below shows the loss in each of the 4 outputs.</p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<div><img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="span-style-color-lightgreen-question-10-relationship-between-re-and-error-span">
+<h3><span style="color:LightGreen">Question 10: Relationship between Re and error</span><a class="headerlink" href="#span-style-color-lightgreen-question-10-relationship-between-re-and-error-span" title="Permalink to this heading">#</a></h3>
+<p>Plot the error of each model (and of the baselines) against Re for the simulations in the evaluation set. Was your expectation from Question 04 correct? Which matters more here: the physics of turbulence, or where a simulation lies within the range of the training data?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span>   <span class="o">=</span> <span class="mi">0</span>
-<span class="n">U_val</span> <span class="o">=</span> <span class="mf">0.69</span>
-<span class="n">ε</span>     <span class="o">=</span> <span class="mf">1e-8</span> <span class="c1">#to avoid accidental division by 0</span>
-<span class="n">coords_np</span> <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-
-<span class="c1"># Ground truth</span>
-<span class="n">actual</span>    <span class="o">=</span> <span class="n">data_tensor</span><span class="p">[</span><span class="n">sim</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-
-<span class="c1"># Predictions</span>
-<span class="n">gnn_pred</span>    <span class="o">=</span> <span class="n">predict_fields</span><span class="p">(</span><span class="n">U_val</span><span class="p">,</span> <span class="s2">&quot;GNN&quot;</span><span class="p">)[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-<span class="n">fcfnn_pred</span>  <span class="o">=</span> <span class="n">predict_fields</span><span class="p">(</span><span class="n">U_val</span><span class="p">,</span> <span class="s2">&quot;FCFNN&quot;</span><span class="p">)[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-
-<span class="c1"># Compute relative errors: |pred - true| / (|true| + ε)</span>
-<span class="n">gnn_rel_err</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">gnn_pred</span>   <span class="o">-</span> <span class="n">actual</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="o">+</span> <span class="n">ε</span><span class="p">)</span>
-<span class="n">fcfnn_rel_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fcfnn_pred</span> <span class="o">-</span> <span class="n">actual</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="o">+</span> <span class="n">ε</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">rel_err</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">gnn_rel_err</span><span class="p">,</span> <span class="s2">&quot;GNN&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">fcfnn_rel_err</span><span class="p">,</span> <span class="s2">&quot;FCFNN&quot;</span><span class="p">)]:</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">coords_np</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">coords_np</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
-
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_names</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">var_names</span><span class="p">):</span>
-        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-        <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-            <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span>
-            <span class="n">c</span><span class="o">=</span><span class="n">rel_err</span><span class="p">[:,</span> <span class="n">idx</span><span class="p">],</span>
-            <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span>
-        <span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> Relative Error&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> – </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> Rel. Error&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-
-    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> Relative Error Field&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>From the results above, which NN works best for this use case? Answer below:</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="span-style-color-lightgreen-question-09-relationship-between-re-and-loss-span">
-<h3><span style="color:LightGreen">Question 09: Relationship between Re and loss </span><a class="headerlink" href="#span-style-color-lightgreen-question-09-relationship-between-re-and-loss-span" title="Permalink to this heading">#</a></h3>
-<p>Write a breif scrip that plots Re vs model loss for both models over the evaluation simulations.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#YOUR CODE HERE</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Was your initial guess about the relationship between Re and the model’s accuracy correct? Answer below.</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="span-style-color-lightgreen-question-10-possible-improvements-optional-span">
-<h3><span style="color:LightGreen">Question 10: Possible improvements (optional) </span><a class="headerlink" href="#span-style-color-lightgreen-question-10-possible-improvements-optional-span" title="Permalink to this heading">#</a></h3>
-<p>What enhancements or modifications would you suggest for these surrogate models?</p>
-<p>Is there another technique that you think will work better? feel free to test it down below.</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<div><img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="span-style-color-lightgreen-question-11-possible-improvements-optional-span">
+<h3><span style="color:LightGreen">Question 11: Possible improvements (optional)</span><a class="headerlink" href="#span-style-color-lightgreen-question-11-possible-improvements-optional-span" title="Permalink to this heading">#</a></h3>
+<p>What enhancements or modifications would you suggest for these surrogate models? Some ideas to test:</p>
+<ul class="simple">
+<li><p>train longer, tune the learning rate, or use a learning-rate schedule;</p></li>
+<li><p>encode the coordinates with Fourier features <a class="reference external" href="https://arxiv.org/abs/2006.10739">[6]</a>, so that the network can represent fine spatial structure;</p></li>
+<li><p>predict the coefficients of the leading principal components from Question 05 as a function of <span class="math notranslate nohighlight">\(U\)</span>, instead of predicting every node separately;</p></li>
+<li><p>a DeepONet <a class="reference external" href="https://doi.org/10.1038/s42256-021-00302-5">[2]</a>, the architecture used in Ref. <a class="reference external" href="https://doi.org/10.1038/s41529-025-00557-y">[1]</a>;</p></li>
+<li><p>test <strong>extrapolation</strong>: train only on simulations with <span class="math notranslate nohighlight">\(U\)</span> in the lower 80% of the range, and evaluate on the highest 20%. How do the networks and the interpolation baselines compare now?</p></li>
+</ul>
+<p>In what kind of problem would a neural-network surrogate clearly beat interpolation between stored simulations? Think about problems with many input parameters, e.g. several boundary conditions or a varying geometry.</p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg"><img alt="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" class="align-left" src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsStart.svg" width="200" /></a></img><br></p>
+<div><img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<section id="span-style-color-orange-references-span">
+<h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
+<p><strong>[<span style="color:Red">1</span>]</strong> R. Hossain, F. Ahmed, K. Kobayashi, S. Koric, D. Abueidda, S. B. Alam, “Virtual sensing-enabled digital twin framework for real-time monitoring of nuclear systems leveraging deep neural operators,” <em>npj Mater. Degrad.</em> <strong>9</strong>, 21 (2025). <a class="reference external" href="https://doi.org/10.1038/s41529-025-00557-y">doi:10.1038/s41529-025-00557-y</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> L. Lu, P. Jin, G. Pang, Z. Zhang, G. E. Karniadakis, “Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators,” <em>Nat. Mach. Intell.</em> <strong>3</strong>, 218 (2021). <a class="reference external" href="https://doi.org/10.1038/s42256-021-00302-5">doi:10.1038/s42256-021-00302-5</a>, <a class="reference external" href="https://arxiv.org/abs/1910.03193">arXiv:1910.03193</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> J. Alvarez, M. Nobe, “The Ultimate Guide to Write Your First CFD Solver,” Jupyter notebook. <a class="reference external" href="https://colab.research.google.com/github/josealvarez97/The-Ultimate-Guide-to-Write-Your-First-CFD-Solver/blob/main/The_Ultimate_Guide_to_Write_Your_First_CFD_Solver.ipynb">https://colab.research.google.com/github/josealvarez97/The-Ultimate-Guide-to-Write-Your-First-CFD-Solver/blob/main/The_Ultimate_Guide_to_Write_Your_First_CFD_Solver.ipynb</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> J. Gilmer, S. S. Schoenholz, P. F. Riley, O. Vinyals, G. E. Dahl, “Neural Message Passing for Quantum Chemistry,” <em>Proc. ICML</em> (2017). <a class="reference external" href="https://arxiv.org/abs/1704.01212">arXiv:1704.01212</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> T. Pfaff, M. Fortunato, A. Sanchez-Gonzalez, P. W. Battaglia, “Learning Mesh-Based Simulation with Graph Networks,” <em>Proc. ICLR</em> (2021). <a class="reference external" href="https://arxiv.org/abs/2010.03409">arXiv:2010.03409</a></p>
+<p><strong>[<span style="color:Red">6</span>]</strong> M. Tancik <em>et al.</em>, “Fourier Features Let Networks Learn High Frequency Functions in Low Dimensional Domains,” <em>Proc. NeurIPS</em> (2020). <a class="reference external" href="https://arxiv.org/abs/2006.10739">arXiv:2006.10739</a></p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Abdulaziz Alshohail with some guidance from Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -1174,30 +1082,36 @@ Build an FCFNN that takes in the <code class="docutils literal notranslate"><spa
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-1-2-motivation-for-creating-a-surrogate-model-span"><span style="color:Orange">Questions 1 &amp; 2: Motivation for creating a surrogate model</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-01-02-motivation-for-creating-a-surrogate-model-span"><span style="color:Orange">Questions 01 &amp; 02: Motivation for creating a surrogate model</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-cfd-runtime-span"><span style="color:LightGreen">Question 01: CFD runtime</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-structure-from-the-cfd-simulation-span"><span style="color:Orange">Data structure from the CFD simulation</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-the-3-quantities-span"><span style="color:LightGreen">Question 02: the 3 quantities </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-the-3-quantities-span"><span style="color:LightGreen">Question 02: the 3 quantities</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-preparation-span"><span style="color:Orange">Data preparation</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-data-preprocessing-span"><span style="color:LightGreen">Question 03: Data preprocessing</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-reynolds-number-re-span"><span style="color:LightGreen">Reynolds Number (Re)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-reynolds-number-re-span"><span style="color:LightGreen">Reynolds number (Re)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-predictability-and-re-span"><span style="color:LightGreen">Question 04: Predictability and Re</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-visualizing-understanding-the-data-span"><span style="color:LightGreen">Visualizing understanding the data</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-visualizing-the-data-span"><span style="color:LightGreen">Visualizing the data</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-real-time-monitoring-of-the-pipe-by-ml-span"><span style="color:Orange">Real-time monitoring  of the pipe by ML</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-fully-connected-feedforward-neural-network-fcfnn-approach-span"><span style="color:LightGreen">Question 05: Fully Connected Feedforward Neural Network (FCFNN) approach</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-graph-neural-networks-span"><span style="color:LightGreen">Question 06: Graph neural networks</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-visualizing-the-output-of-the-models-span"><span style="color:LightGreen">Question 07: Visualizing the output of the models</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-evaluation-of-the-models-span"><span style="color:LightGreen">Question 08: Evaluation of the models </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-relationship-between-re-and-loss-span"><span style="color:LightGreen">Question 09: Relationship between Re and loss </span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-10-possible-improvements-optional-span"><span style="color:LightGreen">Question 10: Possible improvements (optional) </span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-how-good-does-a-surrogate-need-to-be-baselines-first-span"><span style="color:Orange">How good does a surrogate need to be? Baselines first</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-baselines-span"><span style="color:LightGreen">Question 05: Baselines</span></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-neural-network-surrogates-span"><span style="color:Orange">Neural-network surrogates</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-fully-connected-feedforward-neural-network-fcfnn-span"><span style="color:LightGreen">Question 06: Fully connected feedforward neural network (FCFNN)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-graph-neural-network-gnn-span"><span style="color:LightGreen">Question 07: Graph neural network (GNN)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-predicting-a-whole-flow-field-span"><span style="color:LightGreen">Question 08: Predicting a whole flow field</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-evaluating-the-models-span"><span style="color:LightGreen">Question 09: Evaluating the models</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-10-relationship-between-re-and-error-span"><span style="color:LightGreen">Question 10: Relationship between Re and error</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-11-possible-improvements-optional-span"><span style="color:LightGreen">Question 11: Possible improvements (optional)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
 </ul>
   </nav></div>

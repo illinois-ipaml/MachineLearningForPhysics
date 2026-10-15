@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Beam Angle Optimization for Radiative Cancer Therapy &#8212; PHYS 503</title>
+    <title>Beam Angle Optimization for Radiation Therapy &#8212; PHYS 503</title>
   
   
   
@@ -292,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_02_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_GravitationalWaves.html">Detection of Gravitational Waves</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Beam Angle Optimization for Radiative Cancer Therapy</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Beam Angle Optimization for Radiation Therapy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_TailPulsePileupRejection.html">Precision Neutron Counting with Tail Pulse Pileup Rejection</a></li>
 
 
@@ -508,7 +508,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Beam Angle Optimization for Radiative Cancer Therapy</h1>
+    <h1>Beam Angle Optimization for Radiation Therapy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -519,14 +519,20 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-absorption-scattering-span"><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-dosimetry-span"><span style="color:LightGreen">Question 02: Dosimetry</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-proton-therapy-span"><span style="color:LightGreen">Question 03: Proton Therapy</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-preparing-tensors-span"><span style="color:LightGreen">Question 04: Preparing Tensors</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-reinforcement-learning-span"><span style="color:LightGreen">Question 05: Reinforcement Learning</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-physics-informed-reinforcement-learning-span"><span style="color:LightGreen">Question 06: Physics-informed reinforcement learning</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-modelling-radiation-beams-span"><span style="color:Orange">Modelling radiation beams</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-choosing-beam-angles-reward-search-and-reinforcement-learning-span"><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-a-physics-informed-beam-span"><span style="color:LightGreen">Question 06: A physics-informed beam</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-deep-reinforcement-learning-optional-span"><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-further-ideas-optional-span"><span style="color:LightGreen">Further ideas (optional)</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
@@ -542,90 +548,104 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="beam-angle-optimization-for-radiative-cancer-therapy">
-<h1>Beam Angle Optimization for Radiative Cancer Therapy<a class="headerlink" href="#beam-angle-optimization-for-radiative-cancer-therapy" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="beam-angle-optimization-for-radiation-therapy">
+<h1>Beam Angle Optimization for Radiation Therapy<a class="headerlink" href="#beam-angle-optimization-for-radiation-therapy" title="Permalink to this heading">#</a></h1>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Project_Radiotherapy-overview.jpg" width=600>
 </div><section id="span-style-color-orange-overview-span">
 <h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
-<p>In November 1895, Wilhelm Röntgen accidentally discovered X-rays while fiddling with cathode ray tubes. He proceeded to pass these rays through his wife’s hand to create the world’s first X-ray image. This was a pivotal time for the field of medical physics (and their marriage): a means to harness physics phenomena to better the human condition.</p>
-<p>Today, radiation therapy involves firing intense beams of ionizing radiation to obliterate cancer cell DNA and halt the malicious growth of tumors. A patient is often laid before a gantry, essentially a LINAC accelerator, that ejects X-rays (or protons, when further precision is required). A rigorous treatment plan requires consideration of:</p>
+<p>In November 1895, Wilhelm Röntgen discovered X-rays while experimenting with cathode-ray tubes. A few weeks later he made one of the first X-ray images, of his wife’s hand. It was a pivotal moment for medical physics: a way to harness physical phenomena to improve the human condition.</p>
+<p>Today, radiation therapy uses beams of ionizing radiation to damage the DNA of cancer cells and stop tumours from growing. The patient lies on a couch while a <strong>gantry</strong>, which carries a linear accelerator (LINAC), rotates around them and delivers X-ray beams (or proton beams, when greater precision is needed) from several directions. A treatment plan must balance:</p>
 <ul class="simple">
-<li><p>The ‘dose’ of radiation that a patient can handle (determined by understanding the physical interactions of radiation with tissue)</p></li>
-<li><p>Beam-Angle Optimization (BAO): annihilating cancerous tissue while preserving healthy cells. BAO involves finding the ideal set of beam paths to accomplish precisely this goal. The machine learning methods we’ve studied thus far have been instrumental in better resolving this combinatorial problem</p></li>
+<li><p>the <strong>dose</strong> delivered to the tumour, which must be high enough to control it; and</p></li>
+<li><p>the dose delivered to healthy tissue, especially to sensitive <strong>organs at risk</strong>, which must be kept below safe limits.</p></li>
 </ul>
-<p>We will be extracting patient head-neck CT scan + mask data (our ‘input’) from the medical physics OpenKBP challenge. This is real clinical data, and you could make significant contributions to healthcare and cancer treatment by going above &amp; beyond what you learn here!</p>
+<p><strong>Beam angle optimization (BAO)</strong> is the problem of choosing the set of beam directions that best achieves this balance. It is a hard combinatorial problem, and it has motivated many optimization and machine-learning approaches.</p>
+<p>In this project you will work with real (anonymized) clinical CT scans and contours of head-and-neck cancer patients from the OpenKBP challenge <a class="reference external" href="https://doi.org/10.1002/mp.14845">[1]</a>. You will build a simple physical model of radiation beams, and use search and reinforcement learning to choose beam angles.</p>
+</section>
+<section id="span-style-color-orange-learning-objectives-span">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#span-style-color-orange-learning-objectives-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Explain how megavoltage X-rays deposit dose in tissue, and how this differs for protons.</p></li>
+<li><p>Load and visualize 3D medical imaging data with organ and tumour masks.</p></li>
+<li><p>Build a physics-based model of a radiation beam, including attenuation in tissue.</p></li>
+<li><p>Formulate beam-angle selection as an optimization problem with a reward based on dose objectives, and solve it with a greedy search and with reinforcement learning (Q-learning).</p></li>
+<li><p>Critically compare a learning method with simple baselines.</p></li>
+</ul>
 </section>
 <section id="span-style-color-orange-data-sources-span">
 <h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
-<p>Original Source <strong>[<span style="color:Red">1</span>]</strong></p>
+<p>The data are a subset of 10 patients from the OpenKBP challenge dataset <a class="reference external" href="https://doi.org/10.1002/mp.14845">[1]</a>, <a class="reference external" href="https://github.com/ababier/open-kbp">[2]</a>, which contains 340 head-and-neck cancer patients treated with intensity-modulated radiation therapy.</p>
 <ul class="simple">
-<li><p><a class="github reference external" href="https://github.com/ababier/open-kbp">ababier/open-kbp</a></p></li>
+<li><p>Course mirror: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip</a> (14 MB)</p></li>
 </ul>
-<p>Local Copy URL</p>
+<p>Each patient folder (<code class="docutils literal notranslate"><span class="pre">pt_1</span></code>, <code class="docutils literal notranslate"><span class="pre">pt_2</span></code>, …) contains CSV files describing a 128 × 128 × 128 voxel volume. Each file lists the flattened voxel indices of the non-zero voxels (first column), and for <code class="docutils literal notranslate"><span class="pre">ct</span></code> and <code class="docutils literal notranslate"><span class="pre">dose</span></code> also the values (column <code class="docutils literal notranslate"><span class="pre">data</span></code>).</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ct.csv</span></code>: the CT scan. The values are CT numbers offset so that air ≈ 0 and water/soft tissue ≈ 1000, i.e. approximately Hounsfield units + 1000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dose.csv</span></code>: the <strong>clinical dose distribution</strong> (in Gy) that was actually planned for this patient.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PTV56.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">PTV63.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">PTV70.csv</span></code>: <strong>planning target volumes</strong>, masks of the regions to be treated, prescribed 56, 63 and 70 Gy. <code class="docutils literal notranslate"><span class="pre">PTV70</span></code> is the primary (highest-risk) tumour volume. We use it as the target.</p></li>
+<li><p>Organs at risk (not every patient has all of them):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpinalCord.csv</span></code>: irradiating the spinal cord can cause radiation myelopathy.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Brainstem.csv</span></code>: brainstem injury can have devastating neurological effects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LeftParotid.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">RightParotid.csv</span></code>: irradiating these salivary glands can cause xerostomia (dry mouth).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mandible.csv</span></code>: the mandible has a limited blood supply, and osteoradionecrosis can occur years after treatment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Esophagus.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">Larynx.csv</span></code> for some patients.</p></li>
 </ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">possible_dose_mask.csv</span></code>: voxels where dose can be non-zero (inside the body).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">voxel_dimensions.csv</span></code>: voxel size in mm (3.906 × 3.906 × 2.5).</p></li>
+</ul>
+<p>In the arrays below, <code class="docutils literal notranslate"><span class="pre">volume[:,</span> <span class="pre">:,</span> <span class="pre">k]</span></code> is an axial slice.</p>
 </section>
 <section id="span-style-color-orange-questions-span">
 <h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
+<p>Answer each question in a markdown cell directly below it (add code cells where needed). For the background questions, aim for one to two well-organized paragraphs, and <strong>cite your sources</strong>. Your notebook should run from top to bottom without errors.</p>
 <section id="span-style-color-lightgreen-question-01-absorption-scattering-span">
 <h3><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-absorption-scattering-span" title="Permalink to this heading">#</a></h3>
-<p>X-rays attenuate exponentially upon entering the body by the Beer-Lambert Law.</p>
+<p>A narrow beam of X-rays is attenuated exponentially as it passes through matter (the Beer–Lambert law):</p>
 <div class="math notranslate nohighlight">
 \[ \Large
 I(x) = I_0 e^{-\mu x}
 \]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-x   &amp; : \text{Depth in the body} \\
-I(x) &amp; : \text{Intensity at depth } x \\
-I_0 &amp; : \text{Initial intensity (at the skin)} \\
-\mu &amp; : \text{Linear attenuation coefficient (depends on whether we traverse bone, soft tissue or organs) } 
-\end{aligned}
-\end{split}\]</div>
-<p>What physical phenomena govern this loss of intensity (state at least 3 specific processes)? Which one dominates radiotherapy (which uses ~6 MeV photons)? It’s easy to conclude that the highest dose of radiation is delivered at the skin, why is this untrue?</p>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the depth in the body, <span class="math notranslate nohighlight">\(I(x)\)</span> the beam intensity at depth <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(I_0\)</span> the intensity at the skin, and <span class="math notranslate nohighlight">\(\mu\)</span> the linear attenuation coefficient. <span class="math notranslate nohighlight">\(\mu\)</span> depends on the photon energy and on the tissue traversed (bone, soft tissue, lung, …).</p>
+<ul class="simple">
+<li><p>Which physical processes cause this loss of intensity? Name at least three.</p></li>
+<li><p>Which one dominates for a typical 6 MV radiotherapy beam? The photons in such a beam have a spectrum of energies up to 6 MeV, with a mean of about 2 MeV. Use the NIST attenuation data for water <a class="reference external" href="https://physics.nist.gov/PhysRefData/XrayMassCoef/ComTab/water.html">[5]</a> to estimate <span class="math notranslate nohighlight">\(\mu\)</span> for 2 MeV photons, and the fraction of the beam remaining after 10 cm of water.</p></li>
+<li><p>It is easy to conclude from the formula that the highest dose is delivered at the skin. Why is this not true for megavoltage photon beams? (<em>Hint:</em> look up the “build-up region” of a depth-dose curve.)</p></li>
+</ul>
 </section>
 <section id="span-style-color-lightgreen-question-02-dosimetry-span">
 <h3><span style="color:LightGreen">Question 02: Dosimetry</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-dosimetry-span" title="Permalink to this heading">#</a></h3>
-<p>We quantify the impact of radiation on tissue (be it healthy or cancerous) via a metric known as <a class="reference external" href="https://openmedscience.com/dosimetry-calculating-radiation-dose-for-medical-applications/">Dose</a>. It is the ratio between the energy absorbed and the mass of the tissue absorbing it: measured in Gray (Gy).</p>
+<p>We quantify the effect of radiation on tissue, healthy or cancerous, by the absorbed <a class="reference external" href="https://openmedscience.com/dosimetry-calculating-radiation-dose-for-medical-applications/">dose</a>: the energy deposited per unit mass, measured in gray (1 Gy = 1 J/kg):</p>
 <div class="math notranslate nohighlight">
 \[
 \text{Dose} = \frac{dE}{dm}
-\quad \text{where} \quad
-dE = \text{energy deposited (Joules)}, \quad
-dm = \text{mass of tissue (kilograms)}
 \]</div>
-<p>What are the implications of too little or too much Dose? Does the type of body tissue matter? Putting it all together, what are the factors which determine the ideal beam angles a gantry should use? For instance, what are the risks to patient health? Why do these considerations make Beam Angle Optimization (BAO) an NP-hard problem?</p>
+<ul class="simple">
+<li><p>What are the consequences of delivering too little or too much dose? Does the type of tissue matter?</p></li>
+<li><p>Clinical plans respect dose limits for each organ at risk. Find typical limits for the spinal cord, brainstem and parotid glands, e.g. from the QUANTEC reviews <a class="reference external" href="https://doi.org/10.1016/j.ijrobp.2009.09.040">[3]</a>, <a class="reference external" href="https://doi.org/10.1016/j.ijrobp.2009.07.1754">[4]</a>.</p></li>
+<li><p>Putting it all together, which factors determine the ideal beam angles? Why is choosing them a hard optimization problem? How many ways are there to choose 5 beams out of 36 possible angles?</p></li>
+</ul>
 </section>
 <section id="span-style-color-lightgreen-question-03-proton-therapy-span">
 <h3><span style="color:LightGreen">Question 03: Proton Therapy</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-proton-therapy-span" title="Permalink to this heading">#</a></h3>
-<p>If we used proton therapy instead of X-rays, how would our considerations evolve?</p>
+<p>If we used protons instead of X-rays, how would the dose deposited along the beam differ (<em>hint:</em> Bragg peak), and how would that change our beam-angle considerations?</p>
 </section>
 <section id="span-style-color-lightgreen-question-04-preparing-tensors-span">
 <h3><span style="color:LightGreen">Question 04: Preparing Tensors</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-preparing-tensors-span" title="Permalink to this heading">#</a></h3>
-<p>Run the cell below and unzip the contents of <code class="docutils literal notranslate"><span class="pre">openkbp_patient_data</span></code> into a folder. It should be present in Colab’s (<code class="docutils literal notranslate"><span class="pre">/content/..</span></code>) or local directory. Note that you will need to adjust <code class="docutils literal notranslate"><span class="pre">base_path</span></code> to lead to this folder.</p>
-<p>Each patient hosts the following three files:<br />
-<code class="docutils literal notranslate"><span class="pre">ct.csv</span></code> - 3D grayscale CT scan of patient anatomy composed of 2D slices. Each voxel represents how much X-ray is absorbed by the tissue in Hounsfield Units (HU)<br />
-<code class="docutils literal notranslate"><span class="pre">PTV63.csv</span></code> - Planning Target Volume (PTV) is a sparse mask that maps the location of the tumor. We’d like binary mask so that 1 is tumor, 0 is no-tumor.</p>
-<p>The following are sparse masks of Organs at Risk (OAR), representing what we’d like our beams to avoid</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">SpinalCord.csv</span></code> - Irradiating the spine can cause a serious condition known as radiation myelopathy.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Brainstem.csv</span></code> - Radiation causes a vast myriad of devastating effects like RIBN, Ataxia, or even comas.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LeftParotid.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">RightParotid.csv</span></code> - Irradiating salivary glands can cause xerostomia (dry mouth) or worse</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Mandible.csv</span></code> - The mandible has a limited blood supply, and osteoradionecrosis can occur YEARS after treatment.</p></li>
-</ul>
-<p>These are flattened volumes with voxel indices. The cell below converts the csv files into binary 3D volumes [128, 128, 128] where each point represents an intensity (for the ct scan) or binary value (for ptv &amp; spinal cord). You will have an optional dictionary of <code class="docutils literal notranslate"><span class="pre">patient_data</span></code> to access for your convenience.</p>
-<p>Your tasks:</p>
+<p>Download and unzip the data with the cell below, then load the patients. The provided functions convert each CSV file into a dense 3D array.</p>
 <ol class="arabic simple">
-<li><p>Add a line to the for loop that stacks <code class="docutils literal notranslate"><span class="pre">ct</span></code>, <code class="docutils literal notranslate"><span class="pre">ptv</span></code>, and <code class="docutils literal notranslate"><span class="pre">oars</span></code> (Organs at Risk) into a single tensor. Note that oars is a dictionary you may need to unpack. What’s the final shape of this tensor? Draw an analogy to an RGB image.</p></li>
-<li><p>Visualize a single 2D slice (axial, sagittal, or coronal) of a patient’s CT scan with the tumor(ptv) overlaid…as a sanity check.</p></li>
+<li><p>Complete the loop so that, for each patient, the CT, the target (<code class="docutils literal notranslate"><span class="pre">PTV70</span></code>), and the organs at risk are stacked into a single array with a leading <strong>channel</strong> dimension. Use a zero mask for any organ that is missing for a patient. What is the final shape? Draw an analogy to an RGB image.</p></li>
+<li><p>Visualize an axial slice through the target for a few patients: the CT in grayscale, with the contours of the target and of the organs at risk overlaid. Next to it, show the clinical dose distribution (<code class="docutils literal notranslate"><span class="pre">dose.csv</span></code>) on the same slice. Which features of the clinical dose do you notice?</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>https://github.com/florilegium7/Physics-informed-DQN-Radiotherapy/releases/download/v1/openkbp_patient_data.zip
-<span class="o">!</span>unzip<span class="w"> </span>openkbp_patient_data.zip<span class="w"> </span>-d<span class="w"> </span>openkbp_patient_data
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">urllib.request</span><span class="o">,</span><span class="w"> </span><span class="nn">zipfile</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s2">&quot;openkbp_patient_data&quot;</span><span class="p">):</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;openkbp_patient_data.zip&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">&quot;openkbp_patient_data.zip&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+        <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s2">&quot;openkbp_patient_data&quot;</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;__MACOSX&quot;</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
@@ -634,332 +654,213 @@ dm = \text{mass of tissue (kilograms)}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-
-<span class="n">base_path</span> <span class="o">=</span> <span class="s1">&#39;openkbp_patient_data&#39;</span> <span class="c1">#you may adjust this (e.g. /content/openkbp_patient_data)</span>
-
-<span class="n">patient_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pt_1&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_2&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_9&quot;</span><span class="p">,</span><span class="s2">&quot;pt_40&quot;</span><span class="p">,</span><span class="s2">&quot;pt_68&quot;</span><span class="p">,</span><span class="s2">&quot;pt_70&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_90&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_91&quot;</span> <span class="p">,</span> <span class="s2">&quot;pt_99&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_187&quot;</span><span class="p">]</span>
-<span class="n">patient_tensors</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">mask_from_sparse</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">)):</span> <span class="c1">#converts voxel indices to 3D binary masks!</span>
-    <span class="n">indices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">mask_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-    <span class="n">mask_flat</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">mask_flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">sparse_to_ct_volume</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)):</span> <span class="c1">#turns the csv into full 3D volume CT scans</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-    <span class="n">indices</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">ct_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-    <span class="n">ct_flat</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span>
-    <span class="k">return</span> <span class="n">ct_flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-
-
-<span class="c1">#128 x 128 x 128 pixels : (depth, height, width)</span>
-<span class="k">for</span> <span class="n">pt_id</span> <span class="ow">in</span> <span class="n">patient_ids</span><span class="p">:</span>
-
-    <span class="n">pt_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">pt_id</span><span class="p">)</span>
-
-    <span class="n">ct</span> <span class="o">=</span> <span class="n">sparse_to_ct_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">&quot;ct.csv&quot;</span><span class="p">))</span>
-    <span class="n">ptv</span> <span class="o">=</span> <span class="n">mask_from_sparse</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">&quot;PTV63.csv&quot;</span><span class="p">))</span>
-
-    <span class="n">oars</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#dictionary</span>
-    <span class="n">organs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SpinalCord&quot;</span><span class="p">,</span> <span class="s2">&quot;Brainstem&quot;</span><span class="p">,</span> <span class="s2">&quot;LeftParotid&quot;</span><span class="p">,</span> <span class="s2">&quot;RightParotid&quot;</span><span class="p">,</span> <span class="s2">&quot;Mandible&quot;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">organ</span> <span class="ow">in</span> <span class="n">organs</span><span class="p">:</span>
-        <span class="n">organ_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">organ</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">organ_path</span><span class="p">):</span>
-            <span class="n">oars</span><span class="p">[</span><span class="n">organ</span><span class="p">]</span> <span class="o">=</span> <span class="n">mask_from_sparse</span><span class="p">(</span><span class="n">organ_path</span><span class="p">)</span>
-    
-    <span class="n">patient_data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">pt_id</span><span class="p">,</span>
-        <span class="s2">&quot;ct&quot;</span><span class="p">:</span> <span class="n">ct</span><span class="p">,</span> <span class="c1">#ct scan -&gt; 3D volume with intensities</span>
-        <span class="s2">&quot;ptv&quot;</span><span class="p">:</span> <span class="n">ptv</span><span class="p">,</span> <span class="c1">#tumor -&gt; 3D binary mask (1 means tumor!)</span>
-        <span class="s2">&quot;oars&quot;</span><span class="p">:</span> <span class="n">oars</span> <span class="c1">#dictionary of organs at risk -&gt; each is a 3D binary mask</span>
-    <span class="p">}</span>
-    
-
-    <span class="n">pt_tensor</span> <span class="o">=</span> <span class="c1">#Your Code Here </span>
-    <span class="n">patient_tensors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pt_tensor</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your slice visualization here: </span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">base_path</span> <span class="o">=</span> <span class="s2">&quot;openkbp_patient_data&quot;</span>
+<span class="n">SHAPE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">patient_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pt_1&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_2&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_9&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_40&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_68&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_70&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_90&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_91&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_99&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_187&quot;</span><span class="p">]</span>
+<span class="n">ORGANS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SpinalCord&quot;</span><span class="p">,</span> <span class="s2">&quot;Brainstem&quot;</span><span class="p">,</span> <span class="s2">&quot;LeftParotid&quot;</span><span class="p">,</span> <span class="s2">&quot;RightParotid&quot;</span><span class="p">,</span> <span class="s2">&quot;Mandible&quot;</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_volume</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert an OpenKBP sparse CSV file into a dense 128x128x128 array (mask, or values if values=True).&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">SHAPE</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">flat</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">values</span> <span class="k">else</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">SHAPE</span><span class="p">)</span>
+
+<span class="n">PIXEL_MM</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">patient_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;voxel_dimensions.csv&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pixel size:&quot;</span><span class="p">,</span> <span class="n">PIXEL_MM</span><span class="p">,</span> <span class="s2">&quot;mm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patients</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">pt_id</span> <span class="ow">in</span> <span class="n">patient_ids</span><span class="p">:</span>
+    <span class="n">pt_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">pt_id</span><span class="p">)</span>
+    <span class="n">ct</span>   <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">&quot;ct.csv&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dose</span> <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">&quot;dose.csv&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ptv</span>  <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">&quot;PTV70.csv&quot;</span><span class="p">))</span>
+    <span class="n">oars</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">organ</span> <span class="ow">in</span> <span class="n">ORGANS</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">organ</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+        <span class="n">oars</span><span class="p">[</span><span class="n">organ</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">SHAPE</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="n">pt_tensor</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># YOUR CODE HERE: stack ct, ptv and the organ masks along a new first (channel) axis</span>
+    <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tensor&quot;</span><span class="p">:</span> <span class="n">pt_tensor</span><span class="p">,</span> <span class="s2">&quot;dose&quot;</span><span class="p">:</span> <span class="n">dose</span><span class="p">}</span>
+
+<span class="c1"># YOUR CODE HERE: visualization</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the rest of the project we work with one 2D axial slice per patient: the slice in which the target has its largest area. The helper below extracts it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_slice</span><span class="p">(</span><span class="n">pt_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the CT, target mask, organ masks (dict) and clinical dose on the axial slice with the largest target area.&quot;&quot;&quot;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">][</span><span class="s2">&quot;tensor&quot;</span><span class="p">]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
+    <span class="n">organs</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="n">i</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ORGANS</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">organs</span><span class="p">,</span> <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">][</span><span class="s2">&quot;dose&quot;</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="span-style-color-lightgreen-question-05-reinforcement-learning-span">
-<h3><span style="color:LightGreen">Question 05: Reinforcement Learning</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-reinforcement-learning-span" title="Permalink to this heading">#</a></h3>
-<p>To simulate the effects of a naive beam (simple straight lines) passing through the patient, we provide a ‘beam mask’ that creates a beam onto a 2D slice of the patient scan. We assume there are 36 possible angles from which a beam can be fired (one every 10 degrees). <code class="docutils literal notranslate"><span class="pre">dose</span></code> is a 2D heatmap that represents how much radiation is delivered to each pixel in your slice after the passage of many beams.</p>
-<p>Create a Reinforcement Learning Model which selects beam angles that provide radiation dosage to the tumor while avoiding critical organs.</p>
+</section>
+<section id="span-style-color-orange-modelling-radiation-beams-span">
+<h2><span style="color:Orange">Modelling radiation beams</span><a class="headerlink" href="#span-style-color-orange-modelling-radiation-beams-span" title="Permalink to this heading">#</a></h2>
+<p>We model each beam on a 2D slice. A beam is aimed at the centre of the target from a direction given by its gantry angle, one of 36 possible angles (one every 10°). It enters the body from the source side, and the dose it deposits decreases with depth.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">straight_beam</span></code> below is a first, naive model: a beam of constant intensity and a fixed width (a Gaussian profile across the beam) inside the body, with no attenuation. You will add physics in Question 06. Note how the geometry is computed: each pixel’s position is projected onto the beam axis and onto the perpendicular direction. This automatically handles any angle correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">center_of_mass</span><span class="p">,</span> <span class="n">map_coordinates</span>
+
+<span class="n">ANGLES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">beam_geometry</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;For every pixel: distance along the beam axis (pixels, negative = source side) and perpendicular distance,</span>
+<span class="sd">    for a beam aimed at the target centroid from direction angle_deg.&quot;&quot;&quot;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">center_of_mass</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)])</span>                  <span class="c1"># direction of travel (row, col)</span>
+    <span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">target</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">:</span><span class="n">target</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">rel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">R</span> <span class="o">-</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">C</span> <span class="o">-</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">along</span> <span class="o">=</span> <span class="n">rel</span> <span class="o">@</span> <span class="n">d</span>
+    <span class="n">perp</span> <span class="o">=</span> <span class="n">rel</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">along</span><span class="p">,</span> <span class="n">perp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">straight_beam</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">sigma_mm</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Naive beam: constant intensity along the beam, Gaussian lateral profile, zero outside the body.&quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">along</span><span class="p">,</span> <span class="n">perp</span> <span class="o">=</span> <span class="n">beam_geometry</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">ct</span> <span class="o">&gt;</span> <span class="mi">200</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">perp</span> <span class="o">*</span> <span class="n">PIXEL_MM</span> <span class="o">/</span> <span class="n">sigma_mm</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">body</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-lightgreen-question-05-choosing-beam-angles-reward-search-and-reinforcement-learning-span">
+<h3><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-choosing-beam-angles-reward-search-and-reinforcement-learning-span" title="Permalink to this heading">#</a></h3>
+<p>A treatment plan here consists of <code class="docutils literal notranslate"><span class="pre">N_BEAMS</span> <span class="pre">=</span> <span class="pre">5</span></code> distinct beam angles. Its dose is the sum of the doses of its beams. To compare plans, we <strong>normalize</strong> each plan’s dose so that the mean dose in the target equals 1, which represents the prescription dose. Dose limits for organs are then expressed as fractions of the prescription (e.g. 54 Gy / 70 Gy ≈ 0.77).</p>
+<ol class="arabic">
+<li><p><strong>Reward.</strong> Write a function <code class="docutils literal notranslate"><span class="pre">reward(dose,</span> <span class="pre">target,</span> <span class="pre">organs,</span> <span class="pre">ct)</span></code> that returns a single score (higher is better) for a plan. It should:</p>
 <ul class="simple">
-<li><p>Populate the training loop by:</p>
-<ul>
-<li><p>Creating a policy that determines the next <code class="docutils literal notranslate"><span class="pre">angle</span></code></p></li>
-<li><p>Creating a Q-learning update</p></li>
+<li><p>penalize <strong>underdose</strong> in the target, e.g. the mean of <span class="math notranslate nohighlight">\(\max(0,\ 0.95 - D)\)</span> over target pixels;</p></li>
+<li><p>penalize <strong>overdose</strong> in each organ at risk above its limit (Question 02), e.g. the mean of <span class="math notranslate nohighlight">\(\max(0,\ D - D_\text{limit})\)</span> over the organ’s pixels, skipping organs absent from the slice;</p></li>
+<li><p>mildly penalize the mean dose to the rest of the body (healthy tissue).</p></li>
 </ul>
+<p>Choose and justify weights for the terms.</p>
 </li>
-<li><p>Define a reward function that heavily penalizes a beam that passes through an organ and rewards a beam that hits the tumor/ptv (the output should be a score)</p></li>
-<li><p>Tweak parameters if you so desire</p></li>
-<li><p>Print the top 3 beam angles after training is complete</p></li>
-</ul>
+<li><p><strong>Baselines.</strong> For one patient, evaluate (a) many random 5-beam plans and (b) a <strong>greedy search</strong>: choose the single best beam, then the best second beam given the first, and so on. Report the rewards.</p></li>
+<li><p><strong>Reinforcement learning.</strong> Implement tabular <strong>Q-learning</strong> with an <span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy policy. A short introduction: the agent keeps a value <span class="math notranslate nohighlight">\(Q(a)\)</span> for each beam angle <span class="math notranslate nohighlight">\(a\)</span>. In each episode it builds a plan by choosing 5 distinct angles, picking a random angle with probability <span class="math notranslate nohighlight">\(\epsilon\)</span> (exploration) and otherwise the angle with the highest <span class="math notranslate nohighlight">\(Q\)</span> among those not yet chosen (exploitation). It then evaluates the plan’s reward <span class="math notranslate nohighlight">\(r\)</span> and updates each chosen angle with <span class="math notranslate nohighlight">\(Q(a) \leftarrow Q(a) + \alpha\,[r - Q(a)]\)</span>. (Because there is no state that changes between decisions, this is a so-called <em>multi-armed bandit</em> version of Q-learning. See Ref. <a class="reference external" href="http://incompleteideas.net/book/the-book-2nd.html">[6]</a>, Chapters 2 and 6, and the <a class="reference external" href="https://illinois-mlp.github.io/MachineLearningForPhysics/_sources/lectures/ReinforcementLearning.html">reinforcement learning lecture notebook</a> from a previous edition of this course.)</p>
+<p>Train it, plot the reward per episode, print the 5 angles with the highest <span class="math notranslate nohighlight">\(Q\)</span>, and visualize the resulting plan on the CT slice.</p>
+</li>
+<li><p>Compare the plans found by random search, greedy search and Q-learning, both by reward and visually. Which works best, and why? What is a weakness of giving every beam in a plan the same reward?</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_BEAMS</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">DOSE_LIMITS</span> <span class="o">=</span> <span class="p">{</span>        <span class="c1"># fraction of the 70 Gy prescription; replace with your values from Question 02</span>
+    <span class="s2">&quot;SpinalCord&quot;</span><span class="p">:</span> <span class="mi">50</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">&quot;Brainstem&quot;</span><span class="p">:</span> <span class="mi">54</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">&quot;LeftParotid&quot;</span><span class="p">:</span> <span class="mi">25</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">&quot;RightParotid&quot;</span><span class="p">:</span> <span class="mi">25</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">&quot;Mandible&quot;</span><span class="p">:</span> <span class="mi">70</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+<span class="p">}</span>
 
-<span class="n">beam_angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1">#[0, 10, 20, ..., 350]</span>
-<span class="n">max_beams</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">#ensures beams are chosen strategically</span>
-<span class="n">episodes</span> <span class="o">=</span> <span class="mi">500</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1">#learning rate</span>
-<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="c1">#exploration rate</span>
-<span class="n">slice_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">)</span> <span class="c1">#a single 2D slice</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plan_dose</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">beam_fn</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">beam_fn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">)</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">skimage.draw</span><span class="w"> </span><span class="kn">import</span> <span class="n">line_nd</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">generate_beam</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span> <span class="c1">#beam mask generator! </span>
-    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">shape</span>
-    <span class="n">beam_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-    <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">h</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">w</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
-    <span class="n">length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-    <span class="n">angle_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
-
-    <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">)</span>
-    <span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">)</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="n">center</span> <span class="o">-</span> <span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">]))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">end</span>   <span class="o">=</span> <span class="p">(</span><span class="n">center</span> <span class="o">+</span> <span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">]))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">end</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">end</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">line_nd</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-    <span class="n">beam_mask</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">beam_mask</span>
-
-
-    <span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">episodes</span><span class="p">):</span>
-        <span class="c1">#Randomly select a patient from patient_tensors HERE</span>
-
-        <span class="n">ct</span><span class="p">,</span><span class="n">ptv</span> <span class="o">=</span>
-
-        <span class="c1">#extracts a single 2D slice from the middle</span>
-        <span class="n">mid</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span> 
-        <span class="n">ct_slice</span>   <span class="o">=</span> <span class="n">ct</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">mid</span><span class="p">]</span>
-        <span class="n">ptv_slice</span>  <span class="o">=</span> <span class="n">ptv</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">mid</span><span class="p">]</span>
-        <span class="c1">#extract organ slices HERE</span>
-
-        <span class="n">dose</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">slice_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-        <span class="n">selected_angles</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_beams</span><span class="p">):</span>
-            <span class="c1">#Your policy here</span>
-
-            <span class="n">beam</span> <span class="o">=</span> <span class="n">generate_beam</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">slice_shape</span><span class="p">)</span>
-            <span class="n">dose</span> <span class="o">+=</span> <span class="n">beam</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="c1">#adds &#39;radiation&#39; to the pixels </span>
-            <span class="n">selected_angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-
-        
-        <span class="n">reward_score</span> <span class="o">=</span> <span class="n">reward</span><span class="p">(</span><span class="n">dose</span><span class="p">,</span> <span class="n">ptv</span><span class="p">,</span> <span class="n">organs</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">selected_angles</span><span class="p">:</span>
-            <span class="c1">#Q-learning update here</span>
-
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">reward</span><span class="p">(</span><span class="n">dose</span><span class="p">,</span> <span class="n">ptv</span><span class="p">,</span> <span class="n">organs</span><span class="p">):</span> <span class="c1">#your reward function HERE</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
- 
-
-<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beam_angles</span><span class="p">))</span> <span class="c1">#Q-table</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_plan</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">pt_id</span><span class="p">,</span> <span class="n">beam_fn</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">organs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_slice</span><span class="p">(</span><span class="n">pt_id</span><span class="p">)</span>
+    <span class="n">dose</span> <span class="o">=</span> <span class="n">plan_dose</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">beam_fn</span><span class="p">)</span>
+    <span class="n">dose</span> <span class="o">=</span> <span class="n">dose</span> <span class="o">/</span> <span class="n">dose</span><span class="p">[</span><span class="n">target</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">dose</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">dose</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;hot&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">organs</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> beams: </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">angles</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">target: green, organs at risk: cyan&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Your model (have you named it yet?) has chosen its ideal beam angles, let’s cross our fingers, fire these into our patient, and see what we get!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patient</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">patient_tensors</span><span class="p">)</span>
-<span class="n">mid</span> <span class="o">=</span> <span class="n">patient</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="n">ct</span><span class="p">,</span> <span class="n">ptv</span> <span class="o">=</span> <span class="n">patient</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">mid</span><span class="p">],</span> <span class="n">patient</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">mid</span><span class="p">]</span>
-<span class="n">shape</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">shape</span>
-<span class="n">dose</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="n">top_indices</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Q</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="o">-</span><span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">])[:</span><span class="n">max_beams</span><span class="p">]</span>
-<span class="n">selected_angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">beam_angles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top_indices</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reward</span><span class="p">(</span><span class="n">dose</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">organs</span><span class="p">,</span> <span class="n">ct</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
-<span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">selected_angles</span><span class="p">:</span>
-    <span class="n">beam</span> <span class="o">=</span> <span class="n">generate_beam</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
-    <span class="n">dose</span> <span class="o">+=</span> <span class="n">beam</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dose</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hot&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">ptv</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">cord</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">selected_angles</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">generate_beam</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">shape</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected Beams: </span><span class="si">{</span><span class="n">selected_angles</span><span class="si">}</span><span class="se">\n</span><span class="s2">PTV: Green, Cord: Blue&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># YOUR CODE HERE: random plans, greedy search, Q-learning, comparison</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="span-style-color-lightgreen-question-06-physics-informed-reinforcement-learning-span">
-<h3><span style="color:LightGreen">Question 06: Physics-informed reinforcement learning</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-physics-informed-reinforcement-learning-span" title="Permalink to this heading">#</a></h3>
-<p>Ready to boogie? We’re about to imbue physics into our RL model. Let’s start by making our beam of ionizing radiation more realistic using what we discussed in Question 01. Adjust the <code class="docutils literal notranslate"><span class="pre">decay</span></code> in <code class="docutils literal notranslate"><span class="pre">generate_true_beam</span></code> below so that it actually attenuates our beam (energy loss as it passes through tissue)</p>
+<section id="span-style-color-lightgreen-question-06-a-physics-informed-beam-span">
+<h3><span style="color:LightGreen">Question 06: A physics-informed beam</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-a-physics-informed-beam-span" title="Permalink to this heading">#</a></h3>
+<p>Now make the beam more realistic, using what you learned in Question 01. Implement <code class="docutils literal notranslate"><span class="pre">physical_beam(angle_deg,</span> <span class="pre">ct,</span> <span class="pre">target)</span></code>, in which the intensity decreases with the <strong>radiological depth</strong>, i.e. the tissue the beam has traversed from where it enters the body:</p>
+<div class="math notranslate nohighlight">
+\[ I(\text{pixel}) \propto \exp\left(-\mu_\text{water} \int_\text{source}^\text{pixel} \rho_\text{rel}(s)\, ds\right) \]</div>
+<ul class="simple">
+<li><p>Use <span class="math notranslate nohighlight">\(\mu_\text{water} \approx 0.0049\)</span> mm<span class="math notranslate nohighlight">\(^{-1}\)</span>, appropriate for a 6 MV beam (Question 01). Take the relative density <span class="math notranslate nohighlight">\(\rho_\text{rel}\)</span> ≈ CT value / 1000, clipped at 0. Remember that one pixel is <code class="docutils literal notranslate"><span class="pre">PIXEL_MM</span></code> mm.</p></li>
+<li><p><em>Hint:</em> use <code class="docutils literal notranslate"><span class="pre">beam_geometry</span></code> to get the beam axis. Sample <span class="math notranslate nohighlight">\(\rho_\text{rel}\)</span> along the central axis of the beam (e.g. with <code class="docutils literal notranslate"><span class="pre">scipy.ndimage.map_coordinates</span></code>), and accumulate it with <code class="docutils literal notranslate"><span class="pre">np.cumsum</span></code>. Then assign each pixel the attenuation at its distance along the axis (<code class="docutils literal notranslate"><span class="pre">along</span></code>), e.g. with <code class="docutils literal notranslate"><span class="pre">np.interp</span></code>. Keep the Gaussian lateral profile and the body mask from <code class="docutils literal notranslate"><span class="pre">straight_beam</span></code>.</p></li>
+</ul>
+<p>Then:</p>
+<ol class="arabic simple">
+<li><p>Plot the dose of a single physical beam, and its profile along the beam axis. Compare it with <code class="docutils literal notranslate"><span class="pre">straight_beam</span></code>, and with the depth-dose behaviour you discussed in Question 01. Which physics is still missing from this model?</p></li>
+<li><p>Repeat the greedy search and the Q-learning of Question 05 with <code class="docutils literal notranslate"><span class="pre">physical_beam</span></code>. Do the chosen angles change? Why does the direction a beam enters from now matter, whereas for <code class="docutils literal notranslate"><span class="pre">straight_beam</span></code> the angles <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\theta + 180°\)</span> give the same dose?</p></li>
+<li><p>In the clinic, each beam is shaped by collimators to cover the whole target. Experiment with the beam width (<code class="docutils literal notranslate"><span class="pre">sigma_mm</span></code>): how do the target coverage and the organ doses change, and which width is sensible for this patient?</p></li>
+<li><p>Apply your best method to several patients and show the plans. Compare them qualitatively with the clinical dose distributions (Question 04). Real clinical plans use many more beams with modulated intensities, so do not expect them to match.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">center_of_mass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MU_WATER</span> <span class="o">=</span> <span class="mf">0.0049</span>   <span class="c1"># 1/mm, 6 MV beam in water</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">generate_physical_beam</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">ptv_mask</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">),</span> <span class="n">spread_sigma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">attenuation_coeff</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
-    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">shape</span>
-    <span class="n">beam_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ptv_mask</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="n">ptv_mask_np</span> <span class="o">=</span> <span class="n">ptv_mask</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">ptv_mask_np</span> <span class="o">=</span> <span class="n">ptv_mask</span>
-    <span class="n">tumor_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">center_of_mass</span><span class="p">(</span><span class="n">ptv_mask_np</span><span class="p">))</span>
-    <span class="n">center</span> <span class="o">=</span> <span class="n">tumor_center</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-    <span class="n">angle_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
-
-    <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">)</span>
-    <span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">)</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="n">center</span> <span class="o">-</span> <span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">]))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">end</span>   <span class="o">=</span> <span class="p">(</span><span class="n">center</span> <span class="o">+</span> <span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">]))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">end</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">end</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-
-    <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">line_nd</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-    <span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">rr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">)):</span>
-        <span class="n">decay</span> <span class="o">=</span>  <span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">attenuation_coeff</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
-        <span class="n">beam_mask</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">+=</span> <span class="n">decay</span>
-
-        <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>  <span class="c1">#gaussian spread via scattering</span>
-            <span class="k">for</span> <span class="n">dc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-                <span class="n">r_spread</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">dr</span>
-                <span class="n">c_spread</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">dc</span>
-                <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">r_spread</span> <span class="o">&lt;</span> <span class="n">h</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">c_spread</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">:</span>
-                    <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dr</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dc</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-                    <span class="n">spread_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="p">(</span><span class="n">distance</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">spread_sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-                    <span class="n">beam_mask</span><span class="p">[</span><span class="n">r_spread</span><span class="p">,</span> <span class="n">c_spread</span><span class="p">]</span> <span class="o">+=</span> <span class="n">decay</span> <span class="o">*</span> <span class="n">spread_value</span>
-
-    <span class="n">beam_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">beam_mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">beam_mask</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">physical_beam</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">sigma_mm</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We’d like to inject a physics loss that encodes the actual attenuation and radiation dose delivery of the beam, rewarding correct dose distribution between the spine and tumor. We need to upgrade our simple Q-learning method into a Deep-Q Network (DQN). This should only require simple structural changes (refer to our reinforcement learning <a class="reference external" href="https://illinois-mlp.github.io/MachineLearningForPhysics/_sources/lectures/ReinforcementLearning.html">notebook</a>). Typically, these would use a Bellman loss. With our new physics-loss it should resemble:</p>
-<div class="math notranslate nohighlight">
-\[ \Large
-L_{\text{Total}} = L_{\text{Bellman}} + \lambda_{\text{Physics}} L_{\text{Physics}}
-\]</div>
-<p>The physics loss takes the following form:</p>
-<div class="math notranslate nohighlight">
-\[ \Large
-L_{\text{Physics}} =
-\lambda_{\text{PTV}} \cdot \text{Underdose}_{\text{PTV}} +
-\lambda_{\text{Spine}} \cdot \text{Overdose}_{\text{Organs}}
-\]</div>
-<p>Each <span class="math notranslate nohighlight">\(\lambda\)</span> assigns ‘weight’ to a term, tinkering with these may prove beneficial. The Underdose term penalizes not giving the tumor the maximum dose (1)</p>
-<div class="math notranslate nohighlight">
-\[ \Large
-\text{Underdose}_{\text{PTV}} = \mathbb{E} \left[ \max \left( 0,\ 1 - D_{\text{PTV}} \right) \right]
-\]</div>
+</section>
+<section id="span-style-color-lightgreen-question-07-deep-reinforcement-learning-optional-span">
+<h3><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-deep-reinforcement-learning-optional-span" title="Permalink to this heading">#</a></h3>
+<p>The bandit version of Q-learning ignores the fact that the value of a beam depends on the beams already chosen. A <strong>deep Q-network (DQN)</strong> can learn this: let the <em>state</em> be the current partial plan, e.g. the accumulated dose image together with the CT and masks, or a binary vector of the angles chosen so far. Let the <em>action</em> be the next angle, and the reward the <em>improvement</em> in <code class="docutils literal notranslate"><span class="pre">reward</span></code> when that beam is added. Train a DQN with the usual Bellman (temporal-difference) loss.</p>
+<p><em>Where does the physics belong?</em> One might be tempted to add a “physics loss” (e.g. target underdose plus organ overdose) directly to the Bellman loss. Explain why this does not work: the dose of a plan depends on discrete chosen angles, so such a term has no gradient with respect to the network parameters. Instead, physics enters through the <strong>reward</strong> (as in Question 05), and through the physical beam model.</p>
+<p>Train your DQN on several patients, and test it on a patient it has not seen. Does it generalize? How does it compare with the greedy search?</p>
+</section>
+<section id="span-style-color-lightgreen-further-ideas-optional-span">
+<h3><span style="color:LightGreen">Further ideas (optional)</span><a class="headerlink" href="#span-style-color-lightgreen-further-ideas-optional-span" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(D_{\text{PTV}}\)</span>: dose received by pixels inside the tumor (PTV mask)</p></li>
-<li><p><span class="math notranslate nohighlight">\(1 - D_{\text{PTV}}\)</span>: underdose per pixel (1 is max dose)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\max(0, 1 - D_{\text{PTV}})\)</span>: penalizes only underdosed regions</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[\cdot]\)</span>: average</p></li>
+<li><p><strong>Dose prediction</strong> (the original OpenKBP task <a class="reference external" href="https://doi.org/10.1002/mp.14845">[1]</a>): train a CNN (e.g. a small U-Net) to predict the clinical dose slice from the CT and the masks. With only 10 patients, use 2D slices and data augmentation, and evaluate on held-out patients. The full OpenKBP dataset (340 patients) is available from Ref. <a class="reference external" href="https://github.com/ababier/open-kbp">[2]</a>.</p></li>
+<li><p>Make the beam model 3D, or include the build-up region and scattered dose.</p></li>
+<li><p>Use the dose-volume histograms (DVHs) of the target and organs, the standard clinical tool, to compare plans.</p></li>
 </ul>
-<p>The Overdose term penalizes giving the organs too much dose</p>
-<div class="math notranslate nohighlight">
-\[ \Large
-\text{Overdose}_{\text{Organs}} = \mathbb{E} \left[ \max \left( 0,\ D_{\text{Organs}} - D_{\text{safe}} \right) \right]
-\]</div>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(D_{\text{safe}}\)</span>: Safety threshold for organ (max dose it can receive). <strong>You can find these online</strong></p></li>
-</ul>
-<p><strong>Now create that network, like a true ML-infused medical physicist of the 21st century would!</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your masterpiece here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>For our grand finale we will overlay your newfound results onto a CT scan of a tumor. Congratulations! You just made a treatment plan for a cancer patient!!</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="kn">import</span> <span class="n">Line2D</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">visualize_beams_on_ct</span><span class="p">(</span><span class="n">patient</span><span class="p">,</span> <span class="n">selected_angles</span><span class="p">,</span> <span class="n">slice_index</span><span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">)):</span>
-  
-  <span class="n">channel</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">depth</span> <span class="o">=</span> <span class="n">patient</span><span class="o">.</span><span class="n">shape</span>
-
-  <span class="k">if</span> <span class="n">slice_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">slice_index</span> <span class="o">=</span> <span class="n">depth</span> <span class="o">//</span> <span class="mi">2</span> <span class="c1">#default to middle slice</span>
-
-  <span class="n">ct_slice</span> <span class="o">=</span> <span class="n">patient</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">slice_index</span><span class="p">]</span>
-  <span class="n">ptv_slice</span> <span class="o">=</span> <span class="n">patient</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">slice_index</span><span class="p">]</span>
-  <span class="n">organ_slices</span> <span class="o">=</span> <span class="n">patient</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">slice_index</span><span class="p">]</span>
-
-  <span class="n">dose</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">selected_angles</span><span class="p">:</span>
-      <span class="n">beam</span> <span class="o">=</span> <span class="n">generate_physical_beam</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">ptv_slice</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
-      <span class="n">dose</span> <span class="o">+=</span> <span class="n">beam</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-  <span class="n">dose_norm</span> <span class="o">=</span> <span class="n">dose</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dose</span> <span class="o">+</span> <span class="mf">1e-5</span><span class="p">)</span>
-
-  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ct_slice</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dose_norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hot&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span> <span class="c1">#beam</span>
-
-  <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">ptv_slice</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PTV&#39;</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">organ_slice</span> <span class="ow">in</span> <span class="n">organ_slices</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">organ_slice</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-  
-  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Radiotherapy Treatment Plan&quot;</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-
-  <span class="n">legend_elements</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tumor&#39;</span><span class="p">),</span>
-        <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Organs at risk&#39;</span><span class="p">)</span>
-    <span class="p">]</span>
-
-  <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>(Optional adventures)</strong></p>
-<p>If you’d like to spice things up and maybe even contribute to current medical physics research, here’s some fun ideas:</p>
-<ul class="simple">
-<li><p>The model &amp; beam currently work on 2D slices, give it 3D awareness!</p></li>
-<li><p>Imbibe more physics into the beam (e.g. consider penalizing the beam for deviating from real scattering physics in your reward function)</p></li>
-<li><p>Incorporate consideration of the varying physical properties of tissue for each organ/bone/tumor region</p></li>
-<li><p>Try finding datasets of real beam angles used in clinical settings and use a supervised learning approach to compare results.</p></li>
-<li><p>Add more patients from OpenKBP and train for a long, long time. Got any supercomputers handy?</p></li>
-</ul>
-<p>Thanks for doing my project! Feel free to reach out with any questions/comments on the notebook or beyond!! :)</p>
 </section>
 </section>
 <section id="span-style-color-orange-references-span">
 <h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
-<p><strong>[<span style="color:Red">1</span>]</strong> A. Babier, B. Zhang, R. Mahmood, K.L. Moore, T.G. Purdie, A.L. McNiven, T.C.Y. Chan, “OpenKBP: The open-access knowledge-based planning grand challenge and dataset,” Medical Physics, Vol. 48, pp. 5549-5561, 2021.</p>
+<p><strong>[<span style="color:Red">1</span>]</strong> A. Babier, B. Zhang, R. Mahmood, K. L. Moore, T. G. Purdie, A. L. McNiven, T. C. Y. Chan, “OpenKBP: The open-access knowledge-based planning grand challenge and dataset,” <em>Med. Phys.</em> <strong>48</strong>, 5549 (2021). <a class="reference external" href="https://doi.org/10.1002/mp.14845">doi:10.1002/mp.14845</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> OpenKBP code and data repository. <a class="github reference external" href="https://github.com/ababier/open-kbp">ababier/open-kbp</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> S. M. Bentzen <em>et al.</em>, “Quantitative Analyses of Normal Tissue Effects in the Clinic (QUANTEC): An Introduction to the Scientific Issues,” <em>Int. J. Radiat. Oncol. Biol. Phys.</em> <strong>76</strong>, S3 (2010). <a class="reference external" href="https://doi.org/10.1016/j.ijrobp.2009.09.040">doi:10.1016/j.ijrobp.2009.09.040</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> L. B. Marks <em>et al.</em>, “Use of Normal Tissue Complication Probability Models in the Clinic,” <em>Int. J. Radiat. Oncol. Biol. Phys.</em> <strong>76</strong>, S10 (2010). <a class="reference external" href="https://doi.org/10.1016/j.ijrobp.2009.07.1754">doi:10.1016/j.ijrobp.2009.07.1754</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> J. H. Hubbell, S. M. Seltzer, “X-Ray Mass Attenuation Coefficients,” NIST Standard Reference Database 126: water. <a class="reference external" href="https://physics.nist.gov/PhysRefData/XrayMassCoef/ComTab/water.html">https://physics.nist.gov/PhysRefData/XrayMassCoef/ComTab/water.html</a></p>
+<p><strong>[<span style="color:Red">6</span>]</strong> R. S. Sutton, A. G. Barto, <em>Reinforcement Learning: An Introduction</em>, 2nd ed. (MIT Press, 2018). <a class="reference external" href="http://incompleteideas.net/book/the-book-2nd.html">http://incompleteideas.net/book/the-book-2nd.html</a></p>
 </section>
 <section id="span-style-color-orange-acknowledgements-span">
 <h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Aarya Mehta with some guidance from Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
 </ul>
-<p>© Copyright 2025</p>
+<p>© Copyright 2026</p>
 </section>
 </section>
 
@@ -1027,14 +928,20 @@ L_{\text{Physics}} =
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-absorption-scattering-span"><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-dosimetry-span"><span style="color:LightGreen">Question 02: Dosimetry</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-proton-therapy-span"><span style="color:LightGreen">Question 03: Proton Therapy</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-preparing-tensors-span"><span style="color:LightGreen">Question 04: Preparing Tensors</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-reinforcement-learning-span"><span style="color:LightGreen">Question 05: Reinforcement Learning</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-physics-informed-reinforcement-learning-span"><span style="color:LightGreen">Question 06: Physics-informed reinforcement learning</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-modelling-radiation-beams-span"><span style="color:Orange">Modelling radiation beams</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-choosing-beam-angles-reward-search-and-reinforcement-learning-span"><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-a-physics-informed-beam-span"><span style="color:LightGreen">Question 06: A physics-informed beam</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-deep-reinforcement-learning-optional-span"><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-further-ideas-optional-span"><span style="color:LightGreen">Further ideas (optional)</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
