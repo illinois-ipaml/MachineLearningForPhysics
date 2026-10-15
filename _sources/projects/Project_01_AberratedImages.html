@@ -597,21 +597,21 @@ document.write(`
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Number_estimate</span></code></p></td>
 <td><p>Low NA: NA = 0.2, magnification M = 4, no spherical aberration (<code class="docutils literal notranslate"><span class="pre">Z04</span></code> = 0)</p></td>
 <td><p>60</p></td>
-<td><p>6 × 6 pixels</p></td>
+<td><p>31 × 31 pixels</p></td>
 <td><p>(10, 10, 10)</p></td>
 <td><p>9,000 / 10,000 / 11,000 and 99,000 / 100,000 / 101,000; 10 noise seeds each</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code></p></td>
 <td><p>High NA: NA = 0.4, M = 20, <code class="docutils literal notranslate"><span class="pre">Z04</span></code> = 0.2</p></td>
 <td><p>18</p></td>
-<td><p>30 × 30 pixels</p></td>
+<td><p>185 × 185 pixels</p></td>
 <td><p><span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> ∈ {1, 2.5, 5, 10, 20}, with <span class="math notranslate nohighlight">\(\sigma_z = \sigma_{xy}\)</span> or <span class="math notranslate nohighlight">\(\sigma_z = 20\)</span></p></td>
 <td><p>100,000; 2 noise seeds each</p></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Noise model.</strong> Every image is normalized so that its pixels sum to the atom number <span class="math notranslate nohighlight">\(N\)</span>. Then noise is added to each pixel with a standard deviation equal to the square root of the pixel value (see <code class="docutils literal notranslate"><span class="pre">ImSim</span></code> in <code class="docutils literal notranslate"><span class="pre">ImageSimulation.ipynb</span></code>). This is a toy model for fluctuations in the measured density. It can produce small negative pixel values, which were deliberately left in.</p>
-<p><strong>Field of view.</strong> The simulation grid extends only ±10 µm in each direction, transverse and axial. Gases that are large compared with this, such as the <span class="math notranslate nohighlight">\(\sigma = 10\)</span>–20 µm gases, are therefore truncated. You will look at the consequences in Question 05.</p>
+<p><strong>Field of view.</strong> The images cover ±50 µm (<code class="docutils literal notranslate"><span class="pre">Number_estimate</span></code>) and ±60 µm (<code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code>) in the object plane, and the simulation includes the gas over about ±3σ along the imaging axis. Even the largest gases are therefore fully contained in the images. (The datasets were regenerated in 2026 with a larger field of view than the original ±10 µm.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -715,7 +715,7 @@ document.write(`
 <p>Display a selection of images from both datasets, with axes in µm in the object plane (use the pixel size <span class="math notranslate nohighlight">\(\text{PS}/M\)</span>). Plot horizontal line profiles through the centre of each <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> image on a logarithmic scale.</p>
 <ul class="simple">
 <li><p>Check that the sum over the pixels of each image is close to its atom number <span class="math notranslate nohighlight">\(N\)</span>.</p></li>
-<li><p>For which <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> images is the gas truncated by the ±10 µm field of view? (<em>Hint:</em> compare the pixel values at the edge of each image with its peak.) What does this imply about which images can meaningfully be used to study the tails?</p></li>
+<li><p>Check that every gas is fully contained in its image, by comparing the pixel values at the edge of each image with its peak. Why is it important for this project that the field of view is much larger than the gas?</p></li>
 <li><p>Compare the images with <span class="math notranslate nohighlight">\(\sigma_{xy} = 1\)</span> µm and <span class="math notranslate nohighlight">\(\sigma_z = 1\)</span> or 20 µm. What differences do you see, and why?</p></li>
 </ul>
 </section>
@@ -728,7 +728,7 @@ document.write(`
 <h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-span" title="Permalink to this heading">#</a></h3>
 <p>Take the images in the <code class="docutils literal notranslate"><span class="pre">Number_estimate</span></code> dataset with a true atom number of order <span class="math notranslate nohighlight">\(N \sim 10^4\)</span>. Estimate the atom number in each image by summing over all its pixels, and draw an appropriately binned histogram of these estimates. Repeat this for the <span class="math notranslate nohighlight">\(N \sim 10^5\)</span> subset of the dataset.</p>
 <p><strong>Note:</strong> in a real experiment, images of ultracold gases are not recorded directly in terms of the number density, but in terms of a quantity proportional to the column density called the optical depth (OD). See <code class="docutils literal notranslate"><span class="pre">ImageSimulation.ipynb</span></code> for details.</p>
-<p>How are these two histograms different from each other? Compare the spread of the estimates for each true <span class="math notranslate nohighlight">\(N\)</span> with what you expect from the noise model described in the Data Sources section. How does the <em>relative</em> uncertainty of the atom number scale with <span class="math notranslate nohighlight">\(N\)</span>?</p>
+<p>How are these two histograms different from each other? Compare the spread of the estimates for each true <span class="math notranslate nohighlight">\(N\)</span> with what you expect from the noise model described in the Data Sources section. How does the <em>relative</em> uncertainty of the atom number scale with <span class="math notranslate nohighlight">\(N\)</span>? With only 10 images per atom number, your estimate of the spread is itself uncertain. Estimate that uncertainty, e.g. with a bootstrap, before you conclude whether the data agree with the noise model.</p>
 </section>
 <section id="span-style-color-lightgreen-question-08-span">
 <h3><span style="color:LightGreen">Question 08</span><a class="headerlink" href="#span-style-color-lightgreen-question-08-span" title="Permalink to this heading">#</a></h3>
@@ -741,12 +741,12 @@ document.write(`
 </section>
 <section id="span-style-color-lightgreen-question-09-span">
 <h3><span style="color:LightGreen">Question 09</span><a class="headerlink" href="#span-style-color-lightgreen-question-09-span" title="Permalink to this heading">#</a></h3>
-<p>Use the singular value decomposition (SVD) to compress the <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> images. Write each 30 × 30 image as <span class="math notranslate nohighlight">\(M = U S V^T\)</span> and keep only the <span class="math notranslate nohighlight">\(k\)</span> largest singular values to form a rank-<span class="math notranslate nohighlight">\(k\)</span> approximation <span class="math notranslate nohighlight">\(M_k\)</span>.</p>
+<p>Use the singular value decomposition (SVD) to compress the <code class="docutils literal notranslate"><span class="pre">Heavy_tails</span></code> images. Write each 185 × 185 image as <span class="math notranslate nohighlight">\(M = U S V^T\)</span> and keep only the <span class="math notranslate nohighlight">\(k\)</span> largest singular values to form a rank-<span class="math notranslate nohighlight">\(k\)</span> approximation <span class="math notranslate nohighlight">\(M_k\)</span>.</p>
 <ol class="arabic simple">
 <li><p>Plot the singular values of each image on a logarithmic scale. A 2D Gaussian with independent <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> widths is an <em>exactly</em> rank-1 matrix. Show why. What, then, do the smaller singular values represent?</p></li>
 <li><p>Reconstruct the images for a handful of <span class="math notranslate nohighlight">\(k\)</span> (e.g. 1, 2, 3, 5, 10), and compare line profiles (on a log scale) of the reconstructions with the original images.</p></li>
-<li><p>Focus on pairs of images with the same <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> but different <span class="math notranslate nohighlight">\(\sigma_z\)</span>, especially <span class="math notranslate nohighlight">\(\sigma_{xy} = 1\)</span> and 2.5 µm (see Question 05). Up to what <span class="math notranslate nohighlight">\(k\)</span> do the two images in each pair appear to have the same-sized tail in the compressed representation? At what <span class="math notranslate nohighlight">\(k\)</span> does the difference become visible? Compare the singular-value spectra of the two images in each pair.</p></li>
-<li><p><em>Optional:</em> instead of compressing each image separately, flatten all 18 images into 900-dimensional vectors and perform an SVD (PCA) of the whole dataset. What do the leading components look like?</p></li>
+<li><p>Focus on pairs of images with the same <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> but different <span class="math notranslate nohighlight">\(\sigma_z\)</span> (<span class="math notranslate nohighlight">\(\sigma_z = \sigma_{xy}\)</span> and <span class="math notranslate nohighlight">\(\sigma_z = 20\)</span> µm). Up to what <span class="math notranslate nohighlight">\(k\)</span> do the two images in each pair appear to have the same-sized tail in the compressed representation? At what <span class="math notranslate nohighlight">\(k\)</span> does the difference become visible? Compare the singular-value spectra of the two images in each pair. For which values of <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> is there a visible difference between the two images at all? Explain why, by comparing <span class="math notranslate nohighlight">\(\sigma_z\)</span> with the DOF and <span class="math notranslate nohighlight">\(\sigma_{xy}\)</span> with the resolution of the imaging system (Questions 03–04).</p></li>
+<li><p><em>Optional:</em> instead of compressing each image separately, flatten all 18 images into vectors of 185 × 185 = 34,225 pixels and perform an SVD (PCA) of the whole dataset. What do the leading components look like?</p></li>
 </ol>
 <p><a id="references"></a></p>
 </section>
