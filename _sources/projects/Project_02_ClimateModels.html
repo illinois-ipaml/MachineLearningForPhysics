@@ -1,0 +1,1156 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Climate Model Neural Network Prediction &#8212; PHYS 503</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_02_ClimateModels';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AI Explainablility and Uncertainty Quantification" href="../Week_13.html" />
+    <link rel="prev" title="Black Hole Parameter Inference from EHT Observations" href="Project_02_EventHorizonTelescope.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PHYS 503 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    <span style="color:Blue">Instrumentation Physics: Applications of Machine Learning</span>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Pandas.html">Handling Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Visualization.html">Visualizing Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Clustering.html">Finding Structure in Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityTheory.html">Probability Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityDistributions.html">Important Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/DensityEstimation.html">Estimating Probability Density from Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MonteCarloSamplingMethods.html">Monte Carlo and Sampling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/BayesianInference.html">Bayesian Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_NuclearGeometryQGP.html">Nuclear Geometry and Characterization of the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/VariationalInference.html">Variational Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ModelSelection.html">Bayesian Model Selection</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Learning.html">Artificial Intelligence and Machine Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/CrossValidation.html">Cross Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/SupervisedLearning.html">Supervised Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/DeepLearning.html">Deep Learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/GraphNeuralNetworks.html">Graph Neural Networks</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_GravitationalWaves.html">Detection of Gravitational Waves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_Radiotherapy.html">Beam Angle Optimization for Radiation Therapy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_TailPulsePileupRejection.html">Precision Neutron Counting with Tail Pulse Pileup Rejection</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Project_02_BentPipeSurrogate.html">Fluid Dynamics of a Bent Pipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_SloanDigitalSkySurvey.html">Galaxy Morphology Classification with the Sloan Digital Sky Survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_EventHorizonTelescope.html">Black Hole Parameter Inference from EHT Observations</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Climate Model Neural Network Prediction</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/projects/Project_02_ClimateModels.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/illinois-ipaml/MachineLearningForPhysics" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/_sources/projects/Project_02_ClimateModels.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Climate Model Neural Network Prediction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-background-span"><span style="color:Orange">Background</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-conceptual-span"><span style="color:Orange">Questions (Conceptual)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data">Downloading data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-climate-model-simulation-gfdl-cm2-0">Analyzing Climate Model Simulation (GFDL_CM2.0)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-computational-pt-1-span"><span style="color:Orange">Questions (Computational Pt 1.)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-for-yearly-predictions">Neural Network for yearly predictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-nn-prediction-span"><span style="color:Orange">Questions (NN prediction)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-nn-prediction-2-members-span"><span style="color:Orange">Questions (NN prediction (2 members))</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-overview-summary-span"><span style="color:Orange">Questions (Overview / Summary)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="climate-model-neural-network-prediction">
+<h1>Climate Model Neural Network Prediction<a class="headerlink" href="#climate-model-neural-network-prediction" title="Permalink to this heading">#</a></h1>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Project_ClimateModels_splash.png" width=800></img>
+</div><section id="span-style-color-orange-background-span">
+<h2><span style="color:Orange">Background</span><a class="headerlink" href="#span-style-color-orange-background-span" title="Permalink to this heading">#</a></h2>
+<p>Climate change is one of the most important problems facing humanity in the years ahead, with numerous predicted regional or global changes, such as:</p>
+<ul class="simple">
+<li><p>rising sea level [<a class="reference external" href="https://doi.org/10.1029/2005GL024826">1</a>];</p></li>
+<li><p>increases in fire activity, fire risk, and burned area [<a class="reference external" href="https://doi.org/10.1088/1748-9326/ab83a7">2</a>, <a class="reference external" href="https://doi.org/10.1029/2018GL080959">3</a>, <a class="reference external" href="https://doi.org/10.1073/pnas.1607171113">4</a>];</p></li>
+<li><p>likely increases in hurricane intensity [<a class="reference external" href="https://www.climate.gov/news-features/understanding-climate/climate-change-probably-increasing-intensity-tropical-cyclones">5</a>];</p></li>
+<li><p>changes in the global atmospheric and oceanic circulation [<a class="reference external" href="https://doi.org/10.1029/2024AV001297">6</a>], with potentially severe impacts. For example, a collapse of the Atlantic overturning circulation in model experiments leads to strong cooling over the North Atlantic and Western Europe [<a class="reference external" href="https://doi.org/10.1038/378165a0">7</a>], although how much the circulation will actually weaken is uncertain [<a class="reference external" href="https://doi.org/10.1038/s41561-025-01709-0">8</a>].</p></li>
+</ul>
+<p>Some of the most important tools used by climate scientists are computationally expensive numerical fluid-dynamics simulations called <strong>general circulation models (GCMs)</strong>. They are used to predict and understand historical, future, or idealized climate scenarios: for example, an instantaneous quadrupling of <span class="math notranslate nohighlight">\(CO_2\)</span> [<a class="reference external" href="https://doi.org/10.1029/2012GL051607">9</a>], “aquaplanet” simulations of an Earth covered entirely by ocean [<a class="reference external" href="https://doi.org/10.2151/jmsj1965.64.4_451">10</a>], or “hosing” experiments, in which a large input of freshwater from melting ice is added to the ocean [<a class="reference external" href="https://doi.org/10.1038/378165a0">7</a>]. The <a class="reference external" href="https://wcrp-cmip.org/cmip-phases/cmip7/">Coupled Model Intercomparison Project (CMIP)</a> coordinates a standard set of such simulations across the world’s modelling centres.</p>
+<p>There are dozens of high-quality GCMs developed around the world. Four leading models in the United States are:</p>
+<ul class="simple">
+<li><p>the Geophysical Fluid Dynamics Laboratory (GFDL) model, developed by the National Oceanic and Atmospheric Administration (NOAA) in collaboration with Princeton University;</p></li>
+<li><p>the NASA Goddard Institute for Space Studies (GISS) model, developed with Columbia University;</p></li>
+<li><p>the Department of Energy’s Energy Exascale Earth System Model (E3SM);</p></li>
+<li><p>the Community Earth System Model (CESM) at the National Center for Atmospheric Research (NCAR).</p></li>
+</ul>
+<p>Each modelling centre develops its own model, with different physical representations of processes, and together their simulations span much of the uncertainty in our understanding of the Earth system. Half of the <a class="reference external" href="https://www.nobelprize.org/prizes/physics/2021/summary/">2021 Nobel Prize in Physics</a> was awarded to Syukuro Manabe and Klaus Hasselmann, pioneers of climate modelling, “for the physical modelling of Earth’s climate, quantifying variability and reliably predicting global warming”. The next phase of CMIP, CMIP7, is under way, with all the major modelling centres producing new simulations with improved models and new experiments.</p>
+</section>
+<section id="span-style-color-orange-overview-span">
+<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
+<p>This notebook has three goals:</p>
+<ol class="arabic simple">
+<li><p>learning to work with spatio-temporal climate-model output;</p></li>
+<li><p>working with a small ensemble of climate models; and</p></li>
+<li><p>training neural networks to predict monthly surface-temperature anomalies, and comparing them fairly with simple baselines.</p></li>
+</ol>
+</section>
+<section id="span-style-color-orange-questions-conceptual-span">
+<h2><span style="color:Orange">Questions (Conceptual)</span><a class="headerlink" href="#span-style-color-orange-questions-conceptual-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-lightgreen-question-01-span">
+<h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
+<p>What are some reasons different General Circulation Models (GCMs) produce different output?</p>
+</section>
+<section id="span-style-color-lightgreen-question-02-span">
+<h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
+<p>Briefly explain what is meant by the resolution of a climate model.</p>
+</section>
+<section id="span-style-color-lightgreen-question-03-span">
+<h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
+<p>What is the value of multiple models? Should efforts be focused on “one model to rule them all”? Explain the idea of model hierarchies and why they are useful [<a class="reference external" href="https://doi.org/10.1029/2018RG000607">11</a>]</p>
+</section>
+</section>
+<section id="span-style-color-orange-data-sources-span">
+<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
+<p>We now start working with model output. Climate-model output is extremely large, so it is common to select a subset by time, variable, or location. In addition, there are dozens of models, several simulations for each model, and different versions of the same model as it improves over time. Working with these “super-ensembles” is not feasible without <a class="reference external" href="https://www.exascaleproject.org/research-project/e3sm-mmf/">high-performance computing (HPC) clusters</a>. Fortunately, the community makes the simulation output relatively easy to access with limited resources, via the <a class="reference external" href="https://metagrid.esgf-west.org/search">ESGF portal</a>.</p>
+<section id="downloading-data">
+<h3>Downloading data<a class="headerlink" href="#downloading-data" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">wget</span></code> scripts are the usual way to download climate-model output from ESGF; Globus is an alternative for large transfers. For this project we download two files directly. Both are historical simulations from CMIP3 [<a class="reference external" href="https://doi.org/10.1175/BAMS-88-9-1383">12</a>], an earlier phase of the model intercomparison project:</p>
+<ul class="simple">
+<li><p>GFDL CM2.0, historical simulation, monthly near-surface air temperature <code class="docutils literal notranslate"><span class="pre">tas</span></code>, January 1861 – December 2000 (87 MB) [<a class="reference external" href="https://doi.org/10.1175/JCLI3629.1">13</a>]</p></li>
+<li><p>NCAR CCSM3.0, historical simulation, January 1870 – December 1999 (13 files of 16 MB, combined into one) [<a class="reference external" href="https://doi.org/10.1175/JCLI3761.1">14</a>]</p></li>
+</ul>
+<p>Historical simulations reproduce the climate of the past ~150 years, driven by the historical changes in greenhouse gases and other forcings, such as aerosols and solar output (the forcings included differ somewhat between models). We first download the GFDL CM2.0 output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install --quiet cartopy netCDF4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># imports </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.crs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ccrs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.feature</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cfeature</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run this cell</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/gfdl_cm2_0/run1/tas_A1.186101-200012.nc&quot;</span>
+<span class="n">original_filename</span> <span class="o">=</span> <span class="s2">&quot;tas_A1.186101-200012.nc&quot;</span>
+<span class="n">expected_hash</span> <span class="o">=</span> <span class="s2">&quot;f0a31b467db7449b8cb1172392d49153086749572a9547bef79a95bd3ce72724&quot;</span>
+
+<span class="n">final_filename</span> <span class="o">=</span> <span class="s2">&quot;gfdl_cm2_1861_2000_historical_surfacetemperature.nc&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">sha256</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+            <span class="n">sha256</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sha256</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">expected_hash</span>
+
+<span class="k">if</span> <span class="n">verify_file</span><span class="p">(</span><span class="n">final_filename</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">)</span> <span class="ow">or</span> <span class="n">verify_file</span><span class="p">(</span><span class="n">original_filename</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File is already downloaded and verified.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading GFDL dataset...&quot;</span><span class="p">)</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">original_filename</span><span class="p">)</span>
+    
+    <span class="c1"># Verify the fresh download</span>
+    <span class="k">if</span> <span class="n">verify_file</span><span class="p">(</span><span class="n">original_filename</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Download complete and SHA256 verified!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: File downloaded, but checksum failed.&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">original_filename</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">final_filename</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">original_filename</span><span class="p">,</span> <span class="n">final_filename</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Renamed to: </span><span class="si">{</span><span class="n">final_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Done! Ready for analysis.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="analyzing-climate-model-simulation-gfdl-cm2-0">
+<h2>Analyzing Climate Model Simulation (GFDL_CM2.0)<a class="headerlink" href="#analyzing-climate-model-simulation-gfdl-cm2-0" title="Permalink to this heading">#</a></h2>
+<p>After downloading the data we can subset and use some python libraries to help with the plotting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we open_dataset using xarray, then take the time mean</span>
+<span class="n">gfdl_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;gfdl_cm2_1861_2000_historical_surfacetemperature.nc&#39;</span><span class="p">)</span>
+<span class="c1"># we can also subtract out 273.15 to make the Kelvin to Celsius conversion</span>
+<span class="n">gfdl_hist</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">273.15</span>
+<span class="n">time_mean_gfdl_hist</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_mean_gfdl_hist</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">time_mean_gfdl_hist</span></code> is now a multidimensional <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html">xarray dataset</a>, with <code class="docutils literal notranslate"><span class="pre">lon</span></code> and <code class="docutils literal notranslate"><span class="pre">lat</span></code> defining the spatial dimensions and <code class="docutils literal notranslate"><span class="pre">tas</span></code> giving the mean surface temperature values over the entire time domain. <a class="reference external" href="https://docs.xarray.dev/en/stable/">Xarray</a> is a standard tool for working with climate data because it provides convenient built-in functionality for labeled multidimensional arrays. It draws on functionality from <a class="reference external" href="https://pandas.pydata.org/">pandas</a> and <a class="reference external" href="https://numpy.org/">NumPy</a>, and also supports more advanced workflows such as <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html">chunking and distributed computing</a>. <br>
+Now we can plot the time mean over space with the below code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">time_mean_gfdl_hist</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span>
+    <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Surface temperature (C)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+        <span class="s2">&quot;pad&quot;</span><span class="p">:</span> <span class="mf">0.03</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Surface temperature (C)&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;GFDL CM2.0 Historical Mean Surface Temperature&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Longitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Latitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also subset the dataset by time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># isel is an index selection where 0 is the first index, up to index 3</span>
+<span class="n">multiple_times_select_by_time_gfdl</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="c1"># or for a single time</span>
+<span class="n">single_times_select_by_time_gfdl</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or we can group by year and look at a single year:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yearly_mean_gfdl_hist</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">single_year_gfdl_hist</span> <span class="o">=</span> <span class="n">yearly_mean_gfdl_hist</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">single_year_gfdl_hist</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span>
+    <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Surface temperature (C)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+        <span class="s2">&quot;pad&quot;</span><span class="p">:</span> <span class="mf">0.03</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Surface temperature (C)&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GFDL CM2.0 </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">single_year_gfdl_hist</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="si">}</span><span class="s2"> Mean Surface Temperature&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Longitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Latitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-orange-questions-computational-pt-1-span">
+<h2><span style="color:Orange">Questions (Computational Pt 1.)</span><a class="headerlink" href="#span-style-color-orange-questions-computational-pt-1-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-lightgreen-question-04-span">
+<h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-span" title="Permalink to this heading">#</a></h3>
+<p>It is often more informative to look at temperature <strong>anomalies</strong>: for each location (and, for monthly data, each calendar month), compute the mean over a reference period, then subtract it. In the cell below, compute the mean over the first ~50 years of the simulation (1861–1910) at each grid cell, separately for each calendar month (<code class="docutils literal notranslate"><span class="pre">groupby('time.month')</span></code>). Subtract it from the entire simulation, and plot the annual-mean anomaly for the year 2000. Where is the warming largest?</p>
+</section>
+<section id="span-style-color-lightgreen-question-05-span">
+<h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-span" title="Permalink to this heading">#</a></h3>
+<p>Another common way to analyze spatio-temporal data is to map the linear trend. Group the data by year and compute the annual mean. Then fit a linear regression at each location and plot the resulting slope field, in °C per decade. <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html"><code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code></a> accepts a 2D array of <span class="math notranslate nohighlight">\(y\)</span> values, so you can fit all grid cells at once. Looping over every longitude–latitude pair when the operation can be vectorized is bad practice. Where is the warming trend largest, and why might high northern latitudes warm faster (“Arctic amplification”)?</p>
+</section>
+</section>
+<section id="neural-network-for-yearly-predictions">
+<h2>Neural Network for yearly predictions<a class="headerlink" href="#neural-network-for-yearly-predictions" title="Permalink to this heading">#</a></h2>
+<p>We are in the middle of a wave of exciting new research applying machine learning to problems in Earth, atmospheric, and climate science. A few especially notable recent projects include:</p>
+<ul class="simple">
+<li><p>AI-based climate and weather models:</p>
+<ul>
+<li><p>SamudrACE [<a class="reference external" href="https://doi.org/10.48550/arXiv.2509.12490">15</a>]</p></li>
+<li><p>NeuralGCM (Google) [<a class="reference external" href="https://doi.org/10.1038/s41586-024-07744-y">16</a>] (its first author did his PhD in physics at UIUC with Bryan Clark!)</p></li>
+<li><p>GraphCast (Google DeepMind) [<a class="reference external" href="https://doi.org/10.1126/science.adi2336">17</a>]</p></li>
+<li><p>Prithvi WxC (IBM, NASA) [<a class="reference external" href="https://doi.org/10.48550/arXiv.2409.13598">18</a>]</p></li>
+</ul>
+</li>
+<li><p>ML for climate-model parameterizations:</p>
+<ul>
+<li><p><a class="reference external" href="https://m2lines.github.io/about/">M²LInES (NYU, Schmidt Sciences)</a></p></li>
+<li><p><a class="reference external" href="https://clima.caltech.edu/">Climate Modeling Alliance (MIT, Caltech, Schmidt Sciences)</a></p></li>
+</ul>
+</li>
+</ul>
+<p>We will focus on a simple implementation of neural network to predict temperature. It will be helpful to learn to subset by location. The below code slices lon / lat to make a box over North America and demonstrates seasonality in the gfdl climate model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tas_sub</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="n">lon</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()},</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tas_sub</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1"> gfdl_hist&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">tas_sub</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+        <span class="n">vmin</span><span class="o">=-</span><span class="mi">45</span><span class="p">,</span>
+        <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span>
+        <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">COASTLINE</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">BORDERS</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="mi">220</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">tas_sub</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;month </span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;surface air temperature C&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-orange-questions-nn-prediction-span">
+<h2><span style="color:Orange">Questions (NN prediction)</span><a class="headerlink" href="#span-style-color-orange-questions-nn-prediction-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-lightgreen-question-06-span">
+<h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
+<p>Implement a <strong>convolutional neural network</strong> (in PyTorch) that predicts the next month’s surface-temperature <strong>anomaly map</strong> over the North America box (<code class="docutils literal notranslate"><span class="pre">lat</span></code> 0–80°N, <code class="docutils literal notranslate"><span class="pre">lon</span></code> 220–300°E) from the anomaly maps of the previous <span class="math notranslate nohighlight">\(k\)</span> months (e.g. <span class="math notranslate nohighlight">\(k = 3\)</span>, stacked as input channels). Use the anomalies from Question 04.</p>
+<ul class="simple">
+<li><p>Split the data <strong>by time</strong>: train on the first 80% of the months and test on the last 20%. Why must we not split randomly?</p></li>
+<li><p>Normalize the inputs and outputs using statistics from the training period only.</p></li>
+<li><p><strong>Baselines.</strong> Compare your CNN with simple baselines on the test period: (a) <em>climatology</em>, i.e. predicting zero anomaly; (b) <em>persistence</em>, i.e. predicting that next month’s anomaly equals this month’s; and (c) a per-grid-cell linear autoregression, <span class="math notranslate nohighlight">\(A_{t+1} = \phi\,A_t\)</span>, with <span class="math notranslate nohighlight">\(\phi\)</span> fitted on the training period.</p></li>
+<li><p>Report the test RMSE of each method, and map the RMSE of the CNN spatially.</p></li>
+<li><p>Plot the time series of the true (climate-model) and CNN-predicted anomalies over the test period at the grid point closest to Champaign, IL (40.1°N, 88.2°W, i.e. lon ≈ 271.8°E), using <code class="docutils literal notranslate"><span class="pre">dataset.sel(lat=...,</span> <span class="pre">lon=...,</span> <span class="pre">method=&quot;nearest&quot;)</span></code>.</p></li>
+</ul>
+<p>How much better than the baselines does the CNN do? What does this tell you about the predictability of monthly temperature anomalies, i.e. weather noise versus forced climate change?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="span-style-color-orange-questions-nn-prediction-2-members-span">
+<h2><span style="color:Orange">Questions (NN prediction (2 members))</span><a class="headerlink" href="#span-style-color-orange-questions-nn-prediction-2-members-span" title="Permalink to this heading">#</a></h2>
+<p>Run the next cell to download one other climate model output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># saves as one file, only run cell once</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1980-01_cat_1989-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1980-01_cat_1989-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;8d0822cdf36f97928bc199c1ffcce0f70f5f61befb4aa3a223883feba2120af3&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1910-01_cat_1919-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1910-01_cat_1919-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;ae8c49cd4c9bb930744babea7f399fc49a56d9b195d3c4815ecb60ccdb234088&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1940-01_cat_1949-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1940-01_cat_1949-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;54f68a930e89849570ec6749985f0ded1f385c1d8199b869e49f646730de821d&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1950-01_cat_1959-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1950-01_cat_1959-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;204f3cbb05ae1add8e85ee5b4cd0406847ceb59ea480db892ec80e5dcce9de65&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1900-01_cat_1909-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1900-01_cat_1909-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;3b00c20efae648251a5fdefdabbfa80526b1280efa3e3566ecf6ec41dcde4b57&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1930-01_cat_1939-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1930-01_cat_1939-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;ec2b145490f3c7e920525d0934107a80a4a7552794c872cc74f9447f8dd8dc36&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1970-01_cat_1979-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1970-01_cat_1979-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;8f26731776d2fac6d54515cca8aa72ad847d9d33cfd91f6ebc27c63b17124189&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1870-01_cat_1879-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1870-01_cat_1879-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;23b9f725d311a955454fa86f98a5c8743fd5e27bb12d1b402ac68d3f67e1e26d&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1890-01_cat_1899-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1890-01_cat_1899-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;32b8ac00c83204c203452e05dbedb0132bda81c623f2a0a521c851e48ae82068&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1920-01_cat_1929-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1920-01_cat_1929-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;9c3d344ff505d7702fb68f2cdc52972a97a3c3b15c4fefafac968135d6713b34&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1960-01_cat_1969-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1960-01_cat_1969-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;0e21367263d1016d15d225ca01747143f67dcbe9be9af2f1b112e193c9bcd297&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1990-01_cat_1999-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1990-01_cat_1999-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;ab5a096e51ed997cfd1b05a0f95ddbc566bdf22aa4f6c60e6c504118887141e1&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1880-01_cat_1889-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1880-01_cat_1889-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;b77578c2b170c05609fc8f76c49ca2698bdce030572136e72774d080a0732b88&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">sha256</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+            <span class="n">sha256</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sha256</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">expected_hash</span>
+
+<span class="n">file_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Starting Downloads ---&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">expected_hash</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">:</span>
+    <span class="n">file_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">verify_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">] Verified. Skipping download.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">] Downloading...&quot;</span><span class="p">)</span>
+        <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Combining Data with xarray ---&quot;</span><span class="p">)</span>
+<span class="n">final_filename</span> <span class="o">=</span> <span class="s1">&#39;ncar_ccsm30_1870_2000_historical_surfacetemperature.nc&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">ccsm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">file_list</span><span class="p">))</span>
+    <span class="n">ccsm</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">final_filename</span><span class="p">)</span>
+    <span class="n">ccsm</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully saved combined dataset to: </span><span class="si">{</span><span class="n">final_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Cleaning Up ---&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deleted chunk: </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">All done!&quot;</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">An error occurred during xarray processing: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping cleanup so you can inspect the chunk files.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-lightgreen-question-07-span">
+<h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-span" title="Permalink to this heading">#</a></h3>
+<p>Climate models from different modelling centres provide their output differently: with different resolutions, grids, variable names or conventions, which can make working with them cumbersome. GFDL CM2.0 uses a 2.5° × 2° longitude–latitude grid, while NCAR CCSM3.0 uses a finer (T85, about 1.4°) grid.</p>
+<p>Regrid the NCAR CCSM output onto the GFDL grid, and <strong>create one xarray dataset with the variables <code class="docutils literal notranslate"><span class="pre">gfdl_tas</span></code> and <code class="docutils literal notranslate"><span class="pre">ccsm_tas</span></code></strong> over their common period (1870–1999). You can use <code class="docutils literal notranslate"><span class="pre">xarray</span></code>’s <code class="docutils literal notranslate"><span class="pre">interp</span></code>, or the <code class="docutils literal notranslate"><span class="pre">xesmf</span></code> package if you have it (it is easiest to install with conda). Check for missing values after regridding, e.g. near the poles or at the 0°/360° longitude seam, and handle them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-lightgreen-question-08-span">
+<h3><span style="color:LightGreen">Question 08</span><a class="headerlink" href="#span-style-color-lightgreen-question-08-span" title="Permalink to this heading">#</a></h3>
+<p>Now use the two climate models to test how well your approach generalizes.</p>
+<ol class="arabic simple">
+<li><p>Train the CNN of Question 06 on GFDL and test it on CCSM over the same test period, and vice versa. Does a network trained on one model’s “world” work on the other model’s? Compare with the baselines on each model.</p></li>
+<li><p>Train one CNN on both models together (e.g. as two separate sets of training samples), and evaluate it on each.</p></li>
+<li><p>Compare the predicted and the simulated anomalies of both models at the Champaign grid point. What does the difference between the two climate models tell you about model uncertainty?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="span-style-color-orange-questions-overview-summary-span">
+<h2><span style="color:Orange">Questions (Overview / Summary)</span><a class="headerlink" href="#span-style-color-orange-questions-overview-summary-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-lightgreen-question-09-span">
+<h3><span style="color:LightGreen">Question 09</span><a class="headerlink" href="#span-style-color-lightgreen-question-09-span" title="Permalink to this heading">#</a></h3>
+<p>Write a short paragraph on one of the projects / advances from above. Talk about the relative importance, the training, and the architecture. What are some of the main benefits of ML methods in earth sciences?</p>
+</section>
+</section>
+<section id="span-style-color-orange-references-span">
+<h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
+<p><strong>[<span style="color:Red">1</span>]</strong> Church, J. A., &amp; White, N. J. (2006). A 20th century acceleration in global sea-level rise. Geophysical Research Letters, 33(1). <a class="reference external" href="https://doi.org/10.1029/2005GL024826">https://doi.org/10.1029/2005GL024826</a> <br></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> Goss, M., Swain, D. L., Abatzoglou, J. T., Sarhadi, A., Kolden, C. A., Williams, A. P., &amp; Diffenbaugh, N. S. (2020). Climate change is increasing the likelihood of extreme autumn wildfire conditions across California. Environmental Research Letters, 15(9), 094016. <a class="reference external" href="https://doi.org/10.1088/1748-9326/ab83a7">https://doi.org/10.1088/1748-9326/ab83a7</a> <br></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> Abatzoglou, J. T., Williams, A. P., &amp; Barbero, R. (2019). Global Emergence of Anthropogenic Climate Change in Fire Weather Indices. Geophysical Research Letters, 46(1), 326–336. <a class="reference external" href="https://doi.org/10.1029/2018GL080959">https://doi.org/10.1029/2018GL080959</a> <br></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> Abatzoglou, J. T., &amp; Williams, A. P. (2016). Impact of anthropogenic climate change on wildfire across western US forests. Proceedings of the National Academy of Sciences, 113(42), 11770–11775. <a class="reference external" href="https://doi.org/10.1073/pnas.1607171113">https://doi.org/10.1073/pnas.1607171113</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> Knutson, T. R., Chung, M. V., Vecchi, G., Sun, J., Hsieh, T.-L., &amp; Smith, A. J. P. (2021). Climate change is probably increasing the intensity of tropical cyclones. NOAA <a class="reference external" href="http://Climate.gov">Climate.gov</a>. <a class="reference external" href="https://www.climate.gov/news-features/understanding-climate/climate-change-probably-increasing-intensity-tropical-cyclones">https://www.climate.gov/news-features/understanding-climate/climate-change-probably-increasing-intensity-tropical-cyclones</a></p>
+<p><strong>[<span style="color:Red">6</span>]</strong> Shaw, T. A., Arblaster, J. M., Birner, T., Butler, A. H., Domeisen, D. I. V., Garfinkel, C. I., Garny, H., Grise, K. M., &amp; Karpechko, A. Yu. (2024). Emerging Climate Change Signals in Atmospheric Circulation. AGU Advances, 5(6), e2024AV001297. <a class="reference external" href="https://doi.org/10.1029/2024AV001297">https://doi.org/10.1029/2024AV001297</a></p>
+<p><strong>[<span style="color:Red">7</span>]</strong> Manabe, S., &amp; Stouffer, R. J. (1995). Simulation of abrupt climate change induced by freshwater input to the North Atlantic Ocean. Nature, 378(6553), 165–167. <a class="reference external" href="https://doi.org/10.1038/378165a0">https://doi.org/10.1038/378165a0</a></p>
+<p><strong>[<span style="color:Red">8</span>]</strong> Bonan, D. B., Thompson, A. F., Schneider, T., Zanna, L., Armour, K. C., &amp; Sun, S. (2025). Observational constraints imply limited future Atlantic meridional overturning circulation weakening. Nature Geoscience, 18(6), 479–487. <a class="reference external" href="https://doi.org/10.1038/s41561-025-01709-0">https://doi.org/10.1038/s41561-025-01709-0</a></p>
+<p><strong>[<span style="color:Red">9</span>]</strong> Andrews, T., Gregory, J. M., Webb, M. J., &amp; Taylor, K. E. (2012). Forcing, feedbacks and climate sensitivity in CMIP5 coupled atmosphere‐ocean climate models. Geophysical Research Letters, 39(9), 2012GL051607. <a class="reference external" href="https://doi.org/10.1029/2012GL051607">https://doi.org/10.1029/2012GL051607</a></p>
+<p><strong>[<span style="color:Red">10</span>]</strong> Hayashi, Y.-Y., &amp; Sumi, A. (1986). The 30-40 Day Oscillations Simulated in an “Aqua Planet” Model. Journal of the Meteorological Society of Japan. Ser. II, 64(4), 451–467. <a class="reference external" href="https://doi.org/10.2151/jmsj1965.64.4_451">https://doi.org/10.2151/jmsj1965.64.4_451</a></p>
+<p><strong>[<span style="color:Red">11</span>]</strong> Maher, P., Gerber, E. P., Medeiros, B., Merlis, T. M., Sherwood, S., Sheshadri, A., Sobel, A. H., Vallis, G. K., Voigt, A., &amp; Zurita-Gotor, P. (2019). Model Hierarchies for Understanding Atmospheric Circulation. Reviews of Geophysics, 57(2), 250–280. <a class="reference external" href="https://doi.org/10.1029/2018RG000607">https://doi.org/10.1029/2018RG000607</a></p>
+<p><strong>[<span style="color:Red">12</span>]</strong> Meehl, G. A., Covey, C., Delworth, T., Latif, M., McAvaney, B., Mitchell, J. F. B., Stouffer, R. J., &amp; Taylor, K. E. (2007). THE WCRP CMIP3 Multimodel Dataset: A New Era in Climate Change Research. Bulletin of the American Meteorological Society, 88(9), 1383–1394. <a class="reference external" href="https://doi.org/10.1175/BAMS-88-9-1383">https://doi.org/10.1175/BAMS-88-9-1383</a></p>
+<p><strong>[<span style="color:Red">13</span>]</strong> Delworth, T. L., Broccoli, A. J., Rosati, A., Stouffer, R. J., Balaji, V., Beesley, J. A., Cooke, W. F., Dixon, K. W., Dunne, J., Dunne, K. A., Durachta, J. W., Findell, K. L., Ginoux, P., Gnanadesikan, A., Gordon, C. T., Griffies, S. M., Gudgel, R., Harrison, M. J., Held, I. M., … Zhang, R. (2006). GFDL’s CM2 Global Coupled Climate Models. Part I: Formulation and Simulation Characteristics. Journal of Climate, 19(5), 643–674. <a class="reference external" href="https://doi.org/10.1175/JCLI3629.1">https://doi.org/10.1175/JCLI3629.1</a></p>
+<p><strong>[<span style="color:Red">14</span>]</strong> Collins, W. D., Bitz, C. M., Blackmon, M. L., Bonan, G. B., Bretherton, C. S., Carton, J. A., Chang, P., Doney, S. C., Hack, J. J., Henderson, T. B., Kiehl, J. T., Large, W. G., McKenna, D. S., Santer, B. D., &amp; Smith, R. D. (2006). The Community Climate System Model Version 3 (CCSM3). Journal of Climate, 19(11), 2122–2143. <a class="reference external" href="https://doi.org/10.1175/JCLI3761.1">https://doi.org/10.1175/JCLI3761.1</a></p>
+<p><strong>[<span style="color:Red">15</span>]</strong> Duncan, J. P. C., Wu, E., Dheeshjith, S., Subel, A., Arcomano, T., Clark, S. K., Henn, B., Kwa, A., McGibbon, J., Perkins, W. A., Gregory, W., Fernandez-Granda, C., Busecke, J., Watt-Meyer, O., Hurlin, W. J., Adcroft, A., Zanna, L., &amp; Bretherton, C. (2026). SamudrACE: Fast and Accurate Coupled Climate Modeling with 3D Ocean and Atmosphere Emulators (arXiv:2509.12490; Version 2). arXiv. <a class="reference external" href="https://doi.org/10.48550/arXiv.2509.12490">https://doi.org/10.48550/arXiv.2509.12490</a></p>
+<p><strong>[<span style="color:Red">16</span>]</strong> Kochkov, D., Yuval, J., Langmore, I., Norgaard, P., Smith, J., Mooers, G., Klöwer, M., Lottes, J., Rasp, S., Düben, P., Hatfield, S., Battaglia, P., Sanchez-Gonzalez, A., Willson, M., Brenner, M. P., &amp; Hoyer, S. (2024). Neural general circulation models for weather and climate. Nature, 632(8027), 1060–1066. <a class="reference external" href="https://doi.org/10.1038/s41586-024-07744-y">https://doi.org/10.1038/s41586-024-07744-y</a></p>
+<p><strong>[<span style="color:Red">17</span>]</strong> Lam, R., Sanchez-Gonzalez, A., Willson, M., <em>et al.</em> (2023). Learning skillful medium-range global weather forecasting. <em>Science</em>, 382(6677), 1416–1421. <a class="reference external" href="https://doi.org/10.1126/science.adi2336">https://doi.org/10.1126/science.adi2336</a></p>
+<p><strong>[<span style="color:Red">18</span>]</strong> Schmude, J., Roy, S., Trojak, W., Jakubik, J., Civitarese, D. S., Singh, S., Kuehnert, J., Ankur, K., Gupta, A., Phillips, C. E., Kienzler, R., Szwarcman, D., Gaur, V., Shinde, R., Lal, R., Silva, A. D., Diaz, J. L. G., Jones, A., Pfreundschuh, S., … Ramachandran, R. (2024). Prithvi WxC: Foundation Model for Weather and Climate (arXiv:2409.13598). arXiv. <a class="reference external" href="https://doi.org/10.48550/arXiv.2409.13598">https://doi.org/10.48550/arXiv.2409.13598</a></p>
+</section>
+<section id="span-style-color-orange-acknowledgements-span">
+<h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: <a class="reference external" href="https://www.linkedin.com/in/theo-avila/">Theo Avila</a> with some guidance from Mark Neubauer</p></li>
+<li><p>Revised: 2026</p></li>
+<li><p>CMIP3 model output: WCRP CMIP3 multi-model dataset, accessed through ESGF (ORNL node)</p></li>
+</ul>
+<p>© Copyright 2026</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_sources/projects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Project_02_EventHorizonTelescope.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Black Hole Parameter Inference from EHT Observations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Week_13.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-background-span"><span style="color:Orange">Background</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-conceptual-span"><span style="color:Orange">Questions (Conceptual)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data">Downloading data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-climate-model-simulation-gfdl-cm2-0">Analyzing Climate Model Simulation (GFDL_CM2.0)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-computational-pt-1-span"><span style="color:Orange">Questions (Computational Pt 1.)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-for-yearly-predictions">Neural Network for yearly predictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-nn-prediction-span"><span style="color:Orange">Questions (NN prediction)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-nn-prediction-2-members-span"><span style="color:Orange">Questions (NN prediction (2 members))</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-overview-summary-span"><span style="color:Orange">Questions (Overview / Summary)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mark Neubauer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

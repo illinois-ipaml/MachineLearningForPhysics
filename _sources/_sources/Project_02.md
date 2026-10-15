@@ -11,3 +11,6 @@
 * {doc}`projects/Project_02_Radiotherapy`
 * {doc}`projects/Project_02_TailPulsePileupRejection`
 * {doc}`projects/Project_02_BentPipeSurrogate`
+* {doc}`projects/Project_02_SloanDigitalSkySurvey`
+* {doc}`projects/Project_02_EventHorizonTelescope`
+* {doc}`projects/Project_02_ClimateModels`
