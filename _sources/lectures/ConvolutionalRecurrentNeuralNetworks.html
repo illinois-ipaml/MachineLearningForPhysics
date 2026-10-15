@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Convolutional and Recurrent Neural Networks &#8212; PHYS 503</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/ConvolutionalRecurrentNeuralNetworks';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks" href="../homework/Homework_10.html" />
     <link rel="prev" title="Deep Learning" href="DeepLearning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -156,11 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PHYS 503 - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 503 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,56 +223,56 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Pandas.html">Handling Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Visualization.html">Visualizing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Clustering.html">Finding Structure in Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ProbabilityTheory.html">Probability Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ProbabilityDistributions.html">Important Probability Distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DensityEstimation.html">Estimating Probability Density from Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Statistics.html">Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MonteCarloSamplingMethods.html">Monte Carlo and Sampling Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BayesianInference.html">Bayesian Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -230,52 +281,52 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VariationalInference.html">Variational Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ModelSelection.html">Bayesian Model Selection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Learning.html">Artificial Intelligence and Machine Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CrossValidation.html">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SupervisedLearning.html">Supervised Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Convolutional and Recurrent Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GraphNeuralNetworks.html">Graph Neural Networks</a></li>
 
@@ -284,8 +335,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -303,30 +354,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_SloanDigitalSkySurvey.html">Galaxy Morphology Classification with the Sloan Digital Sky Survey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_EventHorizonTelescope.html">Black Hole Parameter Inference from EHT Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_ClimateModels.html">Climate Model Neural Network Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_CylinderWake.html">Modeling Fluid Flow Past a Cylinder</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -335,14 +387,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -351,14 +408,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -383,14 +440,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/ConvolutionalRecurrentNeuralNetworks.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -466,7 +523,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -480,27 +537,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -520,13 +569,13 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-recurrent-networks-span"><span style="color:Orange">Recurrent Networks</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-stucture-span"><span style="color:LightGreen">Stucture</span></a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-networks"><span style="color:Orange">Recurrent Networks</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stucture"><span style="color:LightGreen">Stucture</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-convolutional-networks-span"><span style="color:Orange">Convolutional Networks</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-networks"><span style="color:Orange">Convolutional Networks</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -536,10 +585,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="convolutional-and-recurrent-neural-networks">
-<h1>Convolutional and Recurrent Neural Networks<a class="headerlink" href="#convolutional-and-recurrent-neural-networks" title="Permalink to this heading">#</a></h1>
+<h1>Convolutional and Recurrent Neural Networks<a class="headerlink" href="#convolutional-and-recurrent-neural-networks" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -553,7 +602,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.signal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_selection</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -562,8 +611,8 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use CPU rather than GPU for keras neural networks</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_DEVICE_ORDER&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PCI_BUS_ID&quot;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CUDA_DEVICE_ORDER"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PCI_BUS_ID"</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CUDA_VISIBLE_DEVICES"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">TqdmCallback</span>
 </pre></div>
@@ -579,8 +628,8 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="span-style-color-orange-recurrent-networks-span">
-<h2><span style="color:Orange">Recurrent Networks</span><a class="headerlink" href="#span-style-color-orange-recurrent-networks-span" title="Permalink to this heading">#</a></h2>
+<section id="recurrent-networks">
+<h2><span style="color:Orange">Recurrent Networks</span><a class="headerlink" href="#recurrent-networks" title="Link to this heading">#</a></h2>
 <p>All the architectures we have seen so far are <strong>feed-foward</strong> networks, with input data always from left (input layer) to right (output layer). A <span style="color:Violet">recurrent neural network</span> (RNN) adds links that feed back into a previous layer. This simple modification adds significant complexity but also expressive power (comparable to the electronics revolution associated with the idea of transistor feedback).</p>
 <p>Architectures with feedback are still maturing but some useful building blocks have emerged, such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Long_short-term_memory">long short-term memory unit</a>, which allows a network to remember some internal state but also forget it based on new input.</p>
 <p>Some practical considerations for RNN designs:</p>
@@ -598,8 +647,8 @@ There are a variety of forms for a recurrent network, but using the previous dia
 This might seem strange at first glance but makes more sense when you consider a sequence of events.
 For example, words.
 If we have three words of a sentence, predicting the next word likely depends on all three words rather than only the previous.</p>
-<section id="span-style-color-lightgreen-stucture-span">
-<h3><span style="color:LightGreen">Stucture</span><a class="headerlink" href="#span-style-color-lightgreen-stucture-span" title="Permalink to this heading">#</a></h3>
+<section id="stucture">
+<h3><span style="color:LightGreen">Stucture</span><a class="headerlink" href="#stucture" title="Link to this heading">#</a></h3>
 <p>The “looped” diagram shown above can also be written in an “unrolled” form as follows:</p>
 <p><em><strong><span style="color:Tan">Many-to-many</span></strong></em></p>
 <p><img alt="" src="https://raw.githubusercontent.com/GDS-Education-Community-of-Practice/DSECOP/main/Time_Series_Analysis_and_Forecasting/diagrams/recurrent_nn1.drawio.svg" /></p>
@@ -634,11 +683,11 @@ See below for examples of these recurrent neural network forms:</p>
 
 <span class="c1"># Pass input x into first layer of size 3 x 2</span>
 <span class="c1"># return_sequences=True means there is an output for each input</span>
-<span class="n">y_many</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x_many</span><span class="p">)</span>
-<span class="n">y_one</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x_one</span><span class="p">)</span>
-<span class="n">y_many_to_many</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">y_many</span><span class="p">)</span>
-<span class="n">y_many_to_one</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y_many</span><span class="p">)</span>
-<span class="n">y_one_to_one</span>   <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y_one</span><span class="p">)</span>
+<span class="n">y_many</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">"tanh"</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x_many</span><span class="p">)</span>
+<span class="n">y_one</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">"tanh"</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x_one</span><span class="p">)</span>
+<span class="n">y_many_to_many</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">"tanh"</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">y_many</span><span class="p">)</span>
+<span class="n">y_many_to_one</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">"tanh"</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y_many</span><span class="p">)</span>
+<span class="n">y_one_to_one</span>   <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s2">"tanh"</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">)(</span><span class="n">y_one</span><span class="p">)</span>
 
 <span class="n">many_to_many</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x_many</span><span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y_many_to_many</span><span class="p">)</span>
 <span class="n">many_to_one</span>  <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">x_many</span><span class="p">,</span><span class="n">outputs</span><span class="o">=</span><span class="n">y_many_to_one</span><span class="p">)</span>
@@ -653,11 +702,11 @@ See below for examples of these recurrent neural network forms:</p>
 <span class="n">sample_many</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">sample_one</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample of 2: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_many</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Many to many output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">many_to_many</span><span class="p">(</span><span class="n">sample_many</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Many to one output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">many_to_one</span><span class="p">(</span><span class="n">sample_many</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample of 1: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_one</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One to one output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">one_to_one</span><span class="p">(</span><span class="n">sample_one</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sample of 2: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_many</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Many to many output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">many_to_many</span><span class="p">(</span><span class="n">sample_many</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Many to one output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">many_to_one</span><span class="p">(</span><span class="n">sample_many</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sample of 1: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_one</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"One to one output: </span><span class="se">\n</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">one_to_one</span><span class="p">(</span><span class="n">sample_one</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -710,17 +759,17 @@ This is a “many-to-one” case.</p>
     <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>         <span class="c1"># The training takes groups of samples (in this case 10 samples at a time)</span>
     <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>            <span class="c1"># The number of times to iterate through our dataset</span>
     <span class="n">validation_split</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="c1"># Use 20% of data to check accuracy</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>             <span class="c1"># Don&#39;t print info as it trains</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>             <span class="c1"># Don't print info as it trains</span>
     <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">TqdmCallback</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
 <span class="p">)</span>
 
 <span class="c1"># Plot prediction and the true values</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">'all'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_values</span><span class="p">,</span> <span class="n">output_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\sin(t)\cos(t)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_values</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">many_to_one</span><span class="p">(</span><span class="n">input_samples</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;many_to_one(t)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_values</span><span class="p">,</span> <span class="n">output_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$\sin(t)\cos(t)$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_values</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">many_to_one</span><span class="p">(</span><span class="n">input_samples</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">"many_to_one(t)"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"t"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -731,8 +780,8 @@ Although it is not very noticeable in this case, the recurrent model can also us
 This has made the recurrent architecture very popular for time series like applications for real world problems (in fact, modern transformers such as ChatGPT are built on the same concepts as RNNs).</p>
 </section>
 </section>
-<section id="span-style-color-orange-convolutional-networks-span">
-<h2><span style="color:Orange">Convolutional Networks</span><a class="headerlink" href="#span-style-color-orange-convolutional-networks-span" title="Permalink to this heading">#</a></h2>
+<section id="convolutional-networks">
+<h2><span style="color:Orange">Convolutional Networks</span><a class="headerlink" href="#convolutional-networks" title="Link to this heading">#</a></h2>
 <p>A <em><span style="color:Violet">Convolutional Neural Network</span></em> (CNN) is a special architecture that:</p>
 <ul class="simple">
 <li><p>Assumes that input features measure some property on a grid. The grid is usually spatial or temporal, but this is not required. For example, a 1D spectrum or time series, a 2D monochrome image, or a 3D stack of 2D images in different filters (RGB, etc).</p></li>
@@ -794,7 +843,7 @@ This has made the recurrent architecture very popular for time series like appli
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nsample</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ntrace</span><span class="p">):</span>
             <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">':'</span><span class="p">)</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
@@ -834,9 +883,9 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_convolved</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">smax</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">sel</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(((</span><span class="n">z</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)),</span> <span class="s1">&#39;rb&#39;</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'same'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">sel</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(((</span><span class="n">z</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)),</span> <span class="s1">'rb'</span><span class="p">):</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">smax</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">sel</span><span class="p">]),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -871,7 +920,7 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
         <span class="n">sample</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N2</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">K</span> <span class="ow">in</span> <span class="n">kernels</span><span class="p">:</span>
-                <span class="n">sample</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">K</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">)))</span>
+                <span class="n">sample</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">K</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'valid'</span><span class="p">)))</span>
         <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
@@ -892,10 +941,10 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_synthetic</span><span class="p">(</span><span class="n">Z</span><span class="p">):</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">)))</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Z</span><span class="p">):</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
-                   <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'upper'</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span>
+                   <span class="n">cmap</span><span class="o">=</span><span class="s1">'coolwarm'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=+</span><span class="mi">1</span><span class="p">);</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 
 <span class="n">plot_synthetic</span><span class="p">(</span><span class="n">out</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
@@ -914,7 +963,7 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <p>In the general case, the input array, kernels and stride vector are all multidimensional, but with the same dimension. Tensorflow provides convenience functions for 1D, 2D and 3D convolutional layers, for example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span>
     <span class="n">filters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span>
+    <span class="n">padding</span><span class="o">=</span><span class="s1">'same'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">padding</span></code> specifies how edges effects are handled, but only <code class="docutils literal notranslate"><span class="pre">same</span></code> and <code class="docutils literal notranslate"><span class="pre">valid</span></code> are supported (and <code class="docutils literal notranslate"><span class="pre">valid</span></code> is the default). You can also implement higher-dimensional convolutional layers using the lower-level APIs.</p>
@@ -930,33 +979,33 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keras builder (similar to Estimator used in the original version)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">build_pulse_model</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
-    <span class="n">D</span>   <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;time_steps&#39;</span><span class="p">]</span>
-    <span class="n">M</span>   <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;number_of_traces&#39;</span><span class="p">]</span>
-    <span class="n">n1</span>  <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;conv1_width&#39;</span><span class="p">]</span>
-    <span class="n">n2</span>  <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;conv2_width&#39;</span><span class="p">]</span>
-    <span class="n">lr</span>  <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">)</span>
+    <span class="n">D</span>   <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'time_steps'</span><span class="p">]</span>
+    <span class="n">M</span>   <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'number_of_traces'</span><span class="p">]</span>
+    <span class="n">n1</span>  <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'conv1_width'</span><span class="p">]</span>
+    <span class="n">n2</span>  <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'conv2_width'</span><span class="p">]</span>
+    <span class="n">lr</span>  <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'learning_rate'</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">)</span>
 
     <span class="k">assert</span> <span class="n">n1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">n2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span>
     <span class="n">Lout</span>   <span class="o">=</span> <span class="n">D</span> <span class="o">-</span> <span class="n">n2</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
 
-    <span class="n">inp</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+    <span class="n">inp</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'X'</span><span class="p">)</span>
 
     <span class="c1"># per-trace temporal features (1 x n1), SAME padding</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n1</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span>
-                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;tanh&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;conv1&#39;</span><span class="p">)(</span><span class="n">inp</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n1</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">'same'</span><span class="p">,</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">'tanh'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'conv1'</span><span class="p">)(</span><span class="n">inp</span><span class="p">)</span>
 
     <span class="c1"># coincidence across traces (M x n2), VALID padding</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">n2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">,</span>
-                 <span class="n">activation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;conv2&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># (batch size, 1, Lout, 1)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">n2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">'valid'</span><span class="p">,</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'conv2'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># (batch size, 1, Lout, 1)</span>
 
-    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Reshape</span><span class="p">((</span><span class="n">Lout</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;logits&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># (batch size, Lout)</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">logits</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;pulse_model&#39;</span><span class="p">)</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Reshape</span><span class="p">((</span><span class="n">Lout</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'logits'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># (batch size, Lout)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">logits</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'pulse_model'</span><span class="p">)</span>
 
     <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
         <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="p">),</span>
         <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;acc&#39;</span><span class="p">)]</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'acc'</span><span class="p">)]</span>
         <span class="c1"># , run_eagerly=True  # optional: handy for debugging</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">Lout</span>
@@ -965,7 +1014,7 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <span class="k">def</span><span class="w"> </span><span class="nf">train_eval</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">):</span>
     <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
     <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-    <span class="k">assert</span> <span class="n">D</span> <span class="o">==</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;time_steps&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">M</span> <span class="o">==</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;number_of_traces&#39;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">D</span> <span class="o">==</span> <span class="n">params</span><span class="p">[</span><span class="s1">'time_steps'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">M</span> <span class="o">==</span> <span class="n">params</span><span class="p">[</span><span class="s1">'number_of_traces'</span><span class="p">]</span>
 
     <span class="n">Xtr</span><span class="p">,</span> <span class="n">Xte</span><span class="p">,</span> <span class="n">ytr</span><span class="p">,</span> <span class="n">yte</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
         <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span>
@@ -1008,11 +1057,11 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
             <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>     <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span>  <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># truth</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">pred_idx</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># prediction</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>     <span class="n">c</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">':'</span><span class="p">,</span>  <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># truth</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">pred_idx</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># prediction</span>
 
         <span class="n">rhs</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-        <span class="n">rhs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;stepfilled&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">rhs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">'stepfilled'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">)</span>
         <span class="n">rhs</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">);</span> <span class="n">rhs</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span> <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([]);</span> <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([]);</span> <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
@@ -1027,7 +1076,7 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <span class="p">)</span>
 
 <span class="n">model</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">train_eval</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>   <span class="c1"># e.g., {&#39;loss&#39;: ..., &#39;acc&#39;: ...}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>   <span class="c1"># e.g., {'loss': ..., 'acc': ...}</span>
 <span class="n">plot_predictions</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">X_test</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">y_test</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1045,8 +1094,8 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
 <p>Finally, compare the predicted (gray histogram) and true (dotted line) coincidence locations for a few test samples:</p>
 <p>Note that our loss function does not know that consecutive labels are close and being off by one is almost as good as getting the right label. We could change this by treating this as a regression problem, but a nice feature of our multi-category approach is that we can predict a a full probability density over labels (the gray histograms above) which is often useful.</p>
 </section>
-<section id="span-style-color-orange-acknowledgments-span">
-<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<section id="acknowledgments">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer (Updates: Aaron Pearlman)</p></li>
 </ul>
@@ -1081,7 +1130,7 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1109,20 +1158,23 @@ f'(x) \simeq \frac{f(x + \delta) - f(x - \delta)}{2\delta}
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-recurrent-networks-span"><span style="color:Orange">Recurrent Networks</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-stucture-span"><span style="color:LightGreen">Stucture</span></a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-networks"><span style="color:Orange">Recurrent Networks</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stucture"><span style="color:LightGreen">Stucture</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-convolutional-networks-span"><span style="color:Orange">Convolutional Networks</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutional-networks"><span style="color:Orange">Convolutional Networks</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
@@ -1171,8 +1223,8 @@ By Mark Neubauer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

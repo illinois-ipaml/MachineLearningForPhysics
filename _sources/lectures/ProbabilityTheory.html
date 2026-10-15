@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Probability Theory &#8212; PHYS 503</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/ProbabilityTheory';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Important Probability Distributions" href="ProbabilityDistributions.html" />
     <link rel="prev" title="Probability Theory" href="../Week_04.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -156,11 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PHYS 503 - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 503 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,56 +223,56 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Pandas.html">Handling Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Visualization.html">Visualizing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Clustering.html">Finding Structure in Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Probability Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ProbabilityDistributions.html">Important Probability Distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DensityEstimation.html">Estimating Probability Density from Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Statistics.html">Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MonteCarloSamplingMethods.html">Monte Carlo and Sampling Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BayesianInference.html">Bayesian Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -230,52 +281,52 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VariationalInference.html">Variational Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ModelSelection.html">Bayesian Model Selection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Learning.html">Artificial Intelligence and Machine Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CrossValidation.html">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SupervisedLearning.html">Supervised Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GraphNeuralNetworks.html">Graph Neural Networks</a></li>
 
@@ -284,8 +335,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -303,30 +354,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_SloanDigitalSkySurvey.html">Galaxy Morphology Classification with the Sloan Digital Sky Survey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_EventHorizonTelescope.html">Black Hole Parameter Inference from EHT Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_ClimateModels.html">Climate Model Neural Network Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_CylinderWake.html">Modeling Fluid Flow Past a Cylinder</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -335,14 +387,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -351,14 +408,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -383,14 +440,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/ProbabilityTheory.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -466,7 +523,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -480,27 +537,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -520,18 +569,18 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-introduction-span"><span style="color:Orange">Introduction</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-axioms-of-probability-span"><span style="color:Orange">Axioms of Probability</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-disjoint-vs-independence-span"><span style="color:Orange">Disjoint vs. Independence</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-conditional-probability-and-bayes-rule-span"><span style="color:Orange">Conditional Probability and Bayes’ Rule</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-random-variables-span"><span style="color:Orange">Random Variables</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-cumulative-distribution-function-span"><span style="color:Orange">Cumulative Distribution Function</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-probability-density-function-span"><span style="color:Orange">Probability Density Function</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-sampling-a-probability-density-span"><span style="color:Orange">Sampling a Probability Density</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-joint-marginal-and-conditional-probability-density-span"><span style="color:Orange">Joint, Marginal and Conditional Probability Density</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-practical-probability-calculus-span"><span style="color:Orange">Practical Probability Calculus</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><span style="color:Orange">Introduction</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axioms-of-probability"><span style="color:Orange">Axioms of Probability</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disjoint-vs-independence"><span style="color:Orange">Disjoint vs. Independence</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-probability-and-bayes-rule"><span style="color:Orange">Conditional Probability and Bayes’ Rule</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables"><span style="color:Orange">Random Variables</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function"><span style="color:Orange">Cumulative Distribution Function</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-function"><span style="color:Orange">Probability Density Function</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-a-probability-density"><span style="color:Orange">Sampling a Probability Density</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joint-marginal-and-conditional-probability-density"><span style="color:Orange">Joint, Marginal and Conditional Probability Density</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-probability-calculus"><span style="color:Orange">Practical Probability Calculus</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -541,10 +590,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="probability-theory">
-<h1>Probability Theory<a class="headerlink" href="#probability-theory" title="Permalink to this heading">#</a></h1>
+<h1>Probability Theory<a class="headerlink" href="#probability-theory" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -557,8 +606,8 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="span-style-color-orange-introduction-span">
-<h2><span style="color:Orange">Introduction</span><a class="headerlink" href="#span-style-color-orange-introduction-span" title="Permalink to this heading">#</a></h2>
+<section id="introduction">
+<h2><span style="color:Orange">Introduction</span><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Probability theory is a mathematical language for reasoning about uncertain outcomes. Possible sources of uncertainty include:</p>
 <ul class="simple">
 <li><p>Inherent randomness in a physical process, e.g., arising from <a class="reference external" href="http://algassert.com/quirk#circuit=%7B%22cols%22:%5B%5D%7D">quantum phenomena</a> or a noisy measurement process.</p></li>
@@ -566,8 +615,8 @@ document.write(`
 </ul>
 <p>Probability theory enables us to build quantitative models that describe our data, both seen and not yet seen, so plays an important role in machine learning. A precise formulation is very technical since it must deal with edge cases that we never encounter in practical work. We will skip over most of the technical details here while still introducing the main concepts that are useful to understand the interpretation of measurements.</p>
 </section>
-<section id="span-style-color-orange-axioms-of-probability-span">
-<h2><span style="color:Orange">Axioms of Probability</span><a class="headerlink" href="#span-style-color-orange-axioms-of-probability-span" title="Permalink to this heading">#</a></h2>
+<section id="axioms-of-probability">
+<h2><span style="color:Orange">Axioms of Probability</span><a class="headerlink" href="#axioms-of-probability" title="Link to this heading">#</a></h2>
 <p>There are different (equally valid) approaches to formulating a theory of probability. Here we follow the approach of Kolmogorov based on set theory, which has three ingredients:</p>
 <ol class="arabic simple">
 <li><p>A <span style="color:violet">sample space</span> <span class="math notranslate nohighlight">\(\Omega\)</span> that defines the set of all possible uncertain outcomes.</p></li>
@@ -658,16 +707,16 @@ P(A\cap B) = P(A) P(B) \; .
 \]</div>
 <p>In this case, we say the events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <strong><span style="color:LightGreen">independent</span></strong>.</p>
 </section>
-<section id="span-style-color-orange-disjoint-vs-independence-span">
-<h2><span style="color:Orange">Disjoint vs. Independence</span><a class="headerlink" href="#span-style-color-orange-disjoint-vs-independence-span" title="Permalink to this heading">#</a></h2>
+<section id="disjoint-vs-independence">
+<h2><span style="color:Orange">Disjoint vs. Independence</span><a class="headerlink" href="#disjoint-vs-independence" title="Link to this heading">#</a></h2>
 <p>By independence (considering events A and B), we mean that an occurance of A does not depend on the occurance of B</p>
 <p>By disjoint of two events we mean that whatever is happening in A cannot happen in B.</p>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:violet">EXAMPLE</strong></em>: Lets say that you are tossing a dice twice. In the first trial, possible outcomes are either faces with numbers 1,2,3,4,5,6. Let us consider  probability of coming a even number(A) and odd number(B). Now if the outcome is an even number (A), then it can not be an odd number(B) i.e. whatever happens in A can not happen in B. So A and B are disjoint.</p>
 <p>Now consider occurrence of no 6 (A) in first toss and the result (B) of the second trial. Getting 6 in second trial does not depend upon whether or not we got a 6 on the first trial. i.e. we say B is independent of A.</p>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p>In the following we will introduce several new concepts related to probability, but keep in mind that probability is only defined on subsets of outcomes (events), so any new concept must translate to a statement about events.</p>
 </section>
-<section id="span-style-color-orange-conditional-probability-and-bayes-rule-span">
-<h2><span style="color:Orange">Conditional Probability and Bayes’ Rule</span><a class="headerlink" href="#span-style-color-orange-conditional-probability-and-bayes-rule-span" title="Permalink to this heading">#</a></h2>
+<section id="conditional-probability-and-bayes-rule">
+<h2><span style="color:Orange">Conditional Probability and Bayes’ Rule</span><a class="headerlink" href="#conditional-probability-and-bayes-rule" title="Link to this heading">#</a></h2>
 <p>The probability of event <span class="math notranslate nohighlight">\(A\)</span> <strong>given that <span class="math notranslate nohighlight">\(B\)</span> has occurred</strong>, written <span class="math notranslate nohighlight">\(P(A\mid B)\)</span>, is a central concept in machine learning but does not appear above. Since <span class="math notranslate nohighlight">\(P\)</span> is only defined for events, and <span class="math notranslate nohighlight">\(A\mid B\)</span> is not an event, the notation does not even make sense!  Instead, it is shorthand for this ratio of valid probabilities:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -735,7 +784,7 @@ P(+|\text{no disease}) = Z ~~~~~~~~~~~~~ P(-|\text{no disease}) = 1 - Z
 <span class="n">Y</span> <span class="o">=</span> <span class="mf">0.99</span> <span class="c1"># P(+|disease) excellent test</span>
 <span class="n">Z</span> <span class="o">=</span> <span class="mf">0.04</span> <span class="c1"># P(+|no disease) modest false positive result</span>
 
-<span class="c1"># using the summed form of Bayes&#39; Theorem above</span>
+<span class="c1"># using the summed form of Bayes' Theorem above</span>
 <span class="n">val</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">X</span> <span class="o">/</span> <span class="p">((</span><span class="n">Y</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Z</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">X</span><span class="p">)))</span> <span class="c1"># val = P(disease|+)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
 </pre></div>
@@ -748,8 +797,8 @@ P(+|\text{no disease}) = Z ~~~~~~~~~~~~~ P(-|\text{no disease}) = 1 - Z
 </div>
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
-<section id="span-style-color-orange-random-variables-span">
-<h2><span style="color:Orange">Random Variables</span><a class="headerlink" href="#span-style-color-orange-random-variables-span" title="Permalink to this heading">#</a></h2>
+<section id="random-variables">
+<h2><span style="color:Orange">Random Variables</span><a class="headerlink" href="#random-variables" title="Link to this heading">#</a></h2>
 <p>A probability space connects sets of possible outcomes with numerical probabilities, but we also need a way to characterize the outcomes themselves numerically.  <strong><span style="color:LightGreen">Random variables</strong> fill this gap.</p>
 <p>A <strong><span style="color:LightGreen">random variable</span></strong> <span class="math notranslate nohighlight">\(X: \Omega\rightarrow\mathbb{R}\)</span> labels each possible outcome <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span> with a real number <span class="math notranslate nohighlight">\(x = X(\omega)\)</span>.  The probability <span class="math notranslate nohighlight">\(P(x)\)</span> of a specific random variable value <span class="math notranslate nohighlight">\(x\)</span> is then <em>defined</em> to be:</p>
 <div class="math notranslate nohighlight">
@@ -771,8 +820,8 @@ P(a\le X \le b) \equiv P\left(\{ \omega: a \le X(\omega) \le b \}\right) \; .
 \]</div>
 <p>The result will always be in the interval <span class="math notranslate nohighlight">\([0,1]\)</span> because it reduces to the probability assigned to some event.</p>
 </section>
-<section id="span-style-color-orange-cumulative-distribution-function-span">
-<h2><span style="color:Orange">Cumulative Distribution Function</span><a class="headerlink" href="#span-style-color-orange-cumulative-distribution-function-span" title="Permalink to this heading">#</a></h2>
+<section id="cumulative-distribution-function">
+<h2><span style="color:Orange">Cumulative Distribution Function</span><a class="headerlink" href="#cumulative-distribution-function" title="Link to this heading">#</a></h2>
 <p>One particularly useful condition yields the <strong><span style="color:LightGreen">cumulative distribution function</span> (CDF)</strong>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -780,8 +829,8 @@ F_X(x) \equiv P\left(\{ \omega: X(\omega) \le x\} \right) \; .
 \]</div>
 <p>The CDF always rises monotonically from 0 to 1 and is always well defined.</p>
 </section>
-<section id="span-style-color-orange-probability-density-function-span">
-<h2><span style="color:Orange">Probability Density Function</span><a class="headerlink" href="#span-style-color-orange-probability-density-function-span" title="Permalink to this heading">#</a></h2>
+<section id="probability-density-function">
+<h2><span style="color:Orange">Probability Density Function</span><a class="headerlink" href="#probability-density-function" title="Link to this heading">#</a></h2>
 <p>When the CDF is differentiable everywhere, we can also calculate the <strong><span style="color:LightGreen">probability density function</span> (PDF)</strong>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -828,8 +877,8 @@ F_X(x) &amp;= \lim_{\Delta x\rightarrow 0}\, \sum_i f_X(x_i)\,\Delta x \\
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rv</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
 
-       <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+       <span class="s1">'r-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'pdf'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -842,8 +891,8 @@ F_X(x) &amp;= \lim_{\Delta x\rightarrow 0}\, \sum_i f_X(x_i)\,\Delta x \\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ay</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rv</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
-<span class="n">ay</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ay</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rv</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">'k-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'cdf'</span><span class="p">)</span>
+<span class="n">ay</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -854,8 +903,8 @@ F_X(x) &amp;= \lim_{\Delta x\rightarrow 0}\, \sum_i f_X(x_i)\,\Delta x \\
 </div>
 </div>
 </section>
-<section id="span-style-color-orange-sampling-a-probability-density-span">
-<h2><span style="color:Orange">Sampling a Probability Density</span><a class="headerlink" href="#span-style-color-orange-sampling-a-probability-density-span" title="Permalink to this heading">#</a></h2>
+<section id="sampling-a-probability-density">
+<h2><span style="color:Orange">Sampling a Probability Density</span><a class="headerlink" href="#sampling-a-probability-density" title="Link to this heading">#</a></h2>
 <p>Your measurement samples the underlying PDF.  With a single measurement, you know very little about the PDF; as the number of measurements increases, you can better see the PDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -868,12 +917,12 @@ F_X(x) &amp;= \lim_{\Delta x\rightarrow 0}\, \sum_i f_X(x_i)\,\Delta x \\
 
 <span class="n">az</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rv1</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
 
-       <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
-<span class="n">az</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+       <span class="s1">'r-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'pdf'</span><span class="p">)</span>
+<span class="n">az</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#density normalizes the histogram to have unit area (like the pdf itself)</span>
 <span class="n">az</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rv1</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
 
-       <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+       <span class="s1">'r-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'pdf'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -884,8 +933,8 @@ F_X(x) &amp;= \lim_{\Delta x\rightarrow 0}\, \sum_i f_X(x_i)\,\Delta x \\
 </div>
 </div>
 </section>
-<section id="span-style-color-orange-joint-marginal-and-conditional-probability-density-span">
-<h2><span style="color:Orange">Joint, Marginal and Conditional Probability Density</span><a class="headerlink" href="#span-style-color-orange-joint-marginal-and-conditional-probability-density-span" title="Permalink to this heading">#</a></h2>
+<section id="joint-marginal-and-conditional-probability-density">
+<h2><span style="color:Orange">Joint, Marginal and Conditional Probability Density</span><a class="headerlink" href="#joint-marginal-and-conditional-probability-density" title="Link to this heading">#</a></h2>
 <p>When data is described by multiple random variables (features), <span class="math notranslate nohighlight">\(x_0, x_1, \ldots\)</span>, it has a <strong><span style="color:violet">joint CDF</span></strong>:</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -1034,8 +1083,8 @@ f(x\mid y) = f(x) \quad , \quad f(y\mid x) = f(y) \; .
 </div>
 </div>
 </section>
-<section id="span-style-color-orange-practical-probability-calculus-span">
-<h2><span style="color:Orange">Practical Probability Calculus</span><a class="headerlink" href="#span-style-color-orange-practical-probability-calculus-span" title="Permalink to this heading">#</a></h2>
+<section id="practical-probability-calculus">
+<h2><span style="color:Orange">Practical Probability Calculus</span><a class="headerlink" href="#practical-probability-calculus" title="Link to this heading">#</a></h2>
 <p>It is often useful to use probability densities that are hybrids of the fully joint / marginal / conditional cases, such as <span class="math notranslate nohighlight">\(f(x\mid y, z)\)</span> and <span class="math notranslate nohighlight">\(f(x, y\mid z)\)</span>, but these do not require any new formalism.  In the following, we adopt a slightly more abstract notation with the following conventions:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(P(\ldots)\)</span> is a generic probability (density).</p></li>
@@ -1089,8 +1138,8 @@ P(\Theta_M \mid D,M) &amp;= \frac{P(D,\Theta_M\mid M)}{P(D\mid M)} &amp; \text{R
 \end{aligned}
 \end{split}\]</div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
-<section id="span-style-color-orange-acknowledgments-span">
-<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<section id="acknowledgments">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 <li><p>Bayes example: Anne Sickles</p></li>
@@ -1126,7 +1175,7 @@ P(\Theta_M \mid D,M) &amp;= \frac{P(D,\Theta_M\mid M)}{P(D\mid M)} &amp; \text{R
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1154,25 +1203,28 @@ P(\Theta_M \mid D,M) &amp;= \frac{P(D,\Theta_M\mid M)}{P(D\mid M)} &amp; \text{R
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-introduction-span"><span style="color:Orange">Introduction</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-axioms-of-probability-span"><span style="color:Orange">Axioms of Probability</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-disjoint-vs-independence-span"><span style="color:Orange">Disjoint vs. Independence</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-conditional-probability-and-bayes-rule-span"><span style="color:Orange">Conditional Probability and Bayes’ Rule</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-random-variables-span"><span style="color:Orange">Random Variables</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-cumulative-distribution-function-span"><span style="color:Orange">Cumulative Distribution Function</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-probability-density-function-span"><span style="color:Orange">Probability Density Function</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-sampling-a-probability-density-span"><span style="color:Orange">Sampling a Probability Density</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-joint-marginal-and-conditional-probability-density-span"><span style="color:Orange">Joint, Marginal and Conditional Probability Density</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-practical-probability-calculus-span"><span style="color:Orange">Practical Probability Calculus</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><span style="color:Orange">Introduction</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axioms-of-probability"><span style="color:Orange">Axioms of Probability</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disjoint-vs-independence"><span style="color:Orange">Disjoint vs. Independence</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-probability-and-bayes-rule"><span style="color:Orange">Conditional Probability and Bayes’ Rule</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables"><span style="color:Orange">Random Variables</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-function"><span style="color:Orange">Cumulative Distribution Function</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-function"><span style="color:Orange">Probability Density Function</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-a-probability-density"><span style="color:Orange">Sampling a Probability Density</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joint-marginal-and-conditional-probability-density"><span style="color:Orange">Joint, Marginal and Conditional Probability Density</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-probability-calculus"><span style="color:Orange">Practical Probability Calculus</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
@@ -1221,8 +1273,8 @@ By Mark Neubauer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

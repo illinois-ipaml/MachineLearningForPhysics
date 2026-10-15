@@ -1,0 +1,1317 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modeling Fluid Flow Past a Cylinder &#8212; PHYS 503</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_02_CylinderWake';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AI Explainablility and Uncertainty Quantification" href="../Week_13.html" />
+    <link rel="prev" title="Climate Model Neural Network Prediction" href="Project_02_ClimateModels.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 503 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    <span style="color:Blue">Instrumentation Physics: Applications of Machine Learning</span>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Pandas.html">Handling Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Visualization.html">Visualizing Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Clustering.html">Finding Structure in Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityTheory.html">Probability Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityDistributions.html">Important Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/DensityEstimation.html">Estimating Probability Density from Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MonteCarloSamplingMethods.html">Monte Carlo and Sampling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/BayesianInference.html">Bayesian Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_NuclearGeometryQGP.html">Nuclear Geometry and Characterization of the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/VariationalInference.html">Variational Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ModelSelection.html">Bayesian Model Selection</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Learning.html">Artificial Intelligence and Machine Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/CrossValidation.html">Cross Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/SupervisedLearning.html">Supervised Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/DeepLearning.html">Deep Learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../lectures/ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/GraphNeuralNetworks.html">Graph Neural Networks</a></li>
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_GravitationalWaves.html">Detection of Gravitational Waves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_AnisotropyQGP.html">Anisotropy in the Quark-Gluon Plasma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_Radiotherapy.html">Beam Angle Optimization for Radiation Therapy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_TailPulsePileupRejection.html">Precision Neutron Counting with Tail Pulse Pileup Rejection</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Project_02_BentPipeSurrogate.html">Fluid Dynamics of a Bent Pipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_SloanDigitalSkySurvey.html">Galaxy Morphology Classification with the Sloan Digital Sky Survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_EventHorizonTelescope.html">Black Hole Parameter Inference from EHT Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_ClimateModels.html">Climate Model Neural Network Prediction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Modeling Fluid Flow Past a Cylinder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/projects/Project_02_CylinderWake.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/illinois-ipaml/MachineLearningForPhysics" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/_sources/projects/Project_02_CylinderWake.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modeling Fluid Flow Past a Cylinder</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><span style="color:Orange">Learning Objectives</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-physics-informed-neural-networks"><span style="color:Orange">Introduction to Physics-Informed Neural Networks</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-differentiation-in-pytorch"><span style="color:Purple">Automatic differentiation in PyTorch</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-worked-example-the-damped-harmonic-oscillator"><span style="color:Purple">A worked example: the damped harmonic oscillator</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-04-understanding-the-pinn"><span style="color:LightGreen">Question 04: Understanding the PINN</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-problem"><span style="color:Orange">Defining the Problem</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-01-navierstokes"><span style="color:LightGreen">Question 01: Navier–Stokes</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-02-cylinder-induced-wake"><span style="color:LightGreen">Question 02: Cylinder-Induced Wake</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-03-training-on-flow-field-data"><span style="color:LightGreen">Question 03: Training on Flow-Field Data</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-pinn-for-the-cylinder-wake"><span style="color:Orange">A PINN for the Cylinder Wake</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-primer-on-the-relevant-physics"><span style="color:Purple">Quick Primer on the Relevant Physics</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-pinn-hyperparameters"><span style="color:Purple">Recommended PINN Hyperparameters</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-requirements"><span style="color:Purple">Compute requirements</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-code-and-dataset-notes"><span style="color:Purple">Helper Code and Dataset Notes</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-05-activate-it"><span style="color:LightGreen">Question 05: Activate It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-06-balance-it"><span style="color:LightGreen">Question 06: Balance It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-07-make-it"><span style="color:LightGreen">Question 07: Make It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-08-analyze-it"><span style="color:LightGreen">Question 08: Analyze It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-09-lower-it"><span style="color:LightGreen">Question 09: Lower It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10-inverse-problem-optional"><span style="color:LightGreen">Question 10: Inverse Problem (optional)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements"><span style="color:Orange">Acknowledgements</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starter-code"><span style="color:Orange">Starter Code</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modeling-fluid-flow-past-a-cylinder">
+<h1>Modeling Fluid Flow Past a Cylinder<a class="headerlink" href="#modeling-fluid-flow-past-a-cylinder" title="Link to this heading">#</a></h1>
+<div>
+<img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Project_Cylinder_Wake.jpg" width=1000>
+</div><section id="overview">
+<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Fluid dynamics is central to many problems in engineering and physics, and modelling it is increasingly important. Many of these problems are very expensive to model numerically or experimentally: multiphase flows (e.g. the dispersion of pollutants or disease), hypersonics (e.g. spacecraft atmospheric re-entry), and fluid–structure interaction (e.g. bio-inspired motion).</p>
+<p>This project applies <strong>physics-informed neural networks (PINNs)</strong> to a classic fluid-mechanics problem: the wake behind a cylinder. Embedding the governing equations into the training of a neural network is a promising way to deal with situations where data are scarce.</p>
+<p>We start with an introduction to PINNs and a small worked example. Then we build a PINN for the cylinder wake, quantify its accuracy and uncertainty, and test how little data is needed to train a good PINN.</p>
+</section>
+<section id="learning-objectives">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Explain how a PINN combines data with a differential equation, and how automatic differentiation makes this possible.</p></li>
+<li><p>Implement a PINN in PyTorch, first for a simple ODE and then for the 2D incompressible Navier–Stokes equations.</p></li>
+<li><p>Evaluate a PINN’s accuracy, including for a quantity it is never trained on (the pressure), and estimate its uncertainty.</p></li>
+<li><p>Investigate how the physics constraint compensates for limited training data.</p></li>
+</ul>
+</section>
+<section id="introduction-to-physics-informed-neural-networks">
+<h2><span style="color:Orange">Introduction to Physics-Informed Neural Networks</span><a class="headerlink" href="#introduction-to-physics-informed-neural-networks" title="Link to this heading">#</a></h2>
+<p>A standard neural network learns a function only from data. Outside the region covered by the data it has no reason to behave sensibly, and it knows nothing about the physical laws the data obey. A <strong>physics-informed neural network</strong> <a class="reference external" href="https://doi.org/10.1016/j.jcp.2018.10.045">[1]</a>, <a class="reference external" href="https://doi.org/10.1038/s42254-021-00314-5">[2]</a> represents the solution of a differential equation, <span class="math notranslate nohighlight">\(u_\theta(\mathbf{x}, t)\)</span>, as a neural network with parameters <span class="math notranslate nohighlight">\(\theta\)</span>, and trains it with a loss that has two parts:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}(\theta) = \underbrace{\frac{1}{N_d}\sum_{i=1}^{N_d} \left|u_\theta(\mathbf{x}_i, t_i) - u_i\right|^2}_{\text{data loss}} \;+\; \lambda\, \underbrace{\frac{1}{N_c}\sum_{j=1}^{N_c} \left|\mathcal{N}[u_\theta](\mathbf{x}_j, t_j)\right|^2}_{\text{physics loss}}
+\]</div>
+<ul class="simple">
+<li><p>The <strong>data loss</strong> compares the network with measured or simulated values at <span class="math notranslate nohighlight">\(N_d\)</span> points.</p></li>
+<li><p>The <strong>physics loss</strong> is the residual of the governing equation <span class="math notranslate nohighlight">\(\mathcal{N}[u] = 0\)</span>, e.g. <span class="math notranslate nohighlight">\(\mathcal{N}[u] = u_t + u\,u_x - \nu\, u_{xx}\)</span> for Burgers’ equation. It is evaluated at <span class="math notranslate nohighlight">\(N_c\)</span> <strong>collocation points</strong>, which can be placed anywhere in the domain and need no data.</p></li>
+<li><p>The derivatives in <span class="math notranslate nohighlight">\(\mathcal{N}[u_\theta]\)</span> are computed exactly with <strong>automatic differentiation</strong>, the same machinery used for backpropagation. In PyTorch, this is <code class="docutils literal notranslate"><span class="pre">torch.autograd.grad(...,</span> <span class="pre">create_graph=True)</span></code>, which can be applied repeatedly for higher derivatives.</p></li>
+</ul>
+<p>The same framework solves two kinds of problems:</p>
+<ul class="simple">
+<li><p><strong>forward problems</strong>, where the equation and its coefficients are known and we want the solution, possibly from few or no data; and</p></li>
+<li><p><strong>inverse problems</strong>, where unknown coefficients of the equation (e.g. a viscosity) are made trainable parameters and inferred from data.</p></li>
+</ul>
+<p>PINNs are not magic. Training can be slow and hard to balance; plain networks struggle to represent fine-scale or high-frequency structure; and the result is only as good as the assumed physics. See the reviews <a class="reference external" href="https://doi.org/10.1038/s42254-021-00314-5">[2]</a>, <a class="reference external" href="https://doi.org/10.1007/s10915-022-01939-z">[3]</a> for the current state of the field.</p>
+<section id="automatic-differentiation-in-pytorch">
+<h3><span style="color:Purple">Automatic differentiation in PyTorch</span><a class="headerlink" href="#automatic-differentiation-in-pytorch" title="Link to this heading">#</a></h3>
+<p>The cell below shows how to compute first and second derivatives of a network’s output with respect to its input. We check them on a function whose derivatives we know.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""df/dx for a batch, keeping the graph so that we can differentiate again (and backpropagate through it)."""</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grad_outputs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">create_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">df</span><span class="p">,</span> <span class="n">d2f</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">grad</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"df/dx   - cos(x):"</span><span class="p">,</span> <span class="p">(</span><span class="n">df</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"d2f/dx2 + sin(x):"</span><span class="p">,</span> <span class="p">(</span><span class="n">d2f</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-worked-example-the-damped-harmonic-oscillator">
+<h3><span style="color:Purple">A worked example: the damped harmonic oscillator</span><a class="headerlink" href="#a-worked-example-the-damped-harmonic-oscillator" title="Link to this heading">#</a></h3>
+<p>Consider a damped oscillator, <span class="math notranslate nohighlight">\(\ddot x + 2\delta\,\dot x + \omega_0^2\, x = 0\)</span>, with <span class="math notranslate nohighlight">\(x(0) = 1\)</span> and <span class="math notranslate nohighlight">\(\dot x(0) = 0\)</span>. We use <span class="math notranslate nohighlight">\(\delta = 2\)</span> and <span class="math notranslate nohighlight">\(\omega_0 = 20\)</span> (underdamped). Suppose we have only 10 measurements, all in the first 40% of the time interval. We train two identical networks:</p>
+<ul class="simple">
+<li><p>a plain neural network (NN) on the data alone, and</p></li>
+<li><p>a PINN on the same data <strong>plus</strong> the residual of the equation at 40 collocation points spread over the whole interval.</p></li>
+</ul>
+<p>Training both takes about 15 seconds on a laptop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">delta</span><span class="p">,</span> <span class="n">w0</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">20.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">exact</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">w0</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">delta</span><span class="o">**</span><span class="mi">2</span><span class="p">);</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="o">-</span><span class="n">delta</span> <span class="o">/</span> <span class="n">w</span><span class="p">);</span> <span class="n">A</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">delta</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span> <span class="o">+</span> <span class="n">w</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">t_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">x_all</span> <span class="o">=</span> <span class="n">exact</span><span class="p">(</span><span class="n">t_all</span><span class="p">)</span>
+<span class="n">t_data</span><span class="p">,</span> <span class="n">x_data</span> <span class="o">=</span> <span class="n">t_all</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">200</span><span class="p">:</span><span class="mi">20</span><span class="p">],</span> <span class="n">x_all</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">200</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>          <span class="c1"># 10 points in [0, 0.4)</span>
+<span class="n">t_d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">t_data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">x_d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">t_c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># collocation points</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_net</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">(),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">(),</span>
+                         <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">(),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"NN"</span><span class="p">,</span> <span class="s2">"PINN"</span><span class="p">]:</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">make_net</span><span class="p">()</span>
+    <span class="n">opt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15000</span><span class="p">):</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="p">((</span><span class="n">net</span><span class="p">(</span><span class="n">t_d</span><span class="p">)</span> <span class="o">-</span> <span class="n">x_d</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>                       <span class="c1"># data loss</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"PINN"</span><span class="p">:</span>
+            <span class="n">x_c</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">t_c</span><span class="p">)</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">x_c</span><span class="p">,</span> <span class="n">t_c</span><span class="p">)</span>
+            <span class="n">residual</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">t_c</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">w0</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x_c</span>   <span class="c1"># x'' + 2 delta x' + w0^2 x</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span> <span class="o">+</span> <span class="mf">1e-4</span> <span class="o">*</span> <span class="p">(</span><span class="n">residual</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>               <span class="c1"># physics loss (weighted)</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">();</span> <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">();</span> <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">predictions</span><span class="p">[</span><span class="n">kind</span><span class="p">]</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">t_all</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">kind</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="p">[</span><span class="s2">"NN"</span><span class="p">,</span> <span class="s2">"PINN"</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_all</span><span class="p">,</span> <span class="n">x_all</span><span class="p">,</span> <span class="s2">"k-"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"exact"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_all</span><span class="p">,</span> <span class="n">predictions</span><span class="p">[</span><span class="n">kind</span><span class="p">],</span> <span class="s2">"r--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_data</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="s2">"bo"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"training data"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"PINN"</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_c</span><span class="o">.</span><span class="n">detach</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_c</span><span class="p">)),</span> <span class="s2">"g|"</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"collocation points"</span><span class="p">)</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">predictions</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="mi">200</span><span class="p">:]</span> <span class="o">-</span> <span class="n">x_all</span><span class="p">[</span><span class="mi">200</span><span class="p">:])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">: RMSE for t &gt; 0.4 = </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"t"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-04-understanding-the-pinn">
+<h3><span style="color:LightGreen">Question 04: Understanding the PINN</span><a class="headerlink" href="#question-04-understanding-the-pinn" title="Link to this heading">#</a></h3>
+<p>Using the example above:</p>
+<ol class="arabic simple">
+<li><p>Why does the plain network fail for <span class="math notranslate nohighlight">\(t &gt; 0.4\)</span>, while the PINN succeeds even though it has no data there?</p></li>
+<li><p>The physics loss is multiplied by a weight <span class="math notranslate nohighlight">\(10^{-4}\)</span>. Why is such a small weight needed here? (<em>Hint:</em> compare the size of <span class="math notranslate nohighlight">\(\omega_0^2 x\)</span> with the size of <span class="math notranslate nohighlight">\(x\)</span>.) Try weights of <span class="math notranslate nohighlight">\(10^{-2}\)</span> and <span class="math notranslate nohighlight">\(10^{-6}\)</span>. What happens?</p></li>
+<li><p><strong>Model misspecification:</strong> train the PINN with the wrong frequency, e.g. <span class="math notranslate nohighlight">\(\omega_0 = 15\)</span> in the residual (but the same data). What happens to the fit? What does this tell you about trusting a PINN’s physics?</p></li>
+<li><p><em>(Optional) Inverse problem:</em> make <span class="math notranslate nohighlight">\(\omega_0\)</span> a trainable parameter (<code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">=</span> <span class="pre">nn.Parameter(torch.tensor(10.0))</span></code>, added to the optimizer), and use data over the whole interval. Does the PINN recover <span class="math notranslate nohighlight">\(\omega_0 = 20\)</span>?</p></li>
+</ol>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+</section>
+<section id="data-sources">
+<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<p>The data are the simulation of the 2D flow past a circular cylinder used in Ref. <a class="reference external" href="https://doi.org/10.1016/j.jcp.2018.10.045">[1]</a>, from the authors’ public repository (MIT license):</p>
+<ul class="simple">
+<li><p><a class="github reference external" href="https://github.com/maziarraissi/PINNs/raw/master/main/Data/cylinder_nektar_wake.mat">maziarraissi/PINNs</a> (24 MB)</p></li>
+</ul>
+<p>The flow was computed with the spectral/hp-element solver Nektar++ <a class="reference external" href="https://doi.org/10.1016/j.cpc.2015.02.008">[4]</a>, in nondimensional units: cylinder diameter <span class="math notranslate nohighlight">\(D = 1\)</span>, free-stream velocity <span class="math notranslate nohighlight">\(U_\infty = 1\)</span>, and Reynolds number <span class="math notranslate nohighlight">\(Re = U_\infty D/\nu = 100\)</span>, i.e. kinematic viscosity <span class="math notranslate nohighlight">\(\nu = 0.01\)</span>. At this Reynolds number the flow forms a periodic <strong>von Kármán vortex street</strong>. The file contains the velocity <span class="math notranslate nohighlight">\((u, v)\)</span> and pressure <span class="math notranslate nohighlight">\(p\)</span> in a rectangular region downstream of the cylinder:</p>
+<ul class="simple">
+<li><p>5000 spatial points on a 100 × 50 grid, with <span class="math notranslate nohighlight">\(x \in [1, 8]\)</span> and <span class="math notranslate nohighlight">\(y \in [-2, 2]\)</span> (the cylinder is centred at the origin);</p></li>
+<li><p>200 time steps, <span class="math notranslate nohighlight">\(t \in [0, 19.9]\)</span>, with <span class="math notranslate nohighlight">\(\Delta t = 0.1\)</span>.</p></li>
+</ul>
+<p>This gives 1,000,000 space–time points in total.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">urllib.request</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"cylinder_nektar_wake.mat"</span><span class="p">):</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">"https://github.com/maziarraissi/PINNs/raw/master/main/Data/cylinder_nektar_wake.mat"</span><span class="p">,</span> <span class="s2">"cylinder_nektar_wake.mat"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="defining-the-problem">
+<h2><span style="color:Orange">Defining the Problem</span><a class="headerlink" href="#defining-the-problem" title="Link to this heading">#</a></h2>
+<section id="question-01-navierstokes">
+<h3><span style="color:LightGreen">Question 01: Navier–Stokes</span><a class="headerlink" href="#question-01-navierstokes" title="Link to this heading">#</a></h3>
+<p>What are the Navier–Stokes equations? What about them makes numerical simulations so difficult?</p>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+<section id="question-02-cylinder-induced-wake">
+<h3><span style="color:LightGreen">Question 02: Cylinder-Induced Wake</span><a class="headerlink" href="#question-02-cylinder-induced-wake" title="Link to this heading">#</a></h3>
+<p>Flow past a cylinder is a classic fluid-mechanics problem, in no small part because of the insight it provides into wakes. What is a wake in fluid dynamics, and why is it important to study? What is a von Kármán vortex street, and at what Reynolds numbers does it form? What examples of flow past a cylinder are there in engineering or physics? Can you think of examples from your day-to-day life?</p>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+<section id="question-03-training-on-flow-field-data">
+<h3><span style="color:LightGreen">Question 03: Training on Flow-Field Data</span><a class="headerlink" href="#question-03-training-on-flow-field-data" title="Link to this heading">#</a></h3>
+<p>Any machine-learning model worth its weights must be trained on an adequate amount of data. So, for training a surrogate model of a flow, where can the data come from? List at least three computational or experimental techniques that fluid-mechanics researchers use to generate flow-field data. For each, briefly note the issues with using it to produce training data.</p>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+</section>
+<section id="a-pinn-for-the-cylinder-wake">
+<h2><span style="color:Orange">A PINN for the Cylinder Wake</span><a class="headerlink" href="#a-pinn-for-the-cylinder-wake" title="Link to this heading">#</a></h2>
+<p>PINNs have been shown to be effective when data are scarce, so let’s test them on the cylinder wake. The goals are to reconstruct the flow from a limited number of velocity measurements, to infer the <strong>pressure field without ever training on pressure data</strong>, to quantify the uncertainty, and to analyze how much the embedded physics can compensate for a lack of training data. We briefly discuss the relevant physics and equations, and propose hyperparameters for the PINN.</p>
+<p><strong>Note:</strong> the training data and the following work draw heavily on the original PINN paper <a class="reference external" href="https://doi.org/10.1016/j.jcp.2018.10.045">[1]</a>, Section 4.1.1. There will be some differences in implementation. You are encouraged to consult the paper, but do not copy its code or text.</p>
+<section id="quick-primer-on-the-relevant-physics">
+<h3><span style="color:Purple">Quick Primer on the Relevant Physics</span><a class="headerlink" href="#quick-primer-on-the-relevant-physics" title="Link to this heading">#</a></h3>
+<p>All flows must satisfy the conservation of momentum and the conservation of mass. For a 2D incompressible flow, the momentum equations (Navier–Stokes) are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \Large
+\begin{aligned}
+u_t + (u u_x + v u_y) &amp;= -p_x + \nu (u_{xx} + u_{yy}), \\
+v_t + (u v_x + v v_y) &amp;= -p_y + \nu (v_{xx} + v_{yy}),
+\end{aligned}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> components of the velocity, <span class="math notranslate nohighlight">\(p\)</span> is the pressure (divided by the constant density), and <span class="math notranslate nohighlight">\(\nu\)</span> is the kinematic viscosity. Subscripts denote partial derivatives, e.g. <span class="math notranslate nohighlight">\(u_x = \partial u/\partial x\)</span>. In the units of this dataset, <span class="math notranslate nohighlight">\(\nu = 0.01\)</span> (<span class="math notranslate nohighlight">\(Re = 100\)</span>).</p>
+<p>Mass conservation for an incompressible flow requires <span class="math notranslate nohighlight">\(u_x + v_y = 0\)</span>. This is satisfied automatically if the velocity is derived from a <a class="reference external" href="https://eng.libretexts.org/Bookshelves/Civil_Engineering/All_Things_Flow_-_Fluid_Mechanics_for_the_Natural_Sciences_(Smyth)/05%3A_Fluid_Kinematics/5.02%3A_The_Streamfunction">streamfunction</a> <span class="math notranslate nohighlight">\(\psi\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \Large
+u = \psi_y, \quad v = -\psi_x .
+\]</div>
+<p>So the network predicts <span class="math notranslate nohighlight">\(\psi\)</span> and <span class="math notranslate nohighlight">\(p\)</span>, and the velocity is obtained by differentiating <span class="math notranslate nohighlight">\(\psi\)</span>. The pressure appears only through its gradient, so it is determined only up to an additive constant.</p>
+</section>
+<section id="recommended-pinn-hyperparameters">
+<h3><span style="color:Purple">Recommended PINN Hyperparameters</span><a class="headerlink" href="#recommended-pinn-hyperparameters" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Item</p></th>
+<th class="head text-left"><p>Recommendation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Layers</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\([3] + 8 \times [20] + [2]\)</span>, with tanh activations</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Inputs</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\([x, y, t]\)</span>, rescaled to <span class="math notranslate nohighlight">\([-1, 1]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Outputs</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\([\psi(x, y, t),\ p(x, y, t)]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Data loss</strong></p></td>
+<td class="text-left"><p>MSE of <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> only. Do <strong>not</strong> include <span class="math notranslate nohighlight">\(p\)</span>; the physics determines it.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Physics loss</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\frac{1}{N}\sum_{i=1}^{N} \left(f(x^i, y^i, t^i)^2 + g(x^i, y^i, t^i)^2\right)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>PDE residuals</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\begin{aligned} f &amp;= u_t + \lambda_1(uu_x + vu_y) + p_x - \lambda_2(u_{xx} + u_{yy}), \\ g &amp;= v_t + \lambda_1(uv_x + vv_y) + p_y - \lambda_2(v_{xx} + v_{yy}) \end{aligned}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Coefficients</strong></p></td>
+<td class="text-left"><p>Forward problem: fix <span class="math notranslate nohighlight">\(\lambda_1 = 1\)</span>, <span class="math notranslate nohighlight">\(\lambda_2 = \nu = 0.01\)</span>. Inverse problem (optional, Question 10): learn them.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Optimizer</strong></p></td>
+<td class="text-left"><p>Adam (learning rate <span class="math notranslate nohighlight">\(10^{-3}\)</span>) for a warm-up, followed by L-BFGS (<code class="docutils literal notranslate"><span class="pre">torch.optim.LBFGS</span></code> with <code class="docutils literal notranslate"><span class="pre">line_search_fn=&quot;strong_wolfe&quot;</span></code>), as in Ref. [1]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="compute-requirements">
+<h3><span style="color:Purple">Compute requirements</span><a class="headerlink" href="#compute-requirements" title="Link to this heading">#</a></h3>
+<p>PINNs for Navier–Stokes are expensive to train. Each step needs third-order derivatives of the network (<span class="math notranslate nohighlight">\(\psi \to u \to u_{xx}\)</span>) at every training point. With 4000 points, one Adam step takes roughly 0.15 s on a laptop CPU. Some guidance from test runs:</p>
+<ul class="simple">
+<li><p><strong>Adam alone converges slowly.</strong> It first learns only the mean flow and stays on that plateau for thousands of steps. After 3000 Adam steps (about 9 minutes on a CPU), the vortex shedding was still not captured: the relative error of <span class="math notranslate nohighlight">\(v\)</span> was about 100%.</p></li>
+<li><p><strong>A short Adam warm-up followed by L-BFGS works much better.</strong> 500 Adam steps, then 40 calls of <code class="docutils literal notranslate"><span class="pre">LBFGS.step</span></code> with <code class="docutils literal notranslate"><span class="pre">max_iter=50</span></code>, took about 8 minutes on a CPU. This reached relative errors of about 8% for <span class="math notranslate nohighlight">\(u\)</span>, 26% for <span class="math notranslate nohighlight">\(v\)</span>, and 50% for the pressure (which is never trained on) at <span class="math notranslate nohighlight">\(t = 10\)</span>. Longer training keeps improving the result. Ref. [1] used 200,000 Adam iterations followed by L-BFGS.</p></li>
+</ul>
+<p><strong>Use a GPU</strong> (e.g. Google Colab) for your final runs if you can. Develop and debug with short runs, and save your trained models (<code class="docutils literal notranslate"><span class="pre">torch.save</span></code>) so that you do not have to retrain them.</p>
+</section>
+<section id="helper-code-and-dataset-notes">
+<h3><span style="color:Purple">Helper Code and Dataset Notes</span><a class="headerlink" href="#helper-code-and-dataset-notes" title="Link to this heading">#</a></h3>
+<p>Helper code to load the data and to plot the flow field is provided at the bottom of this notebook. You may find it cleaner to do most of the coding in a separate notebook or Python script.</p>
+<p>The dataset covers a region downstream of the cylinder. You do not need to impose boundary or initial conditions for this project: the data play that role.</p>
+</section>
+<section id="question-05-activate-it">
+<h3><span style="color:LightGreen">Question 05: Activate It!</span><a class="headerlink" href="#question-05-activate-it" title="Link to this heading">#</a></h3>
+<p>Why does the choice of activation function matter when building a PINN for a second-order PDE? What would go wrong with ReLU?</p>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+<section id="question-06-balance-it">
+<h3><span style="color:LightGreen">Question 06: Balance It!</span><a class="headerlink" href="#question-06-balance-it" title="Link to this heading">#</a></h3>
+<p>How do you balance the data loss against the physics loss? Discuss the relative weight of the two terms, and the number and placement of the collocation points. Must the collocation points coincide with the data points?</p>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+<section id="question-07-make-it">
+<h3><span style="color:LightGreen">Question 07: Make It!</span><a class="headerlink" href="#question-07-make-it" title="Link to this heading">#</a></h3>
+<p>Build a PINN to reconstruct the flow field. Randomly select <strong>4000 space–time points</strong> <span class="math notranslate nohighlight">\((x, y, t)\)</span> uniformly from the 1,000,000 in the dataset as training data, and use the remaining points for validation and testing. Use the training points as collocation points too, or add extra collocation points, and justify your choice.</p>
+<ul class="simple">
+<li><p>Use the helper functions to plot the predicted and the true flow fields, including the <strong>pressure</strong>, at a few time steps.</p></li>
+<li><p>Report the relative <span class="math notranslate nohighlight">\(L_2\)</span> error of <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> on held-out points. For <span class="math notranslate nohighlight">\(p\)</span>, first subtract the mean of each field, since the pressure is only determined up to a constant.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+<section id="question-08-analyze-it">
+<h3><span style="color:LightGreen">Question 08: Analyze It!</span><a class="headerlink" href="#question-08-analyze-it" title="Link to this heading">#</a></h3>
+<p>For the PINN you built above, quantify both its accuracy and its uncertainty. This is open-ended, but address the following:</p>
+<ul class="simple">
+<li><p>Estimate the uncertainty with <strong>Monte Carlo dropout</strong> <a class="reference external" href="https://arxiv.org/abs/1506.02142">[5]</a>: add dropout layers and keep them active at prediction time, then use the spread of many stochastic predictions. Alternatively, train a small <strong>ensemble</strong> of PINNs with different random seeds. Note that dropout makes the network function noisy, which interacts with the derivatives in the physics loss. Comment on how this affects training.</p></li>
+<li><p>For accuracy, compare the total, data and physics losses on the training and held-out points.</p></li>
+<li><p>This is both a spatial and a temporal problem: show how the error and the uncertainty vary in space (maps at one time step) and in time (e.g. the spatially averaged error versus <span class="math notranslate nohighlight">\(t\)</span>). Where is the model least accurate, and why?</p></li>
+</ul>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+<section id="question-09-lower-it">
+<h3><span style="color:LightGreen">Question 09: Lower It!</span><a class="headerlink" href="#question-09-lower-it" title="Link to this heading">#</a></h3>
+<p>Train at least two more PINNs with progressively less training data (e.g. 2000, 1000, 500 points), and, for comparison, a plain neural network with the same architecture but <strong>no physics loss</strong>. How small can the training set become before the PINN’s error becomes unacceptably large? How does the plain network compare, in particular for the pressure, which it cannot learn at all without pressure data? Plot the error versus the number of training points for both.</p>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+<section id="question-10-inverse-problem-optional">
+<h3><span style="color:LightGreen">Question 10: Inverse Problem (optional)</span><a class="headerlink" href="#question-10-inverse-problem-optional" title="Link to this heading">#</a></h3>
+<p>Make <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span> trainable parameters (initialized to 0), and train on the same 4000 points, as in Ref. <a class="reference external" href="https://doi.org/10.1016/j.jcp.2018.10.045">[1]</a>. Do you recover <span class="math notranslate nohighlight">\(\lambda_1 = 1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2 = 0.01\)</span>? What happens if you add noise (e.g. 1%) to the training velocities?</p>
+<blockquote>
+<div><p><strong>[ Answer Here ]</strong></p>
+</div></blockquote>
+</section>
+</section>
+<section id="references">
+<h2><span style="color:Orange">References</span><a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p><strong>[<span style="color:Red">1</span>]</strong> M. Raissi, P. Perdikaris, G. E. Karniadakis, “Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations,” <em>J. Comput. Phys.</em> <strong>378</strong>, 686 (2019). <a class="reference external" href="https://doi.org/10.1016/j.jcp.2018.10.045">doi:10.1016/j.jcp.2018.10.045</a>. Code and data: <a class="github reference external" href="https://github.com/maziarraissi/PINNs">maziarraissi/PINNs</a></p>
+<p><strong>[<span style="color:Red">2</span>]</strong> G. E. Karniadakis, I. G. Kevrekidis, L. Lu, P. Perdikaris, S. Wang, L. Yang, “Physics-informed machine learning,” <em>Nat. Rev. Phys.</em> <strong>3</strong>, 422 (2021). <a class="reference external" href="https://doi.org/10.1038/s42254-021-00314-5">doi:10.1038/s42254-021-00314-5</a></p>
+<p><strong>[<span style="color:Red">3</span>]</strong> S. Cuomo, V. S. Di Cola, F. Giampaolo, G. Rozza, M. Raissi, F. Piccialli, “Scientific Machine Learning Through Physics-Informed Neural Networks: Where we are and What’s Next,” <em>J. Sci. Comput.</em> <strong>92</strong>, 88 (2022). <a class="reference external" href="https://doi.org/10.1007/s10915-022-01939-z">doi:10.1007/s10915-022-01939-z</a></p>
+<p><strong>[<span style="color:Red">4</span>]</strong> C. D. Cantwell <em>et al.</em>, “Nektar++: An open-source spectral/hp element framework,” <em>Comput. Phys. Commun.</em> <strong>192</strong>, 205 (2015). <a class="reference external" href="https://doi.org/10.1016/j.cpc.2015.02.008">doi:10.1016/j.cpc.2015.02.008</a></p>
+<p><strong>[<span style="color:Red">5</span>]</strong> Y. Gal, Z. Ghahramani, “Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning,” <em>Proc. ICML</em> (2016). <a class="reference external" href="https://arxiv.org/abs/1506.02142">arXiv:1506.02142</a></p>
+</section>
+<section id="acknowledgements">
+<h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Initial version: Pranet Patil with feedback from Mark Neubauer</p></li>
+<li><p>Revised: 2026 (PINN introduction added)</p></li>
+</ul>
+<p>© Copyright 2026</p>
+</section>
+<section id="starter-code">
+<h2><span style="color:Orange">Starter Code</span><a class="headerlink" href="#starter-code" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">loadmat</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">urllib.request</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">import_wake_data</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">"cylinder_nektar_wake.mat"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Imports the full dataset (nondimensional units, Re = 100).</span>
+<span class="sd">    - 5000 spatial points on a 100 (x) x 50 (y) grid, x in [1, 8], y in [-2, 2]; x varies fastest</span>
+<span class="sd">    - 200 times, t in [0, 19.9], dt = 0.1</span>
+<span class="sd">    Returns dictionaries position = {x, y (N x 1), t (T x 1)} and flow = {u, v, p (N x T)}.</span>
+<span class="sd">    """</span>
+    <span class="n">wake_data</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">wake_data</span><span class="p">[</span><span class="s2">"X_star"</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># N x 1</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">wake_data</span><span class="p">[</span><span class="s2">"X_star"</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>   <span class="c1"># N x 1</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">wake_data</span><span class="p">[</span><span class="s2">"t"</span><span class="p">]</span>                <span class="c1"># T x 1</span>
+    <span class="n">U_star</span> <span class="o">=</span> <span class="n">wake_data</span><span class="p">[</span><span class="s2">"U_star"</span><span class="p">]</span>      <span class="c1"># N x 2 x T</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">t</span><span class="p">}</span>
+    <span class="n">flow</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"u"</span><span class="p">:</span> <span class="n">U_star</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="s2">"v"</span><span class="p">:</span> <span class="n">U_star</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="s2">"p"</span><span class="p">:</span> <span class="n">wake_data</span><span class="p">[</span><span class="s2">"p_star"</span><span class="p">]}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"# of Spatial Points (x, y): </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"# of Temporal Points (t):   </span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">position</span><span class="p">,</span> <span class="n">flow</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_flow_field</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">resolution_factor</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">"cpu"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Uses your trained PINN to predict the flow on a regular grid at a single time t.</span>
+
+<span class="sd">    TODO: adapt the marked section to your model's interface. Here we assume the model maps</span>
+<span class="sd">    a tensor of shape (M, 3) with columns [x, y, t] to (M, 2) with columns [psi, p].</span>
+
+<span class="sd">    Returns 1D numpy arrays x, y (flattened grid, x varying fastest), t, u, v, p,</span>
+<span class="sd">    in the format expected by plot_wake_snapshot.</span>
+<span class="sd">    """</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">xg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">resolution_factor</span><span class="p">)</span>
+    <span class="n">yg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">resolution_factor</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="n">yg</span><span class="p">)</span>                       <span class="c1"># shape (ny, nx); flattening makes x vary fastest</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">Y</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+                          <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># ---- adapt this section to your model ----</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">psi</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">out</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">out</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">dpsi</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">psi</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">dpsi</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">dpsi</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>                   <span class="c1"># u = psi_y, v = -psi_x</span>
+    <span class="c1"># ------------------------------------------</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">u</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">p</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_wake_snapshot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Plots both the velocity and pressure field of the cylinder wake. </span>
+<span class="sd">    Use this for the raw data or to see your model's output</span>
+<span class="sd">    </span>
+<span class="sd">    Feel free to copy and modify this code to visualize error or uncertainty plots. </span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">    x, y: 1D numpy arrays (N_spatial,)</span>
+<span class="sd">    t: float representing current time</span>
+<span class="sd">    u_star, v_star, p_star: 1D numpy arrays representing the flow variable for each point (N_spatial,)</span>
+<span class="sd">    """</span> 
+
+    <span class="n">N</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># 1. Determine grid dimensions for reshaping</span>
+    <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    
+    <span class="c1"># Reshape vectors into 2D grids (NY x NX)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    
+
+    <span class="n">current_time</span> <span class="o">=</span> <span class="n">t</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+
+    <span class="c1"># --- Subplot 1: Velocity Magnitude + Quiver ---</span>
+    <span class="n">vel_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">U</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">vel_mag</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> 
+                       <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'viridis'</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">'equal'</span><span class="p">)</span>
+    
+    <span class="c1"># Quiver </span>
+    <span class="n">skip</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span> <span class="o">//</span> <span class="mi">12</span><span class="p">)),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span> <span class="o">//</span> <span class="mi">25</span><span class="p">)))</span>   <span class="c1"># about 12 x 25 arrows</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">skip</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">skip</span><span class="p">],</span> <span class="n">U</span><span class="p">[</span><span class="n">skip</span><span class="p">],</span> <span class="n">V</span><span class="p">[</span><span class="n">skip</span><span class="p">],</span> 
+                 <span class="n">color</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+
+
+    <span class="c1"># --- Subplot 2: Pressure Field ---</span>
+    <span class="n">im2</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> 
+                       <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'RdBu_r'</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">'equal'</span><span class="p">)</span>
+    
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cylinder Wake Flow Visualization at t = </span><span class="si">{</span><span class="n">current_time</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">0.625</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Velocity Field"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Pressure Field"</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"|U|"</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"p"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animate_wake</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">u_star</span><span class="p">,</span> <span class="n">v_star</span><span class="p">,</span> <span class="n">p_star</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Creates an animation of the cylinder wake flow. It's fun stuff</span>
+<span class="sd">    (Use this to visualize the flow field, but due to file size contraints don't worry about attaching all of them to the submission)</span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">    x, y: 1D numpy arrays (N_spatial,)</span>
+<span class="sd">    t: 1D numpy array (T_steps,)</span>
+<span class="sd">    u_star, v_star, p_star: 2D numpy arrays (N_spatial, T_steps)</span>
+<span class="sd">    """</span>
+
+
+    <span class="n">N</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">X_grid</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    <span class="n">Y_grid</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate global min/max for consistent color scales</span>
+    <span class="n">v_min</span><span class="p">,</span> <span class="n">v_max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u_star</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_star</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">p_min</span><span class="p">,</span> <span class="n">p_max</span> <span class="o">=</span> <span class="n">p_star</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">p_star</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+
+    <span class="c1"># Initial plot for Velocity</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_vel_mag</span><span class="p">(</span><span class="n">idx</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u_star</span><span class="p">[:,</span> <span class="n">idx</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_star</span><span class="p">[:,</span> <span class="n">idx</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+
+    <span class="n">im_v</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">get_vel_mag</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+                        <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'viridis'</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">'equal'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">v_min</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">v_max</span><span class="p">)</span>
+    
+    <span class="c1"># Quiver</span>
+    <span class="n">skip</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span> <span class="o">//</span> <span class="mi">12</span><span class="p">)),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span> <span class="o">//</span> <span class="mi">25</span><span class="p">)))</span>
+    <span class="n">u_init</span> <span class="o">=</span> <span class="n">u_star</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)[</span><span class="n">skip</span><span class="p">]</span>
+    <span class="n">v_init</span> <span class="o">=</span> <span class="n">v_star</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)[</span><span class="n">skip</span><span class="p">]</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X_grid</span><span class="p">[</span><span class="n">skip</span><span class="p">],</span> <span class="n">Y_grid</span><span class="p">[</span><span class="n">skip</span><span class="p">],</span> <span class="n">u_init</span><span class="p">,</span> <span class="n">v_init</span><span class="p">,</span> 
+                     <span class="n">color</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    
+
+    <span class="c1"># Initial plot for Pressure</span>
+    <span class="n">im_p</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">p_star</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">),</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+                        <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'RdBu_r'</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">'equal'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">p_min</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">p_max</span><span class="p">)</span>
+
+    <span class="c1"># Formatting</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Velocity Field"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Pressure Field"</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_v</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_p</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">time_text</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
+
+
+
+    <span class="c1"># Update Function for Animation</span>
+    <span class="c1"># TODO: Update as needed if you repurpose this code</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+        <span class="c1"># Extract the N spatial points for the current time frame</span>
+        <span class="c1"># u[:, frame] extracts the column, resulting in size (N,)</span>
+        <span class="n">u_f</span> <span class="o">=</span> <span class="n">u_star</span><span class="p">[:,</span> <span class="n">frame</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+        <span class="n">v_f</span> <span class="o">=</span> <span class="n">v_star</span><span class="p">[:,</span> <span class="n">frame</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+        <span class="n">p_f</span> <span class="o">=</span> <span class="n">p_star</span><span class="p">[:,</span> <span class="n">frame</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+        
+        <span class="c1"># Update the artists</span>
+        <span class="n">im_v</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u_f</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_f</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">q</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">(</span><span class="n">u_f</span><span class="p">[</span><span class="n">skip</span><span class="p">],</span> <span class="n">v_f</span><span class="p">[</span><span class="n">skip</span><span class="p">])</span>
+        <span class="n">im_p</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">p_f</span><span class="p">)</span>
+        
+        <span class="n">time_text</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t = </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="n">frame</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">im_v</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">im_p</span><span class="p">,</span> <span class="n">time_text</span><span class="p">]</span>
+
+
+
+    
+    <span class="n">ani</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'wake_animation.gif'</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s1">'pillow'</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ani</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example: plot the true flow field at one time step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">,</span> <span class="n">flow</span> <span class="o">=</span> <span class="n">import_wake_data</span><span class="p">()</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># time index</span>
+<span class="n">plot_wake_snapshot</span><span class="p">(</span><span class="n">position</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">position</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">position</span><span class="p">[</span><span class="s2">"t"</span><span class="p">][</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                   <span class="n">flow</span><span class="p">[</span><span class="s2">"u"</span><span class="p">][:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">flow</span><span class="p">[</span><span class="s2">"v"</span><span class="p">][:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">flow</span><span class="p">[</span><span class="s2">"p"</span><span class="p">][:,</span> <span class="n">k</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_sources/projects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Project_02_ClimateModels.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Climate Model Neural Network Prediction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Week_13.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><span style="color:Orange">Learning Objectives</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-physics-informed-neural-networks"><span style="color:Orange">Introduction to Physics-Informed Neural Networks</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-differentiation-in-pytorch"><span style="color:Purple">Automatic differentiation in PyTorch</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-worked-example-the-damped-harmonic-oscillator"><span style="color:Purple">A worked example: the damped harmonic oscillator</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-04-understanding-the-pinn"><span style="color:LightGreen">Question 04: Understanding the PINN</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-problem"><span style="color:Orange">Defining the Problem</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-01-navierstokes"><span style="color:LightGreen">Question 01: Navier–Stokes</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-02-cylinder-induced-wake"><span style="color:LightGreen">Question 02: Cylinder-Induced Wake</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-03-training-on-flow-field-data"><span style="color:LightGreen">Question 03: Training on Flow-Field Data</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-pinn-for-the-cylinder-wake"><span style="color:Orange">A PINN for the Cylinder Wake</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-primer-on-the-relevant-physics"><span style="color:Purple">Quick Primer on the Relevant Physics</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-pinn-hyperparameters"><span style="color:Purple">Recommended PINN Hyperparameters</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-requirements"><span style="color:Purple">Compute requirements</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-code-and-dataset-notes"><span style="color:Purple">Helper Code and Dataset Notes</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-05-activate-it"><span style="color:LightGreen">Question 05: Activate It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-06-balance-it"><span style="color:LightGreen">Question 06: Balance It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-07-make-it"><span style="color:LightGreen">Question 07: Make It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-08-analyze-it"><span style="color:LightGreen">Question 08: Analyze It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-09-lower-it"><span style="color:LightGreen">Question 09: Lower It!</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-10-inverse-problem-optional"><span style="color:LightGreen">Question 10: Inverse Problem (optional)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements"><span style="color:Orange">Acknowledgements</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starter-code"><span style="color:Orange">Starter Code</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mark Neubauer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

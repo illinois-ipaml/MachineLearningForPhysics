@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Beam Angle Optimization for Radiation Therapy &#8212; PHYS 503</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_02_Radiotherapy';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Precision Neutron Counting with Tail Pulse Pileup Rejection" href="Project_02_TailPulsePileupRejection.html" />
     <link rel="prev" title="Anisotropy in the Quark-Gluon Plasma" href="Project_02_AnisotropyQGP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -156,11 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PHYS 503 - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 503 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,56 +223,56 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Pandas.html">Handling Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Visualization.html">Visualizing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Clustering.html">Finding Structure in Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityTheory.html">Probability Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityDistributions.html">Important Probability Distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/DensityEstimation.html">Estimating Probability Density from Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Statistics.html">Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/MonteCarloSamplingMethods.html">Monte Carlo and Sampling Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/BayesianInference.html">Bayesian Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -230,52 +281,52 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/VariationalInference.html">Variational Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ModelSelection.html">Bayesian Model Selection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Learning.html">Artificial Intelligence and Machine Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/CrossValidation.html">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/SupervisedLearning.html">Supervised Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/DeepLearning.html">Deep Learning</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/GraphNeuralNetworks.html">Graph Neural Networks</a></li>
 
@@ -284,8 +335,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -303,30 +354,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_02_SloanDigitalSkySurvey.html">Galaxy Morphology Classification with the Sloan Digital Sky Survey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_EventHorizonTelescope.html">Black Hole Parameter Inference from EHT Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_ClimateModels.html">Climate Model Neural Network Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_CylinderWake.html">Modeling Fluid Flow Past a Cylinder</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -335,14 +387,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -351,14 +408,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -383,14 +440,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/projects/Project_02_Radiotherapy.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -466,7 +523,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -480,27 +537,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -520,26 +569,26 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-absorption-scattering-span"><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-dosimetry-span"><span style="color:LightGreen">Question 02: Dosimetry</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-proton-therapy-span"><span style="color:LightGreen">Question 03: Proton Therapy</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-preparing-tensors-span"><span style="color:LightGreen">Question 04: Preparing Tensors</span></a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><span style="color:Orange">Learning Objectives</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-01-absorption-scattering"><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-02-dosimetry"><span style="color:LightGreen">Question 02: Dosimetry</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-03-proton-therapy"><span style="color:LightGreen">Question 03: Proton Therapy</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-04-preparing-tensors"><span style="color:LightGreen">Question 04: Preparing Tensors</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-modelling-radiation-beams-span"><span style="color:Orange">Modelling radiation beams</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-choosing-beam-angles-reward-search-and-reinforcement-learning-span"><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-a-physics-informed-beam-span"><span style="color:LightGreen">Question 06: A physics-informed beam</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-deep-reinforcement-learning-optional-span"><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-further-ideas-optional-span"><span style="color:LightGreen">Further ideas (optional)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-radiation-beams"><span style="color:Orange">Modelling radiation beams</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-05-choosing-beam-angles-reward-search-and-reinforcement-learning"><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-06-a-physics-informed-beam"><span style="color:LightGreen">Question 06: A physics-informed beam</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-07-deep-reinforcement-learning-optional"><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-ideas-optional"><span style="color:LightGreen">Further ideas (optional)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements"><span style="color:Orange">Acknowledgements</span></a></li>
 </ul>
             </nav>
         </div>
@@ -549,14 +598,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="beam-angle-optimization-for-radiation-therapy">
-<h1>Beam Angle Optimization for Radiation Therapy<a class="headerlink" href="#beam-angle-optimization-for-radiation-therapy" title="Permalink to this heading">#</a></h1>
+<h1>Beam Angle Optimization for Radiation Therapy<a class="headerlink" href="#beam-angle-optimization-for-radiation-therapy" title="Link to this heading">#</a></h1>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Project_Radiotherapy-overview.jpg" width=600>
-</div><section id="span-style-color-orange-overview-span">
-<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
+</div><section id="overview">
+<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In November 1895, Wilhelm Röntgen discovered X-rays while experimenting with cathode-ray tubes. A few weeks later he made one of the first X-ray images, of his wife’s hand. It was a pivotal moment for medical physics: a way to harness physical phenomena to improve the human condition.</p>
 <p>Today, radiation therapy uses beams of ionizing radiation to damage the DNA of cancer cells and stop tumours from growing. The patient lies on a couch while a <strong>gantry</strong>, which carries a linear accelerator (LINAC), rotates around them and delivers X-ray beams (or proton beams, when greater precision is needed) from several directions. A treatment plan must balance:</p>
 <ul class="simple">
@@ -566,8 +615,8 @@ document.write(`
 <p><strong>Beam angle optimization (BAO)</strong> is the problem of choosing the set of beam directions that best achieves this balance. It is a hard combinatorial problem, and it has motivated many optimization and machine-learning approaches.</p>
 <p>In this project you will work with real (anonymized) clinical CT scans and contours of head-and-neck cancer patients from the OpenKBP challenge <a class="reference external" href="https://doi.org/10.1002/mp.14845">[1]</a>. You will build a simple physical model of radiation beams, and use search and reinforcement learning to choose beam angles.</p>
 </section>
-<section id="span-style-color-orange-learning-objectives-span">
-<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#span-style-color-orange-learning-objectives-span" title="Permalink to this heading">#</a></h2>
+<section id="learning-objectives">
+<h2><span style="color:Orange">Learning Objectives</span><a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Explain how megavoltage X-rays deposit dose in tissue, and how this differs for protons.</p></li>
 <li><p>Load and visualize 3D medical imaging data with organ and tumour masks.</p></li>
@@ -576,8 +625,8 @@ document.write(`
 <li><p>Critically compare a learning method with simple baselines.</p></li>
 </ul>
 </section>
-<section id="span-style-color-orange-data-sources-span">
-<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
+<section id="data-sources">
+<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
 <p>The data are a subset of 10 patients from the OpenKBP challenge dataset <a class="reference external" href="https://doi.org/10.1002/mp.14845">[1]</a>, <a class="reference external" href="https://github.com/ababier/open-kbp">[2]</a>, which contains 340 head-and-neck cancer patients treated with intensity-modulated radiation therapy.</p>
 <ul class="simple">
 <li><p>Course mirror: <a class="reference external" href="https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip">https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip</a> (14 MB)</p></li>
@@ -601,11 +650,11 @@ document.write(`
 </ul>
 <p>In the arrays below, <code class="docutils literal notranslate"><span class="pre">volume[:,</span> <span class="pre">:,</span> <span class="pre">k]</span></code> is an axial slice.</p>
 </section>
-<section id="span-style-color-orange-questions-span">
-<h2><span style="color:Orange">Questions</span><a class="headerlink" href="#span-style-color-orange-questions-span" title="Permalink to this heading">#</a></h2>
+<section id="questions">
+<h2><span style="color:Orange">Questions</span><a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
 <p>Answer each question in a markdown cell directly below it (add code cells where needed). For the background questions, aim for one to two well-organized paragraphs, and <strong>cite your sources</strong>. Your notebook should run from top to bottom without errors.</p>
-<section id="span-style-color-lightgreen-question-01-absorption-scattering-span">
-<h3><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-absorption-scattering-span" title="Permalink to this heading">#</a></h3>
+<section id="question-01-absorption-scattering">
+<h3><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span><a class="headerlink" href="#question-01-absorption-scattering" title="Link to this heading">#</a></h3>
 <p>A narrow beam of X-rays is attenuated exponentially as it passes through matter (the Beer–Lambert law):</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -618,8 +667,8 @@ I(x) = I_0 e^{-\mu x}
 <li><p>It is easy to conclude from the formula that the highest dose is delivered at the skin. Why is this not true for megavoltage photon beams? (<em>Hint:</em> look up the “build-up region” of a depth-dose curve.)</p></li>
 </ul>
 </section>
-<section id="span-style-color-lightgreen-question-02-dosimetry-span">
-<h3><span style="color:LightGreen">Question 02: Dosimetry</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-dosimetry-span" title="Permalink to this heading">#</a></h3>
+<section id="question-02-dosimetry">
+<h3><span style="color:LightGreen">Question 02: Dosimetry</span><a class="headerlink" href="#question-02-dosimetry" title="Link to this heading">#</a></h3>
 <p>We quantify the effect of radiation on tissue, healthy or cancerous, by the absorbed <a class="reference external" href="https://openmedscience.com/dosimetry-calculating-radiation-dose-for-medical-applications/">dose</a>: the energy deposited per unit mass, measured in gray (1 Gy = 1 J/kg):</p>
 <div class="math notranslate nohighlight">
 \[
@@ -631,12 +680,12 @@ I(x) = I_0 e^{-\mu x}
 <li><p>Putting it all together, which factors determine the ideal beam angles? Why is choosing them a hard optimization problem? How many ways are there to choose 5 beams out of 36 possible angles?</p></li>
 </ul>
 </section>
-<section id="span-style-color-lightgreen-question-03-proton-therapy-span">
-<h3><span style="color:LightGreen">Question 03: Proton Therapy</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-proton-therapy-span" title="Permalink to this heading">#</a></h3>
+<section id="question-03-proton-therapy">
+<h3><span style="color:LightGreen">Question 03: Proton Therapy</span><a class="headerlink" href="#question-03-proton-therapy" title="Link to this heading">#</a></h3>
 <p>If we used protons instead of X-rays, how would the dose deposited along the beam differ (<em>hint:</em> Bragg peak), and how would that change our beam-angle considerations?</p>
 </section>
-<section id="span-style-color-lightgreen-question-04-preparing-tensors-span">
-<h3><span style="color:LightGreen">Question 04: Preparing Tensors</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-preparing-tensors-span" title="Permalink to this heading">#</a></h3>
+<section id="question-04-preparing-tensors">
+<h3><span style="color:LightGreen">Question 04: Preparing Tensors</span><a class="headerlink" href="#question-04-preparing-tensors" title="Link to this heading">#</a></h3>
 <p>Download and unzip the data with the cell below, then load the patients. The provided functions convert each CSV file into a dense 3D array.</p>
 <ol class="arabic simple">
 <li><p>Complete the loop so that, for each patient, the CT, the target (<code class="docutils literal notranslate"><span class="pre">PTV70</span></code>), and the organs at risk are stacked into a single array with a leading <strong>channel</strong> dimension. Use a zero mask for any organ that is missing for a patient. What is the final shape? Draw an analogy to an RGB image.</p></li>
@@ -645,10 +694,10 @@ I(x) = I_0 e^{-\mu x}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">urllib.request</span><span class="o">,</span><span class="w"> </span><span class="nn">zipfile</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s2">&quot;openkbp_patient_data&quot;</span><span class="p">):</span>
-    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">&quot;https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;openkbp_patient_data.zip&quot;</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">&quot;openkbp_patient_data.zip&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
-        <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s2">&quot;openkbp_patient_data&quot;</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;__MACOSX&quot;</span><span class="p">)])</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s2">"openkbp_patient_data"</span><span class="p">):</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s2">"https://courses.physics.illinois.edu/phys498mlp/sp2025/data/projects/RadioTherapy/openkbp_patient_data.zip"</span><span class="p">,</span> <span class="s2">"openkbp_patient_data.zip"</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">"openkbp_patient_data.zip"</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+        <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s2">"openkbp_patient_data"</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"__MACOSX"</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
@@ -659,20 +708,20 @@ I(x) = I_0 e^{-\mu x}
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">base_path</span> <span class="o">=</span> <span class="s2">&quot;openkbp_patient_data&quot;</span>
+<span class="n">base_path</span> <span class="o">=</span> <span class="s2">"openkbp_patient_data"</span>
 <span class="n">SHAPE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
-<span class="n">patient_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pt_1&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_2&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_9&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_40&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_68&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_70&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_90&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_91&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_99&quot;</span><span class="p">,</span> <span class="s2">&quot;pt_187&quot;</span><span class="p">]</span>
-<span class="n">ORGANS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SpinalCord&quot;</span><span class="p">,</span> <span class="s2">&quot;Brainstem&quot;</span><span class="p">,</span> <span class="s2">&quot;LeftParotid&quot;</span><span class="p">,</span> <span class="s2">&quot;RightParotid&quot;</span><span class="p">,</span> <span class="s2">&quot;Mandible&quot;</span><span class="p">]</span>
+<span class="n">patient_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"pt_1"</span><span class="p">,</span> <span class="s2">"pt_2"</span><span class="p">,</span> <span class="s2">"pt_9"</span><span class="p">,</span> <span class="s2">"pt_40"</span><span class="p">,</span> <span class="s2">"pt_68"</span><span class="p">,</span> <span class="s2">"pt_70"</span><span class="p">,</span> <span class="s2">"pt_90"</span><span class="p">,</span> <span class="s2">"pt_91"</span><span class="p">,</span> <span class="s2">"pt_99"</span><span class="p">,</span> <span class="s2">"pt_187"</span><span class="p">]</span>
+<span class="n">ORGANS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"SpinalCord"</span><span class="p">,</span> <span class="s2">"Brainstem"</span><span class="p">,</span> <span class="s2">"LeftParotid"</span><span class="p">,</span> <span class="s2">"RightParotid"</span><span class="p">,</span> <span class="s2">"Mandible"</span><span class="p">]</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">load_volume</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert an OpenKBP sparse CSV file into a dense 128x128x128 array (mask, or values if values=True).&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Convert an OpenKBP sparse CSV file into a dense 128x128x128 array (mask, or values if values=True)."""</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">SHAPE</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-    <span class="n">flat</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">values</span> <span class="k">else</span> <span class="mf">1.0</span>
+    <span class="n">flat</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">values</span> <span class="k">else</span> <span class="mf">1.0</span>
     <span class="k">return</span> <span class="n">flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">SHAPE</span><span class="p">)</span>
 
-<span class="n">PIXEL_MM</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">patient_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;voxel_dimensions.csv&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pixel size:&quot;</span><span class="p">,</span> <span class="n">PIXEL_MM</span><span class="p">,</span> <span class="s2">&quot;mm&quot;</span><span class="p">)</span>
+<span class="n">PIXEL_MM</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">patient_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"voxel_dimensions.csv"</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"pixel size:"</span><span class="p">,</span> <span class="n">PIXEL_MM</span><span class="p">,</span> <span class="s2">"mm"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -682,16 +731,16 @@ I(x) = I_0 e^{-\mu x}
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patients</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">pt_id</span> <span class="ow">in</span> <span class="n">patient_ids</span><span class="p">:</span>
     <span class="n">pt_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">pt_id</span><span class="p">)</span>
-    <span class="n">ct</span>   <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">&quot;ct.csv&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">dose</span> <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">&quot;dose.csv&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">ptv</span>  <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">&quot;PTV70.csv&quot;</span><span class="p">))</span>
+    <span class="n">ct</span>   <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">"ct.csv"</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dose</span> <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">"dose.csv"</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ptv</span>  <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="s2">"PTV70.csv"</span><span class="p">))</span>
     <span class="n">oars</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">organ</span> <span class="ow">in</span> <span class="n">ORGANS</span><span class="p">:</span>
-        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">organ</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pt_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">organ</span><span class="si">}</span><span class="s2">.csv"</span><span class="p">)</span>
         <span class="n">oars</span><span class="p">[</span><span class="n">organ</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_volume</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">SHAPE</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
     <span class="n">pt_tensor</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># YOUR CODE HERE: stack ct, ptv and the organ masks along a new first (channel) axis</span>
-    <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tensor&quot;</span><span class="p">:</span> <span class="n">pt_tensor</span><span class="p">,</span> <span class="s2">&quot;dose&quot;</span><span class="p">:</span> <span class="n">dose</span><span class="p">}</span>
+    <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"tensor"</span><span class="p">:</span> <span class="n">pt_tensor</span><span class="p">,</span> <span class="s2">"dose"</span><span class="p">:</span> <span class="n">dose</span><span class="p">}</span>
 
 <span class="c1"># YOUR CODE HERE: visualization</span>
 </pre></div>
@@ -702,19 +751,19 @@ I(x) = I_0 e^{-\mu x}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_slice</span><span class="p">(</span><span class="n">pt_id</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the CT, target mask, organ masks (dict) and clinical dose on the axial slice with the largest target area.&quot;&quot;&quot;</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">][</span><span class="s2">&quot;tensor&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">"""Return the CT, target mask, organ masks (dict) and clinical dose on the axial slice with the largest target area."""</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">][</span><span class="s2">"tensor"</span><span class="p">]</span>
     <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
     <span class="n">organs</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="n">i</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ORGANS</span><span class="p">)}</span>
-    <span class="k">return</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">organs</span><span class="p">,</span> <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">][</span><span class="s2">&quot;dose&quot;</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">organs</span><span class="p">,</span> <span class="n">patients</span><span class="p">[</span><span class="n">pt_id</span><span class="p">][</span><span class="s2">"dose"</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-modelling-radiation-beams-span">
-<h2><span style="color:Orange">Modelling radiation beams</span><a class="headerlink" href="#span-style-color-orange-modelling-radiation-beams-span" title="Permalink to this heading">#</a></h2>
+<section id="modelling-radiation-beams">
+<h2><span style="color:Orange">Modelling radiation beams</span><a class="headerlink" href="#modelling-radiation-beams" title="Link to this heading">#</a></h2>
 <p>We model each beam on a 2D slice. A beam is aimed at the centre of the target from a direction given by its gantry angle, one of 36 possible angles (one every 10°). It enters the body from the source side, and the dose it deposits decreases with depth.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">straight_beam</span></code> below is a first, naive model: a beam of constant intensity and a fixed width (a Gaussian profile across the beam) inside the body, with no attenuation. You will add physics in Question 06. Note how the geometry is computed: each pixel’s position is projected onto the beam axis and onto the perpendicular direction. This automatically handles any angle correctly.</p>
 <div class="cell docutils container">
@@ -724,8 +773,8 @@ I(x) = I_0 e^{-\mu x}
 <span class="n">ANGLES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">beam_geometry</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;For every pixel: distance along the beam axis (pixels, negative = source side) and perpendicular distance,</span>
-<span class="sd">    for a beam aimed at the target centroid from direction angle_deg.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""For every pixel: distance along the beam axis (pixels, negative = source side) and perpendicular distance,</span>
+<span class="sd">    for a beam aimed at the target centroid from direction angle_deg."""</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">center_of_mass</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)])</span>                  <span class="c1"># direction of travel (row, col)</span>
@@ -736,7 +785,7 @@ I(x) = I_0 e^{-\mu x}
     <span class="k">return</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">along</span><span class="p">,</span> <span class="n">perp</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">straight_beam</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">sigma_mm</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Naive beam: constant intensity along the beam, Gaussian lateral profile, zero outside the body.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Naive beam: constant intensity along the beam, Gaussian lateral profile, zero outside the body."""</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">along</span><span class="p">,</span> <span class="n">perp</span> <span class="o">=</span> <span class="n">beam_geometry</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">ct</span> <span class="o">&gt;</span> <span class="mi">200</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">perp</span> <span class="o">*</span> <span class="n">PIXEL_MM</span> <span class="o">/</span> <span class="n">sigma_mm</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">body</span>
@@ -744,8 +793,8 @@ I(x) = I_0 e^{-\mu x}
 </div>
 </div>
 </div>
-<section id="span-style-color-lightgreen-question-05-choosing-beam-angles-reward-search-and-reinforcement-learning-span">
-<h3><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-choosing-beam-angles-reward-search-and-reinforcement-learning-span" title="Permalink to this heading">#</a></h3>
+<section id="question-05-choosing-beam-angles-reward-search-and-reinforcement-learning">
+<h3><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span><a class="headerlink" href="#question-05-choosing-beam-angles-reward-search-and-reinforcement-learning" title="Link to this heading">#</a></h3>
 <p>A treatment plan here consists of <code class="docutils literal notranslate"><span class="pre">N_BEAMS</span> <span class="pre">=</span> <span class="pre">5</span></code> distinct beam angles. Its dose is the sum of the doses of its beams. To compare plans, we <strong>normalize</strong> each plan’s dose so that the mean dose in the target equals 1, which represents the prescription dose. Dose limits for organs are then expressed as fractions of the prescription (e.g. 54 Gy / 70 Gy ≈ 0.77).</p>
 <ol class="arabic">
 <li><p><strong>Reward.</strong> Write a function <code class="docutils literal notranslate"><span class="pre">reward(dose,</span> <span class="pre">target,</span> <span class="pre">organs,</span> <span class="pre">ct)</span></code> that returns a single score (higher is better) for a plan. It should:</p>
@@ -766,29 +815,29 @@ I(x) = I_0 e^{-\mu x}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_BEAMS</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">DOSE_LIMITS</span> <span class="o">=</span> <span class="p">{</span>        <span class="c1"># fraction of the 70 Gy prescription; replace with your values from Question 02</span>
-    <span class="s2">&quot;SpinalCord&quot;</span><span class="p">:</span> <span class="mi">50</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
-    <span class="s2">&quot;Brainstem&quot;</span><span class="p">:</span> <span class="mi">54</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
-    <span class="s2">&quot;LeftParotid&quot;</span><span class="p">:</span> <span class="mi">25</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
-    <span class="s2">&quot;RightParotid&quot;</span><span class="p">:</span> <span class="mi">25</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
-    <span class="s2">&quot;Mandible&quot;</span><span class="p">:</span> <span class="mi">70</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">"SpinalCord"</span><span class="p">:</span> <span class="mi">50</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">"Brainstem"</span><span class="p">:</span> <span class="mi">54</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">"LeftParotid"</span><span class="p">:</span> <span class="mi">25</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">"RightParotid"</span><span class="p">:</span> <span class="mi">25</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">"Mandible"</span><span class="p">:</span> <span class="mi">70</span> <span class="o">/</span> <span class="mi">70</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">plan_dose</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">beam_fn</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">beam_fn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">show_plan</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">pt_id</span><span class="p">,</span> <span class="n">beam_fn</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_plan</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">pt_id</span><span class="p">,</span> <span class="n">beam_fn</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
     <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">organs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_slice</span><span class="p">(</span><span class="n">pt_id</span><span class="p">)</span>
     <span class="n">dose</span> <span class="o">=</span> <span class="n">plan_dose</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">beam_fn</span><span class="p">)</span>
     <span class="n">dose</span> <span class="o">=</span> <span class="n">dose</span> <span class="o">/</span> <span class="n">dose</span><span class="p">[</span><span class="n">target</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">dose</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">dose</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;hot&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">dose</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">dose</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"hot"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"lime"</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">organs</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> beams: </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">angles</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">target: green, organs at risk: cyan&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"cyan"</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> beams: </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">angles</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">target: green, organs at risk: cyan"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -805,8 +854,8 @@ I(x) = I_0 e^{-\mu x}
 </div>
 </div>
 </section>
-<section id="span-style-color-lightgreen-question-06-a-physics-informed-beam-span">
-<h3><span style="color:LightGreen">Question 06: A physics-informed beam</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-a-physics-informed-beam-span" title="Permalink to this heading">#</a></h3>
+<section id="question-06-a-physics-informed-beam">
+<h3><span style="color:LightGreen">Question 06: A physics-informed beam</span><a class="headerlink" href="#question-06-a-physics-informed-beam" title="Link to this heading">#</a></h3>
 <p>Now make the beam more realistic, using what you learned in Question 01. Implement <code class="docutils literal notranslate"><span class="pre">physical_beam(angle_deg,</span> <span class="pre">ct,</span> <span class="pre">target)</span></code>, in which the intensity decreases with the <strong>radiological depth</strong>, i.e. the tissue the beam has traversed from where it enters the body:</p>
 <div class="math notranslate nohighlight">
 \[ I(\text{pixel}) \propto \exp\left(-\mu_\text{water} \int_\text{source}^\text{pixel} \rho_\text{rel}(s)\, ds\right) \]</div>
@@ -833,14 +882,14 @@ I(x) = I_0 e^{-\mu x}
 </div>
 </div>
 </section>
-<section id="span-style-color-lightgreen-question-07-deep-reinforcement-learning-optional-span">
-<h3><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-deep-reinforcement-learning-optional-span" title="Permalink to this heading">#</a></h3>
+<section id="question-07-deep-reinforcement-learning-optional">
+<h3><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span><a class="headerlink" href="#question-07-deep-reinforcement-learning-optional" title="Link to this heading">#</a></h3>
 <p>The bandit version of Q-learning ignores the fact that the value of a beam depends on the beams already chosen. A <strong>deep Q-network (DQN)</strong> can learn this: let the <em>state</em> be the current partial plan, e.g. the accumulated dose image together with the CT and masks, or a binary vector of the angles chosen so far. Let the <em>action</em> be the next angle, and the reward the <em>improvement</em> in <code class="docutils literal notranslate"><span class="pre">reward</span></code> when that beam is added. Train a DQN with the usual Bellman (temporal-difference) loss.</p>
 <p><em>Where does the physics belong?</em> One might be tempted to add a “physics loss” (e.g. target underdose plus organ overdose) directly to the Bellman loss. Explain why this does not work: the dose of a plan depends on discrete chosen angles, so such a term has no gradient with respect to the network parameters. Instead, physics enters through the <strong>reward</strong> (as in Question 05), and through the physical beam model.</p>
 <p>Train your DQN on several patients, and test it on a patient it has not seen. Does it generalize? How does it compare with the greedy search?</p>
 </section>
-<section id="span-style-color-lightgreen-further-ideas-optional-span">
-<h3><span style="color:LightGreen">Further ideas (optional)</span><a class="headerlink" href="#span-style-color-lightgreen-further-ideas-optional-span" title="Permalink to this heading">#</a></h3>
+<section id="further-ideas-optional">
+<h3><span style="color:LightGreen">Further ideas (optional)</span><a class="headerlink" href="#further-ideas-optional" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Dose prediction</strong> (the original OpenKBP task <a class="reference external" href="https://doi.org/10.1002/mp.14845">[1]</a>): train a CNN (e.g. a small U-Net) to predict the clinical dose slice from the CT and the masks. With only 10 patients, use 2D slices and data augmentation, and evaluate on held-out patients. The full OpenKBP dataset (340 patients) is available from Ref. <a class="reference external" href="https://github.com/ababier/open-kbp">[2]</a>.</p></li>
 <li><p>Make the beam model 3D, or include the build-up region and scattered dose.</p></li>
@@ -848,8 +897,8 @@ I(x) = I_0 e^{-\mu x}
 </ul>
 </section>
 </section>
-<section id="span-style-color-orange-references-span">
-<h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
+<section id="references">
+<h2><span style="color:Orange">References</span><a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p><strong>[<span style="color:Red">1</span>]</strong> A. Babier, B. Zhang, R. Mahmood, K. L. Moore, T. G. Purdie, A. L. McNiven, T. C. Y. Chan, “OpenKBP: The open-access knowledge-based planning grand challenge and dataset,” <em>Med. Phys.</em> <strong>48</strong>, 5549 (2021). <a class="reference external" href="https://doi.org/10.1002/mp.14845">doi:10.1002/mp.14845</a></p>
 <p><strong>[<span style="color:Red">2</span>]</strong> OpenKBP code and data repository. <a class="github reference external" href="https://github.com/ababier/open-kbp">ababier/open-kbp</a></p>
 <p><strong>[<span style="color:Red">3</span>]</strong> S. M. Bentzen <em>et al.</em>, “Quantitative Analyses of Normal Tissue Effects in the Clinic (QUANTEC): An Introduction to the Scientific Issues,” <em>Int. J. Radiat. Oncol. Biol. Phys.</em> <strong>76</strong>, S3 (2010). <a class="reference external" href="https://doi.org/10.1016/j.ijrobp.2009.09.040">doi:10.1016/j.ijrobp.2009.09.040</a></p>
@@ -857,8 +906,8 @@ I(x) = I_0 e^{-\mu x}
 <p><strong>[<span style="color:Red">5</span>]</strong> J. H. Hubbell, S. M. Seltzer, “X-Ray Mass Attenuation Coefficients,” NIST Standard Reference Database 126: water. <a class="reference external" href="https://physics.nist.gov/PhysRefData/XrayMassCoef/ComTab/water.html">https://physics.nist.gov/PhysRefData/XrayMassCoef/ComTab/water.html</a></p>
 <p><strong>[<span style="color:Red">6</span>]</strong> R. S. Sutton, A. G. Barto, <em>Reinforcement Learning: An Introduction</em>, 2nd ed. (MIT Press, 2018). <a class="reference external" href="http://incompleteideas.net/book/the-book-2nd.html">http://incompleteideas.net/book/the-book-2nd.html</a></p>
 </section>
-<section id="span-style-color-orange-acknowledgements-span">
-<h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
+<section id="acknowledgements">
+<h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Aarya Mehta with some guidance from Mark Neubauer</p></li>
 <li><p>Revised: 2026</p></li>
@@ -894,7 +943,7 @@ I(x) = I_0 e^{-\mu x}
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -922,33 +971,36 @@ I(x) = I_0 e^{-\mu x}
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-learning-objectives-span"><span style="color:Orange">Learning Objectives</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-span"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-absorption-scattering-span"><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-dosimetry-span"><span style="color:LightGreen">Question 02: Dosimetry</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-proton-therapy-span"><span style="color:LightGreen">Question 03: Proton Therapy</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-preparing-tensors-span"><span style="color:LightGreen">Question 04: Preparing Tensors</span></a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives"><span style="color:Orange">Learning Objectives</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><span style="color:Orange">Data Sources</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions"><span style="color:Orange">Questions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-01-absorption-scattering"><span style="color:LightGreen">Question 01: Absorption &amp; Scattering</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-02-dosimetry"><span style="color:LightGreen">Question 02: Dosimetry</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-03-proton-therapy"><span style="color:LightGreen">Question 03: Proton Therapy</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-04-preparing-tensors"><span style="color:LightGreen">Question 04: Preparing Tensors</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-modelling-radiation-beams-span"><span style="color:Orange">Modelling radiation beams</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-choosing-beam-angles-reward-search-and-reinforcement-learning-span"><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-a-physics-informed-beam-span"><span style="color:LightGreen">Question 06: A physics-informed beam</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-deep-reinforcement-learning-optional-span"><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-further-ideas-optional-span"><span style="color:LightGreen">Further ideas (optional)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-radiation-beams"><span style="color:Orange">Modelling radiation beams</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-05-choosing-beam-angles-reward-search-and-reinforcement-learning"><span style="color:LightGreen">Question 05: Choosing beam angles: reward, search, and reinforcement learning</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-06-a-physics-informed-beam"><span style="color:LightGreen">Question 06: A physics-informed beam</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-07-deep-reinforcement-learning-optional"><span style="color:LightGreen">Question 07: Deep reinforcement learning (optional)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-ideas-optional"><span style="color:LightGreen">Further ideas (optional)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements"><span style="color:Orange">Acknowledgements</span></a></li>
 </ul>
   </nav></div>
 
@@ -997,8 +1049,8 @@ By Mark Neubauer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

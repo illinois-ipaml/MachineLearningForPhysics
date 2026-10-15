@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Monte Carlo and Sampling Methods &#8212; PHYS 503</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/MonteCarloSamplingMethods';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Homework 05: Kernel Density Estimation, Covariance and Correlation" href="../homework/Homework_05.html" />
     <link rel="prev" title="Statistics" href="Statistics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -156,11 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PHYS 503 - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 503 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,56 +223,56 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Pandas.html">Handling Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Visualization.html">Visualizing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Clustering.html">Finding Structure in Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ProbabilityTheory.html">Probability Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ProbabilityDistributions.html">Important Probability Distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DensityEstimation.html">Estimating Probability Density from Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Statistics.html">Statistics</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Monte Carlo and Sampling Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BayesianInference.html">Bayesian Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -230,52 +281,52 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VariationalInference.html">Variational Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ModelSelection.html">Bayesian Model Selection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Learning.html">Artificial Intelligence and Machine Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CrossValidation.html">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SupervisedLearning.html">Supervised Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GraphNeuralNetworks.html">Graph Neural Networks</a></li>
 
@@ -284,8 +335,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -303,30 +354,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_SloanDigitalSkySurvey.html">Galaxy Morphology Classification with the Sloan Digital Sky Survey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_EventHorizonTelescope.html">Black Hole Parameter Inference from EHT Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_ClimateModels.html">Climate Model Neural Network Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_CylinderWake.html">Modeling Fluid Flow Past a Cylinder</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -335,14 +387,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -351,14 +408,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -383,14 +440,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/MonteCarloSamplingMethods.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -466,7 +523,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -480,27 +537,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -520,32 +569,32 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-introduction-span"><span style="color:Orange">Introduction</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-monte-carlo-integration-span"><span style="color:Orange">Monte Carlo Integration</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span"><span style="color:LightBlue">Multidimensional Monte Carlo integration and variance scaling</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-variance-and-bias-in-monte-carlo-integration-span"><span style="color:LightBlue">Variance and Bias in Monte Carlo integration</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-single-monte-carlo-estimate-span"><span style="color:Tan">Single Monte Carlo estimate</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-using-multiple-independent-sequences-to-monitor-convergence-span"><span style="color:Tan">Using multiple independent sequences to monitor convergence</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-proof-that-monte-carlo-estimator-is-unbiased-span"><span style="color:Tan">Proof that Monte Carlo Estimator is Unbiased</span></a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><span style="color:Orange">Introduction</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-integration"><span style="color:Orange">Monte Carlo Integration</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimensional-monte-carlo-integration-and-variance-scaling"><span style="color:LightBlue">Multidimensional Monte Carlo integration and variance scaling</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-and-bias-in-monte-carlo-integration"><span style="color:LightBlue">Variance and Bias in Monte Carlo integration</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#single-monte-carlo-estimate"><span style="color:Tan">Single Monte Carlo estimate</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-multiple-independent-sequences-to-monitor-convergence"><span style="color:Tan">Using multiple independent sequences to monitor convergence</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-that-monte-carlo-estimator-is-unbiased"><span style="color:Tan">Proof that Monte Carlo Estimator is Unbiased</span></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-change-of-variables-span"><span style="color:LightBlue">Change of Variables</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-a-change-of-variables-lets-us-use-100-of-draws-span"><span style="color:Tan">A change of variables lets us use 100% of draws</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-of-variables"><span style="color:LightBlue">Change of Variables</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-change-of-variables-lets-us-use-100-of-draws"><span style="color:Tan">A change of variables lets us use 100% of draws</span></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-monte-carlo-swindles-span"><span style="color:LightBlue">Monte Carlo Swindles</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-antithetic-variables-span"><span style="color:Tan">Antithetic variables</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-importance-sampling-span"><span style="color:Tan">Importance Sampling</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-expected-answer-span"><span style="color:Tan">Expected answer</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-using-direct-monte-carlo-integration-span"><span style="color:Tan">Using direct Monte Carlo integration</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-using-importance-sampling-span"><span style="color:Tan">Using importance sampling</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-swindles"><span style="color:LightBlue">Monte Carlo Swindles</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#antithetic-variables"><span style="color:Tan">Antithetic variables</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-sampling"><span style="color:Tan">Importance Sampling</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-answer"><span style="color:Tan">Expected answer</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-direct-monte-carlo-integration"><span style="color:Tan">Using direct Monte Carlo integration</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-importance-sampling"><span style="color:Tan">Using importance sampling</span></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-vegas-method-span"><span style="color:LightBlue">Vegas Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vegas-method"><span style="color:LightBlue">Vegas Method</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
             </nav>
         </div>
@@ -555,10 +604,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="monte-carlo-and-sampling-methods">
-<h1>Monte Carlo and Sampling Methods<a class="headerlink" href="#monte-carlo-and-sampling-methods" title="Permalink to this heading">#</a></h1>
+<h1>Monte Carlo and Sampling Methods<a class="headerlink" href="#monte-carlo-and-sampling-methods" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -575,17 +624,17 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="span-style-color-orange-introduction-span">
-<h2><span style="color:Orange">Introduction</span><a class="headerlink" href="#span-style-color-orange-introduction-span" title="Permalink to this heading">#</a></h2>
+<section id="introduction">
+<h2><span style="color:Orange">Introduction</span><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Monte Carlo (MC) integration and other sampling techniques are important tools for computing complex intgerals that arising in many areas of science. In this lecture, we will study Monte Carlo integration methods.</p>
 </section>
-<section id="span-style-color-orange-monte-carlo-integration-span">
-<h2><span style="color:Orange">Monte Carlo Integration</span><a class="headerlink" href="#span-style-color-orange-monte-carlo-integration-span" title="Permalink to this heading">#</a></h2>
+<section id="monte-carlo-integration">
+<h2><span style="color:Orange">Monte Carlo Integration</span><a class="headerlink" href="#monte-carlo-integration" title="Link to this heading">#</a></h2>
 <p>Numerical integration uses the rectangle approximation to find the area under a curve.  The analytical notation we are used to seeing for a definite integral</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -650,7 +699,7 @@ F = \int_a^b f(x) dx
 <span class="n">ans</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">integral</span> 
 
 <span class="c1"># prints the solution </span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;The value calculated by monte carlo integration is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ans</span><span class="p">))</span> 
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"The value calculated by monte carlo integration is </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ans</span><span class="p">))</span> 
 </pre></div>
 </div>
 </div>
@@ -707,15 +756,15 @@ F = \int_a^b f(x) dx
 
 <span class="c1"># details of the plot to be generated </span>
 <span class="c1"># sets the title of the plot </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distributions of areas calculated&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Distributions of areas calculated"</span><span class="p">)</span> 
 
 <span class="c1"># 3 parameters (array on which histogram needs </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">plt_vals</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">plt_vals</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">"black"</span><span class="p">)</span> 
 
 <span class="c1"># to be made, bins, separators colour between the </span>
 <span class="c1"># beams) </span>
 <span class="c1"># sets the label of the x-axis of the plot </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Areas&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Areas"</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># shows the plot</span>
 </pre></div>
 </div>
@@ -763,7 +812,7 @@ F = \int_a^b f(x) dx
 <span class="n">ans</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">integral</span> 
 
 <span class="c1"># prints the solution </span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value calculated by monte carlo integration is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ans</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The value calculated by monte carlo integration is </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ans</span><span class="p">))</span> 
 </pre></div>
 </div>
 </div>
@@ -821,15 +870,15 @@ F = \int_a^b f(x) dx
 
 <span class="c1"># details of the plot to be generated </span>
 <span class="c1"># sets the title of the plot </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distributions of areas calculated&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Distributions of areas calculated"</span><span class="p">)</span> 
 
 <span class="c1"># 3 parameters (array on which histogram needs </span>
 <span class="c1"># to be made, bins, separators colour between </span>
 <span class="c1"># the beams) </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">plt_vals</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">plt_vals</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">"black"</span><span class="p">)</span> 
 
 <span class="c1"># sets the label of the x-axis of the plot </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Areas&quot;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Areas"</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># shows the plot </span>
 </pre></div>
 </div>
@@ -838,8 +887,8 @@ F = \int_a^b f(x) dx
 <img alt="../../_images/3c5bfac536294a14e5ba4b2f8d3f0ed355cc95ac911e722b137f0a9fc51a4b23.png" src="../../_images/3c5bfac536294a14e5ba4b2f8d3f0ed355cc95ac911e722b137f0a9fc51a4b23.png" />
 </div>
 </div>
-<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><section id="span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span">
-<h3><span style="color:LightBlue">Multidimensional Monte Carlo integration and variance scaling</span><a class="headerlink" href="#span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span" title="Permalink to this heading">#</a></h3>
+<hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><section id="multidimensional-monte-carlo-integration-and-variance-scaling">
+<h3><span style="color:LightBlue">Multidimensional Monte Carlo integration and variance scaling</span><a class="headerlink" href="#multidimensional-monte-carlo-integration-and-variance-scaling" title="Link to this heading">#</a></h3>
 <p>We can estimate the Monte Carlo variance of the approximation as</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -868,8 +917,8 @@ F_N = \frac{(x_1 - x_0)(y_1 - y_0)(z_1 - z_0)}{N} ~ \sum\limits_{i=1}^{N} f(X_i)
 \]</div>
 <p>This generalizes to abitrary N-dimensional PDFs</p>
 </section>
-<section id="span-style-color-lightblue-variance-and-bias-in-monte-carlo-integration-span">
-<h3><span style="color:LightBlue">Variance and Bias in Monte Carlo integration</span><a class="headerlink" href="#span-style-color-lightblue-variance-and-bias-in-monte-carlo-integration-span" title="Permalink to this heading">#</a></h3>
+<section id="variance-and-bias-in-monte-carlo-integration">
+<h3><span style="color:LightBlue">Variance and Bias in Monte Carlo integration</span><a class="headerlink" href="#variance-and-bias-in-monte-carlo-integration" title="Link to this heading">#</a></h3>
 <p>We are often interested in knowing how many iterations it takes for Monte Carlo integration to “converge” and the accuracy of the calculation. To do this, we would like some estimate of the variance and to ensure it is unbiased. It is useful to inspect such plots. One simple way to get confidence intervals for the plot of Monte Carlo estimate against number of iterations is simply to do many such simulations.</p>
 <p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: Using Monte Carlo methods, estimate the integral of the function</p>
 <div class="math notranslate nohighlight">
@@ -896,8 +945,8 @@ f(x) = x \cos 71x + \sin 13x, \ \ \ 0 \le x \le 1
 <img alt="../../_images/8675b079ac80c89e2cc81fd7b79fee4aea05ffed0a8449660b329315d4cb1251.png" src="../../_images/8675b079ac80c89e2cc81fd7b79fee4aea05ffed0a8449660b329315d4cb1251.png" />
 </div>
 </div>
-<section id="span-style-color-tan-single-monte-carlo-estimate-span">
-<h4><span style="color:Tan">Single Monte Carlo estimate</span><a class="headerlink" href="#span-style-color-tan-single-monte-carlo-estimate-span" title="Permalink to this heading">#</a></h4>
+<section id="single-monte-carlo-estimate">
+<h4><span style="color:Tan">Single Monte Carlo estimate</span><a class="headerlink" href="#single-monte-carlo-estimate" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
@@ -914,8 +963,8 @@ f(x) = x \cos 71x + \sin 13x, \ \ \ 0 \le x \le 1
 </div>
 </div>
 </section>
-<section id="span-style-color-tan-using-multiple-independent-sequences-to-monitor-convergence-span">
-<h4><span style="color:Tan">Using multiple independent sequences to monitor convergence</span><a class="headerlink" href="#span-style-color-tan-using-multiple-independent-sequences-to-monitor-convergence-span" title="Permalink to this heading">#</a></h4>
+<section id="using-multiple-independent-sequences-to-monitor-convergence">
+<h4><span style="color:Tan">Using multiple independent sequences to monitor convergence</span><a class="headerlink" href="#using-multiple-independent-sequences-to-monitor-convergence" title="Link to this heading">#</a></h4>
 <p>We vary the sample size from 1 to 100 and calculate the value of <span class="math notranslate nohighlight">\(y=\sum x / n\)</span> for 1000 replicates. We then plot the 2.5th and 97.5th percentile of the 1000 values of <span class="math notranslate nohighlight">\(y\)</span> to see how the variation in <span class="math notranslate nohighlight">\(y\)</span> changes with sample size. The blue lines indicate the 2.5th and 97.5th percentiles, and the red line a sample path.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -931,9 +980,9 @@ f(x) = x \cos 71x + \sin 13x, \ \ \ 0 \le x \le 1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">upper</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">lower</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">upper</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">lower</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
 <span class="k">pass</span>
 </pre></div>
 </div>
@@ -943,8 +992,8 @@ f(x) = x \cos 71x + \sin 13x, \ \ \ 0 \le x \le 1
 </div>
 </div>
 </section>
-<section id="span-style-color-tan-proof-that-monte-carlo-estimator-is-unbiased-span">
-<h4><span style="color:Tan">Proof that Monte Carlo Estimator is Unbiased</span><a class="headerlink" href="#span-style-color-tan-proof-that-monte-carlo-estimator-is-unbiased-span" title="Permalink to this heading">#</a></h4>
+<section id="proof-that-monte-carlo-estimator-is-unbiased">
+<h4><span style="color:Tan">Proof that Monte Carlo Estimator is Unbiased</span><a class="headerlink" href="#proof-that-monte-carlo-estimator-is-unbiased" title="Link to this heading">#</a></h4>
 <p>It is straightforward to prove that the expectation value of the Monte Carlo estimator is the desired integral (i.e. it is unbiased).</p>
 <p>First recall some properties of the expectation value <span class="math notranslate nohighlight">\(E\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -961,8 +1010,8 @@ E ~ \Biggl[ \sum\limits_i Y_i \Biggr] = \sum\limits_i E\bigl[ Y_i \bigr]   ~~~~~
 \end{split}\]</div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-<section id="span-style-color-lightblue-change-of-variables-span">
-<h3><span style="color:LightBlue">Change of Variables</span><a class="headerlink" href="#span-style-color-lightblue-change-of-variables-span" title="Permalink to this heading">#</a></h3>
+<section id="change-of-variables">
+<h3><span style="color:LightBlue">Change of Variables</span><a class="headerlink" href="#change-of-variables" title="Link to this heading">#</a></h3>
 <p>The Cauchy distribution is given by</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -999,8 +1048,8 @@ f(x) = \frac{1}{\pi (1 + x^2)}, \ \ -\infty \lt x \lt \infty
 </div>
 </div>
 </div>
-<section id="span-style-color-tan-a-change-of-variables-lets-us-use-100-of-draws-span">
-<h4><span style="color:Tan">A change of variables lets us use 100% of draws</span><a class="headerlink" href="#span-style-color-tan-a-change-of-variables-lets-us-use-100-of-draws-span" title="Permalink to this heading">#</a></h4>
+<section id="a-change-of-variables-lets-us-use-100-of-draws">
+<h4><span style="color:Tan">A change of variables lets us use 100% of draws</span><a class="headerlink" href="#a-change-of-variables-lets-us-use-100-of-draws" title="Link to this heading">#</a></h4>
 <p>We are trying to estimate the quantity</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -1033,8 +1082,8 @@ f(x) = \frac{1}{\pi (1 + x^2)}, \ \ -\infty \lt x \lt \infty
 </div>
 </section>
 </section>
-<section id="span-style-color-lightblue-monte-carlo-swindles-span">
-<h3><span style="color:LightBlue">Monte Carlo Swindles</span><a class="headerlink" href="#span-style-color-lightblue-monte-carlo-swindles-span" title="Permalink to this heading">#</a></h3>
+<section id="monte-carlo-swindles">
+<h3><span style="color:LightBlue">Monte Carlo Swindles</span><a class="headerlink" href="#monte-carlo-swindles" title="Link to this heading">#</a></h3>
 <p>Apart from change of variables, there are several general techniques for variance reduction, sometimes known as Monte Carlo “swindles” since these methods improve the accuracy and convergence rate of Monte Carlo integration without increasing the number of Monte Carlo samples. Some Monte Carlo swindles are:</p>
 <ul class="simple">
 <li><p>importance sampling</p></li>
@@ -1044,8 +1093,8 @@ f(x) = \frac{1}{\pi (1 + x^2)}, \ \ -\infty \lt x \lt \infty
 <li><p>conditioning swindles including Rao-Blackwellization and independent variance decomposition</p></li>
 </ul>
 <p>Most of these techniques are not particularly computational in nature, so we will not cover them in the course. I expect you will learn them elsewhere. We will illustrate importance sampling and antithetic variables here as examples.</p>
-<section id="span-style-color-tan-antithetic-variables-span">
-<h4><span style="color:Tan">Antithetic variables</span><a class="headerlink" href="#span-style-color-tan-antithetic-variables-span" title="Permalink to this heading">#</a></h4>
+<section id="antithetic-variables">
+<h4><span style="color:Tan">Antithetic variables</span><a class="headerlink" href="#antithetic-variables" title="Link to this heading">#</a></h4>
 <p>The idea behind antithetic variables is to choose two sets of random numbers that are negatively correlated, then take their average, so that the total variance of the estimator is smaller than it would be with two sets of independent and identically distributed (IID) random variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1059,7 +1108,7 @@ f(x) = \frac{1}{\pi (1 + x^2)}, \ \ -\infty \lt x \lt \infty
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">integrate</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="mi">71</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">13</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 </pre></div>
@@ -1106,8 +1155,8 @@ f(x) = \frac{1}{\pi (1 + x^2)}, \ \ -\infty \lt x \lt \infty
 </div>
 <p>This works because the random draws are now negatively correlated, and hence the sum of the variances will be less than in the IID case, while the expectation is unchanged.</p>
 </section>
-<section id="span-style-color-tan-importance-sampling-span">
-<h4><span style="color:Tan">Importance Sampling</span><a class="headerlink" href="#span-style-color-tan-importance-sampling-span" title="Permalink to this heading">#</a></h4>
+<section id="importance-sampling">
+<h4><span style="color:Tan">Importance Sampling</span><a class="headerlink" href="#importance-sampling" title="Link to this heading">#</a></h4>
 <p>Ordinary Monte Carlo sampling evaluates</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -1152,8 +1201,8 @@ h(x) = p ~(x - a)
 </div>
 </div>
 </section>
-<section id="span-style-color-tan-expected-answer-span">
-<h4><span style="color:Tan">Expected answer</span><a class="headerlink" href="#span-style-color-tan-expected-answer-span" title="Permalink to this heading">#</a></h4>
+<section id="expected-answer">
+<h4><span style="color:Tan">Expected answer</span><a class="headerlink" href="#expected-answer" title="Link to this heading">#</a></h4>
 <p>We expect about 3 draws out of 10,000,000 from <span class="math notranslate nohighlight">\(\square (0,1)\)</span> to have a value greater than 5. Hence simply sampling from <span class="math notranslate nohighlight">\(\square (0,1)\)</span> is hopelessly inefficient for Monte Carlo integration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1162,7 +1211,7 @@ h(x) = p ~(x - a)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;%.10f&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'%.10f'
 </pre></div>
 </div>
 </div>
@@ -1181,8 +1230,8 @@ h(x) = p ~(x - a)
 </div>
 </div>
 </section>
-<section id="span-style-color-tan-using-direct-monte-carlo-integration-span">
-<h4><span style="color:Tan">Using direct Monte Carlo integration</span><a class="headerlink" href="#span-style-color-tan-using-direct-monte-carlo-integration-span" title="Permalink to this heading">#</a></h4>
+<section id="using-direct-monte-carlo-integration">
+<h4><span style="color:Tan">Using direct Monte Carlo integration</span><a class="headerlink" href="#using-direct-monte-carlo-integration" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -1200,8 +1249,8 @@ h(x) = p ~(x - a)
 </div>
 </div>
 </section>
-<section id="span-style-color-tan-using-importance-sampling-span">
-<h4><span style="color:Tan">Using importance sampling</span><a class="headerlink" href="#span-style-color-tan-using-importance-sampling-span" title="Permalink to this heading">#</a></h4>
+<section id="using-importance-sampling">
+<h4><span style="color:Tan">Using importance sampling</span><a class="headerlink" href="#using-importance-sampling" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -1220,8 +1269,8 @@ h(x) = p ~(x - a)
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-<section id="span-style-color-lightblue-vegas-method-span">
-<h3><span style="color:LightBlue">Vegas Method</span><a class="headerlink" href="#span-style-color-lightblue-vegas-method-span" title="Permalink to this heading">#</a></h3>
+<section id="vegas-method">
+<h3><span style="color:LightBlue">Vegas Method</span><a class="headerlink" href="#vegas-method" title="Link to this heading">#</a></h3>
 <p>The VEGAS algorithm, due to G. Peter Lepage, is a method for reducing error in Monte Carlo simulations by using a known or approximate probability distribution function to concentrate the search in those areas of the integrand that make the greatest contribution to the final integral.</p>
 <p>The VEGAS algorithm is based on importance sampling. It samples points from the probability distribution described by the function <span class="math notranslate nohighlight">\(|f|\)</span> so that the points are concentrated in the regions that make the largest contribution to the integral</p>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"><p><em><strong><span style="color:Violet">EXAMPLE</span></strong></em>: 4-D Monte Carlo integration with Vegas</p>
@@ -1258,7 +1307,7 @@ C \int\limits_{-1}^{1} ~dx_0 ~ \int\limits_{0}^{1} ~dx_1 ~ \int\limits_{0}^{1} ~
 <span class="c1"># do the final integral</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">integ</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">nitn</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">neval</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;result = </span><span class="si">%s</span><span class="s1">    Q = </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">Q</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'result = </span><span class="si">%s</span><span class="s1">    Q = </span><span class="si">%.2f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">Q</span><span class="p">))</span>
 <span class="n">integ</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">show_grid</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1285,8 +1334,8 @@ result = 0.9930(42)    Q = 0.40
 </div>
 <hr style="border:1px solid rgba(255, 255, 255, 1); margin: 2em 0;"></section>
 </section>
-<section id="span-style-color-orange-acknowledgments-span">
-<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<section id="acknowledgments">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p></li>
 <li><p>From APS DSECOP materials and <a class="reference external" href="https://people.duke.edu/~ccc14/sta-663-2016/15C_MonteCarloIntegration.html">https://people.duke.edu/~ccc14/sta-663-2016/15C_MonteCarloIntegration.html</a></p></li>
@@ -1322,7 +1371,7 @@ result = 0.9930(42)    Q = 0.40
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1350,39 +1399,42 @@ result = 0.9930(42)    Q = 0.40
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-introduction-span"><span style="color:Orange">Introduction</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-monte-carlo-integration-span"><span style="color:Orange">Monte Carlo Integration</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-multidimensional-monte-carlo-integration-and-variance-scaling-span"><span style="color:LightBlue">Multidimensional Monte Carlo integration and variance scaling</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-variance-and-bias-in-monte-carlo-integration-span"><span style="color:LightBlue">Variance and Bias in Monte Carlo integration</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-single-monte-carlo-estimate-span"><span style="color:Tan">Single Monte Carlo estimate</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-using-multiple-independent-sequences-to-monitor-convergence-span"><span style="color:Tan">Using multiple independent sequences to monitor convergence</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-proof-that-monte-carlo-estimator-is-unbiased-span"><span style="color:Tan">Proof that Monte Carlo Estimator is Unbiased</span></a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><span style="color:Orange">Introduction</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-integration"><span style="color:Orange">Monte Carlo Integration</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multidimensional-monte-carlo-integration-and-variance-scaling"><span style="color:LightBlue">Multidimensional Monte Carlo integration and variance scaling</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-and-bias-in-monte-carlo-integration"><span style="color:LightBlue">Variance and Bias in Monte Carlo integration</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#single-monte-carlo-estimate"><span style="color:Tan">Single Monte Carlo estimate</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-multiple-independent-sequences-to-monitor-convergence"><span style="color:Tan">Using multiple independent sequences to monitor convergence</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-that-monte-carlo-estimator-is-unbiased"><span style="color:Tan">Proof that Monte Carlo Estimator is Unbiased</span></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-change-of-variables-span"><span style="color:LightBlue">Change of Variables</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-a-change-of-variables-lets-us-use-100-of-draws-span"><span style="color:Tan">A change of variables lets us use 100% of draws</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-of-variables"><span style="color:LightBlue">Change of Variables</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-change-of-variables-lets-us-use-100-of-draws"><span style="color:Tan">A change of variables lets us use 100% of draws</span></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-monte-carlo-swindles-span"><span style="color:LightBlue">Monte Carlo Swindles</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-antithetic-variables-span"><span style="color:Tan">Antithetic variables</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-importance-sampling-span"><span style="color:Tan">Importance Sampling</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-expected-answer-span"><span style="color:Tan">Expected answer</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-using-direct-monte-carlo-integration-span"><span style="color:Tan">Using direct Monte Carlo integration</span></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-tan-using-importance-sampling-span"><span style="color:Tan">Using importance sampling</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-swindles"><span style="color:LightBlue">Monte Carlo Swindles</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#antithetic-variables"><span style="color:Tan">Antithetic variables</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-sampling"><span style="color:Tan">Importance Sampling</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-answer"><span style="color:Tan">Expected answer</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-direct-monte-carlo-integration"><span style="color:Tan">Using direct Monte Carlo integration</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-importance-sampling"><span style="color:Tan">Using importance sampling</span></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-vegas-method-span"><span style="color:LightBlue">Vegas Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vegas-method"><span style="color:LightBlue">Vegas Method</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
   </nav></div>
 
@@ -1431,8 +1483,8 @@ By Mark Neubauer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

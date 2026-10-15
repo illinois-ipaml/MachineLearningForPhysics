@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Climate Model Neural Network Prediction &#8212; PHYS 503</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/projects/Project_02_ClimateModels';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="AI Explainablility and Uncertainty Quantification" href="../Week_13.html" />
+    <link rel="next" title="Modeling Fluid Flow Past a Cylinder" href="Project_02_CylinderWake.html" />
     <link rel="prev" title="Black Hole Parameter Inference from EHT Observations" href="Project_02_EventHorizonTelescope.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -156,11 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PHYS 503 - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 503 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,56 +223,56 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Pandas.html">Handling Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Visualization.html">Visualizing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Clustering.html">Finding Structure in Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityTheory.html">Probability Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ProbabilityDistributions.html">Important Probability Distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/DensityEstimation.html">Estimating Probability Density from Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Statistics.html">Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/MonteCarloSamplingMethods.html">Monte Carlo and Sampling Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/BayesianInference.html">Bayesian Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -230,52 +281,52 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/VariationalInference.html">Variational Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ModelSelection.html">Bayesian Model Selection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Learning.html">Artificial Intelligence and Machine Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/CrossValidation.html">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/SupervisedLearning.html">Supervised Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/DeepLearning.html">Deep Learning</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../lectures/ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/GraphNeuralNetworks.html">Graph Neural Networks</a></li>
 
@@ -284,8 +335,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -303,30 +354,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Project_02_SloanDigitalSkySurvey.html">Galaxy Morphology Classification with the Sloan Digital Sky Survey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Project_02_EventHorizonTelescope.html">Black Hole Parameter Inference from EHT Observations</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Climate Model Neural Network Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project_02_CylinderWake.html">Modeling Fluid Flow Past a Cylinder</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -335,14 +387,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -351,14 +408,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -383,14 +440,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/projects/Project_02_ClimateModels.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -466,7 +523,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -480,27 +537,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -520,41 +569,41 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-background-span"><span style="color:Orange">Background</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-conceptual-span"><span style="color:Orange">Questions (Conceptual)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background"><span style="color:Orange">Background</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-conceptual"><span style="color:Orange">Questions (Conceptual)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-01"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-02"><span style="color:LightGreen">Question 02</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-03"><span style="color:LightGreen">Question 03</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><span style="color:Orange">Data Sources</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data">Downloading data</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-climate-model-simulation-gfdl-cm2-0">Analyzing Climate Model Simulation (GFDL_CM2.0)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-computational-pt-1-span"><span style="color:Orange">Questions (Computational Pt 1.)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-computational-pt-1"><span style="color:Orange">Questions (Computational Pt 1.)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-04"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-05"><span style="color:LightGreen">Question 05</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-for-yearly-predictions">Neural Network for yearly predictions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-nn-prediction-span"><span style="color:Orange">Questions (NN prediction)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-nn-prediction"><span style="color:Orange">Questions (NN prediction)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-06"><span style="color:LightGreen">Question 06</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-nn-prediction-2-members-span"><span style="color:Orange">Questions (NN prediction (2 members))</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-nn-prediction-2-members"><span style="color:Orange">Questions (NN prediction (2 members))</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-07"><span style="color:LightGreen">Question 07</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-08"><span style="color:LightGreen">Question 08</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-overview-summary-span"><span style="color:Orange">Questions (Overview / Summary)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-overview-summary"><span style="color:Orange">Questions (Overview / Summary)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-09"><span style="color:LightGreen">Question 09</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements"><span style="color:Orange">Acknowledgements</span></a></li>
 </ul>
             </nav>
         </div>
@@ -564,14 +613,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="climate-model-neural-network-prediction">
-<h1>Climate Model Neural Network Prediction<a class="headerlink" href="#climate-model-neural-network-prediction" title="Permalink to this heading">#</a></h1>
+<h1>Climate Model Neural Network Prediction<a class="headerlink" href="#climate-model-neural-network-prediction" title="Link to this heading">#</a></h1>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-mlp/MachineLearningForPhysics/main/img/Project_ClimateModels_splash.png" width=800></img>
-</div><section id="span-style-color-orange-background-span">
-<h2><span style="color:Orange">Background</span><a class="headerlink" href="#span-style-color-orange-background-span" title="Permalink to this heading">#</a></h2>
+</div><section id="background">
+<h2><span style="color:Orange">Background</span><a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
 <p>Climate change is one of the most important problems facing humanity in the years ahead, with numerous predicted regional or global changes, such as:</p>
 <ul class="simple">
 <li><p>rising sea level [<a class="reference external" href="https://doi.org/10.1029/2005GL024826">1</a>];</p></li>
@@ -589,8 +638,8 @@ document.write(`
 </ul>
 <p>Each modelling centre develops its own model, with different physical representations of processes, and together their simulations span much of the uncertainty in our understanding of the Earth system. Half of the <a class="reference external" href="https://www.nobelprize.org/prizes/physics/2021/summary/">2021 Nobel Prize in Physics</a> was awarded to Syukuro Manabe and Klaus Hasselmann, pioneers of climate modelling, “for the physical modelling of Earth’s climate, quantifying variability and reliably predicting global warming”. The next phase of CMIP, CMIP7, is under way, with all the major modelling centres producing new simulations with improved models and new experiments.</p>
 </section>
-<section id="span-style-color-orange-overview-span">
-<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#span-style-color-orange-overview-span" title="Permalink to this heading">#</a></h2>
+<section id="overview">
+<h2><span style="color:Orange">Overview</span><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>This notebook has three goals:</p>
 <ol class="arabic simple">
 <li><p>learning to work with spatio-temporal climate-model output;</p></li>
@@ -598,26 +647,26 @@ document.write(`
 <li><p>training neural networks to predict monthly surface-temperature anomalies, and comparing them fairly with simple baselines.</p></li>
 </ol>
 </section>
-<section id="span-style-color-orange-questions-conceptual-span">
-<h2><span style="color:Orange">Questions (Conceptual)</span><a class="headerlink" href="#span-style-color-orange-questions-conceptual-span" title="Permalink to this heading">#</a></h2>
-<section id="span-style-color-lightgreen-question-01-span">
-<h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#span-style-color-lightgreen-question-01-span" title="Permalink to this heading">#</a></h3>
+<section id="questions-conceptual">
+<h2><span style="color:Orange">Questions (Conceptual)</span><a class="headerlink" href="#questions-conceptual" title="Link to this heading">#</a></h2>
+<section id="question-01">
+<h3><span style="color:LightGreen">Question 01</span><a class="headerlink" href="#question-01" title="Link to this heading">#</a></h3>
 <p>What are some reasons different General Circulation Models (GCMs) produce different output?</p>
 </section>
-<section id="span-style-color-lightgreen-question-02-span">
-<h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#span-style-color-lightgreen-question-02-span" title="Permalink to this heading">#</a></h3>
+<section id="question-02">
+<h3><span style="color:LightGreen">Question 02</span><a class="headerlink" href="#question-02" title="Link to this heading">#</a></h3>
 <p>Briefly explain what is meant by the resolution of a climate model.</p>
 </section>
-<section id="span-style-color-lightgreen-question-03-span">
-<h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#span-style-color-lightgreen-question-03-span" title="Permalink to this heading">#</a></h3>
+<section id="question-03">
+<h3><span style="color:LightGreen">Question 03</span><a class="headerlink" href="#question-03" title="Link to this heading">#</a></h3>
 <p>What is the value of multiple models? Should efforts be focused on “one model to rule them all”? Explain the idea of model hierarchies and why they are useful [<a class="reference external" href="https://doi.org/10.1029/2018RG000607">11</a>]</p>
 </section>
 </section>
-<section id="span-style-color-orange-data-sources-span">
-<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#span-style-color-orange-data-sources-span" title="Permalink to this heading">#</a></h2>
+<section id="data-sources">
+<h2><span style="color:Orange">Data Sources</span><a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
 <p>We now start working with model output. Climate-model output is extremely large, so it is common to select a subset by time, variable, or location. In addition, there are dozens of models, several simulations for each model, and different versions of the same model as it improves over time. Working with these “super-ensembles” is not feasible without <a class="reference external" href="https://www.exascaleproject.org/research-project/e3sm-mmf/">high-performance computing (HPC) clusters</a>. Fortunately, the community makes the simulation output relatively easy to access with limited resources, via the <a class="reference external" href="https://metagrid.esgf-west.org/search">ESGF portal</a>.</p>
 <section id="downloading-data">
-<h3>Downloading data<a class="headerlink" href="#downloading-data" title="Permalink to this heading">#</a></h3>
+<h3>Downloading data<a class="headerlink" href="#downloading-data" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">wget</span></code> scripts are the usual way to download climate-model output from ESGF; Globus is an alternative for large transfers. For this project we download two files directly. Both are historical simulations from CMIP3 [<a class="reference external" href="https://doi.org/10.1175/BAMS-88-9-1383">12</a>], an earlier phase of the model intercomparison project:</p>
 <ul class="simple">
 <li><p>GFDL CM2.0, historical simulation, monthly near-surface air temperature <code class="docutils literal notranslate"><span class="pre">tas</span></code>, January 1861 – December 2000 (87 MB) [<a class="reference external" href="https://doi.org/10.1175/JCLI3629.1">13</a>]</p></li>
@@ -644,7 +693,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">glob</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -652,38 +701,38 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run this cell</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/gfdl_cm2_0/run1/tas_A1.186101-200012.nc&quot;</span>
-<span class="n">original_filename</span> <span class="o">=</span> <span class="s2">&quot;tas_A1.186101-200012.nc&quot;</span>
-<span class="n">expected_hash</span> <span class="o">=</span> <span class="s2">&quot;f0a31b467db7449b8cb1172392d49153086749572a9547bef79a95bd3ce72724&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/gfdl_cm2_0/run1/tas_A1.186101-200012.nc"</span>
+<span class="n">original_filename</span> <span class="o">=</span> <span class="s2">"tas_A1.186101-200012.nc"</span>
+<span class="n">expected_hash</span> <span class="o">=</span> <span class="s2">"f0a31b467db7449b8cb1172392d49153086749572a9547bef79a95bd3ce72724"</span>
 
-<span class="n">final_filename</span> <span class="o">=</span> <span class="s2">&quot;gfdl_cm2_1861_2000_historical_surfacetemperature.nc&quot;</span>
+<span class="n">final_filename</span> <span class="o">=</span> <span class="s2">"gfdl_cm2_1861_2000_historical_surfacetemperature.nc"</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">verify_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="n">sha256</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">):</span>
             <span class="n">sha256</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sha256</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">expected_hash</span>
 
 <span class="k">if</span> <span class="n">verify_file</span><span class="p">(</span><span class="n">final_filename</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">)</span> <span class="ow">or</span> <span class="n">verify_file</span><span class="p">(</span><span class="n">original_filename</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File is already downloaded and verified.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"File is already downloaded and verified."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading GFDL dataset...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Downloading GFDL dataset..."</span><span class="p">)</span>
     <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">original_filename</span><span class="p">)</span>
     
     <span class="c1"># Verify the fresh download</span>
     <span class="k">if</span> <span class="n">verify_file</span><span class="p">(</span><span class="n">original_filename</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Download complete and SHA256 verified!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Download complete and SHA256 verified!"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: File downloaded, but checksum failed.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Warning: File downloaded, but checksum failed."</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">original_filename</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">final_filename</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">original_filename</span><span class="p">,</span> <span class="n">final_filename</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Renamed to: </span><span class="si">{</span><span class="n">final_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Renamed to: </span><span class="si">{</span><span class="n">final_filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Done! Ready for analysis.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Done! Ready for analysis."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -691,15 +740,15 @@ document.write(`
 </section>
 </section>
 <section id="analyzing-climate-model-simulation-gfdl-cm2-0">
-<h2>Analyzing Climate Model Simulation (GFDL_CM2.0)<a class="headerlink" href="#analyzing-climate-model-simulation-gfdl-cm2-0" title="Permalink to this heading">#</a></h2>
+<h2>Analyzing Climate Model Simulation (GFDL_CM2.0)<a class="headerlink" href="#analyzing-climate-model-simulation-gfdl-cm2-0" title="Link to this heading">#</a></h2>
 <p>After downloading the data we can subset and use some python libraries to help with the plotting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we open_dataset using xarray, then take the time mean</span>
-<span class="n">gfdl_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;gfdl_cm2_1861_2000_historical_surfacetemperature.nc&#39;</span><span class="p">)</span>
+<span class="n">gfdl_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">'gfdl_cm2_1861_2000_historical_surfacetemperature.nc'</span><span class="p">)</span>
 <span class="c1"># we can also subtract out 273.15 to make the Kelvin to Celsius conversion</span>
-<span class="n">gfdl_hist</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">273.15</span>
-<span class="n">time_mean_gfdl_hist</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">gfdl_hist</span><span class="p">[</span><span class="s1">'tas'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="p">[</span><span class="s1">'tas'</span><span class="p">]</span> <span class="o">-</span> <span class="mf">273.15</span>
+<span class="n">time_mean_gfdl_hist</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">"time"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -718,20 +767,20 @@ Now we can plot the time mean over space with the below code:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">im</span> <span class="o">=</span> <span class="n">time_mean_gfdl_hist</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">,</span>
     <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span>
     <span class="n">vmax</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
     <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Surface temperature (C)&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
-        <span class="s2">&quot;pad&quot;</span><span class="p">:</span> <span class="mf">0.03</span>
+        <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Surface temperature (C)"</span><span class="p">,</span>
+        <span class="s2">"shrink"</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+        <span class="s2">"pad"</span><span class="p">:</span> <span class="mf">0.03</span>
     <span class="p">}</span>
 <span class="p">)</span>
-<span class="n">im</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Surface temperature (C)&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;GFDL CM2.0 Historical Mean Surface Temperature&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Longitude&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Latitude&quot;</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">"Surface temperature (C)"</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"GFDL CM2.0 Historical Mean Surface Temperature"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Longitude"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Latitude"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
@@ -752,25 +801,25 @@ Now we can plot the time mean over space with the below code:</p>
 <p>Or we can group by year and look at a single year:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yearly_mean_gfdl_hist</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yearly_mean_gfdl_hist</span> <span class="o">=</span> <span class="n">gfdl_hist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'time.year'</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">single_year_gfdl_hist</span> <span class="o">=</span> <span class="n">yearly_mean_gfdl_hist</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">im</span> <span class="o">=</span> <span class="n">single_year_gfdl_hist</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">,</span>
     <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span>
     <span class="n">vmax</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
     <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Surface temperature (C)&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
-        <span class="s2">&quot;pad&quot;</span><span class="p">:</span> <span class="mf">0.03</span>
+        <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Surface temperature (C)"</span><span class="p">,</span>
+        <span class="s2">"shrink"</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+        <span class="s2">"pad"</span><span class="p">:</span> <span class="mf">0.03</span>
     <span class="p">}</span>
 <span class="p">)</span>
-<span class="n">im</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Surface temperature (C)&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GFDL CM2.0 </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">single_year_gfdl_hist</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="si">}</span><span class="s2"> Mean Surface Temperature&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Longitude&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Latitude&quot;</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">"Surface temperature (C)"</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"GFDL CM2.0 </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">single_year_gfdl_hist</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="si">}</span><span class="s2"> Mean Surface Temperature"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Longitude"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Latitude"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
@@ -778,19 +827,19 @@ Now we can plot the time mean over space with the below code:</p>
 </div>
 </div>
 </section>
-<section id="span-style-color-orange-questions-computational-pt-1-span">
-<h2><span style="color:Orange">Questions (Computational Pt 1.)</span><a class="headerlink" href="#span-style-color-orange-questions-computational-pt-1-span" title="Permalink to this heading">#</a></h2>
-<section id="span-style-color-lightgreen-question-04-span">
-<h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#span-style-color-lightgreen-question-04-span" title="Permalink to this heading">#</a></h3>
+<section id="questions-computational-pt-1">
+<h2><span style="color:Orange">Questions (Computational Pt 1.)</span><a class="headerlink" href="#questions-computational-pt-1" title="Link to this heading">#</a></h2>
+<section id="question-04">
+<h3><span style="color:LightGreen">Question 04</span><a class="headerlink" href="#question-04" title="Link to this heading">#</a></h3>
 <p>It is often more informative to look at temperature <strong>anomalies</strong>: for each location (and, for monthly data, each calendar month), compute the mean over a reference period, then subtract it. In the cell below, compute the mean over the first ~50 years of the simulation (1861–1910) at each grid cell, separately for each calendar month (<code class="docutils literal notranslate"><span class="pre">groupby('time.month')</span></code>). Subtract it from the entire simulation, and plot the annual-mean anomaly for the year 2000. Where is the warming largest?</p>
 </section>
-<section id="span-style-color-lightgreen-question-05-span">
-<h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#span-style-color-lightgreen-question-05-span" title="Permalink to this heading">#</a></h3>
+<section id="question-05">
+<h3><span style="color:LightGreen">Question 05</span><a class="headerlink" href="#question-05" title="Link to this heading">#</a></h3>
 <p>Another common way to analyze spatio-temporal data is to map the linear trend. Group the data by year and compute the annual mean. Then fit a linear regression at each location and plot the resulting slope field, in °C per decade. <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html"><code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code></a> accepts a 2D array of <span class="math notranslate nohighlight">\(y\)</span> values, so you can fit all grid cells at once. Looping over every longitude–latitude pair when the operation can be vectorized is bad practice. Where is the warming trend largest, and why might high northern latitudes warm faster (“Arctic amplification”)?</p>
 </section>
 </section>
 <section id="neural-network-for-yearly-predictions">
-<h2>Neural Network for yearly predictions<a class="headerlink" href="#neural-network-for-yearly-predictions" title="Permalink to this heading">#</a></h2>
+<h2>Neural Network for yearly predictions<a class="headerlink" href="#neural-network-for-yearly-predictions" title="Link to this heading">#</a></h2>
 <p>We are in the middle of a wave of exciting new research applying machine learning to problems in Earth, atmospheric, and climate science. A few especially notable recent projects include:</p>
 <ul class="simple">
 <li><p>AI-based climate and weather models:</p>
@@ -816,9 +865,9 @@ Now we can plot the time mean over space with the below code:</p>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
     <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
     <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
-    <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()},</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span>
+    <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">"projection"</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()},</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span>
 <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tas_sub</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1"> gfdl_hist&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">tas_sub</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1"> gfdl_hist'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
@@ -829,7 +878,7 @@ Now we can plot the time mean over space with the below code:</p>
         <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
         <span class="n">vmin</span><span class="o">=-</span><span class="mi">45</span><span class="p">,</span>
         <span class="n">vmax</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">,</span>
         <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">)</span>
 
@@ -838,19 +887,19 @@ Now we can plot the time mean over space with the below code:</p>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="mi">220</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 
     <span class="n">t</span> <span class="o">=</span> <span class="n">tas_sub</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;month </span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"month </span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
-<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;surface air temperature C&quot;</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">"vertical"</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">"surface air temperature C"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="span-style-color-orange-questions-nn-prediction-span">
-<h2><span style="color:Orange">Questions (NN prediction)</span><a class="headerlink" href="#span-style-color-orange-questions-nn-prediction-span" title="Permalink to this heading">#</a></h2>
-<section id="span-style-color-lightgreen-question-06-span">
-<h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#span-style-color-lightgreen-question-06-span" title="Permalink to this heading">#</a></h3>
+<section id="questions-nn-prediction">
+<h2><span style="color:Orange">Questions (NN prediction)</span><a class="headerlink" href="#questions-nn-prediction" title="Link to this heading">#</a></h2>
+<section id="question-06">
+<h3><span style="color:LightGreen">Question 06</span><a class="headerlink" href="#question-06" title="Link to this heading">#</a></h3>
 <p>Implement a <strong>convolutional neural network</strong> (in PyTorch) that predicts the next month’s surface-temperature <strong>anomaly map</strong> over the North America box (<code class="docutils literal notranslate"><span class="pre">lat</span></code> 0–80°N, <code class="docutils literal notranslate"><span class="pre">lon</span></code> 220–300°E) from the anomaly maps of the previous <span class="math notranslate nohighlight">\(k\)</span> months (e.g. <span class="math notranslate nohighlight">\(k = 3\)</span>, stacked as input channels). Use the anomalies from Question 04.</p>
 <ul class="simple">
 <li><p>Split the data <strong>by time</strong>: train on the first 80% of the months and test on the last 20%. Why must we not split randomly?</p></li>
@@ -869,73 +918,73 @@ Now we can plot the time mean over space with the below code:</p>
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-questions-nn-prediction-2-members-span">
-<h2><span style="color:Orange">Questions (NN prediction (2 members))</span><a class="headerlink" href="#span-style-color-orange-questions-nn-prediction-2-members-span" title="Permalink to this heading">#</a></h2>
+<section id="questions-nn-prediction-2-members">
+<h2><span style="color:Orange">Questions (NN prediction (2 members))</span><a class="headerlink" href="#questions-nn-prediction-2-members" title="Link to this heading">#</a></h2>
 <p>Run the next cell to download one other climate model output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># saves as one file, only run cell once</span>
 <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1980-01_cat_1989-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1980-01_cat_1989-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;8d0822cdf36f97928bc199c1ffcce0f70f5f61befb4aa3a223883feba2120af3&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1910-01_cat_1919-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1910-01_cat_1919-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;ae8c49cd4c9bb930744babea7f399fc49a56d9b195d3c4815ecb60ccdb234088&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1940-01_cat_1949-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1940-01_cat_1949-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;54f68a930e89849570ec6749985f0ded1f385c1d8199b869e49f646730de821d&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1950-01_cat_1959-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1950-01_cat_1959-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;204f3cbb05ae1add8e85ee5b4cd0406847ceb59ea480db892ec80e5dcce9de65&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1900-01_cat_1909-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1900-01_cat_1909-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;3b00c20efae648251a5fdefdabbfa80526b1280efa3e3566ecf6ec41dcde4b57&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1930-01_cat_1939-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1930-01_cat_1939-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;ec2b145490f3c7e920525d0934107a80a4a7552794c872cc74f9447f8dd8dc36&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1970-01_cat_1979-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1970-01_cat_1979-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;8f26731776d2fac6d54515cca8aa72ad847d9d33cfd91f6ebc27c63b17124189&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1870-01_cat_1879-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1870-01_cat_1879-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;23b9f725d311a955454fa86f98a5c8743fd5e27bb12d1b402ac68d3f67e1e26d&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1890-01_cat_1899-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1890-01_cat_1899-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;32b8ac00c83204c203452e05dbedb0132bda81c623f2a0a521c851e48ae82068&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1920-01_cat_1929-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1920-01_cat_1929-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;9c3d344ff505d7702fb68f2cdc52972a97a3c3b15c4fefafac968135d6713b34&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1960-01_cat_1969-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1960-01_cat_1969-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;0e21367263d1016d15d225ca01747143f67dcbe9be9af2f1b112e193c9bcd297&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1990-01_cat_1999-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1990-01_cat_1999-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;ab5a096e51ed997cfd1b05a0f95ddbc566bdf22aa4f6c60e6c504118887141e1&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;tas_A1.20C3M_1.CCSM.atmm.1880-01_cat_1889-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1880-01_cat_1889-12.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;b77578c2b170c05609fc8f76c49ca2698bdce030572136e72774d080a0732b88&quot;</span><span class="p">)</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1980-01_cat_1989-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1980-01_cat_1989-12.nc"</span><span class="p">,</span> <span class="s2">"8d0822cdf36f97928bc199c1ffcce0f70f5f61befb4aa3a223883feba2120af3"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1910-01_cat_1919-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1910-01_cat_1919-12.nc"</span><span class="p">,</span> <span class="s2">"ae8c49cd4c9bb930744babea7f399fc49a56d9b195d3c4815ecb60ccdb234088"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1940-01_cat_1949-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1940-01_cat_1949-12.nc"</span><span class="p">,</span> <span class="s2">"54f68a930e89849570ec6749985f0ded1f385c1d8199b869e49f646730de821d"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1950-01_cat_1959-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1950-01_cat_1959-12.nc"</span><span class="p">,</span> <span class="s2">"204f3cbb05ae1add8e85ee5b4cd0406847ceb59ea480db892ec80e5dcce9de65"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1900-01_cat_1909-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1900-01_cat_1909-12.nc"</span><span class="p">,</span> <span class="s2">"3b00c20efae648251a5fdefdabbfa80526b1280efa3e3566ecf6ec41dcde4b57"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1930-01_cat_1939-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1930-01_cat_1939-12.nc"</span><span class="p">,</span> <span class="s2">"ec2b145490f3c7e920525d0934107a80a4a7552794c872cc74f9447f8dd8dc36"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1970-01_cat_1979-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1970-01_cat_1979-12.nc"</span><span class="p">,</span> <span class="s2">"8f26731776d2fac6d54515cca8aa72ad847d9d33cfd91f6ebc27c63b17124189"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1870-01_cat_1879-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1870-01_cat_1879-12.nc"</span><span class="p">,</span> <span class="s2">"23b9f725d311a955454fa86f98a5c8743fd5e27bb12d1b402ac68d3f67e1e26d"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1890-01_cat_1899-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1890-01_cat_1899-12.nc"</span><span class="p">,</span> <span class="s2">"32b8ac00c83204c203452e05dbedb0132bda81c623f2a0a521c851e48ae82068"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1920-01_cat_1929-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1920-01_cat_1929-12.nc"</span><span class="p">,</span> <span class="s2">"9c3d344ff505d7702fb68f2cdc52972a97a3c3b15c4fefafac968135d6713b34"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1960-01_cat_1969-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1960-01_cat_1969-12.nc"</span><span class="p">,</span> <span class="s2">"0e21367263d1016d15d225ca01747143f67dcbe9be9af2f1b112e193c9bcd297"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1990-01_cat_1999-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1990-01_cat_1999-12.nc"</span><span class="p">,</span> <span class="s2">"ab5a096e51ed997cfd1b05a0f95ddbc566bdf22aa4f6c60e6c504118887141e1"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"tas_A1.20C3M_1.CCSM.atmm.1880-01_cat_1889-12.nc"</span><span class="p">,</span> <span class="s2">"https://esgf-node.ornl.gov/thredds/fileServer/cmip3_data/data2/20c3m/atm/mo/tas/ncar_ccsm3_0/run1/tas_A1.20C3M_1.CCSM.atmm.1880-01_cat_1889-12.nc"</span><span class="p">,</span> <span class="s2">"b77578c2b170c05609fc8f76c49ca2698bdce030572136e72774d080a0732b88"</span><span class="p">)</span>
 <span class="p">]</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">verify_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="n">sha256</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">):</span>
             <span class="n">sha256</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sha256</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">expected_hash</span>
 
 <span class="n">file_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Starting Downloads ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- Starting Downloads ---"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">expected_hash</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">:</span>
     <span class="n">file_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">verify_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">expected_hash</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">] Verified. Skipping download.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">] Verified. Skipping download."</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">] Downloading...&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">] Downloading..."</span><span class="p">)</span>
         <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Combining Data with xarray ---&quot;</span><span class="p">)</span>
-<span class="n">final_filename</span> <span class="o">=</span> <span class="s1">&#39;ncar_ccsm30_1870_2000_historical_surfacetemperature.nc&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Combining Data with xarray ---"</span><span class="p">)</span>
+<span class="n">final_filename</span> <span class="o">=</span> <span class="s1">'ncar_ccsm30_1870_2000_historical_surfacetemperature.nc'</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">ccsm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">file_list</span><span class="p">))</span>
     <span class="n">ccsm</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">final_filename</span><span class="p">)</span>
     <span class="n">ccsm</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully saved combined dataset to: </span><span class="si">{</span><span class="n">final_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Cleaning Up ---&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Successfully saved combined dataset to: </span><span class="si">{</span><span class="n">final_filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Cleaning Up ---"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
             <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deleted chunk: </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Deleted chunk: </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
             
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">All done!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">All done!"</span><span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">An error occurred during xarray processing: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping cleanup so you can inspect the chunk files.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">An error occurred during xarray processing: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Skipping cleanup so you can inspect the chunk files."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="span-style-color-lightgreen-question-07-span">
-<h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#span-style-color-lightgreen-question-07-span" title="Permalink to this heading">#</a></h3>
+<section id="question-07">
+<h3><span style="color:LightGreen">Question 07</span><a class="headerlink" href="#question-07" title="Link to this heading">#</a></h3>
 <p>Climate models from different modelling centres provide their output differently: with different resolutions, grids, variable names or conventions, which can make working with them cumbersome. GFDL CM2.0 uses a 2.5° × 2° longitude–latitude grid, while NCAR CCSM3.0 uses a finer (T85, about 1.4°) grid.</p>
 <p>Regrid the NCAR CCSM output onto the GFDL grid, and <strong>create one xarray dataset with the variables <code class="docutils literal notranslate"><span class="pre">gfdl_tas</span></code> and <code class="docutils literal notranslate"><span class="pre">ccsm_tas</span></code></strong> over their common period (1870–1999). You can use <code class="docutils literal notranslate"><span class="pre">xarray</span></code>’s <code class="docutils literal notranslate"><span class="pre">interp</span></code>, or the <code class="docutils literal notranslate"><span class="pre">xesmf</span></code> package if you have it (it is easiest to install with conda). Check for missing values after regridding, e.g. near the poles or at the 0°/360° longitude seam, and handle them.</p>
 <div class="cell docutils container">
@@ -946,8 +995,8 @@ Now we can plot the time mean over space with the below code:</p>
 </div>
 </div>
 </section>
-<section id="span-style-color-lightgreen-question-08-span">
-<h3><span style="color:LightGreen">Question 08</span><a class="headerlink" href="#span-style-color-lightgreen-question-08-span" title="Permalink to this heading">#</a></h3>
+<section id="question-08">
+<h3><span style="color:LightGreen">Question 08</span><a class="headerlink" href="#question-08" title="Link to this heading">#</a></h3>
 <p>Now use the two climate models to test how well your approach generalizes.</p>
 <ol class="arabic simple">
 <li><p>Train the CNN of Question 06 on GFDL and test it on CCSM over the same test period, and vice versa. Does a network trained on one model’s “world” work on the other model’s? Compare with the baselines on each model.</p></li>
@@ -963,15 +1012,15 @@ Now we can plot the time mean over space with the below code:</p>
 </div>
 </section>
 </section>
-<section id="span-style-color-orange-questions-overview-summary-span">
-<h2><span style="color:Orange">Questions (Overview / Summary)</span><a class="headerlink" href="#span-style-color-orange-questions-overview-summary-span" title="Permalink to this heading">#</a></h2>
-<section id="span-style-color-lightgreen-question-09-span">
-<h3><span style="color:LightGreen">Question 09</span><a class="headerlink" href="#span-style-color-lightgreen-question-09-span" title="Permalink to this heading">#</a></h3>
+<section id="questions-overview-summary">
+<h2><span style="color:Orange">Questions (Overview / Summary)</span><a class="headerlink" href="#questions-overview-summary" title="Link to this heading">#</a></h2>
+<section id="question-09">
+<h3><span style="color:LightGreen">Question 09</span><a class="headerlink" href="#question-09" title="Link to this heading">#</a></h3>
 <p>Write a short paragraph on one of the projects / advances from above. Talk about the relative importance, the training, and the architecture. What are some of the main benefits of ML methods in earth sciences?</p>
 </section>
 </section>
-<section id="span-style-color-orange-references-span">
-<h2><span style="color:Orange">References</span><a class="headerlink" href="#span-style-color-orange-references-span" title="Permalink to this heading">#</a></h2>
+<section id="references">
+<h2><span style="color:Orange">References</span><a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p><strong>[<span style="color:Red">1</span>]</strong> Church, J. A., &amp; White, N. J. (2006). A 20th century acceleration in global sea-level rise. Geophysical Research Letters, 33(1). <a class="reference external" href="https://doi.org/10.1029/2005GL024826">https://doi.org/10.1029/2005GL024826</a> <br></p>
 <p><strong>[<span style="color:Red">2</span>]</strong> Goss, M., Swain, D. L., Abatzoglou, J. T., Sarhadi, A., Kolden, C. A., Williams, A. P., &amp; Diffenbaugh, N. S. (2020). Climate change is increasing the likelihood of extreme autumn wildfire conditions across California. Environmental Research Letters, 15(9), 094016. <a class="reference external" href="https://doi.org/10.1088/1748-9326/ab83a7">https://doi.org/10.1088/1748-9326/ab83a7</a> <br></p>
 <p><strong>[<span style="color:Red">3</span>]</strong> Abatzoglou, J. T., Williams, A. P., &amp; Barbero, R. (2019). Global Emergence of Anthropogenic Climate Change in Fire Weather Indices. Geophysical Research Letters, 46(1), 326–336. <a class="reference external" href="https://doi.org/10.1029/2018GL080959">https://doi.org/10.1029/2018GL080959</a> <br></p>
@@ -991,8 +1040,8 @@ Now we can plot the time mean over space with the below code:</p>
 <p><strong>[<span style="color:Red">17</span>]</strong> Lam, R., Sanchez-Gonzalez, A., Willson, M., <em>et al.</em> (2023). Learning skillful medium-range global weather forecasting. <em>Science</em>, 382(6677), 1416–1421. <a class="reference external" href="https://doi.org/10.1126/science.adi2336">https://doi.org/10.1126/science.adi2336</a></p>
 <p><strong>[<span style="color:Red">18</span>]</strong> Schmude, J., Roy, S., Trojak, W., Jakubik, J., Civitarese, D. S., Singh, S., Kuehnert, J., Ankur, K., Gupta, A., Phillips, C. E., Kienzler, R., Szwarcman, D., Gaur, V., Shinde, R., Lal, R., Silva, A. D., Diaz, J. L. G., Jones, A., Pfreundschuh, S., … Ramachandran, R. (2024). Prithvi WxC: Foundation Model for Weather and Climate (arXiv:2409.13598). arXiv. <a class="reference external" href="https://doi.org/10.48550/arXiv.2409.13598">https://doi.org/10.48550/arXiv.2409.13598</a></p>
 </section>
-<section id="span-style-color-orange-acknowledgements-span">
-<h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#span-style-color-orange-acknowledgements-span" title="Permalink to this heading">#</a></h2>
+<section id="acknowledgements">
+<h2><span style="color:Orange">Acknowledgements</span><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: <a class="reference external" href="https://www.linkedin.com/in/theo-avila/">Theo Avila</a> with some guidance from Mark Neubauer</p></li>
 <li><p>Revised: 2026</p></li>
@@ -1029,7 +1078,7 @@ Now we can plot the time mean over space with the below code:</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1042,11 +1091,11 @@ Now we can plot the time mean over space with the below code:</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Week_13.html"
+       href="Project_02_CylinderWake.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></p>
+        <p class="prev-next-title">Modeling Fluid Flow Past a Cylinder</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1057,48 +1106,51 @@ Now we can plot the time mean over space with the below code:</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-background-span"><span style="color:Orange">Background</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-overview-span"><span style="color:Orange">Overview</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-conceptual-span"><span style="color:Orange">Questions (Conceptual)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-01-span"><span style="color:LightGreen">Question 01</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-02-span"><span style="color:LightGreen">Question 02</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-03-span"><span style="color:LightGreen">Question 03</span></a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background"><span style="color:Orange">Background</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview"><span style="color:Orange">Overview</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-conceptual"><span style="color:Orange">Questions (Conceptual)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-01"><span style="color:LightGreen">Question 01</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-02"><span style="color:LightGreen">Question 02</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-03"><span style="color:LightGreen">Question 03</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-data-sources-span"><span style="color:Orange">Data Sources</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><span style="color:Orange">Data Sources</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data">Downloading data</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-climate-model-simulation-gfdl-cm2-0">Analyzing Climate Model Simulation (GFDL_CM2.0)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-computational-pt-1-span"><span style="color:Orange">Questions (Computational Pt 1.)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-04-span"><span style="color:LightGreen">Question 04</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-05-span"><span style="color:LightGreen">Question 05</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-computational-pt-1"><span style="color:Orange">Questions (Computational Pt 1.)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-04"><span style="color:LightGreen">Question 04</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-05"><span style="color:LightGreen">Question 05</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-for-yearly-predictions">Neural Network for yearly predictions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-nn-prediction-span"><span style="color:Orange">Questions (NN prediction)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-06-span"><span style="color:LightGreen">Question 06</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-nn-prediction"><span style="color:Orange">Questions (NN prediction)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-06"><span style="color:LightGreen">Question 06</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-nn-prediction-2-members-span"><span style="color:Orange">Questions (NN prediction (2 members))</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-07-span"><span style="color:LightGreen">Question 07</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-08-span"><span style="color:LightGreen">Question 08</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-nn-prediction-2-members"><span style="color:Orange">Questions (NN prediction (2 members))</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-07"><span style="color:LightGreen">Question 07</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-08"><span style="color:LightGreen">Question 08</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-questions-overview-summary-span"><span style="color:Orange">Questions (Overview / Summary)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-question-09-span"><span style="color:LightGreen">Question 09</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-overview-summary"><span style="color:Orange">Questions (Overview / Summary)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-09"><span style="color:LightGreen">Question 09</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-references-span"><span style="color:Orange">References</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgements-span"><span style="color:Orange">Acknowledgements</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references"><span style="color:Orange">References</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements"><span style="color:Orange">Acknowledgements</span></a></li>
 </ul>
   </nav></div>
 
@@ -1147,8 +1199,8 @@ By Mark Neubauer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

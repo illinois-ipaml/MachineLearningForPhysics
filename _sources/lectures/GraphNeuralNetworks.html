@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Graph Neural Networks &#8212; PHYS 503</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_sources/lectures/GraphNeuralNetworks';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Project 02" href="../Project_02.html" />
     <link rel="prev" title="Graph Neural Networks" href="../Week_12.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -156,11 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="PHYS 503 - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="PHYS 503 - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PHYS 503 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -172,56 +223,56 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Machine Learning and Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_01.html"><span style="color: blue;"><b>Course Introduction</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vq4b3zxrhEMJbfeCH52hufBbXvTwhufEXdSs8mWY2ec/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="JupyterNumpy.html">Jupyter Notebooks and Numerical Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Pandas.html">Handling Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_01.html">Homework 01: Numerical python and data handling</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_02.html"><span style="color: blue;"><b>Visualizing &amp; Finding Structure in Data</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1_LstEfghjdZUheyrqbjx4PK9y1J0cN-_hOdCInTldp8/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Visualization.html">Visualizing Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Clustering.html">Finding Structure in Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_02.html">Homework 02: Visualization and Expectation-Maximization</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_03.html"><span style="color: blue;"><b>Dimensionality, Linearity and Kernel Functions</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1x4bWQr7kEAh6Z6L7iaLdaNiY6SDTHtvHxzvjFM1wYnE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Dimensionality.html">Measuring and Reducing Dimensionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Nonlinear.html">Adapting Linear Methods to Non-Linear Data and Kernel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_03.html">Homework 03: K-means and Principle Component Analysis</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability and Statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_04.html"><span style="color: blue;"><b>Probability Theory</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1qW-gCHY3bQMmB0-klM0crTD9020UG3DTlT_awlOhy2A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ProbabilityTheory.html">Probability Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ProbabilityDistributions.html">Important Probability Distributions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_04.html">Homework 04: Probability Theory and Common Distributions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_05.html"><span style="color: blue;"><b>Kernel Density Estimation and Statistics</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1XZoeBdXzhcfezIbUrH0a9-4-QmM-5iNksLCB7X4q1wI/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DensityEstimation.html">Estimating Probability Density from Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Statistics.html">Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MonteCarloSamplingMethods.html">Monte Carlo and Sampling Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_05.html">Homework 05: Kernel Density Estimation, Covariance and Correlation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bayesian Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_06.html"><span style="color: blue;"><b>Bayesian Statistics and Markov Chain Monte Carlo</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1L_lz0WbrrUu9qDPnKxYu5S_fCXKjl01Mrs2RnHN5_6E/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BayesianInference.html">Bayesian Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChainMonteCarlo.html">Markov Chain Monte Carlo in Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_06.html">Homework 06: Bayesian Statistics and MCMC</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_01.html"><span style="color: blue;"><b>Project 01</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -230,52 +281,52 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_AberratedImages.html">Aberrated Image Recovery of Ultracold Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_01_DarkEnergySurvey.html">Dark Energy Survey</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_07.html"><span style="color: blue;"><b>Stochastic Processes, Markov Chains &amp; Variational Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/11Mzc9rBUcnEh_D3SKeDUoCW-iwIA9ilcxsx_4yuu32A/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MarkovChains.html">Stochastic Processes and Markov-Chain Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VariationalInference.html">Variational Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_07.html">Homework 07: Markov Chains</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_08.html"><span style="color: blue;"><b>Optimization and Model Selection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1KshmOwKTWptL-3PASHrW6WT2PkH2ltU-XwoYOflhKQk/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Optimization.html">Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ModelSelection.html">Bayesian Model Selection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Learning &amp; Cross Validation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_09.html"><span style="color: blue;"><b>Learning &amp; Cross Validation</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1a2cjkREM0LYxRjrLwrfHPTotM0n_CgVrZ_WQjEyc_Jc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Learning.html">Artificial Intelligence and Machine Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CrossValidation.html">Cross Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_08.html">Homework 08: Cross Validation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Artificial Neural Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_10.html"><span style="color: blue;"><b>Supervised Learning &amp; Artificial Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1vyg7eSo5XaUAtYDwxmLY5qeUrwKxKqJcEEHPB40yVpE/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SupervisedLearning.html">Supervised Learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ArtificialNeuralNetworks.html">Artificial Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_09.html">Homework 05: Artificial Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Deep Learning</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_11.html"><span style="color: blue;"><b>Deep Neural Networks</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1RnFI0k15C_m2j43QtFDGCFRBCcQ-Rx6EG-9U3EumOHc/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DeepLearning.html">Deep Learning</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="ConvolutionalRecurrentNeuralNetworks.html">Convolutional and Recurrent Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_10.html">Homework 10: Forecasting Projectile Motion with Recurrent Neural Networks</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Week_12.html"><span style="color: blue;"><b>Graph Neural Networks</b></span></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1fxZdnCU_8pWocQbjMQ5HUOSUL3MgbCyg3xFWxfeNaeY/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Graph Neural Networks</a></li>
 
@@ -284,8 +335,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project_02.html"><span style="color: blue;"><b>Project 02</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_HiggsTauTau.html">Higgs Boson Decaying to Tau Leptons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_ExoticParticles.html">Searching for Exotic Particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_GalaxyZoo.html">Galaxy Zoo</a></li>
@@ -303,30 +354,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_SloanDigitalSkySurvey.html">Galaxy Morphology Classification with the Sloan Digital Sky Survey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_EventHorizonTelescope.html">Black Hole Parameter Inference from EHT Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_ClimateModels.html">Climate Model Neural Network Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/Project_02_CylinderWake.html">Modeling Fluid Flow Past a Cylinder</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_13.html"><span style="color: blue;"><b>AI Explainablility and Uncertainty Quantification</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1jGxr3j5t7Ahi3Ai6501dVJXOIzvlYMGhe9ZDqHlcfjo/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AIExplainabilityUncertaintyQuantification.html">AI Explainability and Uncertainty Quantification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/Homework_11.html">Homework 11: Detecting Distribution Shift on MNIST using Bayesian Neural Networks</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explainable AI and Accelerated Machine Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_14.html"><span style="color: blue;"><b>Unsupervised Learning and Anomaly Detection</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1-_9DcO71v6fQN1kNhKRH2d2iSjhs_Ddi2wLxiXy6RNg/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UnsupervisedLearningAnomalyDetection.html">Unsupervised Learning and Anomaly Detection</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Accelerated Machine Learning and Inference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week_15.html"><span style="color: blue;"><b>Accelerated Machine Learning and Inference</b></span></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference external" href="https://docs.google.com/presentation/d/1FbBa1MC9zhnxwbiiUJcxUiJ1hZF27JvwxS_jdTl7_gs/edit?usp=sharing">Slides</a></li>
 <li class="toctree-l2"><a class="reference internal" href="AcceleratedML.html">Accelerated Machine Learning and Inference</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -335,14 +387,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -351,14 +408,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -383,14 +440,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/illinois-ipaml/MachineLearningForPhysics/blob/main/_sources/lectures/GraphNeuralNetworks.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -466,7 +523,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -480,27 +537,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -520,35 +569,35 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Graph Neural Networks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-introduction-to-graph-data-span"><span style="color:Orange">Introduction to Graph Data</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-graph-classification-span"><span style="color:Orange">Graph Classification</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-exploring-graph-data-with-pytorch-geometric-span"><span style="color:Orange">Exploring graph data with Pytorch Geometric</span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-implementing-a-graph-neural-network-span"><span style="color:LightBlue">Implementing a Graph Neural Network</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-training-the-model-span"><span style="color:LightBlue">Training the model</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-graph-data"><span style="color:Orange">Introduction to Graph Data</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-classification"><span style="color:Orange">Graph Classification</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-graph-data-with-pytorch-geometric"><span style="color:Orange">Exploring graph data with Pytorch Geometric</span></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-graph-neural-network"><span style="color:LightBlue">Implementing a Graph Neural Network</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model"><span style="color:LightBlue">Training the model</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-deep-sets-span"><span style="color:Orange">Deep Sets</span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-data-loader-span"><span style="color:LightBlue">Data Loader</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-deep-sets-network-span"><span style="color:LightBlue">Deep Sets Network</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-define-the-training-loop-span"><span style="color:LightBlue">Define the training loop</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-define-training-validation-testing-data-generators-span"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-train-span"><span style="color:LightBlue">Train</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-evaluate-on-test-data-span"><span style="color:LightBlue">Evaluate on Test Data</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-auc-and-roc-curves-span"><span style="color:LightGreen">AUC and ROC Curves</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-sets"><span style="color:Orange">Deep Sets</span></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loader"><span style="color:LightBlue">Data Loader</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-sets-network"><span style="color:LightBlue">Deep Sets Network</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-training-loop"><span style="color:LightBlue">Define the training loop</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-training-validation-testing-data-generators"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train"><span style="color:LightBlue">Train</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-on-test-data"><span style="color:LightBlue">Evaluate on Test Data</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auc-and-roc-curves"><span style="color:LightGreen">AUC and ROC Curves</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-interaction-network-span"><span style="color:Orange">Interaction Network</span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-graph-datasets-span"><span style="color:LightBlue">Graph Datasets</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-graph-neural-network-span"><span style="color:LightBlue">Graph Neural Network</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-network"><span style="color:Orange">Interaction Network</span></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-datasets"><span style="color:LightBlue">Graph Datasets</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-neural-network"><span style="color:LightBlue">Graph Neural Network</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><span style="color:LightBlue">Define the training loop</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span style="color:LightBlue">Train</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span style="color:LightBlue">Evaluate on Test Data</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
 </li>
 </ul>
@@ -561,10 +610,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="graph-neural-networks">
-<h1>Graph Neural Networks<a class="headerlink" href="#graph-neural-networks" title="Permalink to this heading">#</a></h1>
+<h1>Graph Neural Networks<a class="headerlink" href="#graph-neural-networks" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -573,7 +622,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -583,11 +632,11 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TORCH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'TORCH'</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span>
 <span class="n">cuda_version</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">cuda</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CUDA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cuda_version</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PyTorch version: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CUDA version: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">cuda</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CUDA'</span><span class="p">]</span> <span class="o">=</span> <span class="n">cuda_version</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PyTorch version: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CUDA version: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">cuda</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pyg_lib<span class="w"> </span>torch_scatter<span class="w"> </span>torch_sparse<span class="w"> </span>torch_cluster<span class="w"> </span>torch_spline_conv<span class="w"> </span>-f<span class="w"> </span>https://data.pyg.org/whl/torch-<span class="o">{</span>TORCH<span class="o">}</span>+<span class="o">{</span>CUDA<span class="o">}</span>.html
 <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>torch_geometric
@@ -595,7 +644,7 @@ document.write(`
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch_geometric</span>
 
-<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda:0"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span><span class="p">)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 </pre></div>
@@ -631,14 +680,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">wget_data</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">local_path</span><span class="o">=</span><span class="s1">&#39;./tmp_data&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">wget_data</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">local_path</span><span class="o">=</span><span class="s1">'./tmp_data'</span><span class="p">):</span>
   <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-  <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;wget&quot;</span><span class="p">,</span> <span class="s2">&quot;-nc&quot;</span><span class="p">,</span> <span class="s2">&quot;-P&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">url</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"wget"</span><span class="p">,</span> <span class="s2">"-nc"</span><span class="p">,</span> <span class="s2">"-P"</span><span class="p">,</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">url</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'UTF-8'</span><span class="p">)</span>
   <span class="n">rc</span> <span class="o">=</span> <span class="kc">None</span>
 
   <span class="k">while</span> <span class="n">rc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
       <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
     <span class="n">rc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
@@ -647,16 +696,16 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="span-style-color-orange-introduction-to-graph-data-span">
-<h1><span style="color:Orange">Introduction to Graph Data</span><a class="headerlink" href="#span-style-color-orange-introduction-to-graph-data-span" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-graph-data">
+<h1><span style="color:Orange">Introduction to Graph Data</span><a class="headerlink" href="#introduction-to-graph-data" title="Link to this heading">#</a></h1>
 <p>Graphs can be seen as a system or language for modeling systems that are complex and linked together.
 A graph is a data type that is modelled as a set of objects which can be represented as a node or vertex and their relationships which is called edges. A graph data can also be seen as a network data where there are points connected together.</p>
 <p>A <span style="color:Violet">node</span> (vertex) of a graph is point in a graph while an <span style="color:Violet">edge</span> is a component that joins edges together in a graph. Graphs can be used to represent data from a lot of domains like biology, physics, social science, chemistry and others.</p>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/GraphNeuralNetworks-GraphExample.jpeg" width=800></img>
 </div></section>
-<section class="tex2jax_ignore mathjax_ignore" id="span-style-color-orange-graph-classification-span">
-<h1><span style="color:Orange">Graph Classification</span><a class="headerlink" href="#span-style-color-orange-graph-classification-span" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="graph-classification">
+<h1><span style="color:Orange">Graph Classification</span><a class="headerlink" href="#graph-classification" title="Link to this heading">#</a></h1>
 <p>Graphs can be classified into different categories <span style="color:Violet">directed/undirected graphs</span>, <span style="color:Violet">weighted/binary graphs</span> and <span style="color:Violet">homogenous/heterogenous graphs</span>.</p>
 <ul class="simple">
 <li><p><span style="color:Violet">Directed/Undirected graphs</span>: Directed graphs are the ones that all the edges have directtions while in undirected graphs, the edges are does not have directions</p></li>
@@ -666,8 +715,8 @@ A graph is a data type that is modelled as a set of objects which can be represe
 <p>Traditional graph analysis methods requires using searching algorithms, clustering spanning tree algorithms and so on. A major downside to using these methods for analysis of graph data is that you require a prior knowledge of the graph to be able to apply these algorithms.</p>
 <p>Based on the structure of the graph data, traditional machine learning system will not be able to properly interprete the graph data and thus the advent of the <span style="color:Violet">Graph Neural Network</span> (GNN). Graph neural network is a domain of deep learning that is mostly concerned with deep learning operations on graph datasets.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="span-style-color-orange-exploring-graph-data-with-pytorch-geometric-span">
-<h1><span style="color:Orange">Exploring graph data with Pytorch Geometric</span><a class="headerlink" href="#span-style-color-orange-exploring-graph-data-with-pytorch-geometric-span" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="exploring-graph-data-with-pytorch-geometric">
+<h1><span style="color:Orange">Exploring graph data with Pytorch Geometric</span><a class="headerlink" href="#exploring-graph-data-with-pytorch-geometric" title="Link to this heading">#</a></h1>
 <p>Now we will explore graph and graph neural networks using the PyTorch Geometric (PyG) package (already loaded)</p>
 <p>Let’s create a function that will help us visualize a graph data.</p>
 <div class="cell docutils container">
@@ -677,7 +726,7 @@ A graph is a data type that is modelled as a set of objects which can be represe
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">),</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                     <span class="n">node_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
+                     <span class="n">node_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"Set2"</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -704,25 +753,25 @@ A graph is a data type that is modelled as a set of objects which can be represe
 <p>Now that we have imported a graph dataset, let’s look at some of the properties of a graph dataset. We will look at some of the properties at the level of the dataset and then select a graph in the dataset to explore it’s properties.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataset properties&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;==============================================================&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dataset: </span><span class="si">{</span><span class="n">dataset</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#This prints the name of the dataset</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of graphs in the dataset: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of features: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">num_features</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Number of features each node in the dataset has</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of classes: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">num_classes</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Number of classes that a node can be classified into</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Dataset properties'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'=============================================================='</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dataset: </span><span class="si">{</span><span class="n">dataset</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1">#This prints the name of the dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Number of graphs in the dataset: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Number of features: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">num_features</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1">#Number of features each node in the dataset has</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Number of classes: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">num_classes</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1">#Number of classes that a node can be classified into</span>
 
-<span class="c1"># Since we have one graph in the dataset, we will select the graph and explore it&#39;s properties</span>
+<span class="c1"># Since we have one graph in the dataset, we will select the graph and explore it's properties</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Graph properties&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;==============================================================&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Graph properties'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'=============================================================='</span><span class="p">)</span>
 
 <span class="c1"># Gather some statistics about the graph.</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of nodes: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">num_nodes</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Number of nodes in the graph</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of edges: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">num_edges</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Number of edges in the graph</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average node degree: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">num_edges</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="n">num_nodes</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># Average number of nodes in the graph</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Contains isolated nodes: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">has_isolated_nodes</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Does the graph contains nodes that are not connected</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Contains self-loops: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">has_self_loops</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Does the graph contains nodes that are linked to themselves</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Is undirected: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">is_undirected</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Is the graph an undirected graph</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Number of nodes: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">num_nodes</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1">#Number of nodes in the graph</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Number of edges: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">num_edges</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1">#Number of edges in the graph</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Average node degree: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">num_edges</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="n">num_nodes</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1"># Average number of nodes in the graph</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Contains isolated nodes: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">has_isolated_nodes</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1">#Does the graph contains nodes that are not connected</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Contains self-loops: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">has_self_loops</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1">#Does the graph contains nodes that are linked to themselves</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Is undirected: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">is_undirected</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1">#Is the graph an undirected graph</span>
 </pre></div>
 </div>
 </div>
@@ -763,13 +812,13 @@ Is undirected: True
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">)):</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1"># assign the class label to the node. class label has to be int.</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'group'</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1"># assign the class label to the node. class label has to be int.</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyvis.network</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
-<span class="n">vis</span><span class="o">=</span> <span class="n">Network</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">cdn_resources</span><span class="o">=</span><span class="s1">&#39;remote&#39;</span><span class="p">)</span>
+<span class="n">vis</span><span class="o">=</span> <span class="n">Network</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">cdn_resources</span><span class="o">=</span><span class="s1">'remote'</span><span class="p">)</span>
 <span class="n">vis</span><span class="o">.</span><span class="n">barnes_hut</span><span class="p">(</span><span class="n">spring_length</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">spring_strength</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">damping</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
 <span class="n">vis</span><span class="o">.</span><span class="n">from_nx</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="n">vis</span><span class="o">.</span><span class="n">show_buttons</span><span class="p">(</span><span class="n">filter_</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;physics&quot;</span><span class="p">])</span>
-<span class="n">vis</span><span class="o">.</span><span class="n">save_graph</span><span class="p">(</span><span class="s1">&#39;nx.html&#39;</span><span class="p">)</span>
+<span class="n">vis</span><span class="o">.</span><span class="n">show_buttons</span><span class="p">(</span><span class="n">filter_</span><span class="o">=</span><span class="p">[</span><span class="s2">"physics"</span><span class="p">])</span>
+<span class="n">vis</span><span class="o">.</span><span class="n">save_graph</span><span class="p">(</span><span class="s1">'nx.html'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -782,8 +831,8 @@ Is undirected: True
 </div>
 </div>
 </div>
-<section id="span-style-color-lightblue-implementing-a-graph-neural-network-span">
-<h2><span style="color:LightBlue">Implementing a Graph Neural Network</span><a class="headerlink" href="#span-style-color-lightblue-implementing-a-graph-neural-network-span" title="Permalink to this heading">#</a></h2>
+<section id="implementing-a-graph-neural-network">
+<h2><span style="color:LightBlue">Implementing a Graph Neural Network</span><a class="headerlink" href="#implementing-a-graph-neural-network" title="Link to this heading">#</a></h2>
 <p>For this notebook, we will use a simple GNN which is the <a class="reference external" href="https://towardsdatascience.com/graph-convolutional-networks-introduction-to-gnns-24b3f60d6c95">Graph Convolution Network</a> (GCN) layer.</p>
 <ul class="simple">
 <li><p>GCN is a specific type of GNN that uses convolutional operations to propagate information between nodes in a graph.</p></li>
@@ -839,8 +888,8 @@ Is undirected: True
 </div>
 </div>
 </section>
-<section id="span-style-color-lightblue-training-the-model-span">
-<h2><span style="color:LightBlue">Training the model</span><a class="headerlink" href="#span-style-color-lightblue-training-the-model-span" title="Permalink to this heading">#</a></h2>
+<section id="training-the-model">
+<h2><span style="color:LightBlue">Training the model</span><a class="headerlink" href="#training-the-model" title="Link to this heading">#</a></h2>
 <p>To train the network, we will use the <span style="color:Violet">CrossEntropyLoss</span> for the loss function and <span style="color:Violet">Adam</span> as the gradient optimizer</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -858,7 +907,7 @@ Is undirected: True
 
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">401</span><span class="p">):</span>
     <span class="n">loss</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Epoch: </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s1">, Loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Epoch: </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s1">, Loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -868,8 +917,8 @@ Is undirected: True
 <p>We show below an example using a community model called “DeepSets” and then compare to an Interaction Model GNN.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="span-style-color-orange-deep-sets-span">
-<h1><span style="color:Orange">Deep Sets</span><a class="headerlink" href="#span-style-color-orange-deep-sets-span" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="deep-sets">
+<h1><span style="color:Orange">Deep Sets</span><a class="headerlink" href="#deep-sets" title="Link to this heading">#</a></h1>
 <p>We will start by looking at Deep Sets networks using PyTorch. The architecture is based on the following paper: <a class="reference external" href="https://papers.nips.cc/paper/2017/file/f22e4747da1aa27e363d86d40ff442fe-Paper.pdf">DeepSets</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -889,40 +938,40 @@ Is undirected: True
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
 <span class="c1"># WGET for colab</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./tmp_data/definitions_lorentz.yml&quot;</span><span class="p">):</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/definitions_lorentz.yml&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"./tmp_data/definitions_lorentz.yml"</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/definitions_lorentz.yml"</span>
 <span class="c1">#    definitionsFile = wget.download(url)</span>
     <span class="n">definitionsFile</span> <span class="o">=</span> <span class="n">wget_data</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./tmp_data/definitions_lorentz.yml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"./tmp_data/definitions_lorentz.yml"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="c1"># The FullLoader parameter handles the conversion from YAML</span>
     <span class="c1"># scalar values to Python the dictionary format</span>
     <span class="n">definitions</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">)</span>
 
-<span class="n">features</span>   <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span>
-<span class="n">spectators</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;spectators&quot;</span><span class="p">]</span>
-<span class="n">labels</span>     <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
+<span class="n">features</span>   <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"features"</span><span class="p">]</span>
+<span class="n">spectators</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"spectators"</span><span class="p">]</span>
+<span class="n">labels</span>     <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"labels"</span><span class="p">]</span>
 
-<span class="n">nfeatures</span>   <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;nfeatures&quot;</span><span class="p">]</span>
-<span class="n">nspectators</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;nspectators&quot;</span><span class="p">]</span>
-<span class="n">nlabels</span>     <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;nlabels&quot;</span><span class="p">]</span>
-<span class="n">ntracks</span>     <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;ntracks&quot;</span><span class="p">]</span>
+<span class="n">nfeatures</span>   <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"nfeatures"</span><span class="p">]</span>
+<span class="n">nspectators</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"nspectators"</span><span class="p">]</span>
+<span class="n">nlabels</span>     <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"nlabels"</span><span class="p">]</span>
+<span class="n">ntracks</span>     <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"ntracks"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>The DeepSets model is a neural network architecture designed to process sets of data by ensuring the output is invariant to the order of the input elements. It works by first applying a neural network (<span class="math notranslate nohighlight">\(\phi\)</span>) to each element individually to generate an embedding, then aggregating these embeddings using a permutation-invariant operation like summation, and finally passing the aggregated result through a second neural network (<span class="math notranslate nohighlight">\(\rho\)</span>) for a prediction. This two-step process allows the model to learn arbitrary set functions and is used for tasks where the order of inputs does not matter, such as recommendation systems or classifying point clouds.</p>
-<section id="span-style-color-lightblue-data-loader-span">
-<h2><span style="color:LightBlue">Data Loader</span><a class="headerlink" href="#span-style-color-lightblue-data-loader-span" title="Permalink to this heading">#</a></h2>
+<section id="data-loader">
+<h2><span style="color:LightBlue">Data Loader</span><a class="headerlink" href="#data-loader" title="Link to this heading">#</a></h2>
 <p>Here we have to define the dataset loader.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If in colab</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;GraphDataset.py&quot;</span><span class="p">):</span>
-    <span class="n">urlDSD</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/DeepSetsDataset.py&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"GraphDataset.py"</span><span class="p">):</span>
+    <span class="n">urlDSD</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/DeepSetsDataset.py"</span>
     <span class="n">DSD</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">urlDSD</span><span class="p">)</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;utils.py&quot;</span><span class="p">):</span>
-    <span class="n">urlUtils</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/utils.py&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"utils.py"</span><span class="p">):</span>
+    <span class="n">urlUtils</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/utils.py"</span>
     <span class="n">utils</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">urlUtils</span><span class="p">)</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">DeepSetsDataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeepSetsDataset</span>
@@ -930,11 +979,11 @@ Is undirected: True
 <span class="c1"># For colab</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./tmp_data/ntuple_merged_90.root&quot;</span><span class="p">):</span>
-    <span class="n">urlFILE</span> <span class="o">=</span> <span class="s2">&quot;http://opendata.cern.ch/eos/opendata/cms/datascience/HiggsToBBNtupleProducerTool/HiggsToBBNTuple_HiggsToBB_QCD_RunII_13TeV_MC/train/ntuple_merged_90.root&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"./tmp_data/ntuple_merged_90.root"</span><span class="p">):</span>
+    <span class="n">urlFILE</span> <span class="o">=</span> <span class="s2">"http://opendata.cern.ch/eos/opendata/cms/datascience/HiggsToBBNtupleProducerTool/HiggsToBBNTuple_HiggsToBB_QCD_RunII_13TeV_MC/train/ntuple_merged_90.root"</span>
 <span class="c1">#    dataFILE = wget.download(urlFILE)</span>
     <span class="n">dataFILE</span> <span class="o">=</span> <span class="n">wget_data</span><span class="p">(</span><span class="n">urlFILE</span><span class="p">)</span>
-<span class="n">train_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;./tmp_data/ntuple_merged_90.root&quot;</span><span class="p">]</span>
+<span class="n">train_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"./tmp_data/ntuple_merged_90.root"</span><span class="p">]</span>
 
 <span class="n">train_generator</span> <span class="o">=</span> <span class="n">DeepSetsDataset</span><span class="p">(</span>
     <span class="n">features</span><span class="p">,</span>
@@ -962,8 +1011,8 @@ Is undirected: True
 </div>
 </div>
 </section>
-<section id="span-style-color-lightblue-deep-sets-network-span">
-<h2><span style="color:LightBlue">Deep Sets Network</span><a class="headerlink" href="#span-style-color-lightblue-deep-sets-network-span" title="Permalink to this heading">#</a></h2>
+<section id="deep-sets-network">
+<h2><span style="color:LightBlue">Deep Sets Network</span><a class="headerlink" href="#deep-sets-network" title="Link to this heading">#</a></h2>
 <p>Deep Sets models are designed to be explicitly permutation invariant. At their core they are composed of two networks, <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span>, such that the total network <span class="math notranslate nohighlight">\(f\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[ \Large
@@ -1026,7 +1075,7 @@ Is undirected: True
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">DeepSets</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"----------"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">({</span><span class="n">l</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()})</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">DeepSets</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -1056,21 +1105,21 @@ Is undirected: True
   )
 )
 ----------
-{&#39;phi.0.weight&#39;: torch.Size([64, 6, 1]), &#39;phi.0.bias&#39;: torch.Size([64]), &#39;phi.1.weight&#39;: torch.Size([64]), &#39;phi.1.bias&#39;: torch.Size([64]), &#39;phi.1.running_mean&#39;: torch.Size([64]), &#39;phi.1.running_var&#39;: torch.Size([64]), &#39;phi.1.num_batches_tracked&#39;: torch.Size([]), &#39;phi.3.weight&#39;: torch.Size([32, 64, 1]), &#39;phi.3.bias&#39;: torch.Size([32]), &#39;phi.4.weight&#39;: torch.Size([32]), &#39;phi.4.bias&#39;: torch.Size([32]), &#39;phi.4.running_mean&#39;: torch.Size([32]), &#39;phi.4.running_var&#39;: torch.Size([32]), &#39;phi.4.num_batches_tracked&#39;: torch.Size([]), &#39;phi.6.weight&#39;: torch.Size([16, 32, 1]), &#39;phi.6.bias&#39;: torch.Size([16]), &#39;phi.7.weight&#39;: torch.Size([16]), &#39;phi.7.bias&#39;: torch.Size([16]), &#39;phi.7.running_mean&#39;: torch.Size([16]), &#39;phi.7.running_var&#39;: torch.Size([16]), &#39;phi.7.num_batches_tracked&#39;: torch.Size([]), &#39;rho.0.weight&#39;: torch.Size([50, 16]), &#39;rho.0.bias&#39;: torch.Size([50]), &#39;rho.1.weight&#39;: torch.Size([50]), &#39;rho.1.bias&#39;: torch.Size([50]), &#39;rho.1.running_mean&#39;: torch.Size([50]), &#39;rho.1.running_var&#39;: torch.Size([50]), &#39;rho.1.num_batches_tracked&#39;: torch.Size([]), &#39;rho.3.weight&#39;: torch.Size([2, 50]), &#39;rho.3.bias&#39;: torch.Size([2])}
+{'phi.0.weight': torch.Size([64, 6, 1]), 'phi.0.bias': torch.Size([64]), 'phi.1.weight': torch.Size([64]), 'phi.1.bias': torch.Size([64]), 'phi.1.running_mean': torch.Size([64]), 'phi.1.running_var': torch.Size([64]), 'phi.1.num_batches_tracked': torch.Size([]), 'phi.3.weight': torch.Size([32, 64, 1]), 'phi.3.bias': torch.Size([32]), 'phi.4.weight': torch.Size([32]), 'phi.4.bias': torch.Size([32]), 'phi.4.running_mean': torch.Size([32]), 'phi.4.running_var': torch.Size([32]), 'phi.4.num_batches_tracked': torch.Size([]), 'phi.6.weight': torch.Size([16, 32, 1]), 'phi.6.bias': torch.Size([16]), 'phi.7.weight': torch.Size([16]), 'phi.7.bias': torch.Size([16]), 'phi.7.running_mean': torch.Size([16]), 'phi.7.running_var': torch.Size([16]), 'phi.7.num_batches_tracked': torch.Size([]), 'rho.0.weight': torch.Size([50, 16]), 'rho.0.bias': torch.Size([50]), 'rho.1.weight': torch.Size([50]), 'rho.1.bias': torch.Size([50]), 'rho.1.running_mean': torch.Size([50]), 'rho.1.running_var': torch.Size([50]), 'rho.1.num_batches_tracked': torch.Size([]), 'rho.3.weight': torch.Size([2, 50]), 'rho.3.bias': torch.Size([2])}
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="span-style-color-lightblue-define-the-training-loop-span">
-<h2><span style="color:LightBlue">Define the training loop</span><a class="headerlink" href="#span-style-color-lightblue-define-the-training-loop-span" title="Permalink to this heading">#</a></h2>
+<section id="define-the-training-loop">
+<h2><span style="color:LightBlue">Define the training loop</span><a class="headerlink" href="#define-the-training-loop" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 
-    <span class="n">xentropy</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+    <span class="n">xentropy</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
 
     <span class="n">sum_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">loader</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="n">total</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="n">leave</span><span class="p">)</span>
@@ -1081,7 +1130,7 @@ Is undirected: True
         <span class="n">batch_output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">batch_loss_item</span> <span class="o">=</span> <span class="n">xentropy</span><span class="p">(</span><span class="n">batch_output</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
         <span class="n">sum_loss</span> <span class="o">+=</span> <span class="n">batch_loss_item</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="s2">&quot;loss = </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">batch_loss_item</span><span class="p">))</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="s2">"loss = </span><span class="si">%.5f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">batch_loss_item</span><span class="p">))</span>
         <span class="n">t</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>  <span class="c1"># to show immediately the update</span>
 
     <span class="k">return</span> <span class="n">sum_loss</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -1089,7 +1138,7 @@ Is undirected: True
 <span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 
-    <span class="n">xentropy</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+    <span class="n">xentropy</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
 
     <span class="n">sum_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">loader</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="n">total</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="n">leave</span><span class="p">)</span>
@@ -1102,7 +1151,7 @@ Is undirected: True
         <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">xentropy</span><span class="p">(</span><span class="n">batch_output</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="n">batch_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
         <span class="n">batch_loss_item</span> <span class="o">=</span> <span class="n">batch_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="s2">&quot;loss = </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">batch_loss_item</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="s2">"loss = </span><span class="si">%.5f</span><span class="s2">"</span> <span class="o">%</span> <span class="n">batch_loss_item</span><span class="p">)</span>
         <span class="n">t</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>  <span class="c1"># to show immediately the update</span>
         <span class="n">sum_loss</span> <span class="o">+=</span> <span class="n">batch_loss_item</span>
         <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
@@ -1113,8 +1162,8 @@ Is undirected: True
 </div>
 </div>
 </section>
-<section id="span-style-color-lightblue-define-training-validation-testing-data-generators-span">
-<h2><span style="color:LightBlue">Define training, validation, testing data generators</span><a class="headerlink" href="#span-style-color-lightblue-define-training-validation-testing-data-generators-span" title="Permalink to this heading">#</a></h2>
+<section id="define-training-validation-testing-data-generators">
+<h2><span style="color:LightBlue">Define training, validation, testing data generators</span><a class="headerlink" href="#define-training-validation-testing-data-generators" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConcatDataset</span>
@@ -1170,8 +1219,8 @@ Is undirected: True
 </div>
 </div>
 </section>
-<section id="span-style-color-lightblue-train-span">
-<h2><span style="color:LightBlue">Train</span><a class="headerlink" href="#span-style-color-lightblue-train-span" title="Permalink to this heading">#</a></h2>
+<section id="train">
+<h2><span style="color:LightBlue">Train</span><a class="headerlink" href="#train" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">osp</span>
@@ -1198,39 +1247,39 @@ Is undirected: True
         <span class="n">batch_size</span><span class="p">,</span>
         <span class="n">leave</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">epoch</span> <span class="o">==</span> <span class="n">n_epochs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
     <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch: </span><span class="si">{:02d}</span><span class="s2">, Training Loss:   </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;           Validation Loss: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valid_loss</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Epoch: </span><span class="si">{:02d}</span><span class="s2">, Training Loss:   </span><span class="si">{:.4f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"           Validation Loss: </span><span class="si">{:.4f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valid_loss</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">valid_loss</span> <span class="o">&lt;</span> <span class="n">best_valid_loss</span><span class="p">:</span>
         <span class="n">best_valid_loss</span> <span class="o">=</span> <span class="n">valid_loss</span>
-        <span class="n">modpath</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;./tmp_data/deepsets_best.pth&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New best model saved to:&quot;</span><span class="p">,</span> <span class="n">modpath</span><span class="p">)</span>
+        <span class="n">modpath</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./tmp_data/deepsets_best.pth"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"New best model saved to:"</span><span class="p">,</span> <span class="n">modpath</span><span class="p">)</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">modpath</span><span class="p">)</span>
         <span class="n">stale_epochs</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stale epoch&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Stale epoch"</span><span class="p">)</span>
         <span class="n">stale_epochs</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">stale_epochs</span> <span class="o">&gt;=</span> <span class="n">patience</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Early stopping after </span><span class="si">%i</span><span class="s2"> stale epochs&quot;</span> <span class="o">%</span> <span class="n">patience</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Early stopping after </span><span class="si">%i</span><span class="s2"> stale epochs"</span> <span class="o">%</span> <span class="n">patience</span><span class="p">)</span>
         <span class="k">break</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="span-style-color-lightblue-evaluate-on-test-data-span">
-<h2><span style="color:LightBlue">Evaluate on Test Data</span><a class="headerlink" href="#span-style-color-lightblue-evaluate-on-test-data-span" title="Permalink to this heading">#</a></h2>
+<section id="evaluate-on-test-data">
+<h2><span style="color:LightBlue">Evaluate on Test Data</span><a class="headerlink" href="#evaluate-on-test-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># #In case you need to load the model from a pth file</span>
 <span class="c1"># #Trained on 4 vectors (as above in notebook)</span>
-<span class="c1"># urlPTH = &quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/deepsets_best_4vec.pth&quot;</span>
+<span class="c1"># urlPTH = "https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/deepsets_best_4vec.pth"</span>
 <span class="c1"># pthFile = wget.download(urlPTH)</span>
-<span class="c1"># model.load_state_dict(torch.load(&quot;deepsets_best_4vec.pth&quot;))</span>
+<span class="c1"># model.load_state_dict(torch.load("deepsets_best_4vec.pth"))</span>
 <span class="c1"># #Trained on all possible inputs (a different configuration)</span>
-<span class="c1"># urlPTH = &quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/deepsets_best_AllTraining.pth&quot;</span>
+<span class="c1"># urlPTH = "https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/deepsets_best_AllTraining.pth"</span>
 <span class="c1"># pthFile = wget.download(urlPTH)</span>
-<span class="c1"># model.load_state_dict(torch.load(&quot;deepsets_best_AllTraining.pth&quot;))</span>
+<span class="c1"># model.load_state_dict(torch.load("deepsets_best_AllTraining.pth"))</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">test_loader</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="n">test_samples</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">)</span>
@@ -1253,8 +1302,8 @@ Is undirected: True
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">track_pt</span><span class="p">[</span><span class="n">y_test_ds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sig&quot;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">track_pt</span><span class="p">[</span><span class="n">y_test_ds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;bkg&quot;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">track_pt</span><span class="p">[</span><span class="n">y_test_ds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"sig"</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">"step"</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">track_pt</span><span class="p">[</span><span class="n">y_test_ds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"bkg"</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">"step"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">()</span>
 </pre></div>
@@ -1275,7 +1324,7 @@ Is undirected: True
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">hep</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">ROOT</span><span class="p">)</span>
 <span class="c1"># create ROC curves</span>
 <span class="n">fpr_deepset</span><span class="p">,</span> <span class="n">tpr_deepset</span><span class="p">,</span> <span class="n">threshold_deepset</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test_ds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">y_predict_ds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./tmp_data/deepset_roc.npy&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"./tmp_data/deepset_roc.npy"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fpr_deepset</span><span class="p">)</span>
     <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tpr_deepset</span><span class="p">)</span>
     <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">threshold_deepset</span><span class="p">)</span>
@@ -1286,14 +1335,14 @@ Is undirected: True
     <span class="n">fpr_deepset</span><span class="p">,</span>
     <span class="n">tpr_deepset</span><span class="p">,</span>
     <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;DeepSet, AUC = </span><span class="si">{:.1f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr_deepset</span><span class="p">,</span> <span class="n">tpr_deepset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">"DeepSet, AUC = </span><span class="si">{:.1f}</span><span class="s2">%"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr_deepset</span><span class="p">,</span> <span class="n">tpr_deepset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
 <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;False positive rate&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;True positive rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"False positive rate"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"True positive rate"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">1.005</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1302,8 +1351,8 @@ Is undirected: True
 <img alt="../../_images/2d32478d327c834f3f5ad75f98198708c6ddb785812f91325710862e26d2ab22.png" src="../../_images/2d32478d327c834f3f5ad75f98198708c6ddb785812f91325710862e26d2ab22.png" />
 </div>
 </div>
-<section id="span-style-color-lightgreen-auc-and-roc-curves-span">
-<h3><span style="color:LightGreen">AUC and ROC Curves</span><a class="headerlink" href="#span-style-color-lightgreen-auc-and-roc-curves-span" title="Permalink to this heading">#</a></h3>
+<section id="auc-and-roc-curves">
+<h3><span style="color:LightGreen">AUC and ROC Curves</span><a class="headerlink" href="#auc-and-roc-curves" title="Link to this heading">#</a></h3>
 <p>To better understand this curve, let define the <span style="color:Violet">confusion matrix</span>:</p>
 <div>
 <img src="https://raw.githubusercontent.com/illinois-ipaml/MachineLearningForPhysics/main/img/GraphNeuralNetworks-ConfusionMatrix.png" width=400></img>
@@ -1345,48 +1394,48 @@ TPR = \frac{FP}{TN + FP}
 </div></section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="span-style-color-orange-interaction-network-span">
-<h1><span style="color:Orange">Interaction Network</span><a class="headerlink" href="#span-style-color-orange-interaction-network-span" title="Permalink to this heading">#</a></h1>
-<p>Now we will look at graph neural networks using the PyTorch Geometric library: <a class="reference external" href="https://pytorch-geometric.readthedocs.io/">https://pytorch-geometric.readthedocs.io/</a>. See <span id="id1">[]</span> for more details.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="interaction-network">
+<h1><span style="color:Orange">Interaction Network</span><a class="headerlink" href="#interaction-network" title="Link to this heading">#</a></h1>
+<p>Now we will look at graph neural networks using the PyTorch Geometric library: <a class="reference external" href="https://pytorch-geometric.readthedocs.io/">https://pytorch-geometric.readthedocs.io/</a>. See <span class="bibtex-citation" id="id1">[]</span> for more details.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
 
 <span class="c1"># WGET for colab</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./tmp_data/definitions.yml&quot;</span><span class="p">):</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/definitions.yml&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"./tmp_data/definitions.yml"</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/definitions.yml"</span>
     <span class="n">definitionsFile</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;definitions.yml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"definitions.yml"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="c1"># The FullLoader parameter handles the conversion from YAML</span>
     <span class="c1"># scalar values to Python the dictionary format</span>
     <span class="n">definitions</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">)</span>
 
 
 <span class="c1"># You can test with using only 4-vectors by using:</span>
-<span class="c1"># if not os.path.exists(&quot;definitions_lorentz.yml&quot;):</span>
-<span class="c1">#    url = &quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/definitions_lorentz.yml&quot;</span>
+<span class="c1"># if not os.path.exists("definitions_lorentz.yml"):</span>
+<span class="c1">#    url = "https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/definitions_lorentz.yml"</span>
 <span class="c1">#    definitionsFile = wget.download(url)</span>
-<span class="c1"># with open(&#39;definitions_lorentz.yml&#39;) as file:</span>
+<span class="c1"># with open('definitions_lorentz.yml') as file:</span>
 <span class="c1">#    # The FullLoader parameter handles the conversion from YAML</span>
 <span class="c1">#    # scalar values to Python the dictionary format</span>
 <span class="c1">#    definitions = yaml.load(file, Loader=yaml.FullLoader)</span>
 
-<span class="n">features</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span>
-<span class="n">spectators</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;spectators&quot;</span><span class="p">]</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"features"</span><span class="p">]</span>
+<span class="n">spectators</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"spectators"</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"labels"</span><span class="p">]</span>
 
-<span class="n">nfeatures</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;nfeatures&quot;</span><span class="p">]</span>
-<span class="n">nspectators</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;nspectators&quot;</span><span class="p">]</span>
-<span class="n">nlabels</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;nlabels&quot;</span><span class="p">]</span>
-<span class="n">ntracks</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">&quot;ntracks&quot;</span><span class="p">]</span>
+<span class="n">nfeatures</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"nfeatures"</span><span class="p">]</span>
+<span class="n">nspectators</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"nspectators"</span><span class="p">]</span>
+<span class="n">nlabels</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"nlabels"</span><span class="p">]</span>
+<span class="n">ntracks</span> <span class="o">=</span> <span class="n">definitions</span><span class="p">[</span><span class="s2">"ntracks"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="span-style-color-lightblue-graph-datasets-span">
-<h2><span style="color:LightBlue">Graph Datasets</span><a class="headerlink" href="#span-style-color-lightblue-graph-datasets-span" title="Permalink to this heading">#</a></h2>
+<section id="graph-datasets">
+<h2><span style="color:LightBlue">Graph Datasets</span><a class="headerlink" href="#graph-datasets" title="Link to this heading">#</a></h2>
 <p>Here we have to define the graph dataset. We do this in a separate class following this example: <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/create_dataset.html#creating-larger-datasets">https://pytorch-geometric.readthedocs.io/en/latest/notes/create_dataset.html#creating-larger-datasets</a></p>
 <p>Formally, a graph is represented by a triplet <span class="math notranslate nohighlight">\(\mathcal G = (\mathbf{u}, V, E)\)</span>, consisting of a graph-level, or <em>global</em>, feature vector <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, a set of <span class="math notranslate nohighlight">\(N^v\)</span> nodes <span class="math notranslate nohighlight">\(V\)</span>, and a set of <span class="math notranslate nohighlight">\(N^e\)</span> edges <span class="math notranslate nohighlight">\(E\)</span>.
 The nodes are given by <span class="math notranslate nohighlight">\(V = \{\mathbf{v}_i\}_{i=1:N^v}\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{v}_i\)</span> represents the <span class="math notranslate nohighlight">\(i\)</span>th node’s attributes.
@@ -1398,23 +1447,23 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If in colab</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;GraphDataset.py&quot;</span><span class="p">):</span>
-    <span class="n">urlDSD</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/GraphDataset.py&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"GraphDataset.py"</span><span class="p">):</span>
+    <span class="n">urlDSD</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/GraphDataset.py"</span>
     <span class="n">DSD</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">urlDSD</span><span class="p">)</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;utils.py&quot;</span><span class="p">):</span>
-    <span class="n">urlUtils</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/utils.py&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"utils.py"</span><span class="p">):</span>
+    <span class="n">urlUtils</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/utils.py"</span>
     <span class="n">utils</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">urlUtils</span><span class="p">)</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">GraphDataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphDataset</span>
 
 <span class="c1"># For Colab</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./tmp_data/ntuple_merged_90.root&quot;</span><span class="p">):</span>
-    <span class="n">urlFILE</span> <span class="o">=</span> <span class="s2">&quot;http://opendata.cern.ch/eos/opendata/cms/datascience/HiggsToBBNtupleProducerTool/HiggsToBBNTuple_HiggsToBB_QCD_RunII_13TeV_MC/train/ntuple_merged_90.root&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"./tmp_data/ntuple_merged_90.root"</span><span class="p">):</span>
+    <span class="n">urlFILE</span> <span class="o">=</span> <span class="s2">"http://opendata.cern.ch/eos/opendata/cms/datascience/HiggsToBBNtupleProducerTool/HiggsToBBNTuple_HiggsToBB_QCD_RunII_13TeV_MC/train/ntuple_merged_90.root"</span>
     <span class="n">dataFILE</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">urlFILE</span><span class="p">)</span>
-<span class="n">file_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;./tmp_data/ntuple_merged_90.root&quot;</span><span class="p">]</span>
+<span class="n">file_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"./tmp_data/ntuple_merged_90.root"</span><span class="p">]</span>
 
 <span class="n">graph_dataset</span> <span class="o">=</span> <span class="n">GraphDataset</span><span class="p">(</span>
-    <span class="s2">&quot;./tmp_data/gdata_train&quot;</span><span class="p">,</span>
+    <span class="s2">"./tmp_data/gdata_train"</span><span class="p">,</span>
     <span class="n">features</span><span class="p">,</span>
     <span class="n">labels</span><span class="p">,</span>
     <span class="n">spectators</span><span class="p">,</span>
@@ -1425,7 +1474,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 <span class="p">)</span>
 
 <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">GraphDataset</span><span class="p">(</span>
-    <span class="s2">&quot;./tmp_data/gdata_test&quot;</span><span class="p">,</span>
+    <span class="s2">"./tmp_data/gdata_test"</span><span class="p">,</span>
     <span class="n">features</span><span class="p">,</span>
     <span class="n">labels</span><span class="p">,</span>
     <span class="n">spectators</span><span class="p">,</span>
@@ -1439,8 +1488,8 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </div>
 </section>
-<section id="span-style-color-lightblue-graph-neural-network-span">
-<h2><span style="color:LightBlue">Graph Neural Network</span><a class="headerlink" href="#span-style-color-lightblue-graph-neural-network-span" title="Permalink to this heading">#</a></h2>
+<section id="graph-neural-network">
+<h2><span style="color:LightBlue">Graph Neural Network</span><a class="headerlink" href="#graph-neural-network" title="Link to this heading">#</a></h2>
 <p>Here, we recapitulate the “graph network” (GN) formalism described in this <a class="reference external" href="https://arxiv.org/abs/1612.00222">paper</a>, which generalizes various GNNs and other similar methods.</p>
 <p>GNs are graph-to-graph mappings, whose output graphs have the same node and edge structure as the input. Formally, a GN block contains three “update” functions, <span class="math notranslate nohighlight">\(\phi\)</span>, and three “aggregation” functions, <span class="math notranslate nohighlight">\(\rho\)</span>. The stages of processing in a single GN block are:</p>
 <div class="math notranslate nohighlight">
@@ -1456,7 +1505,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 <p>where <span class="math notranslate nohighlight">\(E'_i = \left\{\left(\mathbf{e}'_k, r_k, s_k \right)\right\}_{r_k=i,\; k=1:N^e}\)</span> contains the updated edge features for edges whose receiver node is the <span class="math notranslate nohighlight">\(i^\text{th}\)</span> node, <span class="math notranslate nohighlight">\(E' = \bigcup_i E_i' = \left\{\left(\mathbf{e}'_k, r_k, s_k \right)\right\}_{k=1:N^e}\)</span> is the set of updated edges, and <span class="math notranslate nohighlight">\(V'=\left\{\mathbf{v}'_i\right\}_{i=1:N^v}\)</span> is the set of updated nodes.</p>
 <div>
 <img src="https://github.com/jmduarte/capstone-particle-physics-domain/raw/master/weeks/GN-full-block.png" alt="GN full block" width="800"></img>
-</div><p>We will define an interaction network model similar to this <a class="reference external" href="https://arxiv.org/abs/1909.12285">paper</a>, but just modeling the particle-particle interactions. It will take as input all of the tracks (with 48 features) without truncating or zero-padding. Another modification is the use of batch normalization <span id="id2">[]</span> layers to improve the stability of the training.</p>
+</div><p>We will define an interaction network model similar to this <a class="reference external" href="https://arxiv.org/abs/1909.12285">paper</a>, but just modeling the particle-particle interactions. It will take as input all of the tracks (with 48 features) without truncating or zero-padding. Another modification is the use of batch normalization <span class="bibtex-citation" id="id2">[]</span> layers to improve the stability of the training.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
@@ -1539,14 +1588,14 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </section>
 <section id="id3">
-<h2><span style="color:LightBlue">Define the training loop</span><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2><span style="color:LightBlue">Define the training loop</span><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 
-    <span class="n">xentropy</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+    <span class="n">xentropy</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
 
     <span class="n">sum_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">loader</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="n">total</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="n">leave</span><span class="p">)</span>
@@ -1556,7 +1605,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
         <span class="n">batch_output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">batch</span><span class="p">)</span>
         <span class="n">batch_loss_item</span> <span class="o">=</span> <span class="n">xentropy</span><span class="p">(</span><span class="n">batch_output</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
         <span class="n">sum_loss</span> <span class="o">+=</span> <span class="n">batch_loss_item</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="s2">&quot;loss = </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">batch_loss_item</span><span class="p">))</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="s2">"loss = </span><span class="si">%.5f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">batch_loss_item</span><span class="p">))</span>
         <span class="n">t</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>  <span class="c1"># to show immediately the update</span>
 
     <span class="k">return</span> <span class="n">sum_loss</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -1564,7 +1613,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 <span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 
-    <span class="n">xentropy</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+    <span class="n">xentropy</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
 
     <span class="n">sum_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">loader</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="n">total</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="n">leave</span><span class="p">)</span>
@@ -1576,7 +1625,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
         <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">xentropy</span><span class="p">(</span><span class="n">batch_output</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="n">batch_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
         <span class="n">batch_loss_item</span> <span class="o">=</span> <span class="n">batch_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="s2">&quot;loss = </span><span class="si">%.5f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">batch_loss_item</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="s2">"loss = </span><span class="si">%.5f</span><span class="s2">"</span> <span class="o">%</span> <span class="n">batch_loss_item</span><span class="p">)</span>
         <span class="n">t</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>  <span class="c1"># to show immediately the update</span>
         <span class="n">sum_loss</span> <span class="o">+=</span> <span class="n">batch_loss_item</span>
         <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
@@ -1588,7 +1637,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </section>
 <section id="id4">
-<h2><span style="color:LightBlue">Define training, validation, testing data generators</span><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h2><span style="color:LightBlue">Define training, validation, testing data generators</span><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span><span class="p">,</span> <span class="n">DataListLoader</span><span class="p">,</span> <span class="n">Batch</span>
@@ -1645,7 +1694,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </section>
 <section id="id5">
-<h2><span style="color:LightBlue">Train</span><a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h2><span style="color:LightBlue">Train</span><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">osp</span>
@@ -1672,20 +1721,20 @@ The receiver and sender index vectors are an alternative way of encoding the dir
         <span class="n">batch_size</span><span class="p">,</span>
         <span class="n">leave</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">epoch</span> <span class="o">==</span> <span class="n">n_epochs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
     <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch: </span><span class="si">{:02d}</span><span class="s2">, Training Loss:   </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;           Validation Loss: </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valid_loss</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Epoch: </span><span class="si">{:02d}</span><span class="s2">, Training Loss:   </span><span class="si">{:.4f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"           Validation Loss: </span><span class="si">{:.4f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valid_loss</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">valid_loss</span> <span class="o">&lt;</span> <span class="n">best_valid_loss</span><span class="p">:</span>
         <span class="n">best_valid_loss</span> <span class="o">=</span> <span class="n">valid_loss</span>
-        <span class="n">modpath</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;./tmp_data/interactionnetwork_best.pth&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New best model saved to:&quot;</span><span class="p">,</span> <span class="n">modpath</span><span class="p">)</span>
+        <span class="n">modpath</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./tmp_data/interactionnetwork_best.pth"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"New best model saved to:"</span><span class="p">,</span> <span class="n">modpath</span><span class="p">)</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">modpath</span><span class="p">)</span>
         <span class="n">stale_epochs</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stale epoch&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Stale epoch"</span><span class="p">)</span>
         <span class="n">stale_epochs</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">stale_epochs</span> <span class="o">&gt;=</span> <span class="n">patience</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Early stopping after </span><span class="si">%i</span><span class="s2"> stale epochs&quot;</span> <span class="o">%</span> <span class="n">patience</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Early stopping after </span><span class="si">%i</span><span class="s2"> stale epochs"</span> <span class="o">%</span> <span class="n">patience</span><span class="p">)</span>
         <span class="k">break</span>
 </pre></div>
 </div>
@@ -1693,18 +1742,18 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </section>
 <section id="id6">
-<h2><span style="color:LightBlue">Evaluate on Test Data</span><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2><span style="color:LightBlue">Evaluate on Test Data</span><a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In case you need to load the model from a pth file</span>
 <span class="c1"># Trained on all possible inputs (as above in notebook)</span>
-<span class="c1"># urlPTH = &quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/interactionnetwork_best_Aug1_AllTraining.pth&quot;</span>
+<span class="c1"># urlPTH = "https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/interactionnetwork_best_Aug1_AllTraining.pth"</span>
 <span class="c1"># pthFile = wget.download(urlPTH)</span>
-<span class="c1"># model.load_state_dict(torch.load(&quot;interactionnetwork_best_Aug1_AllTraining.pth&quot;))</span>
+<span class="c1"># model.load_state_dict(torch.load("interactionnetwork_best_Aug1_AllTraining.pth"))</span>
 <span class="c1"># Trained on 4 vector input (different setup)</span>
-<span class="c1"># urlPTH = &quot;https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/interactionnetwork_best_Aug1_4vec.pth&quot;</span>
+<span class="c1"># urlPTH = "https://raw.githubusercontent.com/jmduarte/iaifi-summer-school/main/book/interactionnetwork_best_Aug1_4vec.pth"</span>
 <span class="c1"># pthFile = wget.download(urlPTH)</span>
-<span class="c1"># model.load_state_dict(torch.load(&quot;interactionnetwork_best_Aug1_4vec.pth&quot;))</span>
+<span class="c1"># model.load_state_dict(torch.load("interactionnetwork_best_Aug1_4vec.pth"))</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">test_loader</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="n">test_samples</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">)</span>
@@ -1749,7 +1798,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 <span class="n">auc_gnn</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">fpr_gnn</span><span class="p">,</span> <span class="n">tpr_gnn</span><span class="p">)</span>
 
 <span class="c1"># Retrieve fromt previously calculated DeepSets AUC/ROC</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./tmp_data/deepset_roc.npy&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"./tmp_data/deepset_roc.npy"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">fpr_ds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">tpr_ds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">threshold_ds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -1757,15 +1806,15 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 
 <span class="c1"># Plot (x=FPR, y=TPR)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr_ds</span><span class="p">,</span> <span class="n">tpr_ds</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;DeepSets, AUC = </span><span class="si">{</span><span class="n">auc_ds</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr_gnn</span><span class="p">,</span> <span class="n">tpr_gnn</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;GNN, AUC = </span><span class="si">{</span><span class="n">auc_gnn</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr_ds</span><span class="p">,</span> <span class="n">tpr_ds</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"DeepSets, AUC = </span><span class="si">{</span><span class="n">auc_ds</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr_gnn</span><span class="p">,</span> <span class="n">tpr_gnn</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"GNN, AUC = </span><span class="si">{</span><span class="n">auc_gnn</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%"</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;False positive rate&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;True positive rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"False positive rate"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"True positive rate"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">1.005</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1776,8 +1825,8 @@ The receiver and sender index vectors are an alternative way of encoding the dir
 </div>
 </section>
 <hr class="docutils" />
-<section id="span-style-color-orange-acknowledgments-span">
-<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#span-style-color-orange-acknowledgments-span" title="Permalink to this heading">#</a></h2>
+<section id="acknowledgments">
+<h2><span style="color:Orange">Acknowledgments</span><a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Initial version: Mark Neubauer</p>
 <ul>
@@ -1821,7 +1870,7 @@ The receiver and sender index vectors are an alternative way of encoding the dir
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1849,42 +1898,45 @@ The receiver and sender index vectors are an alternative way of encoding the dir
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Graph Neural Networks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-introduction-to-graph-data-span"><span style="color:Orange">Introduction to Graph Data</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-graph-classification-span"><span style="color:Orange">Graph Classification</span></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-exploring-graph-data-with-pytorch-geometric-span"><span style="color:Orange">Exploring graph data with Pytorch Geometric</span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-implementing-a-graph-neural-network-span"><span style="color:LightBlue">Implementing a Graph Neural Network</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-training-the-model-span"><span style="color:LightBlue">Training the model</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-graph-data"><span style="color:Orange">Introduction to Graph Data</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-classification"><span style="color:Orange">Graph Classification</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-graph-data-with-pytorch-geometric"><span style="color:Orange">Exploring graph data with Pytorch Geometric</span></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-graph-neural-network"><span style="color:LightBlue">Implementing a Graph Neural Network</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model"><span style="color:LightBlue">Training the model</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-deep-sets-span"><span style="color:Orange">Deep Sets</span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-data-loader-span"><span style="color:LightBlue">Data Loader</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-deep-sets-network-span"><span style="color:LightBlue">Deep Sets Network</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-define-the-training-loop-span"><span style="color:LightBlue">Define the training loop</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-define-training-validation-testing-data-generators-span"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-train-span"><span style="color:LightBlue">Train</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-evaluate-on-test-data-span"><span style="color:LightBlue">Evaluate on Test Data</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightgreen-auc-and-roc-curves-span"><span style="color:LightGreen">AUC and ROC Curves</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-sets"><span style="color:Orange">Deep Sets</span></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loader"><span style="color:LightBlue">Data Loader</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-sets-network"><span style="color:LightBlue">Deep Sets Network</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-training-loop"><span style="color:LightBlue">Define the training loop</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-training-validation-testing-data-generators"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train"><span style="color:LightBlue">Train</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-on-test-data"><span style="color:LightBlue">Evaluate on Test Data</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auc-and-roc-curves"><span style="color:LightGreen">AUC and ROC Curves</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-interaction-network-span"><span style="color:Orange">Interaction Network</span></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-graph-datasets-span"><span style="color:LightBlue">Graph Datasets</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-lightblue-graph-neural-network-span"><span style="color:LightBlue">Graph Neural Network</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-network"><span style="color:Orange">Interaction Network</span></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-datasets"><span style="color:LightBlue">Graph Datasets</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-neural-network"><span style="color:LightBlue">Graph Neural Network</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><span style="color:LightBlue">Define the training loop</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><span style="color:LightBlue">Define training, validation, testing data generators</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span style="color:LightBlue">Train</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span style="color:LightBlue">Evaluate on Test Data</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-orange-acknowledgments-span"><span style="color:Orange">Acknowledgments</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments"><span style="color:Orange">Acknowledgments</span></a></li>
 </ul>
 </li>
 </ul>
@@ -1936,8 +1988,8 @@ By Mark Neubauer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
