@@ -14,3 +14,4 @@
 * {doc}`projects/Project_02_SloanDigitalSkySurvey`
 * {doc}`projects/Project_02_EventHorizonTelescope`
 * {doc}`projects/Project_02_ClimateModels`
+* {doc}`projects/Project_02_CylinderWake`
